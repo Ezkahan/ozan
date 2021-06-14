@@ -1,0 +1,109 @@
+.modal {
+  font-size: 15px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba($color: #000000, $alpha: 0.4);
+  overflow-y: auto;
+  z-index: 1;
+  display: none;
+  animation: slide 0.2s linear;
+  &__close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    color: #fff;
+    cursor: pointer;
+  }
+  &__inner {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    @include transform;
+    width: 100%;
+    max-width: 500px;
+    background: $white;
+    border-radius: 10px;
+  }
+  &__header {
+    display: flex;
+    align-items: center;
+    border-radius: 10px 10px 0 0;
+    overflow: hidden;
+
+    &-btn {
+      width: 50%;
+      padding: 1em 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: $white;
+      color: $black;
+      font-weight: 700;
+      font-size: 1.4em;
+      line-height: 1.2;
+      @include transition;
+      cursor: pointer;
+      &.active {
+        background: $black;
+        color: $white;
+      }
+    }
+  }
+  &__event {
+    padding: 3.3em;
+    display: none;
+    animation: slideIn 0.2s linear;
+    &.active {
+      display: block;
+    }
+    &-input {
+      margin-bottom: 1.3em;
+      &-label {
+        font-size: 12px;
+        line-height: 1.4;
+        font-weight: 400;
+        color: $black;
+        margin-bottom: 0.7em;
+        padding-left: 0.7em;
+      }
+      &-input {
+        width: 100%;
+        input {
+          padding: 0 0.7em;
+          width: calc(100% - 1.4em);
+          height: 3em;
+          background: $white;
+          border: 1px solid #dfdfdf;
+          font-size: 16px;
+          line-height: 1;
+          font-weight: 400;
+          color: $black;
+        }
+      }
+    }
+    &-submit {
+      display: block;
+      text-align: center;
+      border-radius: 5px;
+      padding: 1em 0;
+      font-size: 14px;
+      line-height: 1;
+      font-weight: 400;
+      color: $white;
+      background: $main-color;
+      width: 100%;
+    }
+    &-forget {
+      font-size: 14px;
+      line-height: 1;
+      font-weight: 400;
+      color: $main-color;
+      margin-top: 1.3em;
+      text-align: center;
+      display: block;
+    }
+  }
+}

@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/font.css">
+    <link rel="stylesheet" href="css/main.css">
+    <title>home</title>
+</head>
+
+<body>
+    <!-- upheader start
+    =========================================== -->
+    <section class="upheader">
+        <div class="auto__container">
+            <div class="upheader__inner">
+                <div class="upheader__language">
+                    <i class="icon-global"></i>
+                    <select name="language" id="">
+                        <option value="0">Русский</option>
+                        <option value="1">Русский</option>
+                        <option value="2">Русский</option>
+                    </select>
+                </div>
+                <div class="upheader__nav">
+                    <a href="about.html" class="upheader__nav-link">
+                        <i class="icon-info"></i>
+                        <span>О нас</span>
+                    </a>
+                    <a href="delivery.html" class="upheader__nav-link">
+                        <i class="icon-box"></i>
+                        <span>Доставка</span>
+                    </a>
+                    <a href="#" class="upheader__nav-link">
+                        <i class="icon-money"></i>
+                        <span>Методы оплаты</span>
+                    </a>
+                    <a href="#" class="upheader__nav-link">
+                        <i class="icon-help"></i>
+                        <span>Поддержка</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- upheader end
+    =========================================== -->
+    <!-- header start
+    =========================================== -->
+    <header class="header">
+        <div class="auto__container">
+            <div class="header__inner">
+                <div class="header__column">
+                    <div class="header__logo">
+                        <img src="images/logo.svg" alt="">
+                    </div>
+                    <div class="header__menu">
+                        <div class="menu" onclick="showMenu()">
+                            <button class="menu__btn ham" id="menuBtn">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="19.5" height="13.5"
+                                    viewBox="0 0 19.5 13.5">
+                                    <g id="align-justify" transform="translate(-2.25 -5.25)">
+                                        <line id="Line_57" data-name="Line 57" x1="10" transform="translate(3 12)"
+                                            fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round"
+                                            stroke-width="1.5" />
+                                        <line id="Line_58" data-name="Line 58" x1="18" transform="translate(3 6)"
+                                            fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round"
+                                            stroke-width="1.5" />
+                                        <line id="Line_59" data-name="Line 59" x1="18" transform="translate(3 18)"
+                                            fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round"
+                                            stroke-width="1.5" />
+                                    </g>
+                                </svg>
+                                <span>Меню</span>
+                            </button>
+                            <div id="menuDropdown" class="menu__content ham">
+                                <div class="menu__content-header">
+                                    <div class="menu__content-header-logo">
+                                        <img src="images/logo.svg" alt="">
+                                    </div>
+                                    <div class="menu__content-header-close" onclick="closeMenu()">
+                                        <i class="icon-close"></i>
+                                    </div>
+                                </div>
+                                <a href="about.html" class="menu__content-link">
+                                    <i class="icon-info"></i>
+                                    О нас
+                                </a>
+                                <a href="delivery.html" class="menu__content-link">
+                                    <i class="icon-box"></i>
+                                    Доставка
+                                </a>
+                                <a href="#" class="menu__content-link">
+                                    <i class="icon-money"></i>
+                                    Методы оплаты
+                                </a>
+                                <a href="#" class="menu__content-link">
+                                    <i class="icon-help"></i>
+                                    Поддержка
+                                </a>
+                                <a href="favourite.html" class="menu__content-link">
+                                    <i class="icon-star"></i>
+                                    Избранное
+                                </a>
+                                <a href="basket.html" class="menu__content-link">
+                                    <i class="icon-Inactive"></i>
+                                    Корзина
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="header__column">
+                    <form class="search">
+                        <div class="search__input">
+                            <input type="text" placeholder="Поиск">
+                        </div>
+                        <button type="submit" class="search__btn">Найти</button>
+                    </form>
+                    <div class="header__column-row">
+                        <a href="#" class="dropdown__btn" id="modalBtn">
+                            <i class="icon-user"></i>
+                            <span>Профиль</span>
+                        </a>
+                        <!-- if you loged in it must be like this -->
+                        <!-- <div class="dropdown" onclick="showProfile()">
+                            <button class="dropdown__btn" id="dropbtn">
+                                <i class="icon-user"></i>
+                                <span>Профиль</span>
+                            </button>
+                            <div id="myDropdown" class="dropdown__content">
+                                <a href="#" class="dropdown__content-link">
+                                    <i class="icon-coins"></i>
+                                    12.00 TMT
+                                </a>
+                                <a href="#" class="dropdown__content-link">
+                                    <i class="icon-user"></i>
+                                    Личный кабинет
+                                </a>
+                                <a href="#" class="dropdown__content-link">
+                                    <i class="icon-checklist"></i>
+                                    Мои заказы
+                                </a>
+                                <a href="#" class="dropdown__content-link">
+                                    <i class="icon-logout"></i>
+                                    Выйти
+                                </a>
+                            </div>
+                        </div> -->
+                        <!-- if you loged in it must be like this -->
+                        <a href="#" class="dropdown__btn">
+                            <i class="icon-star"></i>
+                            <span>Избранное</span>
+                        </a>
+                        <a href="#" class="dropdown__btn">
+                            <i class="icon-Inactive"></i>
+                            <span>Избранное</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- header end
+    =========================================== -->
+    <!-- hero start
+    =========================================== -->
+    <section class="hero">
+        <div class="auto__container">
+            <div class="hero__inner">
+                <div class="hero__sidebar">
+                    <div class="hero__sidebar-inner">
+                        <a href="#" class="hero__sidebar-inner-link active">
+                            <i class="icon-skirt"></i>
+                            <span>Женский гардероб</span>
+                        </a>
+                        <a href="#" class="hero__sidebar-inner-link">
+                            <i class="icon-casual-t-shirt"></i>
+                            <span>Мужской гардероб</span>
+                        </a>
+                        <a href="#" class="hero__sidebar-inner-link">
+                            <i class="icon-shoe"></i>
+                            <span>Обувь</span>
+                        </a>
+                        <a href="#" class="hero__sidebar-inner-link">
+                            <i class="icon-monitor"></i>
+                            <span>Электроника</span>
+                        </a>
+                        <a href="#" class="hero__sidebar-inner-link">
+                            <i class="icon-wristwatch"></i>
+                            <span>Часы</span>
+                        </a>
+                        <a href="#" class="hero__sidebar-inner-link">
+                            <i class="icon-baby-body"></i>
+                            <span>Детские товары</span>
+                        </a>
+                        <a href="#" class="hero__sidebar-inner-link">
+                            <i class="icon-dumbbell"></i>
+                            <span>Спорт и отдых</span>
+                        </a>
+                        <a href="#" class="hero__sidebar-inner-link">
+                            <i class="icon-sofa"></i>
+                            <span>Товары для дома</span>
+                        </a>
+                        <a href="#" class="hero__sidebar-inner-link">
+                            <i class="icon-car"></i>
+                            <span>Автомобили</span>
+                        </a>
+                        <a href="#" class="hero__sidebar-inner-link">
+                            <i class="icon-skirt"></i>
+                            <span>Женский гардероб</span>
+                        </a>
+                        <a href="#" class="hero__sidebar-inner-link">
+                            <i class="icon-skirt"></i>
+                            <span>Женский гардероб</span>
+                        </a>
+                        <a href="#" class="hero__sidebar-inner-link">
+                            <i class="icon-skirt"></i>
+                            <span>Женский гардероб</span>
+                        </a>
+                        <a href="#" class="hero__sidebar-inner-link">
+                            <i class="icon-skirt"></i>
+                            <span>Женский гардероб</span>
+                        </a>
+                        <a href="#" class="hero__sidebar-inner-link">
+                            <i class="icon-skirt"></i>
+                            <span>Женский гардероб</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="hero__content">
+                    <div class="prev">
+                        <i class="icon-chevron-left"></i>
+                    </div>
+                    <div class="next">
+                        <i class="icon-chevron-right"></i>
+                    </div>
+                    <div class="hero__slider">
+                        <div class="hero__slider-item">
+                            <img src="images/Img.png" alt="">
+                        </div>
+                        <div class="hero__slider-item">
+                            <img src="images/Img.png" alt="">
+                        </div>
+                        <div class="hero__slider-item">
+                            <img src="images/Img.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- hero end
+    =========================================== -->
+    <!-- product start
+    =========================================== -->
+    <section class="product">
+        <div class="auto__container">
+            <div class="sectionHeader">
+                <div class="sectionHeader__title">
+                    Новинки
+                </div>
+                <a href="#" class="sectionHeader__link">
+                    <span>Посмотреть все</span>
+                    <i class="icon-chevron-right"></i>
+                </a>
+            </div>
+            <div class="product__row">
+                <div class="card">
+                    <a class="card__heart" href="#">
+                        <i class="icon-heart"></i>
+                    </a>
+                    <div class="card__image">
+                        <picture>
+                            <img src="images/product/1.png" alt="">
+                        </picture>
+                    </div>
+                    <div class="card__body">
+                        <div class="card__body-price">
+                            32 000.00 TMT
+                        </div>
+                        <a href="#" class="card__body-title">
+                            iPhone 11 Pro Max
+                        </a>
+                    </div>
+                </div>
+                <div class="card">
+                    <a class="card__heart" href="#">
+                        <i class="icon-heart"></i>
+                    </a>
+                    <div class="card__image">
+                        <picture>
+                            <img src="images/product/2.png" alt="">
+                        </picture>
+                    </div>
+                    <div class="card__body">
+                        <div class="card__body-price">
+                            32 000.00 TMT
+                        </div>
+                        <a href="#" class="card__body-title">
+                            iPhone 11 Pro Max
+                        </a>
+                    </div>
+                </div>
+                <div class="card">
+                    <a class="card__heart" href="#">
+                        <i class="icon-heart"></i>
+                    </a>
+                    <div class="card__image">
+                        <picture>
+                            <img src="images/product/3.png" alt="">
+                        </picture>
+                    </div>
+                    <div class="card__body">
+                        <div class="card__body-price">
+                            32 000.00 TMT
+                        </div>
+                        <a href="#" class="card__body-title">
+                            iPhone 11 Pro Max
+                        </a>
+                    </div>
+                </div>
+                <div class="card">
+                    <a class="card__heart" href="#">
+                        <i class="icon-heart"></i>
+                    </a>
+                    <div class="card__image">
+                        <picture>
+                            <img src="images/product/1.png" alt="">
+                        </picture>
+                    </div>
+                    <div class="card__body">
+                        <div class="card__body-price">
+                            32 000.00 TMT
+                        </div>
+                        <a href="#" class="card__body-title">
+                            iPhone 11 Pro Max
+                        </a>
+                    </div>
+                </div>
+                <div class="card">
+                    <a class="card__heart" href="#">
+                        <i class="icon-heart"></i>
+                    </a>
+                    <div class="card__image">
+                        <picture>
+                            <img src="images/product/2.png" alt="">
+                        </picture>
+                    </div>
+                    <div class="card__body">
+                        <div class="card__body-price">
+                            32 000.00 TMT
+                        </div>
+                        <a href="#" class="card__body-title">
+                            iPhone 11 Pro Max
+                        </a>
+                    </div>
+                </div>
+                <div class="card">
+                    <a class="card__heart" href="#">
+                        <i class="icon-heart"></i>
+                    </a>
+                    <div class="card__image">
+                        <picture>
+                            <img src="images/product/3.png" alt="">
+                        </picture>
+                    </div>
+                    <div class="card__body">
+                        <div class="card__body-price">
+                            32 000.00 TMT
+                        </div>
+                        <a href="#" class="card__body-title">
+                            iPhone 11 Pro Max
+                        </a>
+                    </div>
+                </div>
+                <div class="card">
+                    <a class="card__heart" href="#">
+                        <i class="icon-heart"></i>
+                    </a>
+                    <div class="card__image">
+                        <picture>
+                            <img src="images/product/1.png" alt="">
+                        </picture>
+                    </div>
+                    <div class="card__body">
+                        <div class="card__body-price">
+                            32 000.00 TMT
+                        </div>
+                        <a href="#" class="card__body-title">
+                            iPhone 11 Pro Max
+                        </a>
+                    </div>
+                </div>
+                <div class="card">
+                    <a class="card__heart" href="#">
+                        <i class="icon-heart"></i>
+                    </a>
+                    <div class="card__image">
+                        <picture>
+                            <img src="images/product/1.png" alt="">
+                        </picture>
+                    </div>
+                    <div class="card__body">
+                        <div class="card__body-price">
+                            32 000.00 TMT
+                        </div>
+                        <a href="#" class="card__body-title">
+                            iPhone 11 Pro Max
+                        </a>
+                    </div>
+                </div>
+                <div class="card">
+                    <a class="card__heart" href="#">
+                        <i class="icon-heart"></i>
+                    </a>
+                    <div class="card__image">
+                        <picture>
+                            <img src="images/product/2.png" alt="">
+                        </picture>
+                    </div>
+                    <div class="card__body">
+                        <div class="card__body-price">
+                            32 000.00 TMT
+                        </div>
+                        <a href="#" class="card__body-title">
+                            iPhone 11 Pro Max
+                        </a>
+                    </div>
+                </div>
+                <div class="card">
+                    <a class="card__heart" href="#">
+                        <i class="icon-heart"></i>
+                    </a>
+                    <div class="card__image">
+                        <picture>
+                            <img src="images/product/3.png" alt="">
+                        </picture>
+                    </div>
+                    <div class="card__body">
+                        <div class="card__body-price">
+                            32 000.00 TMT
+                        </div>
+                        <a href="#" class="card__body-title">
+                            iPhone 11 Pro Max
+                        </a>
+                    </div>
+                </div>
+                <div class="card">
+                    <a class="card__heart" href="#">
+                        <i class="icon-heart"></i>
+                    </a>
+                    <div class="card__image">
+                        <picture>
+                            <img src="images/product/1.png" alt="">
+                        </picture>
+                    </div>
+                    <div class="card__body">
+                        <div class="card__body-price">
+                            32 000.00 TMT
+                        </div>
+                        <a href="#" class="card__body-title">
+                            iPhone 11 Pro Max
+                        </a>
+                    </div>
+                </div>
+                <div class="card">
+                    <a class="card__heart" href="#">
+                        <i class="icon-heart"></i>
+                    </a>
+                    <div class="card__image">
+                        <picture>
+                            <img src="images/product/1.png" alt="">
+                        </picture>
+                    </div>
+                    <div class="card__body">
+                        <div class="card__body-price">
+                            32 000.00 TMT
+                        </div>
+                        <a href="#" class="card__body-title">
+                            iPhone 11 Pro Max
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- product end
+    =========================================== -->
+    <section class="sectionBanner">
+        <div class="auto__container">
+            <div class="sectionBanner__inner">
+                <picture>
+                    <img src="images/banner/horizontal.png" alt="">
+                </picture>
+            </div>
+        </div>
+    </section>
+
+    <!-- header start
+    =========================================== -->
+    <section class="sale">
+        <div class="auto__container">
+            <div class="sectionHeader">
+                <div class="sectionHeader__title">
+                    Акции
+                </div>
+                <a href="#" class="sectionHeader__link">
+                    <span>Посмотреть все</span>
+                    <i class="icon-chevron-right"></i>
+                </a>
+            </div>
+            <div class="sale__inner">
+                <div class="prev__s">
+                    <i class="icon-chevron-left"></i>
+                </div>
+                <div class="next__s">
+                    <i class="icon-chevron-right"></i>
+                </div>
+                <div class="sale__slider">
+                    <div class="sale__slider-item">
+                        <div class="sale__slider-item-title">
+                            Приглашаем на фестиваль смартфонов
+                        </div>
+                        <div class="sale__slider-item-subtitle">
+                            Акция недели
+                        </div>
+                        <div class="sale__slider-item-image">
+                            <picture>
+                                <img src="images/sale/1.svg" alt="">
+                            </picture>
+                        </div>
+                    </div>
+                    <div class="sale__slider-item">
+                        <div class="sale__slider-item-title">
+                            Вечерний образ
+                        </div>
+                        <div class="sale__slider-item-subtitle">
+                            Акция недели
+                        </div>
+                        <div class="sale__slider-item-image">
+                            <picture>
+                                <img src="images/sale/2.svg" alt="">
+                            </picture>
+                        </div>
+                    </div>
+                    <div class="sale__slider-item">
+                        <div class="sale__slider-item-title">
+                            Приглашаем на фестиваль смартфонов
+                        </div>
+                        <div class="sale__slider-item-subtitle">
+                            Акция недели
+                        </div>
+                        <div class="sale__slider-item-image">
+                            <picture>
+                                <img src="images/sale/3.svg" alt="">
+                            </picture>
+                        </div>
+                    </div>
+                    <div class="sale__slider-item">
+                        <div class="sale__slider-item-title">
+                            Приглашаем на фестиваль смартфонов
+                        </div>
+                        <div class="sale__slider-item-subtitle">
+                            Акция недели
+                        </div>
+                        <div class="sale__slider-item-image">
+                            <picture>
+                                <img src="images/sale/1.svg" alt="">
+                            </picture>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- header end
+    =========================================== -->
+    <!-- brand start
+    =========================================== -->
+    <section class="brand">
+        <div class="auto__container">
+            <div class="sectionHeader">
+                <div class="sectionHeader__title">
+                    Бренды
+                </div>
+                <a href="#" class="sectionHeader__link">
+                    <span>Посмотреть все</span>
+                    <i class="icon-chevron-right"></i>
+                </a>
+            </div>
+            <div class="brand__inner">
+                <div class="prev__b">
+                    <i class="icon-chevron-left"></i>
+                </div>
+                <div class="next__b">
+                    <i class="icon-chevron-right"></i>
+                </div>
+                <div class="brand__slider">
+                    <div class="brand__slider-item">
+                        <div class="brand__slider-item-image">
+                            <picture>
+                                <img src="images/brand/1 (1).png" alt="">
+                            </picture>
+                        </div>
+                    </div>
+                    <div class="brand__slider-item">
+                        <div class="brand__slider-item-image">
+                            <picture>
+                                <img src="images/brand/1 (2).png" alt="">
+                            </picture>
+                        </div>
+                    </div>
+                    <div class="brand__slider-item">
+                        <div class="brand__slider-item-image">
+                            <picture>
+                                <img src="images/brand/1 (3).png" alt="">
+                            </picture>
+                        </div>
+                    </div>
+                    <div class="brand__slider-item">
+                        <div class="brand__slider-item-image">
+                            <picture>
+                                <img src="images/brand/1 (4).png" alt="">
+                            </picture>
+                        </div>
+                    </div>
+                    <div class="brand__slider-item">
+                        <div class="brand__slider-item-image">
+                            <picture>
+                                <img src="images/brand/1 (5).png" alt="">
+                            </picture>
+                        </div>
+                    </div>
+                    <div class="brand__slider-item">
+                        <div class="brand__slider-item-image">
+                            <picture>
+                                <img src="images/brand/1 (6).png" alt="">
+                            </picture>
+                        </div>
+                    </div>
+                    <div class="brand__slider-item">
+                        <div class="brand__slider-item-image">
+                            <picture>
+                                <img src="images/brand/1 (1).png" alt="">
+                            </picture>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- brand end
+    =========================================== -->
+    <!-- subscribe start
+    =========================================== -->
+    <section class="subscribe">
+        <div class="subscribe__link">
+            <i class="icon-telegram"></i>
+            <span>Подписаться на наши новости и акции</span>
+        </div>
+    </section>
+    <!-- subscribe end
+    =========================================== -->
+    <!-- footer start
+    =========================================== -->
+    <footer class="footer">
+        <div class="auto__container">
+            <div class="footer__inner">
+                <p class="footer__copyright">
+                    1993 - 2018 - ИП "Парахат". Все права зашищены.
+                </p>
+                <a href="" class="footer__social">
+                    <img src="images/svg/instagram.svg" alt="">
+                </a>
+            </div>
+        </div>
+    </footer>
+    <!-- footer end
+    =========================================== -->
+    <!-- modal start
+    =========================================== -->
+    <div class="modal" id="modal">
+        <div class="modal__close" id="modalClose">
+            <i class="icon-close"></i>
+        </div>
+        <div class="modal__inner">
+            <div class="modal__header">
+                <button class="modal__header-btn active" onclick="logIn()" id="logInBtn">
+                    Вход
+                </button>
+                <button class="modal__header-btn" onclick="signUp()" id="signUpBtn">
+                    Регистрация
+                </button>
+            </div>
+            <div class="modal__body">
+                <form action="#" class="modal__event active" id="logInForm">
+                    <div class="modal__event-input">
+                        <label class="modal__event-input-label">
+                            Номер телефона
+                        </label>
+                        <div class="modal__event-input-input">
+                            <input type="phone">
+                        </div>
+                    </div>
+                    <div class="modal__event-input">
+                        <label class="modal__event-input-label">
+                            Пароль
+                        </label>
+                        <div class="modal__event-input-input">
+                            <input type="password">
+                        </div>
+                    </div>
+                    <button type="submit" class="modal__event-submit">
+                        Войти
+                    </button>
+                    <a href="" class="modal__event-forget">
+                        Забыли пароль?
+                    </a>
+                </form>
+                <form action="#" class="modal__event" id="signUpForm">
+                    <div class="modal__event-input">
+                        <label class="modal__event-input-label">
+                            Номер телефона
+                        </label>
+                        <div class="modal__event-input-input">
+                            <input type="phone">
+                        </div>
+                    </div>
+                    <div class="modal__event-input">
+                        <label class="modal__event-input-label">
+                            Имя
+                        </label>
+                        <div class="modal__event-input-input">
+                            <input type="name">
+                        </div>
+                    </div>
+                    <div class="modal__event-input">
+                        <label class="modal__event-input-label">
+                            Фамилия
+                        </label>
+                        <div class="modal__event-input-input">
+                            <input type="surname">
+                        </div>
+                    </div>
+                    <div class="modal__event-input">
+                        <label class="modal__event-input-label">
+                            Адрес
+                        </label>
+                        <div class="modal__event-input-input">
+                            <input type="address">
+                        </div>
+                    </div>
+                    <div class="modal__event-input">
+                        <label class="modal__event-input-label">
+                            Пароль
+                        </label>
+                        <div class="modal__event-input-input">
+                            <input type="password">
+                        </div>
+                    </div>
+                    <button type="submit" class="modal__event-submit">
+                        Зарегистрироваться
+                    </button>
+                    <a href="" class="modal__event-forget">
+                        Условия регистрации на сайте!
+                    </a>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- modal end
+    =========================================== -->
+    <script src="js/jquery.js"></script>
+    <script src="js/slick.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

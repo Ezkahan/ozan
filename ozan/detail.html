@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/font.css">
+    <link rel="stylesheet" href="css/main.css">
+    <title>detail</title>
+</head>
+
+<body>
+    <!-- upheader start
+    =========================================== -->
+    <section class="upheader">
+        <div class="auto__container">
+            <div class="upheader__inner">
+                <div class="upheader__language">
+                    <i class="icon-global"></i>
+                    <select name="language" id="">
+                        <option value="0">Русский</option>
+                        <option value="1">Русский</option>
+                        <option value="2">Русский</option>
+                    </select>
+                </div>
+                <div class="upheader__nav">
+                    <a href="about.html" class="upheader__nav-link">
+                        <i class="icon-info"></i>
+                        <span>О нас</span>
+                    </a>
+                    <a href="delivery.html" class="upheader__nav-link">
+                        <i class="icon-box"></i>
+                        <span>Доставка</span>
+                    </a>
+                    <a href="#" class="upheader__nav-link">
+                        <i class="icon-money"></i>
+                        <span>Методы оплаты</span>
+                    </a>
+                    <a href="#" class="upheader__nav-link">
+                        <i class="icon-help"></i>
+                        <span>Поддержка</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- upheader end
+    =========================================== -->
+    <!-- header start
+    =========================================== -->
+    <header class="header">
+        <div class="auto__container">
+            <div class="header__inner">
+                <div class="header__column">
+                    <div class="header__logo">
+                        <img src="images/logo.svg" alt="">
+                    </div>
+                    <div class="header__menu">
+                        <div class="menu" onclick="showMenu()">
+                            <button class="menu__btn ham" id="menuBtn">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="19.5" height="13.5"
+                                    viewBox="0 0 19.5 13.5">
+                                    <g id="align-justify" transform="translate(-2.25 -5.25)">
+                                        <line id="Line_57" data-name="Line 57" x1="10" transform="translate(3 12)"
+                                            fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round"
+                                            stroke-width="1.5" />
+                                        <line id="Line_58" data-name="Line 58" x1="18" transform="translate(3 6)"
+                                            fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round"
+                                            stroke-width="1.5" />
+                                        <line id="Line_59" data-name="Line 59" x1="18" transform="translate(3 18)"
+                                            fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round"
+                                            stroke-width="1.5" />
+                                    </g>
+                                </svg>
+                                <span>Меню</span>
+                            </button>
+                            <div id="menuDropdown" class="menu__content ham">
+                                <div class="menu__content-header">
+                                    <div class="menu__content-header-logo">
+                                        <img src="images/logo.svg" alt="">
+                                    </div>
+                                    <div class="menu__content-header-close" onclick="closeMenu()">
+                                        <i class="icon-close"></i>
+                                    </div>
+                                </div>
+                                <a href="about.html" class="menu__content-link">
+                                    <i class="icon-info"></i>
+                                    О нас
+                                </a>
+                                <a href="delivery.html" class="menu__content-link">
+                                    <i class="icon-box"></i>
+                                    Доставка
+                                </a>
+                                <a href="#" class="menu__content-link">
+                                    <i class="icon-money"></i>
+                                    Методы оплаты
+                                </a>
+                                <a href="#" class="menu__content-link">
+                                    <i class="icon-help"></i>
+                                    Поддержка
+                                </a>
+                                <a href="favourite.html" class="menu__content-link">
+                                    <i class="icon-star"></i>
+                                    Избранное
+                                </a>
+                                <a href="basket.html" class="menu__content-link">
+                                    <i class="icon-Inactive"></i>
+                                    Корзина
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="header__column">
+                    <form class="search">
+                        <div class="search__input">
+                            <input type="text" placeholder="Поиск">
+                        </div>
+                        <button type="submit" class="search__btn">Найти</button>
+                    </form>
+                    <div class="header__column-row">
+                        <a href="#" class="dropdown__btn" id="modalBtn">
+                            <i class="icon-user"></i>
+                            <span>Профиль</span>
+                        </a>
+                        <!-- if you loged in it must be like this -->
+                        <!-- <div class="dropdown" onclick="showProfile()">
+                            <button class="dropdown__btn" id="dropbtn">
+                                <i class="icon-user"></i>
+                                <span>Профиль</span>
+                            </button>
+                            <div id="myDropdown" class="dropdown__content">
+                                <a href="#" class="dropdown__content-link">
+                                    <i class="icon-coins"></i>
+                                    12.00 TMT
+                                </a>
+                                <a href="#" class="dropdown__content-link">
+                                    <i class="icon-user"></i>
+                                    Личный кабинет
+                                </a>
+                                <a href="#" class="dropdown__content-link">
+                                    <i class="icon-checklist"></i>
+                                    Мои заказы
+                                </a>
+                                <a href="#" class="dropdown__content-link">
+                                    <i class="icon-logout"></i>
+                                    Выйти
+                                </a>
+                            </div>
+                        </div> -->
+                        <!-- if you loged in it must be like this -->
+                        <a href="#" class="dropdown__btn">
+                            <i class="icon-star"></i>
+                            <span>Избранное</span>
+                        </a>
+                        <a href="#" class="dropdown__btn">
+                            <i class="icon-Inactive"></i>
+                            <span>Избранное</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- header end
+    =========================================== -->
+    <div class="breadcumb">
+        <div class="auto__container">
+            <div class="breadcumb__inner">
+                <a href="index.html">
+                    <span>Главная</span>
+                    <i class="icon-chevron-right"></i>
+                </a>
+                <a href="#">
+                    <span>Электроника</span>
+                    <i class="icon-chevron-right"></i>
+                </a>
+                <a href="#">
+                    <span>Смартфоны</span>
+                    <i class="icon-chevron-right"></i>
+                </a>
+                <a href="#">Apple iPhone XS A2097 64 ГБ / 256 ГБ</a>
+            </div>
+        </div>
+    </div>
+    <!-- detail start
+    =========================================== -->
+    <section class="detail">
+        <div class="auto__container">
+            <div class="detail__inner">
+                <div class="detail__slider-outer">
+                    <div class="detail__slider">
+                        <div class="detail__slider-item">
+                            <img src="images/detail/1.png" alt="">
+                        </div>
+                        <div class="detail__slider-item">
+                            <img src="images/detail/2.png" alt="">
+                        </div>
+                        <div class="detail__slider-item">
+                            <img src="images/detail/3.png" alt="">
+                        </div>
+                        <div class="detail__slider-item">
+                            <img src="images/detail/4.png" alt="">
+                        </div>
+                        <div class="detail__slider-item">
+                            <img src="images/detail/5.png" alt="">
+                        </div>
+                        <div class="detail__slider-item">
+                            <img src="images/detail/1.png" alt="">
+                        </div>
+                    </div>
+                    <div class="detail__slider-nav">
+                        <div class="detail__slider-nav-item">
+                            <img src="images/detail/1.png" alt="">
+                        </div>
+                        <div class="detail__slider-nav-item">
+                            <img src="images/detail/2.png" alt="">
+                        </div>
+                        <div class="detail__slider-nav-item">
+                            <img src="images/detail/3.png" alt="">
+                        </div>
+                        <div class="detail__slider-nav-item">
+                            <img src="images/detail/4.png" alt="">
+                        </div>
+                        <div class="detail__slider-nav-item">
+                            <img src="images/detail/5.png" alt="">
+                        </div>
+                        <div class="detail__slider-nav-item">
+                            <img src="images/detail/1.png" alt="">
+                        </div>
+                    </div>
+                </div>
+                <form action="" class="detail__content">
+                    <h1 class="detail__content-title">
+                        Apple iPhone XS A2097 64 ГБ, 256 ГБ восстановленный, разблокированный, одна SIM-карта
+                    </h1>
+                    <div class="detail__content-brand">
+                        Бренд: <a href="#">Apple</a>
+                    </div>
+                    <div class="detail__content-before">
+                        от 15 000.00 TMT
+                    </div>
+                    <div class="detail__content-after">
+                        от 12 500.00 TMT
+                    </div>
+                    <div class="detail__content-color">
+                        <div class="detail__content-color-title">
+                            Цвет: Серый
+                        </div>
+                        <div class="detail__content-color-row">
+                            <div class="detail__content-color-radio ">
+                                <input checked type="radio" name="color" id="black">
+                                <label class="color__label black" for="black"></label>
+                            </div>
+                            <div class="detail__content-color-radio">
+                                <input type="radio" name="color" id="gray">
+                                <label class="color__label gray" for="gray"></label>
+                            </div>
+                            <div class="detail__content-color-radio ">
+                                <input type="radio" name="color" id="gold">
+                                <label class="color__label gold" for="gold"></label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="detail__content-size">
+                        <div class="detail__content-size-title">
+                            Цвет: Серый
+                        </div>
+                        <div class="detail__content-size-row">
+                            <div class="detail__content-size-radio">
+                                <input checked type="radio" name="size" id="gb64">
+                                <label class="size__label" for="gb64">
+                                    64 GB
+                                </label>
+                            </div>
+                            <div class="detail__content-size-radio">
+                                <input type="radio" name="size" id="gb256">
+                                <label class="size__label" for="gb256">
+                                    256 GB
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="detail__content-submit">
+                        Добавить в корзину
+                    </button>
+                </form>
+            </div>
+            <div class="detail__about">
+                <h5>
+                    Описание:
+                </h5>
+                <p>
+                    Восстановленный телефон : Устройство было полностью проверено нашими техническими специалистами, и
+                    оно на 100% работоспособно с достаточным временем автономной работы.
+                    Он очень чистый на вид как новый. Также нет ожога или тени.
+                    <br>
+                    <br>
+                    <br>Процессор : Apple A12 Bionic (7 нм)
+                    <br>RAM : 4ГБ
+                    <br>Место хранения : 64 ГБ, 256 ГБ
+                    <br>Дисплей : 5.8 дюймов, 84.4 см2
+                    <br>Камера : 12 MP, f / 1.8, 26 мм (широкий), 1/2.55 ", 1.4 мкм, двухпиксельный PDAF, OIS
+                    <br>Аккумулятор : Li-Ion 2658 мАч, несъемный (10.13 Втч)
+                    <br>
+                    <br>
+                    Тип товара: Смартфоны
+                </p>
+            </div>
+            <!-- similar start
+    =========================================== -->
+            <section class="product">
+                <div class="sectionHeader">
+                    <div class="sectionHeader__title">
+                        Похожие запросы
+                    </div>
+                    <a href="#" class="sectionHeader__link">
+                        <span>Посмотреть все</span>
+                        <i class="icon-chevron-right"></i>
+                    </a>
+                </div>
+                <div class="product__row">
+                    <div class="card">
+                        <a class="card__heart" href="#">
+                            <i class="icon-heart"></i>
+                        </a>
+                        <div class="card__image">
+                            <picture>
+                                <img src="images/product/1.png" alt="">
+                            </picture>
+                        </div>
+                        <div class="card__body">
+                            <div class="card__body-price">
+                                32 000.00 TMT
+                            </div>
+                            <a href="#" class="card__body-title">
+                                iPhone 11 Pro Max
+                            </a>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <a class="card__heart" href="#">
+                            <i class="icon-heart"></i>
+                        </a>
+                        <div class="card__image">
+                            <picture>
+                                <img src="images/product/1.png" alt="">
+                            </picture>
+                        </div>
+                        <div class="card__body">
+                            <div class="card__body-price">
+                                32 000.00 TMT
+                            </div>
+                            <a href="#" class="card__body-title">
+                                iPhone 11 Pro Max
+                            </a>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <a class="card__heart" href="#">
+                            <i class="icon-heart"></i>
+                        </a>
+                        <div class="card__image">
+                            <picture>
+                                <img src="images/product/2.png" alt="">
+                            </picture>
+                        </div>
+                        <div class="card__body">
+                            <div class="card__body-price">
+                                32 000.00 TMT
+                            </div>
+                            <a href="#" class="card__body-title">
+                                iPhone 11 Pro Max
+                            </a>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <a class="card__heart" href="#">
+                            <i class="icon-heart"></i>
+                        </a>
+                        <div class="card__image">
+                            <picture>
+                                <img src="images/product/3.png" alt="">
+                            </picture>
+                        </div>
+                        <div class="card__body">
+                            <div class="card__body-price">
+                                32 000.00 TMT
+                            </div>
+                            <a href="#" class="card__body-title">
+                                iPhone 11 Pro Max
+                            </a>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <a class="card__heart" href="#">
+                            <i class="icon-heart"></i>
+                        </a>
+                        <div class="card__image">
+                            <picture>
+                                <img src="images/product/1.png" alt="">
+                            </picture>
+                        </div>
+                        <div class="card__body">
+                            <div class="card__body-price">
+                                32 000.00 TMT
+                            </div>
+                            <a href="#" class="card__body-title">
+                                iPhone 11 Pro Max
+                            </a>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <a class="card__heart" href="#">
+                            <i class="icon-heart"></i>
+                        </a>
+                        <div class="card__image">
+                            <picture>
+                                <img src="images/product/2.png" alt="">
+                            </picture>
+                        </div>
+                        <div class="card__body">
+                            <div class="card__body-price">
+                                32 000.00 TMT
+                            </div>
+                            <a href="#" class="card__body-title">
+                                iPhone 11 Pro Max
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- product end
+    =========================================== -->
+        </div>
+    </section>
+    <!-- detail end
+    =========================================== -->
+
+    <!-- subscribe start
+    =========================================== -->
+    <section class="subscribe">
+        <div class="subscribe__link">
+            <i class="icon-telegram"></i>
+            <span>Подписаться на наши новости и акции</span>
+        </div>
+    </section>
+    <!-- subscribe end
+    =========================================== -->
+    <!-- footer end
+    =========================================== -->
+    <footer class="footer">
+        <div class="auto__container">
+            <div class="footer__inner">
+                <p class="footer__copyright">
+                    1993 - 2018 - ИП "Парахат". Все права зашищены.
+                </p>
+                <a href="" class="footer__social">
+                    <img src="images/svg/instagram.svg" alt="">
+                </a>
+            </div>
+        </div>
+    </footer>
+    <!-- footer end
+    =========================================== -->
+    <!-- modal start
+    =========================================== -->
+    <div class="modal" id="modal">
+        <div class="modal__close" id="modalClose">
+            <i class="icon-close"></i>
+        </div>
+        <div class="modal__inner">
+            <div class="modal__header">
+                <button class="modal__header-btn active" onclick="logIn()" id="logInBtn">
+                    Вход
+                </button>
+                <button class="modal__header-btn" onclick="signUp()" id="signUpBtn">
+                    Регистрация
+                </button>
+            </div>
+            <div class="modal__body">
+                <form action="#" class="modal__event active" id="logInForm">
+                    <div class="modal__event-input">
+                        <label class="modal__event-input-label">
+                            Номер телефона
+                        </label>
+                        <div class="modal__event-input-input">
+                            <input type="phone">
+                        </div>
+                    </div>
+                    <div class="modal__event-input">
+                        <label class="modal__event-input-label">
+                            Пароль
+                        </label>
+                        <div class="modal__event-input-input">
+                            <input type="password">
+                        </div>
+                    </div>
+                    <button type="submit" class="modal__event-submit">
+                        Войти
+                    </button>
+                    <a href="" class="modal__event-forget">
+                        Забыли пароль?
+                    </a>
+                </form>
+                <form action="#" class="modal__event" id="signUpForm">
+                    <div class="modal__event-input">
+                        <label class="modal__event-input-label">
+                            Номер телефона
+                        </label>
+                        <div class="modal__event-input-input">
+                            <input type="phone">
+                        </div>
+                    </div>
+                    <div class="modal__event-input">
+                        <label class="modal__event-input-label">
+                            Имя
+                        </label>
+                        <div class="modal__event-input-input">
+                            <input type="name">
+                        </div>
+                    </div>
+                    <div class="modal__event-input">
+                        <label class="modal__event-input-label">
+                            Фамилия
+                        </label>
+                        <div class="modal__event-input-input">
+                            <input type="surname">
+                        </div>
+                    </div>
+                    <div class="modal__event-input">
+                        <label class="modal__event-input-label">
+                            Адрес
+                        </label>
+                        <div class="modal__event-input-input">
+                            <input type="address">
+                        </div>
+                    </div>
+                    <div class="modal__event-input">
+                        <label class="modal__event-input-label">
+                            Пароль
+                        </label>
+                        <div class="modal__event-input-input">
+                            <input type="password">
+                        </div>
+                    </div>
+                    <button type="submit" class="modal__event-submit">
+                        Зарегистрироваться
+                    </button>
+                    <a href="" class="modal__event-forget">
+                        Условия регистрации на сайте!
+                    </a>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- modal end
+    =========================================== -->
+    <script src="js/jquery.js"></script>
+    <script src="js/slick.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,21 @@
+.about {
+  padding: 6.6em 0;
+  font-size: 15px;
+  min-height: 800px;
+  &__inner {
+    h1 {
+      font-size: 25px;
+      line-height: 34px;
+      font-weight: 700;
+      color: $black;
+      margin-bottom: 3.3em;
+    }
+    p {
+      font-size: 18px;
+      line-height: 27px;
+      margin-bottom: 25px;
+      font-weight: 400;
+      color: $black;
+    }
+  }
+}
