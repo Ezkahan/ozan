@@ -44,7 +44,7 @@
                             </div>
                     <div class="control-group" :class="[errors.has('icon') ? 'has-error' : '']">
                                 <label for="icon" class="required">Icon</label>
-                                <input type="text"  class="control" id="icon" icon="icon" value="{{ old('icon') }}" data-vv-as="&quot;{{ __('admin::app.catalog.categories.icon') }}&quot;" v-slugify-target="'slug'"/>
+                                <input type="text" name="icon" class="control" id="icon"  value="{{ old('icon') }}" data-vv-as="&quot;{{ __('admin::app.catalog.categories.icon') }}&quot;" v-slugify-target="'slug'"/>
                                 <span class="control-error" v-if="errors.has('icon')">@{{ errors.first('icon') }}</span>
                             </div>
                             <div class="control-group" :class="[errors.has('status') ? 'has-error' : '']">

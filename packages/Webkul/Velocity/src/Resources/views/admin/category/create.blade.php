@@ -53,9 +53,9 @@
                             <div class="control-group" :class="[errors.has('icon') ? 'has-error' : '']">
                                 <label for="icon" class="required">
                                     {{ __('velocity::app.admin.category.icon-class') }}
+               
                                 </label>
-
-                                <input type="text" v-validate="'required'" class="control" id="icon" name="icon" data-vv-as="&quot;{{ __('velocity::app.admin.category.icon-class') }}&quot;" />
+                 <input type="text" v-validate="'required'" class="control" id="icon" name="icon" data-vv-as="&quot;{{ __('velocity::app.admin.category.icon-class') }}&quot;" />
 
                                 <span class="control-error" v-if="errors.has('icon')">@{{ errors.first('icon') }}</span>
                             </div>
