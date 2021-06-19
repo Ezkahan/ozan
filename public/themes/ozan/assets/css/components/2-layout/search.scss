@@ -1,0 +1,35 @@
+.search {
+  display: flex;
+  max-width: 600px;
+  width: 100%;
+  &__input {
+    width: calc(100% - 6.6rem);
+    input {
+      padding: 1rem 2rem;
+      color: $main-color;
+      background: rgba($color: $main-color, $alpha: 0.1);
+      font-size: 14px;
+      line-height: 15px;
+      font-weight: 400;
+      border-radius: 5px 0 0 5px;
+      width: calc(100% - 4rem);
+      &::placeholder {
+        color: $main-color;
+      }
+      &::-webkit-input-placeholder {
+        color: $main-color;
+      }
+    }
+  }
+  &__btn {
+    width: 6.6rem;
+    padding: 1rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    background: $main-color;
+    color: $white;
+    cursor: pointer;
+  }
+}
