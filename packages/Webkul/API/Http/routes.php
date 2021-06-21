@@ -246,6 +246,11 @@ Route::group(['prefix' => 'api'], function ($router) {
 
         Route::get('wishlist/add/{id}', 'WishlistController@create');
 
+        Route::group(['prefix' => 'akhasap'], function($router){
+            Route::post('products/test','AkHasapController@test');
+            //Route::put('products/update',)
+        });
+
         //Checkout routes
         Route::group(['prefix' => 'checkout'], function ($router) {
             Route::post('cart/add/{id}', 'CartController@store');

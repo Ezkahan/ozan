@@ -55,10 +55,10 @@
                                 <input type="text" v-validate="'required'" class="control" id="name" name="{{$locale}}[name]" value="{{ old($locale)['name'] ?? ($category->translate($locale)['name'] ?? '') }}" data-vv-as="&quot;{{ __('admin::app.catalog.categories.name') }}&quot;" v-slugify-target="'slug'"/>
                                 <span class="control-error" v-if="errors.has('{{$locale}}[name]')">@{{ errors.first('{!!$locale!!}[name]') }}</span>
                             </div>
-                              <div class="control-group" :class="[errors.has('{{$locale}}[icon]') ? 'has-error' : '']">
+                              <div class="control-group" :class="[errors.has('icon') ? 'has-error' : '']">
                                 <label for="icon" class="required">{{ __('admin::app.catalog.categories.icon') }}</label>
-                                <input type="text" v-validate="'required'" class="control" id="icon" name="{{$locale}}[icon]" value="{{ old($locale)['icon'] ?? ($category->translate($locale)['icon'] ?? '') }}" data-vv-as="&quot;Icon&quot;" v-slugify-target="'slug'"/>
-                                <span class="control-error" v-if="errors.has('{{$locale}}[icon]')">@{{ errors.first('{!!$locale!!}[icon]') }}</span>
+                                <input type="text" v-validate="'required'" class="control" id="icon" name="icon" value="{{$category->icon}}" data-vv-as="&quot;Icon&quot;" v-slugify-target="'slug'"/>
+                                <span class="control-error" v-if="errors.has('icon')">@{{ errors.first('{!!$locale!!}[icon]') }}</span>
                             </div>
 
                             <div class="control-group" :class="[errors.has('status') ? 'has-error' : '']">
