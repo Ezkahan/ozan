@@ -141,12 +141,12 @@
         <div class="auto__container">
             <div class="sectionHeader">
                 <div class="sectionHeader__title">
-                    Бренды
+                    Brands
                 </div>
-                <a href="#" class="sectionHeader__link">
+                {{-- <a href="#" class="sectionHeader__link">
                     <span>Посмотреть все</span>
                     <i class="icon-chevron-right"></i>
-                </a>
+                </a> --}}
             </div>
             <div class="brand__inner">
                 <div class="prev__b">
