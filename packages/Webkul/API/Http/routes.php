@@ -247,7 +247,7 @@ Route::group(['prefix' => 'api'], function ($router) {
         Route::get('wishlist/add/{id}', 'WishlistController@create');
 
         Route::group(['prefix' => 'akhasap'], function($router){
-            Route::post('products/test','AkHasapController@test');
+            Route::post('products/store','AkHasapController@store');
             //Route::put('products/update',)
         });
 

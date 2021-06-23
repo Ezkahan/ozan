@@ -33,7 +33,7 @@
             
 {!! view_render_event('bagisto.shop.layout.header.locale.after') !!}
             <div class="upheader__nav">
-                <a href="about.html" class="upheader__nav-link">
+                <a href="#" class="upheader__nav-link">
                     <i class="icon-info"></i>
                     <span>About us</span>
                 </a>
