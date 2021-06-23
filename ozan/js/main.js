@@ -95,7 +95,7 @@ $(".brand__slider").slick({
 var modal = document.getElementById("modal");
 var modalBtn = document.getElementById("modalBtn");
 var modalClose = document.getElementById("modalClose");
-modalBtn.onclick = function () {
+modalBtn.onclick = function (e) {
   modal.style.display = "block";
 };
 modalClose.onclick = function () {

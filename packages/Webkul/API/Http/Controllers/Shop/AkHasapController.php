@@ -34,7 +34,16 @@ class AkHasapController extends Controller
         //material_id
         //wh_all 
         //mat_whousetotal_amount 
-        dd (json_decode($request->getContent()));
+        $products = json_decode($request->getContent());
+        //dd($products);
+        foreach($products as $product)
+        {
+            echo "material_name: " . $product->material_name . "\n"; //product_attribute_values id-2 locale-tm channel-ozan  text_value
+            echo "material_code: " . $product->material_code . "\n"; //sku
+            echo "material_id: " . $product->material_id . "\n"; //akhasap_id
+            echo "wh_all: " . $product->wh_all . "\n";  // product_inventories qty product_id inventgory_source_id vendor_id
+            echo "mat_whousetotal_amount: " . $product->mat_whousetotal_amount . "\n";
+        }
         return null;
     }
     /**

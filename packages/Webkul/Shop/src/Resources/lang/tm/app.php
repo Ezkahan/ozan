@@ -14,27 +14,29 @@ return [
         'orders' => 'Orders',
         'downloadable-products' => 'Downloadable Products'
     ],
-    'registerlogin' =>[
-        'login' => 'Login',
-        'register' => 'Register',
-        'phoneNumber' => 'Phone number',
-        'password' => 'Password',
-        'name' => 'Name',
-        'surname' => 'Surname',
-        'address' => 'Address',
-        'do-register' => 'Register',
-        'terms' => 'Terms and conditions',
-        'forgot-password' => 'Forgot password?'
 
-    ],
     'common' => [
         'error' => 'Something went wrong, please try again later.',
         'image-upload-limit' => 'Image max upload size is 2MB',
         'no-result-found' => 'We could not find any records.'
     ],
+    'registerlogin' =>[
+        'login' => 'Içeri gir',
+        'register' => 'Registrasiýa',
+        'phoneNumber' => 'Telefon nomeriňiz',
+        'password' => 'Açar sözüňiz',
+        'name' => 'Adyňyz',
+        'surname' => 'Familiýaňyz',
+        'address' => 'Adresiňiz',
+        'do-register' => 'Registrasiýa boluň',
+        'terms' => 'Saýtda hasaba alyş şertler',
+        'forgot-password' => 'Забыли пароль?'
+
+    ],
+    
 
     'home' => [
-        'promotions' => 'Promotions',
+        'promotions' => 'Aksiýalar',
         'page-title' => config('app.name') . ' - Home',
         'featured-products' => 'Featured Products',
         'new-products' => 'New Products',
@@ -43,18 +45,18 @@ return [
     ],
 
     'header' => [
-        'title' => 'Account',
+        'title' => 'Hasabym',
         'dropdown-text' => 'Manage Cart, Orders & Wishlist',
-        'sign-in' => 'Sign In',
-        'sign-up' => 'Sign Up',
-        'account' => 'Account',
+        'sign-in' => 'Içeri gir',
+        'sign-up' => 'Registrasiýa',
+        'account' => 'Hasabym',
         'cart' => 'Cart',
-        'profile' => 'Profile',
-        'wishlist' => 'Wishlist',
-        'cart' => 'Cart',
-        'logout' => 'Logout',
-        'search-text' => 'Search products here',
-        'search' => 'Search'
+        'profile' => 'Profil',
+        'wishlist' => 'Halanlarym',
+        'cart' => 'Sebet',
+        'logout' => 'Çyk',
+        'search-text' => 'Gözle',
+        'search' => 'Gözle'
     ],
 
     'minicart' => [

@@ -15,18 +15,19 @@ return [
         'downloadable-products' => 'Downloadable Products'
     ],
     'registerlogin' =>[
-        'login' => 'Login',
-        'register' => 'Register',
-        'phoneNumber' => 'Phone number',
-        'password' => 'Password',
-        'name' => 'Name',
-        'surname' => 'Surname',
-        'address' => 'Address',
-        'do-register' => 'Register',
-        'terms' => 'Terms and conditions',
-        'forgot-password' => 'Forgot password?'
+        'login' => 'Вход',
+        'register' => 'Регистрация',
+        'phoneNumber' => 'Номер телефона',
+        'password' => 'Пароль',
+        'name' => 'Имя',
+        'surname' => ' Фамилия',
+        'address' => 'Адрес',
+        'do-register' => 'Зарегистрироваться',
+        'terms' => 'Условия регистрации на сайте!',
+        'forgot-password' => 'Забыли пароль?'
 
     ],
+
     'common' => [
         'error' => 'Something went wrong, please try again later.',
         'image-upload-limit' => 'Image max upload size is 2MB',
@@ -34,7 +35,7 @@ return [
     ],
 
     'home' => [
-        'promotions' => 'Promotions',
+        'promotions' => 'Акции',
         'page-title' => config('app.name') . ' - Home',
         'featured-products' => 'Featured Products',
         'new-products' => 'New Products',
@@ -50,11 +51,11 @@ return [
         'account' => 'Account',
         'cart' => 'Cart',
         'profile' => 'Profile',
-        'wishlist' => 'Wishlist',
-        'cart' => 'Cart',
+        'wishlist' => 'Избранное',
+        'cart' => 'Корзина',
         'logout' => 'Logout',
-        'search-text' => 'Search products here',
-        'search' => 'Search'
+        'search-text' => 'Искать продукты здесь',
+        'search' => 'Найти'
     ],
 
     'minicart' => [
