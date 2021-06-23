@@ -43,11 +43,11 @@ class AkHasapController extends Controller
             Storage::put('file'.mt_rand(10000,99999).'.txt', $request->getContent());
             foreach($products as $product)
             {
-                echo "material_name: " . $product->material_name . "\n"; //product_attribute_values id-2 locale-tm channel-ozan  text_value
-                echo "material_code: " . $product->material_code . "\n"; //sku
-                echo "material_id: " . $product->material_id . "\n"; //akhasap_id
-                echo "wh_all: " . $product->wh_all . "\n";  // product_inventories qty product_id inventgory_source_id vendor_id
-                echo "mat_whousetotal_amount: " . $product->mat_whousetotal_amount . "\n";
+                // echo "material_name: " . $product->material_name . "\n"; //product_attribute_values id-2 locale-tm channel-ozan  text_value
+                // echo "material_code: " . $product->material_code . "\n"; //sku
+                // echo "material_id: " . $product->material_id . "\n"; //akhasap_id
+                // echo "wh_all: " . $product->wh_all . "\n";  // product_inventories qty product_id inventgory_source_id vendor_id
+                // echo "mat_whousetotal_amount: " . $product->mat_whousetotal_amount . "\n";
             }
             return response()->json(['success'=>true]);
         }
