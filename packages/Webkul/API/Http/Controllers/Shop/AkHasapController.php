@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use  Webkul\Product\Models\Product;
 use  Webkul\Product\Models\ProductAttributeValue;
 use  Webkul\Product\Models\ProductInventory;
+use  Webkul\Product\Models\ProductFlat;
 use Storage;
 class AkHasapController extends Controller
 {
@@ -45,21 +46,74 @@ class AkHasapController extends Controller
             //dd($products);
             Storage::put('file'.mt_rand(10000,99999).'.txt', $request->getContent());
          
-            foreach($products as $product)
+            foreach($products as $akhasap_product)
             {
-                $product = Product::updateOrCreate(['akhasap_id' => $product->material_id],
+                $product = Product::updateOrCreate(['akhasap_id' => $akhasap_product->material_id],
                 [
-                    'sku' => $product->material_code,
+                    'sku' => $akhasap_product->material_code,
                     'type' => 'simple',
                     'attribute_family_id' => 1,
-                    'akhasap_id' => $product->material_id
+                    'akhasap_id' => $akhasap_product->material_id
                 ]
                 );
+                ProductFlat::updateOrCreate(['product_id' => $product->id,'locale' => 'tm'],
+                [
+                    'sku' => $akhasap_product->material_code,
+                    'type' => 'simple',
+                     'name' => $akhasap_product->material_name,
+                     'status' => 1,
+                     'price' => $akhasap_product->mat_sale_price ,
+                     'cost' => $akhasap_product->mat_purch_price,
+                     'channel' => 'default'
+
+                ]);
+                ProductFlat::updateOrCreate(['product_id' => $product->id,'locale' => 'en'],
+                [
+                    'sku' => $akhasap_product->material_code,
+                    'type' => 'simple',
+                     'name' => $akhasap_product->material_name,
+                     'status' => 1,
+                     'price' => $akhasap_product->mat_sale_price ,
+                     'cost' => $akhasap_product->mat_purch_price,
+                     'channel' => 'default'
+
+                ]);
+                ProductFlat::updateOrCreate(['product_id' => $product->id,'locale' => 'ru'],
+                [
+                    'sku' => $akhasap_product->material_code,
+                    'type' => 'simple',
+                     'name' => $akhasap_product->material_name,
+                     'status' => 1,
+                     'price' => $akhasap_product->mat_sale_price ,
+                     'cost' => $akhasap_product->mat_purch_price,
+                     'channel' => 'default'
+
+                ]);
                 ProductAttributeValue::updateOrCreate(['product_id' => $product->id],
                 [
                     'channel' => 'ozan',
                     'locale' => 'tm',
-                    'text_value' => 'material_name',
+                    'text_value' => $akhasap_product->material_name,
+                    'attribute_id' => 2,
+                    'product_id' => $product->id
+
+
+                ]);
+                ProductAttributeValue::updateOrCreate(['product_id' => $product->id],
+                [
+                    'channel' => 'ozan',
+                    'locale' => 'en',
+                    'text_value' => $akhasap_product->material_name,
+                    'attribute_id' => 2,
+                    'product_id' => $product->id
+
+
+                ]);
+                ProductAttributeValue::updateOrCreate(['product_id' => $product->id],
+                [
+                    'channel' => 'ozan',
+                    'locale' => 'ru',
+                    'text_value' => $akhasap_product->material_name,
                     'attribute_id' => 2,
                     'product_id' => $product->id
 
@@ -67,7 +121,7 @@ class AkHasapController extends Controller
                 ]);
                 ProductInventory::updateOrCreate(['product_id' => $product->id],
                 [
-                    'qty' => $product->wh_all ? $product->wh_all : 0,
+                    'qty' => $akhasap_product->wh_all ? $akhasap_product->wh_all : 0,
                     'inventory_source_id' => 1,
                     'product_id' => $product->id
                 ]
