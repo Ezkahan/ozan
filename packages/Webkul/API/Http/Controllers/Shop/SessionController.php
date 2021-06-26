@@ -71,6 +71,8 @@ class SessionController extends Controller
         ]);
     }
 
+
+
     /**
      * Get details for current logged in customer
      *

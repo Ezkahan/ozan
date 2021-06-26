@@ -6,6 +6,9 @@ use Illuminate\Routing\Controller;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Http\Request;
+use  Webkul\Product\Models\Product;
+use  Webkul\Product\Models\ProductAttributeValue;
+use  Webkul\Product\Models\ProductInventory;
 use Storage;
 class AkHasapController extends Controller
 {
@@ -41,8 +44,34 @@ class AkHasapController extends Controller
             
             //dd($products);
             Storage::put('file'.mt_rand(10000,99999).'.txt', $request->getContent());
+         
             foreach($products as $product)
             {
+                $product = Product::updateOrCreate(['akhasap_id' => $product->material_id],
+                [
+                    'sku' => $product->material_code,
+                    'type' => 'simple',
+                    'attribute_family_id' => 1,
+                    'akhasap_id' => $product->material_id
+                ]
+                );
+                ProductAttributeValue::updateOrCreate(['product_id' => $product->id],
+                [
+                    'channel' => 'ozan',
+                    'locale' => 'tm',
+                    'text_value' => 'material_name',
+                    'attribute_id' => 2,
+                    'product_id' => $product->id
+
+
+                ]);
+                ProductInventory::updateOrCreate(['product_id' => $product->id],
+                [
+                    'qty' => $product->wh_all ? $product->wh_all : 0,
+                    'inventory_source_id' => 1,
+                    'product_id' => $product->id
+                ]
+                );
                 // echo "material_name: " . $product->material_name . "\n"; //product_attribute_values id-2 locale-tm channel-ozan  text_value
                 // echo "material_code: " . $product->material_code . "\n"; //sku
                 // echo "material_id: " . $product->material_id . "\n"; //akhasap_id
