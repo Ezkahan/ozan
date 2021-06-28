@@ -32,15 +32,114 @@ class AkHasapController extends Controller
         $this->_config = request('_config');
     }
     
-    public function fixdb(){
-        $header = $request->header('Authorization');
-        if($header == '0a358dd1-2b07-4cdf-9d9a-a68dac6bb5fc')
-        {
-         //name -> 2
+    public function fixdb(Request $request){
+        // $header = $request->header('Authorization');
+        // if($header == '0a358dd1-2b07-4cdf-9d9a-a68dac6bb5fc')
+        // {
+           $products = ProductFlat::all();
+         
+           foreach($products as $product)
+           {
+               //locale en
+             ProductAttributeValue::updateOrCreate([
+            'product_id' => $product->product_id,
+            'attribute_id' => 2,
+            'locale' => 'tm'
+        ],
+            [
+                'text_value' => $product->name,
+                'channel' => 'default',
+
+            ]
+            );
+
+            ProductAttributeValue::updateOrCreate([
+                'product_id' => $product->product_id,
+                'attribute_id' => 2,
+                'locale' => 'ru'
+            ],
+                [
+                    'text_value' => $product->name,
+                    'channel' => 'default',
+                ]
+                );
+
+            ProductAttributeValue::updateOrCreate([
+                'product_id' => $product->product_id,
+                'attribute_id' => 2,
+                'locale' => 'en'
+            ],
+                [
+                    'text_value' => $product->name,
+                    'channel' => 'default',
+
+    
+                ]
+                );
+          
+           ProductAttributeValue::updateOrCreate([
+            'product_id' => $product->product_id,
+            'attribute_id' => 11
+        ],
+            [
+                'float_value' => $product->price
+
+            ]
+            );
+
+            ProductAttributeValue::updateOrCreate([
+                'product_id' => $product->product_id,
+                'attribute_id' => 12
+            ],
+                [
+                    'float_value' => $product->cost
+    
+                ]
+                );
+            ProductAttributeValue::updateOrCreate([
+                'product_id' => $product->product_id,
+                'attribute_id' => 7
+            ],
+                [
+                    'boolean_value' => 1
+    
+                ]
+                );
+                ProductAttributeValue::updateOrCreate([
+                    'product_id' => $product->product_id,
+                    'attribute_id' => 26
+                ],
+                    [
+                        'boolean_value' => false
+        
+                    ]
+                    );
+
+                }
+
+            
+       }
+         //name -> 2 locale leri bar
          //price -> 11
-         // 
-        }
-    }
+         // url_key -> 3
+         // visible_individually ->7  true
+         // guest_checkout -> 26 false
+       
+        // }
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
     public function store(Request $request){
         $header = $request->header('Authorization');
         if($header == '0a358dd1-2b07-4cdf-9d9a-a68dac6bb5fc')

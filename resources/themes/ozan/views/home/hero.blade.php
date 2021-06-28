@@ -2,10 +2,8 @@
 <?php
 
 $categories = [];
-$categoryRepository = app('Webkul\Category\Repositories\CategoryRepository');
 
-$category = $categoryRepository->getVisibleCategoryTree();
-dd($category);
+
 foreach (app('Webkul\Category\Repositories\CategoryRepository')->getVisibleCategoryTree(core()->getCurrentChannel()->root_category_id) as $category) {
     if ($category->slug) {
         array_push($categories, $category);
