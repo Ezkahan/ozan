@@ -12,7 +12,6 @@ foreach (app('Webkul\Category\Repositories\CategoryRepository')->getVisibleCateg
 
 ?>
 
-
 {!! view_render_event('bagisto.shop.layout.header.category.after') !!}
 <header class="header">
     <div class="auto__container">
