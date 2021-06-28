@@ -8,6 +8,8 @@ foreach (app('Webkul\Category\Repositories\CategoryRepository')->getVisibleCateg
         array_push($categories, $category);
     }
 }
+
+
 ?>
 <section class="hero">
     <div class="auto__container">

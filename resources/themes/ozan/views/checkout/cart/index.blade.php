@@ -10,11 +10,11 @@
 <div class="breadcumb">
     <div class="auto__container">
         <div class="breadcumb__inner">
-            <a href="index.html">
-                <span>Главная</span>
+            <a href="/">
+                <span>{{ __('shop::app.pagenames.homepage') }}</span>
                 <i class="icon-chevron-right"></i>
             </a>
-            <a href="#">Корзина</a>
+            <a href="#">  {{ __('shop::app.checkout.cartt') }}</a>
         </div>
     </div>
 </div>
@@ -22,74 +22,79 @@
 =========================================== -->
 <div class="delivery">
     <div class="auto__container">
-
         <div class="delivery__inner">
             <!-- table start
             =========================================== -->
       
             <section class="table">
-         
+                {{-- {{ __('shop::app.registerlogin.phoneNumber') }} --}}
                 <div class="delivery__form">
                     <div class="sectionHeader">
                         <div class="sectionHeader__title">
-                            Доставка
+                            {{ __('shop::app.checkout.delivery') }}
                         </div>
+                        
                     </div>
                     <div class="delivery__form-row">
                         <div class="delivery__form-column">
                             <div class="delivery__form-column-label">
-                                Имя и Фамилия <span>*</span>
+                                {{ __('shop::app.checkout.fullname') }}<span>*</span>
                             </div>
                             <div class="delivery__form-column-input">
-                                <input type="name" required placeholder="name">
+                                <input type="name" required placeholder="{{__('shop::app.checkout.fullname')}}">
                             </div>
                         </div>
                         <div class="delivery__form-column">
                             <div class="delivery__form-column-label">
-                                Номер телефона <span>*</span>
+                                {{ __('shop::app.checkout.phone') }} <span>*</span>
                             </div>
                             <div class="delivery__form-column-input">
-                                <input type="phone" required placeholder="phone">
+                                <input type="phone" required placeholder=" {{ __('shop::app.checkout.phone') }}">
                             </div>
                         </div>
                         <div class="delivery__form-column">
                             <div class="delivery__form-column-label">
-                                Дополнительный номер телефона
+                                {{ __('shop::app.checkout.phone-number2') }}
                             </div>
                             <div class="delivery__form-column-input">
-                                <input type="name" placeholder="phone">
+                                <input type="name" placeholder="{{ __('shop::app.checkout.phone-number2') }}">
                             </div>
                         </div>
                         <div class="delivery__form-column">
                             <div class="delivery__form-column-label">
-                                Адрес <span>*</span>
+                                {{ __('shop::app.checkout.address') }} <span>*</span>
                             </div>
                             <div class="delivery__form-column-input">
-                                <input type="name" required placeholder="Адрес">
+                                <input type="name" required placeholder="{{ __('shop::app.checkout.address') }}">
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="sectionHeader">
                     <div class="sectionHeader__title">
-                        Корзина
+                        {{__('shop::app.checkout.cartt') }}
                     </div>
                 </div>
                 <div class="table__header">
                     <div class="table__header-row">
-                        Наименование
+                        {{ __('shop::app.checkout.name') }}
                     </div>
                     <div class="table__header-row">
                         <div class="table__header-column">
-                            Количество
+                            {{ __('shop::app.checkout.quantity') }}
                         </div>
                         <div class="table__header-column">
-                            Цена
+                            {{ __('shop::app.checkout.price') }}
                         </div>
                     </div>
 
                 </div>
                 <div class="table__body">
+                    @if($cart !=null)
+                        @foreach ($cart->items as $key => $item)
+                        <h1>{{$item->product->name}}</h1>
+                        @endforeach
+                    @endif
                     <div class="table__row">
                         <div class="table__column">
                             <div class="table__column-image">
@@ -112,7 +117,7 @@
                                 2
                             </div>
                             <div class="table__column-price">
-                                12 500.00 TMT
+                          100TMT
                             </div>
                         </div>
                     </div>
@@ -122,15 +127,15 @@
             =========================================== -->
             <!-- sidebar start
             ======================================== -->
-            <form action="#" class="sidebar">
+            <div class="sidebar">
                 <div class="sidebar__inner">
                     <div class="sidebar__header">
-                        Методы оплаты
+                        {{ __('shop::app.checkout.payment-methods') }}
                     </div>
                     <div class="sidebar__info">
                         <div class="sidebar__info-input">
                             <label for="">
-                                Введите промокод
+                                {{ __('shop::app.checkout.enter-promo-code') }}
                             </label>
                             <input type="text">
                         </div>
@@ -141,45 +146,49 @@
                                 <input checked type="radio" name="payment" id="online">
                                 <label for="online"></label>
                             </div>
-                            <div class="label">Оплата онлайн</div>
+                            <div class="label">{{ __('shop::app.checkout.online-payment') }}</div>
                         </div>
                         <label for="payment" class="sidebar__info-radio">
                             <div class="sidebar__info-radio-input">
                                 <input type="radio" name="payment" id="card">
                                 <label for="card"></label>
                             </div>
-                            <div class="label">Оплата картой при получении товара</div>
+                            <div class="label">{{ __('shop::app.checkout.on-delivery-card-payment') }}</div>
                         </label>
                         <label for="payment" class="sidebar__info-radio">
                             <div class="sidebar__info-radio-input">
                                 <input type="radio" name="payment" id="cash">
                                 <label for="cash"></label>
                             </div>
-                            <div class="label">Оплата наличными средствами</div>
+                            <div class="label">{{ __('shop::app.checkout.on-delivery-cash-payment') }}</div>
                         </label>
                         <label for="payment" class="sidebar__info-radio">
                             <div class="sidebar__info-radio-input">
                                 <input type="radio" name="payment" id="pay">
                                 <label for="pay"></label>
                             </div>
-                            <div class="label">Оплата через Rysgal pay</div>
+                            <div class="label">{{ __('shop::app.checkout.rysgal-payment') }}</div>
                         </label>
                     </div>
                     <div class="sidebar__info">
                         <div class="sidebar__info-row">
                             <div class="sidebar__info-column">
-                                Итоговая Cумма:
+                                {{ __('shop::app.checkout.total-sum') }}
                             </div>
                             <div class="sidebar__info-column present">
-                                80 346.25 TMT
+                                @if($cart != null)
+                                {{ core()->currency($cart->base_grand_total) }}
+                                @else
+                                0 TMT
+                                @endif
                             </div>
                         </div>
                     </div>
                 </div>
                 <button type="submit" class="sidebar__submit">
-                    Перейти к оплате
+                    {{ __('shop::app.checkout.go-to-payment') }}
                 </button>
-            </form>
+            </div>
             <!-- sidebar end
             ======================================== -->
         </div>
