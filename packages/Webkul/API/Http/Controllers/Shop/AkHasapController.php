@@ -36,21 +36,23 @@ class AkHasapController extends Controller
         // $header = $request->header('Authorization');
         // if($header == '0a358dd1-2b07-4cdf-9d9a-a68dac6bb5fc')
         // {
-           $products = ProductFlat::all();
-         
-           foreach($products as $product)
+           $products = Product::all();
+          
+           foreach($products as $rawproduct)
            {
+               try{
+            $product = $rawproduct->product_flats()->first();
                //locale en
              ProductAttributeValue::updateOrCreate([
-            'product_id' => $product->product_id,
-            'attribute_id' => 2,
-            'locale' => 'tm'
-        ],
-            [
-                'text_value' => $product->name,
-                'channel' => 'default',
+                'product_id' => $product->product_id,
+                'attribute_id' => 2,
+                'locale' => 'tm'
+            ],
+                [
+                    'text_value' => $product->name,
+                    'channel' => 'default',
 
-            ]
+                ]
             );
 
             ProductAttributeValue::updateOrCreate([
@@ -115,8 +117,13 @@ class AkHasapController extends Controller
                     ]
                     );
 
-                }
+               
+            }
+            catch(Exception $e)
+            {
 
+            }
+        }
             
        }
          //name -> 2 locale leri bar
