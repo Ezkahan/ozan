@@ -13,12 +13,12 @@ foreach (app('Webkul\Category\Repositories\CategoryRepository')->getVisibleCateg
     <div class="auto__container">
         <div class="hero__inner">
             <div class="hero__sidebar">
-                <div class="hero__sidebar-inner">
+                <div class="hero__sidebar-inner" id="left-categories">
                     @foreach ($categories as $category)
-                    <a href="{{$category['url_path']}}" class="hero__sidebar-inner-link ">
-                        <i class="icon-skirt"></i>
-                        <span>{{$category['name']}}</span>
-                    </a>
+                        <a href="#" class="hero__sidebar-inner-link ">
+                            <i class="icon-{{ $category['icon'] }}"></i>
+                            <span>{{$category['name']}}</span>
+                        </a>
                     @endforeach
                 </div>
             </div>
