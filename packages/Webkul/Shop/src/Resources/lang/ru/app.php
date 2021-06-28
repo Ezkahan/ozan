@@ -14,6 +14,13 @@ return [
         'orders' => 'Orders',
         'downloadable-products' => 'Downloadable Products'
     ],
+    
+    'pagenames' =>[
+        'homepage' => 'Главная',
+        'cartpage' => 'Корзина',
+        'wishlistpage' => 'Избранное',
+        
+    ],
     'registerlogin' =>[
         'login' => 'Вход',
         'register' => 'Регистрация',
@@ -26,6 +33,27 @@ return [
         'terms' => 'Условия регистрации на сайте!',
         'forgot-password' => 'Забыли пароль?'
 
+    ],
+    
+    'checkout' =>[
+        'delivery' => 'Доставка',
+        'fullname' => 'Имя и Фамилия',
+        'phone-number' => 'Номер телефона',
+        'phone' => 'phone',
+        'phone-number2' => 'Дополнительный номер телефона',
+        'address' => 'Адрес',
+        'cartt' => 'Корзина',
+        'name' => 'Наименование',
+        'quantity' => 'Количество',
+        'price' => 'Цена',
+        'payment-methods' => 'Методы оплаты',
+        'online-payment' => 'Оплата онлайн',
+        'on-delivery-card-payment' => 'Оплата картой при получении товара',
+        'on-delivery-cash-payment' => 'Оплата наличными средствами',
+        'rysgal-payment' => 'Оплата через Rysgal pay',
+        'enter-promo-code' => 'Введите промокод',
+        'total-sum' => 'Итоговая Cумма:',
+        'go-to-payment' => 'Перейти к оплате'
     ],
 
     'common' => [
@@ -469,134 +497,6 @@ return [
 
     'buynow' => [
         'no-options' => 'Please select options before buying this product.'
-    ],
-
-    'checkout' => [
-        'cart' => [
-            'integrity' => [
-                'missing_fields' => 'Some required fields missing for this product.',
-                'missing_options' => 'Options are missing for this product.',
-                'missing_links' => 'Downloadable links are missing for this product.',
-                'qty_missing' => 'Atleast one product should have more than 1 quantity.',
-                'qty_impossible' => 'Cannot add more than one of these products to cart.'
-            ],
-            'create-error' => 'Encountered some issue while making cart instance.',
-            'title' => 'Shopping Cart',
-            'empty' => 'Your shopping cart is empty',
-            'update-cart' => 'Update Cart',
-            'continue-shopping' => 'Continue Shopping',
-            'proceed-to-checkout' => 'Proceed To Checkout',
-            'remove' => 'Remove',
-            'remove-link' => 'Remove',
-            'move-to-wishlist' => 'Move to Wishlist',
-            'move-to-wishlist-success' => 'Item moved to wishlist successfully.',
-            'move-to-wishlist-error' => 'Cannot move item to wishlist, please try again later.',
-            'add-config-warning' => 'Please select option before adding to cart.',
-            'quantity' => [
-                'quantity' => 'Quantity',
-                'success' => 'Cart Item(s) successfully updated.',
-                'illegal' => 'Quantity cannot be lesser than one.',
-                'inventory_warning' => 'The requested quantity is not available, please try again later.',
-                'error' => 'Cannot update the item(s) at the moment, please try again later.'
-            ],
-
-            'item' => [
-                'error_remove' => 'No items to remove from the cart.',
-                'success' => 'Item was successfully added to cart.',
-                'success-remove' => 'Item was removed successfully from the cart.',
-                'error-add' => 'Item cannot be added to cart, please try again later.',
-                'inactive' => 'An item is inactive and was removed from cart.',
-                'inactive-add' => 'Inactive item cannot be added to cart.',
-            ],
-            'quantity-error' => 'Requested quantity is not available.',
-            'cart-subtotal' => 'Cart Subtotal',
-            'cart-remove-action' => 'Do you really want to do this ?',
-            'partial-cart-update' => 'Only some of the product(s) were updated',
-            'link-missing' => '',
-            'event' => [
-                'expired' => 'This event has been expired.'
-            ],
-            'minimum-order-message' => 'Minimum order amount is :amount'
-        ],
-
-        'onepage' => [
-            'title' => 'Checkout',
-            'information' => 'Information',
-            'shipping' => 'Shipping',
-            'payment' => 'Payment',
-            'complete' => 'Complete',
-            'review' => 'Review',
-            'billing-address' => 'Billing Address',
-            'sign-in' => 'Sign In',
-            'company-name' => 'Company Name',
-            'first-name' => 'First Name',
-            'last-name' => 'Last Name',
-            'email' => 'Email',
-            'address1' => 'Street Address',
-            'city' => 'City',
-            'state' => 'State',
-            'select-state' => 'Select a region, state or province',
-            'postcode' => 'Zip/Postcode',
-            'phone' => 'Telephone',
-            'country' => 'Country',
-            'order-summary' => 'Order Summary',
-            'shipping-address' => 'Shipping Address',
-            'use_for_shipping' => 'Ship to this address',
-            'continue' => 'Continue',
-            'shipping-method' => 'Select Shipping Method',
-            'payment-methods' => 'Select Payment Method',
-            'payment-method' => 'Payment Method',
-            'summary' => 'Order Summary',
-            'price' => 'Price',
-            'quantity' => 'Quantity',
-            'billing-address' => 'Billing Address',
-            'shipping-address' => 'Shipping Address',
-            'contact' => 'Contact',
-            'place-order' => 'Place Order',
-            'new-address' => 'Add New Address',
-            'save_as_address' => 'Save this address',
-            'apply-coupon' => 'Apply Coupon',
-            'amt-payable' => 'Amount Payable',
-            'got' => 'Got',
-            'free' => 'Free',
-            'coupon-used' => 'Coupon Used',
-            'applied' => 'Applied',
-            'back' => 'Back',
-            'cash-desc' => 'Cash On Delivery',
-            'money-desc' => 'Money Transfer',
-            'paypal-desc' => 'Paypal Standard',
-            'free-desc' => 'This is a free shipping',
-            'flat-desc' => 'This is a flat rate',
-            'password' => 'Password',
-            'login-exist-message' => 'You already have an account with us, Sign in or continue as guest.',
-            'enter-coupon-code' => 'Enter Coupon Code'
-        ],
-
-        'total' => [
-            'order-summary' => 'Order Summary',
-            'sub-total' => 'Items',
-            'grand-total' => 'Grand Total',
-            'delivery-charges' => 'Delivery Charges',
-            'tax' => 'Tax',
-            'discount' => 'Discount',
-            'price' => 'price',
-            'disc-amount' => 'Amount discounted',
-            'new-grand-total' => 'New Grand Total',
-            'coupon' => 'Coupon',
-            'coupon-applied' => 'Applied Coupon',
-            'remove-coupon' => 'Remove Coupon',
-            'cannot-apply-coupon' => 'Cannot Apply Coupon',
-            'invalid-coupon' => 'Coupon code is invalid.',
-            'success-coupon' => 'Coupon code applied successfully.',
-            'coupon-apply-issue' => 'Coupon code can\'t be applied.'
-        ],
-
-        'success' => [
-            'title' => 'Order successfully placed',
-            'thanks' => 'Thank you for your order!',
-            'order-id-info' => 'Your order id is #:order_id',
-            'info' => 'We will email you, your order details and tracking information'
-        ]
     ],
 
     'mail' => [
