@@ -171,7 +171,6 @@ class ProductController extends Controller
             'attribute_family_id' => 'required',
             'sku'                 => ['required', 'unique:products,sku', new Slug],
         ]);
-
         $product = $this->productRepository->create(request()->all());
 
         session()->flash('success', trans('admin::app.response.create-success', ['name' => 'Product']));
@@ -232,7 +231,6 @@ class ProductController extends Controller
                 }
             }
         }
-
         $product = $this->productRepository->update($data, $id);
 
         session()->flash('success', trans('admin::app.response.update-success', ['name' => 'Product']));

@@ -5,10 +5,10 @@
             <div class="sectionHeader__title">
                 {{ __('shop::app.home.new-products') }}<br/>
             </div>
-            <a href="#" class="sectionHeader__link">
+            {{-- <a href="#" class="sectionHeader__link">
                 <span>Посмотреть все</span>
                 <i class="icon-chevron-right"></i>
-            </a>
+            </a> --}}
         </div>
         <div class="product__row">
             @foreach (app('Webkul\Product\Repositories\ProductRepository')->getNewProducts() as $productFlat)
