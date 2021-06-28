@@ -1,5 +1,5 @@
 @extends('shop::layouts.master')
-
+@inject ('productViewHelper', 'Webkul\Product\Helpers\View')
 @section('page_title')
     {{ trim($product->meta_title) != "" ? $product->meta_title : $product->name }}
 @stop
@@ -45,16 +45,45 @@
         <div class="auto__container">
             <div class="detail__inner">
                 @include ('shop::products.view.gallery')
-                <form  class="detail__content"  method="POST" id="product-form" action="{{ route('cart.add', $product->product_id) }}">
+                <form  class="detail__content"  method="POST" id="product-form" action="{{ route('cart.add', $product->product_id) }}" @click="onSubmit($event)">
+                    @csrf
                     <h1 class="detail__content-title">
                         {!! $product->short_description !!}
                     </h1>
                     <div class="detail__content-brand">
-                        Бренд: <a href="#">Apple</a>
+                        <table>
+                        @if ($customAttributeValues = $productViewHelper->getAdditionalData($product))
+                        @foreach ($customAttributeValues as $attribute)
+                        
+                            @if ($attribute['label'])
+                                <td>{{ $attribute['label'] }}:</td>
+                            @else
+                                <td>{{ $attribute['admin_name'] }}:</td>
+                            @endif
+                            @if ($attribute['type'] == 'file' && $attribute['value'])
+                                <td>
+                                    <a  href="{{ route('shop.product.file.download', [$product->product_id, $attribute['id']])}}">
+                                        <i class="icon sort-down-icon download"></i>
+                                    </a>
+                                </td>
+                            @elseif ($attribute['type'] == 'image' && $attribute['value'])
+                                <td>
+                                    <a href="{{ route('shop.product.file.download', [$product->product_id, $attribute['id']])}}">
+                                        <img src="{{ Storage::url($attribute['value']) }}" style="height: 20px; width: 20px;" alt=""/>
+                                    </a>
+                                </td>
+                            @else
+                                <td>{{ $attribute['value'] }}</td>
+                            @endif
+                            
+                    
+                    @endforeach
+                    @endif
+                        </table>
                     </div>
                     @include ('shop::products.price', ['product' => $product])
                   
-                    <div class="detail__content-color">
+                    {{-- <div class="detail__content-color">
                         <div class="detail__content-color-title">
                             Цвет: Серый
                         </div>
@@ -91,9 +120,9 @@
                                 </label>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                         <button type="submit" class="detail__content-submit">
-                            Добавить в корзину
+                           {{ __('shop::app.products.add-to-cart')}}
                         </button>
             
                    

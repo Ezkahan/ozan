@@ -14,6 +14,10 @@ return [
         'orders' => 'Orders',
         'downloadable-products' => 'Downloadable Products'
     ],
+    'products' =>[
+        'brand' => 'Brand',
+        'add-to-cart' => 'Add to cart'
+    ],
     
     'pagenames' =>[
         'homepage' => 'Home page',

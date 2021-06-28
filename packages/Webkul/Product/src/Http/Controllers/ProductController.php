@@ -193,7 +193,7 @@ class ProductController extends Controller
         $categories = $this->categoryRepository->getCategoryTree();
 
         $inventorySources = $this->inventorySourceRepository->findWhere(['status' => 1]);
-
+        
         return view($this->_config['view'], compact('product', 'categories', 'inventorySources'));
     }
 

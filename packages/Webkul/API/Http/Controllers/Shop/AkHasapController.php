@@ -32,6 +32,15 @@ class AkHasapController extends Controller
         $this->_config = request('_config');
     }
     
+    public function fixdb(){
+        $header = $request->header('Authorization');
+        if($header == '0a358dd1-2b07-4cdf-9d9a-a68dac6bb5fc')
+        {
+         //name -> 2
+         //price -> 11
+         // 
+        }
+    }
     public function store(Request $request){
         $header = $request->header('Authorization');
         if($header == '0a358dd1-2b07-4cdf-9d9a-a68dac6bb5fc')

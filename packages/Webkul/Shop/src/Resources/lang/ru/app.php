@@ -14,7 +14,10 @@ return [
         'orders' => 'Orders',
         'downloadable-products' => 'Downloadable Products'
     ],
-    
+    'products' =>[
+        'brand' => 'Бренд',
+        'add-to-cart' => 'Добавить в корзину'
+    ],
     'pagenames' =>[
         'homepage' => 'Главная',
         'cartpage' => 'Корзина',

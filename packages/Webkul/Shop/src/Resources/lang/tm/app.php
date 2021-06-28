@@ -14,6 +14,10 @@ return [
         'orders' => 'Orders',
         'downloadable-products' => 'Downloadable Products'
     ],
+    'products' =>[
+        'brand' => 'Brend',
+        'add-to-cart' => 'Sebede goş'
+    ],
     'pagenames' =>[
         'homepage' => 'Baş sahypa',
         'cartpage' => 'Sebet',

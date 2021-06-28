@@ -90,6 +90,7 @@
 
                 </div>
                 <div class="table__body">
+                    {{-- {{dd($cart)}} --}}
                     @if($cart !=null)
                         @foreach ($cart->items as $key => $item)
                         <h1>{{$item->product->name}}</h1>
