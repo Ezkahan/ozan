@@ -9,7 +9,6 @@ foreach (app('Webkul\Category\Repositories\CategoryRepository')->getVisibleCateg
     }
 }
 
-
 ?>
 <section class="hero">
     <div class="auto__container">
@@ -24,18 +23,12 @@ foreach (app('Webkul\Category\Repositories\CategoryRepository')->getVisibleCateg
                             </div>
                             <div id="faqCollapse-{{ $loop->iteration }}" class="collapse" aria-labelledby="faqHeading-{{ $loop->iteration }}" data-callback="console.log(true);" data-parent="#accordion">
                                 <div class="card-body" style="padding: 10px;">
-                                    <a href="#" class="hero__sidebar-inner-link ">
-                                        <i class="icon-{{ $category['icon'] }}"></i>
-                                        <span>{{$category['name']}}</span>
-                                    </a>
-                                    <a href="#" class="hero__sidebar-inner-link ">
-                                        <i class="icon-{{ $category['icon'] }}"></i>
-                                        <span>{{$category['name']}}</span>
-                                    </a>
-                                    <a href="#" class="hero__sidebar-inner-link ">
-                                        <i class="icon-{{ $category['icon'] }}"></i>
-                                        <span>{{$category['name']}}</span>
-                                    </a>
+                                    @foreach($category->children as $child)
+                                        <a href="{{ $child['url_path'] }}" class="hero__sidebar-inner-link ">
+                                            <i class="icon-{{ $child['icon'] }}"></i>
+                                            <span>{{$child['name']}}</span>
+                                        </a>
+                                    @endforeach
                                 </div>
                             </div>
                         </div>
