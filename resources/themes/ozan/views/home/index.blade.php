@@ -159,52 +159,95 @@
                     <div class="brand__slider-item">
                         <div class="brand__slider-item-image">
                             <picture>
-                                <img src="{{bagisto_asset('images/brand/1 (1).png')}}" alt="">
+                                <img src="{{bagisto_asset('images/brand/arma.jpg')}}" alt="">
                             </picture>
                         </div>
                     </div>
-                    <div class="brand__slider-item">
+ <div class="brand__slider-item">
                         <div class="brand__slider-item-image">
                             <picture>
-                                <img src="{{bagisto_asset('images/brand/1 (6).png')}}" alt="">
+                                <img src="{{bagisto_asset('images/brand/brands.txt')}}" alt="">
                             </picture>
                         </div>
                     </div>
-                    <div class="brand__slider-item">
+ <div class="brand__slider-item">
                         <div class="brand__slider-item-image">
                             <picture>
-                                <img src="{{bagisto_asset('images/brand/1 (5).png')}}" alt="">
+                                <img src="{{bagisto_asset('images/brand/dap.jpg')}}" alt="">
                             </picture>
                         </div>
                     </div>
-                    <div class="brand__slider-item">
+ <div class="brand__slider-item">
                         <div class="brand__slider-item-image">
                             <picture>
-                                <img src="{{bagisto_asset('images/brand/1 (4).png')}}" alt="">
+                                <img src="{{bagisto_asset('images/brand/dat.jpg')}}" alt="">
                             </picture>
                         </div>
                     </div>
-                    <div class="brand__slider-item">
+ <div class="brand__slider-item">
                         <div class="brand__slider-item-image">
                             <picture>
-                                <img src="{{bagisto_asset('images/brand/1 (3).png')}}" alt="">
+                                <img src="{{bagisto_asset('images/brand/Ecil.jpg')}}" alt="">
                             </picture>
                         </div>
                     </div>
-                    <div class="brand__slider-item">
+ <div class="brand__slider-item">
                         <div class="brand__slider-item-image">
                             <picture>
-                                <img src="{{bagisto_asset('images/brand/1 (2).png')}}" alt="">
+                                <img src="{{bagisto_asset('images/brand/Han_cay.jpg')}}" alt="">
                             </picture>
                         </div>
                     </div>
-                    <div class="brand__slider-item">
+ <div class="brand__slider-item">
                         <div class="brand__slider-item-image">
                             <picture>
-                                <img src="{{bagisto_asset('images/brand/1 (1).png')}}" alt="">
+                                <img src="{{bagisto_asset('images/brand/Han_kofe.jpg')}}" alt="">
                             </picture>
                         </div>
                     </div>
+ <div class="brand__slider-item">
+                        <div class="brand__slider-item-image">
+                            <picture>
+                                <img src="{{bagisto_asset('images/brand/Han_Sohlat.jpg')}}" alt="">
+                            </picture>
+                        </div>
+                    </div>
+ <div class="brand__slider-item">
+                        <div class="brand__slider-item-image">
+                            <picture>
+                                <img src="{{bagisto_asset('images/brand/JOSH.jpg')}}" alt="">
+                            </picture>
+                        </div>
+                    </div>
+ <div class="brand__slider-item">
+                        <div class="brand__slider-item-image">
+                            <picture>
+                                <img src="{{bagisto_asset('images/brand/OK_1.jpg')}}" alt="">
+                            </picture>
+                        </div>
+                    </div>
+ <div class="brand__slider-item">
+                        <div class="brand__slider-item-image">
+                            <picture>
+                                <img src="{{bagisto_asset('images/brand/OZI.jpg')}}" alt="">
+                            </picture>
+                        </div>
+                    </div>
+ <div class="brand__slider-item">
+                        <div class="brand__slider-item-image">
+                            <picture>
+                                <img src="{{bagisto_asset('images/brand/SUYTLI_DERE.jpg')}}" alt="">
+                            </picture>
+                        </div>
+                    </div>
+ <div class="brand__slider-item">
+                        <div class="brand__slider-item-image">
+                            <picture>
+                                <img src="{{bagisto_asset('images/brand/YESERJE.jpg')}}" alt="">
+                            </picture>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
