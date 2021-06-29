@@ -68,8 +68,8 @@ return [
     'home' => [
         'promotions' => 'Акции',
         'page-title' => config('app.name') . ' - Home',
-        'featured-products' => 'Featured Products',
-        'new-products' => 'New Products',
+        'featured-products' => 'Рекомендуемые товары',
+        'new-products' => 'Новые Продукты',
         'verify-email' => 'Verify your email account',
         'resend-verify-email' => 'Resend Verification Email'
     ],

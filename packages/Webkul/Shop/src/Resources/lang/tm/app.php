@@ -69,8 +69,8 @@ return [
     'home' => [
         'promotions' => 'Aksiýalar',
         'page-title' => config('app.name') . ' - Home',
-        'featured-products' => 'Featured Products',
-        'new-products' => 'New Products',
+        'featured-products' => 'Aýratyn önümler',
+        'new-products' => 'Täze önümler',
         'verify-email' => 'Verify your email account',
         'resend-verify-email' => 'Resend Verification Email'
     ],
