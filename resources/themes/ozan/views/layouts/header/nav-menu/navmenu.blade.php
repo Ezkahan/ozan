@@ -95,7 +95,6 @@ foreach (app('Webkul\Category\Repositories\CategoryRepository')->getVisibleCateg
                 </form>
                 <div class="header__column-row">
                     @auth('customer')
-                    <h1>authenticated</h1>
                     <a href="{{ route('customer.profile.index') }}" class="dropdown__btn">
                         <i class="icon-user"></i>
                         <span>{{ __('shop::app.header.profile') }}</span>

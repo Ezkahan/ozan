@@ -81,7 +81,7 @@ return [
         'sign-up' => 'Sign Up',
         'account' => 'Account',
         'cart' => 'Cart',
-        'profile' => 'Profile',
+        'profile' => 'Профиль',
         'wishlist' => 'Избранное',
         'cart' => 'Корзина',
         'logout' => 'Logout',
