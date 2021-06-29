@@ -5,6 +5,7 @@
     if (! is_null($term)) {
         $serachQuery = 'term='.request()->input('term');
     }
+    $current_lang = Lang::locale();
 ?>
 <section class="upheader">
     
@@ -33,9 +34,16 @@
             
 {!! view_render_event('bagisto.shop.layout.header.locale.after') !!}
             <div class="upheader__nav">
-                <a href="#" class="upheader__nav-link">
+                <a href="/page/about-us" class="upheader__nav-link">
                     <i class="icon-info"></i>
+                    @if($current_lang == "en")
                     <span>About us</span>
+                    @elseif($current_lang =="ru")
+                    <span>О нас</span>
+                    @else
+                    <span>Biz hakda</span>
+                    @endif
+
                 </a>
                 {{-- <a href="delivery.html" class="upheader__nav-link">
                     <i class="icon-box"></i>
@@ -47,7 +55,14 @@
                 </a> --}}
                 <a href="#" class="upheader__nav-link">
                     <i class="icon-help"></i>
+                    @if($current_lang == "en")
                     <span>Support</span>
+                    @elseif($current_lang =="ru")
+                    <span>Поддержка</span>
+                    @else
+                    <span>Kömek</span>
+                    @endif
+
                 </a>
             </div>
         </div>
