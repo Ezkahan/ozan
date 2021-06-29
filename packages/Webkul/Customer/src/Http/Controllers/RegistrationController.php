@@ -84,11 +84,12 @@ class RegistrationController extends Controller
      */
     public function create()
     {
+
         $this->validate(request(), [
             'first_name' => 'string|required',
             'last_name'  => 'string|required',
-            'email'      => 'email|required|unique:customers,email',
-            'password'   => 'confirmed|min:6|required',
+            'phone'      => 'required|unique:customers,phone',
+            'password'   => 'required',
         ]);
 
         $data = array_merge(request()->input(), [

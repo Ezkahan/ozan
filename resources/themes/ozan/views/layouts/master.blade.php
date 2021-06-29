@@ -10,11 +10,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta http-equiv="content-language" content="{{ app()->getLocale() }}">
-    
-    
+
     <link rel="stylesheet" href="{{bagisto_asset('css/font.css')}}">
     <link rel="stylesheet" href="{{ bagisto_asset('css/main.css') }}">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+{{--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">--}}
 
     @if ($favicon = core()->getCurrentChannel()->favicon_url)
         <link rel="icon" sizes="16x16" href="{{ $favicon }}" />
@@ -160,20 +159,29 @@
 
 
 <body @if (core()->getCurrentLocale() && core()->getCurrentLocale()->direction == 'rtl') class="rtl" @endif style="scroll-behavior: smooth;">
-  
-    
+
+
     {!! view_render_event('bagisto.shop.layout.body.before') !!}
+
+    {!! view_render_event('bagisto.shop.layout.header.before') !!}
+
     @include('shop::layouts.header.index')
-    {{-- @include('shop::home.hero') --}}
-    {!! view_render_event('bagisto.shop.layout.content.before') !!}
+
+    {!! view_render_event('bagisto.shop.layout.header.after') !!}
+
     <div id="app">
         <flash-wrapper ref='flashes'></flash-wrapper>
     </div>
+
+    {!! view_render_event('bagisto.shop.layout.content.before') !!}
+
     @yield('content-wrapper')
 
     {!! view_render_event('bagisto.shop.layout.content.after') !!}
-    @include('shop::layouts.footer.footer')
 
+    {!! view_render_event('bagisto.shop.layout.footer.before') !!}
+    @include('shop::layouts.footer.footer')
+    {!! view_render_event('bagisto.shop.layout.footer.after') !!}
     <script type="text/javascript">
         window.flashMessages = [];
 
@@ -195,13 +203,13 @@
             @endif
         @endif
     </script>
-
-    <script src="{{ bagisto_asset('js/jquery.js')}}"></script>
-    <script src="{{ bagisto_asset('js/slick.min.js')}}"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
-    <script src="{{ bagisto_asset('js/main.js')}}"></script>
     <script type="text/javascript" src="{{ bagisto_asset('js/shop.js') }}"></script>
     <script type="text/javascript" src="{{ asset('vendor/webkul/ui/assets/js/ui.js') }}"></script>
+{{--    <script src="{{ bagisto_asset('js/jquery.js')}}"></script>--}}
+    <script src="{{ bagisto_asset('js/slick.min.js')}}"></script>
+{{--    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>--}}
+    <script src="{{ bagisto_asset('js/main.js')}}"></script>
+
     @stack('scripts')
 
     {!! view_render_event('bagisto.shop.layout.body.after') !!}

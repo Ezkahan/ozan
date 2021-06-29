@@ -21,12 +21,12 @@
                         <div class="google__title">{{ __('shop::app.customer.login-form.title') }}</div>
                         <div class="google__column">
                             {!! view_render_event('bagisto.shop.customers.login_form_controls.before') !!}
-                            <label for="email" class="required">{{ __('shop::app.customer.login-form.email') }}</label>
-                            <div class="input__outer" :class="[errors.has('email') ? 'has-error' : '']">
+                            <label for="email" class="required">{{ __('shop::app.registerlogin.phoneNumber') }}</label>
+                            <div class="input__outer" :class="[errors.has('phone') ? 'has-error' : '']">
 
-                                <input type="text" class="control" name="email" v-validate="'required|email'"
-                                    value="{{ old('email') }}"
-                                    data-vv-as="&quot;{{ __('shop::app.customer.login-form.email') }}&quot;">
+                                <input type="text" class="control" name="phone" v-validate="'required|phone'"
+                                    value="{{ old('phone') }}"
+                                    data-vv-as="&quot;{{ __('shop::app.customer.login-form.phone') }}&quot;">
                             </div>
                         </div>
                         <div class="google__column">
