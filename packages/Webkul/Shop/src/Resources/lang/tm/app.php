@@ -469,7 +469,7 @@ return [
         'sale' => 'Sale',
         'new' => 'New',
         'empty' => 'No products available in this category',
-        'add-to-cart' => 'Add To Cart',
+        'add-to-cart' => 'Sebete goşuň',
         'book-now' => 'Book Now',
         'buy-now' => 'Buy Now',
         'whoops' => 'Whoops!',
