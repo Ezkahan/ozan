@@ -81,8 +81,12 @@
                     @endif
                         </table>
                     </div>
+                    <div>
                     @include ('shop::products.price', ['product' => $product])
-                  
+                    <button type="submit" class="detail__content-submit">
+                        {{ __('shop::app.products.add-to-cart')}}
+                     </button>
+                    </div>
                     {{-- <div class="detail__content-color">
                         <div class="detail__content-color-title">
                             Цвет: Серый
@@ -121,9 +125,7 @@
                             </div>
                         </div>
                     </div> --}}
-                        <button type="submit" class="detail__content-submit">
-                           {{ __('shop::app.products.add-to-cart')}}
-                        </button>
+                      
             
                    
                 {{-- </form> --}}

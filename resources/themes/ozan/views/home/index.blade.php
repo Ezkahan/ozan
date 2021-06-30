@@ -114,19 +114,7 @@
                             </picture>
                         </div>
                     </div>
-                    <div class="sale__slider-item">
-                        <div class="sale__slider-item-title">
-                            Приглашаем на фестиваль смартфонов
-                        </div>
-                        <div class="sale__slider-item-subtitle">
-                            Акция недели
-                        </div>
-                        <div class="sale__slider-item-image">
-                            <picture>
-                                <img src="{{bagisto_asset('images/sale/1.svg')}}" alt="">
-                            </picture>
-                        </div>
-                    </div>
+                   
                 </div>
             </div>
         </div>
