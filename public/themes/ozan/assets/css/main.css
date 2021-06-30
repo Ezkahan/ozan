@@ -485,6 +485,10 @@ li {
   font-weight: 400;
   color: #ffffff;
 }
+.footer .footer_contact {
+  display: flex;
+  align-items: center;
+}
 
 .dropdown {
   position: relative;

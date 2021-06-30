@@ -199,8 +199,8 @@ foreach (app('Webkul\Category\Repositories\CategoryRepository')->getVisibleCateg
                         <input type="phone" name="phone" v-validate="'required'"
                                value="{{ old('phone') }}"
                                data-vv-as="&quot;{{ __('shop::app.customer.signup-form.phone') }}&quot;">
-                        <span class="input__error"
-                              v-if="errors.has('phone')">@{{ errors . first('phone') }}</span>
+                        {{-- <span class="input__error"
+                              v-if="errors.has('phone')">@{{ errors . first('phone') }}</span> --}}
                     </div>
                 </div>
                 <div class="modal__event-input">
@@ -211,8 +211,8 @@ foreach (app('Webkul\Category\Repositories\CategoryRepository')->getVisibleCateg
                         <input type="text"  name="first_name" v-validate="'required'"
                                value="{{ old('first_name') }}"
                                data-vv-as="&quot;{{ __('shop::app.customer.signup-form.firstname') }}&quot;">
-                        <span class="input__error"
-                              v-if="errors.has('first_name')">@{{ errors . first('first_name') }}</span>
+                        {{-- <span class="input__error"
+                              v-if="errors.has('first_name')">@{{ errors . first('first_name') }}</span> --}}
                     </div>
                 </div>
                 <div class="modal__event-input">
@@ -223,8 +223,8 @@ foreach (app('Webkul\Category\Repositories\CategoryRepository')->getVisibleCateg
                         <input type="text" class="control" name="last_name" v-validate="'required'"
                                value="{{ old('last_name') }}"
                                data-vv-as="&quot;{{ __('shop::app.customer.signup-form.lastname') }}&quot;">
-                        <span class="input__error"
-                              v-if="errors.has('last_name')">@{{ errors . first('last_name') }}</span>
+                        {{-- <span class="input__error"
+                              v-if="errors.has('last_name')">@{{ errors . first('last_name') }}</span> --}}
                     </div>
                 </div>
                 <div class="modal__event-input" >
@@ -235,8 +235,8 @@ foreach (app('Webkul\Category\Repositories\CategoryRepository')->getVisibleCateg
                         <input type="text" name="address" v-validate="'required'"
                                value="{{ old('address') }}"
                                data-vv-as="&quot;{{ __('shop::app.customer.signup-form.address') }}&quot;">
-                        <span class="input__error"
-                              v-if="errors.has('address')">@{{ errors . first('address') }}</span>
+                        {{-- <span class="input__error"
+                              v-if="errors.has('address')">@{{ errors . first('address') }}</span> --}}
                     </div>
                 </div>
                 <div class="modal__event-input">
@@ -247,8 +247,8 @@ foreach (app('Webkul\Category\Repositories\CategoryRepository')->getVisibleCateg
                         <input type="password" name="password" v-validate="'required|min:6'"
                                ref="password" value="{{ old('password') }}"
                                data-vv-as="&quot;{{ __('shop::app.customer.signup-form.password') }}&quot;">
-                        <span class="input__error"
-                              v-if="errors.has('password')">@{{ errors . first('password') }}</span>
+                        {{-- <span class="input__error"
+                              v-if="errors.has('password')">@{{ errors . first('password') }}</span> --}}
                     </div>
                 </div>
                 <button type="submit" class="modal__event-submit">
