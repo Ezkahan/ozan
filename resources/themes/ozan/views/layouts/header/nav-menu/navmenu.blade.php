@@ -40,7 +40,7 @@ foreach (app('Webkul\Category\Repositories\CategoryRepository')->getVisibleCateg
                                         stroke-width="1.5" />
                                 </g>
                             </svg>
-                            <span> {{ __('velocity::app.home.menu') }}</span>
+                            <span> Menu</span>
                         </button>
                         <div id="menuDropdown" class="menu__content ham">
                             <div class="menu__content-header">

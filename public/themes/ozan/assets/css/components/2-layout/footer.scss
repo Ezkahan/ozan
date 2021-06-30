@@ -22,4 +22,15 @@
         -moz-flex-direction: column;
         -o-flex-direction: column;
         -webkit-flex-direction: column;
+        margin-left: 30px;
     }
+
+    .footer_group {
+        display: flex;
+        align-items: center;
+    }
+
+    .phone-number {
+        display: block;
+    }
+}

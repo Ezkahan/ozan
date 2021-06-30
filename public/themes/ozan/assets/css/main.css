@@ -1,5 +1,5 @@
 @charset "UTF-8";
-/*** 
+/***
 
 ====================================================================
 	Reset
@@ -52,7 +52,7 @@ input::-webkit-inner-spin-button {
   background: rgba(0, 0, 0, 0.3);
 }
 
-/*** 
+/***
   ====================================================================
       Global Settings
   ====================================================================
@@ -151,6 +151,21 @@ li {
 @media (max-width: 1400px) {
   .auto__container {
     padding: 0 60px;
+  }
+}
+@media (max-width: 1150px) {
+  .footer__inner {
+    flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    -moz-flex-wrap: wrap;
+    -o-flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+    justify-content: center;
+    align-items: unset;
+  }
+
+  .footer__quality {
+    width: 100%;
   }
 }
 @media (max-width: 1023px) {
@@ -487,7 +502,17 @@ li {
 }
 .footer .footer_contact {
   display: flex;
+  flex-direction: column;
+  -moz-flex-direction: column;
+  -o-flex-direction: column;
+  margin-left: 30px;
+}
+.footer .footer_group {
+  display: flex;
   align-items: center;
+}
+.footer .phone-number {
+  display: block;
 }
 
 .dropdown {
@@ -699,7 +724,7 @@ li {
     opacity: 1;
   }
 }
-/* question start 
+/* question start
 ================================================ */
 .sidebar__banner {
   width: 100%;
@@ -769,7 +794,7 @@ li {
   max-height: 1000px;
 }
 
-/* question end 
+/* question end
   ================================================ */
 .search {
   display: flex;

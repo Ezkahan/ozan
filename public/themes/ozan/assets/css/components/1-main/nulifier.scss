@@ -1,4 +1,4 @@
-/*** 
+/***
 
 ====================================================================
 	Reset
@@ -9,143 +9,184 @@
 //   font-size: calc(1vw + 0.6em);
 // }
 * {
-  margin: 0px;
-  padding: 0px;
-  border: none;
-  outline: none;
+    margin: 0px;
+    padding: 0px;
+    border: none;
+    outline: none;
 }
+
 button {
-  outline: none;
+    outline: none;
 }
+
 button:focus {
-  outline: none;
+    outline: none;
 }
+
 button:focus {
-  outline: none;
+    outline: none;
 }
+
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+    -webkit-appearance: none;
+    margin: 0;
 }
+
 /* width */
 ::-webkit-scrollbar {
-  width: 8px;
+    width: 8px;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #fff;
+    background: #fff;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: rgba($color: #000, $alpha: 0.2);
-  border-radius: 10px;
+    background: rgba($color: #000, $alpha: 0.2);
+    border-radius: 10px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba($color: #000, $alpha: 0.3);
+    background: rgba($color: #000, $alpha: 0.3);
 }
-/*** 
+
+/***
   ====================================================================
       Global Settings
   ====================================================================
    ***/
 
 body {
-  font-family: "Open Sans", sans-serif;
-  font-size: 14px;
-  color: #000;
-  line-height: 1.7em;
-  font-weight: 400;
-  background: #fff;
-  -webkit-font-smoothing: antialiased;
-  -moz-font-smoothing: antialiased;
+    font-family: "Open Sans", sans-serif;
+    font-size: 14px;
+    color: #000;
+    line-height: 1.7em;
+    font-weight: 400;
+    background: #fff;
+    -webkit-font-smoothing: antialiased;
+    -moz-font-smoothing: antialiased;
 }
+
 a {
-  text-decoration: none;
-  cursor: pointer;
-  color: #000;
+    text-decoration: none;
+    cursor: pointer;
+    color: #000;
 }
+
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  position: relative;
-  font-weight: normal;
-  margin: 0px;
-  background: none;
-  line-height: 1.6em;
+    position: relative;
+    font-weight: normal;
+    margin: 0px;
+    background: none;
+    line-height: 1.6em;
 }
+
 /* Typography */
 h1 {
-  font-size: 4em;
+    font-size: 4em;
 }
+
 h2 {
-  font-size: 40px;
+    font-size: 40px;
 }
+
 h3 {
-  font-size: 34px;
+    font-size: 34px;
 }
+
 h4 {
-  font-size: 22px;
+    font-size: 22px;
 }
+
 h5 {
-  font-size: 20px;
+    font-size: 20px;
 }
+
 h6 {
-  font-size: 18px;
+    font-size: 18px;
 }
+
 p {
-  position: relative;
-  line-height: 1.8em;
+    position: relative;
+    line-height: 1.8em;
 }
+
 .auto__container {
-  position: relative;
-  max-width: 1640px;
-  padding: 0px 120px;
-  margin: 0 auto;
+    position: relative;
+    max-width: 1640px;
+    padding: 0px 120px;
+    margin: 0 auto;
 }
+
 ul,
 li {
-  list-style: none;
-  padding: 0px;
-  margin: 0px;
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
 }
+
 .breadcumb {
-  margin-top: 2rem;
-  &__inner {
-    a {
-      font-size: 18px;
-      line-height: 24px;
-      font-weight: 400;
-      color: $black;
-      margin-right: 10px;
-      i {
-        font-size: 14px;
-      }
-      span {
-        margin-right: 10px;
-      }
+    margin-top: 2rem;
+
+    &__inner {
+        a {
+            font-size: 18px;
+            line-height: 24px;
+            font-weight: 400;
+            color: $black;
+            margin-right: 10px;
+
+            i {
+                font-size: 14px;
+            }
+
+            span {
+                margin-right: 10px;
+            }
+        }
     }
-  }
 }
+
 @media (max-width: 1400px) {
-  .auto__container {
-    padding: 0 60px;
-  }
+    .auto__container {
+        padding: 0 60px;
+    }
 }
+
+@media (max-width: 1150px) {
+    .footer__inner {
+        flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+        -moz-flex-wrap: wrap;
+        -o-flex-wrap: wrap;
+        -webkit-flex-wrap: wrap;
+        justify-content: center;
+
+        align-items: unset;
+    }
+
+    .footer__quality {
+        width: 100%;
+    }
+}
+
 @media (max-width: 1023px) {
-  .auto__container {
-    padding: 0 30px;
-  }
+    .auto__container {
+        padding: 0 30px;
+    }
 }
+
 @media (max-width: 650px) {
-  .auto__container {
-    padding: 0 15px;
-  }
+    .auto__container {
+        padding: 0 15px;
+    }
 }
