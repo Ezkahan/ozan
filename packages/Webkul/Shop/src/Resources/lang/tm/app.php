@@ -99,6 +99,7 @@ return [
     ],
 
     'footer' => [
+        'guarantee' => 'Harytlaryň hilini kepillendirýäris',
         'subscribe-newsletter' => 'Subscribe Newsletter',
         'subscribe' => 'Subscribe',
         'locale' => 'Locale',
