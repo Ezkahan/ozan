@@ -72,7 +72,8 @@ return [
         'featured-products' => 'Aýratyn önümler',
         'new-products' => 'Täze önümler',
         'verify-email' => 'Verify your email account',
-        'resend-verify-email' => 'Resend Verification Email'
+        'resend-verify-email' => 'Resend Verification Email',
+        'brands' => 'Brendler'
     ],
 
     'header' => [
@@ -98,6 +99,7 @@ return [
     ],
 
     'footer' => [
+        'guarantee' => 'Harytlaryň hilini kepillendirýäris',
         'subscribe-newsletter' => 'Subscribe Newsletter',
         'subscribe' => 'Subscribe',
         'locale' => 'Locale',
@@ -459,7 +461,7 @@ return [
         'total-rating' => ':total_rating Ratings & :total_reviews Reviews',
         'by' => 'By :name',
         'up-sell-title' => 'We found other products you might like!',
-        'related-product-title' => 'Related Products',
+        'related-product-title' => 'Degişli önümler',
         'cross-sell-title' => 'More choices',
         'reviews-title' => 'Ratings & Reviews',
         'write-review-btn' => 'Write Review',
@@ -467,7 +469,7 @@ return [
         'sale' => 'Sale',
         'new' => 'New',
         'empty' => 'No products available in this category',
-        'add-to-cart' => 'Add To Cart',
+        'add-to-cart' => 'Sebete goşuň',
         'book-now' => 'Book Now',
         'buy-now' => 'Buy Now',
         'whoops' => 'Whoops!',

@@ -50,7 +50,7 @@
         <div class="auto__container">
             <div class="sectionBanner__inner">
                 <picture>
-                    <img src="images/banner/horizontal.png" alt="">
+                    <img src="{{bagisto_asset('images/banner/horizontal.png')}}" alt="">
                 </picture>
             </div>
         </div>
@@ -77,12 +77,10 @@
                     <i class="icon-chevron-right"></i>
                 </div>
                 <div class="sale__slider">
-                    <div class="sale__slider-item">
-                        <div class="sale__slider-item-title">
-                            Приглашаем на фестиваль смартфонов
+                    <div class="sale__slider-item"  style="box-sizing: unset;">
+                        <div class="sale__slider-item-title"  style="box-sizing: unset;">Приглашаем на фестиваль смартфонов
                         </div>
-                        <div class="sale__slider-item-subtitle">
-                            Акция недели
+                        <div class="sale__slider-item-subtitle">Акция недели
                         </div>
                         <div class="sale__slider-item-image">
                             <picture>
@@ -91,7 +89,7 @@
                         </div>
                     </div>
                     <div class="sale__slider-item">
-                        <div class="sale__slider-item-title">
+                        <div class="sale__slider-item-title"  style="box-sizing: unset;">
                             Вечерний образ
                         </div>
                         <div class="sale__slider-item-subtitle">
@@ -104,7 +102,7 @@
                         </div>
                     </div>
                     <div class="sale__slider-item">
-                        <div class="sale__slider-item-title">
+                        <div class="sale__slider-item-title"  style="box-sizing: unset;">
                             Приглашаем на фестиваль смартфонов
                         </div>
                         <div class="sale__slider-item-subtitle">
@@ -112,23 +110,11 @@
                         </div>
                         <div class="sale__slider-item-image">
                             <picture>
-                                <img src="images/sale/3.svg" alt="">
+                                <img src="{{bagisto_asset('images/sale/3.svg')}}" alt="">
                             </picture>
                         </div>
                     </div>
-                    <div class="sale__slider-item">
-                        <div class="sale__slider-item-title">
-                            Приглашаем на фестиваль смартфонов
-                        </div>
-                        <div class="sale__slider-item-subtitle">
-                            Акция недели
-                        </div>
-                        <div class="sale__slider-item-image">
-                            <picture>
-                                <img src="{{bagisto_asset('images/sale/1.svg')}}" alt="">
-                            </picture>
-                        </div>
-                    </div>
+                   
                 </div>
             </div>
         </div>
@@ -141,7 +127,7 @@
         <div class="auto__container">
             <div class="sectionHeader">
                 <div class="sectionHeader__title">
-                    Brands
+                    {{__('shop::app.home.brands')}}
                 </div>
                 {{-- <a href="#" class="sectionHeader__link">
                     <span>Посмотреть все</span>
@@ -237,6 +223,12 @@
 
                 </div>
             </div>
+        </div>
+    </section>
+    <section class="subscribe">
+        <div class="subscribe__link">
+            <i class="icon-telegram"></i>
+            <span>Подписаться на наши новости и акции</span>
         </div>
     </section>
     {{ view_render_event('bagisto.shop.home.content.after') }}

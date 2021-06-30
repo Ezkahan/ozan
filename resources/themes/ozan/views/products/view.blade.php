@@ -39,13 +39,13 @@
 @stop
 
 @section('content-wrapper')
-
+<div class="auto__container">
     {!! view_render_event('bagisto.shop.products.view.before', ['product' => $product]) !!}
     <section class="detail">
-        <div class="auto__container">
+      
             <div class="detail__inner">
                 @include ('shop::products.view.gallery')
-                <form  class="detail__content"  method="POST" id="product-form" action="{{ route('cart.add', $product->product_id) }}" @click="onSubmit($event)">
+                {{-- <form  class="detail__content"  method="POST" id="product-form" action="{{ route('cart.add', $product->product_id) }}" @click="onSubmit($event)"> --}}
                     @csrf
                     <h1 class="detail__content-title">
                         {!! $product->short_description !!}
@@ -81,8 +81,12 @@
                     @endif
                         </table>
                     </div>
+                    <div>
                     @include ('shop::products.price', ['product' => $product])
-                  
+                    <button type="submit" class="detail__content-submit">
+                        {{ __('shop::app.products.add-to-cart')}}
+                     </button>
+                    </div>
                     {{-- <div class="detail__content-color">
                         <div class="detail__content-color-title">
                             Цвет: Серый
@@ -121,12 +125,10 @@
                             </div>
                         </div>
                     </div> --}}
-                        <button type="submit" class="detail__content-submit">
-                           {{ __('shop::app.products.add-to-cart')}}
-                        </button>
+                      
             
                    
-                </form>
+                {{-- </form> --}}
             </div>
             <div class="detail__about">
                 <h5>
@@ -141,8 +143,10 @@
             
             <!-- product end
     =========================================== -->
-        </div>
+ 
     </section>    
+    @include ('shop::products.view.related-products')
+</div>
     {{-- <section class="product-detail">
 
         <div class="layouter">
@@ -226,7 +230,7 @@
             </product-view>
         </div>
 
-        @include ('shop::products.view.related-products')
+      
 
         @include ('shop::products.view.up-sells')
 

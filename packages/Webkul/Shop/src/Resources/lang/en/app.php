@@ -70,7 +70,8 @@ return [
         'featured-products' => 'Featured Products',
         'new-products' => 'New Products',
         'verify-email' => 'Verify your email account',
-        'resend-verify-email' => 'Resend Verification Email'
+        'resend-verify-email' => 'Resend Verification Email',
+        'brands' => 'Brands'
     ],
 
     'header' => [
@@ -96,6 +97,7 @@ return [
     ],
 
     'footer' => [
+        'guarantee' => 'Product quality guaranteed',
         'subscribe-newsletter' => 'Subscribe Newsletter',
         'subscribe' => 'Subscribe',
         'locale' => 'Locale',

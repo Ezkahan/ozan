@@ -71,7 +71,8 @@ return [
         'featured-products' => 'Рекомендуемые товары',
         'new-products' => 'Новые Продукты',
         'verify-email' => 'Verify your email account',
-        'resend-verify-email' => 'Resend Verification Email'
+        'resend-verify-email' => 'Resend Verification Email',
+        'brands' => 'Бренды'
     ],
 
     'header' => [
@@ -97,6 +98,7 @@ return [
     ],
 
     'footer' => [
+        'guarantee' => 'Качество товара гарантировано',
         'subscribe-newsletter' => 'Subscribe Newsletter',
         'subscribe' => 'Subscribe',
         'locale' => 'Locale',
@@ -192,12 +194,12 @@ return [
         ],
 
         'login-form' => [
-            'page-title' => 'Customer Login',
-            'title' => 'Sign In',
-            'email' => 'Email',
-            'password' => 'Password',
-            'forgot_pass' => 'Forgot Password?',
-            'button_title' => 'Sign In',
+            'page-title' => 'Вход для клиентов',
+            'title' => 'Войти',
+            'email' => 'Электронное письмо',
+            'password' => 'Пароль',
+            'forgot_pass' => 'Забыл пароль?',
+            'button_title' => 'Войти',
             'remember' => 'Remember Me',
             'footer' => '© Copyright :year Webkul Software, All rights reserved',
             'invalid-creds' => 'Please check your credentials and try again.',
@@ -458,7 +460,7 @@ return [
         'total-rating' => ':total_rating Ratings & :total_reviews Reviews',
         'by' => 'By :name',
         'up-sell-title' => 'We found other products you might like!',
-        'related-product-title' => 'Related Products',
+        'related-product-title' => 'Похожие запросы',
         'cross-sell-title' => 'More choices',
         'reviews-title' => 'Ratings & Reviews',
         'write-review-btn' => 'Write Review',
@@ -466,7 +468,7 @@ return [
         'sale' => 'Sale',
         'new' => 'New',
         'empty' => 'No products available in this category',
-        'add-to-cart' => 'Add To Cart',
+        'add-to-cart' => 'Добавить в корзину',
         'book-now' => 'Book Now',
         'buy-now' => 'Buy Now',
         'whoops' => 'Whoops!',
