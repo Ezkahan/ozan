@@ -156,7 +156,7 @@ foreach (app('Webkul\Category\Repositories\CategoryRepository')->getVisibleCateg
                         {{ __('shop::app.registerlogin.phoneNumber') }}
                     </label>
                     <div class="modal__event-input-input">
-                        <input type="phone" name="phone" v-validate="'required|phone'"
+                        <input type="phone" name="phone" v-validate="'required|numeric'"
                                value="{{ old('phone') }}"
                                data-vv-as="&quot;{{ __('shop::app.customer.login-form.phone') }}&quot;">
                     </div>
