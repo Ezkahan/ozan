@@ -1,15 +1,17 @@
 .footer {
-  padding: 2rem 0;
-  background: #0f0f0f;
-  &__inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  &__copyright {
-    font-size: 18px;
-    line-height: 24px;
-    font-weight: 400;
-    color: $white;
-  }
+    padding: 2rem 0;
+    background: #0f0f0f;
+
+    &__inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__copyright {
+        font-size: 18px;
+        line-height: 24px;
+        font-weight: 400;
+        color: $white;
+    }
 }

@@ -19,7 +19,9 @@
   
     <div class="card__image">
         <picture>
+            <a href="{{ route('shop.productOrCategory.index', $product->url_key) }}" title="{{ $product->name }}" class="card__body-title">
             <img src="{{ $productBaseImage['medium_image_url'] }}" onerror="this.src='{{ asset('vendor/webkul/ui/assets/images/product/meduim-product-placeholder.png') }}'" alt="" />
+            </a>
         </picture>
     </div>
     <div class="card__body">

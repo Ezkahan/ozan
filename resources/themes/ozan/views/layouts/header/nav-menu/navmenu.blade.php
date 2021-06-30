@@ -8,7 +8,8 @@ foreach (app('Webkul\Category\Repositories\CategoryRepository')->getVisibleCateg
     if ($category->slug) {
         array_push($categories, $category);
     }
-}
+} 
+ $current_lang = Lang::locale();
 
 ?>
 
@@ -22,7 +23,7 @@ foreach (app('Webkul\Category\Repositories\CategoryRepository')->getVisibleCateg
                     <img src="/themes/ozan/assets/images/logo.svg" alt="">
                     </a>
                 </div>
-                {{-- <div class="header__menu">
+                <div class="header__menu">
                     <div class="menu" onclick="showMenu()">
                         <button class="menu__btn ham" id="menuBtn">
                             <svg xmlns="http://www.w3.org/2000/svg" width="19.5" height="13.5"
@@ -50,33 +51,41 @@ foreach (app('Webkul\Category\Repositories\CategoryRepository')->getVisibleCateg
                                     <i class="icon-close"></i>
                                 </div>
                             </div>
-                            <a href="about.html" class="menu__content-link">
+                            <a style="color:black" href="/page/about-us" class="dropdown__btn">
                                 <i class="icon-info"></i>
-                                О нас
+                                @if($current_lang == "en")
+                                <span>About us</span>
+                                @elseif($current_lang =="ru")
+                                <span>О нас</span>
+                                @else
+                                <span>Biz hakda</span>
+                                @endif
+            
                             </a>
-                            <a href="delivery.html" class="menu__content-link">
-                                <i class="icon-box"></i>
-                                Доставка
-                            </a>
-                            <a href="#" class="menu__content-link">
-                                <i class="icon-money"></i>
-                                Методы оплаты
-                            </a>
-                            <a href="#" class="menu__content-link">
+                            <a href="#" style="color:black" class="dropdown__btn">
                                 <i class="icon-help"></i>
-                                Поддержка
+                                @if($current_lang == "en")
+                                <span>Support</span>
+                                @elseif($current_lang =="ru")
+                                <span>Поддержка</span>
+                                @else
+                                <span>Kömek</span>
+                                @endif
+            
                             </a>
-                            <a href="favourite.html" class="menu__content-link">
-                                <i class="icon-star"></i>
-                                Избранное
-                            </a>
-                            <a href="basket.html" class="menu__content-link">
-                                <i class="icon-Inactive"></i>
-                                Корзина
-                            </a>
+                            
+                    <a href="/customer/account/wishlist" class="dropdown__btn">
+                        <i class="icon-star"></i>
+                        <span>{{ __('shop::app.header.wishlist') }}</span>
+                    </a>
+
+                    <a href="/checkout/cart" class="dropdown__btn">
+                        <i class="icon-Inactive"></i>
+                        <span>{{ __('shop::app.header.cart') }}</span>
+                    </a>
                         </div>
                     </div>
-                </div> --}}
+                </div>
             </div>
             <div class="header__column">
                 <form class="search" role="search" action="{{ route('shop.search.index') }}" method="GET" style="display: inherit;">

@@ -2,6 +2,7 @@ $(".hero__slider").slick({
   slidesToShow: 1,
   slidesToScroll: 1,
   dots: false,
+  autoplaySpeed: 2000,
   nextArrow: ".next",
   prevArrow: ".prev",
   adaptiveHeight: true,
