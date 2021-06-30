@@ -39,10 +39,10 @@
 @stop
 
 @section('content-wrapper')
-
+<div class="auto__container">
     {!! view_render_event('bagisto.shop.products.view.before', ['product' => $product]) !!}
     <section class="detail">
-        <div class="auto__container">
+      
             <div class="detail__inner">
                 @include ('shop::products.view.gallery')
                 {{-- <form  class="detail__content"  method="POST" id="product-form" action="{{ route('cart.add', $product->product_id) }}" @click="onSubmit($event)"> --}}
@@ -143,9 +143,10 @@
             
             <!-- product end
     =========================================== -->
-        </div>
+ 
     </section>    
     @include ('shop::products.view.related-products')
+</div>
     {{-- <section class="product-detail">
 
         <div class="layouter">
