@@ -160,12 +160,22 @@ li {
     -moz-flex-wrap: wrap;
     -o-flex-wrap: wrap;
     -webkit-flex-wrap: wrap;
-    justify-content: center;
+    justify-content: unset !important;
     align-items: unset;
   }
 
-  .footer__quality {
+  .footer__copyright {
+    font-size: 16px !important;
+    width: 50%;
+  }
+
+  .footer_group {
+    width: 50%;
+  }
+
+  .footer_quality {
     width: 100%;
+    margin-top: 30px;
   }
 }
 @media (max-width: 1023px) {
@@ -173,9 +183,27 @@ li {
     padding: 0 30px;
   }
 }
+@media (max-width: 850px) {
+  .footer__copyright {
+    width: 100%;
+  }
+
+  .footer_group {
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .footer_quality {
+    margin-top: 20px;
+  }
+}
 @media (max-width: 650px) {
   .auto__container {
     padding: 0 15px;
+  }
+
+  .footer__copyright {
+    font-size: 14px !important;
   }
 }
 /* Slider */
@@ -1745,16 +1773,64 @@ li {
 
 .sectionBanner {
   padding-top: 6.6rem;
+  position: relative;
 }
 .sectionBanner__inner {
   width: 100%;
   background: #f7f7f7;
+  position: relative;
 }
 .sectionBanner__inner picture {
   width: 100%;
 }
 .sectionBanner__inner picture img {
   width: 100%;
+}
+.sectionBanner__inner .prev_s {
+  position: absolute;
+  z-index: 1;
+  left: -20px;
+  top: 50%;
+  transform: translateY(-50%);
+  -moz-ransform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  width: 43px;
+  height: 43px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #818181;
+  background: #ffffff;
+  border-radius: 5px;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  transition: background 0.2s ease-in-out 0s;
+  -moz-transition: background 0.2s ease-in-out 0s;
+}
+.sectionBanner__inner .next_s {
+  position: absolute;
+  z-index: 1;
+  right: -20px;
+  top: 50%;
+  transform: translateY(-50%);
+  -moz-ransform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  width: 43px;
+  height: 43px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #818181;
+  background: #ffffff;
+  border-radius: 5px;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  transition: background 0.2s ease-in-out 0s;
+  -moz-transition: background 0.2s ease-in-out 0s;
 }
 
 .subscribe {

@@ -180,10 +180,12 @@
 
 .sectionBanner {
     padding-top: 6.6rem;
+    position: relative;
 
     &__inner {
         width: 100%;
         background: #f7f7f7;
+        position: relative;
 
         picture {
             width: 100%;
@@ -191,6 +193,54 @@
             img {
                 width: 100%;
             }
+        }
+
+        .prev_s {
+            position: absolute;
+            z-index: 1;
+            left: -20px;
+            top: 50%;
+            transform: translateY(-50%);
+            -moz-ransform: translateY(-50%);
+            -o-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+            -webkit-transform: translateY(-50%);
+            width: 43px;
+            height: 43px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #818181;
+            background: #ffffff;
+            border-radius: 5px;
+            box-shadow: 0px 0px 4px rgb(0 0 0 / 15%);
+            cursor: pointer;
+            transition: background 0.2s ease-in-out 0s;
+            -moz-transition: background 0.2s ease-in-out 0s;
+        }
+
+        .next_s {
+            position: absolute;
+            z-index: 1;
+            right: -20px;
+            top: 50%;
+            transform: translateY(-50%);
+            -moz-ransform: translateY(-50%);
+            -o-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+            -webkit-transform: translateY(-50%);
+            width: 43px;
+            height: 43px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #818181;
+            background: #ffffff;
+            border-radius: 5px;
+            box-shadow: 0px 0px 4px rgb(0 0 0 / 15%);
+            cursor: pointer;
+            transition: background 0.2s ease-in-out 0s;
+            -moz-transition: background 0.2s ease-in-out 0s;
         }
     }
 }
