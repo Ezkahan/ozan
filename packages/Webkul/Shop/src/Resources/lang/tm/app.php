@@ -72,7 +72,8 @@ return [
         'featured-products' => 'Aýratyn önümler',
         'new-products' => 'Täze önümler',
         'verify-email' => 'Verify your email account',
-        'resend-verify-email' => 'Resend Verification Email'
+        'resend-verify-email' => 'Resend Verification Email',
+        'brands' => 'Brendler'
     ],
 
     'header' => [

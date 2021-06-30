@@ -34,7 +34,7 @@
             
 {!! view_render_event('bagisto.shop.layout.header.locale.after') !!}
             <div class="upheader__nav">
-                <a href="/page/about-us" class="upheader__nav-link">
+                <a style="color:black" href="/page/about-us" class="upheader__nav-link">
                     <i class="icon-info"></i>
                     @if($current_lang == "en")
                     <span>About us</span>
@@ -53,7 +53,7 @@
                     <i class="icon-money"></i>
                     <span>Методы оплаты</span>
                 </a> --}}
-                <a href="#" class="upheader__nav-link">
+                <a href="#" style="color:black" class="upheader__nav-link">
                     <i class="icon-help"></i>
                     @if($current_lang == "en")
                     <span>Support</span>

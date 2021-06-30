@@ -71,7 +71,8 @@ return [
         'featured-products' => 'Рекомендуемые товары',
         'new-products' => 'Новые Продукты',
         'verify-email' => 'Verify your email account',
-        'resend-verify-email' => 'Resend Verification Email'
+        'resend-verify-email' => 'Resend Verification Email',
+        'brands' => 'Бренды'
     ],
 
     'header' => [
