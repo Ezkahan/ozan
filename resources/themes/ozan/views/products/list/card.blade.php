@@ -25,7 +25,7 @@
     <div class="card__body">
         @include ('shop::products.price', ['product' => $product])
         
-        <a href="#" title="{{ $product->name }}" class="card__body-title">
+        <a href="{{ route('shop.productOrCategory.index', $product->url_key) }}" title="{{ $product->name }}" class="card__body-title">
             {{ $product->name }}
         </a>
         
