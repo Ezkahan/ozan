@@ -93,35 +93,33 @@
                     {{-- {{dd($cart)}} --}}
                     @if($cart !=null)
                         @foreach ($cart->items as $key => $item)
-                        <h1>{{$item->product->name}}</h1>
+                        <div class="table__row">
+                            <div class="table__column">
+                                <div class="table__column-image">
+                                    <picture>
+                                        <img src="images/product/2.png" alt="">
+                                    </picture>
+                                </div>
+                                <div class="table__column-name">
+                                    <p>
+                                        {{$item->product->short_description}}
+                                    </p>
+    
+                                </div>
+                            </div>
+                            <div class="table__column">
+                                <div class="table__column-quant">
+                                    {{$item->product->quantity}}
+                                </div>
+                                <div class="table__column-price">
+                                    {{$item->product->price}}
+                                </div>
+                            </div>
+                        </div>
+                        
                         @endforeach
                     @endif
-                    <div class="table__row">
-                        <div class="table__column">
-                            <div class="table__column-image">
-                                <picture>
-                                    <img src="images/product/2.png" alt="">
-                                </picture>
-                            </div>
-                            <div class="table__column-name">
-                                <p>
-                                    Apple <strong>iPhone XS A2097 64 ГБ,</strong> 256 ГБ восстановленный,
-                                    разблокированный,
-                                    одна
-                                    SIM-карта
-                                </p>
-
-                            </div>
-                        </div>
-                        <div class="table__column">
-                            <div class="table__column-quant">
-                                2
-                            </div>
-                            <div class="table__column-price">
-                          100TMT
-                            </div>
-                        </div>
-                    </div>
+                    
                 </div>
             </section>
             <!-- table end
