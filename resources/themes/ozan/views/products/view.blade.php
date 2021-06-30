@@ -130,14 +130,14 @@
                    
                 {{-- </form> --}}
             </div>
-            {{-- <div class="detail__about">
+            <div class="detail__about">
                 <h5>
                     {{ __('shop::app.products.description') }}:
                 </h5>
                 <p>
                     {!! $product->description !!}
                 </p>
-            </div> --}}
+            </div>
             <!-- similar start
     =========================================== -->
             
