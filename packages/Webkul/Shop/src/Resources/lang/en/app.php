@@ -97,6 +97,7 @@ return [
     ],
 
     'footer' => [
+        'guarantee' => 'Product quality guaranteed',
         'subscribe-newsletter' => 'Subscribe Newsletter',
         'subscribe' => 'Subscribe',
         'locale' => 'Locale',

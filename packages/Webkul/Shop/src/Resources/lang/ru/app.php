@@ -98,6 +98,7 @@ return [
     ],
 
     'footer' => [
+        'guarantee' => 'Качество товара гарантировано',
         'subscribe-newsletter' => 'Subscribe Newsletter',
         'subscribe' => 'Subscribe',
         'locale' => 'Locale',

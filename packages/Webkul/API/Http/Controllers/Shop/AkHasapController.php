@@ -285,7 +285,7 @@ class AkHasapController extends Controller
                         'attribute_id' => 3
                     ],
                         [
-                            'text_value' => $akhasap_product->material_name."-".$sku,
+                            'text_value' => $sku,
                             
         
                         ]
