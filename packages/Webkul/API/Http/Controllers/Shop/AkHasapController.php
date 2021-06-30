@@ -159,7 +159,7 @@ class AkHasapController extends Controller
             $products = json_decode($request->getContent());
             
             //dd($products);
-            Storage::put('file'.mt_rand(10000,99999).'.txt', $request->getContent());
+            Storage::put('akhasaplogs/file'.mt_rand(10000,99999).'.txt', $request->getContent());
          
             foreach($products as $akhasap_product)
             {
