@@ -106,12 +106,12 @@ foreach (app('Webkul\Category\Repositories\CategoryRepository')->getVisibleCateg
                         <span>{{ __('shop::app.header.profile') }}</span>
                     </a>
                     @endguest
-                    
+
                     <a href="/customer/account/wishlist" class="dropdown__btn">
                         <i class="icon-star"></i>
                         <span>{{ __('shop::app.header.wishlist') }}</span>
                     </a>
-                    
+
                     <a href="/checkout/cart" class="dropdown__btn">
                         <i class="icon-Inactive"></i>
                         <span>{{ __('shop::app.header.cart') }}</span>
@@ -148,13 +148,17 @@ foreach (app('Webkul\Category\Repositories\CategoryRepository')->getVisibleCateg
             </button>
         </div>
         <div class="modal__body">
-            <form action="#" class="modal__event active" id="logInForm">
+            {!! view_render_event('bagisto.shop.customers.login.before') !!}
+            <form action="{{ route('customer.session.create') }}" class="modal__event active" id="logInForm" method="POST" @submit.prevent="onSubmit">
+                {{ csrf_field() }}
                 <div class="modal__event-input">
                     <label class="modal__event-input-label">
                         {{ __('shop::app.registerlogin.phoneNumber') }}
                     </label>
                     <div class="modal__event-input-input">
-                        <input type="phone">
+                        <input type="phone" name="phone" v-validate="'required|phone'"
+                               value="{{ old('phone') }}"
+                               data-vv-as="&quot;{{ __('shop::app.customer.login-form.phone') }}&quot;">
                     </div>
                 </div>
                 <div class="modal__event-input">
@@ -162,9 +166,11 @@ foreach (app('Webkul\Category\Repositories\CategoryRepository')->getVisibleCateg
                         {{ __('shop::app.registerlogin.password') }}
                     </label>
                     <div class="modal__event-input-input">
-                        <input type="password">
+                        <input type="password" v-validate="'required|min:6'" name="password"
+                               data-vv-as="&quot;{{ __('admin::app.users.sessions.password') }}&quot;" value="">
                     </div>
                 </div>
+                {!! view_render_event('bagisto.shop.customers.login_form_controls.after') !!}
                 <button type="submit" class="modal__event-submit">
                     {{ __('shop::app.registerlogin.login') }}
                 </button>
@@ -172,37 +178,56 @@ foreach (app('Webkul\Category\Repositories\CategoryRepository')->getVisibleCateg
                     {{ __('shop::app.registerlogin.forgot-password') }}
                 </a>
             </form>
-            <form action="#" class="modal__event" id="signUpForm">
+            {!! view_render_event('bagisto.shop.customers.login.after') !!}
+            {!! view_render_event('bagisto.shop.customers.signup.before') !!}
+            <form method="post" action="{{ route('customer.register.create') }}" @submit.prevent="onSubmit" class="modal__event" id="signUpForm">
+                {{ csrf_field() }}
                 <div class="modal__event-input">
                     <label class="modal__event-input-label">
                         {{ __('shop::app.registerlogin.phoneNumber') }}
                     </label>
-                    <div class="modal__event-input-input">
-                        <input type="phone">
+                    <div class="modal__event-input-input" :class="[errors.has('phone') ? 'has-error' : '']">
+                        <input type="phone" name="phone" v-validate="'required'"
+                               value="{{ old('phone') }}"
+                               data-vv-as="&quot;{{ __('shop::app.customer.signup-form.phone') }}&quot;">
+{{--                        <span class="input__error"--}}
+{{--                              v-if="errors.has('phone')">@{{ errors . first('phone') }}</span>--}}
                     </div>
                 </div>
                 <div class="modal__event-input">
                     <label class="modal__event-input-label">
                         {{ __('shop::app.registerlogin.name') }}
                     </label>
-                    <div class="modal__event-input-input">
-                        <input type="name">
+                    <div class="modal__event-input-input" :class="[errors.has('first_name') ? 'has-error' : '']">
+                        <input type="text"  name="first_name" v-validate="'required'"
+                               value="{{ old('first_name') }}"
+                               data-vv-as="&quot;{{ __('shop::app.customer.signup-form.firstname') }}&quot;">
+{{--                        <span class="input__error"--}}
+{{--                              v-if="errors.has('first_name')">@{{ errors . first('first_name') }}</span>--}}
                     </div>
                 </div>
                 <div class="modal__event-input">
                     <label class="modal__event-input-label">
                         {{ __('shop::app.registerlogin.surname') }}
                     </label>
-                    <div class="modal__event-input-input">
-                        <input type="surname">
+                    <div class="modal__event-input-input" :class="[errors.has('last_name') ? 'has-error' : '']">
+                        <input type="text" class="control" name="last_name" v-validate="'required'"
+                               value="{{ old('last_name') }}"
+                               data-vv-as="&quot;{{ __('shop::app.customer.signup-form.lastname') }}&quot;">
+{{--                        <span class="input__error"--}}
+{{--                              v-if="errors.has('last_name')">@{{ errors . first('last_name') }}</span>--}}
                     </div>
                 </div>
-                <div class="modal__event-input">
+                <div class="modal__event-input" >
                     <label class="modal__event-input-label">
                         {{ __('shop::app.registerlogin.address') }}
                     </label>
-                    <div class="modal__event-input-input">
-                        <input type="address">
+                    <div class="modal__event-input-input" :class="[errors.has('address') ? 'has-error' : '']">
+                        <input type="text" name="address" v-validate="'required'"
+                               value="{{ old('address') }}"
+                               data-vv-as="&quot;{{ __('shop::app.customer.signup-form.address') }}&quot;">
+{{--                        <span class="input__error"--}}
+{{--                              v-if="errors.has('address')">@{{ errors . first('address') }}</span>--}}
                     </div>
                 </div>
                 <div class="modal__event-input">
@@ -210,7 +235,11 @@ foreach (app('Webkul\Category\Repositories\CategoryRepository')->getVisibleCateg
                         {{ __('shop::app.registerlogin.password') }}
                     </label>
                     <div class="modal__event-input-input">
-                        <input type="password">
+                        <input type="password" name="password" v-validate="'required|min:6'"
+                               ref="password" value="{{ old('password') }}"
+                               data-vv-as="&quot;{{ __('shop::app.customer.signup-form.password') }}&quot;">
+{{--                        <span class="input__error"--}}
+{{--                              v-if="errors.has('password')">@{{ errors . first('password') }}</span>--}}
                     </div>
                 </div>
                 <button type="submit" class="modal__event-submit">

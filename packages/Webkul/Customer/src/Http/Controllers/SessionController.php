@@ -48,11 +48,11 @@ class SessionController extends Controller
     public function create()
     {
         $this->validate(request(), [
-            'email'    => 'required|email',
+            'phone'    => 'required',
             'password' => 'required',
         ]);
 
-        if (! auth()->guard('customer')->attempt(request(['email', 'password']))) {
+        if (! auth()->guard('customer')->attempt(request(['phone', 'password']))) {
             session()->flash('error', trans('shop::app.customer.login-form.invalid-creds'));
 
             return redirect()->back();
@@ -79,7 +79,7 @@ class SessionController extends Controller
         }
 
         //Event passed to prepare cart after login
-        Event::dispatch('customer.after.login', request('email'));
+        Event::dispatch('customer.after.login', request('phone'));
 
         return redirect()->intended(route($this->_config['redirect']));
     }

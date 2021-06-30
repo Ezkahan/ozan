@@ -13,7 +13,9 @@
                 </div>
                 {!! view_render_event('bagisto.shop.customers.signup.before') !!}
 
-                <form method="post" action="{{ route('customer.register.create') }}" @submit.prevent="onSubmit">
+                <form method="post"
+                      action="{{ route('customer.register.create') }}"
+                      @submit.prevent="onSubmit">
                     {{ csrf_field() }}
                     <div class="register__form">
                         <div class="register__title">{{ __('shop::app.customer.signup-form.title') }}</div>
@@ -27,7 +29,9 @@
                                         value="{{ old('first_name') }}"
                                         data-vv-as="&quot;{{ __('shop::app.customer.signup-form.firstname') }}&quot;">
                                     <span class="input__error"
-                                        v-if="errors.has('first_name')">@{{ errors . first('first_name') }}</span>
+                                        v-if="errors.has('first_name')">
+                                        @{{ errors.first('first_name') }}
+                                    </span>
                                 </div>
                             </div>
                             <div class="register__column">
@@ -39,7 +43,7 @@
                                         value="{{ old('last_name') }}"
                                         data-vv-as="&quot;{{ __('shop::app.customer.signup-form.lastname') }}&quot;">
                                     <span class="input__error"
-                                        v-if="errors.has('last_name')">@{{ errors . first('last_name') }}</span>
+                                        v-if="errors.has('last_name')">@{{ errors.first('last_name') }}</span>
                                 </div>
                             </div>
                             <div class="register__column">
@@ -51,7 +55,7 @@
                                         value="{{ old('email') }}"
                                         data-vv-as="&quot;{{ __('shop::app.customer.signup-form.email') }}&quot;">
                                     <span class="input__error"
-                                        v-if="errors.has('email')">@{{ errors . first('email') }}</span>
+                                        v-if="errors.has('email')">@{{ errors.first('email') }}</span>
                                 </div>
                             </div>
                             <div class="register__column">
@@ -76,7 +80,7 @@
                                         v-validate="'required|min:6|confirmed:password'"
                                         data-vv-as="&quot;{{ __('shop::app.customer.signup-form.confirm_pass') }}&quot;">
                                     <span class="input__error"
-                                        v-if="errors.has('password_confirmation')">@{{ errors . first('password_confirmation') }}</span>
+                                        v-if="errors.has('password_confirmation')">@{{ errors.first('password_confirmation') }}</span>
                                 </div>
                             </div>
                         </div>
