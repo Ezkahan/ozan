@@ -249,6 +249,7 @@ Route::group(['prefix' => 'api'], function ($router) {
         Route::group(['prefix' => 'akhasap'], function($router){
             Route::post('products/store','AkHasapController@store');
             Route::get('products/fixdb/{page}','AkHasapController@fixdb');
+            Route::post('categories/store','AkHasapController@storeCategories');
             //Route::put('products/update',)
         });
 
