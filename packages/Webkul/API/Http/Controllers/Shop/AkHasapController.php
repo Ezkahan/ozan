@@ -206,6 +206,14 @@ class AkHasapController extends Controller
                             'akhasap_id' => $akhasap_product->material_id
                         ]
                     );
+
+                    if($akhasap_product->categories && is_array($akhasap_product->categories)){
+                        $product->categories()->sync($akhasap_product->categories);
+                    }
+                    else{
+                        Log::error('akhasap product categories not attached');
+                    }
+
                     ProductFlat::updateOrCreate(['product_id' => $product->id,'locale' => 'tm'],
                         [
                             'sku' => $sku ,
