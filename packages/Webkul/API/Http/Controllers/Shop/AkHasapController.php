@@ -171,6 +171,9 @@ class AkHasapController extends Controller
         catch (\Exception $ex){
             DB::rollBack();
             Log::error($ex);
+            return response()->json([
+                'error' => $ex->getMessage()
+            ],500);
         }
 
     }
