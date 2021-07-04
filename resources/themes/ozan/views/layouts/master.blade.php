@@ -160,13 +160,13 @@
 
 <body @if (core()->getCurrentLocale() && core()->getCurrentLocale()->direction == 'rtl') class="rtl" @endif style="scroll-behavior: smooth;">
 
-<div id="app">
-</div>
-
 {!! view_render_event('bagisto.shop.layout.body.before') !!}
+{!! view_render_event('bagisto.shop.layout.header.before') !!}
+<div id="app">
 
-    {!! view_render_event('bagisto.shop.layout.header.before') !!}
-    @include('shop::layouts.header.index')
+
+
+@include('shop::layouts.header.index')
 
     {!! view_render_event('bagisto.shop.layout.header.after') !!}
 
@@ -179,11 +179,11 @@
     @yield('content-wrapper')
 
     {!! view_render_event('bagisto.shop.layout.content.after') !!}
-
+</div>
     {!! view_render_event('bagisto.shop.layout.footer.before') !!}
     @include('shop::layouts.footer.footer')
     {!! view_render_event('bagisto.shop.layout.footer.after') !!}
-  
+
     <script type="text/javascript">
         window.flashMessages = [];
 

@@ -15,6 +15,7 @@ use  Webkul\Product\Models\ProductAttributeValue;
 use  Webkul\Product\Models\ProductInventory;
 use  Webkul\Product\Models\ProductFlat;
 use Storage;
+use Str;
 class AkHasapController extends Controller
 {
     use DispatchesJobs, ValidatesRequests;
@@ -23,7 +24,29 @@ class AkHasapController extends Controller
      *
      * @var \Webkul\Category\Repositories\CategoryRepository
      */
+    protected $categoryRepository;
 
+    /**
+     * AttributeRepository object
+     *
+     * @var \Webkul\Attribute\Repositories\AttributeRepository
+     */
+    protected $attributeRepository;
+
+    /**
+     * Create a new controller instance.
+     *
+     * @param  \Webkul\Category\Repositories\CategoryRepository  $categoryRepository
+     * @param  \Webkul\Attribute\Repositories\AttributeRepository  $attributeRepository
+     * @return void
+     */
+    public function __construct(
+        CategoryRepository $categoryRepository,
+    )
+    {
+        $this->categoryRepository = $categoryRepository;
+
+    }
     public function fixdb(Request $request,$page){
         // $header = $request->header('Authorization');
         // if($header == '0a358dd1-2b07-4cdf-9d9a-a68dac6bb5fc')
@@ -114,6 +137,7 @@ class AkHasapController extends Controller
             catch(Exception $e)
             {
 
+                Log::error($e);
             }
         }
 
@@ -153,15 +177,39 @@ class AkHasapController extends Controller
             foreach ($data as $item){
 
                 $category = \Category::updateOrCreate([
-                    'id' => $item->id
+                    'id' => $item->cat_id
                 ],[
-                    'name' => $item->name,
-                    'status' => $item->status,
-                    'position' => $item->position,
-                    'slug' => $item->slug,
+                    'name' => $item->cat_name_tm,
+                    'description' => $item->cat_desc,
+                    'status' => $item->published,
+                    'position' => $item->cat_order,
+                    'slug' => Str::slug($item->cat_name_tm),
                     'display_mode' => 'products_only',
-                    'parent_id' => $item->parent_id
+                    'parent_id' => $item->cat_parent_id === 0 ? 1:$item->cat_parent_id
                 ]);
+
+                $lng = array();
+                if($item->cat_name_en){
+
+                    $lng['en'] = [
+                            'name' => $item->cat_name_en,
+                            'slug' => Str::slug($item->cat_name_en)
+                    ];
+                }
+
+                if($item->cat_name_ru){
+
+                    $lng['ru'] = [
+
+                            'name' => $item->cat_name_ru,
+                            'slug' => Str::slug($item->cat_name_ru)
+                    ];
+                }
+
+                if(!empty($lng)){
+                    $lng['id'] = $category->id;
+                    $this->categoryRepository->update($lng);
+                }
             }
 
             DB::commit();
@@ -345,7 +393,6 @@ class AkHasapController extends Controller
                 DB::rollBack();
                 Log::error($exception);
             }
-
 
         }
         else{
