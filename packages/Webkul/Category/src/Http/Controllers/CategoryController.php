@@ -89,7 +89,6 @@ class CategoryController extends Controller
 
         $category = $this->categoryRepository->create(request()->all());
 
-        dd($category);
         session()->flash('success', trans('admin::app.response.create-success', ['name' => 'Category']));
 
         return redirect()->route($this->_config['redirect']);
