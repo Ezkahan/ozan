@@ -659,6 +659,7 @@ return [
             'image' => 'Image',
             'filterable-attributes' => 'Filterable Attributes',
             'attributes' => 'Attributes',
+            'icon' => 'Icon'
         ]
     ],
 
