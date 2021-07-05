@@ -8,14 +8,13 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
-use Webkul\Attribute\Repositories\AttributeRepository;
+use Illuminate\Support\Str;
 use Webkul\Category\Repositories\CategoryRepository;
 use  Webkul\Product\Models\Product;
 use  Webkul\Product\Models\ProductAttributeValue;
 use  Webkul\Product\Models\ProductInventory;
 use  Webkul\Product\Models\ProductFlat;
 use Storage;
-use Str;
 class AkHasapController extends Controller
 {
     use DispatchesJobs, ValidatesRequests;
@@ -41,7 +40,7 @@ class AkHasapController extends Controller
      * @return void
      */
     public function __construct(
-        CategoryRepository $categoryRepository,
+        CategoryRepository $categoryRepository
     )
     {
         $this->categoryRepository = $categoryRepository;
@@ -153,6 +152,7 @@ class AkHasapController extends Controller
 
     public function storeCategories(Request $request){
 
+
         $header = $request->header('Authorization');
 
         if($header !== '0a358dd1-2b07-4cdf-9d9a-a68dac6bb5fc') {
@@ -160,7 +160,6 @@ class AkHasapController extends Controller
                 'error' => 'unauthenticated'
             ],401);
         }
-
         $data = json_decode($request->getContent());
 
         if(!$data && !is_array($data)){
@@ -170,16 +169,16 @@ class AkHasapController extends Controller
         }
 
         try {
-            DB::beginTransaction();
+//            DB::beginTransaction();
 
             Storage::put('akhasaplogs/file_category_'.time().'.txt', $request->getContent());
 
             foreach ($data as $item){
 
-                $category = \Category::updateOrCreate([
+                $category = \Webkul\Category\Models\Category::updateOrCreate([
                     'id' => $item->cat_id
                 ],[
-                    'name' => $item->cat_name_tm,
+                    'name' => $item->cat_name,
                     'description' => $item->cat_desc,
                     'status' => $item->published,
                     'position' => $item->cat_order,
@@ -212,12 +211,12 @@ class AkHasapController extends Controller
                 }
             }
 
-            DB::commit();
+//            DB::commit();
 
             return response()->json(['success'=>true]);
         }
         catch (\Exception $ex){
-            DB::rollBack();
+//            DB::rollBack();
             Log::error($ex);
             return response()->json([
                 'error' => $ex->getMessage()
