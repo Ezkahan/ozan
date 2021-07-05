@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
+use Webkul\Category\Models\Category;
 use Webkul\Category\Repositories\CategoryRepository;
 use  Webkul\Product\Models\Product;
 use  Webkul\Product\Models\ProductAttributeValue;
@@ -169,13 +170,17 @@ class AkHasapController extends Controller
         }
 
         try {
-//            DB::beginTransaction();
+            DB::beginTransaction();
 
             Storage::put('akhasaplogs/file_category_'.time().'.txt', $request->getContent());
 
             foreach ($data as $item){
 
-                $category = \Webkul\Category\Models\Category::updateOrCreate([
+                if($item->cat_parent_id === 0){
+                    $item->cat_parent_id = 1;
+                }
+
+                $category = Category::updateOrCreate([
                     'id' => $item->cat_id
                 ],[
                     'name' => $item->cat_name,
@@ -184,7 +189,8 @@ class AkHasapController extends Controller
                     'position' => $item->cat_order,
                     'slug' => Str::slug($item->cat_name,'-'),
                     'display_mode' => 'products_only',
-                    'parent_id' => $item->cat_parent_id === 0 ? 1:$item->cat_parent_id
+                    'parent_id' => $item->cat_parent_id,
+
                 ]);
 
                 $lng = array();
@@ -207,16 +213,16 @@ class AkHasapController extends Controller
 
                 if(!empty($lng)){
                     $lng['id'] = $category->id;
-                    $this->categoryRepository->update($lng);
+                    $this->categoryRepository->update($lng,$category->id);
                 }
             }
 
-//            DB::commit();
+            DB::commit();
 
             return response()->json(['success'=>true]);
         }
         catch (\Exception $ex){
-//            DB::rollBack();
+            DB::rollBack();
             Log::error($ex);
             return response()->json([
                 'error' => $ex->getMessage()
