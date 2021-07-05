@@ -183,7 +183,7 @@ class AkHasapController extends Controller
                     'description' => $item->cat_desc,
                     'status' => $item->published,
                     'position' => $item->cat_order,
-                    'slug' => Str::slug($item->cat_name_tm),
+                    'slug' => Str::slug($item->cat_name_tm,'-'),
                     'display_mode' => 'products_only',
                     'parent_id' => $item->cat_parent_id === 0 ? 1:$item->cat_parent_id
                 ]);
@@ -193,7 +193,7 @@ class AkHasapController extends Controller
 
                     $lng['en'] = [
                             'name' => $item->cat_name_en,
-                            'slug' => Str::slug($item->cat_name_en)
+                            'slug' => Str::slug($item->cat_name_en,'-')
                     ];
                 }
 
@@ -202,7 +202,7 @@ class AkHasapController extends Controller
                     $lng['ru'] = [
 
                             'name' => $item->cat_name_ru,
-                            'slug' => Str::slug($item->cat_name_ru)
+                            'slug' => Str::slug($item->cat_name_ru,'-')
                     ];
                 }
 
