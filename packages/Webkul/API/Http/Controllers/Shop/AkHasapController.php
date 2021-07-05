@@ -183,7 +183,7 @@ class AkHasapController extends Controller
                     'description' => $item->cat_desc,
                     'status' => $item->published,
                     'position' => $item->cat_order,
-                    'slug' => Str::slug($item->cat_name_tm,'-'),
+                    'slug' => Str::slug($item->cat_name,'-'),
                     'display_mode' => 'products_only',
                     'parent_id' => $item->cat_parent_id === 0 ? 1:$item->cat_parent_id
                 ]);
