@@ -190,6 +190,7 @@ class AkHasapController extends Controller
                     'slug' => Str::slug($item->cat_name,'-'),
                     'display_mode' => 'products_only',
                     'parent_id' => $item->cat_parent_id,
+                    'icon' => $item->cat_icon
 
                 ]);
 

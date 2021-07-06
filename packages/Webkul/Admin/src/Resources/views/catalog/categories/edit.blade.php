@@ -57,7 +57,7 @@
                             </div>
                               <div class="control-group" :class="[errors.has('icon') ? 'has-error' : '']">
                                 <label for="icon" class="required">{{ __('admin::app.catalog.categories.icon') }}</label>
-                                <input type="text" v-validate="'required'" class="control" id="icon" name="icon" value="{{$category->icon}}" data-vv-as="&quot;Icon&quot;" v-slugify-target="'slug'"/>
+                                <input type="text" class="control" id="icon" name="icon" value="{{$category->icon}}" data-vv-as="&quot;Icon&quot;"/>
                                 <span class="control-error" v-if="errors.has('icon')">@{{ errors.first('{!!$locale!!}[icon]') }}</span>
                             </div>
 
