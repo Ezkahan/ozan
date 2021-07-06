@@ -48,22 +48,27 @@ $metaKeywords = $homeSEO->meta_keywords;
     =========================================== -->
 <section class="sectionBanner">
     <div class="auto__container">
-        <div class="sectionBanner__inner">
-        <div class="prev_s">
-                    <i class="icon-chevron-left"></i>
-                </div>
-                <div class="next_s">
-                    <i class="icon-chevron-right"></i>
-                </div>
-            <div class="banner_box">
-                <picture>
-                    <img src="{{bagisto_asset('images/banner/horizontal.png')}}" alt="">
-                </picture>
-                <picture>
-                    <img src="{{bagisto_asset('images/banner/banner111.jpg')}}" alt="">
-                </picture>
-            </div>
-        </div>
+
+{{--        <div class="sectionBanner__inner">--}}
+{{--            <div class="prev_s">--}}
+{{--                <i class="icon-chevron-left"></i>--}}
+{{--            </div>--}}
+{{--            <div class="next_s">--}}
+{{--                <i class="icon-chevron-right"></i>--}}
+{{--            </div>--}}
+{{--            <div class="banner_box">--}}
+{{--                <picture>--}}
+{{--                    <img src="{{bagisto_asset('images/banner/horizontal.png')}}" alt="">--}}
+{{--                </picture>--}}
+{{--                <picture>--}}
+{{--                    <img src="{{bagisto_asset('images/banner/banner111.jpg')}}" alt="">--}}
+{{--                </picture>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+
+
+        <sliderbig :slides="['/themes/ozan/assets/images/banner/horizontal.png','/themes/ozan/assets/images/banner/banner111.jpg']" public_path="{{ url()->to('/') }}"></sliderbig>
+
     </div>
 </section>
 

@@ -38,13 +38,9 @@ foreach (app('Webkul\Category\Repositories\CategoryRepository')->getVisibleCateg
                 </div>
             </div>
             <div class="hero__content">
-                <div class="prev">
-                    <i class="icon-chevron-left"></i>
-                </div>
-                <div class="next">
-                    <i class="icon-chevron-right"></i>
-                </div>
-                @include('shop::home.slider',['sliderData' => $sliderData])
+                @if (count($sliderData))
+                    <slider :slides='@json($sliderData)' public_path="{{ url()->to('/') }}"></slider>
+                @endif
 
             </div>
         </div>
