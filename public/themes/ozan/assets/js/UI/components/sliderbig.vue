@@ -5,18 +5,19 @@
         <div class="banner_box">
     <slick
         ref="slick"
-        :options="slickOptions"
-        @afterChange="handleAfterChange"
-        @beforeChange="handleBeforeChange"
-        @breakpoint="handleBreakpoint"
-        @destroy="handleDestroy"
-        @edge="handleEdge"
-        @init="handleInit"
-        @reInit="handleReInit"
-        @setPosition="handleSetPosition"
-        @swipe="handleSwipe"
-        @lazyLoaded="handleLazyLoaded"
-        @lazyLoadError="handleLazeLoadError">
+        :options="slickOptions">
+<!--        @afterChange="handleAfterChange"-->
+<!--        @beforeChange="handleBeforeChange"-->
+<!--        @breakpoint="handleBreakpoint"-->
+<!--        @destroy="handleDestroy"-->
+<!--        @edge="handleEdge"-->
+<!--        @init="handleInit"-->
+<!--        @reInit="handleReInit"-->
+<!--        @setPosition="handleSetPosition"-->
+<!--        @swipe="handleSwipe"-->
+<!--        @lazyLoaded="handleLazyLoaded"-->
+<!--        @lazyLoadError="handleLazeLoadError"-->
+
 
 
                 <picture v-for="(image, index) in slides" :key="index">
@@ -57,7 +58,7 @@ export default {
             speed: 1000,
             autoplay: true,
             arrows: true,
-            autoplaySpeed: 2000,
+            autoplaySpeed: 4000,
             // nextArrow: ".next_s",
             // prevArrow: ".prev_s",
             adaptiveHeight: true,
@@ -83,40 +84,40 @@ export default {
             });
         },
 
-        // Events listeners
-        handleAfterChange(event, slick, currentSlide) {
-            console.log('handleAfterChange', event, slick, currentSlide);
-        },
-        handleBeforeChange(event, slick, currentSlide, nextSlide) {
-            console.log('handleBeforeChange', event, slick, currentSlide, nextSlide);
-        },
-        handleBreakpoint(event, slick, breakpoint) {
-            console.log('handleBreakpoint', event, slick, breakpoint);
-        },
-        handleDestroy(event, slick) {
-            console.log('handleDestroy', event, slick);
-        },
-        handleEdge(event, slick, direction) {
-            console.log('handleEdge', event, slick, direction);
-        },
-        handleInit(event, slick) {
-            console.log('handleInit', event, slick);
-        },
-        handleReInit(event, slick) {
-            console.log('handleReInit', event, slick);
-        },
-        handleSetPosition(event, slick) {
-            console.log('handleSetPosition', event, slick);
-        },
-        handleSwipe(event, slick, direction) {
-            console.log('handleSwipe', event, slick, direction);
-        },
-        handleLazyLoaded(event, slick, image, imageSource) {
-            console.log('handleLazyLoaded', event, slick, image, imageSource);
-        },
-        handleLazeLoadError(event, slick, image, imageSource) {
-            console.log('handleLazeLoadError', event, slick, image, imageSource);
-        },
+        // // Events listeners
+        // handleAfterChange(event, slick, currentSlide) {
+        //     console.log('handleAfterChange', event, slick, currentSlide);
+        // },
+        // handleBeforeChange(event, slick, currentSlide, nextSlide) {
+        //     console.log('handleBeforeChange', event, slick, currentSlide, nextSlide);
+        // },
+        // handleBreakpoint(event, slick, breakpoint) {
+        //     console.log('handleBreakpoint', event, slick, breakpoint);
+        // },
+        // handleDestroy(event, slick) {
+        //     console.log('handleDestroy', event, slick);
+        // },
+        // handleEdge(event, slick, direction) {
+        //     console.log('handleEdge', event, slick, direction);
+        // },
+        // handleInit(event, slick) {
+        //     console.log('handleInit', event, slick);
+        // },
+        // handleReInit(event, slick) {
+        //     console.log('handleReInit', event, slick);
+        // },
+        // handleSetPosition(event, slick) {
+        //     console.log('handleSetPosition', event, slick);
+        // },
+        // handleSwipe(event, slick, direction) {
+        //     console.log('handleSwipe', event, slick, direction);
+        // },
+        // handleLazyLoaded(event, slick, image, imageSource) {
+        //     console.log('handleLazyLoaded', event, slick, image, imageSource);
+        // },
+        // handleLazeLoadError(event, slick, image, imageSource) {
+        //     console.log('handleLazeLoadError', event, slick, image, imageSource);
+        // },
     }
 }
 </script>

@@ -21,31 +21,31 @@ $slick-opacity-default: 0.75 !default;
 $slick-opacity-on-hover: 1 !default;
 $slick-opacity-not-active: 0.25 !default;
 
-@function slick-image-url($url) {
-    @if function-exists(image-url) {
-        @return image-url($url);
-    }
-    @else {
-        @return url($slick-loader-path + $url);
-    }
-}
+//@function slick-image-url($url) {
+//    @if function-exists(image-url) {
+//        @return image-url($url);
+//    }
+//    @else {
+//        @return url($slick-loader-path + $url);
+//    }
+//}
 
-@function slick-font-url($url) {
-    @if function-exists(font-url) {
-        @return font-url($url);
-    }
-    @else {
-        @return url($slick-font-path + $url);
-    }
-}
+//@function slick-font-url($url) {
+//    @if function-exists(font-url) {
+//        @return font-url($url);
+//    }
+//    @else {
+//        @return url($slick-font-path + $url);
+//    }
+//}
 
 /* Slider */
 
-.slick-list {
-    .slick-loading & {
-        background: #fff slick-image-url("ajax-loader.gif") center center no-repeat;
-    }
-}
+//.slick-list {
+//    .slick-loading & {
+//        background: #fff slick-image-url("ajax-loader.gif") center center no-repeat;
+//    }
+//}
 
 /* Icons */
 // @if $slick-font-family == "slick" {
@@ -64,13 +64,16 @@ $slick-opacity-not-active: 0.25 !default;
 .slick-next {
     position: absolute;
     display: block;
-    height: 20px;
-    width: 20px;
+    height: 43px;
+    width: 43px;
     line-height: 0px;
     font-size: 0px;
     cursor: pointer;
-    background: transparent;
+    //background: transparent;
+    background: #fff;
+    box-shadow: 0px 0px 4px rgba(0,0,0,0.15);
     color: transparent;
+    border-radius: 5px;
     top: 50%;
     -webkit-transform: translate(0, -50%);
     -ms-transform: translate(0, -50%);
@@ -78,9 +81,13 @@ $slick-opacity-not-active: 0.25 !default;
     padding: 0;
     border: none;
     outline: none;
+    z-index: 10;
+    display: block !important;
+
     &:hover, &:focus {
         outline: none;
-        background: transparent;
+        //background: transparent;
+        background: rgba(218, 45, 121, 0.3);
         color: transparent;
         &:before {
             opacity: $slick-opacity-on-hover;
@@ -90,13 +97,20 @@ $slick-opacity-not-active: 0.25 !default;
         opacity: $slick-opacity-not-active;
     }
     &:before {
-        font-family: $slick-font-family;
-        font-size: 20px;
-        line-height: 1;
-        color: $slick-arrow-color;
-        opacity: $slick-opacity-default;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
+        //font-family: $slick-font-family;
+        //font-size: 20px;
+        //line-height: 1;
+        //color: $slick-arrow-color;
+        //opacity: $slick-opacity-default;
+        //-webkit-font-smoothing: antialiased;
+        //-moz-osx-font-smoothing: grayscale;
+
+        display: block;
+        width: 14px !important;
+        height: 14px !important;
+
+
+
     }
 }
 
@@ -110,13 +124,12 @@ $slick-opacity-not-active: 0.25 !default;
     }
     &:before {
         //content: $slick-prev-character;
-        content: '';
-        border-bottom: 3px solid rgba(0,0,0, .5);
-        border-left: 3px solid rgba(0,0,0, .5);
+        content: '' !important;
+        border-bottom: 3px solid rgba(0,0,0, .5) !important;
+        border-left: 3px solid rgba(0,0,0, .5) !important;
 
-        transform: rotate(45deg) translate(2px, -2px);
-        width: 12px;
-        height: 12px;
+        transform: rotate(45deg) translate(12px, -12px) !important;
+
         [dir="rtl"] & {
             content: $slick-next-character;
         }
@@ -131,13 +144,11 @@ $slick-opacity-not-active: 0.25 !default;
     }
     &:before {
         //content: $slick-next-character;
-        border-bottom: 3px solid rgba(0,0,0, .5);
-        border-right: 3px solid rgba(0,0,0, .5);
+        border-bottom: 3px solid rgba(0,0,0, .5) !important;
+        border-right: 3px solid rgba(0,0,0, .5) !important;
 
-        transform: rotate(-45deg) translate(-1px, -1px);
-        width: 12px;
-        height: 12px;
-        content: '';
+        transform: rotate(-45deg) translate(8px, 8px) !important;
+        content: '' !important;
         [dir="rtl"] & {
             content: $slick-prev-character;
         }

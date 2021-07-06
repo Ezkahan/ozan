@@ -44315,7 +44315,7 @@ exports = module.exports = __webpack_require__(6)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -44710,17 +44710,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -44825,23 +44814,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "slick",
-    {
-      ref: "slick",
-      attrs: { options: _vm.slickOptions },
-      on: {
-        afterChange: _vm.handleAfterChange,
-        beforeChange: _vm.handleBeforeChange,
-        breakpoint: _vm.handleBreakpoint,
-        destroy: _vm.handleDestroy,
-        edge: _vm.handleEdge,
-        init: _vm.handleInit,
-        reInit: _vm.handleReInit,
-        setPosition: _vm.handleSetPosition,
-        swipe: _vm.handleSwipe,
-        lazyLoaded: _vm.handleLazyLoaded,
-        lazyLoadError: _vm.handleLazeLoadError
-      }
-    },
+    { ref: "slick", attrs: { options: _vm.slickOptions } },
     _vm._l(_vm.slides, function(image, index) {
       return _c("div", { key: index, staticClass: "hero__slider-item" }, [
         _c("img", {
@@ -44984,7 +44957,7 @@ exports = module.exports = __webpack_require__(6)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -44996,6 +44969,7 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_slick__ = __webpack_require__(4);
+//
 //
 //
 //
@@ -45057,7 +45031,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 speed: 1000,
                 autoplay: true,
                 arrows: true,
-                autoplaySpeed: 2000,
+                autoplaySpeed: 4000,
                 // nextArrow: ".next_s",
                 // prevArrow: ".prev_s",
                 adaptiveHeight: true
@@ -45082,42 +45056,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             this.$nextTick(function () {
                 _this.$refs.slick.reSlick();
             });
-        },
-
-
-        // Events listeners
-        handleAfterChange: function handleAfterChange(event, slick, currentSlide) {
-            console.log('handleAfterChange', event, slick, currentSlide);
-        },
-        handleBeforeChange: function handleBeforeChange(event, slick, currentSlide, nextSlide) {
-            console.log('handleBeforeChange', event, slick, currentSlide, nextSlide);
-        },
-        handleBreakpoint: function handleBreakpoint(event, slick, breakpoint) {
-            console.log('handleBreakpoint', event, slick, breakpoint);
-        },
-        handleDestroy: function handleDestroy(event, slick) {
-            console.log('handleDestroy', event, slick);
-        },
-        handleEdge: function handleEdge(event, slick, direction) {
-            console.log('handleEdge', event, slick, direction);
-        },
-        handleInit: function handleInit(event, slick) {
-            console.log('handleInit', event, slick);
-        },
-        handleReInit: function handleReInit(event, slick) {
-            console.log('handleReInit', event, slick);
-        },
-        handleSetPosition: function handleSetPosition(event, slick) {
-            console.log('handleSetPosition', event, slick);
-        },
-        handleSwipe: function handleSwipe(event, slick, direction) {
-            console.log('handleSwipe', event, slick, direction);
-        },
-        handleLazyLoaded: function handleLazyLoaded(event, slick, image, imageSource) {
-            console.log('handleLazyLoaded', event, slick, image, imageSource);
-        },
-        handleLazeLoadError: function handleLazeLoadError(event, slick, image, imageSource) {
-            console.log('handleLazeLoadError', event, slick, image, imageSource);
         }
     }
 });
@@ -45137,23 +45075,7 @@ var render = function() {
       [
         _c(
           "slick",
-          {
-            ref: "slick",
-            attrs: { options: _vm.slickOptions },
-            on: {
-              afterChange: _vm.handleAfterChange,
-              beforeChange: _vm.handleBeforeChange,
-              breakpoint: _vm.handleBreakpoint,
-              destroy: _vm.handleDestroy,
-              edge: _vm.handleEdge,
-              init: _vm.handleInit,
-              reInit: _vm.handleReInit,
-              setPosition: _vm.handleSetPosition,
-              swipe: _vm.handleSwipe,
-              lazyLoaded: _vm.handleLazyLoaded,
-              lazyLoadError: _vm.handleLazeLoadError
-            }
-          },
+          { ref: "slick", attrs: { options: _vm.slickOptions } },
           _vm._l(_vm.slides, function(image, index) {
             return _c("picture", { key: index }, [
               _c("img", { attrs: { src: _vm.public_path + image, alt: "" } })

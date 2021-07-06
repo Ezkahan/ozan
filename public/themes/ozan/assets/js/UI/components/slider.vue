@@ -1,18 +1,7 @@
 <template>
     <slick
         ref="slick"
-        :options="slickOptions"
-        @afterChange="handleAfterChange"
-        @beforeChange="handleBeforeChange"
-        @breakpoint="handleBreakpoint"
-        @destroy="handleDestroy"
-        @edge="handleEdge"
-        @init="handleInit"
-        @reInit="handleReInit"
-        @setPosition="handleSetPosition"
-        @swipe="handleSwipe"
-        @lazyLoaded="handleLazyLoaded"
-        @lazyLoadError="handleLazeLoadError">
+        :options="slickOptions">
 
 
 

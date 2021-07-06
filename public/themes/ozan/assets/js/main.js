@@ -120,14 +120,14 @@ function showProfile() {
     document.getElementById("myDropdown").classList.toggle("show");
     document.getElementById("dropbtn").classList.toggle("active");
 }
-function showMenu() {
-    document.getElementById("menuDropdown").classList.toggle("show");
-    document.getElementById("menuBtn").classList.toggle("active");
-}
-function closeMenu() {
-    document.getElementById("menuDropdown").classList.remove("show");
-    document.getElementById("menuBtn").classList.remove("active");
-}
+// function showMenu() {
+//     document.getElementById("menuDropdown").classList.toggle("show");
+//     document.getElementById("menuBtn").classList.toggle("active");
+// }
+// function closeMenu() {
+//     document.getElementById("menuDropdown").classList.remove("show");
+//     document.getElementById("menuBtn").classList.remove("active");
+// }
 function logIn() {
     document.getElementById("logInBtn").classList.add("active");
     document.getElementById("signUpBtn").classList.remove("active");
