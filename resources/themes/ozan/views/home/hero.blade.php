@@ -28,7 +28,7 @@ foreach (app('Webkul\Category\Repositories\CategoryRepository')->getCategoryTree
                                 @foreach($category->children as $child)
                                 <a href="@if($child['status']){{ $child['url_path'] }}@else # @endif" class="hero__sidebar-inner-link " disabled>
                                     <i class="icon-{{ $child['icon'] }}"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span><span class="path7"></span><span class="path8"></span><span class="path9"></span><span class="path10"></span><span class="path11"></span><span class="path12"></span><span class="path13"></span><span class="path14"></span><span class="path15"></span><span class="path16"></span><span class="path17"></span><span class="path18"></span><span class="path19"></span></i>
-                                    <span>{{$child['name']}}</span>
+                                    <span class="@if(!$category['status']) text-muted @endif">{{$child['name']}}</span>
                                 </a>
                                 @endforeach
                             </div>
