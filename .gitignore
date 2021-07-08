@@ -23,3 +23,4 @@ package-lock.json
 /vendor
 yarn.lock
 yarn-error.log
+/public/themes/ozan/node_modules
