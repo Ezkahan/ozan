@@ -55,7 +55,8 @@
                 @include ('shop::products.view.gallery')
                 {{-- <form  class="detail__content"  method="POST" id="product-form" action="{{ route('cart.add', $product->product_id) }}" @click="onSubmit($event)"> --}}
                     <product-view>
-                    @csrf
+                    @csrf()
+                    <input type="hidden" name="product_id" value="{{ $product->product_id }}">
                     <h1 class="detail__content-title">
                         {!! $product->short_description !!}
                     </h1>
@@ -91,6 +92,11 @@
                         </table>
                     </div>
                     @include ('shop::products.price', ['product' => $product])
+                    @if ($product->getTypeInstance()->showQuantityBox())
+                            <quantity-changer></quantity-changer>
+                        @else
+                            <input type="hidden" name="quantity" value="1">
+                    @endif
                     @include ('shop::products.add-to-cart', [
                         'form' => false,
                         'product' => $product,
@@ -271,7 +277,6 @@
 
         </form>
     </script>
-
     <script>
         Vue.component('product-view', {
             inject: ['$validator'],
@@ -334,7 +339,7 @@
                 },
             }
         });
-
+  
         window.onload = function() {
             var thumbList = document.getElementsByClassName('thumb-list')[0];
             var thumbFrame = document.getElementsByClassName('thumb-frame');
