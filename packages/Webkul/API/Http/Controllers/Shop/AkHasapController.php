@@ -319,7 +319,7 @@ class AkHasapController extends Controller
                         [
                             'channel' => 'default',
 
-                            'text_value' => $akhasap_product->material_name_lang_en,
+                            'text_value' => $akhasap_product->mat_name_lang_en,
 
                             'product_id' => $product->id
 
@@ -329,7 +329,7 @@ class AkHasapController extends Controller
                         [
                             'channel' => 'default',
 
-                            'text_value' => $akhasap_product->material_name_lang_ru,
+                            'text_value' => $akhasap_product->mat_name_lang_ru,
 
                             'product_id' => $product->id
 
@@ -462,6 +462,9 @@ class AkHasapController extends Controller
             catch (\Exception $exception){
                 DB::rollBack();
                 Log::error($exception);
+                return response()->json([
+                    'error' => $exception->getMessage()
+                ],500);
             }
 
         }
