@@ -1,4 +1,12 @@
+{!! view_render_event('bagisto.shop.layout.header.category.before') !!}
 
+<?php
+
+ $current_lang = Lang::locale();
+
+?>
+
+{!! view_render_event('bagisto.shop.layout.header.category.after') !!}
 <header class="header">
     <div class="auto__container">
         <div class="header__inner">

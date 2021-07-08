@@ -1,14 +1,13 @@
 <?php
 
 $categories = [];
-
+$heroSlides = $sliderData->where('title','top_hero')->toArray();
 
 foreach (app('Webkul\Category\Repositories\CategoryRepository')->getVisibleCategoryTree(core()->getCurrentChannel()->root_category_id) as $category) {
     if ($category->slug) {
         array_push($categories, $category);
     }
 }
-
 ?>
 <section class="hero">
     <div class="auto__container">
@@ -37,12 +36,11 @@ foreach (app('Webkul\Category\Repositories\CategoryRepository')->getVisibleCateg
                     @endforeach
                 </div>
             </div>
+            @if ($heroSlides)
             <div class="hero__content">
-                @if (count($sliderData))
-                    <slider :slides='@json($sliderData)' public_path="{{ url()->to('/') }}"></slider>
-                @endif
-
+                <slider  :slides='@json($heroSlides)' public_path="{{ url()->to('/storage/') }}" item_class="hero__slider-item" time="4000"></slider>
             </div>
+            @endif
         </div>
     </div>
 </section>
