@@ -13,7 +13,7 @@ if (mix.inProduction()) {
 mix
     .js(
         __dirname + "/assets/js/app.js",
-         "/assets/js/ozan.js"
+        __dirname + "assets/js/ozan.js"
     )
 
     // .copy(__dirname + "/assets/images", publicPath + "/images")
