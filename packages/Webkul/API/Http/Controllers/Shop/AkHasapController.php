@@ -245,7 +245,7 @@ class AkHasapController extends Controller
             $products = json_decode($request->getContent());
 
             //dd($products);
-            Storage::put('akhasaplogs/file'.mt_rand(10000,99999).'.txt', $request->getContent());
+            Storage::put('akhasaplogs/file_product'.time().'.txt', $request->getContent());
 
             try {
                 DB::beginTransaction();
@@ -276,29 +276,34 @@ class AkHasapController extends Controller
                             'status' => 1,
                             'price' => $akhasap_product->mat_sale_price ,
                             'cost' => $akhasap_product->mat_purch_price,
-                            'channel' => 'default'
+                            'channel' => 'default',
+                            'short_description' => $akhasap_product->material_description,
+                            'description' => $akhasap_product->material_description1
 
                         ]);
                     ProductFlat::updateOrCreate(['product_id' => $product->id,'locale' => 'en'],
                         [
                             'sku' => $sku ,
                             'type' => 'simple',
-                            'name' => $akhasap_product->material_name,
+                            'name' => $akhasap_product->mat_name_lang_en,
                             'status' => 1,
                             'price' => $akhasap_product->mat_sale_price ,
                             'cost' => $akhasap_product->mat_purch_price,
-                            'channel' => 'default'
-
+                            'channel' => 'default',
+                            'short_description' => $akhasap_product->material_description_en,
+                            'description' => $akhasap_product->material_description1_en
                         ]);
                     ProductFlat::updateOrCreate(['product_id' => $product->id,'locale' => 'ru'],
                         [
                             'sku' => $sku ,
                             'type' => 'simple',
-                            'name' => $akhasap_product->material_name,
+                            'name' => $akhasap_product->mat_name_lang_ru,
                             'status' => 1,
                             'price' => $akhasap_product->mat_sale_price ,
                             'cost' => $akhasap_product->mat_purch_price,
-                            'channel' => 'default'
+                            'channel' => 'default',
+                            'short_description' => $akhasap_product->material_description_ru,
+                            'description' => $akhasap_product->material_description1_ru
 
                         ]);
                     ProductAttributeValue::updateOrCreate(['product_id' => $product->id, 'attribute_id' => 2,'locale' => 'tm'],
@@ -330,6 +335,65 @@ class AkHasapController extends Controller
 
 
                         ]);
+                    ProductAttributeValue::updateOrCreate(['product_id' => $product->id, 'attribute_id' => 9,'locale' => 'tm'],
+                        [
+                            'channel' => 'default',
+
+                            'text_value' => $akhasap_product->material_description,
+
+                            'product_id' => $product->id
+
+                        ]);
+                    ProductAttributeValue::updateOrCreate(['product_id' => $product->id,'locale' => 'en','attribute_id' => 9],
+                        [
+                            'channel' => 'default',
+
+                            'text_value' => $akhasap_product->material_description_en,
+
+                            'product_id' => $product->id
+
+
+                        ]);
+                    ProductAttributeValue::updateOrCreate(['product_id' => $product->id,'locale' => 'ru','attribute_id' => 9],
+                        [
+                            'channel' => 'default',
+
+                            'text_value' => $akhasap_product->material_description_ru,
+
+                            'product_id' => $product->id
+
+
+                        ]);    
+                    
+                        ProductAttributeValue::updateOrCreate(['product_id' => $product->id, 'attribute_id' => 10,'locale' => 'tm'],
+                        [
+                            'channel' => 'default',
+
+                            'text_value' => $akhasap_product->material_description1,
+
+                            'product_id' => $product->id
+
+                        ]);
+                    ProductAttributeValue::updateOrCreate(['product_id' => $product->id,'locale' => 'en','attribute_id' => 10],
+                        [
+                            'channel' => 'default',
+
+                            'text_value' => $akhasap_product->material_description1_en,
+
+                            'product_id' => $product->id
+
+
+                        ]);
+                    ProductAttributeValue::updateOrCreate(['product_id' => $product->id,'locale' => 'ru','attribute_id' => 10],
+                        [
+                            'channel' => 'default',
+
+                            'text_value' => $akhasap_product->material_description1_ru,
+
+                            'product_id' => $product->id
+
+
+                        ]);   
                     ProductInventory::updateOrCreate(['product_id' => $product->id],
                         [
                             'qty' => $akhasap_product->wh_all ? $akhasap_product->wh_all : 0,
