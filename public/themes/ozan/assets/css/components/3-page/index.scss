@@ -83,7 +83,7 @@
         border: 1px solid #e4e4e4;
 
         &-inner {
-            &-link {
+            &-link, .vsa-item__heading button .vsa-item__trigger__content {
                 display: flex;
                 align-items: center;
                 padding: 1.3em 2em;
