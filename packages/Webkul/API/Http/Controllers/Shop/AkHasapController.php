@@ -319,7 +319,7 @@ class AkHasapController extends Controller
                         [
                             'channel' => 'default',
 
-                            'text_value' => $akhasap_product->material_name,
+                            'text_value' => $akhasap_product->material_name_lang_en,
 
                             'product_id' => $product->id
 
@@ -329,7 +329,7 @@ class AkHasapController extends Controller
                         [
                             'channel' => 'default',
 
-                            'text_value' => $akhasap_product->material_name,
+                            'text_value' => $akhasap_product->material_name_lang_ru,
 
                             'product_id' => $product->id
 
