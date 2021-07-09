@@ -268,14 +268,6 @@ class AkHasapController extends Controller
                         Log::error('akhasap product categories not attached');
                     }
 
-                    $inventory = ProductInventory::updateOrCreate([
-                        'product_id'          => $product->id,
-                        'inventory_source_id' => 1,
-                        'vendor_id'           =>  0,
-                    ],['qty' => 12]);
-
-                    Log::error($inventory);
-
                     ProductFlat::updateOrCreate(['product_id' => $product->id,'locale' => 'tm'],
                         [
                             'sku' => $sku ,
@@ -458,11 +450,11 @@ class AkHasapController extends Controller
 
                         ]
                     );
-                    // echo "material_name: " . $product->material_name . "\n"; //product_attribute_values id-2 locale-tm channel-ozan  text_value
-                    // echo "material_code: " . $product->material_code . "\n"; //sku
-                    // echo "material_id: " . $product->material_id . "\n"; //akhasap_id
-                    // echo "wh_all: " . $product->wh_all . "\n";  // product_inventories qty product_id inventgory_source_id vendor_id
-                    // echo "mat_whousetotal_amount: " . $product->mat_whousetotal_amount . "\n";
+                    
+                    $inventory = ProductInventory::updateOrCreate([
+                        'product_id'          => $product->id,
+                    ],[                        'inventory_source_id' => 1,
+                    'vendor_id'           =>  0,'qty' => $akhasap_product->mat_whousetotal_amount]);
                 }
                 DB::commit();
                 return response()->json(['success'=>true]);
