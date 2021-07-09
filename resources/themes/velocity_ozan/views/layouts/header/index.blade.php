@@ -9,7 +9,7 @@
         <div class="header__inner">
             <div class="header__column">
                 <div class="header__logo">
-                    <img src="images/logo.svg" alt="">
+                    <img src="/themes/ozan/assets/images/logo.svg" alt="">
                 </div>
                 <div class="header__menu">
                     <div class="menu" onclick="showMenu()">
@@ -26,7 +26,7 @@
                         <div id="menuDropdown" class="menu__content ham">
                             <div class="menu__content-header">
                                 <div class="menu__content-header-logo">
-                                    <img src="images/logo.svg" alt="">
+                                    <img src="/themes/ozan/assets/images/logo.svg" alt="">
                                 </div>
                                 <div class="menu__content-header-close" onclick="closeMenu()">
                                     <i class="icon-close"></i>
