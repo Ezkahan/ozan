@@ -16,7 +16,7 @@ export default {
     name: "slider",
     props: {
         slides: {
-            type: Array,
+            type: Array | Object,
             required: true,
             default: () => [],
         },

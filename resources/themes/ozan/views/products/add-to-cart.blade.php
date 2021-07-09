@@ -38,7 +38,7 @@ style="width: <?php echo $width.'%';?>;">
                 <button
                     type="submit"
                     {{ ! $product->isSaleable() ? 'disabled' : '' }}
-                    class="theme-btn {{ $addToCartBtnClass ?? '' }}">
+                    class="detail__content-submit {{ $addToCartBtnClass ?? '' }}">
 
                     @if (! (isset($showCartIcon) && !$showCartIcon))
                         <i class="material-icons text-down-3">shopping_cart</i>
@@ -58,7 +58,7 @@ style="width: <?php echo $width.'%';?>;">
                     <button
                         type="submit"
                         {{ ! $product->isSaleable() ? 'disabled' : '' }}
-                        class="btn btn-add-to-cart {{ $addToCartBtnClass ?? '' }}">
+                        class="detail__content-submit {{ $addToCartBtnClass ?? '' }}">
 
                         @if (! (isset($showCartIcon) && !$showCartIcon))
                             <i class="material-icons text-down-3">shopping_cart</i>
