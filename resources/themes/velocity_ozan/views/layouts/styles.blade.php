@@ -1,10 +1,8 @@
-<link rel="stylesheet" href="{{ asset('themes/velocity/assets/css/bootstrap.min.css') }}" />
+<link rel="stylesheet" href="{{ asset('themes/velocity_ozan/assets/css/bootstrap.min.css') }}" />
 
-@if (core()->getCurrentLocale() && core()->getCurrentLocale()->direction == 'rtl')
-    <link href="{{ asset('themes/velocity/assets/css/bootstrap-flipped.css') }}" rel="stylesheet">
-@endif
+<link rel="stylesheet" href="{{ asset('themes/velocity_ozan/assets/css/velocity.css') }}" />
 
-<link rel="stylesheet" href="{{ asset('themes/velocity/assets/css/velocity.css') }}" />
+<link rel="stylesheet" href="{{ asset('themes/velocity_ozan/assets/css/font.css') }}">
 
 @stack('css')
 
