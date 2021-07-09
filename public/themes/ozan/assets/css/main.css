@@ -2180,7 +2180,7 @@ li {
   border: 1px solid #e4e4e4;
 }
 
-.hero__sidebar-inner-link {
+.hero__sidebar-inner-link, .hero__sidebar-inner .vsa-item__heading button .vsa-item__trigger__content {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2197,7 +2197,7 @@ li {
   color: #2d2d2d;
 }
 
-.hero__sidebar-inner-link i {
+.hero__sidebar-inner-link i, .hero__sidebar-inner .vsa-item__heading button .vsa-item__trigger__content i {
   margin-right: 2em;
   font-size: 20px;
   width: 25px;
@@ -2213,12 +2213,12 @@ li {
           justify-content: center;
 }
 
-.hero__sidebar-inner-link.active {
+.hero__sidebar-inner-link.active, .hero__sidebar-inner .vsa-item__heading button .vsa-item__trigger__content.active {
   background: #2d2d2d;
   color: #ffffff;
 }
 
-.hero__sidebar-inner-link:hover {
+.hero__sidebar-inner-link:hover, .hero__sidebar-inner .vsa-item__heading button .vsa-item__trigger__content:hover {
   background: #2d2d2d;
   color: #ffffff;
 }

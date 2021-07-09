@@ -13,7 +13,11 @@ foreach (app('Webkul\Category\Repositories\CategoryRepository')->getVisibleCateg
     <div class="auto__container">
         <div class="hero__inner">
             <div class="hero__sidebar">
-                <div class="hero__sidebar-inner faq" id="accordion">
+                
+                    <!-- here is a vue component -->
+                    <categories :categories='@json($categories)'></categories>
+                    <!-- end -->
+                    {{--
                     @foreach ($categories as $category)
                     <div class="card" style="cursor: pointer;border-radius: 0;" data-toggle="collapse" data-target="#faqCollapse-{{ $loop->iteration }}" data-aria-expanded="true" data-aria-controls="faqCollapse-{{ $loop->iteration }}">
                         <div class="hero__sidebar-inner-link" id="faqHeading-{{ $loop->iteration }}">
@@ -34,7 +38,7 @@ foreach (app('Webkul\Category\Repositories\CategoryRepository')->getVisibleCateg
                         </div>
                     </div>
                     @endforeach
-                </div>
+                    --}}
             </div>
             @if ($heroSlides)
             <div class="hero__content">
