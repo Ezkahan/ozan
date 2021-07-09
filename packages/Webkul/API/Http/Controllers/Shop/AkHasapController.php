@@ -268,13 +268,15 @@ class AkHasapController extends Controller
                         Log::error('akhasap product categories not attached');
                     }
 
-                    ProductInventory::updateOrCreate([
+                    $inventory = ProductInventory::updateOrCreate([
                     
-                        'product_id'          => $akhasap_product->material_id,
+                        'product_id'          => $product->id,
                         'inventory_source_id' => 1,
                         'vendor_id'           =>  0,
                     ],['qty'                 => $akhasap_product->mat_whousetotal_amount,]);
 
+                    Log::error($inventory);
+                    
                     ProductFlat::updateOrCreate(['product_id' => $product->id,'locale' => 'tm'],
                         [
                             'sku' => $sku ,
