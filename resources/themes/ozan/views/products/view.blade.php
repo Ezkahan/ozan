@@ -195,16 +195,11 @@
                         return;
 
                     event.preventDefault();
+                    this.is_buy_now = event.target.classList.contains('buynow') ? 1 : 0;
 
-                    this.$validator.validateAll().then(result => {
-                        if (result) {
-                            this.is_buy_now = event.target.classList.contains('buynow') ? 1 : 0;
-
-                            setTimeout(function() {
-                                document.getElementById('product-form').submit();
-                            }, 0);
-                        }
-                    });
+                    setTimeout(function() {
+                        document.getElementById('product-form').submit();
+                    }, 0);
                 },
             }
         });
