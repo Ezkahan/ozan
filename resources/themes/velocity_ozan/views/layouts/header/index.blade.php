@@ -1,6 +1,6 @@
 <header class="sticky-header">
     <div class="row remove-padding-margin velocity-divide-page">
-        <logo-component add-class="navbar-brand"></logo-component>
+{{--        <logo-component add-class="navbar-brand"></logo-component>--}}
         <searchbar-component></searchbar-component>
     </div>
 </header>
@@ -8,9 +8,10 @@
     <div class="auto__container">
         <div class="header__inner">
             <div class="header__column">
-                <div class="header__logo">
-                    <img src="/themes/ozan/assets/images/logo.svg" alt="">
-                </div>
+{{--                <div class="header__logo">--}}
+{{--                    <img src="/themes/ozan/assets/images/logo.svg" alt="">--}}
+{{--                </div>--}}
+                <logo-component add-class="header__logo"></logo-component>
                 <div class="header__menu">
                     <div class="menu" onclick="showMenu()">
                         <button class="menu__btn ham" id="menuBtn">

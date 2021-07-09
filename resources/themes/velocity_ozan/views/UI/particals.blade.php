@@ -53,11 +53,7 @@
             href="{{ route('shop.home.index') }}"
             aria-label="Logo">
 
-            @if ($logo = core()->getCurrentChannel()->logo_url)
-                <img class="logo" src="{{ $logo }}" alt="" width="200" height="50" />
-            @else
-                <img class="logo" src="{{ asset('themes/velocity/assets/images/logo-text.png') }}" alt="" width="200" height="50" />
-            @endif
+            <img class="logo" src="{{ asset('themes/velocity_ozan/assets/images/logo.svg') }}" alt="" width="192" height="80" />
         </a>
     </script>
 
