@@ -17,9 +17,11 @@ package-lock.json
 /public/hot
 /public/storage
 /public/vendor
+/public/themes/ozan/node_modules
 /resources/lang/vendor
 /storage/*.key
 /storage/dcc-data/
 /vendor
 yarn.lock
 yarn-error.log
+/public/themes/ozan/node_modules

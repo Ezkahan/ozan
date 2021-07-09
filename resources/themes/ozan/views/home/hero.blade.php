@@ -1,20 +1,23 @@
 <?php
 
 $categories = [];
-
+$heroSlides = $sliderData->where('title','top_hero')->toArray();
 
 foreach (app('Webkul\Category\Repositories\CategoryRepository')->getVisibleCategoryTree(core()->getCurrentChannel()->root_category_id) as $category) {
     if ($category->slug) {
         array_push($categories, $category);
     }
 }
-
 ?>
 <section class="hero">
     <div class="auto__container">
         <div class="hero__inner">
             <div class="hero__sidebar">
-                <div class="hero__sidebar-inner faq" id="accordion">
+                
+                    <!-- here is a vue component -->
+                    <categories :categories='@json($categories)'></categories>
+                    <!-- end -->
+                    {{--
                     @foreach ($categories as $category)
                     <div class="card" style="cursor: pointer;border-radius: 0;" data-toggle="collapse" data-target="#faqCollapse-{{ $loop->iteration }}" data-aria-expanded="true" data-aria-controls="faqCollapse-{{ $loop->iteration }}">
                         <div class="hero__sidebar-inner-link" id="faqHeading-{{ $loop->iteration }}">
@@ -35,14 +38,13 @@ foreach (app('Webkul\Category\Repositories\CategoryRepository')->getVisibleCateg
                         </div>
                     </div>
                     @endforeach
-                </div>
+                    --}}
             </div>
+            @if ($heroSlides)
             <div class="hero__content">
-                @if (count($sliderData))
-                    <slider :slides='@json($sliderData)' public_path="{{ url()->to('/') }}"></slider>
-                @endif
-
+                <slider  :slides='@json($heroSlides)' public_path="{{ url()->to('/storage/') }}" item_class="hero__slider-item" time="4000"></slider>
             </div>
+            @endif
         </div>
     </div>
 </section>

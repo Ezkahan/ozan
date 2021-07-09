@@ -61,6 +61,7 @@ window.Vue = Vue;
 
 Vue.component('slider', require('./UI/components/slider'));
 Vue.component('sliderbig', require('./UI/components/sliderbig'));
+Vue.component('categories', require('./UI/components/categories'));
 
 window.eventBus = new Vue();
 
