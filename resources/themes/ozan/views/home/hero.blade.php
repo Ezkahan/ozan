@@ -13,7 +13,7 @@ foreach (app('Webkul\Category\Repositories\CategoryRepository')->getVisibleCateg
     <div class="auto__container">
         <div class="hero__inner">
             <div class="hero__sidebar">
-                
+
                     <!-- here is a vue component -->
                     <categories :categories='@json($categories)'></categories>
                     <!-- end -->
@@ -42,7 +42,7 @@ foreach (app('Webkul\Category\Repositories\CategoryRepository')->getVisibleCateg
             </div>
             @if ($heroSlides)
             <div class="hero__content">
-                <slider  :slides='@json($heroSlides)' public_path="{{ url()->to('/storage/') }}" item_class="hero__slider-item" time="4000"></slider>
+                <slider  :slides='@json($heroSlides)' public_path="{{ url()->to('/storage/') }}" item_class="hero__slider-item" :time=4000></slider>
             </div>
             @endif
         </div>

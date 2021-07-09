@@ -49,13 +49,12 @@ $reklamaSlider = $sliderData->where('title','reklama')->toArray();
 
 <!-- product end
     =========================================== -->
-@if($reklamaSlider)    
+@if($reklamaSlider)
 <section class="sectionBanner">
     <div class="auto__container">
         <div class="sectionBanner__inner">
             <div class="banner_box">
-                <slider  :slides='@json($reklamaSlider)' public_path="{{ url()->to('/storage/') }}" time = '3000'></slider>
-
+                <slider  :slides='@json($reklamaSlider)' public_path="{{ url()->to('/storage/') }}" item_class="birklas" :time=3000 ></slider>
             </div>
         </div>
     </div>

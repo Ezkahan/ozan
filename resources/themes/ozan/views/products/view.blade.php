@@ -50,7 +50,7 @@
 <div class="auto__container">
 
     <section class="detail">
-      
+
             <div class="detail__inner">
                 @include ('shop::products.view.gallery')
                 {{-- <form  class="detail__content"  method="POST" id="product-form" action="{{ route('cart.add', $product->product_id) }}" @click="onSubmit($event)"> --}}
@@ -64,7 +64,7 @@
                         <table>
                         @if ($customAttributeValues = $productViewHelper->getAdditionalData($product))
                         @foreach ($customAttributeValues as $attribute)
-                        
+
                             @if ($attribute['label'])
                                 <td>{{ $attribute['label'] }}:</td>
                             @else
@@ -85,8 +85,8 @@
                             @else
                                 <td>{{ $attribute['value'] }}</td>
                             @endif
-                            
-                        
+
+
                         @endforeach
                         @endif
                         </table>
@@ -101,52 +101,9 @@
                         'form' => false,
                         'product' => $product,
                         'showCartIcon' => false,
-                        'showCompare' => core()->getConfigData('general.content.shop.compare_option') == "1"
-                                        ? true : false,
+                        'showCompare' => core()->getConfigData('general.content.shop.compare_option') == "1",
                     ])
                     </product-view>
-                    {{-- <div class="detail__content-color">
-                        <div class="detail__content-color-title">
-                            Цвет: Серый
-                        </div>
-                        <div class="detail__content-color-row">
-                            <div class="detail__content-color-radio ">
-                                <input checked type="radio" name="color" id="black">
-                                <label class="color__label black" for="black"></label>
-                            </div>
-                            <div class="detail__content-color-radio">
-                                <input type="radio" name="color" id="gray">
-                                <label class="color__label gray" for="gray"></label>
-                            </div>
-                            <div class="detail__content-color-radio ">
-                                <input type="radio" name="color" id="gold">
-                                <label class="color__label gold" for="gold"></label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="detail__content-size">
-                        <div class="detail__content-size-title">
-                            Цвет: Серый
-                        </div>
-                        <div class="detail__content-size-row">
-                            <div class="detail__content-size-radio">
-                                <input checked type="radio" name="size" id="gb64">
-                                <label class="size__label" for="gb64">
-                                    64 GB
-                                </label>
-                            </div>
-                            <div class="detail__content-size-radio">
-                                <input type="radio" name="size" id="gb256">
-                                <label class="size__label" for="gb256">
-                                    256 GB
-                                </label>
-                            </div>
-                        </div>
-                    </div> --}}
-                      
-            
-                   
-                {{-- </form> --}}
             </div>
             <div class="detail__about">
                 <h5>
@@ -158,103 +115,14 @@
             </div>
             <!-- similar start
     =========================================== -->
-            
+
             <!-- product end
     =========================================== -->
- 
-    </section>    
+
+    </section>
     @include ('shop::products.view.related-products')
 </div>
-    {{-- <section class="product-detail">
 
-        <div class="layouter">
-            <product-view>
-                <div class="form-container">
-                    @csrf()
-
-                    <input type="hidden" name="product_id" value="{{ $product->product_id }}">
-
-                   
-
-                    <div class="details">
-
-                        <div class="product-heading">
-                            <span>{{ $product->name }}</span>
-                        </div>
-
-                        @include ('shop::products.review', ['product' => $product])
-
-                        @include ('shop::products.price', ['product' => $product])
-
-                        @if (count($product->getTypeInstance()->getCustomerGroupPricingOffers()) > 0)
-                            <div class="regular-price">
-                                @foreach ($product->getTypeInstance()->getCustomerGroupPricingOffers() as $offers)
-                                    <p> {{ $offers }} </p>
-                                @endforeach
-                            </div>
-                        @endif
-
-                        @include ('shop::products.view.stock', ['product' => $product])
-
-                        {!! view_render_event('bagisto.shop.products.view.short_description.before', ['product' => $product]) !!}
-
-                        <div class="description">
-                            {!! $product->short_description !!}
-                        </div>
-
-                        {!! view_render_event('bagisto.shop.products.view.short_description.after', ['product' => $product]) !!}
-
-
-                        {!! view_render_event('bagisto.shop.products.view.quantity.before', ['product' => $product]) !!}
-
-                        @if ($product->getTypeInstance()->showQuantityBox())
-                            <quantity-changer></quantity-changer>
-                        @else
-                            <input type="hidden" name="quantity" value="1">
-                        @endif
-
-                        {!! view_render_event('bagisto.shop.products.view.quantity.after', ['product' => $product]) !!}
-
-                        @include ('shop::products.view.configurable-options')
-
-                        @include ('shop::products.view.downloadable')
-
-                        @include ('shop::products.view.grouped-products')
-
-                        @include ('shop::products.view.bundle-options')
-
-                        {!! view_render_event('bagisto.shop.products.view.description.before', ['product' => $product]) !!}
-
-                        <accordian :title="'{{ __('shop::app.products.description') }}'" :active="true">
-                            <div slot="header">
-                                {{ __('shop::app.products.description') }}
-                                <i class="icon expand-icon right"></i>
-                            </div>
-
-                            <div slot="body">
-                                <div class="full-description">
-                                    {!! $product->description !!}
-                                </div>
-                            </div>
-                        </accordian>
-
-                        {!! view_render_event('bagisto.shop.products.view.description.after', ['product' => $product]) !!}
-
-                        @include ('shop::products.view.attributes')
-
-                        @include ('shop::products.view.reviews')
-                    </div>
-                </div>
-            </product-view>
-        </div>
-
-      
-
-        @include ('shop::products.view.up-sells')
-
-    </section> --}}
-
-    {!! view_render_event('bagisto.shop.products.view.after', ['product' => $product]) !!}
 @endsection
 
 @push('scripts')
@@ -277,6 +145,7 @@
 
         </form>
     </script>
+
     <script>
         Vue.component('product-view', {
             inject: ['$validator'],
@@ -339,7 +208,7 @@
                 },
             }
         });
-  
+
         window.onload = function() {
             var thumbList = document.getElementsByClassName('thumb-list')[0];
             var thumbFrame = document.getElementsByClassName('thumb-frame');

@@ -159,7 +159,7 @@
 
 
 <body @if (core()->getCurrentLocale() && core()->getCurrentLocale()->direction == 'rtl') class="rtl" @endif style="scroll-behavior: smooth;">
-
+@include('shop::UI.particals')
 {!! view_render_event('bagisto.shop.layout.body.before') !!}
 {!! view_render_event('bagisto.shop.layout.header.before') !!}
 <div id="app">
