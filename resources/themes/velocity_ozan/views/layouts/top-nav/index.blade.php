@@ -7,7 +7,10 @@
         @include('velocity::layouts.top-nav.login-section')
     </div>
 </nav>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7a4d92c08561696e4b08523c880cfca97a49558e
 <section class="upheader">
     <div class="auto__container">
         <div class="upheader__inner">

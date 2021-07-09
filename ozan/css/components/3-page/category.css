@@ -1,0 +1,26 @@
+.category {
+  padding-top: 6.6em;
+  font-size: 15px;
+}
+
+.category__inner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.category__inner .sidebar {
+  width: 30em;
+}
+
+.category__inner .product {
+  padding-top: 0;
+  width: calc(100% - 30em - 3.3em);
+  margin-left: 3.3em;
+}
+
+.category__inner .product__row .card {
+  margin: 1.2em;
+  width: calc(25% - 2.4em - 2px);
+}
+/*# sourceMappingURL=category.css.map */
