@@ -1,34 +1,40 @@
 .card {
-  border: 1px solid #ececec;
-  position: relative;
-  &__heart {
-    position: absolute;
-    top: 12px;
-    right: 12px;
-    color: $heart-color;
-    font-size: 16px;
-  }
-  &__image {
-    picture {
-      width: 100%;
-      img {
-        width: 100%;
-      }
+    border: 1px solid #ececec;
+    position: relative;
+
+    &__heart {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        color: $heart-color;
+        font-size: 16px;
     }
-  }
-  &__body {
-    padding: 1.1rem 1.6rem;
-    &-title {
-      font-size: 12px;
-      line-height: 25px;
-      font-weight: 300;
-      color: $black;
+
+    &__image {
+        picture {
+            width: 100%;
+
+            img {
+                width: 100%;
+            }
+        }
     }
-    &-price {
-      font-size: 14px;
-      line-height: 25px;
-      font-weight: 600;
-      color: $main-color;
+
+    &__body {
+        padding: 1.1rem 1.6rem;
+
+        &-title {
+            font-size: 12px;
+            line-height: 25px;
+            font-weight: 300;
+            color: $black;
+        }
+
+        &-price {
+            font-size: 14px;
+            line-height: 25px;
+            font-weight: 600;
+            color: $main-color;
+        }
     }
-  }
 }

@@ -75,6 +75,10 @@ a {
     text-decoration: none;
     cursor: pointer;
     color: #000;
+
+    &:hover {
+        text-decoration: none !important;
+    }
 }
 
 h1,
