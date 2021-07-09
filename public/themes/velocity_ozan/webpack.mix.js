@@ -28,7 +28,12 @@ mix
             includePaths: ['node_modules/bootstrap-sass/assets/stylesheets/'],
         }
     )
-
+    .sass(
+        __dirname + '/assets/sass/app.scss',
+        __dirname +  '/assets/css/velocity.css', {
+            includePaths: ['node_modules/bootstrap-sass/assets/stylesheets/'],
+        }
+    )
     .options({
         processCssUrls: false
     });
