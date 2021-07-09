@@ -3,11 +3,9 @@
         ref="slick"
         :options="slickOptions">
 
-
-
-        <div v-for="(image, index) in slides" :key="index" class="hero__slider-item">
-           <img :src="public_path + '/storage/' + image.path" alt="">
-        </div>
+        <a  v-for="(slide, index) in slides" :key="index" :class="item_class" :href="slide.slider_path">
+           <img :src="public_path +'/'+ slide.path" />
+        </a>
     </slick>
 </template>
 
@@ -26,6 +24,14 @@ export default {
         public_path: {
             type: String,
             required: true,
+        },
+        item_class: {
+            type: String,
+            required: false,
+        },
+        time:{
+            type:Number,
+            required:false
         }
     },
     components: { Slick },
@@ -38,7 +44,7 @@ export default {
                 speed: 1000,
                 autoplay: true,
                 arrows: true,
-                autoplaySpeed: 2000,
+                autoplaySpeed: this.time,
                 // nextArrow: ".next_s",
                 // prevArrow: ".prev_s",
                 adaptiveHeight: true,
@@ -65,40 +71,6 @@ export default {
             });
         },
 
-        // Events listeners
-        handleAfterChange(event, slick, currentSlide) {
-            console.log('handleAfterChange', event, slick, currentSlide);
-        },
-        handleBeforeChange(event, slick, currentSlide, nextSlide) {
-            console.log('handleBeforeChange', event, slick, currentSlide, nextSlide);
-        },
-        handleBreakpoint(event, slick, breakpoint) {
-            console.log('handleBreakpoint', event, slick, breakpoint);
-        },
-        handleDestroy(event, slick) {
-            console.log('handleDestroy', event, slick);
-        },
-        handleEdge(event, slick, direction) {
-            console.log('handleEdge', event, slick, direction);
-        },
-        handleInit(event, slick) {
-            console.log('handleInit', event, slick);
-        },
-        handleReInit(event, slick) {
-            console.log('handleReInit', event, slick);
-        },
-        handleSetPosition(event, slick) {
-            console.log('handleSetPosition', event, slick);
-        },
-        handleSwipe(event, slick, direction) {
-            console.log('handleSwipe', event, slick, direction);
-        },
-        handleLazyLoaded(event, slick, image, imageSource) {
-            console.log('handleLazyLoaded', event, slick, image, imageSource);
-        },
-        handleLazeLoadError(event, slick, image, imageSource) {
-            console.log('handleLazeLoadError', event, slick, image, imageSource);
-        },
     }
 }
 </script>
