@@ -1,0 +1,46 @@
+.upheader {
+  background: $main-color;
+  padding: 0.6rem 0;
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .upheader__nav {
+    display: flex;
+    align-items: center;
+    &-link {
+      margin-left: 2rem;
+      i {
+        margin-right: 0.5rem;
+      }
+      span {
+        font-size: 14px;
+        line-height: 16px;
+        font-weight: 400;
+        color: $black;
+      }
+    }
+  }
+  &__language {
+    display: flex;
+    align-items: center;
+    i {
+      margin-right: 0.5rem;
+    }
+    select {
+      background: none;
+      cursor: pointer;
+      font-size: 14px;
+      line-height: 16px;
+      font-weight: 400;
+      color: $black;
+      border: none;
+      option {
+        background: none;
+        border: none;
+        -webkit-appearance: none;
+      }
+    }
+  }
+}

@@ -1,0 +1,86 @@
+/* question start
+================================================ */
+.sidebar {
+    &__banner {
+        width: 100%;
+        margin-top: 3.3rem;
+
+        picture {
+            width: 100%;
+
+            img {
+                width: 100%;
+            }
+        }
+    }
+
+    &__header {
+        padding: 30px;
+        font-size: 24px;
+        line-height: 32px;
+        font-weight: 700;
+        color: $white;
+        background: $black;
+        border-radius: 20px 20px 0 0;
+
+        i {
+            margin-right: 1.3rem;
+            pointer-events: none;
+        }
+    }
+
+    &__body {
+        position: relative;
+        border: 1px solid #ececec;
+
+        &:last-child {
+            border-radius: 0 0 20px 20px;
+        }
+    }
+
+    &__btn {
+        margin: 0 30px;
+        padding: 30px 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 18px;
+        line-height: 20px;
+        font-weight: 700;
+        color: $black;
+        position: relative;
+        cursor: pointer;
+
+        i {
+            pointer-events: none;
+        }
+
+        span {
+            pointer-events: none;
+        }
+    }
+
+    &__content {
+        max-height: 0;
+        overflow: hidden;
+        background: #f7f7f7;
+        transition: 0.4s ease-in-out;
+        -moz-transition: 0.4s ease-in-out;
+
+        &-link {
+            padding: 30px 0;
+            margin: 0 30px;
+            display: block;
+            font-size: 18px;
+            line-height: 20px;
+            font-weight: 700;
+        }
+
+        &.active {
+            max-height: 1000px;
+        }
+    }
+}
+
+/* question end
+  ================================================ */
