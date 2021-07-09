@@ -33,9 +33,7 @@
         @include('shop::layouts.styles')
     </head>
 
-    <body @if (core()->getCurrentLocale() && core()->getCurrentLocale()->direction == 'rtl') class="rtl" @endif>
-        {!! view_render_event('bagisto.shop.layout.body.before') !!}
-
+    <body>
         @include('shop::UI.particals')
 
         {{-- main app --}}

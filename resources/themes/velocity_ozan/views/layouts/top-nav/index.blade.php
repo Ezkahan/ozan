@@ -7,15 +7,34 @@
         @include('velocity::layouts.top-nav.login-section')
     </div>
 </nav>
+<<<<<<< HEAD
+
+=======
+>>>>>>> 7a4d92c08561696e4b08523c880cfca97a49558e
 <section class="upheader">
     <div class="auto__container">
         <div class="upheader__inner">
             <div class="upheader__language">
                 <i class="icon-global"></i>
-                <select name="language" id="">
-                    <option value="0">Русский</option>
-                    <option value="1">Русский</option>
-                    <option value="2">Русский</option>
+                <select 
+                    name="language"
+                    onchange="window.location.href = this.value"
+                    aria-label="Locale"
+                    @if (count(core()->getCurrentChannel()->locales) == 1)
+                        disabled="disabled"
+                    @endif>
+
+                    @foreach (core()->getCurrentChannel()->locales as $locale)
+                        @if (isset($searchQuery) && $searchQuery)
+                            <option 
+                                value="?{{ $searchQuery }}&locale={{ $locale->code }}"
+                                {{ $locale->code == app()->getLocale() ? 'selected' : '' }}>
+                                {{ $locale->name }}
+                            </option>
+                        @else
+                            <option value="?locale={{ $locale->code }}" {{ $locale->code == app()->getLocale() ? 'selected' : '' }}>{{ $locale->name }}</option>
+                        @endif
+                    @endforeach
                 </select>
             </div>
             <div class="upheader__nav">
