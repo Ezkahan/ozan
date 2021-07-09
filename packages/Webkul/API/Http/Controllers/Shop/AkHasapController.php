@@ -269,14 +269,13 @@ class AkHasapController extends Controller
                     }
 
                     $inventory = ProductInventory::updateOrCreate([
-                    
                         'product_id'          => $product->id,
                         'inventory_source_id' => 1,
                         'vendor_id'           =>  0,
-                    ],['qty'                 => $akhasap_product->mat_whousetotal_amount,]);
+                    ],['qty' => 12]);
 
                     Log::error($inventory);
-                    
+
                     ProductFlat::updateOrCreate(['product_id' => $product->id,'locale' => 'tm'],
                         [
                             'sku' => $sku ,
