@@ -3,6 +3,7 @@
 <link rel="stylesheet" href="{{ asset('themes/velocity_ozan/assets/css/velocity.css') }}" />
 
 <link rel="stylesheet" href="{{ asset('themes/velocity_ozan/assets/css/font.css') }}">
+<link rel="stylesheet" href="{{ asset('themes/velocity_ozan/assets/css/main.css') }}">
 
 @stack('css')
 
