@@ -55,8 +55,7 @@ class HomeController extends Controller
         $sliderData = $this->sliderRepository
             ->where('channel_id', $currentChannel->id)
             ->where('locale', $currentLocale->code)
-            ->get()
-            ->toArray();
+            ->get();
 
         return view($this->_config['view'], compact('sliderData'));
     }
