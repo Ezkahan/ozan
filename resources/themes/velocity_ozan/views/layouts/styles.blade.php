@@ -1,3 +1,4 @@
+
 <link rel="stylesheet" href="{{ asset('themes/velocity_ozan/assets/css/bootstrap.min.css') }}" />
 
 <link rel="stylesheet" href="{{ asset('themes/velocity_ozan/assets/css/velocity.css') }}" />

@@ -56581,6 +56581,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: {
@@ -56615,14 +56616,25 @@ var render = function() {
           _c("div", { staticClass: "hero__sidebar-inner-link" }, [
             _c("div", { staticClass: "category_icon" }, [
               category.category_icon_path
-                ? _c("svg", [
-                    _c("use", {
+                ? _c(
+                    "svg",
+                    {
                       attrs: {
-                        href:
-                          _vm.public_path + "/" + category.category_icon_path
+                        xmlns: "http://www.w3.org/2000/svg",
+                        width: "18",
+                        height: "22",
+                        viewBox: "0 0 18 22"
                       }
-                    })
-                  ])
+                    },
+                    [
+                      _c("use", {
+                        attrs: {
+                          href:
+                            _vm.public_path + "/" + category.category_icon_path
+                        }
+                      })
+                    ]
+                  )
                 : _vm._e()
             ]),
             _vm._v(" "),

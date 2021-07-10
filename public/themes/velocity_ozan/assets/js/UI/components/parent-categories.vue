@@ -3,7 +3,8 @@
         <a v-for="(category, index) in $root.sharedRootCategories" :key="index" :href="category.slug" class="card" style="border-radius: 0;">
             <div class="hero__sidebar-inner-link">
                 <div class="category_icon">
-                    <svg v-if="category.category_icon_path">
+                    <svg v-if="category.category_icon_path" xmlns="http://www.w3.org/2000/svg" width="18" height="22" viewBox="0 0 18 22">
+
                         <use :href="public_path + '/' + category.category_icon_path"></use>
                     </svg>
                     <!-- <svg id="monitor" xmlns="http://www.w3.org/2000/svg" width="21" height="20" viewBox="0 0 21 20">
