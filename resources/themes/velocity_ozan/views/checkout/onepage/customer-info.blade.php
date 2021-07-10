@@ -41,9 +41,7 @@
 
                                     <ul type="none">
                                         <li>@{{ addresses.address1 }},</li>
-                                        <li>@{{ addresses.postcode }} @{{ addresses.city }},</li>
-                                        <li>@{{ addresses.state }},</li>
-                                        <li>@{{ addresses.country }}</li>
+
                                         <li>
                                             {{ __('shop::app.customer.account.address.index.contact') }} : @{{ addresses.phone }}
                                         </li>
