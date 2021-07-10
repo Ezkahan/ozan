@@ -12256,8 +12256,8 @@ return jQuery;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(14);
-__webpack_require__(133);
-module.exports = __webpack_require__(134);
+__webpack_require__(136);
+module.exports = __webpack_require__(137);
 
 
 /***/ }),
@@ -12347,12 +12347,12 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('popular-category', __webp
 
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('slider', __webpack_require__(122));
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('categories', __webpack_require__(128));
-__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('parent-categories', __webpack_require__(137));
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('parent-categories', __webpack_require__(132));
 window.eventBus = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a();
 
 $(document).ready(function () {
     // define a mixin object
-    __WEBPACK_IMPORTED_MODULE_0_vue___default.a.mixin(__webpack_require__(132));
+    __WEBPACK_IMPORTED_MODULE_0_vue___default.a.mixin(__webpack_require__(135));
 
     __WEBPACK_IMPORTED_MODULE_0_vue___default.a.mixin({
         data: function data() {
@@ -56467,57 +56467,14 @@ if (false) {
 
 /***/ }),
 /* 132 */
-/***/ (function(module, exports) {
-
-module.exports = {
-    methods: {
-        /**
-         * Translate the given key.
-         */
-        __: function __(key, params) {
-            var splitedKey = key.split('.');
-            var translation = window._translations;
-
-            splitedKey.forEach(function (key) {
-                translation = translation[key];
-            });
-
-            if (params) {
-                Object.keys(params).forEach(function (key) {
-                    var value = params[key];
-                    translation = translation.replace(':' + key, value);
-                });
-            }
-
-            return translation;
-        }
-    }
-};
-
-/***/ }),
-/* 133 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 134 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 135 */,
-/* 136 */,
-/* 137 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(0)
 /* script */
-var __vue_script__ = __webpack_require__(138)
+var __vue_script__ = __webpack_require__(133)
 /* template */
-var __vue_template__ = __webpack_require__(139)
+var __vue_template__ = __webpack_require__(134)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -56556,7 +56513,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 138 */
+/* 133 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -56593,7 +56550,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 139 */
+/* 134 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -56657,6 +56614,47 @@ if (false) {
     require("vue-hot-reload-api")      .rerender("data-v-3a14ca29", module.exports)
   }
 }
+
+/***/ }),
+/* 135 */
+/***/ (function(module, exports) {
+
+module.exports = {
+    methods: {
+        /**
+         * Translate the given key.
+         */
+        __: function __(key, params) {
+            var splitedKey = key.split('.');
+            var translation = window._translations;
+
+            splitedKey.forEach(function (key) {
+                translation = translation[key];
+            });
+
+            if (params) {
+                Object.keys(params).forEach(function (key) {
+                    var value = params[key];
+                    translation = translation.replace(':' + key, value);
+                });
+            }
+
+            return translation;
+        }
+    }
+};
+
+/***/ }),
+/* 136 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 137 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);
