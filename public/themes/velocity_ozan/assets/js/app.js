@@ -34,7 +34,7 @@ window.Vue = Vue;
 window.Carousel = VueCarousel;
 
 // UI components
-Vue.component("vue-slider", require("vue-slider-component"));
+// Vue.component("vue-slider", require("vue-slider-component"));
 Vue.component('mini-cart', require('./UI/components/mini-cart'));
 Vue.component('modal-component', require('./UI/components/modal'));
 Vue.component("add-to-cart", require("./UI/components/add-to-cart"));
@@ -58,6 +58,8 @@ Vue.component('product-collections', require('./UI/components/product-collection
 Vue.component('hot-category', require('./UI/components/hot-category'));
 Vue.component('popular-category', require('./UI/components/popular-category'));
 
+Vue.component('slider', require('./UI/components/slider'));
+Vue.component('categories', require('./UI/components/categories'));
 window.eventBus = new Vue();
 
 $(document).ready(function () {
@@ -73,7 +75,7 @@ $(document).ready(function () {
                 'sharedRootCategories': [],
                 'responsiveSidebarTemplate': '',
                 'responsiveSidebarKey': Math.random(),
-                'baseUrl': document.querySelector("script[src$='velocity.js']").getAttribute('baseUrl')
+                'baseUrl': document.querySelector("script[src$='ozan.js']").getAttribute('baseUrl')
             }
         },
 

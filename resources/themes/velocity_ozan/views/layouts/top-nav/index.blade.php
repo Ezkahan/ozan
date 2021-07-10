@@ -12,7 +12,7 @@
         <div class="upheader__inner">
             <div class="upheader__language">
                 <i class="icon-global"></i>
-                <select 
+                <select
                     name="language"
                     onchange="window.location.href = this.value"
                     aria-label="Locale"
@@ -22,7 +22,7 @@
 
                     @foreach (core()->getCurrentChannel()->locales as $locale)
                         @if (isset($searchQuery) && $searchQuery)
-                            <option 
+                            <option
                                 value="?{{ $searchQuery }}&locale={{ $locale->code }}"
                                 {{ $locale->code == app()->getLocale() ? 'selected' : '' }}>
                                 {{ $locale->name }}

@@ -14,39 +14,27 @@
     @if ($advertisementOne)
         @php
             $isRendered = true;
+
+            $reklamaSlides = [];
+
+            foreach ($advertisementOne as $adv){
+                $reklamaSlides[] = [
+                    'slider_path' => '/',
+                    'path' => '/'
+                ];
+            }
+
         @endphp
-
-        <div class="container-fluid advertisement-one">
-            <div class="row">
-            <div
-                class="col offers-lt-panel bg-image"
-                style="background-image: url('{{ asset('/storage/' . $advertisementOne['image_1']) }}')">
-            </div>
-
-                <div class="col offers-ct-panel">
-
-                    <div class="row pb10">
-                        <div
-                            class="col-12 offers-ct-top"
-                            style="background-image: url('{{ asset('/storage/' . $advertisementOne['image_2']) }}')">
-                        </div>
+        <section class="sectionBanner">
+            <div class="auto__container">
+                <div class="sectionBanner__inner">
+                    <div class="banner_box">
+                        <slider  :slides='@json($reklamaSlides)' public_path="{{ url()->to('/storage/') }}" item_class="birklas" :time=3000 ></slider>
                     </div>
-
-                    <div class="row">
-                        <div
-                            class="col-12 offers-ct-bottom"
-                            style="background-image: url('{{ asset('/storage/' . $advertisementOne['image_3']) }}')">
-                        </div>
-                    </div>
-
-                </div>
-
-                <div
-                    class="col offers-rt-panel"
-                    style="background-image: url('{{ asset('/storage/' . $advertisementOne['image_4']) }}')">
                 </div>
             </div>
-        </div>
+        </section>
+
     @endif
 @endif
 

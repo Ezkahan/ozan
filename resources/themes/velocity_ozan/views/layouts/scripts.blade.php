@@ -1,7 +1,7 @@
 <script
     type="text/javascript"
     baseUrl="{{ url()->to('/') }}"
-    src="{{ asset('themes/velocity/assets/js/velocity.js') }}">
+    src="{{ asset('themes/velocity_ozan/assets/js/ozan.js') }}">
 </script>
 
 <script
