@@ -688,7 +688,6 @@ li {
 }
 
 .footer {
-  padding: 2rem 0;
   background: #0f0f0f;
 }
 
@@ -2175,6 +2174,9 @@ li {
 
 .hero__slider-item img {
   height: 100%;
+  width: 100%;
+  object-fit: contain;
+  -o-object-fit: contain;
 }
 
 .hero__sidebar {
