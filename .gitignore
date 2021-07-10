@@ -15,7 +15,7 @@ package-lock.json
 /public/fonts
 /public/js
 /public/hot
-/public/storage
+/public/storage/akhasaplogs
 /public/vendor
 /public/themes/ozan/node_modules
 /resources/lang/vendor
@@ -24,5 +24,4 @@ package-lock.json
 /vendor
 yarn.lock
 yarn-error.log
-/public/themes/ozan/node_modules
 /public/themes/velocity_ozan/node_modules

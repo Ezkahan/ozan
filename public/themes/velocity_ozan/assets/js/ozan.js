@@ -1470,6 +1470,7 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('popular-category', __webp
 
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('slider', __webpack_require__(128));
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('categories', __webpack_require__(134));
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('parent-categories', __webpack_require__(138));
 window.eventBus = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a();
 
 $(document).ready(function () {
@@ -1755,6 +1756,7 @@ $(document).ready(function () {
                 this.$http.get(this.baseUrl + '/categories').then(function (response) {
                     _this4.sharedRootCategories = response.data.categories;
                     $('<style type=\'text/css\'> .sub-categories{ min-height:' + response.data.categories.length * 30 + 'px;} </style>').appendTo("head");
+                    console.log(_this4.sharedRootCategories);
                 }).catch(function (error) {
                     console.log('failed to load categories');
                 });
@@ -56505,6 +56507,144 @@ if (false) {
   module.hot.accept()
   if (module.hot.data) {
     require("vue-hot-reload-api")      .rerender("data-v-647ff302", module.exports)
+  }
+}
+
+/***/ }),
+/* 138 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(0)
+/* script */
+var __vue_script__ = __webpack_require__(139)
+/* template */
+var __vue_template__ = __webpack_require__(140)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "assets/js/UI/components/parent-categories.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-3a14ca29", Component.options)
+  } else {
+    hotAPI.reload("data-v-3a14ca29", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 139 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    props: {
+        public_path: {
+            type: String,
+            required: true
+        }
+    }
+});
+
+/***/ }),
+/* 140 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "hero__sidebar-inner faq" },
+    _vm._l(_vm.$root.sharedRootCategories, function(category, index) {
+      return _c(
+        "a",
+        {
+          key: index,
+          staticClass: "card",
+          staticStyle: { "border-radius": "0" },
+          attrs: { href: category.slug }
+        },
+        [
+          _c("div", { staticClass: "hero__sidebar-inner-link" }, [
+            _c("div", { staticClass: "category_icon" }, [
+              category.category_icon_path
+                ? _c("svg", [
+                    _c("use", {
+                      attrs: {
+                        href:
+                          _vm.public_path + "/" + category.category_icon_path
+                      }
+                    })
+                  ])
+                : _vm._e()
+            ]),
+            _vm._v(" "),
+            _c("span", { staticClass: "faq-title" }, [
+              _vm._v(" " + _vm._s(category.name))
+            ])
+          ])
+        ]
+      )
+    }),
+    0
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-3a14ca29", module.exports)
   }
 }
 
