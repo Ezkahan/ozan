@@ -43,21 +43,21 @@
 
                             {!! view_render_event('bagisto.shop.customers.login_form_controls.before') !!}
 
-                            <div class="form-group" :class="[errors.has('email') ? 'has-error' : '']">
-                                <label for="email" class="mandatory label-style">
-                                    {{ __('shop::app.customer.login-form.email') }}
+                            <div class="form-group" :class="[errors.has('phone') ? 'has-error' : '']">
+                                <label for="phone" class="mandatory label-style">
+                                    {{ __('shop::app.registerlogin.phoneNumber') }}
                                 </label>
 
                                 <input
                                     type="text"
                                     class="form-style"
-                                    name="email"
-                                    v-validate="'required|email'"
-                                    value="{{ old('email') }}"
-                                    data-vv-as="&quot;{{ __('shop::app.customer.login-form.email') }}&quot;" />
+                                    name="phone"
+                                    v-validate="'required|numeric'"
+                                    value="{{ old('phone') }}"
+                                    data-vv-as="&quot;{{ __('shop::app.customer.login-form.phone') }}&quot;" />
 
-                                <span class="control-error" v-if="errors.has('email')">
-                                    @{{ errors.first('email') }}
+                                <span class="control-error" v-if="errors.has('phone')">
+                                    @{{ errors.first('phone') }}
                                 </span>
                             </div>
 

@@ -58,6 +58,8 @@ Vue.component('product-collections', require('./UI/components/product-collection
 Vue.component('hot-category', require('./UI/components/hot-category'));
 Vue.component('popular-category', require('./UI/components/popular-category'));
 
+Vue.component('slider', require('./UI/components/slider'));
+Vue.component('categories', require('./UI/components/categories'));
 window.eventBus = new Vue();
 
 $(document).ready(function () {
