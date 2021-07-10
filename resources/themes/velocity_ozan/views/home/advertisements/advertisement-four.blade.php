@@ -22,12 +22,15 @@
             :slides-count="{{ sizeof($advertisementFour) }}"
             slides-per-page="6"
             id="related-products-carousel"
-            navigation-enabled="hide"
-            pagination-enabled="hide">
+            navigation-enabled="true"
+            pagination-enabled="hide"
+            loop="true">
 
             @foreach ($advertisementFour as $index => $relatedProduct)
-                <slide slot="slide-{{ $index }}" path="{{$url[$index] ?? '/'}}">
-                    <div class="brand__slider-item-image"><picture><img src="{{url()->to('/storage/'.$relatedProduct)}}" alt=""></picture></div>
+                <slide slot="slide-{{ $index }}">
+                    <a href="{{$url[$index] ?? '/'}}">
+                        <div class="brand__slider-item-image"><picture><img src="{{url()->to('/storage/'.$relatedProduct)}}" alt=""></picture></div>
+                    </a>
                 </slide>
             @endforeach
         </carousel-component>
