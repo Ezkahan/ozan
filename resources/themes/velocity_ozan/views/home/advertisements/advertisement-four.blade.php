@@ -10,14 +10,26 @@
         if (isset($advertisement[4]) && is_array($advertisement[4])) {
             $advertisementFour = array_values(array_filter($advertisement[4]));
         }
-    
+
     @endphp
 
     @if ($advertisementFour)
         @php
             $isRendered = true;
         @endphp
+        <carousel-component
+            :slides-count="{{ sizeof($advertisementFour) }}"
+            slides-per-page="2"
+            id="related-products-carousel"
+            navigation-enabled="hide"
+            pagination-enabled="hide">
 
+            @foreach ($advertisementFour as $index => $relatedProduct)
+                <slide slot="slide-{{ $index }}">
+                    <div class="brand__slider-item-image"><picture><img src="https://ozan.com.tm/themes/ozan/assets/images/brand/dat.png" alt=""></picture></div>
+                </slide>
+            @endforeach
+        </carousel-component>
         <div class="container-fluid advertisement-four-container">
             <div class="row">
                 @if ( isset($advertisementFour[0]))
