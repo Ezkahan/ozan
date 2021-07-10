@@ -6860,12 +6860,7 @@ body {
 }
 
 #top {
-  -webkit-box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.24);
-  box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.24);
   margin: 0;
-  min-height: 32px;
-  color: rgba(0, 0, 0, 0.83);
-  border-bottom: 1px solid #CCCCCC;
 }
 
 #top .btn, #top .quantity button, .quantity #top button,
@@ -6948,9 +6943,7 @@ body {
 
 #top #account .welcome-content {
   display: table;
-  min-width: 150px;
   cursor: pointer;
-  float: right;
   text-align: right;
   padding-top: 5px;
 }
@@ -6998,10 +6991,6 @@ body {
   margin-bottom: 5px;
 }
 
-#top > div:last-child {
-  height: 32px;
-}
-
 #top > div .default {
   padding: 5px;
   font-size: 14px;
@@ -7020,10 +7009,6 @@ body {
   padding-left: 5px;
   position: relative;
   padding-right: 15px;
-}
-
-#top .dropdown {
-  margin-right: 15px;
 }
 
 #top .dropdown .select-icon-container .select-icon {
