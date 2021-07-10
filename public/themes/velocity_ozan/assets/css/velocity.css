@@ -4218,10 +4218,6 @@ body::after {
   font-weight: 700;
 }
 
-.fs13 {
-  font-size: 13px !important;
-}
-
 .fs14, .main-content-wrapper {
   font-size: 14px;
 }
@@ -7149,75 +7145,8 @@ header .logo {
 }
 
 header #search-form {
-  height: 40px;
   margin: 5px 0px;
   background: #FFFFFF;
-}
-
-header #search-form * {
-  height: 100%;
-}
-
-header #search-form .btn-group, header #search-form .quantity {
-  max-width: 550px;
-}
-
-header #search-form .btn-group .selectdiv, header #search-form .quantity .selectdiv {
-  width: 210px;
-}
-
-header #search-form .btn-group .selectdiv .select-icon, header #search-form .quantity .selectdiv .select-icon {
-  top: -30px;
-  right: 8px;
-  z-index: 10;
-  font-size: 18px;
-  background-color: #FFFFFF;
-  height: 20px;
-}
-
-header #search-form .btn-group select, header #search-form .quantity select {
-  width: 100%;
-  height: 100%;
-  cursor: pointer;
-  border-radius: 2px 0px 0px 2px;
-  border: 1px solid #26A37C;
-  border-right: 0;
-  font-family: "Source Sans Pro", sans-serif;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-}
-
-header #search-form .btn-group select::-ms-expand, header #search-form .quantity select::-ms-expand {
-  display: none;
-}
-
-header #search-form input {
-  border-radius: 0px;
-  height: 100%;
-  font-size: 14px;
-  padding: 0 10px;
-  line-height: 20px;
-  letter-spacing: 0;
-  border: 1px solid #26A37C;
-  border-left: 1px solid #CCCCCC;
-}
-
-header #search-form .btn:hover, header #search-form .quantity button:hover, .quantity header #search-form button:hover,
-header #search-form .quantity input:hover, .quantity header #search-form input:hover {
-  text-decoration: none;
-}
-
-header #search-form .btn:focus, header #search-form .quantity button:focus, .quantity header #search-form button:focus,
-header #search-form .quantity input:focus, .quantity header #search-form input:focus {
-  outline: none;
-  outline-offset: 0px;
-}
-
-header #search-form .btn:active:hover, header #search-form .quantity button:active:hover, .quantity header #search-form button:active:hover,
-header #search-form .quantity input:active:hover, .quantity header #search-form input:active:hover {
-  outline: none;
-  outline-offset: 0px;
 }
 
 header #search-form #header-search-icon {

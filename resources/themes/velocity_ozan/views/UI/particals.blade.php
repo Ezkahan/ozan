@@ -60,7 +60,7 @@
     <script type="text/x-template" id="searchbar-template">
         <div class="right searchbar">
             <div class="row">
-                <div class="col-lg-5 col-md-12">
+                <div class="my-col">
                     <div class="input-group">
                         <form class="search"
                             method="GET"
@@ -111,7 +111,7 @@
                                     <image-search-component></image-search-component>
 
                                     <button class="search__btn" type="button"  aria-label="Search" @click="submitForm">
-                                        <i class="fs16 fw6 rango-search"></i>
+                                        Найти
                                     </button>
                                 </div>
                             </div>
@@ -165,7 +165,7 @@
 {{--                        <span>Избранное</span>--}}
 {{--                    </a>--}}
 {{--                </div>--}}
-                <div class="col-lg-7 col-md-12 vc-full-screen">
+                <div class="my-col">
                     <div class="left-wrapper">
                         @php
                             $showWishlist = core()->getConfigData('general.content.shop.wishlist_option') == "1" ? true : false;

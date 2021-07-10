@@ -397,76 +397,76 @@ header {
     }
 
     #search-form {
-        height: 40px;
+        // height: 40px;
         margin: 5px 0px;
         background: $white-color;
 
-        * {
-            height: 100%;
-        }
+        // * {
+        //     height: 100%;
+        // }
 
-        .btn-group {
-            max-width: 550px;
+        // .btn-group {
+        //     // max-width: 550px;
 
-            .selectdiv {
-                width: 210px;
+        //     // .selectdiv {
+        //     //     // width: 210px;
 
-                .select-icon {
-                    top: -30px;
-                    right: 8px;
-                    z-index: 10;
-                    font-size: 18px;
-                    background-color: $white-color;
-                    height: 20px;
-                }
-            }
+        //     //     .select-icon {
+        //     //         top: -30px;
+        //     //         right: 8px;
+        //     //         z-index: 10;
+        //     //         font-size: 18px;
+        //     //         background-color: $white-color;
+        //     //         height: 20px;
+        //     //     }
+        //     // }
 
-            select {
-                width: 100%;
-                height: 100%;
-                cursor: pointer;
-                border-radius: 2px 0px 0px 2px;
-                border: 1px solid $theme-color;
-                border-right: 0;
-                font-family:"Source Sans Pro", sans-serif;
+        //     // select {
+        //     //     width: 100%;
+        //     //     height: 100%;
+        //     //     cursor: pointer;
+        //     //     border-radius: 2px 0px 0px 2px;
+        //     //     border: 1px solid $theme-color;
+        //     //     border-right: 0;
+        //     //     font-family:"Source Sans Pro", sans-serif;
 
-                -webkit-appearance: none;
-                -moz-appearance: none;
-                appearance: none;
-            }
+        //     //     -webkit-appearance: none;
+        //     //     -moz-appearance: none;
+        //     //     appearance: none;
+        //     // }
 
-            select::-ms-expand {
-                display: none;
-            }
-        }
+        //     // select::-ms-expand {
+        //     //     display: none;
+        //     }
+        // }
 
-        input {
-            @include border-radius(0px);
+        // input {
+        //     @include border-radius(0px);
 
-            height: 100%;
-            font-size: 14px;
-            padding: 0 10px;
-            line-height: 20px;
-            letter-spacing: 0;
-            border: 1px solid $theme-color;
-            border-left: 1px solid $border-common;
-        }
+        //     height: 100%;
+        //     font-size: 14px;
+        //     padding: 0 10px;
+        //     line-height: 20px;
+        //     letter-spacing: 0;
+        //     border: 1px solid $theme-color;
+        //     border-left: 1px solid $border-common;
+        // }
 
-        .btn {
-            &:hover {
-                text-decoration: none;
-            }
+        // .btn {
+        //     &:hover {
+        //         text-decoration: none;
+        //     }
 
-            &:focus {
-                outline: none;
-                outline-offset: 0px;
-            }
+        //     &:focus {
+        //         outline: none;
+        //         outline-offset: 0px;
+        //     }
 
-            &:active:hover {
-                outline: none;
-                outline-offset: 0px;
-            }
-        }
+        //     &:active:hover {
+        //         outline: none;
+        //         outline-offset: 0px;
+        //     }
+        // }
 
         #header-search-icon {
             min-width: 40px;
