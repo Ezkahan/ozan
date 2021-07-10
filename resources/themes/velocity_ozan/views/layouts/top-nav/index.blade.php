@@ -1,4 +1,4 @@
-<nav class="row" id="top">
+{{--<nav class="row" id="top">
     <div class="col-sm-6">
         @include('velocity::layouts.top-nav.locale-currency')
     </div>
@@ -6,11 +6,7 @@
     <div class="col-sm-6">
         @include('velocity::layouts.top-nav.login-section')
     </div>
-</nav>
-<<<<<<< HEAD
-
-=======
->>>>>>> 7a4d92c08561696e4b08523c880cfca97a49558e
+</nav>--}}
 <section class="upheader">
     <div class="auto__container">
         <div class="upheader__inner">
@@ -37,23 +33,24 @@
                     @endforeach
                 </select>
             </div>
-            <div class="upheader__nav">
-                <a href="about.html" class="upheader__nav-link">
+            <div class="upheader__nav" id="top">
+                <a href="{!! url('page/about-us') !!}" class="upheader__nav-link">
                     <i class="icon-info"></i>
                     <span>О нас</span>
                 </a>
-                <a href="delivery.html" class="upheader__nav-link">
+                <a href="{!! url('page/delivery') !!}" class="upheader__nav-link">
                     <i class="icon-box"></i>
                     <span>Доставка</span>
                 </a>
-                <a href="#" class="upheader__nav-link">
+                <a href="{!! url('page/payment-policy') !!}" class="upheader__nav-link">
                     <i class="icon-money"></i>
                     <span>Методы оплаты</span>
                 </a>
-                <a href="#" class="upheader__nav-link">
+                <a href="{!! url('page/cutomer-service') !!}" class="upheader__nav-link">
                     <i class="icon-help"></i>
                     <span>Поддержка</span>
                 </a>
+                @include('velocity::layouts.top-nav.login-section')
             </div>
         </div>
     </div>
