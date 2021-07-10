@@ -23,7 +23,8 @@
             slides-per-page="6"
             id="related-products-carousel"
             navigation-enabled="true"
-            pagination-enabled="hide">
+            pagination-enabled="hide"
+            loop="true">
 
             @foreach ($advertisementFour as $index => $relatedProduct)
                 <slide slot="slide-{{ $index }}">
