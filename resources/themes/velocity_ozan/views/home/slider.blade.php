@@ -3,10 +3,10 @@
     <div class="auto__container">
         <div class="hero__inner">
             <div class="hero__sidebar">
-                
+
                     {{--<sidebar-component></sidebar-component>--}}
-                    <parent-categories public_path="{{ url()->to('/storage/public/') }}"></parent-categories>
-                
+                    <parent-categories public_path="{{ url()->to('/storage/') }}"></parent-categories>
+
             </div>
             @if ($sliderData)
                 <div class="hero__content">
