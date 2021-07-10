@@ -34,7 +34,7 @@ window.Vue = Vue;
 window.Carousel = VueCarousel;
 
 // UI components
-Vue.component("vue-slider", require("vue-slider-component"));
+// Vue.component("vue-slider", require("vue-slider-component"));
 Vue.component('mini-cart', require('./UI/components/mini-cart'));
 Vue.component('modal-component', require('./UI/components/modal'));
 Vue.component("add-to-cart", require("./UI/components/add-to-cart"));
@@ -75,7 +75,7 @@ $(document).ready(function () {
                 'sharedRootCategories': [],
                 'responsiveSidebarTemplate': '',
                 'responsiveSidebarKey': Math.random(),
-                'baseUrl': document.querySelector("script[src$='velocity.js']").getAttribute('baseUrl')
+                'baseUrl': document.querySelector("script[src$='ozan.js']").getAttribute('baseUrl')
             }
         },
 

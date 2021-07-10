@@ -25,7 +25,7 @@
 {{--                            </div>--}}
 {{--                        </a>--}}
 {{--                    @endforeach--}}
-                    <categories></categories>
+                    <sidebar-component></sidebar-component>
                 </div>
             </div>
             @if ($sliderData)
