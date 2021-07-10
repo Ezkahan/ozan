@@ -2453,7 +2453,7 @@
   border-radius: 1px;
   display: inline-block;
   color: #cfcfd0;
-  background-color: #141516;
+  background-color: #30383F;
 }
 
 .sidebar {
@@ -4006,7 +4006,7 @@ body::after {
 .footer .footer-content .newsletter-subscription {
   color: white;
   padding: 10px 130px;
-  background-color: #4d7ea8;
+  background-color: #da2d79;
 }
 
 .footer .footer-content .newsletter-subscription .newsletter-wrapper input.subscribe-field {
@@ -4040,13 +4040,17 @@ body::after {
 }
 
 .footer .footer-content .newsletter-subscription .newsletter-wrapper .social-icons .within-circle {
-  background: #4d7ea8;
   margin-right: 2px;
   border: 1px solid rgba(255, 255, 255, 0.52);
+  transition: border-color .2s linear;
+  -ms-transition: border-color .2s linear;
+  -moz-transition: border-color .2s linear;
+  -o-transition: border-color .2s linear;
+  -webkit-transition: border-color .2s linear;
 }
 
 .footer .footer-content .newsletter-subscription .newsletter-wrapper .social-icons .within-circle:hover {
-  opacity: 0.5;
+  border-color: #30383F;
 }
 
 .footer .footer-content .newsletter-subscription .newsletter-wrapper .social-icons img {
@@ -4063,7 +4067,7 @@ body::after {
 
 .footer .footer-content > .row {
   padding: 60px 130px;
-  background: #30383F;
+  background: #000;
 }
 
 .footer .footer-content > .row .logo {

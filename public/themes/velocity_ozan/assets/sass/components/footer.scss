@@ -7,7 +7,7 @@
         .newsletter-subscription {
             color: white;
             padding: 10px 130px;
-            background-color: #4d7ea8;
+            background-color: #da2d79;
 
             .newsletter-wrapper {
                 input.subscribe-field {
@@ -19,6 +19,8 @@
                     padding: 10px 20px;
                     color: rgba(0,0,0,0.83);
                 }
+
+                // #30383F   gonur
 
                 button.subscribe-btn {
                     left: -2px;
@@ -40,13 +42,19 @@
                     }
 
                     .within-circle {
-                        background: #4d7ea8;
+                        // background: #4d7ea8;
                         margin-right: 2px;
                         border: 1px solid rgba(255, 255, 255, 0.52);
+                        transition: border-color .2s linear;
+                        -ms-transition: border-color .2s linear;
+                        -moz-transition: border-color .2s linear;
+                        -o-transition: border-color .2s linear;
+                        -webkit-transition: border-color .2s linear;
                     }
 
                     .within-circle:hover {
-                        opacity: 0.5;
+                        // opacity: 0.5;
+                        border-color: #30383F;
                     }
 
                     img {
@@ -66,7 +74,7 @@
 
         > .row {
             padding: 60px 130px;
-            background: #30383F;
+            background: #000;
 
             .logo {
                 width: auto;
