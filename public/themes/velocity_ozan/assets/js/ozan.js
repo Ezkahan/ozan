@@ -12633,7 +12633,6 @@ $(document).ready(function () {
                 this.$http.get(this.baseUrl + '/categories').then(function (response) {
                     _this4.sharedRootCategories = response.data.categories;
                     $('<style type=\'text/css\'> .sub-categories{ min-height:' + response.data.categories.length * 30 + 'px;} </style>').appendTo("head");
-                    console.log(_this4.sharedRootCategories);
                 }).catch(function (error) {
                     console.log('failed to load categories');
                 });
