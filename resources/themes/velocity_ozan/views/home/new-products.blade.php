@@ -7,12 +7,13 @@
 {!! view_render_event('bagisto.shop.new-products.before') !!}
 
 <product-collections
-    count="{{ (int) $count }}"
+    :show-recently-viewed="false"
+    :count="{{ (int) $count }}"
+
     product-id="new-products-carousel"
     product-title="{{ __('shop::app.home.new-products') }}"
     product-route="{{ route('velocity.category.details', ['category-slug' => 'new-products', 'count' => $count]) }}"
     locale-direction="{{ $direction }}"
-    show-recently-viewed="{{ (Boolean) $showRecentlyViewed }}"
     recently-viewed-title="{{ __('velocity::app.products.recently-viewed') }}"
     no-data-text="{{ __('velocity::app.products.not-available') }}">
 </product-collections>
