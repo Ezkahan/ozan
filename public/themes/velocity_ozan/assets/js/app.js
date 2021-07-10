@@ -335,7 +335,6 @@ $(document).ready(function () {
                 .then(response => {
                     this.sharedRootCategories = response.data.categories;
                     $(`<style type='text/css'> .sub-categories{ min-height:${response.data.categories.length * 30}px;} </style>`).appendTo("head");
-                    console.log(this.sharedRootCategories)
                 })
                 .catch(error => {
                     console.log('failed to load categories');
