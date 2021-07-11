@@ -174,6 +174,25 @@
     }
 }
 
+.adert_slider {
+    margin: 40px 0;
+
+    &_item {
+        width: 100%;
+        height: 200px;
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            -o-object-fit: contain;
+        }
+    }
+}
+
 .product {
     padding-top: 6.6em;
     font-size: 15px;
