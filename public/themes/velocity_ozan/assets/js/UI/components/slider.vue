@@ -42,12 +42,12 @@ export default {
                 slidesToShow: 1,
                 dots: false,
                 speed: 1000,
-                autoplay: true,
+                autoplay: false,
                 arrows: true,
                 autoplaySpeed: this.time,
                 // nextArrow: ".next_s",
                 // prevArrow: ".prev_s",
-                adaptiveHeight: true,
+                adaptiveHeight: fasle,
                 // Any other options that can be got from plugin documentation
             },
         };
