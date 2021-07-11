@@ -18,7 +18,7 @@
                         <path id="Path_63" data-name="Path 63" d="M115.294,299.5h-2.41V296h-5.117v3.5h-2.135a.522.522,0,1,0,0,1.044h9.663a.522.522,0,1,0,0-1.044Zm0,0" transform="translate(-99.831 -280.543)" fill="#2d2d2d" />
                     </svg> -->
                 </div>
-                <span class="faq-title"> {{ category.name }}fff</span>
+                <span class="faq-title"> {{ category.name }}</span>
             </div>
         </a>
     </div>
