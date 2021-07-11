@@ -18,7 +18,7 @@
     @endisset
 @endsection
 
-@section('full-content-wrapper')
+@section('content-wrapper')
     <div class="cms-page-container cart-details row offset-1">
         {!! DbView::make($page)->field('html_content')->render() !!}
     </div>
