@@ -32,6 +32,10 @@ export default {
         time:{
             type:Number,
             required:false
+        },
+        items: {
+            type:Number,
+            required: false
         }
     },
     components: { Slick },
@@ -39,7 +43,7 @@ export default {
     data() {
         return {
             slickOptions: {
-                slidesToShow: 1,
+                slidesToShow: this.items ? this.items : 1,
                 dots: false,
                 speed: 1000,
                 autoplay: false,
@@ -47,7 +51,7 @@ export default {
                 autoplaySpeed: this.time,
                 // nextArrow: ".next_s",
                 // prevArrow: ".prev_s",
-                adaptiveHeight: fasle,
+                adaptiveHeight: false,
                 // Any other options that can be got from plugin documentation
             },
         };

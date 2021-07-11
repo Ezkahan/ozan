@@ -16,24 +16,17 @@
     @if ($advertisementFour)
         @php
             $isRendered = true;
+            $slides = [];
+            foreach ($advertisementFour as $adv) {
+                $slides[] =['path'=>$adv,'slider_path'=> $url[0]??'/'];
+            }
 
         @endphp
-        <carousel-component
-            :slides-count="{{ sizeof($advertisementFour) }}"
-            slides-per-page="6"
-            id="related-products-carousel"
-            navigation-enabled="true"
-            pagination-enabled="hide"
-            loop="true">
+        
 
-            @foreach ($advertisementFour as $index => $relatedProduct)
-                <slide slot="slide-{{ $index }}">
-                    <a href="{{$url[$index] ?? '/'}}">
-                        <div class="brand__slider-item-image"><picture><img src="{{url()->to('/storage/'.$relatedProduct)}}" alt=""></picture></div>
-                    </a>
-                </slide>
-            @endforeach
-        </carousel-component>
+        <!--  -->
+        <slider  :slides='@json($slides)' public_path="{{ url()->to('/storage/') }}" item_class="brand__slider-item-image" :time=4000 items="6"></slider>
+        <!--  -->
 
     @endif
 @endif

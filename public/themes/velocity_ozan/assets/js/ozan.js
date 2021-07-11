@@ -46401,7 +46401,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -46449,6 +46449,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         time: {
             type: Number,
             required: false
+        },
+        items: {
+            type: Number,
+            required: false
         }
     },
     components: { Slick: __WEBPACK_IMPORTED_MODULE_0_vue_slick__["a" /* default */] },
@@ -46456,7 +46460,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     data: function data() {
         return {
             slickOptions: {
-                slidesToShow: 1,
+                slidesToShow: this.items ? this.items : 1,
                 dots: false,
                 speed: 1000,
                 autoplay: false,
@@ -46464,7 +46468,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 autoplaySpeed: this.time,
                 // nextArrow: ".next_s",
                 // prevArrow: ".prev_s",
-                adaptiveHeight: fasle
+                adaptiveHeight: false
                 // Any other options that can be got from plugin documentation
             }
         };
