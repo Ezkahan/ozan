@@ -37,26 +37,3 @@
 
     @endif
 @endif
-
-@if (! $isRendered)
-    <div class="container-fluid advertisement-four-container">
-        <div class="row">
-            <a @if (isset($one)) href="{{ $one }}" @endif class="col-lg-4 col-12 no-padding" aria-label="Advertisement">
-                <img class="col-12 lazyload" data-src="{{ asset('/themes/velocity/assets/images/big-sale-banner.webp') }}" alt="" />
-            </a>
-
-            <div class="col-lg-4 col-12 offers-ct-panel">
-                <a @if (isset($two)) href="{{ $two }}" @endif class="row col-12 remove-padding-margin" aria-label="Advertisement">
-                    <img class="col-12 offers-ct-top lazyload" data-src="{{ asset('/themes/velocity/assets/images/seasons.webp') }}" alt="" />
-                </a>
-                <a @if (isset($three)) href="{{ $three }}" @endif class="row col-12 remove-padding-margin" aria-label="Advertisement">
-                    <img class="col-12 offers-ct-bottom lazyload" data-src="{{ asset('/themes/velocity/assets/images/deals.webp') }}" alt="" />
-                </a>
-            </div>
-
-            <a @if (isset($four)) href="{{ $four }}" @endif class="col-lg-4 col-12 no-padding" aria-label="Advertisement">
-                <img class="col-12 lazyload" data-src="{{ asset('/themes/velocity/assets/images/kids.webp') }}" alt="" />
-            </a>
-        </div>
-    </div>
-@endif

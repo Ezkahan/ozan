@@ -20,24 +20,11 @@
             foreach ($advertisementTwo as $adv){
                 $slides[] =['path'=>$adv,'slider_path'=> $url[0]??'/'];
             }
+
         @endphp
 
             <div class="adert_slider">
                 <slider  :slides='@json($slides)' public_path="{{ url()->to('/storage/') }}" item_class="adert_slider_item" :time=3000 ></slider>
             </div>
     @endif
-@endif
-
-@if (! $isRendered)
-    <div class="container-fluid advertisement-two-container">
-        <div class="row">
-            <a class="col-lg-9 col-md-12 no-padding">
-                <img data-src="{{ asset('/themes/velocity/assets/images/toster.webp') }}" class="lazyload" alt="" />
-            </a>
-
-            <a class="col-lg-3 col-md-12 pr0">
-                <img data-src="{{ asset('/themes/velocity/assets/images/trimmer.webp') }}" class="lazyload" alt="" />
-            </a>
-        </div>
-    </div>
 @endif
