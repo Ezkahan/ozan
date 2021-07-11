@@ -46503,12 +46503,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 slidesToShow: 1,
                 dots: false,
                 speed: 1000,
-                autoplay: true,
+                autoplay: false,
                 arrows: true,
                 autoplaySpeed: this.time,
                 // nextArrow: ".next_s",
                 // prevArrow: ".prev_s",
-                adaptiveHeight: true
+                adaptiveHeight: fasle
                 // Any other options that can be got from plugin documentation
             }
         };
@@ -56514,17 +56514,21 @@ module.exports = NATIVE_SYMBOL
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(141)
+}
 var normalizeComponent = __webpack_require__(0)
 /* script */
 var __vue_script__ = __webpack_require__(139)
 /* template */
-var __vue_template__ = __webpack_require__(140)
+var __vue_template__ = __webpack_require__(143)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
-var __vue_styles__ = null
+var __vue_styles__ = injectStyle
 /* scopeId */
-var __vue_scopeId__ = null
+var __vue_scopeId__ = "data-v-3a14ca29"
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
@@ -56583,6 +56587,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: {
@@ -56590,11 +56599,57 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             type: String,
             required: true
         }
+    },
+    methods: {
+        onCategoryHover: function onCategoryHover() {
+            $();
+        }
     }
 });
 
 /***/ }),
-/* 140 */
+/* 140 */,
+/* 141 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(142);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(5)("3a7cf43e", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-3a14ca29\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./parent-categories.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-3a14ca29\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./parent-categories.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 142 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(2)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\na:hover .logo-img[data-v-3a14ca29] {\n    -webkit-filter: invert(1);\n            filter: invert(1);\n    background: transparent;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 143 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -56611,36 +56666,29 @@ var render = function() {
           key: index,
           staticClass: "card",
           staticStyle: { "border-radius": "0" },
-          attrs: { href: category.slug }
+          attrs: { href: category.slug },
+          on: { mouseover: _vm.onCategoryHover }
         },
         [
           _c("div", { staticClass: "hero__sidebar-inner-link" }, [
             _c("div", { staticClass: "category_icon" }, [
-              category.category_icon_path
-                ? _c(
-                    "svg",
-                    {
-                      attrs: {
-                        xmlns: "http://www.w3.org/2000/svg",
-                        width: "18",
-                        height: "22",
-                        viewBox: "0 0 18 22"
-                      }
-                    },
-                    [
-                      _c("use", {
-                        attrs: {
-                          href:
-                            _vm.public_path + "/" + category.category_icon_path
-                        }
-                      })
-                    ]
-                  )
-                : _vm._e()
+              _c("img", {
+                staticClass: "logo-img",
+                staticStyle: {
+                  "-webkit-mask":
+                    "url({public_path + '/' + category.category_icon_path}) no-repeat center",
+                  mask:
+                    "url({public_path + '/' + category.category_icon_path}) no-repeat center"
+                },
+                attrs: {
+                  src: _vm.public_path + "/" + category.category_icon_path,
+                  alt: "Logo"
+                }
+              })
             ]),
             _vm._v(" "),
             _c("span", { staticClass: "faq-title" }, [
-              _vm._v(" " + _vm._s(category.name))
+              _vm._v(" " + _vm._s(category.name) + "fff")
             ])
           ])
         ]
