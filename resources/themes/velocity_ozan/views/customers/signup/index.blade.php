@@ -4,7 +4,7 @@
     {{ __('shop::app.customer.signup-form.page-title') }}
 @endsection
 
-@section('content-wrapper')
+@section('fullcontent-wrapper')
     <div class="auth-content form-container">
         <div class="container">
             <div class="col-lg-10 col-md-12 offset-lg-1">

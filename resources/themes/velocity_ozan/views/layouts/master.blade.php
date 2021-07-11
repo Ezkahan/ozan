@@ -52,22 +52,19 @@
                     {!! view_render_event('bagisto.shop.layout.header.after') !!}
 
                     <div class="main-content-wrapper col-12 no-padding">
+                        <div class="row col-12 remove-padding-margin">
+                            <div
+                                class="col-12 no-padding content" id="home-right-bar-container">
 
-                        <div class="">
-                            <div class="row col-12 remove-padding-margin">
-                                <div
-                                    class="col-12 no-padding content" id="home-right-bar-container">
+                                <div class="container-right row no-margin col-12 no-padding">
 
-                                    <div class="container-right row no-margin col-12 no-padding">
+                                    {!! view_render_event('bagisto.shop.layout.content.before') !!}
 
-                                        {!! view_render_event('bagisto.shop.layout.content.before') !!}
+                                    @yield('content-wrapper')
 
-                                        @yield('content-wrapper')
-
-                                        {!! view_render_event('bagisto.shop.layout.content.after') !!}
-                                    </div>
-
+                                    {!! view_render_event('bagisto.shop.layout.content.after') !!}
                                 </div>
+
                             </div>
                         </div>
                     </div>

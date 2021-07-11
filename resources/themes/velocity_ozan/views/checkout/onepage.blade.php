@@ -4,7 +4,7 @@
     {{ __('shop::app.checkout.onepage.title') }}
 @stop
 
-@section('content-wrapper')
+@section('full-content-wrapper')
     <checkout></checkout>
 @endsection
 

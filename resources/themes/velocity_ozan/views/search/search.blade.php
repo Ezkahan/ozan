@@ -46,7 +46,7 @@
     </style>
 @endpush
 
-@section('content-wrapper')
+@section('full-content-wrapper')
     <div class="container category-page-wrapper">
         <search-component></search-component>
     </div>
