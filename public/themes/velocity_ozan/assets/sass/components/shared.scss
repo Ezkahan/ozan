@@ -290,8 +290,8 @@
 
 .theme-btn:hover,
 .btn-add-to-cart:hover {
-    border-color: $theme-dark-color !important;
-    background-color: $theme-dark-color !important;
+    // border-color: $theme-dark-color !important;
+    // background-color: $theme-dark-color !important;
 
     &.light {
         border: 1px solid rgba(0,0,0,0.12) !important;
@@ -448,6 +448,7 @@
             .quick-view-btn-container {
                 button {
                     left: calc(50% - 40px);
+                    
                 }
             }
         }
