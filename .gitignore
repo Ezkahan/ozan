@@ -25,3 +25,4 @@ package-lock.json
 yarn.lock
 yarn-error.log
 /public/themes/velocity_ozan/node_modules
+/public/storage/

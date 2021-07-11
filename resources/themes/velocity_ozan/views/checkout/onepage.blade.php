@@ -4,7 +4,7 @@
     {{ __('shop::app.checkout.onepage.title') }}
 @stop
 
-@section('content-wrapper')
+@section('full-content-wrapper')
     <checkout></checkout>
 @endsection
 
@@ -157,9 +157,9 @@
                 },
 
                 created: function () {
-                    this.fetchCountries();
+                    // this.fetchCountries();
 
-                    this.fetchCountryStates();
+                    // this.fetchCountryStates();
 
                     this.getOrderSummary();
 
@@ -429,6 +429,7 @@
                                 this.getOrderSummary();
 
                                 this.$root.hideLoader();
+                                console.log('addreess');
                             })
                             .catch(error => {
                                 this.disable_button = false;
@@ -460,6 +461,7 @@
                                 }
 
                                 this.getOrderSummary();
+                                console.log('ship');
                             })
                             .catch(error => {
                                 this.disable_button = false;
@@ -489,6 +491,7 @@
                                 document.body.style.cursor = 'auto';
 
                                 this.getOrderSummary();
+                                console.log('payment');
                             })
                             .catch(error => {
                                 this.disable_button = false;

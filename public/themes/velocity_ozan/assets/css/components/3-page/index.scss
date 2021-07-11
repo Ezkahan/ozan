@@ -175,11 +175,11 @@
 }
 
 .adert_slider {
-    margin: 40px 0;
+    margin: 100px 0;
 
     &_item {
         width: 100%;
-        height: 200px;
+        height: 280px;
         display: flex !important;
         align-items: center;
         justify-content: center;
@@ -213,6 +213,10 @@
             width: calc(16.6% - 2.4em - 2px);
         }
     }
+}
+
+.product_box .VueCarousel-slide {
+    width: 16.6%;
 }
 
 .sectionHeader {

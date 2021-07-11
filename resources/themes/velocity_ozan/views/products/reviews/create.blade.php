@@ -4,7 +4,7 @@
     {{ __('shop::app.reviews.add-review-page-title') }} - {{ $product->name }}
 @endsection
 
-@section('content-wrapper')
+@section('full-content-wrapper')
 
     <div class="container">
         <section class="row review-page-container">

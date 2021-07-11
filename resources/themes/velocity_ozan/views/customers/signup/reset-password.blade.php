@@ -4,7 +4,7 @@
  {{ __('shop::app.customer.reset-password.title') }}
 @endsection
 
-@section('content-wrapper')
+@section('full-content-wrapper')
 
 <div class="auth-content">
     {!! view_render_event('bagisto.shop.customers.reset_password.before') !!}

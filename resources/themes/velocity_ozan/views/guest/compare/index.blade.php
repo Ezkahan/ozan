@@ -6,6 +6,6 @@
     {{ __('velocity::app.customer.compare.compare_similar_items') }}
 @endsection
 
-@section('content-wrapper')
+@section('full-content-wrapper')
     <compare-product></compare-product>
 @endsection
