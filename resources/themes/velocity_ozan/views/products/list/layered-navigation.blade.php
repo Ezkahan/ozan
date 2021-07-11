@@ -31,6 +31,8 @@
     <script type="text/x-template" id="layered-navigation-template">
         <div v-if="attributes.length > 0">
 
+            <categories :categories='@json($subCats->toArray())' public_path="{{ url()->to('/storage/') }}"></categories>
+            
             <h5 class="filter-title fw6 mb20">
                 {{ __('shop::app.products.layered-nav-title') }}
             </h5>
