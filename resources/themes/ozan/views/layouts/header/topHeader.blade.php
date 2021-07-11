@@ -12,13 +12,13 @@
 
     <div class="auto__container">
         <div class="upheader__inner">
-            
+
 {!! view_render_event('bagisto.shop.layout.header.locale.before') !!}
             <div class="upheader__language">
                 <i class="icon-global"></i>
                 <select name="language" onchange="window.location.href = this.value" id="">
                     @foreach (core()->getCurrentChannel()->locales as $locale)
-               
+
                     @if (isset($searchQuery) && $searchQuery)
                         <option
                             value="?{{ $searchQuery }}&locale={{ $locale->code }}"
@@ -31,7 +31,7 @@
                 @endforeach
                 </select>
             </div>
-            
+
 {!! view_render_event('bagisto.shop.layout.header.locale.after') !!}
             <div class="upheader__nav">
                 <a style="color:black" href="/page/about-us" class="upheader__nav-link">
@@ -64,7 +64,7 @@
                     @endif
 
                 </a>
-                
+
             </div>
         </div>
     </div>

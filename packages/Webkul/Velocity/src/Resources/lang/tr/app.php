@@ -154,7 +154,7 @@ return [
 
     'home'          => [
         'view-all'           => 'Tümünü Görüntüle',
-        'add-to-cart'        => 'Sepete Ekle',
+        'add-to-cart'        => 'Sepede goş',
         'hot-categories'     => 'Güncel Kategoriler',
         'payment-methods'    => 'Ödeme Metodu',
         'customer-reviews'   => 'Müşteri İncelemesi',

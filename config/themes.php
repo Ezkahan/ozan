@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'default' => 'ozan',
+    'default' => 'velocity_ozan',
 
     'themes' => [
         'default' => [
@@ -10,12 +10,12 @@ return [
             'name' => 'Default'
         ],
 
-        // 'bliss' => [
-        //     'views_path' => 'resources/themes/bliss/views',
-        //     'assets_path' => 'public/themes/bliss/assets',
-        //     'name' => 'Bliss',
-        //     'parent' => 'default'
-        // ]
+         'velocity_ozan' => [
+             'views_path' => 'resources/themes/velocity_ozan/views',
+             'assets_path' => 'public/themes/velocity_ozan/assets',
+             'name' => 'OZAN-V',
+             'parent' => 'default'
+         ],
         'ozan' => [
             'views_path' => 'resources/themes/ozan/views',
             'assets_path' => 'public/themes/ozan/assets',

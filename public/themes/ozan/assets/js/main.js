@@ -1,23 +1,24 @@
-$(".hero__slider").slick({
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    dots: false,
-    nextArrow: ".next",
-    prevArrow: ".prev",
-    adaptiveHeight: true,
-});
+// $(".hero__slider").slick({
+//     slidesToShow: 1,
+//     slidesToScroll: 1,
+//     dots: false,
+//     nextArrow: ".next",
+//     prevArrow: ".prev",
+//     adaptiveHeight: true,
+// });
 
-$(".banner_box").slick({
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    dots: false,
-    speed: 1000,
-    autoplay: true,
-    autoplaySpeed: 2000,
-    nextArrow: ".next_s",
-    prevArrow: ".prev_s",
-    adaptiveHeight: true,
-});
+// $(".banner_box").slick({
+//     slidesToShow: 1,
+//     slidesToScroll: 1,
+//     dots: false,
+//     speed: 1000,
+//     autoplay: true,
+//     arrows: true,
+//     autoplaySpeed: 2000,
+//     // nextArrow: ".next_s",
+//     // prevArrow: ".prev_s",
+//     adaptiveHeight: true,
+// });
 
 
 $(".sale__slider").slick({
@@ -119,14 +120,14 @@ function showProfile() {
     document.getElementById("myDropdown").classList.toggle("show");
     document.getElementById("dropbtn").classList.toggle("active");
 }
-function showMenu() {
-    document.getElementById("menuDropdown").classList.toggle("show");
-    document.getElementById("menuBtn").classList.toggle("active");
-}
-function closeMenu() {
-    document.getElementById("menuDropdown").classList.remove("show");
-    document.getElementById("menuBtn").classList.remove("active");
-}
+// function showMenu() {
+//     document.getElementById("menuDropdown").classList.toggle("show");
+//     document.getElementById("menuBtn").classList.toggle("active");
+// }
+// function closeMenu() {
+//     document.getElementById("menuDropdown").classList.remove("show");
+//     document.getElementById("menuBtn").classList.remove("active");
+// }
 function logIn() {
     document.getElementById("logInBtn").classList.add("active");
     document.getElementById("signUpBtn").classList.remove("active");

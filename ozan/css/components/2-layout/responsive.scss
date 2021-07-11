@@ -1,75 +1,141 @@
 @include xxxlg-xxxxlg {
+
   //
   .category {
     font-size: 12px;
+
     &__inner {
       .product__row .card {
         width: calc(33.3% - 2.4em - 2px);
       }
+
       // .sidebar {
       //   width: 25rem;
       // }
     }
   }
 }
+
 @include xxlg-xxxlg {
+
   // header start
   .header {
     &__logo {
       width: 120px;
+
       img {
         width: 100%;
       }
     }
+
     &__column {
       width: 250px;
       margin-right: 30px;
+
       &:last-child {
         width: calc(100% - 270px);
         margin-right: 0;
       }
+
       &-row {
         margin-left: 15px;
       }
     }
   }
+
   .dropdown {
     &__btn {
       width: 60px;
+
       i {
         font-size: 16px;
       }
     }
   }
+
   // header end
   // index page start
   .product {
     font-size: 10px;
+
     &__row {
       .card {
         width: calc(20% - 2.4em - 2px);
       }
     }
   }
+
+  .rework {
+    &_info {
+      .payment_title {
+        font-size: 21px;
+      }
+
+      .payment_form {
+        padding: 25px 30px;
+      }
+    }
+  }
+
   // index page end
   .hero {
     font-size: 13px;
+
     &__slider {
       height: 35.6em;
       overflow: hidden;
     }
   }
+
   // basket page start
   .basket {
     .table {
       font-size: 12px;
     }
   }
+
   // basket page end
 }
+
+@include xlxg-xxlg {
+  .rework {
+    padding: 75px 0 225px;
+
+    &_wrap {
+      flex-direction: column;
+      -ms-flex-direction: column;
+      -moz-flex-direction: column;
+      -o-flex-direction: column;
+      -webkit-flex-direction: column;
+    }
+
+    &_title {
+      margin-bottom: 30px;
+    }
+
+    &_data {
+      width: 100%;
+      margin-right: 0;
+    }
+
+    &_table {
+      table tbody tr td {
+        padding: 30px 0;
+      }
+    }
+
+    &_info {
+      width: 500px;
+      margin-left: 0;
+      margin-top: 50px;
+    }
+  }
+}
+
 @include xlg-xxlg {
   .hero {
     font-size: 10px;
+
     &__slider {
       &-item {
         img {
@@ -78,25 +144,37 @@
       }
     }
   }
+
   // index page start
   .product {
     font-size: 10px;
+
     &__row {
       .card {
         width: calc(25% - 2.4em - 2px);
       }
     }
   }
+
+  .account {
+    &_link {
+      padding: 20px 30px;
+      font-size: 16px;
+    }
+  }
+
   // index page end
   // category page start
   .category {
     font-size: 12px;
+
     &__inner {
       .product__row .card {
         width: calc(50% - 2.4em - 2px);
       }
     }
   }
+
   // category page end
   // basket page start
   .basket {
@@ -104,28 +182,36 @@
       flex-direction: column;
       -ms-flex-direction: column;
     }
+
     .table {
       font-size: 12px;
       width: 100%;
+
       &__row {
         flex-direction: column;
         -ms-flex-direction: column;
       }
+
       &__column {
         width: 100%;
+
         &-incriment {
           justify-content: flex-start;
           margin-left: 5px;
         }
+
         &-price {
           text-align: left;
         }
       }
     }
+
     .sidebar {
       width: 100%;
+
       &__info {
         margin: 0 15px;
+
         &-column {
           font-size: 14px;
           line-height: 20px;
@@ -133,6 +219,7 @@
       }
     }
   }
+
   // basket page end
   // delivery page start
   .delivery {
@@ -140,22 +227,28 @@
       flex-direction: column;
       -ms-flex-direction: column;
     }
+
     .table {
       font-size: 12px;
       width: 100%;
+
       &__header {
         display: none;
       }
+
       &__row {
         flex-direction: column;
         -ms-flex-direction: column;
       }
+
       &__column {
         width: 100%;
+
         &-price {
           text-align: right;
           width: calc(100% - 6.6em);
         }
+
         &-quant {
           text-align: center;
           width: 6.6em;
@@ -164,10 +257,13 @@
         }
       }
     }
+
     .sidebar {
       width: 100%;
+
       &__info {
         margin: 0 15px;
+
         &-column {
           font-size: 14px;
           line-height: 20px;
@@ -175,6 +271,7 @@
       }
     }
   }
+
   // delivery page end
   // detail page start
   .detail {
@@ -182,18 +279,23 @@
       flex-direction: column;
       -ms-flex-direction: column;
     }
+
     &__slider {
       width: calc(100% - 17em);
+
       &-outer {
         width: 100%;
       }
+
       &-item {
         img {
           width: 50%;
         }
       }
+
       &-nav {
         width: 15em;
+
         &-item {
           img {
             width: 50%;
@@ -201,17 +303,84 @@
         }
       }
     }
+
     &__content {
       margin-left: 0;
       width: 100%;
       padding: 50px 0;
     }
   }
+
   // detail page end
 }
+
+@include lgl-xlg {
+  .account {
+    &_inner {
+      flex-direction: column;
+      -ms-flex-direction: column;
+      -moz-flex-direction: column;
+      -o-flex-direction: column;
+      -webkit-flex-direction: column;
+    }
+
+    &_tabs {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      margin-right: 0;
+    }
+
+    &_title {
+      margin-bottom: 30px;
+      padding-bottom: 20px;
+      font-size: 22px;
+    }
+
+    &_input {
+      label {
+        margin: 0 0 7px 15px;
+      }
+
+      input {
+        padding: 10px 15px;
+        font-size: 13px;
+
+        &::placeholder {
+          font-size: 13px;
+        }
+      }
+    }
+
+    &_form_btn {
+      padding: 12px 55px;
+    }
+
+    &_link {
+      width: 33.33%;
+      text-align: center;
+      border-bottom: none;
+      border-right: 1px solid #d5d5d5;
+      font-size: 15px;
+
+      &:last-child {
+        border-right: none;
+      }
+    }
+
+    &_source {
+      width: 100%;
+      margin-left: 0;
+      margin-top: 50px;
+    }
+  }
+}
+
 @include xh-xxh {
   .modal {
     height: 100vh;
+
     &__inner {
       margin: 2em auto;
       top: 20px;
@@ -220,29 +389,72 @@
     }
   }
 }
+
 @include lg-xlg {
   html {
     font-size: 10px;
   }
+
   .about {
     padding-top: 3.3em;
   }
+
+  .forget {
+    &_title {
+      font-size: 17px;
+      padding: 15px 30px;
+    }
+
+    &_form {
+      padding: 25px 30px;
+    }
+  }
+
+  .rework {
+    &_info {
+      width: 400px;
+    }
+  }
+
+  .condition {
+    padding: 65px 0 40px;
+
+    &_title {
+      font-size: 22px;
+      margin-bottom: 30px;
+    }
+
+    &_box_item {
+      font-size: 16px;
+      margin-bottom: 15px;
+    }
+  }
+
+  .account {
+    padding: 50px 0 200px;
+  }
+
   .sectionHeader {
     margin-bottom: 1em !important;
     padding-bottom: 1em !important;
   }
+
   .about__inner h1 {
     margin-bottom: 1em;
   }
+
   .sectionHeader__title {
     font-size: 20px;
   }
+
   .sectionHeader__link {
     font-size: 14px;
   }
+
   .product {
     padding-top: 3.3em !important;
   }
+
   // index page start
   .menu {
     &__content {
@@ -253,60 +465,76 @@
       }
     }
   }
+
   .hero {
     padding-top: 0;
+
     &__sidebar {
       display: none;
     }
+
     &__content {
       margin: 0 -15px;
       width: calc(100% + 30px);
       height: unset;
+
       & .prev {
         left: 0;
       }
+
       & .next {
         right: 0;
       }
     }
+
     &__slider {
       width: 100%;
       height: unset;
+
       &-item {
         height: unset;
       }
     }
   }
+
   .product {
     font-size: 12px;
+
     &__row {
       .card {
         width: calc(33% - 2.4em - 2px);
       }
     }
   }
+
   // index page end
   // header start
   .header {
     padding: 0;
+
     &__logo {
       width: 100px;
     }
+
     &__inner {
       padding: 20px 0;
     }
+
     &__column {
       width: 100%;
       margin-right: 0;
       justify-content: space-between;
+
       &:last-child {
         display: none;
       }
     }
   }
+
   .upheader {
     display: none;
   }
+
   .menu {
     &__content.ham {
       position: fixed;
@@ -316,130 +544,256 @@
       width: 50%;
       height: 100%;
     }
+
     &__btn.ham {
       span {
         display: none;
       }
+
       width: unset;
       height: unset;
     }
   }
+
   // header end
   // sale start
   .sale {
     padding-top: 3.3em;
+
     &__slider {
       &-item {
         height: unset;
       }
     }
   }
+
   // sale end
   // category page start
   .category {
     padding-top: 3.3em;
     font-size: 12px;
+
     &__inner {
       flex-direction: column;
       -ms-flex-direction: column;
     }
+
     &__inner {
       .sidebar {
         width: 100%;
+
         &__banner {
           display: none;
         }
       }
+
       .product {
         width: 100%;
         margin-left: 0;
         margin-top: 3em;
+
         &__row .card {
           width: calc(33.3% - 2.4em - 2px);
         }
       }
     }
   }
+
   // category page end
   // detail page start
   .detail {
     padding-top: 3.3em;
+
     &__slider {
       width: 100%;
       margin-right: 0;
+
       &-outer {
         width: 100%;
         flex-direction: column;
         -ms-flex-direction: column;
         height: unset;
       }
+
       &-item {
         height: unset;
         width: 100%;
+
         img {
           width: 100%;
         }
       }
+
       &-nav {
         display: none;
       }
     }
+
     &__content {
       margin-left: 0;
       width: 100%;
       padding: 50px 0;
     }
   }
+
   // detail page end
   .delivery {
     padding-top: 3.3em;
   }
+
   .basket {
     padding-top: 3.3em;
   }
 }
+
+@include ds-lg {
+  .account {
+    &_table {
+      overflow-x: auto;
+      padding-bottom: 10px;
+
+      &::-webkit-scrollbar {
+        height: 7px;
+      }
+
+      table {
+        width: 1000px;
+      }
+    }
+  }
+}
+
+@include mds-lg {
+  .rework {
+    padding: 50px 0 170px;
+
+    &_input {
+      width: calc(50% - 24px);
+    }
+
+    &_title {
+      font-size: 21px;
+      margin-bottom: 20px;
+    }
+  }
+}
+
 @include md-lg {
+
   // index page start
   .product {
     font-size: 10px;
+
     &__row {
       .card {
         width: calc(50% - 2.4em - 2px);
       }
     }
   }
+
   .sale {
     .prev__s {
       left: 0;
     }
+
     .next__s {
       right: 0;
     }
   }
+
+  .forget {
+    &_title {
+      font-size: 14px;
+    }
+
+    &_form {
+      padding: 25px;
+    }
+
+    .forget_input {
+      margin-bottom: 15px;
+
+      label {
+        margin-bottom: 5px;
+      }
+    }
+  }
+
+  .account {
+    padding: 50px 0 120px;
+
+    &_table {
+
+      table {
+        width: 800px;
+      }
+    }
+
+    &_link {
+      font-size: 14px;
+      padding: 15px 5px;
+    }
+
+    &_source {
+      margin-top: 30px;
+    }
+
+    &_title {
+      font-size: 19px;
+      padding-bottom: 15px;
+    }
+
+    &_form {
+      margin: -10px;
+    }
+
+    &_input {
+      width: calc(50% - 20px);
+      margin: 10px;
+    }
+
+    &_form_btn {
+      padding: 10px 45px;
+    }
+
+  }
+
+  .rework {
+    &_info {
+      width: 360px;
+    }
+  }
+
   .brand {
     .prev__b {
       left: 0;
     }
+
     .next__b {
       right: 0;
     }
   }
+
   // index page end
   // category page start
   .sectionHeader__title {
     font-size: 14px;
   }
+
   .category {
     padding-top: 3em;
+
     &__inner {
       .product {
         width: 100%;
         margin-left: 0;
         margin-top: 3em;
+
         &__row .card {
           width: calc(50% - 2.4em - 2px);
         }
       }
+
       .sidebar {
         &__btn {
           padding: 20px 0;
@@ -448,6 +802,7 @@
       }
     }
   }
+
   // category page end
   .delivery {
     &__form {
@@ -456,12 +811,14 @@
         -ms-flex-direction: column;
         margin: 0;
       }
+
       &-column {
         width: 100%;
         margin: 1em 0;
 
         &:last-child {
           margin: 1em 0;
+
           input {
             width: 100%;
           }
@@ -470,14 +827,119 @@
     }
   }
 }
+
+@include smd-lg {
+  .rework {
+    &_input {
+      width: calc(100% - 24px);
+    }
+
+    &_title {
+      font-size: 19px;
+    }
+
+    &_check {
+      &_title {
+        padding: 40px;
+      }
+
+      .contain_box {
+        padding: 20px;
+
+        .checkmark {
+          top: 25px;
+          right: 30px;
+        }
+      }
+    }
+
+    &_table {
+      overflow-x: auto;
+      padding-bottom: 10px;
+
+      &::-webkit-scrollbar {
+        // display: none;
+        height: 7px;
+      }
+
+      table {
+        width: 700px;
+
+        .table_img {
+          width: 90px;
+          height: 60px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+          }
+        }
+      }
+    }
+
+    &_info {
+      width: 90%;
+      margin: 30px auto 0;
+    }
+  }
+}
+
 @include sm-md {
   .menu__content.ham {
     width: 100%;
   }
+
   // footer page end
   .footer__copyright {
     font-size: 14px;
   }
+
+  .forget_pass,
+  .forget_mail {
+    width: 90%;
+  }
+
+  .forget_form {
+    padding: 20px;
+  }
+
+  .forget_btn {
+    padding: 10px !important;
+  }
+
+  .condition {
+    padding: 35px 0 35px;
+
+    &_title {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+
+    &_box_item {
+      font-size: 14px;
+      margin-bottom: 15px;
+    }
+  }
+
+  .account {
+    padding: 50px 0 120px;
+
+    &_table {
+
+      table {
+        width: 750px;
+
+        thead tr th {
+          font-size: 12px;
+        }
+      }
+    }
+  }
+
   // footer page end
   // modal start
   .modal {
@@ -488,36 +950,209 @@
       height: 100%;
       @include transformReset;
     }
+
     &__header {
       border-radius: 0;
+
       &-btn {
         border-radius: 0;
         font-size: 18px;
       }
     }
+
     &__event {
       padding: 15px;
     }
   }
+
   // modal end
 }
+
+@include sms-md {
+  .rework {
+    padding: 40px 0 110px;
+
+    &_title {
+      font-size: 18px;
+    }
+
+    &_check {
+      &_title {
+        padding: 30px 0;
+      }
+
+      .contain_box .checkmark {
+        right: 5px;
+        top: 15px;
+      }
+    }
+
+    &_input {
+      margin: 7px 12px;
+    }
+
+    &_table {
+
+      &_title {
+        margin-left: 15px;
+      }
+
+      table {
+        width: 650px;
+
+        thead tr th {
+          padding: 10px;
+        }
+
+        thead tr th:first-child {
+          padding: 10px 0 10px 30px;
+        }
+
+        tbody tr td {
+          padding: 20px 0;
+        }
+
+        .table_img {
+          width: 45px;
+          height: 45px;
+          padding: 5px;
+        }
+      }
+    }
+
+    &_info {
+      width: 100%;
+
+      .payment_title {
+        font-size: 17px;
+        padding: 10px 20px;
+      }
+
+      .payment_form {
+        padding: 15px 20px;
+
+        .payment_input {
+          margin-bottom: 20px;
+
+          input {
+            padding: 10px 15px;
+          }
+        }
+
+        .payment_check {
+          label {
+            font-size: 12px;
+          }
+
+          .contain_box {
+            padding: 10px 0 10px 30px !important;
+          }
+
+          .checkmark {
+            width: 6px;
+            height: 6px;
+
+            &::after {
+              width: 8px;
+              height: 8px;
+              border-radius: 0;
+            }
+          }
+        }
+
+        .payment_result {
+          margin-top: 40px;
+
+          &::after {
+            top: -20px;
+          }
+
+          .result_title {
+            font-size: 14px;
+          }
+
+          .result_cash {
+            font-size: 14px;
+          }
+
+        }
+
+        .payment_btn {
+          bottom: -55px;
+          padding: 10px;
+          font-size: 13px;
+        }
+      }
+
+    }
+
+  }
+
+  .account {
+    padding: 50px 0 100px;
+
+    &_tabs {
+      flex-direction: column;
+      -ms-flex-direction: column;
+      -moz-flex-direction: column;
+      -o-flex-direction: column;
+      -webkit-flex-direction: column;
+    }
+
+    &_link {
+      border-right: none;
+      border-bottom: 1px solid #d5d5d5;
+      width: 100%;
+      font-size: 13px;
+      padding: 12px;
+    }
+
+    &_input {
+      width: calc(100% - 20px);
+      margin: 5px 10px;
+    }
+
+    &_form_btn {
+      width: calc(100% - 20px);
+    }
+
+    &_table {
+
+      table {
+        width: 650px;
+      }
+    }
+
+    &_table_btn {
+      width: 70px;
+      font-size: 12px;
+    }
+  }
+
+}
+
 @include xsm-sm {
+
   // index page start
   .product {
     font-size: 13px;
+
     &__row {
       margin: 1.2em 0;
+
       .card {
         width: 100%;
         margin: 1em 0;
       }
     }
   }
+
   // index page end
   .category {
     &__inner {
       .product {
         margin: 3em 0 0 0;
+
         &__row .card {
           width: 100%;
           margin: 1em 0;
@@ -525,5 +1160,6 @@
       }
     }
   }
+
   // category page end
 }

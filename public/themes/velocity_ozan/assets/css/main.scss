@@ -1,0 +1,35 @@
+// 1-main components
+
+@import "./components/1-main/variables.scss";
+@import "./components/1-main/mixin.scss";
+@import "./components/1-main/nulifier.scss";
+// slider
+@import "./components/2-layout/slick.scss";
+@import "./components/2-layout/slick-theme.scss";
+// 2-layout components
+@import "./components/2-layout/upheader.scss";
+@import "./components/2-layout/header.scss";
+@import "./components/2-layout/footer.scss";
+@import "./components/2-layout/dropdown.scss";
+@import "./components/2-layout/menu.scss";
+@import "./components/2-layout/accordion.scss";
+@import "./components/2-layout/search.scss";
+@import "./components/2-layout/card.scss";
+@import "./components/2-layout/sale.scss";
+@import "./components/2-layout/brand.scss";
+@import "./components/2-layout/table.scss";
+@import "./components/2-layout/modal.scss";
+// @import "./components/2-layout/login.scss";
+@import "./components/2-layout/register.scss";
+@import "./components/2-layout/account.scss";
+
+// 3-page components
+@import "./components/3-page/index.scss";
+@import "./components/3-page/category.scss";
+@import "./components/3-page/delivery.scss";
+@import "./components/3-page/basket.scss";
+
+@import "./components/3-page/detail.scss";
+@import "./components/3-page/about.scss";
+
+@import "./components/2-layout/responsive.scss";
