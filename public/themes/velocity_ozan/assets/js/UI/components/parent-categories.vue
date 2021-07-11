@@ -2,7 +2,7 @@
     <div class="hero__sidebar-inner faq">
         <a v-for="(category, index) in $root.sharedRootCategories" :key="index" :href="category.slug" class="card" style="border-radius: 0;" @mouseover="onCategoryHover">
             <div class="hero__sidebar-inner-link">
-                <div class="category_icon">
+                <div class="category_icon" v-if="category.category_icon_path">
                     <!-- <svg v-if="category.category_icon_path" xmlns="http://www.w3.org/2000/svg" width="18" height="22" viewBox="0 0 18 22">
 
                         <use :href="public_path + '/' + category.category_icon_path"></use>

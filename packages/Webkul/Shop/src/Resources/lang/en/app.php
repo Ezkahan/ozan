@@ -14,11 +14,6 @@ return [
         'orders' => 'Orders',
         'downloadable-products' => 'Downloadable Products'
     ],
-    'products' =>[
-        'brand' => 'Brand',
-        'add-to-cart' => 'Add to cart'
-    ],
-
     'pagenames' =>[
         'homepage' => 'Home page',
         'cartpage' => 'Cart',
@@ -188,7 +183,6 @@ return [
         'cart' => 'Cart',
         'profile' => 'Profile',
         'wishlist' => 'Wishlist',
-        'cart' => 'Cart',
         'logout' => 'Logout',
         'search-text' => 'Search products here',
         'search' => 'Search'
@@ -217,7 +211,6 @@ return [
         'already' => 'You are already subscribed to our subscription list.',
         'unsubscribed' => 'You are unsubscribed from subscription mails.',
         'already-unsub' => 'You are already unsubscribed.',
-        'not-subscribed' => 'Error! Mail can not be sent currently, please try again later.'
     ],
 
     'search' => [
@@ -546,6 +539,7 @@ return [
 
     'products' => [
         'layered-nav-title' => 'Shop By',
+        'brand' => 'Brand',
         'price-label' => 'As low as',
         'remove-filter-link-title' => 'Clear All',
         'filter-to' => 'to',

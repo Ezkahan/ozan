@@ -164,7 +164,6 @@ return [
 
     'header'        => [
         'cart'              => 'Cart',
-        'cart'              => 'Cart',
         'guest'             => 'Guest',
         'logout'            => 'Logout',
         'title'             => 'Account',
@@ -194,7 +193,6 @@ return [
             'view-cart'     => 'View Cart',
             'cart-summary'  => 'Cart Summary',
         ],
-        'qty'       => 'Qty',
         'items'     => 'Items',
         'subtotal'  => 'Subtotal',
         'sub-total' => 'Sub Total',

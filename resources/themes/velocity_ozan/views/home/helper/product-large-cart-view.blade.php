@@ -44,18 +44,18 @@
                         <span class="rango-star-fill"></span>
                         <span class="rango-star"></span>
                         <span class="rango-star"></span>
-                        <span>{{ $product['review-count'] }} reviews</span>
+                        <span>{{ $product['review-count'] }} @lang('velocity::app.general.reviews')</span>
                     </div>
                 @else
                     <div class="mt10">
-                        <span class="fs14">Be the first to write a review</span>
+                        <span class="fs14">@lang('velocity::app.home.be-first-review')</span>
                     </div>
                 @endif
 
                 <div class="button-row mt10 card-bottom-container">
                     <button class="btn btn-add-to-cart">
                         <span class="rango-cart-1 fs20"></span>
-                        <span class="fs14 align-vertical-top fw6">ADD TO CART</span>
+                        <span class="fs14 align-vertical-top fw6">@lang('velocity::app.home.add-to-cart')</span>
                     </button>
                     {{-- <span class="rango-exchange fs24"></span> --}}
                     <span class="rango-heart"></span>

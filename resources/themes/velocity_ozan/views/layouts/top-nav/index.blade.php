@@ -36,19 +36,19 @@
             <div class="upheader__nav" id="top">
                 <a href="{!! url('page/about-us') !!}" class="upheader__nav-link">
                     <i class="icon-info"></i>
-                    <span>О нас</span>
+                    <span>@lang('app.about_us')</span>
                 </a>
                 <a href="{!! url('page/delivery') !!}" class="upheader__nav-link">
                     <i class="icon-box"></i>
-                    <span>Доставка</span>
+                    <span>@lang('app.shipment_policy')</span>
                 </a>
                 <a href="{!! url('page/payment-policy') !!}" class="upheader__nav-link">
                     <i class="icon-money"></i>
-                    <span>Методы оплаты</span>
+                    <span>@lang('app.payment_policy')</span>
                 </a>
                 <a href="{!! url('page/cutomer-service') !!}" class="upheader__nav-link">
                     <i class="icon-help"></i>
-                    <span>Поддержка</span>
+                    <span>@lang('app.customer_service')</span>
                 </a>
                 @include('velocity::layouts.top-nav.login-section')
             </div>

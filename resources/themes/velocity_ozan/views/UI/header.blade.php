@@ -68,10 +68,10 @@
                                 <ul type="none" class="category-wrapper" v-if="rootCategoriesCollection.length > 0">
                                     <li v-for="(category, index) in rootCategoriesCollection">
                                         <a class="unset" :href="`${$root.baseUrl}/${category.slug}`">
-                                            <div class="category-logo">
+                                            <div class="category-logo" v-if="category.category_icon_path">
                                                 <img
                                                     class="category-icon"
-                                                    v-if="category.category_icon_path"
+
                                                     :src="`${$root.baseUrl}/storage/${category.category_icon_path}`" alt="" width="20" height="20" />
                                             </div>
                                             <span v-text="category.name"></span>
@@ -220,7 +220,7 @@
                                             class="unset"
                                             :href="`${$root.baseUrl}/${subCategory.slug}/${nestedSubCategory.slug}`">
 
-                                            <div class="category-logo">
+                                            <div class="category-logo" v-if="nestedSubCategory.category_icon_path">
                                                 <img
                                                     class="category-icon"
                                                     v-if="nestedSubCategory.category_icon_path"
@@ -241,7 +241,7 @@
                                                     class="unset"
                                                     :href="`${$root.baseUrl}/${subCategory.slug}/${nestedSubCategory.slug}/${thirdLevelCategory.slug}`">
 
-                                                    <div class="category-logo">
+                                                    <div class="category-logo" v-if="thirdLevelCategory.category_icon_path">
                                                         <img
                                                             class="category-icon"
                                                             v-if="thirdLevelCategory.category_icon_path"

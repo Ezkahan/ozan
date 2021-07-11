@@ -76,7 +76,8 @@
                                     <div class="selectdiv">
                                         <select class="form-control fs13 styled-select" name="category" @change="focusInput($event)" aria-label="Category">
                                             <option value="">
-                                                {{ __('velocity::app.header.all-categories') }}
+
+                                                @lang('velocity::app.header.all-categories')
                                             </option>
 
                                             <template v-for="(category, index) in $root.sharedRootCategories">
@@ -180,7 +181,7 @@
                                     <div class="badge-container" v-if="wishlistCount > 0">
                                         <span class="badge" v-text="wishlistCount"></span>
                                     </div>
-                                    <span>{{ __('shop::app.layouts.wishlist') }}</span>
+                                    <span>{{ __('shop::app.header.wishlist') }}</span>
                                 </a>
                             @endif
                         {!! view_render_event('bagisto.shop.layout.header.wishlist.after') !!}
