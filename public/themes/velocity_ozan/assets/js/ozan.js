@@ -56703,7 +56703,9 @@ var render = function() {
                     },
                     attrs: {
                       src: _vm.public_path + "/" + category.category_icon_path,
-                      alt: "Logo"
+                      alt: "Logo",
+                      height: "20px",
+                      width: "20px"
                     }
                   })
                 ])

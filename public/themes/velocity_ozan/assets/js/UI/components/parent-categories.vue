@@ -7,7 +7,7 @@
 
                         <use :href="public_path + '/' + category.category_icon_path"></use>
                     </svg> -->
-                    <img :src="public_path + '/' + category.category_icon_path" alt="Logo" class="logo-img"
+                    <img :src="public_path + '/' + category.category_icon_path" alt="Logo" class="logo-img" height="20px" width="20px"
                     style="
                     -webkit-mask: url({public_path + '/' + category.category_icon_path}) no-repeat center;
                     mask: url({public_path + '/' + category.category_icon_path}) no-repeat center;"
