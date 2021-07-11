@@ -738,10 +738,10 @@
 
 .btn-add-to-cart {
   padding: 3px 14px !important;
-  border-radius: 0px !important;
   color: #FFFFFF !important;
-  border-color: #26A37C !important;
-  background-color: #26A37C !important;
+  border-color: #fff;
+  background-color: #da2d79;
+  border-radius: 5px;
 }
 
 .btn-add-to-cart.large {
@@ -1123,7 +1123,7 @@
   padding: 5px 10px 7px 24px;
   position: absolute;
   opacity: 0.8;
-  background-color: #0D2438;
+  background-color: #da2d79;
 }
 
 .product-card-new:hover #quick-view-btn-container {
@@ -2407,7 +2407,7 @@
 
 .sticker.sale {
   padding: 2px 14px;
-  background-color: #F05153;
+  background-color: #da2d79;
 }
 
 .sticker.new {
@@ -3974,10 +3974,6 @@ body::after {
   overflow: auto;
 }
 
-.container {
-  max-width: 1300px !important;
-}
-
 .remove-padding-margin, .category-page-wrapper {
   width: 100% !important;
   margin: 0px !important;
@@ -4543,12 +4539,6 @@ body::after {
           box-shadow: none;
   border: 1px solid #247959;
   background-color: #f5f5f5 !important;
-}
-
-.theme-btn:hover, .cart-details .continue-shopping-btn:hover, .account-content .account-layout .account-table-content #datagrid-filters .dropdown-filters .dropdown-container button.btn:hover, .account-content .account-layout .account-table-content #datagrid-filters .dropdown-filters .dropdown-container .quantity button:hover, .quantity .account-content .account-layout .account-table-content #datagrid-filters .dropdown-filters .dropdown-container button:hover, .account-content .account-layout .bottom-toolbar .pagination .page-item:hover,
-.btn-add-to-cart:hover {
-  border-color: #247959 !important;
-  background-color: #247959 !important;
 }
 
 .theme-btn:hover.light, .cart-details .continue-shopping-btn:hover.light, .account-content .account-layout .account-table-content #datagrid-filters .dropdown-filters .dropdown-container button.btn:hover.light, .account-content .account-layout .account-table-content #datagrid-filters .dropdown-filters .dropdown-container .quantity button:hover.light, .quantity .account-content .account-layout .account-table-content #datagrid-filters .dropdown-filters .dropdown-container button:hover.light, .quantity .account-content .account-layout .account-table-content #datagrid-filters .dropdown-filters .dropdown-container .bottom-toolbar .pagination button.page-item:hover, .quantity .account-content .account-layout .bottom-toolbar .pagination .account-table-content #datagrid-filters .dropdown-filters .dropdown-container button.page-item:hover, .account-content .account-layout .account-table-content #datagrid-filters .dropdown-filters .dropdown-container .bottom-toolbar .pagination .quantity button.page-item:hover, .account-content .account-layout .bottom-toolbar .pagination .quantity .account-table-content #datagrid-filters .dropdown-filters .dropdown-container button.page-item:hover, .account-content .account-layout .account-table-content #datagrid-filters .dropdown-filters .dropdown-container .bottom-toolbar .pagination button.btn.page-item:hover, .account-content .account-layout .bottom-toolbar .pagination .account-table-content #datagrid-filters .dropdown-filters .dropdown-container button.btn.page-item:hover, .account-content .account-layout .bottom-toolbar .pagination .page-item:hover,
