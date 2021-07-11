@@ -78,8 +78,7 @@ class ProductsCategoriesProxyController extends Controller
         $sliderData = $sliderRepository
             ->where('channel_id', core()->getCurrentChannel()->id)
             ->where('locale', core()->getCurrentLocale()->code)
-            ->get()
-            ->toArray();
+            ->get();
 
         return view('shop::home.index', compact('sliderData'));
     }

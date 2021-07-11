@@ -1,4 +1,4 @@
-import $ from 'jquery';
+// import $ from 'jquery';
 import Vue from 'vue';
 import VeeValidate, { Validator } from 'vee-validate';
 import de from 'vee-validate/dist/locale/de';

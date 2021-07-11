@@ -2,13 +2,6 @@
 
 <?php
 
-$categories = [];
-
-foreach (app('Webkul\Category\Repositories\CategoryRepository')->getVisibleCategoryTree(core()->getCurrentChannel()->root_category_id) as $category) {
-    if ($category->slug) {
-        array_push($categories, $category);
-    }
-} 
  $current_lang = Lang::locale();
 
 ?>
@@ -60,7 +53,7 @@ foreach (app('Webkul\Category\Repositories\CategoryRepository')->getVisibleCateg
                                 @else
                                 <span>Biz hakda</span>
                                 @endif
-            
+
                             </a>
                             <a href="#" style="color:black" class="dropdown__btn">
                                 <i class="icon-help"></i>
@@ -71,9 +64,9 @@ foreach (app('Webkul\Category\Repositories\CategoryRepository')->getVisibleCateg
                                 @else
                                 <span>Kömek</span>
                                 @endif
-            
+
                             </a>
-                            
+
                     <a href="/customer/account/wishlist" class="dropdown__btn">
                         <i class="icon-star"></i>
                         <span>{{ __('shop::app.header.wishlist') }}</span>

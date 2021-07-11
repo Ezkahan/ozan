@@ -3,7 +3,15 @@
 @section('page_title')
     {{ trim($product->meta_title) != "" ? $product->meta_title : $product->name }}
 @stop
+@php
 
+    $productImages = [];
+    $images = productimage()->getGalleryImages($product);
+
+    foreach ($images as $key => $image) {
+        array_push($productImages, $image['medium_image_url']);
+    }
+@endphp
 @section('seo')
     <meta name="description" content="{{ trim($product->meta_description) != "" ? $product->meta_description : \Illuminate\Support\Str::limit(strip_tags($product->description), 120, '') }}"/>
 
@@ -40,13 +48,15 @@
 
 @section('content-wrapper')
 <div class="auto__container">
-    {!! view_render_event('bagisto.shop.products.view.before', ['product' => $product]) !!}
+
     <section class="detail">
-      
+
             <div class="detail__inner">
                 @include ('shop::products.view.gallery')
                 {{-- <form  class="detail__content"  method="POST" id="product-form" action="{{ route('cart.add', $product->product_id) }}" @click="onSubmit($event)"> --}}
-                    @csrf
+                    <product-view>
+                    @csrf()
+                    <input type="hidden" name="product_id" value="{{ $product->product_id }}">
                     <h1 class="detail__content-title">
                         {!! $product->short_description !!}
                     </h1>
@@ -54,7 +64,7 @@
                         <table>
                         @if ($customAttributeValues = $productViewHelper->getAdditionalData($product))
                         @foreach ($customAttributeValues as $attribute)
-                        
+
                             @if ($attribute['label'])
                                 <td>{{ $attribute['label'] }}:</td>
                             @else
@@ -75,60 +85,25 @@
                             @else
                                 <td>{{ $attribute['value'] }}</td>
                             @endif
-                            
-                    
-                    @endforeach
-                    @endif
+
+
+                        @endforeach
+                        @endif
                         </table>
                     </div>
-                    <div>
                     @include ('shop::products.price', ['product' => $product])
-                    <button type="submit" class="detail__content-submit">
-                        {{ __('shop::app.products.add-to-cart')}}
-                     </button>
-                    </div>
-                    {{-- <div class="detail__content-color">
-                        <div class="detail__content-color-title">
-                            Цвет: Серый
-                        </div>
-                        <div class="detail__content-color-row">
-                            <div class="detail__content-color-radio ">
-                                <input checked type="radio" name="color" id="black">
-                                <label class="color__label black" for="black"></label>
-                            </div>
-                            <div class="detail__content-color-radio">
-                                <input type="radio" name="color" id="gray">
-                                <label class="color__label gray" for="gray"></label>
-                            </div>
-                            <div class="detail__content-color-radio ">
-                                <input type="radio" name="color" id="gold">
-                                <label class="color__label gold" for="gold"></label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="detail__content-size">
-                        <div class="detail__content-size-title">
-                            Цвет: Серый
-                        </div>
-                        <div class="detail__content-size-row">
-                            <div class="detail__content-size-radio">
-                                <input checked type="radio" name="size" id="gb64">
-                                <label class="size__label" for="gb64">
-                                    64 GB
-                                </label>
-                            </div>
-                            <div class="detail__content-size-radio">
-                                <input type="radio" name="size" id="gb256">
-                                <label class="size__label" for="gb256">
-                                    256 GB
-                                </label>
-                            </div>
-                        </div>
-                    </div> --}}
-                      
-            
-                   
-                {{-- </form> --}}
+                    @if ($product->getTypeInstance()->showQuantityBox())
+                            <quantity-changer></quantity-changer>
+                        @else
+                            <input type="hidden" name="quantity" value="1">
+                    @endif
+                    @include ('shop::products.add-to-cart', [
+                        'form' => false,
+                        'product' => $product,
+                        'showCartIcon' => false,
+                        'showCompare' => core()->getConfigData('general.content.shop.compare_option') == "1",
+                    ])
+                    </product-view>
             </div>
             <div class="detail__about">
                 <h5>
@@ -140,265 +115,128 @@
             </div>
             <!-- similar start
     =========================================== -->
-            
+
             <!-- product end
     =========================================== -->
- 
-    </section>    
+
+    </section>
     @include ('shop::products.view.related-products')
 </div>
-    {{-- <section class="product-detail">
 
-        <div class="layouter">
-            <product-view>
-                <div class="form-container">
-                    @csrf()
-
-                    <input type="hidden" name="product_id" value="{{ $product->product_id }}">
-
-                   
-
-                    <div class="details">
-
-                        <div class="product-heading">
-                            <span>{{ $product->name }}</span>
-                        </div>
-
-                        @include ('shop::products.review', ['product' => $product])
-
-                        @include ('shop::products.price', ['product' => $product])
-
-                        @if (count($product->getTypeInstance()->getCustomerGroupPricingOffers()) > 0)
-                            <div class="regular-price">
-                                @foreach ($product->getTypeInstance()->getCustomerGroupPricingOffers() as $offers)
-                                    <p> {{ $offers }} </p>
-                                @endforeach
-                            </div>
-                        @endif
-
-                        @include ('shop::products.view.stock', ['product' => $product])
-
-                        {!! view_render_event('bagisto.shop.products.view.short_description.before', ['product' => $product]) !!}
-
-                        <div class="description">
-                            {!! $product->short_description !!}
-                        </div>
-
-                        {!! view_render_event('bagisto.shop.products.view.short_description.after', ['product' => $product]) !!}
-
-
-                        {!! view_render_event('bagisto.shop.products.view.quantity.before', ['product' => $product]) !!}
-
-                        @if ($product->getTypeInstance()->showQuantityBox())
-                            <quantity-changer></quantity-changer>
-                        @else
-                            <input type="hidden" name="quantity" value="1">
-                        @endif
-
-                        {!! view_render_event('bagisto.shop.products.view.quantity.after', ['product' => $product]) !!}
-
-                        @include ('shop::products.view.configurable-options')
-
-                        @include ('shop::products.view.downloadable')
-
-                        @include ('shop::products.view.grouped-products')
-
-                        @include ('shop::products.view.bundle-options')
-
-                        {!! view_render_event('bagisto.shop.products.view.description.before', ['product' => $product]) !!}
-
-                        <accordian :title="'{{ __('shop::app.products.description') }}'" :active="true">
-                            <div slot="header">
-                                {{ __('shop::app.products.description') }}
-                                <i class="icon expand-icon right"></i>
-                            </div>
-
-                            <div slot="body">
-                                <div class="full-description">
-                                    {!! $product->description !!}
-                                </div>
-                            </div>
-                        </accordian>
-
-                        {!! view_render_event('bagisto.shop.products.view.description.after', ['product' => $product]) !!}
-
-                        @include ('shop::products.view.attributes')
-
-                        @include ('shop::products.view.reviews')
-                    </div>
-                </div>
-            </product-view>
-        </div>
-
-      
-
-        @include ('shop::products.view.up-sells')
-
-    </section> --}}
-
-    {!! view_render_event('bagisto.shop.products.view.after', ['product' => $product]) !!}
 @endsection
 
 @push('scripts')
+    <script type='text/javascript' src='https://unpkg.com/spritespin@4.1.0/release/spritespin.js'></script>
 
     <script type="text/x-template" id="product-view-template">
-        <form method="POST" id="product-form" action="{{ route('cart.add', $product->product_id) }}" @click="onSubmit($event)">
+        <form
+            method="POST"
+            id="product-form"
+            @click="onSubmit($event)"
+            action="{{ route('cart.add', $product->product_id) }}">
 
             <input type="hidden" name="is_buy_now" v-model="is_buy_now">
 
-            <slot></slot>
+            <slot v-if="slot"></slot>
+
+            <div v-else>
+                <div class="spritespin"></div>
+            </div>
 
         </form>
     </script>
 
-    <script type="text/x-template" id="quantity-changer-template">
-        <div class="quantity control-group" :class="[errors.has(controlName) ? 'has-error' : '']">
-            <label class="required">{{ __('shop::app.products.quantity') }}</label>
-            <span class="quantity-container">
-                <button type="button" class="decrease" @click="decreaseQty()">-</button>
-
-                <input :name="controlName" class="control" :value="qty" :v-validate="validations" data-vv-as="&quot;{{ __('shop::app.products.quantity') }}&quot;" readonly>
-
-                <button type="button" class="increase" @click="increaseQty()">+</button>
-
-                <span class="control-error" v-if="errors.has(controlName)">@{{ errors.first(controlName) }}</span>
-            </span>
-        </div>
-    </script>
-
     <script>
+        Vue.component('product-view', {
+            inject: ['$validator'],
+            template: '#product-view-template',
+            data: function () {
+                return {
+                    slot: true,
+                    is_buy_now: 0,
+                }
+            },
 
-        // Vue.component('product-view', {
+            mounted: function () {
+                let currentProductId = '{{ $product->url_key }}';
+                let existingViewed = window.localStorage.getItem('recentlyViewed');
 
-        //     template: '#product-view-template',
+                if (! existingViewed) {
+                    existingViewed = [];
+                } else {
+                    existingViewed = JSON.parse(existingViewed);
+                }
 
-        //     inject: ['$validator'],
+                if (existingViewed.indexOf(currentProductId) == -1) {
+                    existingViewed.push(currentProductId);
 
-        //     data: function() {
-        //         return {
-        //             is_buy_now: 0,
-        //         }
-        //     },
+                    if (existingViewed.length > 3)
+                        existingViewed = existingViewed.slice(Math.max(existingViewed.length - 4, 1));
 
-        //     methods: {
-        //         onSubmit: function(e) {
-        //             if (e.target.getAttribute('type') != 'submit')
-        //                 return;
+                    window.localStorage.setItem('recentlyViewed', JSON.stringify(existingViewed));
+                } else {
+                    var uniqueNames = [];
 
-        //             e.preventDefault();
+                    $.each(existingViewed, function(i, el){
+                        if ($.inArray(el, uniqueNames) === -1) uniqueNames.push(el);
+                    });
 
-        //             var this_this = this;
+                    uniqueNames.push(currentProductId);
 
-        //             this.$validator.validateAll().then(function (result) {
-        //                 if (result) {
-        //                     this_this.is_buy_now = e.target.classList.contains('buynow') ? 1 : 0;
+                    uniqueNames.splice(uniqueNames.indexOf(currentProductId), 1);
 
-        //                     setTimeout(function() {
-        //                         document.getElementById('product-form').submit();
-        //                     }, 0);
-        //                 }
-        //             });
-        //         }
-        //     }
-        // });
+                    window.localStorage.setItem('recentlyViewed', JSON.stringify(uniqueNames));
+                }
+            },
 
-        // Vue.component('quantity-changer', {
-        //     template: '#quantity-changer-template',
+            methods: {
+                onSubmit: function(event) {
+                    if (event.target.getAttribute('type') != 'submit')
+                        return;
 
-        //     inject: ['$validator'],
+                    event.preventDefault();
+                    this.is_buy_now = event.target.classList.contains('buynow') ? 1 : 0;
 
-        //     props: {
-        //         controlName: {
-        //             type: String,
-        //             default: 'quantity'
-        //         },
+                    setTimeout(function() {
+                        document.getElementById('product-form').submit();
+                    }, 0);
+                },
+            }
+        });
 
-        //         quantity: {
-        //             type: [Number, String],
-        //             default: 1
-        //         },
+        window.onload = function() {
+            var thumbList = document.getElementsByClassName('thumb-list')[0];
+            var thumbFrame = document.getElementsByClassName('thumb-frame');
+            var productHeroImage = document.getElementsByClassName('product-hero-image')[0];
 
-        //         minQuantity: {
-        //             type: [Number, String],
-        //             default: 1
-        //         },
+            if (thumbList && productHeroImage) {
+                for (let i=0; i < thumbFrame.length ; i++) {
+                    thumbFrame[i].style.height = (productHeroImage.offsetHeight/4) + "px";
+                    thumbFrame[i].style.width = (productHeroImage.offsetHeight/4)+ "px";
+                }
 
-        //         validations: {
-        //             type: String,
-        //             default: 'required|numeric|min_value:1'
-        //         }
-        //     },
+                if (screen.width > 720) {
+                    thumbList.style.width = (productHeroImage.offsetHeight/4) + "px";
+                    thumbList.style.minWidth = (productHeroImage.offsetHeight/4) + "px";
+                    thumbList.style.height = productHeroImage.offsetHeight + "px";
+                }
+            }
 
-        //     data: function() {
-        //         return {
-        //             qty: this.quantity
-        //         }
-        //     },
+            window.onresize = function() {
+                if (thumbList && productHeroImage) {
 
-        //     watch: {
-        //         quantity: function (val) {
-        //             this.qty = val;
+                    for(let i=0; i < thumbFrame.length; i++) {
+                        thumbFrame[i].style.height = (productHeroImage.offsetHeight/4) + "px";
+                        thumbFrame[i].style.width = (productHeroImage.offsetHeight/4)+ "px";
+                    }
 
-        //             this.$emit('onQtyUpdated', this.qty)
-        //         }
-        //     },
-
-        //     methods: {
-        //         decreaseQty: function() {
-        //             if (this.qty > this.minQuantity)
-        //                 this.qty = parseInt(this.qty) - 1;
-
-        //             this.$emit('onQtyUpdated', this.qty)
-        //         },
-
-        //         increaseQty: function() {
-        //             this.qty = parseInt(this.qty) + 1;
-
-        //             this.$emit('onQtyUpdated', this.qty)
-        //         }
-        //     }
-        // });
-
-        // $(document).ready(function() {
-        //     var addTOButton = document.getElementsByClassName('add-to-buttons')[0];
-        //     document.getElementById('loader').style.display="none";
-        //     addTOButton.style.display="flex";
-        // });
-
-        // window.onload = function() {
-        //     var thumbList = document.getElementsByClassName('thumb-list')[0];
-        //     var thumbFrame = document.getElementsByClassName('thumb-frame');
-        //     var productHeroImage = document.getElementsByClassName('product-hero-image')[0];
-
-        //     if (thumbList && productHeroImage) {
-
-        //         for(let i=0; i < thumbFrame.length ; i++) {
-        //             thumbFrame[i].style.height = (productHeroImage.offsetHeight/4) + "px";
-        //             thumbFrame[i].style.width = (productHeroImage.offsetHeight/4)+ "px";
-        //         }
-
-        //         if (screen.width > 720) {
-        //             thumbList.style.width = (productHeroImage.offsetHeight/4) + "px";
-        //             thumbList.style.minWidth = (productHeroImage.offsetHeight/4) + "px";
-        //             thumbList.style.height = productHeroImage.offsetHeight + "px";
-        //         }
-        //     }
-
-        //     window.onresize = function() {
-        //         if (thumbList && productHeroImage) {
-
-        //             for(let i=0; i < thumbFrame.length; i++) {
-        //                 thumbFrame[i].style.height = (productHeroImage.offsetHeight/4) + "px";
-        //                 thumbFrame[i].style.width = (productHeroImage.offsetHeight/4)+ "px";
-        //             }
-
-        //             if (screen.width > 720) {
-        //                 thumbList.style.width = (productHeroImage.offsetHeight/4) + "px";
-        //                 thumbList.style.minWidth = (productHeroImage.offsetHeight/4) + "px";
-        //                 thumbList.style.height = productHeroImage.offsetHeight + "px";
-        //             }
-        //         }
-        //     }
-        // };
+                    if (screen.width > 720) {
+                        thumbList.style.width = (productHeroImage.offsetHeight/4) + "px";
+                        thumbList.style.minWidth = (productHeroImage.offsetHeight/4) + "px";
+                        thumbList.style.height = productHeroImage.offsetHeight + "px";
+                    }
+                }
+            }
+        };
     </script>
 @endpush

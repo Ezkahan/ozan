@@ -1,0 +1,21 @@
+.category {
+  padding-top: 6.6em;
+  font-size: 15px;
+  &__inner {
+    display: flex;
+    .sidebar {
+      width: 30em;
+    }
+    .product {
+      padding-top: 0;
+      width: calc(100% - 30em - 3.3em);
+      margin-left: 3.3em;
+      &__row {
+        .card {
+          margin: 1.2em;
+          width: calc(25% - 2.4em - 2px);
+        }
+      }
+    }
+  }
+}
