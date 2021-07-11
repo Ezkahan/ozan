@@ -25,7 +25,7 @@
         
 
         <!--  -->
-        <slider  :slides='@json($slides)' public_path="{{ url()->to('/storage/') }}" item_class="brand__slider-item-image" :time=4000 items="6"></slider>
+        <slider  :slides='@json($slides)' public_path="{{ url()->to('/storage/') }}" item_class="brand__slider-item-image" :time=4000 :items=6></slider>
         <!--  -->
 
     @endif
