@@ -49,8 +49,7 @@
             'products_and_description'
         ]
     );
-    $subCats = app('Webkul\Category\Repositories\CategoryRepository')->getVisibleCategoryTree($category->id);
-    dd($subCats->toArray());
+
 @endphp
 @section('content-wrapper')
     {{$category->name}}
