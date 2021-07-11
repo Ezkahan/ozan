@@ -43217,7 +43217,10 @@ var render = function() {
   return _vm.list
     ? _c(
         "div",
-        { staticClass: "col-12 lg-card-container list-card product-card row " },
+        {
+          staticClass:
+            "col-12 lg-card-container list-card product-card row product_box"
+        },
         [
           _c("div", { staticClass: "product-image" }, [
             _c(
