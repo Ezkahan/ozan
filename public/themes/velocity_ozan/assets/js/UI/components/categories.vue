@@ -1,23 +1,36 @@
 
 <template>
-    <vsa-list :tags="my_options.tags">
+    <div>
+        <vsa-list :tags="my_options.tags">
 
-            <vsa-item v-for="(category, index) in $root.sharedRootCategories" :key="index" class="card" style="cursor: pointer;border-radius: 0;">
+            <vsa-item v-for="(category, index) in categories" :key="index" class="card" style="cursor: pointer;border-radius: 0;">
 
                 <vsa-heading v-if="!category.children.length">
                     <a :href="category.url_path">
-                        <i :class="category.icon">
-                            <span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span><span class="path7"></span><span class="path8"></span><span class="path9"></span><span class="path10"></span><span class="path11"></span><span class="path12"></span><span class="path13"></span><span class="path14"></span><span class="path15"></span><span class="path16"></span><span class="path17"></span><span class="path18"></span><span class="path19"></span>
-                        </i>
-                        <span class="faq-title"> {{ category.name }}</span>
+                        <div class="hero__sidebar-inner-link">
+                            <div class="category_icon">
+                                <img :src="public_path + '/' + category.category_icon_path" alt="Logo" class="logo-img"
+                                    style="
+                                    -webkit-mask: url({public_path + '/' + category.category_icon_path}) no-repeat center;
+                                    mask: url({public_path + '/' + category.category_icon_path}) no-repeat center;"
+                                >
+                            </div>
+                            <span class="faq-title"> {{ category.name }}</span>
+                        </div>
                     </a>
                 </vsa-heading>
 
                 <vsa-heading v-else>
-                    <i :class="category.icon">
-                        <span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span><span class="path7"></span><span class="path8"></span><span class="path9"></span><span class="path10"></span><span class="path11"></span><span class="path12"></span><span class="path13"></span><span class="path14"></span><span class="path15"></span><span class="path16"></span><span class="path17"></span><span class="path18"></span><span class="path19"></span>
-                    </i>
-                    <span class="faq-title"> {{ category.name }}</span>
+                    <div class="hero__sidebar-inner-link">
+                        <div class="category_icon">
+                            <img :src="public_path + '/' + category.category_icon_path" alt="Logo" class="logo-img"
+                                style="
+                                -webkit-mask: url({public_path + '/' + category.category_icon_path}) no-repeat center;
+                                mask: url({public_path + '/' + category.category_icon_path}) no-repeat center;"
+                            >
+                        </div>
+                        <span class="faq-title"> {{ category.name }}</span>
+                    </div>
                 </vsa-heading>
 
 
@@ -25,15 +38,22 @@
                     <div class="card-body" style="padding: 10px;">
 
                         <a v-for="(child, index) in category.children" :key="index" :href="child.url_path" class="hero__sidebar-inner-link ">
-                            <i :class="'icon-' + child.icon"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span><span class="path7"></span><span class="path8"></span><span class="path9"></span><span class="path10"></span><span class="path11"></span><span class="path12"></span><span class="path13"></span><span class="path14"></span><span class="path15"></span><span class="path16"></span><span class="path17"></span><span class="path18"></span><span class="path19"></span></i>
-                            <span>{{child.name}}</span>
+                        <div class="category_icon">
+                                <img :src="public_path + '/' + child.category_icon_path" alt="Logo" class="logo-img"
+                                    style="
+                                    -webkit-mask: url({public_path + '/' + child.category_icon_path}) no-repeat center;
+                                    mask: url({public_path + '/' + child.category_icon_path}) no-repeat center;"
+                                >
+                            </div>
+                            <span class="faq-title"> {{ child.name }}</span>
                         </a>
 
                     </div>
                 </vsa-content>
             </vsa-item>
 
-    </vsa-list>
+        </vsa-list>
+    </div>
 </template>
 
 <script>
@@ -48,8 +68,8 @@ import {
 export default {
     name: "categories",
     mounted: function () {
-    console.log('aaaaaa');
-        },
+        console.log(this.categories);
+    },
     components: {
         VsaList,
         VsaItem,
@@ -57,13 +77,17 @@ export default {
         VsaContent,
         VsaIcon
     },
-    // props: {
-    //     categories: {
-    //         type: Array,
-    //         required: true,
-    //         default: () => [],
-    //     },
-    // },
+    props: {
+        categories: {
+            type: Array | Object,
+            required: true,
+            default: () => [],
+        },
+        public_path: {
+            type: String,
+            required: true,
+        }
+    },
     data () {
         return {
             my_options: {
@@ -91,3 +115,10 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+a:hover .logo-img {
+    filter: invert(1);
+    background: transparent;
+}
+</style>
