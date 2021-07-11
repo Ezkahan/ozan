@@ -53,8 +53,7 @@
     $subCats = app('Webkul\Category\Repositories\CategoryRepository')->getVisibleCategoryTree($category->id);
 @endphp
 @section('content-wrapper')
-    {{$category->name}}
-    @json($category->children)
+    {{--{{$category->name}}--}}
 @endsection
 @section('full-content-wrapper')
     <category-component></category-component>
