@@ -73,7 +73,7 @@
                     </div>
                 @show
 
-                <div class="container">
+                <div class="auto__container">
 
                     {!! view_render_event('bagisto.shop.layout.full-content.before') !!}
 

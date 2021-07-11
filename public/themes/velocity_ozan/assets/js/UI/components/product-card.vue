@@ -1,5 +1,5 @@
 <template>
-    <div class="col-12 lg-card-container list-card product-card row" v-if="list">
+    <div class="col-12 lg-card-container list-card product-card row " v-if="list">
         <div class="product-image">
             <a :title="product.name" :href="`${baseUrl}/${product.slug}`">
                 <img
