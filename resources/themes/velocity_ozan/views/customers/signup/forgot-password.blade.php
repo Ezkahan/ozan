@@ -4,7 +4,7 @@
     {{ __('shop::app.customer.forgot-password.page_title') }}
 @endsection
 
-@section('content-wrapper')
+@section('full-content-wrapper')
     <div class="auth-content form-container">
         <div class="container">
             <div class="col-lg-10 col-md-12 offset-lg-1">

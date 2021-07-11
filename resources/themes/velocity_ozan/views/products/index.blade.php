@@ -50,8 +50,11 @@
         ]
     );
 @endphp
-
 @section('content-wrapper')
+    {{$category->name}}
+    @json($category->children)
+@endsection
+@section('full-content-wrapper')
     <category-component></category-component>
 @stop
 

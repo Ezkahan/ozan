@@ -4,7 +4,7 @@
     {{ __('shop::app.checkout.success.title') }}
 @stop
 
-@section('content-wrapper')
+@section('full-content-wrapper')
     <div class="container">
         <div class="order-success-content row col-12 offset-1">
             <h1 class="row col-12">{{ __('shop::app.checkout.success.thanks') }}</h1>

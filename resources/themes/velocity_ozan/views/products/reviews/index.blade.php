@@ -26,7 +26,7 @@
     </style>
 @endpush
 
-@section('content-wrapper')
+@section('full-content-wrapper')
     <div class="container">
         <div class="row review-page-container">
             @include ('shop::products.view.small-view', ['product' => $product])

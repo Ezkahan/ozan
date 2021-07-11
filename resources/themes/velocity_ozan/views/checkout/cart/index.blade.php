@@ -6,7 +6,7 @@
     {{ __('shop::app.checkout.cart.title') }}
 @stop
 
-@section('content-wrapper')
+@section('full-content-wrapper')
     <cart-component></cart-component>
 @endsection
 

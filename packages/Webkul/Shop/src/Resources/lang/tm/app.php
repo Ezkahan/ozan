@@ -22,7 +22,7 @@ return [
         'homepage' => 'Baş sahypa',
         'cartpage' => 'Sebet',
         'wishlistpage' => 'Halananlar',
-        
+
     ],
 
     'common' => [
@@ -43,7 +43,7 @@ return [
         'forgot-password' => 'Забыли пароль?'
 
     ],
-    
+
     'checkout' =>[
         'delivery' => 'Eltip bermek',
         'fullname' => 'Adyňyz we Familýaňyz',
@@ -51,7 +51,7 @@ return [
         'phone' => 'Telefon nomeriňiz',
         'phone-number2' => 'Ikinji telefon nomeriňiz',
         'address' => 'Adresiňiz',
-        'cartt' => 'Sebet',
+        'cart' => 'Sebet',
         'name' => 'Ady',
         'quantity' => 'Sany',
         'price' => 'Bahasy',
@@ -64,7 +64,7 @@ return [
         'total-sum' => 'Jemi',
         'go-to-payment' => 'Tölege geçiň'
     ],
-    
+
 
     'home' => [
         'promotions' => 'Aksiýalar',
