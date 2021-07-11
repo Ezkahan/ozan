@@ -429,7 +429,9 @@
                                 this.getOrderSummary();
 
                                 this.$root.hideLoader();
-                                console.log('addreess');
+                                var objDiv = document.getElementById("address-section");
+                                objDiv.scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
+
                             })
                             .catch(error => {
                                 this.disable_button = false;
@@ -462,6 +464,8 @@
 
                                 this.getOrderSummary();
                                 console.log('ship');
+                                var objDiv = document.getElementById("shipment-section");
+                                objDiv.scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
                             })
                             .catch(error => {
                                 this.disable_button = false;
@@ -492,6 +496,8 @@
 
                                 this.getOrderSummary();
                                 console.log('payment');
+                                var objDiv = document.getElementById("payment-section");
+                                objDiv.scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
                             })
                             .catch(error => {
                                 this.disable_button = false;
