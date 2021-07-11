@@ -10,8 +10,7 @@ if (mix.inProduction()) {
 // mix.setPublicPath(publicPath).mergeManifest();
 // mix.disableNotifications();
 
-mix
-    .js(
+mix.js(
         __dirname + "/assets/js/app.js",
         __dirname + "assets/js/ozan.js"
     )
