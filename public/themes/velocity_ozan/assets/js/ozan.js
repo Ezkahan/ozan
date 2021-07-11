@@ -50003,16 +50003,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 // import 'vue-simple-accordion/dist/vue-simple-accordion.css';
@@ -56429,44 +56419,17 @@ var render = function() {
         _vm._l(_vm.categories, function(category, index) {
           return _c(
             "vsa-item",
-            {
-              key: index,
-              staticClass: "card",
-              staticStyle: { cursor: "pointer", "border-radius": "0" }
-            },
+            { key: index, staticClass: "sidebar__body" },
             [
               !category.children.length
                 ? _c("vsa-heading", [
-                    _c("a", { attrs: { href: category.url_path } }, [
-                      _c("div", { staticClass: "hero__sidebar-inner-link" }, [
-                        _c("div", { staticClass: "category_icon" }, [
-                          _c("img", {
-                            staticClass: "logo-img",
-                            staticStyle: {
-                              "-webkit-mask":
-                                "url({public_path + '/' + category.category_icon_path}) no-repeat center",
-                              mask:
-                                "url({public_path + '/' + category.category_icon_path}) no-repeat center"
-                            },
-                            attrs: {
-                              src:
-                                _vm.public_path +
-                                "/" +
-                                category.category_icon_path,
-                              alt: "Logo"
-                            }
-                          })
-                        ]),
-                        _vm._v(" "),
-                        _c("span", { staticClass: "faq-title" }, [
-                          _vm._v(" " + _vm._s(category.name))
-                        ])
-                      ])
-                    ])
-                  ])
-                : _c("vsa-heading", [
-                    _c("div", { staticClass: "hero__sidebar-inner-link" }, [
-                      _c("div", { staticClass: "category_icon" }, [
+                    _c(
+                      "a",
+                      {
+                        staticClass: "sidebar__btn tab__btn",
+                        attrs: { href: category.url_path }
+                      },
+                      [
                         _c("img", {
                           staticClass: "logo-img",
                           staticStyle: {
@@ -56479,63 +56442,73 @@ var render = function() {
                             src:
                               _vm.public_path +
                               "/" +
-                              category.category_icon_path,
-                            alt: "Logo"
+                              category.category_icon_path
                           }
-                        })
-                      ]),
+                        }),
+                        _vm._v(" "),
+                        _c("span", [_vm._v(" " + _vm._s(category.name))])
+                      ]
+                    )
+                  ])
+                : _c("vsa-heading", [
+                    _c("div", { staticClass: "sidebar__btn tab__btn" }, [
+                      _c("img", {
+                        staticClass: "logo-img",
+                        staticStyle: {
+                          "-webkit-mask":
+                            "url({public_path + '/' + category.category_icon_path}) no-repeat center",
+                          mask:
+                            "url({public_path + '/' + category.category_icon_path}) no-repeat center"
+                        },
+                        attrs: {
+                          src:
+                            _vm.public_path + "/" + category.category_icon_path
+                        }
+                      }),
                       _vm._v(" "),
-                      _c("span", { staticClass: "faq-title" }, [
-                        _vm._v(" " + _vm._s(category.name))
-                      ])
+                      _c("span", [_vm._v(" " + _vm._s(category.name))])
                     ])
                   ]),
               _vm._v(" "),
               category.children.length > 0
-                ? _c("vsa-content", [
-                    _c(
-                      "div",
-                      {
-                        staticClass: "card-body",
-                        staticStyle: { padding: "10px" }
-                      },
-                      _vm._l(category.children, function(child, index) {
-                        return _c(
-                          "a",
-                          {
-                            key: index,
-                            staticClass: "hero__sidebar-inner-link ",
-                            attrs: { href: child.url_path }
-                          },
-                          [
-                            _c("div", { staticClass: "category_icon" }, [
-                              _c("img", {
-                                staticClass: "logo-img",
-                                staticStyle: {
-                                  "-webkit-mask":
-                                    "url({public_path + '/' + child.category_icon_path}) no-repeat center",
-                                  mask:
-                                    "url({public_path + '/' + child.category_icon_path}) no-repeat center"
-                                },
-                                attrs: {
-                                  src:
-                                    _vm.public_path +
-                                    "/" +
-                                    child.category_icon_path,
-                                  alt: "Logo"
-                                }
-                              })
-                            ]),
-                            _vm._v(" "),
-                            _c("span", { staticClass: "faq-title" }, [
-                              _vm._v(" " + _vm._s(child.name))
-                            ])
-                          ]
-                        )
-                      }),
-                      0
-                    )
-                  ])
+                ? _c(
+                    "vsa-content",
+                    { staticClass: "sidebar__content event" },
+                    _vm._l(category.children, function(child, index) {
+                      return _c(
+                        "a",
+                        {
+                          key: index,
+                          staticClass: "sidebar__content-link",
+                          attrs: { href: child.url_path }
+                        },
+                        [
+                          _c("img", {
+                            staticClass: "logo-img",
+                            staticStyle: {
+                              "-webkit-mask":
+                                "url({public_path + '/' + child.category_icon_path}) no-repeat center",
+                              mask:
+                                "url({public_path + '/' + child.category_icon_path}) no-repeat center"
+                            },
+                            attrs: {
+                              src:
+                                _vm.public_path +
+                                "/" +
+                                child.category_icon_path,
+                              alt: "Logo"
+                            }
+                          }),
+                          _vm._v(
+                            "\n                    " +
+                              _vm._s(child.name) +
+                              "\n                "
+                          )
+                        ]
+                      )
+                    }),
+                    0
+                  )
                 : _vm._e()
             ],
             1

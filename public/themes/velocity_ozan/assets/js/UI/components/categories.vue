@@ -3,52 +3,42 @@
     <div>
         <vsa-list :tags="my_options.tags">
 
-            <vsa-item v-for="(category, index) in categories" :key="index" class="card" style="cursor: pointer;border-radius: 0;">
+            <vsa-item v-for="(category, index) in categories" :key="index" class="sidebar__body">
 
                 <vsa-heading v-if="!category.children.length">
-                    <a :href="category.url_path">
-                        <div class="hero__sidebar-inner-link">
-                            <div class="category_icon">
-                                <img :src="public_path + '/' + category.category_icon_path" alt="Logo" class="logo-img"
-                                    style="
-                                    -webkit-mask: url({public_path + '/' + category.category_icon_path}) no-repeat center;
-                                    mask: url({public_path + '/' + category.category_icon_path}) no-repeat center;"
-                                >
-                            </div>
-                            <span class="faq-title"> {{ category.name }}</span>
-                        </div>
+                    <a :href="category.url_path" class="sidebar__btn tab__btn">
+                        <img :src="public_path + '/' + category.category_icon_path" class="logo-img"
+                            style="
+                            -webkit-mask: url({public_path + '/' + category.category_icon_path}) no-repeat center;
+                            mask: url({public_path + '/' + category.category_icon_path}) no-repeat center;"
+                        >
+                        <span> {{ category.name }}</span>
                     </a>
                 </vsa-heading>
 
                 <vsa-heading v-else>
-                    <div class="hero__sidebar-inner-link">
-                        <div class="category_icon">
-                            <img :src="public_path + '/' + category.category_icon_path" alt="Logo" class="logo-img"
-                                style="
-                                -webkit-mask: url({public_path + '/' + category.category_icon_path}) no-repeat center;
-                                mask: url({public_path + '/' + category.category_icon_path}) no-repeat center;"
-                            >
-                        </div>
-                        <span class="faq-title"> {{ category.name }}</span>
+                    <div class="sidebar__btn tab__btn">
+                        <img :src="public_path + '/' + category.category_icon_path" class="logo-img"
+                            style="
+                            -webkit-mask: url({public_path + '/' + category.category_icon_path}) no-repeat center;
+                            mask: url({public_path + '/' + category.category_icon_path}) no-repeat center;"
+                        >
+                        <span> {{ category.name }}</span>
                     </div>
                 </vsa-heading>
 
 
-                <vsa-content v-if="category.children.length > 0">
-                    <div class="card-body" style="padding: 10px;">
+                <vsa-content v-if="category.children.length > 0" class="sidebar__content event">
 
-                        <a v-for="(child, index) in category.children" :key="index" :href="child.url_path" class="hero__sidebar-inner-link ">
-                        <div class="category_icon">
-                                <img :src="public_path + '/' + child.category_icon_path" alt="Logo" class="logo-img"
-                                    style="
-                                    -webkit-mask: url({public_path + '/' + child.category_icon_path}) no-repeat center;
-                                    mask: url({public_path + '/' + child.category_icon_path}) no-repeat center;"
-                                >
-                            </div>
-                            <span class="faq-title"> {{ child.name }}</span>
-                        </a>
+                    <a v-for="(child, index) in category.children" :key="index" :href="child.url_path" class="sidebar__content-link">
+                        <img :src="public_path + '/' + child.category_icon_path" alt="Logo" class="logo-img"
+                            style="
+                            -webkit-mask: url({public_path + '/' + child.category_icon_path}) no-repeat center;
+                            mask: url({public_path + '/' + child.category_icon_path}) no-repeat center;"
+                        >
+                        {{ child.name }}
+                    </a>
 
-                    </div>
                 </vsa-content>
             </vsa-item>
 
