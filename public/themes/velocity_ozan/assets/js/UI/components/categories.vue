@@ -6,7 +6,7 @@
             <vsa-item v-for="(category, index) in categories" :key="index" class="sidebar__body">
 
                 <vsa-heading v-if="!category.children.length">
-                    <a :href="category.url_path" class="sidebar__btn tab__btn">
+                    <a :href="'/' + category.url_path" class="sidebar__btn tab__btn">
                         <img v-if="category.category_icon_path" :src="public_path + '/' + category.category_icon_path"
                              class="logo-img" height="20px" width="20px"
                              style="
@@ -31,7 +31,7 @@
 
                 <vsa-content v-if="category.children.length > 0" class="sidebar__content event">
 
-                    <a v-for="(child, index) in category.children" :key="index" :href="child.url_path" class="sidebar__content-link">
+                    <a v-for="(child, index) in category.children" :key="index" :href="'/' + child.url_path" class="sidebar__content-link">
                         <img v-if="child.category_icon_path" :src="public_path + '/' + child.category_icon_path" alt="Logo" class="logo-img"
                             style="
                             -webkit-mask: url({public_path + '/' + child.category_icon_path}) no-repeat center;

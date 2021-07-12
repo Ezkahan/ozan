@@ -26,7 +26,7 @@
                     <div class="modal-content">
                         <!-- header -->
                         <div class="modal-header no-border pb0">
-                            <label class="fs18 grey">{{ __('shop::app.header.title') }}</label>
+                            <label class="fs18 grey">{{ __('velocity::app.header.title') }}</label>
 
                             <button type="button" class="close disable-box-shadow" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true" class="white-text fs20" @click="togglePopup">×</span>
@@ -35,7 +35,7 @@
 
                         <!-- body -->
                         <div class="pl10 fs14">
-                            <p>{{ __('shop::app.header.dropdown-text') }}</p>
+                            <p>{{ __('velocity::app.header.dropdown-text') }}</p>
                         </div>
 
                         <!-- footer -->

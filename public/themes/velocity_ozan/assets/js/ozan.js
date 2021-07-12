@@ -56428,7 +56428,7 @@ var render = function() {
                       "a",
                       {
                         staticClass: "sidebar__btn tab__btn",
-                        attrs: { href: category.url_path }
+                        attrs: { href: "/" + category.url_path }
                       },
                       [
                         category.category_icon_path
@@ -56491,7 +56491,7 @@ var render = function() {
                         {
                           key: index,
                           staticClass: "sidebar__content-link",
-                          attrs: { href: child.url_path }
+                          attrs: { href: "/" + child.url_path }
                         },
                         [
                           child.category_icon_path

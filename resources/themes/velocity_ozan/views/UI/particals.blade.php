@@ -112,7 +112,7 @@
                                     <image-search-component></image-search-component>
 
                                     <button class="search__btn" type="button"  aria-label="Search" @click="submitForm">
-                                        Найти
+                                        @lang('app.search')
                                     </button>
                                 </div>
                             </div>
