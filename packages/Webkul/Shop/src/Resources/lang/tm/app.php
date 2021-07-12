@@ -564,7 +564,7 @@ return [
         'write-review-btn' => 'syn ýazmak',
         'choose-option' => 'görnüşi saýlaň',
         'sale' => 'Satyş',
-        'new' => 'täze',
+        'new' => 'Täze',
         'empty' => 'bu bölümde elýeterli haryt ýok',
         'add-to-cart' => 'Sebede goş',
         'book-now' => 'häzir bronlamak',

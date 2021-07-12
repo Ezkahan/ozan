@@ -262,6 +262,8 @@ return [
         'short-description' => 'Short Descriptions',
         'recently-viewed'   => 'Recently Viewed Products',
         'be-first-review'   => 'Be the first to write a review',
+        'new' => 'new',
+        'sale' => 'sale'
     ],
 
     'shop'          => [

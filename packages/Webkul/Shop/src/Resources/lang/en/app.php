@@ -564,7 +564,7 @@ return [
         'write-review-btn' => 'Write Review',
         'choose-option' => 'Choose an option',
         'sale' => 'Sale',
-        'new' => 'New',
+        'new' => 'Taze',
         'empty' => 'No products available in this category',
         'add-to-cart' => 'Add To Cart',
         'book-now' => 'Book Now',
