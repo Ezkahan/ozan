@@ -2828,9 +2828,9 @@
           transform: translate(-50%);
 }
 
-.vue-slider .vue-slider-process {
+/* .vue-slider .vue-slider-process {
   background-color: #26A37C !important;
-}
+} */
 
 .full-content-wrapper > .container-fluid {
   padding: 0 !important;
