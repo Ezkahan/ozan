@@ -6,5 +6,6 @@ return [
     'payment_policy'=>'Payment Policy',
     'orders_returns' => 'Orders and returns',
     'customer_service' => 'Customer Service',
-    'contact_us' => 'Contact us'
+    'contact_us' => 'Contact us',
+    'main_page' => 'Main page'
 ];
