@@ -31,7 +31,6 @@
     <script type="text/x-template" id="layered-navigation-template">
         <div v-if="attributes.length > 0">
             <div class="sidebar__header">
-                <i class="icon-monitor"></i>
                 {{$category->name}}
             </div>
 

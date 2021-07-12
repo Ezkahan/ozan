@@ -1071,6 +1071,7 @@ li {
 .sidebar__header i {
   margin-right: 1.3rem;
   pointer-events: none;
+  text-align: unset;
 }
 
 .sidebar__body {
@@ -1099,6 +1100,14 @@ li {
   color: #2d2d2d;
   position: relative;
   cursor: pointer;
+}
+
+.sidebar__btn:hover {
+  background: #000;
+}
+
+.sidebar__btn:hover span {
+  color: #f7f7f7;
 }
 
 .sidebar__btn i {

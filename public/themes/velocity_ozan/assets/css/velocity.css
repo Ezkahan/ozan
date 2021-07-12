@@ -5367,8 +5367,9 @@ body::after {
 }
 
 .lg-card-container.list-card {
-  margin-left: 0px;
   padding-left: 0px;
+  margin: 15px 0;
+  overflow: hidden;
 }
 
 .lg-card-container.list-card .background-image-group {
@@ -5384,8 +5385,18 @@ body::after {
   position: relative;
 }
 
+.lg-card-container.list-card .product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  -o-object-fit: contain;
+}
+
 .lg-card-container.list-card .product-image .quick-view-btn-container button {
-  left: calc(50% - 40px);
+  left: 0;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
 }
 
 .lg-card-container.list-card .product-information {
