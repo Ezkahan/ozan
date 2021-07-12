@@ -503,4 +503,12 @@
 }
 .rango-zoom-plus:before {
     content: "\e99f";
+    position: absolute;
+    top: 52%;
+    left: 10px;
+    transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
 }
