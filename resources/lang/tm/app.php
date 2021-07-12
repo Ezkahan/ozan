@@ -1,10 +1,12 @@
 <?php
 return [
-    'about_us' => 'О нас',
-    'shipment_policy' => 'Доставка',
-    'customer_policy' => 'Политика клиента',
-    'payment_policy' => 'Методы оплаты',
-    'orders_returns' => 'Заказы и возврат',
-    'customer_service' => 'Поддержка',
-    'contact_us' => 'Свяжитесь с нами'
+    'about_us' => 'Biz barada',
+    'shipment_policy' => 'Eltip berme',
+    'customer_policy' => 'Müşderi syýasaty',
+    'payment_policy' => 'Töleg usullary',
+    'orders_returns' => 'Sargytlar we gaýtarmalar',
+    'customer_service' => 'Kömek',
+    'contact_us' => 'Habarlaşmak',
+    'main_page' => 'Baş sahypa',
+    'search' => 'Gözleg'
 ];

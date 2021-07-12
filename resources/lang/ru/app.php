@@ -6,5 +6,7 @@ return [
     'payment_policy' => 'Методы оплаты',
     'orders_returns' => 'Заказы и возврат',
     'customer_service' => 'Поддержка',
-    'contact_us' => 'Свяжитесь с нами'
+    'contact_us' => 'Свяжитесь с нами',
+    'main_page' => 'Главная',
+    'search' => 'Поиск'
 ];

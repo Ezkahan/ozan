@@ -53,7 +53,18 @@
     $subCats = app('Webkul\Category\Repositories\CategoryRepository')->getVisibleCategoryTree($category->id);
 @endphp
 @section('content-wrapper')
-    {{--{{$category->name}}--}}
+    <div class="breadcumb">
+        <div class="auto__container">
+            <div class="breadcumb__inner">
+                <a href="{{ route('shop.home.index') }}">
+                    <span>@lang('app.main_page')</span>
+                    <i class="icon-chevron-right"></i>
+                </a>
+                <a href="#">{{$category->name}}</a>
+            </div>
+        </div>
+    </div>
+
 @endsection
 @section('full-content-wrapper')
     <category-component></category-component>
