@@ -184,6 +184,7 @@ return [
     'minicart'      => [
         'cart'      => 'Sebet',
         'view-cart' => 'Sebede seretmek',
+        'checkout' => 'Sargyt goýmak'
     ],
 
     'checkout'      => [

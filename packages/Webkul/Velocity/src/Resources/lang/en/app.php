@@ -184,6 +184,7 @@ return [
     'minicart'      => [
         'cart'      => 'Cart',
         'view-cart' => 'View Cart',
+        'checkout' => 'Checkout'
     ],
 
     'checkout'      => [
