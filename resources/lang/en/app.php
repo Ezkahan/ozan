@@ -7,5 +7,6 @@ return [
     'orders_returns' => 'Orders and returns',
     'customer_service' => 'Customer Service',
     'contact_us' => 'Contact us',
-    'main_page' => 'Main page'
+    'main_page' => 'Main page',
+    'search' => 'Search'
 ];
