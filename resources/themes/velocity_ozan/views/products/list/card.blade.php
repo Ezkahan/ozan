@@ -134,7 +134,7 @@
 
             @if ($product->new)
                 <div class="sticker new">
-                   {{ __('shop::app.products.new') }}
+                   {{ __('velocity::app.products.new') }}
                 </div>
             @endif
 
