@@ -155,7 +155,7 @@
 
         &.active {
             color: white;
-            background-color: $theme-color;
+            background-color: #da2d79;
         }
     }
 
@@ -235,6 +235,7 @@
     padding: 20px 25px;
     border: 1px solid #707070;
     border-radius: 5px;
+    position: relative;
 
     .product-image-container {
         width: 100%;
@@ -273,7 +274,7 @@
     .card-body {
         cursor: default;
         padding: 0;
-        margin-top: 15px;   
+        margin-top: 15px;
 
         > div:last-child {
             margin-top: 10px;
@@ -332,28 +333,28 @@
     -moz-transform: translateX(-50%);
     -o-transform: translateX(-50%);
     -webkit-transform: translateX(-50%);
-    width: 100%;
+    width: fit-content;
     bottom: 10px;
     display: none;
     position: absolute;
 
     span {
-        left: 32%;
-        top: -26px;
+        // left: 32%;
+        // top: -26px;
         z-index: 1;
         font-size: 16px;
         color: #FFFFFF;
-        position: absolute;
+        position: relative;
     }
 
     button {
-        left: 30%;
-        top: -36px;
+        // left: 30%;
+        // top: -36px;
         border: none;
         color: white;
         font-size: 16px;
-        padding: 5px 10px 7px 24px;
-        position: absolute;
+        padding: 5px 10px 7px 35px;
+        position: relative;
         opacity: 0.8;
         background-color: #da2d79;
     }
@@ -1654,7 +1655,7 @@
 
 .product-price {
     color: #da2d79;
-    height: 72px;   
+    height: 72px;
 
     .price-label {
         margin-right: 6px;
@@ -2058,7 +2059,7 @@
 .category-container,
 .search-container {
     .grid-card {
-        width: 15rem;
+        width: calc(25% - 20px);
     }
 }
 
@@ -2146,8 +2147,8 @@
     }
 
     .vue-slider-dot-tooltip-inner {
-        border-color: $theme-color !important;
-        background-color: $theme-color !important;
+        border-color: rgb(255, 100, 114) !important;
+        background-color: rgb(255, 100, 114) !important;
     }
 
     .vue-slider-dot-tooltip-text {
@@ -2159,8 +2160,9 @@
         border-radius: 5px;
         white-space: nowrap;
         color: $light-color;
-        border-color: $theme-color !important;
-        background-color: $theme-color !important;
+        border-color: #fff !important;
+        background-color: rgb(255, 100, 114) !important;
+        border-radius: 5px;
     }
 
     .vue-slider-dot-tooltip-text::before {
@@ -2176,9 +2178,9 @@
         transform: translate(-50%);
     }
 
-    .vue-slider-process {
-        background-color: $theme-color !important;
-    }
+    // .vue-slider-process {
+    //     background-color: $theme-color !important;
+    // }
 }
 
 .full-content-wrapper {
@@ -2272,7 +2274,8 @@
 
         input[type=text] {
             text-align: center;
-            border: 1px solid $theme-color;
+            border: 1px solid #da2d79;
+            border-radius: 5px;
             width: 30%;
             background-color: white;
         }
