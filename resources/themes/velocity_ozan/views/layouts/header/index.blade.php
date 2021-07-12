@@ -3,13 +3,22 @@
     <div class="auto__container">
         <div class="header__inner">
             <div class="header__column">
-{{--                <div class="header__logo">--}}
-{{--                    <img src="/themes/ozan/assets/images/logo.svg" alt="">--}}
-{{--                </div>--}}
+
+                <div class="menu_burger">
+                    <!-- <img src="../../../../../../public/themes/velocity_ozan/assets/images/svg/Menu.svg" alt="menu"> -->
+                    mmm
+                </div>
+
                 <logo-component add-class="header__logo"></logo-component>
             </div>
             <div class="header__column">
                 <searchbar-component></searchbar-component>
+
+                <a href="#" class="cart">
+                    <!-- <img src="../../../../../../public/themes/velocity_ozan/assets/images/svg/Cart.svg" alt="cart"> -->
+                    ooo
+                </a>
+
             </div>
         </div>
     </div>
@@ -29,3 +38,11 @@
         })()
     </script>
 @endpush
+
+
+
+<!-- <script>
+
+
+
+</script> -->

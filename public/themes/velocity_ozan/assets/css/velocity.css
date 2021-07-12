@@ -1581,6 +1581,10 @@
   border: 1px solid #CCCCCC;
 }
 
+.category-block {
+  margin: 0 -20px;
+}
+
 .filters-container {
   margin: 20px 0;
 }
@@ -1703,7 +1707,7 @@
 
 .product-card-new {
   width: calc(100% - 20px);
-  margin: 0 10px 10px 10px;
+  margin: 10px 10px 10px 10px;
   padding: 20px 25px;
   border: 1px solid #707070;
   border-radius: 5px;
@@ -2093,6 +2097,7 @@
 
 #cart-modal-content .small-card-container .card-total-price {
   float: right;
+  color: #da2d79;
 }
 
 #cart-modal-content .small-card-container .rango-close {
@@ -2124,6 +2129,10 @@
 
 .cart-details h1 {
   margin-bottom: 30px;
+}
+
+.cart-details h2 {
+  font-size: 32px;
 }
 
 .cart-details .cart-details-header h2 {
@@ -2186,6 +2195,10 @@
 
 .cart-details .cart-content .product-details-content .row .card-current-price {
   font-size: 18px;
+}
+
+.cart-details .cart-content .product-details-content .row .product-price {
+  color: #000;
 }
 
 .cart-details .cart-content .product-details-content .row > a {
@@ -2298,7 +2311,11 @@
 }
 
 .account-content .account-layout.right {
-  padding-left: 320px !important;
+  padding-left: 400px !important;
+}
+
+.account-content .account-layout.right h2 {
+  font-size: 32px;
 }
 
 .account-content .account-layout .account-head {
@@ -2364,12 +2381,12 @@
 .account-content .account-layout .account-table-content #datagrid-filters {
   width: 100%;
   margin-bottom: 20px;
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
 }
 
 .account-content .account-layout .account-table-content #datagrid-filters > * {
@@ -2397,17 +2414,13 @@
   max-width: 200px;
 }
 
-.account-content .account-layout .account-table-content #datagrid-filters > * input,
-.account-content .account-layout .account-table-content #datagrid-filters > * select {
-  height: 38px;
-}
-
 .account-content .account-layout .account-table-content #datagrid-filters .dropdown-filters {
   font-size: 16px;
 }
 
 .account-content .account-layout .account-table-content #datagrid-filters .dropdown-filters .grid-dropdown-header {
-  display: inline-block;
+  display: block;
+  margin-bottom: 8px;
 }
 
 .account-content .account-layout .account-table-content #datagrid-filters .dropdown-filters .dropdown-list li {
@@ -2416,23 +2429,29 @@
 
 .account-content .account-layout .account-table-content #datagrid-filters .dropdown-filters .dropdown-toggle:after {
   border: unset;
+  display: none !important;
 }
 
 .account-content .account-layout .account-table-content #datagrid-filters .dropdown-filters .dropdown-container {
-  width: 100%;
-  display: inline-block !important;
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+}
+
+.account-content .account-layout .account-table-content #datagrid-filters .dropdown-filters .dropdown-container ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
 }
 
 .account-content .account-layout .account-table-content #datagrid-filters .dropdown-filters .dropdown-container button.btn, .account-content .account-layout .account-table-content #datagrid-filters .dropdown-filters .dropdown-container .quantity button, .quantity .account-content .account-layout .account-table-content #datagrid-filters .dropdown-filters .dropdown-container button {
   display: block;
   font-size: 14px;
-  margin-top: 10px;
   font-weight: 600;
   padding: 5px 10px;
-}
-
-.account-content .account-layout .account-table-content #datagrid-filters .dropdown-filters .dropdown-container li:not(:last-child) {
-  margin-bottom: 10px;
 }
 
 .account-content .account-layout .account-table-content #datagrid-filters .dropdown-filters .dropdown-container li {
@@ -2471,19 +2490,29 @@
 }
 
 .account-content .account-layout .account-table-content #datagrid-filters .filter-left {
-  float: left;
+  margin-right: 50px;
 }
 
 .account-content .account-layout .account-table-content #datagrid-filters .filter-right {
-  top: -25px;
-  width: 70%;
-  float: right;
   position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
 }
 
-.account-content .account-layout .account-table-content #datagrid-filters .filter-right .per-page {
-  right: 0;
-  position: absolute;
+.account-content .account-layout .account-table-content #datagrid-filters .filter-right .dropdown-filters {
+  margin-right: 50px;
+}
+
+.account-content .account-layout .account-table-content #datagrid-filters .filter-right .dropdown-filters:last-child {
+  margin-right: 0;
+}
+
+.account-content .account-layout .account-table-content #datagrid-filters .filter-right .dropdown-filters button {
+  margin-left: 50px;
 }
 
 .account-content .account-layout .account-table-content .filtered-tags .filter-tag {
@@ -2758,6 +2787,7 @@
 .checkout-process h1 {
   font-weight: 600;
   margin-bottom: 30px;
+  font-size: 32px;
 }
 
 .checkout-process .scrollable, .checkout-process .layered-filter-wrapper {
@@ -2992,6 +3022,7 @@
 
 .order-summary-container .order-summary > h3 {
   margin-bottom: 20px;
+  font-size: 24px;
 }
 
 .order-summary-container .order-summary > .row:not(:last-child) {
@@ -3029,6 +3060,7 @@
 
 #address-section .form-header h3 {
   margin-bottom: 20px;
+  font-size: 22px;
 }
 
 .attached-products-wrapper {
@@ -3413,7 +3445,7 @@
 
 .category-container .grid-card,
 .search-container .grid-card {
-  width: calc(25% - 20px);
+  width: calc(33.33% - 20px);
 }
 
 .downloadable-container .sample-list {
@@ -3465,6 +3497,10 @@
   min-height: 670px;
   margin-left: 15px;
   padding: 40px 15px !important;
+}
+
+.category-container h2 {
+  font-size: 32px;
 }
 
 .category-container .hero-image {
@@ -4487,13 +4523,13 @@ header #search-form > *:focus {
 
 .velocity-divide-page .left {
   z-index: 1;
-  width: 300px;
+  width: 360px;
   position: absolute;
 }
 
 .velocity-divide-page .right {
   width: 100%;
-  padding-left: 300px !important;
+  padding-left: 400px !important;
 }
 
 .container-right {
@@ -5608,7 +5644,7 @@ ul.circle-list li.circle:not(:last-child) {
 }
 
 .link-color {
-  color: #4D7EA8;
+  color: #da2d79;
 }
 
 a.unset, .account-content .account-layout .account-table-content #datagrid-filters ~ table.table tbody tr .action a, .account-content .account-layout .bottom-toolbar .pagination a.page-item {
@@ -5890,7 +5926,7 @@ button[disabled] {
 }
 
 .product-detail .right .info .availability button.active {
-  background: #4D7EA8;
+  background: green;
 }
 
 .product-detail .right .options .box {
@@ -6199,10 +6235,6 @@ button[disabled] {
   #main-category {
     display: none !important;
   }
-  #home-right-bar-container {
-    position: relative;
-    top: -48px;
-  }
   .vc-full-screen {
     display: none !important;
   }
@@ -6278,9 +6310,6 @@ button[disabled] {
   .main-content-wrapper .vc-header > div.vc-small-screen .right-vc-header .badge-container {
     left: 4px;
     margin-right: 10px;
-  }
-  #top {
-    display: none;
   }
   .product-card-new {
     max-width: 19rem;
@@ -6888,10 +6917,6 @@ button[disabled] {
   }
   .dropdown-filters {
     margin-left: 15px;
-  }
-  button.btn.btn-sm.btn-primary.apply-filter, .quantity button.btn-sm.btn-primary.apply-filter {
-    margin-top: 10px;
-    margin-left: -158px;
   }
   .quick-view-btn-container span {
     left: 24%;
@@ -7662,7 +7687,7 @@ body {
   height: -webkit-max-content;
   height: -moz-max-content;
   height: max-content;
-  width: 290px !important;
+  width: 290px;
   position: absolute !important;
 }
 
@@ -7877,12 +7902,17 @@ header .mini-cart-container #mini-cart .mini-cart-content + .down-arrow-containe
 }
 
 header .left-wrapper {
-  float: right;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 header .left-wrapper .compare-btn, header .left-wrapper .wishlist-btn {
   height: 50px;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 600;
   padding: 10px 16px 6px 16px;
 }
