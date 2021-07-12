@@ -31,7 +31,7 @@
                 <vsa-content v-if="category.children.length > 0" class="sidebar__content event">
 
                     <a v-for="(child, index) in category.children" :key="index" :href="child.url_path" class="sidebar__content-link">
-                        <img :src="public_path + '/' + child.category_icon_path" alt="Logo" class="logo-img"
+                        <img :src="public_path + '/' + child.category_icon_path" class="logo-img"
                             style="
                             -webkit-mask: url({public_path + '/' + child.category_icon_path}) no-repeat center;
                             mask: url({public_path + '/' + child.category_icon_path}) no-repeat center;"

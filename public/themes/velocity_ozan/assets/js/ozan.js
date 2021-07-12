@@ -41339,7 +41339,7 @@ var content = __webpack_require__(52);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("6d3f28b2", content, false, {});
+var update = __webpack_require__(3)("330fb912", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -44193,7 +44193,7 @@ var content = __webpack_require__(91);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("0ae11fde", content, false, {});
+var update = __webpack_require__(3)("7c0a3871", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -44594,7 +44594,7 @@ var content = __webpack_require__(99);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("1332a31a", content, false, {});
+var update = __webpack_require__(3)("0450ded3", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -46392,7 +46392,7 @@ var content = __webpack_require__(125);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("77e263a9", content, false, {});
+var update = __webpack_require__(3)("0a72af49", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -49918,7 +49918,7 @@ var content = __webpack_require__(131);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("56b4306d", content, false, {});
+var update = __webpack_require__(3)("4af5ac0d", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -56493,10 +56493,7 @@ var render = function() {
                             },
                             attrs: {
                               src:
-                                _vm.public_path +
-                                "/" +
-                                child.category_icon_path,
-                              alt: "Logo"
+                                _vm.public_path + "/" + child.category_icon_path
                             }
                           }),
                           _vm._v(
@@ -56592,7 +56589,7 @@ var content = __webpack_require__(137);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(3)("3a7cf43e", content, false, {});
+var update = __webpack_require__(3)("1ea8937e", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -56616,7 +56613,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\na:hover .logo-img[data-v-3a14ca29] {\n    -webkit-filter: invert(1);\n            filter: invert(1);\n    background: transparent;\n}\n", ""]);
+exports.push([module.i, "\na:hover .logo-img[data-v-3a14ca29] {\r\n    -webkit-filter: invert(1);\r\n            filter: invert(1);\r\n    background: transparent;\n}\r\n", ""]);
 
 // exports
 

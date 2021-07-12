@@ -34,14 +34,16 @@
                 <i class="icon-monitor"></i>
                 {{$category->name}}
             </div>
-            
-            <categories :categories='@json($subCats->toArray())' public_path="{{ url()->to('/storage/') }}"></categories>
-            
+
+            <div class="cat_sidebar">
+                <categories :categories='@json($subCats->toArray())' public_path="{{ url()->to('/storage/') }}"></categories>
+            </div>
+
             <h5 class="filter-title fw6 mb20">
                 {{ __('shop::app.products.layered-nav-title') }}
             </h5>
 
-            <div class="filter-content">
+            <div class="filter-content ">
                 <div class="filter-attributes">
                     <filter-attribute-item
                         :key="index"
@@ -71,7 +73,7 @@
                 </div>
             </div>
 
-            <div class="filter-attributes-content">
+            <div class="filter-attributes-content ">
                 <ul type="none" class="items ml15" v-if="attribute.type != 'price'">
                     <li
                         class="item"
@@ -91,7 +93,7 @@
                     </li>
                 </ul>
 
-                <div class="price-range-wrapper" v-if="attribute.type == 'price'">
+                <div class="price-range-wrapper my_range" v-if="attribute.type == 'price'">
                     <vue-slider
                         ref="slider"
                         v-model="sliderConfig.value"

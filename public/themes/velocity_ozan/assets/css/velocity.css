@@ -941,7 +941,7 @@
 
 .view-mode .rango-view-grid-container.active {
   color: white;
-  background-color: #26A37C;
+  background-color: #da2d79;
 }
 
 .view-mode .rango-view-list-container {
@@ -955,7 +955,7 @@
 
 .view-mode .rango-view-list-container.active {
   color: white;
-  background-color: #26A37C;
+  background-color: #da2d79;
 }
 
 .modal-container {
@@ -1325,7 +1325,7 @@
   border-radius: 50%;
   position: relative;
   color: #FFFFFF;
-  background: #21A179;
+  background: #da2d79;
 }
 
 .mini-cart-container #mini-cart {
@@ -1343,7 +1343,7 @@
   min-width: 20px;
   position: absolute;
   color: #FFFFFF;
-  background: #21A179;
+  background: #da2d79;
 }
 
 .dropdown-icon-custom::after {
@@ -1649,7 +1649,7 @@
 .account-content .account-layout .account-table-content textarea:focus,
 .account-content .account-layout .account-table-content select:focus,
 .account-content .account-layout .account-table-content select:active {
-  border-color: #26A37C;
+  border-color: #da2d79;
 }
 
 .account-content .account-layout .account-table-content .address-holder {
@@ -1930,8 +1930,8 @@
 }
 
 .account-content .account-layout .bottom-toolbar .pagination .page-item.active {
-  border: 1px solid #26A37C;
-  color: #26A37C !important;
+  border: 1px solid #da2d79;
+  color: #da2d79 !important;
 }
 
 .account-content .account-layout .bottom-toolbar .pagination .page-item.next .angle-right-icon,
@@ -1970,7 +1970,7 @@
 
 .account-content .account-layout .sale-container .tabs ul li.active {
   cursor: default;
-  border-bottom: 2px solid #26A37C;
+  border-bottom: 2px solid #da2d79;
 }
 
 .account-content .account-layout .sale-container .tabs-content .sale-section {
@@ -2119,7 +2119,7 @@
 }
 
 .checkout-process .coupon-container .applied-coupon-details label:nth-of-type(1) {
-  color: #26A37C;
+  color: #da2d79;
 }
 
 .checkout-process .coupon-container .rango-close {
@@ -2194,7 +2194,7 @@
 .custom-form input:focus,
 .custom-form select:focus,
 .custom-form select:active {
-  border-color: #26A37C;
+  border-color: #da2d79;
 }
 
 .shipping-form h3,
@@ -2422,7 +2422,7 @@
 }
 
 .sticker.new {
-  background-color: #26A37C;
+  background-color: #da2d79;
   display: block;
 }
 
@@ -2804,8 +2804,8 @@
 }
 
 .vue-slider .vue-slider-dot-tooltip-inner {
-  border-color: #26A37C !important;
-  background-color: #26A37C !important;
+  border-color: #ff6472 !important;
+  background-color: #ff6472 !important;
 }
 
 .vue-slider .vue-slider-dot-tooltip-text {
@@ -2817,8 +2817,9 @@
   border-radius: 5px;
   white-space: nowrap;
   color: #FFFFFF;
-  border-color: #26A37C !important;
-  background-color: #26A37C !important;
+  border-color: #fff !important;
+  background-color: #ff6472 !important;
+  border-radius: 5px;
 }
 
 .vue-slider .vue-slider-dot-tooltip-text::before {
@@ -2833,10 +2834,6 @@
   border-top-color: inherit;
   -webkit-transform: translate(-50%);
           transform: translate(-50%);
-}
-
-.vue-slider .vue-slider-process {
-  background-color: #26A37C !important;
 }
 
 .full-content-wrapper > .container-fluid {
@@ -2880,7 +2877,7 @@
 }
 
 .slides-container .VueCarousel-dot--active {
-  background-color: #26A37C !important;
+  background-color: #da2d79 !important;
 }
 
 .slides-container .VueCarousel .VueCarousel-inner {
@@ -2925,7 +2922,8 @@
 
 .filter-attributes-item .filter-input input[type=text] {
   text-align: center;
-  border: 1px solid #26A37C;
+  border: 1px solid #da2d79;
+  border-radius: 5px;
   width: 30%;
   background-color: white;
 }
@@ -3022,8 +3020,8 @@
 
 .pagination .page-item.active {
   font-weight: 600;
-  color: #26A37C !important;
-  border-bottom: 2px solid #26A37C;
+  color: #da2d79 !important;
+  border-bottom: 2px solid #da2d79;
 }
 
 .pagination .page-item.next .angle-right-icon,
@@ -3234,7 +3232,7 @@
   display: inline-block;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  border-top: solid 6px #26A37C;
+  border-top: solid 6px #da2d79;
   border-right: solid 6px transparent;
   border-bottom: solid 6px transparent;
   border-left: solid 6px transparent;
@@ -4525,19 +4523,19 @@ body::after {
   vertical-align: top;
   border: 1px solid transparent;
   color: #FFFFFF !important;
-  background-color: #26A37C !important;
+  background-color: #da2d79 !important;
 }
 
 .theme-btn:hover, .cart-details .continue-shopping-btn:hover, .account-content .account-layout .account-table-content #datagrid-filters .dropdown-filters .dropdown-container button.btn:hover, .account-content .account-layout .account-table-content #datagrid-filters .dropdown-filters .dropdown-container .quantity button:hover, .quantity .account-content .account-layout .account-table-content #datagrid-filters .dropdown-filters .dropdown-container button:hover, .account-content .account-layout .bottom-toolbar .pagination .page-item:hover, .theme-btn:focus, .cart-details .continue-shopping-btn:focus, .account-content .account-layout .account-table-content #datagrid-filters .dropdown-filters .dropdown-container button.btn:focus, .account-content .account-layout .account-table-content #datagrid-filters .dropdown-filters .dropdown-container .quantity button:focus, .quantity .account-content .account-layout .account-table-content #datagrid-filters .dropdown-filters .dropdown-container button:focus, .account-content .account-layout .bottom-toolbar .pagination .page-item:focus {
   outline: none;
   -webkit-box-shadow: none;
           box-shadow: none;
-  border: 1px solid #247959;
-  background-color: #26A37C !important;
+  border: 1px solid #da2d79;
+  background-color: #da2d79 !important;
 }
 
 .theme-btn.light, .cart-details .light.continue-shopping-btn, .account-content .account-layout .account-table-content #datagrid-filters .dropdown-filters .dropdown-container button.light.btn, .account-content .account-layout .account-table-content #datagrid-filters .dropdown-filters .dropdown-container .quantity button.light, .quantity .account-content .account-layout .account-table-content #datagrid-filters .dropdown-filters .dropdown-container button.light, .quantity .account-content .account-layout .account-table-content #datagrid-filters .dropdown-filters .dropdown-container .bottom-toolbar .pagination button.page-item, .quantity .account-content .account-layout .bottom-toolbar .pagination .account-table-content #datagrid-filters .dropdown-filters .dropdown-container button.page-item, .account-content .account-layout .account-table-content #datagrid-filters .dropdown-filters .dropdown-container .bottom-toolbar .pagination .quantity button.page-item, .account-content .account-layout .bottom-toolbar .pagination .quantity .account-table-content #datagrid-filters .dropdown-filters .dropdown-container button.page-item, .account-content .account-layout .account-table-content #datagrid-filters .dropdown-filters .dropdown-container .bottom-toolbar .pagination button.btn.page-item, .account-content .account-layout .bottom-toolbar .pagination .account-table-content #datagrid-filters .dropdown-filters .dropdown-container button.btn.page-item, .account-content .account-layout .bottom-toolbar .pagination .page-item {
-  color: #26A37C !important;
+  color: #da2d79 !important;
   background-color: #FFFFFF !important;
   -webkit-box-shadow: 0 1px 0 0 #CFCFCF;
           box-shadow: 0 1px 0 0 #CFCFCF;
@@ -4548,7 +4546,7 @@ body::after {
   outline: none;
   -webkit-box-shadow: none;
           box-shadow: none;
-  border: 1px solid #247959;
+  border: 1px solid #da2d79;
   background-color: #f5f5f5 !important;
 }
 
@@ -4576,7 +4574,7 @@ body::after {
   padding: 3px 10px;
   position: absolute;
   border-radius: 12px;
-  background-color: #26A37C;
+  background-color: #da2d79;
 }
 
 .bg-image, .small-card-container .product-image {
@@ -5309,7 +5307,7 @@ button[disabled] {
 }
 
 .product-detail .thumb-list .thumb-frame.active {
-  border: 1px solid #26A37C;
+  border: 1px solid #da2d79;
 }
 
 .product-detail .thumb-list .thumb-frame > .bg-image, .product-detail .thumb-list .small-card-container .thumb-frame > .product-image, .small-card-container .product-detail .thumb-list .thumb-frame > .product-image {
@@ -5576,7 +5574,7 @@ button[disabled] {
     z-index: 10;
     border-radius: 50%;
     position: absolute;
-    background: #26A37C;
+    background: #da2d79;
   }
   .main-content-wrapper .vc-header > div.vc-small-screen .right-vc-header .badge-container {
     left: 4px;
@@ -5780,7 +5778,7 @@ button[disabled] {
   }
   header .vc-small-screen #search-form .selectdiv + div input {
     width: calc(100% - 40px);
-    border: 1px solid #26A37C;
+    border: 1px solid #da2d79;
   }
   .carousel-products.vc-full-screen {
     display: none;
@@ -6259,7 +6257,7 @@ body.rtl header #search-form #header-search-icon {
 
 body.rtl header #search-form .btn-group select, body.rtl header #search-form .quantity select {
   border-left: 0;
-  border-right: 1px solid #26A37C;
+  border-right: 1px solid #da2d79;
 }
 
 body.rtl header #search-form .btn-group .selectdiv select, body.rtl header #search-form .quantity .selectdiv select {
@@ -6896,28 +6894,28 @@ body {
 }
 
 #top .btn-normal {
-  background: #21A179;
-  border-color: #269c77;
+  background: #da2d79;
+  border-color: #da2d79;
   color: #FFFFFF;
   font-weight: 600;
 }
 
 #top .btn-normal:hover {
   background: #FFFFFF;
-  border-color: #21A179;
-  color: #21A179;
+  border-color: #da2d79;
+  color: #da2d79;
 }
 
 #top .btn-normal:active:hover {
   background: #FFFFFF;
-  border-color: #21A179;
-  color: #21A179;
+  border-color: #da2d79;
+  color: #da2d79;
 }
 
 #top .btn-normal:active:focus {
   background: #FFFFFF;
-  border-color: #21A179;
-  color: #21A179;
+  border-color: #da2d79;
+  color: #da2d79;
 }
 
 #top .btn-link {
@@ -7021,7 +7019,7 @@ body {
 }
 
 .dropdown-menu {
-  border-top: 3px solid #269c77;
+  border-top: 3px solid #da2d79;
   border-radius: 0px;
   background: #FFFFFF;
   -webkit-box-shadow: 11px 10px 17px 0 rgba(0, 0, 0, 0.21);
@@ -7029,17 +7027,17 @@ body {
 }
 
 .dropdown-menu li a:hover {
-  background: #21A179;
+  background: #da2d79;
   color: #FFFFFF;
 }
 
 .dropdown-menu li a:focus {
-  background: #21A179;
+  background: #da2d79;
   color: #FFFFFF;
 }
 
 .dropdown-menu li a .dropdown-menu li a:focus {
-  background: #21A179;
+  background: #da2d79;
   color: #FFFFFF;
 }
 
@@ -7048,8 +7046,8 @@ body {
 }
 
 .btn-normal {
-  background: #21A179;
-  border-color: #269c77;
+  background: #da2d79;
+  border-color: #da2d79;
   color: #FFFFFF;
   font-weight: 600;
   border-radius: 0px;
@@ -7057,46 +7055,46 @@ body {
 
 .btn-normal:hover {
   background: #FFFFFF;
-  border-color: #21A179;
-  color: #21A179;
+  border-color: #da2d79;
+  color: #da2d79;
 }
 
 .btn-normal:active:hover {
   background: #FFFFFF;
-  border-color: #21A179;
-  color: #21A179;
+  border-color: #da2d79;
+  color: #da2d79;
 }
 
 .btn-normal:active:focus {
   background: #FFFFFF;
-  border-color: #21A179;
-  color: #21A179;
+  border-color: #da2d79;
+  color: #da2d79;
 }
 
 .btn-secondary {
   background: #FFFFFF;
   border-color: #FFFFFF;
-  color: #21A179;
+  color: #da2d79;
 }
 
 .btn-secondary:hover {
-  background: #21A179;
-  border-color: #21A179;
+  background: #da2d79;
+  border-color: #da2d79;
 }
 
 .btn-secondary:focus {
-  background: #21A179;
-  border-color: #21A179;
+  background: #da2d79;
+  border-color: #da2d79;
 }
 
 .btn-secondary:active:hover {
-  background: #21A179;
-  border-color: #21A179;
+  background: #da2d79;
+  border-color: #da2d79;
 }
 
 .btn-secondary:active:focus {
-  background: #21A179;
-  border-color: #21A179;
+  background: #da2d79;
+  border-color: #da2d79;
 }
 
 .btn-danger {
@@ -7142,7 +7140,7 @@ header #search-form {
 header #search-form #header-search-icon {
   min-width: 40px;
   border-radius: 0px 2px 2px 0px;
-  background-color: #26A37C;
+  background-color: #da2d79;
 }
 
 header #search-form #header-search-icon i {
@@ -7208,7 +7206,7 @@ header .left-wrapper .compare-btn .badge-container .badge, header .left-wrapper 
   min-width: 20px;
   position: absolute;
   color: rgba(255, 255, 255, 0.83);
-  background: #21A179;
+  background: #da2d79;
 }
 
 header .left-wrapper .compare-btn span, header .left-wrapper .wishlist-btn span {
@@ -7554,7 +7552,7 @@ header .dropdown-menu-large .dropdown-footer .checkout-link {
   text-align: center;
   vertical-align: middle;
   border-radius: 50%;
-  background: #21A179;
+  background: #da2d79;
   color: #fff;
   padding: 16px;
   font: 18px "josefin sans", arial;

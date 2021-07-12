@@ -262,7 +262,7 @@
     vertical-align: top;
     border: 1px solid transparent;
     color: $light-color !important;
-    background-color: $theme-color !important;
+    background-color: #da2d79 !important;
 
     &:hover,
     &:focus {
@@ -448,7 +448,7 @@
             .quick-view-btn-container {
                 button {
                     left: calc(50% - 40px);
-                    
+
                 }
             }
         }

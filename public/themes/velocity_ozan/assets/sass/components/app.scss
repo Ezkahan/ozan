@@ -155,7 +155,7 @@
 
         &.active {
             color: white;
-            background-color: $theme-color;
+            background-color: #da2d79;
         }
     }
 
@@ -273,7 +273,7 @@
     .card-body {
         cursor: default;
         padding: 0;
-        margin-top: 15px;   
+        margin-top: 15px;
 
         > div:last-child {
             margin-top: 10px;
@@ -1654,7 +1654,7 @@
 
 .product-price {
     color: #da2d79;
-    height: 72px;   
+    height: 72px;
 
     .price-label {
         margin-right: 6px;
@@ -2146,8 +2146,8 @@
     }
 
     .vue-slider-dot-tooltip-inner {
-        border-color: $theme-color !important;
-        background-color: $theme-color !important;
+        border-color: rgb(255, 100, 114) !important;
+        background-color: rgb(255, 100, 114) !important;
     }
 
     .vue-slider-dot-tooltip-text {
@@ -2159,8 +2159,9 @@
         border-radius: 5px;
         white-space: nowrap;
         color: $light-color;
-        border-color: $theme-color !important;
-        background-color: $theme-color !important;
+        border-color: #fff !important;
+        background-color: rgb(255, 100, 114) !important;
+        border-radius: 5px;
     }
 
     .vue-slider-dot-tooltip-text::before {
@@ -2176,9 +2177,9 @@
         transform: translate(-50%);
     }
 
-    .vue-slider-process {
-        background-color: $theme-color !important;
-    }
+    // .vue-slider-process {
+    //     background-color: $theme-color !important;
+    // }
 }
 
 .full-content-wrapper {
@@ -2272,7 +2273,8 @@
 
         input[type=text] {
             text-align: center;
-            border: 1px solid $theme-color;
+            border: 1px solid #da2d79;
+            border-radius: 5px;
             width: 30%;
             background-color: white;
         }
