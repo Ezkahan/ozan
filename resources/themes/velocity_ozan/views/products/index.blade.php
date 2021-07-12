@@ -56,7 +56,7 @@
     <div class="breadcumb">
         <div class="auto__container">
             <div class="breadcumb__inner">
-                <a href="index.html">
+                <a href="{{ route('shop.home.index') }}">
                     <span>@lang('app.main_page')</span>
                     <i class="icon-chevron-right"></i>
                 </a>
