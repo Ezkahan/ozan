@@ -49942,7 +49942,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\na:hover .logo-img[data-v-647ff302] {\n    -webkit-filter: invert(1);\n            filter: invert(1);\n    background: transparent;\n}\n", ""]);
+exports.push([module.i, "\na:hover .logo-img[data-v-647ff302] {\r\n    -webkit-filter: invert(1);\r\n            filter: invert(1);\r\n    background: transparent;\n}\r\n", ""]);
 
 // exports
 
@@ -49955,6 +49955,7 @@ exports.push([module.i, "\na:hover .logo-img[data-v-647ff302] {\n    -webkit-fil
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_simple_accordion__ = __webpack_require__(133);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_simple_accordion___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue_simple_accordion__);
+//
 //
 //
 //
@@ -56430,21 +56431,25 @@ var render = function() {
                         attrs: { href: category.url_path }
                       },
                       [
-                        _c("img", {
-                          staticClass: "logo-img",
-                          staticStyle: {
-                            "-webkit-mask":
-                              "url({public_path + '/' + category.category_icon_path}) no-repeat center",
-                            mask:
-                              "url({public_path + '/' + category.category_icon_path}) no-repeat center"
-                          },
-                          attrs: {
-                            src:
-                              _vm.public_path +
-                              "/" +
-                              category.category_icon_path
-                          }
-                        }),
+                        category.category_icon_path
+                          ? _c("img", {
+                              staticClass: "logo-img",
+                              staticStyle: {
+                                "-webkit-mask":
+                                  "url({public_path + '/' + category.category_icon_path}) no-repeat center",
+                                mask:
+                                  "url({public_path + '/' + category.category_icon_path}) no-repeat center"
+                              },
+                              attrs: {
+                                src:
+                                  _vm.public_path +
+                                  "/" +
+                                  category.category_icon_path,
+                                height: "20px",
+                                width: "20px"
+                              }
+                            })
+                          : _vm._e(),
                         _vm._v(" "),
                         _c("span", [_vm._v(" " + _vm._s(category.name))])
                       ]
@@ -56452,19 +56457,25 @@ var render = function() {
                   ])
                 : _c("vsa-heading", [
                     _c("div", { staticClass: "sidebar__btn tab__btn" }, [
-                      _c("img", {
-                        staticClass: "logo-img",
-                        staticStyle: {
-                          "-webkit-mask":
-                            "url({public_path + '/' + category.category_icon_path}) no-repeat center",
-                          mask:
-                            "url({public_path + '/' + category.category_icon_path}) no-repeat center"
-                        },
-                        attrs: {
-                          src:
-                            _vm.public_path + "/" + category.category_icon_path
-                        }
-                      }),
+                      category.category_icon_path
+                        ? _c("img", {
+                            staticClass: "logo-img",
+                            staticStyle: {
+                              "-webkit-mask":
+                                "url({public_path + '/' + category.category_icon_path}) no-repeat center",
+                              mask:
+                                "url({public_path + '/' + category.category_icon_path}) no-repeat center"
+                            },
+                            attrs: {
+                              src:
+                                _vm.public_path +
+                                "/" +
+                                category.category_icon_path,
+                              height: "20px",
+                              width: "20px"
+                            }
+                          })
+                        : _vm._e(),
                       _vm._v(" "),
                       _c("span", [_vm._v(" " + _vm._s(category.name))])
                     ])
@@ -56483,19 +56494,26 @@ var render = function() {
                           attrs: { href: child.url_path }
                         },
                         [
-                          _c("img", {
-                            staticClass: "logo-img",
-                            staticStyle: {
-                              "-webkit-mask":
-                                "url({public_path + '/' + child.category_icon_path}) no-repeat center",
-                              mask:
-                                "url({public_path + '/' + child.category_icon_path}) no-repeat center"
-                            },
-                            attrs: {
-                              src:
-                                _vm.public_path + "/" + child.category_icon_path
-                            }
-                          }),
+                          child.category_icon_path
+                            ? _c("img", {
+                                staticClass: "logo-img",
+                                staticStyle: {
+                                  "-webkit-mask":
+                                    "url({public_path + '/' + child.category_icon_path}) no-repeat center",
+                                  mask:
+                                    "url({public_path + '/' + child.category_icon_path}) no-repeat center"
+                                },
+                                attrs: {
+                                  src:
+                                    _vm.public_path +
+                                    "/" +
+                                    child.category_icon_path,
+                                  alt: "Logo",
+                                  height: "20px",
+                                  width: "20px"
+                                }
+                              })
+                            : _vm._e(),
                           _vm._v(
                             "\n                    " +
                               _vm._s(child.name) +
@@ -56700,7 +56718,9 @@ var render = function() {
                     },
                     attrs: {
                       src: _vm.public_path + "/" + category.category_icon_path,
-                      alt: "Logo"
+                      alt: "Logo",
+                      height: "20px",
+                      width: "20px"
                     }
                   })
                 ])
