@@ -117,6 +117,12 @@
     }
 }
 
+@mixin xxflg-xxxlg {
+    @media (max-width: 1430px) {
+        @content;
+    }
+}
+
 @mixin xxlg-xxxlg {
     @media (max-width: 1540px) {
         @content;

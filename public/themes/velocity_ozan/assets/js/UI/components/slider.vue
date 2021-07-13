@@ -53,6 +53,36 @@ export default {
                 // prevArrow: ".prev_s",
                 adaptiveHeight: false,
                 // Any other options that can be got from plugin documentation
+                responsive: [
+                    {
+                        breakpoint: 992,
+                        settings: {
+                            slidesToShow: 5,
+                            slidesToScroll: 1,
+                        }
+                    },
+                        {
+                        breakpoint: 822,
+                        settings: {
+                            slidesToShow: 3,
+                            slidesToScroll: 1,
+                        }
+                    },
+                        {
+                        breakpoint: 626,
+                        settings: {
+                            slidesToShow: 3,
+                            slidesToScroll: 1,
+                        }
+                    },
+                        {
+                        breakpoint: 400,
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 1,
+                        }
+                    },
+                ]
             },
         };
     },

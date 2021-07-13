@@ -171,8 +171,6 @@
 
     .product-card-new {
 
-        max-width: 19rem;
-
         &.grid-card {
             .card-body {
                 .product-name {
@@ -346,7 +344,7 @@
             .account-items-list {
                 &.wishlist-container {
                     .product-card-new {
-                        width: calc(50% - 5px);
+                        // width: calc(50% - 5px);
                     }
                 }
             }
@@ -614,8 +612,9 @@
         .category-container {
             margin: 0;
             margin-top: 20px;
-            padding-left: 0px !important;
-            padding-right: 0px !important;
+            // padding-left: 0px !important;
+            // padding-right: 0px !important;
+            padding: 0 !important;
 
             > div {
                 padding: 0 10px;
@@ -626,12 +625,12 @@
             }
 
             .filters-container {
-                left: 0px;
-                top: 30px;
+                // left: 0px;
+                // top: 30px;
                 padding: 0;
                 width: 100%;
                 z-index: 9;
-                position: fixed;
+                // position: fixed;
                 padding-bottom: 10px;
                 background-color: $white-color;
                 box-shadow: 0 2px 4px 0 rgba(0,0,0,0.21);
@@ -1056,7 +1055,7 @@
     }
 
     .product-card-new {
-        max-width: 18rem;
+        // max-width: 18rem;
     }
 }
 

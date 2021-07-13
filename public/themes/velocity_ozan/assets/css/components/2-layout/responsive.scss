@@ -85,6 +85,38 @@
     // basket page end
 }
 
+@include xxflg-xxxlg {
+    .header {
+        &__column {
+            .searchbar {
+                form {
+                    width: 500px;
+                }
+
+                .my-col {
+                    margin-right: 20px;
+
+                    a {
+                        padding: 10px 7px 6px !important;
+                    }
+
+                    .mini-cart-container {
+                        padding: 0 7px;
+                    }
+                }
+            }
+
+            &:last-child {
+                width: 100%;
+            }
+        }
+    }
+
+    .main-content-wrapper {
+        margin-bottom: 35px;
+    }
+}
+
 @include xlg-xxlg {
     .hero {
         font-size: 10px;
@@ -291,6 +323,11 @@
         margin-bottom: 1em;
     }
 
+    .slick-next,
+    .slick-prev {
+        display: none !important;
+    }
+
     .sectionHeader__title {
         font-size: 20px;
     }
@@ -301,6 +338,14 @@
 
     .product {
         padding-top: 3.3em !important;
+    }
+
+    .product-image-container {
+        height: 160px;
+    }
+
+    .brand__slider-item-image {
+        height: 90px;
     }
 
     // index page start
@@ -492,6 +537,10 @@
             -o-flex-direction: column;
             -webkit-flex-direction: column;
 
+            .mobile_link {
+                display: block !important;
+            }
+
             &-link {
                 padding: 20px 30px;
                 margin: 0 !important;
@@ -503,6 +552,7 @@
 
                 i {
                     font-size: 17px;
+                    margin-right: 10px !important;
                 }
             }
         }
@@ -519,7 +569,7 @@
 
         #account {
             .icon-user::before {
-                margin-right: 0.5rem;
+                margin-right: 10px;
             }
 
             .welcome-content {
@@ -735,6 +785,15 @@
             }
         }
     }
+
+    .upheader__inner {
+        width: 65%;
+    }
+
+    .category-container {
+        padding: 0 !important;
+    }
+
 }
 
 @include sm-md {
@@ -770,6 +829,14 @@
         &__event {
             padding: 15px;
         }
+    }
+
+    .product-image-container {
+        height: 145px !important;
+    }
+
+    .upheader__inner {
+        width: 80%;
     }
 
     // modal end

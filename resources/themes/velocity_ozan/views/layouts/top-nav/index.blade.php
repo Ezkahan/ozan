@@ -50,18 +50,17 @@
                     <i class="icon-help"></i>
                     <span>@lang('app.customer_service')</span>
                 </a>
-                @include('velocity::layouts.top-nav.login-section')
 
-
-
-                <a href="{!! url('page/cutomer-service') !!}" class="upheader__nav-link">
+                <a href="{!! url('page/cutomer-service') !!}" class="upheader__nav-link mobile_link">
                     <i class="material-icons">favorite_border</i>
                     <span>Halanlarym</span>
                 </a>
-                <a href="{!! url('page/cutomer-service') !!}" class="upheader__nav-link">
+                <a href="{!! url('page/cutomer-service') !!}" class="upheader__nav-link mobile_link">
                     <i class="material-icons">compare_arrows</i>
                     <span>Deňeşdirmek</span>
                 </a>
+                @include('velocity::layouts.top-nav.login-section')
+
             </div>
         </div>
     </div>

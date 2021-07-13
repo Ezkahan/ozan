@@ -45840,7 +45840,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             } else if (width < 1200 && width >= 992) {
                 this.slidesPerPage = 5;
             } else if (width < 992 && width >= 822) {
-                this.slidesPerPage = 4;
+                this.slidesPerPage = 3;
             } else if (width < 822 && width >= 626) {
                 this.slidesPerPage = 3;
             } else {
@@ -46416,7 +46416,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -46483,8 +46483,33 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 autoplaySpeed: this.time,
                 // nextArrow: ".next_s",
                 // prevArrow: ".prev_s",
-                adaptiveHeight: false
+                adaptiveHeight: false,
                 // Any other options that can be got from plugin documentation
+                responsive: [{
+                    breakpoint: 992,
+                    settings: {
+                        slidesToShow: 5,
+                        slidesToScroll: 1
+                    }
+                }, {
+                    breakpoint: 822,
+                    settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 1
+                    }
+                }, {
+                    breakpoint: 626,
+                    settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 1
+                    }
+                }, {
+                    breakpoint: 400,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 1
+                    }
+                }]
             }
         };
     },
