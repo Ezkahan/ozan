@@ -93,13 +93,13 @@
                         @endif
                     </div>
 
-                    <div class="col-12 no-padding">
-                        <div class="hero-image">
-                            @if (!is_null($category->image))
-                                <img class="logo" src="{{ $category->image_url }}" alt="" width="20" height="20" />
-                            @endif
-                        </div>
-                    </div>
+{{--                    <div class="col-12 no-padding">--}}
+{{--                        <div class="hero-image">--}}
+{{--                            @if (!is_null($category->image))--}}
+{{--                                <img class="logo" src="{{ $category->image_url }}" alt="" width="20" height="20" />--}}
+{{--                            @endif--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
                 </div>
 
                 @if ($isProductsDisplayMode)
