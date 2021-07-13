@@ -4,9 +4,8 @@
         <div class="header__inner">
             <div class="header__column">
 
-                <div class="menu_burger">
-                    <!-- <img src="../../../../../../public/themes/velocity_ozan/assets/images/svg/Menu.svg" alt="menu"> -->
-                    mmm
+                <div class="menu_burger" id="burger" onclick="open_menu()">
+                    <img src="{{asset('themes/velocity_ozan/assets/images/svg/Menu.svg')}}" alt="menu">
                 </div>
 
                 <logo-component add-class="header__logo"></logo-component>
@@ -15,8 +14,7 @@
                 <searchbar-component></searchbar-component>
 
                 <a href="#" class="cart">
-                    <!-- <img src="../../../../../../public/themes/velocity_ozan/assets/images/svg/Cart.svg" alt="cart"> -->
-                    ooo
+                    <img src="{{asset('themes/velocity_ozan/assets/images/svg/Cart.svg')}}" alt="cart">
                 </a>
 
             </div>

@@ -414,8 +414,7 @@
             .menu_burger,
             .cart {
                 display: block;
-                z-index: 111;
-                border: 1px solid #000;
+                // z-index: 111;
             }
 
             &:last-child {
@@ -429,21 +428,29 @@
         }
     }
 
+    .d-inline-block {
+        display: block !important;
+    }
+
+    .welcome-content {
+        padding: 0 !important;
+    }
+
     .upheader {
         // display: none;
         position: fixed;
         top: 0;
-        right: 100%;
+        right: -100%;
         width: 100%;
         height: 100%;
         z-index: 110;
         background: rgba(0, 0, 0, .5);
 
-        transition: all .2s linear;
-        -ms-transition: all .2s linear;
-        -moz-transition: all .2s linear;
-        -o-transition: all .2s linear;
-        -webkit-transition: all .2s linear;
+        transition: all .1s linear;
+        -ms-transition: all .1s linear;
+        -moz-transition: all .1s linear;
+        -o-transition: all .1s linear;
+        -webkit-transition: all .1s linear;
 
         &.active {
             right: 0;
@@ -486,15 +493,22 @@
             -webkit-flex-direction: column;
 
             &-link {
-                padding: 15px 30px;
+                padding: 20px 30px;
                 margin: 0 !important;
                 border-bottom: 1px solid #da2d79;
                 width: 100%;
+
+                display: flex;
+                align-items: center;
+
+                i {
+                    font-size: 17px;
+                }
             }
         }
 
         &__language {
-            padding: 15px 30px;
+            padding: 20px 30px;
             border-bottom: 1px solid #da2d79;
             width: 100%;
 

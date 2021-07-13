@@ -1,3 +1,4 @@
+
 $(".hero__slider").slick({
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -108,17 +109,25 @@ let account_infos = document.querySelectorAll(".account_infos");
 let tab_link = document.querySelector("#tab-3");
 let account_tab = document.querySelector("#account_tab-3");
 
-let menu_burger = document.querySelector(".menu_burger");
+let menu_burger = document.querySelector(".menu_burger img");
 let upheader = document.querySelector(".upheader");
 let upheader__inner = document.querySelector(".upheader__inner");
 
 
-if (menu_burger != undefined) {
-    menu_burger.addEventListener('click', function () {
-        console.log("test");
+// if (menu_burger != undefined) {
+//     alert('rabotayet');
+//     menu_burger.addEventListener('click', function () {
+//         console.log("test");
 
-            upheader.classList.add('active');
-            upheader.classList.add('active');
+//             upheader.classList.add('active');
+//             upheader__inner.classList.add('active');
+//     });
+// }
+
+function open_menu() {
+    sleep(2).then(() => {
+        document.getElementById('upheader').classList.add('active');
+        document.getElementById('upheader_inner').classList.add('active');
     });
 }
 
@@ -187,12 +196,12 @@ if (tab_link != undefined) {
 let modal = document.getElementById("modal");
 let modalBtn = document.getElementById("modalBtn");
 let modalClose = document.getElementById("modalClose");
-modalBtn.onclick = function (e) {
-    modal.style.display = "block";
-};
-modalClose.onclick = function () {
-  modal.style.display = "none";
-};
+// modalBtn.onclick = function (e) {
+//     modal.style.display = "block";
+// };
+// modalClose.onclick = function () {
+//   modal.style.display = "none";
+// };
 function showProfile() {
     document.getElementById("myDropdown").classList.toggle("show");
     document.getElementById("dropbtn").classList.toggle("active");
@@ -265,6 +274,13 @@ window.onclick = function (event) {
         }
     }
 
+    if (document.getElementById('upheader').classList.contains('active') && !event.target.closest('.upheader_inner') && !event.target.closest('.upheader__nav-link') && !event.target.closest('.upheader__language')) {
+        document.getElementById('upheader').classList.remove('active')
+    }
+
+    if (document.getElementById('upheader_inner').classList.contains('active') && !event.target.closest('.upheader_inner') && !event.target.closest('.upheader__nav-link') && !event.target.closest('.upheader__language')) {
+        document.getElementById('upheader_inner').classList.remove('active')
+    }
 
 };
 
