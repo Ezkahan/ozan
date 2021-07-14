@@ -94,7 +94,7 @@
                 }
 
                 .my-col {
-                    margin-right: 20px;
+                    margin-right: 10px;
 
                     a {
                         padding: 10px 7px 6px !important;
@@ -115,9 +115,29 @@
     .main-content-wrapper {
         margin-bottom: 35px;
     }
+
+    .adert_slider {
+        margin: 60px 0;
+    }
+
+    .adert_slider_item {
+        height: 245px;
+    }
 }
 
 @include xlg-xxlg {
+    .adert_slider {
+        margin: 40px 0;
+    }
+
+    .zoomContainer {
+        width: 40% !important;
+    }
+
+    .brand__slider-item-image {
+        height: 90px;
+    }
+
     .hero {
         font-size: 10px;
 
@@ -341,7 +361,7 @@
     }
 
     .product-image-container {
-        height: 160px;
+        height: 160px !important;
     }
 
     .brand__slider-item-image {
@@ -433,7 +453,7 @@
     // header start
     .header {
         padding: 0;
-        margin-bottom: 50px;
+        margin-bottom: 30px;
 
         &::after {
             top: calc(100% + 10px);
@@ -471,6 +491,14 @@
                 }
             }
         }
+    }
+
+    .main-content-wrapper {
+        margin-bottom: 20px;
+    }
+
+    .category-container h2 {
+        font-size: 28px;
     }
 
     .d-inline-block {
@@ -698,6 +726,32 @@
     .basket {
         padding-top: 3.3em;
     }
+
+    .adert_slider {
+        margin: 20px 0 30px;
+    }
+
+    .adert_slider_item {
+        height: 100%;
+    }
+
+    .full-content-wrapper {
+        p {
+            .container-fluid {
+                margin-bottom: 0 !important;
+            }
+        }
+    }
+
+    .velocity-divide-page  {
+        .left {
+            width: 300px;
+        }
+
+        .right {
+            padding-left: 320px !important;
+        }
+    }
 }
 
 @include md-lg {
@@ -801,6 +855,43 @@
         width: 100%;
     }
 
+    .brand__slider-item-image {
+        height: 70px;
+    }
+
+    .category-container h2 {
+        font-size: 22px;
+    }
+
+    .breadcumb__inner a {
+        font-size: 16px;
+    }
+
+    .main-content-wrapper {
+        margin-bottom: 0;
+    }
+
+    .breadcumb {
+        margin-top: 0;
+    }
+
+    .header {
+        margin-bottom: 40px;
+    }
+
+    .hero {
+        &__sidebar {
+            &-inner {
+
+                &-link,
+                .vsa-item__heading button .vsa-item__trigger__content {
+                    padding: 10px 15px;
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+
     // footer page end
     .footer__copyright {
         font-size: 14px;
@@ -870,6 +961,14 @@
                 }
             }
         }
+    }
+
+    .fs40 {
+        font-size: 30px;
+    }
+
+    .fs20 {
+        font-size: 14px;
     }
 
     // category page end
