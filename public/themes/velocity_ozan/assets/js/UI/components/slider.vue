@@ -57,28 +57,28 @@ export default {
                     {
                         breakpoint: 992,
                         settings: {
-                            slidesToShow: 5,
+                            slidesToShow: this.items ? 5 : 1,
                             slidesToScroll: 1,
                         }
                     },
                         {
                         breakpoint: 822,
                         settings: {
-                            slidesToShow: 3,
+                            slidesToShow: this.items ? 3 : 1,
                             slidesToScroll: 1,
                         }
                     },
                         {
                         breakpoint: 626,
                         settings: {
-                            slidesToShow: 3,
+                            slidesToShow: this.items ? 3 : 1,
                             slidesToScroll: 1,
                         }
                     },
                         {
                         breakpoint: 400,
                         settings: {
-                            slidesToShow: 2,
+                            slidesToShow: this.items ? 2 : 1,
                             slidesToScroll: 1,
                         }
                     },
