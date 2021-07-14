@@ -173,7 +173,7 @@ return [
         'all-categories'    => 'Ähli bölümler',
         'search-text'       => 'Harytlary şu ýerde gözläň',
         'welcome-message'   => ':customer_name hoş geldiňiz!',
-        'dropdown-text'     => 'Halanylanlary, sargytlary we sebedi dolandyrmak',
+        'dropdown-text'     => 'Halanylanlary, sargytlary we sebedi dolandyrmak üçin içeri giriň',
     ],
 
     'menu-navbar'   => [
