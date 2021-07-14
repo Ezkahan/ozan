@@ -103,6 +103,49 @@ return [
             ]
         ]
     ], [
+        'key'    => 'sales.carriers.express',
+        'name'   => 'Express shipping',
+        'sort'   => 3,
+        'fields' => [
+            [
+                'name'          => 'title',
+                'title'         => 'admin::app.admin.system.title',
+                'type'          => 'depends',
+                'depend'        => 'active:1',
+                'validation'    => 'required_if:active,1',
+                'channel_based' => false,
+                'locale_based'  => true,
+            ], [
+                'name'          => 'description',
+                'title'         => 'admin::app.admin.system.description',
+                'type'          => 'textarea',
+                'channel_based' => false,
+                'locale_based'  => true,
+            ], [
+                'name'          => 'default_rate',
+                'title'         => 'admin::app.admin.system.rate',
+                'type'          => 'depends',
+                'depend'        => 'active:1',
+                'validation'    => 'required_if:active,1',
+                'channel_based' => false,
+                'locale_based'  => false,
+            ], [
+                'name'          => 'active',
+                'title'         => 'admin::app.admin.system.status',
+                'type'          => 'boolean',
+                'validation'    => 'required',
+                'channel_based' => false,
+                'locale_based'  => false,
+            ], [
+                'name'          => 'is_calculate_tax',
+                'title'         => 'admin::app.admin.system.calculate-tax',
+                'type'          => 'boolean',
+                'validation'    => 'required',
+                'channel_based' => false,
+                'locale_based'  => false,
+            ]
+        ]
+    ], [
         'key'  => 'sales.shipping',
         'name' => 'admin::app.admin.system.shipping',
         'sort' => 0,
