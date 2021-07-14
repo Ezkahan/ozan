@@ -1,7 +1,7 @@
 @extends('shop::customers.account.index')
 
 @section('page_title')
-    {{ __('shop::app.customer.account.order.view.page-tile', ['order_id' => $order->increment_id]) }}
+    {{ __('velocity::app.customer.account.order.view.page-tile', ['order_id' => $order->increment_id]) }}
 @endsection
 
 @push('css')
@@ -22,14 +22,14 @@
             <div class="account-head">
                 <span class="back-icon"><a href="{{ route('customer.account.index') }}"><i class="icon icon-menu-back"></i></a></span>
                 <span class="account-heading">
-                    {{ __('shop::app.customer.account.order.view.page-tile', ['order_id' => $order->increment_id]) }}
+                    {{ __('velocity::app.customer.account.order.view.page-tile', ['order_id' => $order->increment_id]) }}
                 </span>
                 <span></span>
 
                 @if ($order->canCancel())
                     <span class="account-action">
-                        <a href="{{ route('customer.orders.cancel', $order->id) }}" class="theme-btn light unset float-right" v-alert:message="'{{ __('shop::app.customer.account.order.view.cancel-confirm-msg') }}'" style="float: right">
-                            {{ __('shop::app.customer.account.order.view.cancel-btn-title') }}
+                        <a href="{{ route('customer.orders.cancel', $order->id) }}" class="theme-btn light unset float-right" v-alert:message="'{{ __('velocity::app.customer.account.order.view.cancel-confirm-msg') }}'" style="float: right">
+                            {{ __('velocity::app.customer.account.order.view.cancel-btn-title') }}
                         </a>
                     </span>
                 @endif
@@ -39,13 +39,13 @@
 
             <div class="sale-container">
                 <tabs>
-                    <tab name="{{ __('shop::app.customer.account.order.view.info') }}" :selected="true">
+                    <tab name="{{ __('velocity::app.customer.account.order.view.info') }}" :selected="true">
 
                         <div class="sale-section">
                             <div class="section-content">
                                 <div class="row col-12">
                                     <label class="mr20">
-                                        {{ __('shop::app.customer.account.order.view.placed-on') }}
+                                        {{ __('velocity::app.customer.account.order.view.placed-on') }}
                                     </label>
 
                                     <span class="value">
@@ -57,7 +57,7 @@
 
                         <div class="sale-section">
                             <div class="section-title">
-                                <span>{{ __('shop::app.customer.account.order.view.products-ordered') }}</span>
+                                <span>{{ __('velocity::app.customer.account.order.view.products-ordered') }}</span>
                             </div>
 
                             <div class="section-content">
@@ -65,25 +65,25 @@
                                     <table>
                                         <thead>
                                             <tr>
-                                                <th>{{ __('shop::app.customer.account.order.view.SKU') }}</th>
-                                                <th>{{ __('shop::app.customer.account.order.view.product-name') }}</th>
-                                                <th>{{ __('shop::app.customer.account.order.view.price') }}</th>
-                                                <th>{{ __('shop::app.customer.account.order.view.item-status') }}</th>
-                                                <th>{{ __('shop::app.customer.account.order.view.subtotal') }}</th>
-                                                <th>{{ __('shop::app.customer.account.order.view.tax-percent') }}</th>
-                                                <th>{{ __('shop::app.customer.account.order.view.tax-amount') }}</th>
-                                                <th>{{ __('shop::app.customer.account.order.view.grand-total') }}</th>
+                                                <th>{{ __('velocity::app.customer.account.order.view.SKU') }}</th>
+                                                <th>{{ __('velocity::app.customer.account.order.view.product-name') }}</th>
+                                                <th>{{ __('velocity::app.customer.account.order.view.price') }}</th>
+                                                <th>{{ __('velocity::app.customer.account.order.view.item-status') }}</th>
+                                                <th>{{ __('velocity::app.customer.account.order.view.subtotal') }}</th>
+                                                <th>{{ __('velocity::app.customer.account.order.view.tax-percent') }}</th>
+                                                <th>{{ __('velocity::app.customer.account.order.view.tax-amount') }}</th>
+                                                <th>{{ __('velocity::app.customer.account.order.view.grand-total') }}</th>
                                             </tr>
                                         </thead>
 
                                         <tbody>
                                             @foreach ($order->items as $item)
                                                 <tr>
-                                                    <td data-value="{{ __('shop::app.customer.account.order.view.SKU') }}">
+                                                    <td data-value="{{ __('velocity::app.customer.account.order.view.SKU') }}">
                                                         {{ $item->getTypeInstance()->getOrderedItem($item)->sku }}
                                                     </td>
 
-                                                    <td data-value="{{ __('shop::app.customer.account.order.view.product-name') }}">
+                                                    <td data-value="{{ __('velocity::app.customer.account.order.view.product-name') }}">
                                                         {{ $item->name }}
 
                                                         @if (isset($item->additional['attributes']))
@@ -97,45 +97,45 @@
                                                         @endif
                                                     </td>
 
-                                                    <td data-value="{{ __('shop::app.customer.account.order.view.price') }}">
+                                                    <td data-value="{{ __('velocity::app.customer.account.order.view.price') }}">
                                                         {{ core()->formatPrice($item->price, $order->order_currency_code) }}
                                                     </td>
 
-                                                    <td data-value="{{ __('shop::app.customer.account.order.view.item-status') }}">
+                                                    <td data-value="{{ __('velocity::app.customer.account.order.view.item-status') }}">
                                                         <span class="qty-row">
-                                                            {{ __('shop::app.customer.account.order.view.item-ordered', ['qty_ordered' => $item->qty_ordered]) }}
+                                                            {{ __('velocity::app.customer.account.order.view.item-ordered', ['qty_ordered' => $item->qty_ordered]) }}
                                                         </span>
 
                                                         <span class="qty-row">
-                                                            {{ $item->qty_invoiced ? __('shop::app.customer.account.order.view.item-invoice', ['qty_invoiced' => $item->qty_invoiced]) : '' }}
+                                                            {{ $item->qty_invoiced ? __('velocity::app.customer.account.order.view.item-invoice', ['qty_invoiced' => $item->qty_invoiced]) : '' }}
                                                         </span>
 
                                                         <span class="qty-row">
-                                                            {{ $item->qty_shipped ? __('shop::app.customer.account.order.view.item-shipped', ['qty_shipped' => $item->qty_shipped]) : '' }}
+                                                            {{ $item->qty_shipped ? __('velocity::app.customer.account.order.view.item-shipped', ['qty_shipped' => $item->qty_shipped]) : '' }}
                                                         </span>
 
                                                         <span class="qty-row">
-                                                            {{ $item->qty_refunded ? __('shop::app.customer.account.order.view.item-refunded', ['qty_refunded' => $item->qty_refunded]) : '' }}
+                                                            {{ $item->qty_refunded ? __('velocity::app.customer.account.order.view.item-refunded', ['qty_refunded' => $item->qty_refunded]) : '' }}
                                                         </span>
 
                                                         <span class="qty-row">
-                                                            {{ $item->qty_canceled ? __('shop::app.customer.account.order.view.item-canceled', ['qty_canceled' => $item->qty_canceled]) : '' }}
+                                                            {{ $item->qty_canceled ? __('velocity::app.customer.account.order.view.item-canceled', ['qty_canceled' => $item->qty_canceled]) : '' }}
                                                         </span>
                                                     </td>
 
-                                                    <td data-value="{{ __('shop::app.customer.account.order.view.subtotal') }}">
+                                                    <td data-value="{{ __('velocity::app.customer.account.order.view.subtotal') }}">
                                                         {{ core()->formatPrice($item->total, $order->order_currency_code) }}
                                                     </td>
 
-                                                    <td data-value="{{ __('shop::app.customer.account.order.view.tax-percent') }}">
+                                                    <td data-value="{{ __('velocity::app.customer.account.order.view.tax-percent') }}">
                                                         {{ number_format($item->tax_percent, 2) }}%
                                                     </td>
 
-                                                    <td data-value="{{ __('shop::app.customer.account.order.view.tax-amount') }}">
+                                                    <td data-value="{{ __('velocity::app.customer.account.order.view.tax-amount') }}">
                                                         {{ core()->formatPrice($item->tax_amount, $order->order_currency_code) }}
                                                     </td>
 
-                                                    <td data-value="{{ __('shop::app.customer.account.order.view.grand-total') }}">
+                                                    <td data-value="{{ __('velocity::app.customer.account.order.view.grand-total') }}">
                                                         {{ core()->formatPrice($item->total + $item->tax_amount - $item->discount_amount, $order->order_currency_code) }}
                                                     </td>
                                                 </tr>
@@ -149,7 +149,7 @@
                                     <table class="sale-summary">
                                         <tbody>
                                             <tr>
-                                                <td>{{ __('shop::app.customer.account.order.view.subtotal') }}
+                                                <td>{{ __('velocity::app.customer.account.order.view.subtotal') }}
                                                     <span class="dash-icon">-</span>
                                                 </td>
                                                 <td>{{ core()->formatPrice($order->sub_total, $order->order_currency_code) }}</td>
@@ -157,7 +157,7 @@
 
                                             @if ($order->haveStockableItems())
                                                 <tr>
-                                                    <td>{{ __('shop::app.customer.account.order.view.shipping-handling') }}
+                                                    <td>{{ __('velocity::app.customer.account.order.view.shipping-handling') }}
                                                         <span class="dash-icon">-</span>
                                                     </td>
                                                     <td>{{ core()->formatPrice($order->shipping_amount, $order->order_currency_code) }}</td>
@@ -166,7 +166,7 @@
 
                                             @if ($order->base_discount_amount > 0)
                                                 <tr>
-                                                    <td>{{ __('shop::app.customer.account.order.view.discount') }}
+                                                    <td>{{ __('velocity::app.customer.account.order.view.discount') }}
                                                         @if ($order->coupon_code)
                                                             ({{ $order->coupon_code }})
                                                         @endif
@@ -177,35 +177,35 @@
                                             @endif
 
                                             <tr class="border-bottom">
-                                                <td>{{ __('shop::app.customer.account.order.view.tax') }}
+                                                <td>{{ __('velocity::app.customer.account.order.view.tax') }}
                                                     <span class="dash-icon">-</span>
                                                 </td>
                                                 <td>{{ core()->formatPrice($order->tax_amount, $order->order_currency_code) }}</td>
                                             </tr>
 
                                             <tr class="fw6">
-                                                <td>{{ __('shop::app.customer.account.order.view.grand-total') }}
+                                                <td>{{ __('velocity::app.customer.account.order.view.grand-total') }}
                                                     <span class="dash-icon">-</span>
                                                 </td>
                                                 <td>{{ core()->formatPrice($order->grand_total, $order->order_currency_code) }}</td>
                                             </tr>
 
                                             <tr class="fw6">
-                                                <td>{{ __('shop::app.customer.account.order.view.total-paid') }}
+                                                <td>{{ __('velocity::app.customer.account.order.view.total-paid') }}
                                                     <span class="dash-icon">-</span>
                                                 </td>
                                                 <td>{{ core()->formatPrice($order->grand_total_invoiced, $order->order_currency_code) }}</td>
                                             </tr>
 
                                             <tr class="fw6">
-                                                <td>{{ __('shop::app.customer.account.order.view.total-refunded') }}
+                                                <td>{{ __('velocity::app.customer.account.order.view.total-refunded') }}
                                                     <span class="dash-icon">-</span>
                                                 </td>
                                                 <td>{{ core()->formatPrice($order->grand_total_refunded, $order->order_currency_code) }}</td>
                                             </tr>
 
                                             <tr class="fw6">
-                                                <td>{{ __('shop::app.customer.account.order.view.total-due') }}
+                                                <td>{{ __('velocity::app.customer.account.order.view.total-due') }}
                                                     <span class="dash-icon">-</span>
                                                 </td>
 
@@ -223,16 +223,16 @@
                     </tab>
 
                     @if ($order->invoices->count())
-                        <tab name="{{ __('shop::app.customer.account.order.view.invoices') }}">
+                        <tab name="{{ __('velocity::app.customer.account.order.view.invoices') }}">
 
                             @foreach ($order->invoices as $invoice)
 
                                 <div class="sale-section">
                                     <div class="section-title">
-                                        <span>{{ __('shop::app.customer.account.order.view.individual-invoice', ['invoice_id' => $invoice->id]) }}</span>
+                                        <span>{{ __('velocity::app.customer.account.order.view.individual-invoice', ['invoice_id' => $invoice->id]) }}</span>
 
                                         <a href="{{ route('customer.orders.print', $invoice->id) }}" class="float-right">
-                                            {{ __('shop::app.customer.account.order.view.print') }}
+                                            {{ __('velocity::app.customer.account.order.view.print') }}
                                         </a>
                                     </div>
 
@@ -241,13 +241,13 @@
                                             <table>
                                                 <thead>
                                                     <tr>
-                                                        <th>{{ __('shop::app.customer.account.order.view.SKU') }}</th>
-                                                        <th>{{ __('shop::app.customer.account.order.view.product-name') }}</th>
-                                                        <th>{{ __('shop::app.customer.account.order.view.price') }}</th>
-                                                        <th>{{ __('shop::app.customer.account.order.view.qty') }}</th>
-                                                        <th>{{ __('shop::app.customer.account.order.view.subtotal') }}</th>
-                                                        <th>{{ __('shop::app.customer.account.order.view.tax-amount') }}</th>
-                                                        <th>{{ __('shop::app.customer.account.order.view.grand-total') }}</th>
+                                                        <th>{{ __('velocity::app.customer.account.order.view.SKU') }}</th>
+                                                        <th>{{ __('velocity::app.customer.account.order.view.product-name') }}</th>
+                                                        <th>{{ __('velocity::app.customer.account.order.view.price') }}</th>
+                                                        <th>{{ __('velocity::app.customer.account.order.view.qty') }}</th>
+                                                        <th>{{ __('velocity::app.customer.account.order.view.subtotal') }}</th>
+                                                        <th>{{ __('velocity::app.customer.account.order.view.tax-amount') }}</th>
+                                                        <th>{{ __('velocity::app.customer.account.order.view.grand-total') }}</th>
                                                     </tr>
                                                 </thead>
 
@@ -255,31 +255,31 @@
 
                                                     @foreach ($invoice->items as $item)
                                                         <tr>
-                                                            <td data-value="{{ __('shop::app.customer.account.order.view.SKU') }}">
+                                                            <td data-value="{{ __('velocity::app.customer.account.order.view.SKU') }}">
                                                                 {{ $item->getTypeInstance()->getOrderedItem($item)->sku }}
                                                             </td>
 
-                                                            <td data-value="{{ __('shop::app.customer.account.order.view.product-name') }}">
+                                                            <td data-value="{{ __('velocity::app.customer.account.order.view.product-name') }}">
                                                                 {{ $item->name }}
                                                             </td>
 
-                                                            <td data-value="{{ __('shop::app.customer.account.order.view.price') }}">
+                                                            <td data-value="{{ __('velocity::app.customer.account.order.view.price') }}">
                                                                 {{ core()->formatPrice($item->price, $order->order_currency_code) }}
                                                             </td>
 
-                                                            <td data-value="{{ __('shop::app.customer.account.order.view.qty') }}">
+                                                            <td data-value="{{ __('velocity::app.customer.account.order.view.qty') }}">
                                                                 {{ $item->qty }}
                                                             </td>
 
-                                                            <td data-value="{{ __('shop::app.customer.account.order.view.subtotal') }}">
+                                                            <td data-value="{{ __('velocity::app.customer.account.order.view.subtotal') }}">
                                                                 {{ core()->formatPrice($item->total, $order->order_currency_code) }}
                                                             </td>
 
-                                                            <td data-value="{{ __('shop::app.customer.account.order.view.tax-amount') }}">
+                                                            <td data-value="{{ __('velocity::app.customer.account.order.view.tax-amount') }}">
                                                                 {{ core()->formatPrice($item->tax_amount, $order->order_currency_code) }}
                                                             </td>
 
-                                                            <td data-value="{{ __('shop::app.customer.account.order.view.grand-total') }}">
+                                                            <td data-value="{{ __('velocity::app.customer.account.order.view.grand-total') }}">
                                                                 {{ core()->formatPrice($item->total + $item->tax_amount, $order->order_currency_code) }}
                                                             </td>
                                                         </tr>
@@ -291,14 +291,14 @@
                                         <div class="totals">
                                             <table class="sale-summary">
                                                 <tr>
-                                                    <td>{{ __('shop::app.customer.account.order.view.subtotal') }}
+                                                    <td>{{ __('velocity::app.customer.account.order.view.subtotal') }}
                                                         <span class="dash-icon">-</span>
                                                     </td>
                                                     <td>{{ core()->formatPrice($invoice->sub_total, $order->order_currency_code) }}</td>
                                                 </tr>
 
                                                 <tr>
-                                                    <td>{{ __('shop::app.customer.account.order.view.shipping-handling') }}
+                                                    <td>{{ __('velocity::app.customer.account.order.view.shipping-handling') }}
                                                         <span class="dash-icon">-</span>
                                                     </td>
                                                     <td>{{ core()->formatPrice($invoice->shipping_amount, $order->order_currency_code) }}</td>
@@ -306,7 +306,7 @@
 
                                                 @if ($order->base_discount_amount > 0)
                                                     <tr>
-                                                        <td>{{ __('shop::app.customer.account.order.view.discount') }}
+                                                        <td>{{ __('velocity::app.customer.account.order.view.discount') }}
                                                             <span class="dash-icon">-</span>
                                                         </td>
                                                         <td>{{ core()->formatPrice($order->discount_amount, $order->order_currency_code) }}</td>
@@ -314,14 +314,14 @@
                                                 @endif
 
                                                 <tr>
-                                                    <td>{{ __('shop::app.customer.account.order.view.tax') }}
+                                                    <td>{{ __('velocity::app.customer.account.order.view.tax') }}
                                                         <span class="dash-icon">-</span>
                                                     </td>
                                                     <td>{{ core()->formatPrice($invoice->tax_amount, $order->order_currency_code) }}</td>
                                                 </tr>
 
                                                 <tr class="fw6">
-                                                    <td>{{ __('shop::app.customer.account.order.view.grand-total') }}
+                                                    <td>{{ __('velocity::app.customer.account.order.view.grand-total') }}
                                                         <span class="dash-icon">-</span>
                                                     </td>
                                                     <td>{{ core()->formatPrice($invoice->grand_total, $order->order_currency_code) }}</td>
@@ -337,7 +337,7 @@
                     @endif
 
                     @if ($order->shipments->count())
-                        <tab name="{{ __('shop::app.customer.account.order.view.shipments') }}">
+                        <tab name="{{ __('velocity::app.customer.account.order.view.shipments') }}">
 
                             @foreach ($order->shipments as $shipment)
 
@@ -345,7 +345,7 @@
                                     <div class="section-content">
                                         <div class="row col-12">
                                             <label class="mr20">
-                                            {{ __('shop::app.customer.account.order.view.tracking-number') }}
+                                            {{ __('velocity::app.customer.account.order.view.tracking-number') }}
                                             </label>
 
                                             <span class="value">
@@ -357,7 +357,7 @@
 
                                 <div class="sale-section">
                                     <div class="section-title">
-                                        <span>{{ __('shop::app.customer.account.order.view.individual-shipment', ['shipment_id' => $shipment->id]) }}</span>
+                                        <span>{{ __('velocity::app.customer.account.order.view.individual-shipment', ['shipment_id' => $shipment->id]) }}</span>
                                     </div>
 
                                     <div class="section-content">
@@ -366,9 +366,9 @@
                                             <table>
                                                 <thead>
                                                     <tr>
-                                                        <th>{{ __('shop::app.customer.account.order.view.SKU') }}</th>
-                                                        <th>{{ __('shop::app.customer.account.order.view.product-name') }}</th>
-                                                        <th>{{ __('shop::app.customer.account.order.view.qty') }}</th>
+                                                        <th>{{ __('velocity::app.customer.account.order.view.SKU') }}</th>
+                                                        <th>{{ __('velocity::app.customer.account.order.view.product-name') }}</th>
+                                                        <th>{{ __('velocity::app.customer.account.order.view.qty') }}</th>
                                                     </tr>
                                                 </thead>
 
@@ -377,9 +377,9 @@
                                                     @foreach ($shipment->items as $item)
 
                                                         <tr>
-                                                            <td data-value="{{  __('shop::app.customer.account.order.view.SKU') }}">{{ $item->sku }}</td>
-                                                            <td data-value="{{  __('shop::app.customer.account.order.view.product-name') }}">{{ $item->name }}</td>
-                                                            <td data-value="{{  __('shop::app.customer.account.order.view.qty') }}">{{ $item->qty }}</td>
+                                                            <td data-value="{{  __('velocity::app.customer.account.order.view.SKU') }}">{{ $item->sku }}</td>
+                                                            <td data-value="{{  __('velocity::app.customer.account.order.view.product-name') }}">{{ $item->name }}</td>
+                                                            <td data-value="{{  __('velocity::app.customer.account.order.view.qty') }}">{{ $item->qty }}</td>
                                                         </tr>
 
                                                     @endforeach
@@ -396,13 +396,13 @@
                     @endif
 
                     @if ($order->refunds->count())
-                        <tab name="{{ __('shop::app.customer.account.order.view.refunds') }}">
+                        <tab name="{{ __('velocity::app.customer.account.order.view.refunds') }}">
 
                             @foreach ($order->refunds as $refund)
 
                                 <div class="sale-section">
                                     <div class="section-title">
-                                        <span>{{ __('shop::app.customer.account.order.view.individual-refund', ['refund_id' => $refund->id]) }}</span>
+                                        <span>{{ __('velocity::app.customer.account.order.view.individual-refund', ['refund_id' => $refund->id]) }}</span>
                                     </div>
 
                                     <div class="section-content">
@@ -410,13 +410,13 @@
                                             <table>
                                                 <thead>
                                                     <tr>
-                                                        <th>{{ __('shop::app.customer.account.order.view.SKU') }}</th>
-                                                        <th>{{ __('shop::app.customer.account.order.view.product-name') }}</th>
-                                                        <th>{{ __('shop::app.customer.account.order.view.price') }}</th>
-                                                        <th>{{ __('shop::app.customer.account.order.view.qty') }}</th>
-                                                        <th>{{ __('shop::app.customer.account.order.view.subtotal') }}</th>
-                                                        <th>{{ __('shop::app.customer.account.order.view.tax-amount') }}</th>
-                                                        <th>{{ __('shop::app.customer.account.order.view.grand-total') }}</th>
+                                                        <th>{{ __('velocity::app.customer.account.order.view.SKU') }}</th>
+                                                        <th>{{ __('velocity::app.customer.account.order.view.product-name') }}</th>
+                                                        <th>{{ __('velocity::app.customer.account.order.view.price') }}</th>
+                                                        <th>{{ __('velocity::app.customer.account.order.view.qty') }}</th>
+                                                        <th>{{ __('velocity::app.customer.account.order.view.subtotal') }}</th>
+                                                        <th>{{ __('velocity::app.customer.account.order.view.tax-amount') }}</th>
+                                                        <th>{{ __('velocity::app.customer.account.order.view.grand-total') }}</th>
                                                     </tr>
                                                 </thead>
 
@@ -424,13 +424,13 @@
 
                                                     @foreach ($refund->items as $item)
                                                         <tr>
-                                                            <td data-value="{{ __('shop::app.customer.account.order.view.SKU') }}">{{ $item->child ? $item->child->sku : $item->sku }}</td>
-                                                            <td data-value="{{ __('shop::app.customer.account.order.view.product-name') }}">{{ $item->name }}</td>
-                                                            <td data-value="{{ __('shop::app.customer.account.order.view.price') }}">{{ core()->formatPrice($item->price, $order->order_currency_code) }}</td>
-                                                            <td data-value="{{ __('shop::app.customer.account.order.view.qty') }}">{{ $item->qty }}</td>
-                                                            <td data-value="{{ __('shop::app.customer.account.order.view.subtotal') }}">{{ core()->formatPrice($item->total, $order->order_currency_code) }}</td>
-                                                            <td data-value="{{ __('shop::app.customer.account.order.view.tax-amount') }}">{{ core()->formatPrice($item->tax_amount, $order->order_currency_code) }}</td>
-                                                            <td data-value="{{ __('shop::app.customer.account.order.view.grand-total') }}">{{ core()->formatPrice($item->total + $item->tax_amount, $order->order_currency_code) }}</td>
+                                                            <td data-value="{{ __('velocity::app.customer.account.order.view.SKU') }}">{{ $item->child ? $item->child->sku : $item->sku }}</td>
+                                                            <td data-value="{{ __('velocity::app.customer.account.order.view.product-name') }}">{{ $item->name }}</td>
+                                                            <td data-value="{{ __('velocity::app.customer.account.order.view.price') }}">{{ core()->formatPrice($item->price, $order->order_currency_code) }}</td>
+                                                            <td data-value="{{ __('velocity::app.customer.account.order.view.qty') }}">{{ $item->qty }}</td>
+                                                            <td data-value="{{ __('velocity::app.customer.account.order.view.subtotal') }}">{{ core()->formatPrice($item->total, $order->order_currency_code) }}</td>
+                                                            <td data-value="{{ __('velocity::app.customer.account.order.view.tax-amount') }}">{{ core()->formatPrice($item->tax_amount, $order->order_currency_code) }}</td>
+                                                            <td data-value="{{ __('velocity::app.customer.account.order.view.grand-total') }}">{{ core()->formatPrice($item->total + $item->tax_amount, $order->order_currency_code) }}</td>
                                                         </tr>
                                                     @endforeach
 
@@ -446,7 +446,7 @@
                                         <div class="totals">
                                             <table class="sale-summary">
                                                 <tr>
-                                                    <td>{{ __('shop::app.customer.account.order.view.subtotal') }}
+                                                    <td>{{ __('velocity::app.customer.account.order.view.subtotal') }}
                                                         <span class="dash-icon">-</span>
                                                     </td>
                                                     <td>{{ core()->formatPrice($refund->sub_total, $order->order_currency_code) }}</td>
@@ -454,7 +454,7 @@
 
                                                 @if ($refund->shipping_amount > 0)
                                                     <tr>
-                                                        <td>{{ __('shop::app.customer.account.order.view.shipping-handling') }}
+                                                        <td>{{ __('velocity::app.customer.account.order.view.shipping-handling') }}
                                                             <span class="dash-icon">-</span>
                                                         </td>
                                                         <td>{{ core()->formatPrice($refund->shipping_amount, $order->order_currency_code) }}</td>
@@ -463,7 +463,7 @@
 
                                                 @if ($refund->discount_amount > 0)
                                                     <tr>
-                                                        <td>{{ __('shop::app.customer.account.order.view.discount') }}
+                                                        <td>{{ __('velocity::app.customer.account.order.view.discount') }}
                                                             <span class="dash-icon">-</span>
                                                         </td>
                                                         <td>{{ core()->formatPrice($order->discount_amount, $order->order_currency_code) }}</td>
@@ -472,7 +472,7 @@
 
                                                 @if ($refund->tax_amount > 0)
                                                     <tr>
-                                                        <td>{{ __('shop::app.customer.account.order.view.tax') }}
+                                                        <td>{{ __('velocity::app.customer.account.order.view.tax') }}
                                                             <span class="dash-icon">-</span>
                                                         </td>
                                                         <td>{{ core()->formatPrice($refund->tax_amount, $order->order_currency_code) }}</td>
@@ -480,21 +480,21 @@
                                                 @endif
 
                                                 <tr>
-                                                    <td>{{ __('shop::app.customer.account.order.view.adjustment-refund') }}
+                                                    <td>{{ __('velocity::app.customer.account.order.view.adjustment-refund') }}
                                                         <span class="dash-icon">-</span>
                                                     </td>
                                                     <td>{{ core()->formatPrice($refund->adjustment_refund, $order->order_currency_code) }}</td>
                                                 </tr>
 
                                                 <tr>
-                                                    <td>{{ __('shop::app.customer.account.order.view.adjustment-fee') }}
+                                                    <td>{{ __('velocity::app.customer.account.order.view.adjustment-fee') }}
                                                         <span class="dash-icon">-</span>
                                                     </td>
                                                     <td>{{ core()->formatPrice($refund->adjustment_fee, $order->order_currency_code) }}</td>
                                                 </tr>
 
                                                 <tr class="fw6">
-                                                    <td>{{ __('shop::app.customer.account.order.view.grand-total') }}
+                                                    <td>{{ __('velocity::app.customer.account.order.view.grand-total') }}
                                                         <span class="dash-icon">-</span>
                                                     </td>
                                                     <td>{{ core()->formatPrice($refund->grand_total, $order->order_currency_code) }}</td>
@@ -515,7 +515,7 @@
                         <div class="order-box-container">
                             <div class="box">
                                 <div class="box-title">
-                                    {{ __('shop::app.customer.account.order.view.billing-address') }}
+                                    {{ __('velocity::app.customer.account.order.view.billing-address') }}
                                 </div>
 
                                 <div class="box-content">
@@ -528,7 +528,7 @@
                             @if ($order->shipping_address)
                                 <div class="box">
                                     <div class="box-title">
-                                        {{ __('shop::app.customer.account.order.view.shipping-address') }}
+                                        {{ __('velocity::app.customer.account.order.view.shipping-address') }}
                                     </div>
 
                                     <div class="box-content">
@@ -540,7 +540,7 @@
 
                                 <div class="box">
                                     <div class="box-title">
-                                        {{ __('shop::app.customer.account.order.view.shipping-method') }}
+                                        {{ __('velocity::app.customer.account.order.view.shipping-method') }}
                                     </div>
 
                                     <div class="box-content">
@@ -553,7 +553,7 @@
 
                             <div class="box">
                                 <div class="box-title">
-                                    {{ __('shop::app.customer.account.order.view.payment-method') }}
+                                    {{ __('velocity::app.customer.account.order.view.payment-method') }}
                                 </div>
 
                                 <div class="box-content">

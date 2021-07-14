@@ -3,19 +3,19 @@
 @extends('shop::customers.account.index')
 
 @section('page_title')
-    {{ __('shop::app.customer.account.wishlist.page-title') }}
+    {{ __('velocity::app.customer.account.wishlist.page-title') }}
 @endsection
 
 @section('page-detail-wrapper')
     <div class="account-head">
-        <span class="account-heading">{{ __('shop::app.customer.account.wishlist.title') }}</span>
+        <span class="account-heading">{{ __('velocity::app.customer.account.wishlist.title') }}</span>
 
         @if (count($items))
             <div class="account-action float-right">
                 <a
                     class="remove-decoration theme-btn light"
                     href="{{ route('customer.wishlist.removeall') }}">
-                    {{ __('shop::app.customer.account.wishlist.deleteall') }}
+                    {{ __('velocity::app.customer.account.wishlist.deleteall') }}
                 </a>
             </div>
         @endif
@@ -29,7 +29,7 @@
             @foreach ($items as $item)
                 @php
                     $currentMode = $toolbarHelper->getCurrentMode();
-                    $moveToCartText = __('shop::app.customer.account.wishlist.move-to-cart');
+                    $moveToCartText = __('velocity::app.customer.account.wishlist.move-to-cart');
                 @endphp
 
                 @include ('shop::products.list.card', [

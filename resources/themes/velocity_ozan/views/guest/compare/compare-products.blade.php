@@ -18,7 +18,7 @@
                 <button
                     class="theme-btn light float-right"
                     @click="removeProductCompare('all')">
-                    {{ __('shop::app.customer.account.wishlist.deleteall') }}
+                    {{ __('velocity::app.customer.account.wishlist.deleteall') }}
                 </button>
             </div>
 

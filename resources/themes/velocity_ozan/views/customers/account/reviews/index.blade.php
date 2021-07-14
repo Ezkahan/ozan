@@ -1,7 +1,7 @@
 @extends('shop::customers.account.index')
 
 @section('page_title')
-    {{ __('shop::app.customer.account.review.index.page-title') }}
+    {{ __('velocity::app.customer.account.review.index.page-title') }}
 @endsection
 
 @section('page-detail-wrapper')
@@ -12,12 +12,12 @@
             </a>
         </span>
 
-        <span class="account-heading">{{ __('shop::app.customer.account.review.index.title') }}</span>
+        <span class="account-heading">{{ __('velocity::app.customer.account.review.index.title') }}</span>
 
         @if (count($reviews) > 1)
             <div class="account-action float-right">
                 <a href="{{ route('customer.review.deleteall') }}" class="theme-btn light unset">
-                    {{ __('shop::app.customer.account.wishlist.deleteall') }}
+                    {{ __('velocity::app.customer.account.wishlist.deleteall') }}
                 </a>
             </div>
         @endif

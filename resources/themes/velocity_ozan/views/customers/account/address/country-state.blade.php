@@ -6,10 +6,10 @@
         <div>
             <div class="control-group" :class="[errors.has('country') ? 'has-error' : '']">
                 <label for="country" class="mandatory">
-                    {{ __('shop::app.customer.account.address.create.country') }}
+                    {{ __('velocity::app.customer.account.address.create.country') }}
                 </label>
 
-                <select type="text" v-validate="'required'" class="control styled-select" id="country" name="country" v-model="country" data-vv-as="&quot;{{ __('shop::app.customer.account.address.create.country') }}&quot;">
+                <select type="text" v-validate="'required'" class="control styled-select" id="country" name="country" v-model="country" data-vv-as="&quot;{{ __('velocity::app.customer.account.address.create.country') }}&quot;">
                     <option value=""></option>
                     @foreach (core()->countries() as $country)
                         <option {{ $country->code === $defaultCountry ? 'selected' : '' }}  value="{{ $country->code }}">{{ $country->name }}</option>
@@ -27,7 +27,7 @@
 
             <div class="control-group" :class="[errors.has('state') ? 'has-error' : '']">
                 <label for="state" class="mandatory">
-                    {{ __('shop::app.customer.account.address.create.state') }}
+                    {{ __('velocity::app.customer.account.address.create.state') }}
                 </label>
 
                 <input
@@ -38,7 +38,7 @@
                     class="control"
                     v-if="!haveStates()"
                     v-validate="'required'"
-                    data-vv-as="&quot;{{ __('shop::app.customer.account.address.create.state') }}&quot;" />
+                    data-vv-as="&quot;{{ __('velocity::app.customer.account.address.create.state') }}&quot;" />
 
                 <template v-if="haveStates()">
                     <select
@@ -47,9 +47,9 @@
                         v-model="state"
                         class="styled-select"
                         v-validate="'required'"
-                        data-vv-as="&quot;{{ __('shop::app.customer.account.address.create.state') }}&quot;">
+                        data-vv-as="&quot;{{ __('velocity::app.customer.account.address.create.state') }}&quot;">
 
-                        <option value="">{{ __('shop::app.customer.account.address.create.select-state') }}</option>
+                        <option value="">{{ __('velocity::app.customer.account.address.create.select-state') }}</option>
 
                         <option v-for='(state, index) in countryStates[country]' :value="state.code">
                             @{{ state.default_name }}
