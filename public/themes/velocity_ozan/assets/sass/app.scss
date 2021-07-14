@@ -211,7 +211,7 @@ body {
             right: 10px;
             z-index: 101;
             height: max-content;
-            width: 290px !important;
+            width: 290px;
             position: absolute !important;
 
             .theme-btn {
@@ -517,11 +517,13 @@ header {
     }
 
     .left-wrapper {
-        float: right;
+        // float: right;
+        display: flex;
+        align-items: center;
 
         .compare-btn, .wishlist-btn {
             height: 50px;
-            font-size: 18px;
+            font-size: 16px;
             font-weight: 600;
             padding: 10px 16px 6px 16px;
 

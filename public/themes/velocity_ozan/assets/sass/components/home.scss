@@ -521,13 +521,13 @@ header #search-form > *:focus {
 
     .left {
         z-index: 1;
-        width: $sidebar-width;
+        width: 360px;
         position: absolute;
     }
 
     .right {
         width: 100%;
-        padding-left: $sidebar-width !important;
+        padding-left: 400px !important;
     }
 }
 

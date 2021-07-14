@@ -160,7 +160,7 @@
                 } else if (width < 1200 && width >= 992) {
                     this.slidesPerPage = 5;
                 } else if (width < 992 && width >= 822) {
-                    this.slidesPerPage = 4;
+                    this.slidesPerPage = 3;
                 } else if (width < 822 && width >= 626) {
                     this.slidesPerPage = 3;
                 } else {
