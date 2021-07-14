@@ -6,7 +6,7 @@
 @if ($velocityMetaData && $velocityMetaData->advertisement)
     @php
         $advertisement = json_decode($velocityMetaData->advertisement, true);
-        
+
         if (isset($advertisement[3]) && is_array($advertisement[3])) {
             $advertisementThree = array_values(array_filter($advertisement[3]));
         }

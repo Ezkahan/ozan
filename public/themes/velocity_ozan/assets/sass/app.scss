@@ -282,6 +282,11 @@ body {
     }
 }
 
+.cart_table_group {
+    display: flex;
+    align-items: center;
+}
+
 .dropdown-menu {
     border-top: 3px solid $border-primary;
     border-radius: 0px;

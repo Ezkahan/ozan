@@ -43,7 +43,7 @@
                                         <li>@{{ addresses.address1 }},</li>
 
                                         <li>
-                                            {{ __('shop::app.customer.account.address.index.contact') }} : @{{ addresses.phone }}
+                                            {{ __('velocity::app.customer.account.address.index.contact') }} : @{{ addresses.phone }}
                                         </li>
                                     </ul>
                                 </div>
@@ -172,7 +172,7 @@
                                         <li>@{{ addresses.state }},</li>
                                         <li>@{{ addresses.country }} @{{ addresses.postcode }}</li>
                                         <li>
-                                            {{ __('shop::app.customer.account.address.index.contact') }} : @{{ addresses.phone }}
+                                            {{ __('velocity::app.customer.account.address.index.contact') }} : @{{ addresses.phone }}
                                         </li>
                                     </ul>
                                 </div>

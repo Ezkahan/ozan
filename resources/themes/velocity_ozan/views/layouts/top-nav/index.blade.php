@@ -50,15 +50,25 @@
                     <i class="icon-help"></i>
                     <span>@lang('app.customer_service')</span>
                 </a>
+                @php
+                    $showWishlist = core()->getConfigData('general.content.shop.wishlist_option') == "1" ? true : false;
 
-                <a href="{!! url('page/cutomer-service') !!}" class="upheader__nav-link mobile_link">
+                    $showCompare = core()->getConfigData('general.content.shop.compare_option') == "1" ? true : false;
+                @endphp
+                @if($showWishlist)
+                <a href="{{ route('customer.wishlist.index') }}" class="upheader__nav-link mobile_link">
                     <i class="material-icons">favorite_border</i>
-                    <span>Halanlarym</span>
+                    <span>{{ __('shop::app.header.wishlist') }}</span>
                 </a>
-                <a href="{!! url('page/cutomer-service') !!}" class="upheader__nav-link mobile_link">
+                @endif
+                @if ($showCompare)
+                <a  class="upheader__nav-link mobile_link"
+                    @auth('customer') href="{{ route('velocity.customer.product.compare') }}" @endauth
+                    @guest('customer') href="{{ route('velocity.product.compare') }}"@endguest>
                     <i class="material-icons">compare_arrows</i>
                     <span>Deňeşdirmek</span>
                 </a>
+                @endif
                 @include('velocity::layouts.top-nav.login-section')
 
             </div>

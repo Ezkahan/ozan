@@ -1,7 +1,7 @@
 @extends('shop::layouts.master')
 
 @section('page_title')
-    {{ __('shop::app.customer.account.wishlist.page-title') }}
+    {{ __('velocity::app.customer.account.wishlist.page-title') }}
 @endsection
 
 @section('content-wrapper')

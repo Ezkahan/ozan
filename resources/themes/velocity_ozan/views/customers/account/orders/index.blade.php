@@ -1,7 +1,7 @@
 @extends('shop::customers.account.index')
 
 @section('page_title')
-    {{ __('shop::app.customer.account.order.index.page-title') }}
+    {{ __('velocity::app.customer.account.order.index.page-title') }}
 @endsection
 
 @section('page-detail-wrapper')
@@ -13,7 +13,7 @@
         </span>
 
         <span class="account-heading">
-            {{ __('shop::app.customer.account.order.index.title') }}
+            {{ __('velocity::app.customer.account.order.index.title') }}
         </span>
     </div>
 

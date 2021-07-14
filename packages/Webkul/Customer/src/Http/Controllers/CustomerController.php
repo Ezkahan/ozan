@@ -145,7 +145,7 @@ class CustomerController extends Controller
 
             if ($data['subscribed_to_news_letter']) {
                 $subscription = $this->subscriptionRepository->findOneWhere(['email' => $data['email']]);
-    
+
                 if ($subscription) {
                     $this->subscriptionRepository->update([
                         'customer_id'   => $customer->id,
@@ -159,7 +159,7 @@ class CustomerController extends Controller
                         'is_subscribed' => 1,
                         'token'         => $token = uniqid(),
                     ]);
-    
+
                     try {
                         Mail::queue(new SubscriptionEmail([
                             'email' => $data['email'],

@@ -161,7 +161,15 @@ return [
         'shipping-methods'   => 'Shipping Methods',
         'popular-categories' => 'Popular Categories',
     ],
-
+    'layouts' => [
+        'my-account' => 'My Account',
+        'profile' => 'Profile',
+        'address' => 'Address',
+        'reviews' => 'Reviews',
+        'wishlist' => 'Wishlist',
+        'orders' => 'Orders',
+        'downloadable-products' => 'Downloadable Products'
+    ],
     'header'        => [
         'cart'              => 'Cart',
         'guest'             => 'Guest',
@@ -236,6 +244,220 @@ return [
         'wishlist' => [
             'remove-all-success' => 'All the items from your wishlist have been removed',
         ],
+        'account' => [
+            'dashboard' => 'Edit Profile',
+            'menu' => 'Menu',
+
+            'general' => [
+                'no' => 'No',
+                'yes' => 'Yes',
+            ],
+
+            'profile' => [
+                'index' => [
+                    'page-title' => 'Profile',
+                    'title' => 'Profile',
+                    'edit' => 'Edit',
+                ],
+
+                'edit-success' => 'Profile updated successfully.',
+                'edit-fail' => 'Error! Profile cannot be updated, please try again later.',
+                'unmatch' => 'The old password does not match.',
+
+                'fname' => 'First Name',
+                'lname' => 'Last Name',
+                'gender' => 'Gender',
+                'other' => 'Other',
+                'male' => 'Male',
+                'female' => 'Female',
+                'dob' => 'Date Of Birth',
+                'phone' => 'Phone',
+                'email' => 'Email',
+                'opassword' => 'Old Password',
+                'password' => 'Password',
+                'cpassword' => 'Confirm Password',
+                'submit' => 'Update Profile',
+
+                'edit-profile' => [
+                    'title' => 'Edit Profile',
+                    'page-title' => 'Edit Profile'
+                ]
+            ],
+
+            'address' => [
+                'index' => [
+                    'page-title' => 'Address',
+                    'title' => 'Address',
+                    'add' => 'Add Address',
+                    'edit' => 'Edit',
+                    'empty' => 'You do not have any saved addresses here, please try to create it by clicking the add button.',
+                    'create' => 'Create Address',
+                    'delete' => 'Delete',
+                    'make-default' => 'Make Default',
+                    'default' => 'Default',
+                    'contact' => 'Contact',
+                    'confirm-delete' =>  'Do you really want to delete this address?',
+                    'default-delete' => 'Default address cannot be changed.',
+                    'enter-password' => 'Enter Your Password.',
+                ],
+
+                'create' => [
+                    'page-title' => 'Add Address',
+                    'company_name' => 'Company name',
+                    'first_name' => 'First name',
+                    'last_name' => 'Last name',
+                    'vat_id' => 'Vat id',
+                    'vat_help_note' => '[Note: Use Country Code with VAT Id. Eg. INV01234567891]',
+                    'title' => 'Add Address',
+                    'street-address' => 'Street Address',
+                    'country' => 'Country',
+                    'state' => 'State',
+                    'select-state' => 'Select a region, state or province',
+                    'city' => 'City',
+                    'postcode' => 'Postal Code',
+                    'phone' => 'Phone',
+                    'submit' => 'Save Address',
+                    'success' => 'Address have been successfully added.',
+                    'error' => 'Address cannot be added.'
+                ],
+
+                'edit' => [
+                    'page-title' => 'Edit Address',
+                    'company_name' => 'Company name',
+                    'first_name' => 'First name',
+                    'last_name' => 'Last name',
+                    'vat_id' => 'Vat id',
+                    'title' => 'Edit Address',
+                    'street-address' => 'Street Address',
+                    'submit' => 'Save Address',
+                    'success' => 'Address updated successfully.',
+                ],
+                'delete' => [
+                    'success' => 'Address successfully deleted',
+                    'failure' => 'Address cannot be deleted',
+                    'wrong-password' => 'Wrong Password !'
+                ]
+            ],
+
+            'order' => [
+                'index' => [
+                    'page-title' => 'Orders',
+                    'title' => 'Orders',
+                    'order_id' => 'Order ID',
+                    'date' => 'Date',
+                    'status' => 'Status',
+                    'total' => 'Total',
+                    'order_number' => 'Order Number',
+                    'processing' => 'Processing',
+                    'completed' => 'Completed',
+                    'canceled' => 'Canceled',
+                    'closed' => 'Closed',
+                    'pending' => 'Pending',
+                    'pending-payment' => 'Pending Payment',
+                    'fraud' => 'Fraud'
+                ],
+
+                'view' => [
+                    'page-tile' => 'Order #:order_id',
+                    'info' => 'Information',
+                    'placed-on' => 'Placed On',
+                    'products-ordered' => 'Products Ordered',
+                    'invoices' => 'Invoices',
+                    'shipments' => 'Shipments',
+                    'SKU' => 'SKU',
+                    'product-name' => 'Name',
+                    'qty' => 'Qty',
+                    'item-status' => 'Item Status',
+                    'item-ordered' => 'Ordered (:qty_ordered)',
+                    'item-invoice' => 'Invoiced (:qty_invoiced)',
+                    'item-shipped' => 'shipped (:qty_shipped)',
+                    'item-canceled' => 'Canceled (:qty_canceled)',
+                    'item-refunded' => 'Refunded (:qty_refunded)',
+                    'price' => 'Price',
+                    'total' => 'Total',
+                    'subtotal' => 'Subtotal',
+                    'shipping-handling' => 'Shipping & Handling',
+                    'tax' => 'Tax',
+                    'discount' => 'Discount',
+                    'tax-percent' => 'Tax Percent',
+                    'tax-amount' => 'Tax Amount',
+                    'discount-amount' => 'Discount Amount',
+                    'grand-total' => 'Grand Total',
+                    'total-paid' => 'Total Paid',
+                    'total-refunded' => 'Total Refunded',
+                    'total-due' => 'Total Due',
+                    'shipping-address' => 'Shipping Address',
+                    'billing-address' => 'Billing Address',
+                    'shipping-method' => 'Shipping Method',
+                    'payment-method' => 'Payment Method',
+                    'individual-invoice' => 'Invoice #:invoice_id',
+                    'individual-shipment' => 'Shipment #:shipment_id',
+                    'print' => 'Print',
+                    'invoice-id' => 'Invoice Id',
+                    'order-id' => 'Order Id',
+                    'order-date' => 'Order Date',
+                    'bill-to' => 'Bill to',
+                    'ship-to' => 'Ship to',
+                    'contact' => 'Contact',
+                    'refunds' => 'Refunds',
+                    'individual-refund' => 'Refund #:refund_id',
+                    'adjustment-refund' => 'Adjustment Refund',
+                    'adjustment-fee' => 'Adjustment Fee',
+                    'cancel-btn-title' => 'Cancel',
+                    'tracking-number' => 'Tracking Number',
+                    'cancel-confirm-msg' => 'Are you sure you want to cancel this order ?'
+                ]
+            ],
+
+            'wishlist' => [
+                'page-title' => 'Wishlist',
+                'title' => 'Wishlist',
+                'deleteall' => 'Delete All',
+                'moveall' => 'Move All Products To Cart',
+                'move-to-cart' => 'Move To Cart',
+                'error' => 'Cannot add product to wishlist due to unknown problems, please checkback later',
+                'add' => 'Item successfully added to wishlist',
+                'remove' => 'Item successfully removed from wishlist',
+                'add-wishlist-text'     => 'Add product to wishlist',
+                'remove-wishlist-text'  => 'Remove product from wishlist',
+                'moved' => 'Item successfully moved To cart',
+                'option-missing' => 'Product options are missing, so item can not be moved to the wishlist.',
+                'move-error' => 'Item cannot be moved to wishlist, Please try again later',
+                'success' => 'Item successfully added to wishlist',
+                'failure' => 'Item cannot be added to wishlist, Please try again later',
+                'already' => 'Item already present in your wishlist',
+                'removed' => 'Item successfully removed from wishlist',
+                'remove-fail' => 'Item cannot Be removed from wishlist, Please try again later',
+                'empty' => 'You do not have any items in your wishlist',
+                'remove-all-success' => 'All the items from your wishlist have been removed',
+            ],
+
+            'downloadable_products' => [
+                'title' => 'Downloadable Products',
+                'order-id' => 'Order Id',
+                'date' => 'Date',
+                'name' => 'Title',
+                'status' => 'Status',
+                'pending' => 'Pending',
+                'available' => 'Available',
+                'expired' => 'Expired',
+                'remaining-downloads' => 'Remaining Downloads',
+                'unlimited' => 'Unlimited',
+                'download-error' => 'Download link has been expired.',
+                'payment-error' => 'Payment has not been done for this download.'
+            ],
+
+            'review' => [
+                'index' => [
+                    'title' => 'Reviews',
+                    'page-title' => 'Reviews'
+                ],
+
+                'view' => [
+                    'page-tile' => 'Review #:id',
+                ]
+            ]
+        ]
     ],
 
     'error'         => [
