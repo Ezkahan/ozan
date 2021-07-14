@@ -26,5 +26,6 @@
             <div class="adert_slider">
                 <slider  :slides='@json($slides)' public_path="{{ url()->to('/storage/') }}" item_class="adert_slider_item" :time=3000 ></slider>
             </div>
+
     @endif
 @endif

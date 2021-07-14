@@ -46,7 +46,7 @@ export default {
                 slidesToShow: this.items ? this.items : 1,
                 dots: false,
                 speed: 1000,
-                autoplay: false,
+                autoplay: true,
                 arrows: true,
                 autoplaySpeed: this.time,
                 // nextArrow: ".next_s",
@@ -57,14 +57,14 @@ export default {
                     {
                         breakpoint: 992,
                         settings: {
-                            slidesToShow: this.items ? 5 : 1,
+                            slidesToShow: this.items ? this.items : 1,
                             slidesToScroll: 1,
                         }
                     },
                         {
                         breakpoint: 822,
                         settings: {
-                            slidesToShow: this.items ? 3 : 1,
+                            slidesToShow: this.items ? 4 : 1,
                             slidesToScroll: 1,
                         }
                     },

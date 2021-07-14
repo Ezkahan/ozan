@@ -2,7 +2,7 @@
     padding: 20px;
     position: relative;
 
-    > div:first-child {
+    >div:first-child {
         top: 40px;
         position: sticky;
         height: max-content;
@@ -28,7 +28,7 @@
     }
 
     .customer-reviews {
-        > div {
+        >div {
             &.row {
                 padding-bottom: 30px;
                 display: inline-block;
@@ -69,7 +69,7 @@
         position: relative;
         background-color: $light-background;
 
-        > div {
+        >div {
             width: 0px;
             height: 100%;
             background-color: $black-color;
@@ -86,7 +86,7 @@
 .review-form {
     width: 80%;
 
-    > div {
+    >div {
         padding-top: 30px;
 
         label {
@@ -115,7 +115,7 @@
     margin: 20px 0;
 
     .toolbar-wrapper {
-        > div {
+        >div {
             margin: 0 20px 0 0;
             display: inline-block;
 
@@ -130,13 +130,14 @@
                 color: $font-color;
                 background-color: white;
             }
+
             .down-icon-position {
                 pointer-events: none;
                 background-color: $white-color;
             }
         }
 
-        > div:not(:first-child) {
+        >div:not(:first-child) {
             vertical-align: super;
         }
 
@@ -194,10 +195,8 @@
     animation: fade-in-white 0.3s ease-in-out;
 
     @include border-radius(5px);
-    @include box-shadow(
-        0px 15px 25px 0px rgba(0, 0, 0, 0.03),
-        0px 20px 45px 5px rgba(0, 0, 0, 0.2)
-    );
+    @include box-shadow(0px 15px 25px 0px rgba(0, 0, 0, 0.03),
+        0px 20px 45px 5px rgba(0, 0, 0, 0.2));
 
     .modal-header {
         padding: 20px;
@@ -280,7 +279,7 @@
         padding: 0;
         margin-top: 15px;
 
-        > div:last-child {
+        >div:last-child {
             margin-top: 10px;
         }
 
@@ -298,6 +297,7 @@
     }
 
     .card-body {
+
         .compare-icon,
         .wishlist-icon {
             left: 0;
@@ -481,7 +481,7 @@
             }
 
             form {
-                > div {
+                >div {
                     padding-bottom: 20px;
 
                     input {
@@ -494,7 +494,7 @@
 }
 
 .container-right {
-    > .recently-viewed {
+    >.recently-viewed {
         padding-top: 20px;
     }
 }
@@ -503,7 +503,7 @@
     cursor: default;
 }
 
-.customer-options{
+.customer-options {
     top: 40px;
     float: right;
     height: 100%;
@@ -688,12 +688,12 @@
         }
 
         .cart-header {
-            max-height: 45px;
+            // max-height: 45px;
             margin-bottom: 20px;
             padding-bottom: 20px !important;
             border-bottom: 2px solid $border-general;
 
-            > h3 {
+            >h3 {
                 font-size: 16px;
                 font-weight: 600;
             }
@@ -714,11 +714,11 @@
         }
 
         .cart-item-list {
-            > .row {
+            >.row {
                 margin-bottom: 40px;
             }
 
-            > .row:last-child {
+            >.row:last-child {
                 padding-bottom: 20px;
                 border-bottom: 2px solid $border-general;
             }
@@ -749,7 +749,7 @@
                     color: #000;
                 }
 
-                > a {
+                >a {
                     line-height: 20px;
                 }
             }
@@ -887,7 +887,8 @@
         }
 
         .account-table-content {
-            > .row,
+
+            >.row,
             .control-group {
                 margin-bottom: 30px;
             }
@@ -920,7 +921,7 @@
             .address-holder {
                 margin-top: 30px;
 
-                > div {
+                >div {
                     margin: 5px 0;
                     padding-left: 0;
                 }
@@ -947,7 +948,7 @@
                 align-items: flex-end;
                 // justify-content: space-between;
 
-                > * {
+                >* {
                     display: inline-block;
                     vertical-align: top;
 
@@ -1032,7 +1033,7 @@
                     }
                 }
 
-                ~ table {
+                ~table {
                     &.table {
                         thead {
                             font-size: 18px;
@@ -1144,10 +1145,10 @@
                     margin-bottom: 15px;
                 }
 
-                .table > table {
-                    width:100%;
+                .table>table {
+                    width: 100%;
                     color: #5E5E5E;
-                    border: 1px solid rgba(0,0,0,.125);
+                    border: 1px solid rgba(0, 0, 0, .125);
                 }
 
                 .table td {
@@ -1192,8 +1193,8 @@
                         position: absolute;
                         margin-right: 20px;
                         border-radius: 0 0 4px 4px;
-                        text-shadow: 0 1px 2px rgba(0,0,0,.24);
-                        background-image: linear-gradient(-180deg,rgba(0,0,0,.08),rgba(0,0,0,.24));
+                        text-shadow: 0 1px 2px rgba(0, 0, 0, .24);
+                        background-image: linear-gradient(-180deg, rgba(0, 0, 0, .08), rgba(0, 0, 0, .24));
                     }
 
                     input {
@@ -1230,7 +1231,7 @@
         }
 
         .reviews-container {
-            > .row {
+            >.row {
                 margin-bottom: 40px;
             }
         }
@@ -1240,6 +1241,7 @@
                 margin: 0;
 
                 a:not([href]) {
+
                     &.next,
                     &.previous {
                         cursor: not-allowed;
@@ -1264,6 +1266,7 @@
 
                     &.next,
                     &.previous {
+
                         .angle-right-icon,
                         .angle-left-icon {
                             @extend .rango-default;
@@ -1326,7 +1329,7 @@
                     }
 
                     .section-content {
-                        label + span {
+                        label+span {
                             font-weight: 600;
                             color: $light-grey-clr;
                         }
@@ -1418,8 +1421,9 @@
     padding: 40px 20px;
 
     .col-lg-7 {
+
         .coupon-container,
-        > div:not(:first-child) {
+        >div:not(:first-child) {
             margin-top: 20px;
         }
     }
@@ -1457,7 +1461,7 @@
     .styled-select {
         cursor: pointer;
 
-        + .select-icon {
+        +.select-icon {
             top: 55%;
             left: 92%;
             font-size: 20px;
@@ -1494,7 +1498,7 @@
     .address-holder {
         margin-top: 15px;
 
-        > div {
+        >div {
             margin: 5px 0;
             padding-left: 0;
         }
@@ -1517,7 +1521,7 @@
                 display: table;
                 text-align: center;
 
-                > div {
+                >div {
                     display: table-cell;
                     vertical-align: middle;
 
@@ -1575,7 +1579,7 @@
 
     .shipping-methods,
     .payment-methods {
-        > .row {
+        >.row {
             margin-bottom: 20px;
         }
 
@@ -1613,11 +1617,11 @@
             margin-bottom: 20px !important;
         }
 
-        > .row:first-child {
+        >.row:first-child {
             margin-top: 50px;
         }
 
-        > .row {
+        >.row {
             margin-bottom: 20px;
         }
     }
@@ -1634,7 +1638,7 @@
     position: sticky !important;
     max-width: 500px !important;
 
-    > div {
+    >div {
         width: 100%;
     }
 
@@ -1642,12 +1646,12 @@
         padding: 25px 30px;
         border: 1px solid $border-general;
 
-        > h3 {
+        >h3 {
             margin-bottom: 20px;
             font-size: 24px;
         }
 
-        > .row:not(:last-child) {
+        >.row:not(:last-child) {
             margin-bottom: 10px;
         }
 
@@ -1772,9 +1776,10 @@
 }
 
 #app {
-    min-height: 65vh;
+    // min-height: 65vh;
     position: relative;
 }
+
 .main-container-wrapper {
     .sticky-header {
         top: 0px;
@@ -1848,8 +1853,8 @@
     }
 
     li:hover {
-        > a  {
-            > span {
+        >a {
+            >span {
                 color: $light-link-color;
             }
         }
@@ -1861,7 +1866,7 @@
         .category {
             padding: 5px 0 4px 15px;
 
-            + .nested {
+            +.nested {
                 color: $font-color;
 
                 li {
@@ -1888,7 +1893,7 @@
     padding: 0px !important;
     background: $white-color;
     position: absolute !important;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 
     .category {
         @extend .cursor-pointer;
@@ -1923,7 +1928,7 @@
         position: absolute;
         background: $light-color;
         border-left: 1px solid $border-common;
-        box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
         overflow-y: auto;
 
         li:nth-last-of-type(1) {
@@ -1991,7 +1996,7 @@
                             line-height: 38px;
                         }
 
-                        > * {
+                        >* {
                             height: 100%;
                         }
                     }
@@ -2190,7 +2195,7 @@
         height: 100%;
         border-radius: 50%;
         background-color: $light-color;
-        box-shadow: 0.5px 0.5px 2px 1px rgba(0,0,0,.32);
+        box-shadow: 0.5px 0.5px 2px 1px rgba(0, 0, 0, .32);
     }
 
     .vue-slider-dot-tooltip-inner {
@@ -2231,22 +2236,22 @@
 }
 
 .full-content-wrapper {
-    > .container-fluid {
+    >.container-fluid {
         padding: 0 !important;
         margin-bottom: 60px !important;
 
-        > .row {
+        >.row {
             padding: 0 15px !important;
         }
     }
 
     p,
     div {
-        > .container-fluid {
+        >.container-fluid {
             padding: 0 !important;
             margin-bottom: 60px !important;
 
-            > .row {
+            >.row {
                 padding: 0 15px !important;
             }
         }
@@ -2307,17 +2312,18 @@
     }
 }
 
-    .filter-attributes-item {
+.filter-attributes-item {
     margin-bottom: 10px;
     border-bottom: 1px solid #CCCCCC;
-        &.active {
-            .filter-attributes-content {
-                display: block;
-            }
+
+    &.active {
+        .filter-attributes-content {
+            display: block;
         }
+    }
 
     .filter-input {
-        margin:  10px 15px 13px -4px;
+        margin: 10px 15px 13px -4px;
 
         input[type=text] {
             text-align: center;
@@ -2328,15 +2334,15 @@
         }
     }
 
-        input[type=checkbox] + span{
-            margin-left: 10px !important;
-        }
+    input[type=checkbox]+span {
+        margin-left: 10px !important;
     }
+}
 
-    .filter-attributes-content {
-        display: none ;
-        margin-left: 7px;
-    }
+.filter-attributes-content {
+    display: none;
+    margin-left: 7px;
+}
 
 
 .layered-filter-wrapper {
@@ -2366,6 +2372,7 @@
     margin-left: 96px;
 
 }
+
 .down-icon-position {
     position: absolute;
 }
@@ -2384,7 +2391,7 @@
     z-index: 10;
     margin: 0 !important;
     padding: 0 !important;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.16), 0 1px 3px rgba(0,0,0,0.23);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.16), 0 1px 3px rgba(0, 0, 0, 0.23);
 }
 
 .new-products-recent {
@@ -2433,6 +2440,7 @@
 
         &.next,
         &.previous {
+
             .angle-right-icon,
             .angle-left-icon {
                 @extend .rango-default;
@@ -2474,16 +2482,18 @@
 
         background: unset;
     }
+
     .angle-right-icon::before {
         content: "\E908";
     }
+
     .angle-left-icon::before {
         content: "\E907";
     }
 }
 
 .carousel-products {
-    + .recently-viewed {
+    +.recently-viewed {
         top: -40px;
         position: relative;
     }
@@ -2517,6 +2527,8 @@
     margin-left: 0 !important;
     margin-right: 10px !important;
 
+
+
     .active {
         cursor: grabbing;
         cursor: -webkit-grabbing;
@@ -2524,10 +2536,39 @@
     }
 
     tr {
+
+        td {
+            max-width: 30%;
+            min-width: 30%;
+
+            &:last-child {
+                max-width: 50%;
+            }
+        }
+
         width: 100%;
+
+        &:nth-child(2) {
+            td {
+                a {
+                    width: 100%;
+                    height: 330px;
+
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: contain;
+                        -o-object-fit: contain;
+                    }
+                }
+            }
+        }
     }
 
     td {
+
+
+
         padding: 15px;
         min-width: 250px;
         max-width: 250px;
@@ -2680,7 +2721,7 @@
     margin-bottom: 20px;
     display: inline-block;
     border: 1px solid #0041ff;
-    background-color: rgba(0,65,255,.1);
+    background-color: rgba(0, 65, 255, .1);
 
     .searched-image {
         float: left;
@@ -2688,7 +2729,7 @@
         img {
             width: 150px;
             height: auto;
-            box-shadow: 1px 1px 3px 0 rgba(0,0,0,.32);
+            box-shadow: 1px 1px 3px 0 rgba(0, 0, 0, .32);
         }
     }
 
@@ -2706,6 +2747,11 @@
 }
 
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
