@@ -1,17 +1,33 @@
 <?php
 
 return [
-    'flatrate' => [
-        'code'             => 'flatrate',
-        'title'            => 'Flat Rate',
-        'description'      => 'Flat Rate Shipping',
+    'irden' => [
+        'code'             => 'irden',
+        'title'            => 'Irden 09:00 - 12:00',
+        'description'      => 'Irden eltip berme 09:00 - 12:00. 100 manatdan yokary sowdada eltip berme mugt',
         'active'           => true,
         'is_calculate_tax' => false,
-        'default_rate'     => '10',
-        'type'             => 'per_unit',
-        'class'            => 'Webkul\Shipping\Carriers\FlatRate',
+        'default_rate'     => '20',
+        'class'            => 'Webkul\Shipping\Carriers\Irden',
     ],
-
+    'obetda' => [
+        'code'             => 'obetda',
+        'title'            => 'Öýlän 12:00 - 16:00',
+        'description'      => 'Öýlän eltip berme 12:00 - 16:00 100 manatdan yokary sowdada eltip berme mugt',
+        'active'           => true,
+        'is_calculate_tax' => false,
+        'default_rate'     => '20',
+        'class'            => 'Webkul\Shipping\Carriers\Obetda',
+    ],
+    'agsam' => [
+        'code'             => 'agsam',
+        'title'            => 'Agşam 16:00 - 20:00',
+        'description'      => 'Agşam eltip berme 16:00 - 20:00 100 manatdan yokary sowdada eltip berme mugt',
+        'active'           => true,
+        'is_calculate_tax' => false,
+        'default_rate'     => '20',
+        'class'            => 'Webkul\Shipping\Carriers\Agsham',
+    ],
     'free'     => [
         'code'             => 'free',
         'title'            => 'Free Shipping',
