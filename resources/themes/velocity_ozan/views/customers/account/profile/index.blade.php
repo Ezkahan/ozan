@@ -1,7 +1,7 @@
 @extends('shop::customers.account.index')
 
 @section('page_title')
-    {{ __('shop::app.customer.account.profile.index.title') }}
+    {{ __('velocity::app.customer.account.profile.index.title') }}
 @endsection
 
 @push('css')
@@ -21,12 +21,12 @@
             </a>
         </span>
         <span class="account-heading">
-            {{ __('shop::app.customer.account.profile.index.title') }}
+            {{ __('velocity::app.customer.account.profile.index.title') }}
         </span>
 
         <span class="account-action">
             <a href="{{ route('customer.profile.edit') }}" class="theme-btn light unset float-right">
-                {{ __('shop::app.customer.account.profile.index.edit') }}
+                {{ __('velocity::app.customer.account.profile.index.edit') }}
             </a>
         </span>
     </div>
@@ -42,35 +42,35 @@
                     !!}
 
                     <tr>
-                        <td>{{ __('shop::app.customer.account.profile.fname') }}</td>
+                        <td>{{ __('velocity::app.customer.account.profile.fname') }}</td>
                         <td>{{ $customer->first_name }}</td>
                     </tr>
 
                     {!! view_render_event('bagisto.shop.customers.account.profile.view.table.first_name.after', ['customer' => $customer]) !!}
 
                     <tr>
-                        <td>{{ __('shop::app.customer.account.profile.lname') }}</td>
+                        <td>{{ __('velocity::app.customer.account.profile.lname') }}</td>
                         <td>{{ $customer->last_name }}</td>
                     </tr>
 
                     {!! view_render_event('bagisto.shop.customers.account.profile.view.table.last_name.after', ['customer' => $customer]) !!}
 
                     <tr>
-                        <td>{{ __('shop::app.customer.account.profile.gender') }}</td>
+                        <td>{{ __('velocity::app.customer.account.profile.gender') }}</td>
                         <td>{{ $customer->gender ?? '-' }}</td>
                     </tr>
 
                     {!! view_render_event('bagisto.shop.customers.account.profile.view.table.gender.after', ['customer' => $customer]) !!}
 
                     <tr>
-                        <td>{{ __('shop::app.customer.account.profile.dob') }}</td>
+                        <td>{{ __('velocity::app.customer.account.profile.dob') }}</td>
                         <td>{{ $customer->date_of_birth ?? '-' }}</td>
                     </tr>
 
                     {!! view_render_event('bagisto.shop.customers.account.profile.view.table.date_of_birth.after', ['customer' => $customer]) !!}
 
                     <tr>
-                        <td>{{ __('shop::app.customer.account.profile.email') }}</td>
+                        <td>{{ __('velocity::app.customer.account.profile.email') }}</td>
                         <td>{{ $customer->email }}</td>
                     </tr>
 
@@ -84,14 +84,14 @@
         <button
             type="submit"
             class="theme-btn mb20" @click="showModal('deleteProfile')" >
-            {{ __('shop::app.customer.account.address.index.delete') }}
+            {{ __('velocity::app.customer.account.address.index.delete') }}
         </button>
 
         <form method="POST" action="{{ route('customer.profile.destroy') }}" @submit.prevent="onSubmit">
             @csrf
 
             <modal id="deleteProfile" :is-open="modalIds.deleteProfile">
-                <h3 slot="header">{{ __('shop::app.customer.account.address.index.enter-password') }}
+                <h3 slot="header">{{ __('velocity::app.customer.account.address.index.enter-password') }}
                 </h3>
                 <i class="rango-close"></i>
 
@@ -104,7 +104,7 @@
 
                     <div class="page-action">
                         <button type="submit"  class="theme-btn mb20">
-                        {{ __('shop::app.customer.account.address.index.delete') }}
+                        {{ __('velocity::app.customer.account.address.index.delete') }}
                         </button>
                     </div>
                 </div>

@@ -46,13 +46,13 @@
                             </label>
 
                             <input
-                                type="email"
-                                name="email"
+                                type="tel"
+                                name="phone"
                                 class="form-style"
-                                v-validate="'required|email'" />
+                                v-validate="'required|phone'" />
 
-                            <span class="control-error" v-if="errors.has('email')">
-                                @{{ errors.first('email') }}
+                            <span class="control-error" v-if="errors.has('phone')">
+                                @{{ errors.first('phone') }}
                             </span>
                         </div>
 

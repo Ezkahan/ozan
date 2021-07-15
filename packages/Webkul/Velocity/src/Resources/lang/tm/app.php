@@ -161,7 +161,15 @@ return [
         'shipping-methods'   => 'Eltip bermegiň görnüşleri',
         'popular-categories' => 'Ýörgünli bölümler',
     ],
-
+    'layouts' => [
+        'my-account' => 'Meniň hasabym',
+        'profile' => 'Profil',
+        'address' => 'Salgylar',
+        'reviews' => 'Synlar',
+        'wishlist' => 'Halanylanlar',
+        'orders' => 'Sargytlar',
+        'downloadable-products' => 'Göçürip bolýan önümler'
+    ],
     'header'        => [
         'cart'              => 'Sebet',
         'guest'             => 'Myhman',
@@ -226,6 +234,7 @@ return [
             'become-user'       => 'Agza bol',
             'user-registration' => 'Agzalyk formasy',
             'form-sginup-text'  => 'Bu biziň bazarymyzda ilkinji gezek bolsa, sizi alyjy hökmünde görýänimize begenýäris.',
+            'phone' => 'Telefon'
         ],
         'forget-password'   => [
             'login'                 => '',
@@ -236,6 +245,220 @@ return [
         'wishlist' => [
             'remove-all-success' => 'Halanylanlardan ähli harytlar aýryldy',
         ],
+        'account' => [
+            'dashboard' => 'Profili redaktirläň',
+            'menu' => 'Menýu',
+
+            'general' => [
+                'no' => 'Ýok',
+                'yes' => 'Hawa',
+            ],
+
+            'profile' => [
+                'index' => [
+                    'page-title' => 'Profil',
+                    'title' => 'Profil',
+                    'edit' => 'Redakttirlemek',
+                ],
+
+                'edit-success' => 'Profil üstünlikli täzelendi.',
+                'edit-fail' => 'Profil täzelenip bilinmez, soňrak synanyşyň.',
+                'unmatch' => 'Köne açar sözi gabat gelmedi',
+
+                'fname' => 'ady',
+                'lname' => 'Familýasy',
+                'gender' => 'Jynsy',
+                'other' => 'basga',
+                'male' => 'erkek',
+                'female' => 'zenan',
+                'dob' => 'doglan senesi',
+                'phone' => 'Telefon belgisi',
+                'email' => 'Email',
+                'opassword' => 'Köne açar sözi',
+                'password' => 'açar sözi',
+                'cpassword' => 'açar sözini tassyklaň',
+                'submit' => 'Profili täzelemek',
+
+                'edit-profile' => [
+                    'title' => 'Profili Redaktirlemek',
+                    'page-title' => 'Edit Profile'
+                ]
+            ],
+
+            'address' => [
+                'index' => [
+                    'page-title' => 'salgy',
+                    'title' => 'salgysy',
+                    'add' => 'salgyny goşmak',
+                    'edit' => 'Redaktirlemek',
+                    'empty' => 'siňiz ýatda saklanan salgyňyz ýok, haýş edýaris, goş düwmesine basyp täze birini dörediň',
+                    'create' => 'salgyt döretmek',
+                    'delete' => 'Aýyrmak',
+                    'make-default' => 'hemişelik ulanylýan etmek',
+                    'default' => 'hemişelik',
+                    'contact' => 'Kontakt',
+                    'confirm-delete' =>  'Siz dogrydanam bu salgyny aýyrmak isleýarsiňizmi?',
+                    'default-delete' => 'Hemişelik adressi çalşyp bolmaýar',
+                    'enter-password' => 'Açar sözini giriziň',
+                ],
+
+                'create' => [
+                    'page-title' => 'salgy goşmak',
+                    'company_name' => 'Kompaniýanyň ady',
+                    'first_name' => 'ady',
+                    'last_name' => 'Familýasy',
+                    'vat_id' => 'salgyt töleg belgisi',
+                    'vat_help_note' => '[Bellik: Salgyt töleg belgisini ýurduň kody bilen ulanyň. Mes. INV01234567891]',
+                    'title' => 'Salgy goşmak',
+                    'street-address' => 'köçäniň salgysy',
+                    'country' => 'Döwlet',
+                    'state' => 'Ýurt',
+                    'select-state' => 'welaýaty ýa-da etraby saýlaň',
+                    'city' => 'Şäher',
+                    'postcode' => 'zip belgisi',
+                    'phone' => 'telefon belgisi',
+                    'submit' => 'salgyny ýatda saklamak',
+                    'success' => 'salgy üstünlikli ýatda goşuldy.',
+                    'error' => 'Salgy goşulyp bilmedi'
+                ],
+
+                'edit' => [
+                    'page-title' => 'salgyny Redaktirlemek',
+                    'company_name' => 'Kompaniýanyň ady',
+                    'first_name' => 'Ady',
+                    'last_name' => 'Familýasy',
+                    'vat_id' => 'salgyt töleg belgisi',
+                    'title' => 'salgyny Redaktirlemek',
+                    'street-address' => 'köçäniň salgysy',
+                    'submit' => 'salgyny ýatda saklamak',
+                    'success' => 'salgy üstünlikli ýatda saklandy',
+                ],
+                'delete' => [
+                    'success' => 'salgy üstünlikli aýryldy',
+                    'failure' => 'salgyny aýyryp bolmaýar!',
+                    'wrong-password' => 'nädogry açar sözi !'
+                ]
+            ],
+
+            'order' => [
+                'index' => [
+                    'page-title' => 'sargytlar',
+                    'title' => 'Sargytlar',
+                    'order_id' => 'sargyt ID-i',
+                    'date' => 'senesi',
+                    'status' => 'Status',
+                    'total' => 'jemi',
+                    'order_number' => 'sargyt belgisi',
+                    'processing' => 'Amala aşyrylýar',
+                    'completed' => 'Tamamlandy',
+                    'canceled' => 'boýun gaçyryldy',
+                    'closed' => 'ýapyldy',
+                    'pending' => 'garaşylýar',
+                    'pending-payment' => 'tölege garaşylýar',
+                    'fraud' => 'Kezzapçylyk'
+                ],
+
+                'view' => [
+                    'page-tile' => 'sargyt #:order_id',
+                    'info' => 'maglumat',
+                    'placed-on' => 'ýerleşdirilen',
+                    'products-ordered' => 'Sargalan harytlar',
+                    'invoices' => 'Hasap-faktura',
+                    'shipments' => 'Iberişler',
+                    'SKU' => 'SKU',
+                    'product-name' => 'Ady',
+                    'qty' => 'Qty',
+                    'item-status' => 'harydyň Statusy',
+                    'item-ordered' => 'Sargalan (:qty_ordered)',
+                    'item-invoice' => 'Hasap-fakturalysy (:qty_invoiced)',
+                    'item-shipped' => 'Iberilen (:qty_shipped)',
+                    'item-canceled' => 'Boýun gaçyrylan (:qty_canceled)',
+                    'item-refunded' => 'Yzyna gaýtarylan (:qty_refunded)',
+                    'price' => 'baha',
+                    'total' => 'Total',
+                    'subtotal' => 'jemi',
+                    'shipping-handling' => 'Ibermek we gowşurmak',
+                    'tax' => 'Salgyt',
+                    'discount' => 'Arzanladyşlyk',
+                    'tax-percent' => 'Salgyt göterimi',
+                    'tax-amount' => 'Salgyt möçberi',
+                    'discount-amount' => 'Arzanlaşdyşlyklaryň möçberi',
+                    'grand-total' => 'Jemi',
+                    'total-paid' => 'jemi tölenen',
+                    'total-refunded' => 'Jemi yzyna gaýtarylan',
+                    'total-due' => 'Jemi berilmeli',
+                    'shipping-address' => 'iberiş salgysy',
+                    'billing-address' => 'Hasaplaşyk salgysy',
+                    'shipping-method' => 'Eltip bermek usuly',
+                    'payment-method' => 'töleg usuly',
+                    'individual-invoice' => 'Hasap-faktura: #:invoice_id',
+                    'individual-shipment' => 'Iberiş #:shipment_id',
+                    'print' => 'print etmek',
+                    'invoice-id' => 'Hasap-faktura ID-i',
+                    'order-id' => 'sargyt ID-i',
+                    'order-date' => 'sargyt edilen senesi',
+                    'bill-to' => 'Hasaplaşyk',
+                    'ship-to' => 'iberiş',
+                    'contact' => 'Kontakt',
+                    'refunds' => 'yzyna gaýtarylanlar',
+                    'individual-refund' => 'Yzyna-gaýtarylan #:refund_id',
+                    'adjustment-refund' => 'Düzedişiň yzyna gaýtarylmagy',
+                    'adjustment-fee' => 'Düzedişiň tölegi',
+                    'cancel-btn-title' => 'goýbolsun etmek',
+                    'tracking-number' => 'yzarlaýyş belgisi',
+                    'cancel-confirm-msg' => 'dogrydanam siz bu sargydy goýbolsu etmekçimi?'
+                ]
+            ],
+
+            'wishlist' => [
+                'page-title' => 'islenegler sanawy',
+                'title' => 'Islegler sanawy',
+                'deleteall' => 'ählisini aýyrmak',
+                'moveall' => 'ähli harytlary sebede geçirmek',
+                'move-to-cart' => 'sebede geçirmek',
+                'error' => 'Näbelli meseleler sebäpli isleg sanawyna önüm goşup bolmaýar, soňrak barlaň',
+                'add' => 'Isleg sanawyna haryt üstünlikli goşuldy',
+                'remove' => 'Haryt isleg sanawyndan üstünlikli aýryldy',
+                'add-wishlist-text'     => 'Isleg sanawyna önüm goşuň',
+                'remove-wishlist-text'  => 'Harytlary isleg sanawyndan aýyryň',
+                'moved' => 'Haryt üstünlikli sebede geçirildi',
+                'option-missing' => 'haryt görnüşleri ýok, şonuň üçin haryt isleg sanawyna geçirilip bilinmez.',
+                'move-error' => 'Haryt isleg sanawyna geçirilip bilinmez, soňrak synanyşyň',
+                'success' => 'Isleg sanawyna haryt üstünlikli goşuldy',
+                'failure' => 'Isleg sanawyna haryt goşup bolmaýar, soňrak synanyşyň',
+                'already' => ' bu haryt Isleg sanawyňyzda eýýäm bar',
+                'removed' => 'Haryt isleg sanawyndan üstünlikli aýryldy',
+                'remove-fail' => 'Haryt isleg sanawyndan aýrylyp bilinmez, Soňrak synanyşyň',
+                'empty' => 'isleg sanawyňyzda haryt ýok',
+                'remove-all-success' => 'Isleg sanawyňyzdaky ähli harytlar aýryldy',
+            ],
+
+            'downloadable_products' => [
+                'title' => 'Göçürip alyp bolýan önümler',
+                'order-id' => 'sargyt ID-i',
+                'date' => 'senesi',
+                'name' => 'Ady',
+                'status' => 'Statusy',
+                'pending' => 'garaşylýar',
+                'available' => 'elýeterli',
+                'expired' => 'wagty geçen',
+                'remaining-downloads' => 'Galan ýüklemeler',
+                'unlimited' => 'Çäklendirilmedik',
+                'download-error' => 'Göçürip almagyň möhleti gutardy.',
+                'payment-error' => 'Bu ýükleme üçin töleg edilmedi.'
+            ],
+
+            'review' => [
+                'index' => [
+                    'title' => 'Synlar',
+                    'page-title' => 'Synlar'
+                ],
+
+                'view' => [
+                    'page-tile' => 'Syn #:id',
+                ]
+            ]
+        ]
     ],
 
     'error'         => [

@@ -1,13 +1,13 @@
 @extends('shop::customers.account.index')
 
 @section('page_title')
-    {{ __('shop::app.customer.account.profile.index.title') }}
+    {{ __('velocity::app.customer.account.profile.index.title') }}
 @endsection
 
 @section('page-detail-wrapper')
     <div class="account-head mb-15">
         <span class="back-icon"><a href="{{ route('customer.account.index') }}"><i class="icon icon-menu-back"></i></a></span>
-        <span class="account-heading">{{ __('shop::app.customer.account.profile.index.title') }}</span>
+        <span class="account-heading">{{ __('velocity::app.customer.account.profile.index.title') }}</span>
         <span></span>
     </div>
 
@@ -25,7 +25,7 @@
 
             <div :class="`row ${errors.has('first_name') ? 'has-error' : ''}`">
                 <label class="col-12 mandatory">
-                    {{ __('shop::app.customer.account.profile.fname') }}
+                    {{ __('velocity::app.customer.account.profile.fname') }}
                 </label>
 
                 <div class="col-12">
@@ -38,7 +38,7 @@
 
             <div class="row">
                 <label class="col-12">
-                    {{ __('shop::app.customer.account.profile.lname') }}
+                    {{ __('velocity::app.customer.account.profile.lname') }}
                 </label>
 
                 <div class="col-12">
@@ -50,7 +50,7 @@
 
             <div :class="`row ${errors.has('gender') ? 'has-error' : ''}`">
                 <label class="col-12 mandatory">
-                    {{ __('shop::app.customer.account.profile.gender') }}
+                    {{ __('velocity::app.customer.account.profile.gender') }}
                 </label>
 
                 <div class="col-12">
@@ -58,7 +58,7 @@
                         name="gender"
                         v-validate="'required'"
                         class="control styled-select"
-                        data-vv-as="&quot;{{ __('shop::app.customer.account.profile.gender') }}&quot;">
+                        data-vv-as="&quot;{{ __('velocity::app.customer.account.profile.gender') }}&quot;">
 
                         <option value=""  @if ($customer->gender == "") selected @endif></option>
                         <option
@@ -98,7 +98,7 @@
 
             <div :class="`row ${errors.has('date_of_birth') ? 'has-error' : ''}`">
                 <label class="col-12">
-                    {{ __('shop::app.customer.account.profile.dob') }}
+                    {{ __('velocity::app.customer.account.profile.dob') }}
                 </label>
 
                 <div class="col-12">
@@ -107,7 +107,7 @@
                         name="date_of_birth"
                         placeholder="dd/mm/yyyy"
                         value="{{ old('date_of_birth') ?? $customer->date_of_birth }}"
-                        v-validate="" data-vv-as="&quot;{{ __('shop::app.customer.account.profile.dob') }}&quot;" />
+                        v-validate="" data-vv-as="&quot;{{ __('velocity::app.customer.account.profile.dob') }}&quot;" />
 
                         <span class="control-error" v-if="errors.has('date_of_birth')">
                             @{{ errors.first('date_of_birth') }}
@@ -119,7 +119,7 @@
 
             <div class="row">
                 <label class="col-12 mandatory">
-                    {{ __('shop::app.customer.account.profile.email') }}
+                    {{ __('velocity::app.customer.account.profile.email') }}
                 </label>
 
                 <div class="col-12">
@@ -132,7 +132,7 @@
 
             <div class="row">
                 <label class="col-12">
-                    {{ __('shop::app.customer.account.profile.phone') }}
+                    {{ __('velocity::app.customer.account.profile.phone') }}
                 </label>
 
                 <div class="col-12">

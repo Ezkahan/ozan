@@ -13,7 +13,7 @@
             <div class="header__column">
                 <searchbar-component></searchbar-component>
 
-                <a href="#" class="cart">
+                <a href="{{ route('shop.checkout.cart.index') }}" class="cart">
                     <img src="{{asset('themes/velocity_ozan/assets/images/svg/Cart.svg')}}" alt="cart">
                 </a>
 

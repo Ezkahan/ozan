@@ -160,7 +160,7 @@
                                 {{ core()->getConfigData('sales.paymentmethods.' . $cart->payment->method . '.title') }}
                             </h4>
 
-                            <span>{{ __('shop::app.customer.account.order.view.payment-method') }}</span>
+                            <span>{{ __('velocity::app.customer.account.order.view.payment-method') }}</span>
                         </div>
                     </div>
 

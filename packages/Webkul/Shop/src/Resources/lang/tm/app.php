@@ -241,16 +241,16 @@ return [
 
     'customer' => [
         'compare'           => [
-            'text'                  => 'deňeşdirmek',
-            'compare_similar_items' => 'meňzeş harytlary deňeşdirmek',
-            'add-tooltip'           => 'deňeşdirme sanawyna harytlary goşuň',
-            'added'                 => 'HAryt deňeşdirme sanawyna üstünlikli goşuldy',
-            'already_added'         => 'HAryt eýýäm deňeşdirme sanawyna  goşulan',
-            'removed'               => 'HAryt deňeşdirme sanawyna üstünlikli goşuldy',
-            'removed-all'           => ' ähli HArytlar deňeşdirme sanawyndan üstünlikli aýryldy',
-            'empty-text'            => "deňeşdirme sanawynda haryt ýok!",
-            'product_image'         => 'harydyň suraty',
-            'actions'               => 'HEreketler',
+            'text'                  => 'Deňeşdirme',
+            'compare_similar_items' => 'Harytlary deňeşdirme',
+            'add-tooltip'           => 'Deňeşdirmä haryt goşmak',
+            'added'                 => 'Haryt deňeşdirmä goşuldy',
+            'already_added'         => 'Haryt eýýäm deňeşdirmede bar',
+            'removed'               => 'Haryt deňeşdirmeden aýryldy',
+            'removed-all'           => 'Ähli harytlar deňeşdirmeden aýryldy',
+            'empty-text'            => "Deňeşdirmede haryt ýok.",
+            'product_image'         => 'Haryt suraty',
+            'actions'               => 'Hereketler',
         ],
 
         'signup-text' => [

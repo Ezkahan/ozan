@@ -80,19 +80,22 @@
 
                         {!! view_render_event('bagisto.shop.customers.signup_form_controls.lastname.after') !!}
 
-                        <div class="control-group" :class="[errors.has('phone') ? 'has-error' : '']">
+                        <div class="input-group" :class="[errors.has('phone') ? 'has-error' : '']">
 
-                            <label for="email" class="required label-style">
+                            <label for="phone" class="required label-style">
                                 {{ __('shop::app.registerlogin.phoneNumber') }}
                             </label>
-
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1">+993</span>
+                            </div>
                             <input
-                                type="phone"
-                                class="form-style"
+                                type="tel"
+
+                                class="form-control form-style"
                                 name="phone"
-                                v-validate="'required|numeric'"
+                                v-validate="'required|numeric|digits:8'"
                                 value="{{ old('phone') }}"
-                                data-vv-as="&quot;{{ __('shop::app.customer.signup-form.phone') }}&quot;" />
+                                data-vv-as="&quot;{{ __('velocity::app.customer.signup-form.phone') }}&quot;" />
 
                             <span class="control-error" v-if="errors.has('phone')">
                                 @{{ errors.first('phone') }}

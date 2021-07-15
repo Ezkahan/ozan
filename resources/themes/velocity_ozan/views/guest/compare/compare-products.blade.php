@@ -15,13 +15,12 @@
                     {{ __('velocity::app.customer.compare.compare_similar_items') }}
                 </h2>
 
-                <div class="col" v-if="products.length > 0">
-                    <button
-                        class="theme-btn light float-right"
-                        @click="removeProductCompare('all')">
-                        {{ __('shop::app.customer.account.wishlist.deleteall') }}
-                    </button>
-                </div>
+            <div class="col-6" v-if="products.length > 0">
+                <button
+                    class="theme-btn light float-right"
+                    @click="removeProductCompare('all')">
+                    {{ __('velocity::app.customer.account.wishlist.deleteall') }}
+                </button>
             </div>
 
             {!! view_render_event('bagisto.shop.customers.account.compare.view.before') !!}

@@ -11,19 +11,14 @@ use Webkul\Checkout\Facades\Cart;
  * Class Rate.
  *
  */
-class FlatRate extends AbstractShipping
+class Obetda extends AbstractShipping
 {
     /**
      * Payment method code
      *
      * @var string
      */
-    protected $code;
-
-    public function __construct()
-    {
-        $this->code = $this->getConfigData('code');
-    }
+    protected $code = 'obetda';
 
     /**
      * Returns rate for flatrate
@@ -40,26 +35,17 @@ class FlatRate extends AbstractShipping
 
         $object = new CartShippingRate;
 
-        $object->carrier = $this->getConfigData('code');
+        $object->carrier = 'obetda';
         $object->carrier_title = $this->getConfigData('title');
-        $object->method = $this->getConfigData('code').'_'.$this->getConfigData('code');
+        $object->method = 'obetda_obetda';
         $object->method_title = $this->getConfigData('title');
         $object->method_description = $this->getConfigData('description');
         $object->is_calculate_tax = $this->getConfigData('is_calculate_tax');
         $object->price = 0;
         $object->base_price = 0;
 
-        if ($this->getConfigData('type') == 'per_unit') {
-            foreach ($cart->items as $item) {
-                if ($item->product->getTypeInstance()->isStockable()) {
-                    $object->price += core()->convertPrice($this->getConfigData('default_rate')) * $item->quantity;
-                    $object->base_price += $this->getConfigData('default_rate') * $item->quantity;
-                }
-            }
-        } else {
             $object->price = core()->convertPrice($this->getConfigData('default_rate'));
             $object->base_price = $this->getConfigData('default_rate');
-        }
 
         return $object;
     }

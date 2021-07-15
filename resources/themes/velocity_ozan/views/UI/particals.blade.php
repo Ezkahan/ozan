@@ -120,52 +120,7 @@
                         </form>
                     </div>
                 </div>
-{{--                <form class="search">--}}
-{{--                    <div class="search__input">--}}
-{{--                        <input type="text" placeholder="Поиск">--}}
-{{--                    </div>--}}
-{{--                    <button type="submit" class="search__btn">Найти</button>--}}
-{{--                </form>--}}
-{{--                <div class="header__column-row">--}}
-{{--                    <a href="#" class="dropdown__btn" id="modalBtn">--}}
-{{--                        <i class="icon-user"></i>--}}
-{{--                        <span>Профиль</span>--}}
-{{--                    </a>--}}
-{{--                    <!-- if you loged in it must be like this -->--}}
-{{--                    <!-- <div class="dropdown" onclick="showProfile()">--}}
-{{--                        <button class="dropdown__btn" id="dropbtn">--}}
-{{--                            <i class="icon-user"></i>--}}
-{{--                            <span>Профиль</span>--}}
-{{--                        </button>--}}
-{{--                        <div id="myDropdown" class="dropdown__content">--}}
-{{--                            <a href="#" class="dropdown__content-link">--}}
-{{--                                <i class="icon-coins"></i>--}}
-{{--                                12.00 TMT--}}
-{{--                            </a>--}}
-{{--                            <a href="#" class="dropdown__content-link">--}}
-{{--                                <i class="icon-user"></i>--}}
-{{--                                Личный кабинет--}}
-{{--                            </a>--}}
-{{--                            <a href="#" class="dropdown__content-link">--}}
-{{--                                <i class="icon-checklist"></i>--}}
-{{--                                Мои заказы--}}
-{{--                            </a>--}}
-{{--                            <a href="#" class="dropdown__content-link">--}}
-{{--                                <i class="icon-logout"></i>--}}
-{{--                                Выйти--}}
-{{--                            </a>--}}
-{{--                        </div>--}}
-{{--                    </div> -->--}}
-{{--                    <!-- if you loged in it must be like this -->--}}
-{{--                    <a href="#" class="dropdown__btn">--}}
-{{--                        <i class="icon-star"></i>--}}
-{{--                        <span>Избранное</span>--}}
-{{--                    </a>--}}
-{{--                    <a href="#" class="dropdown__btn">--}}
-{{--                        <i class="icon-Inactive"></i>--}}
-{{--                        <span>Избранное</span>--}}
-{{--                    </a>--}}
-{{--                </div>--}}
+
                 <div class="my-col">
                     <div class="left-wrapper">
                         @php
