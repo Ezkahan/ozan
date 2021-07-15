@@ -403,6 +403,10 @@
                 align-items: center;
                 overflow-x: auto;
 
+                .category_icon {
+                    margin-right: 10px;
+                }
+
                 &-link {
                     width: 100%;
                     white-space: nowrap;
