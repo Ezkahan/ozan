@@ -197,10 +197,10 @@ return [
 
     'checkout'      => [
         'qty'       => 'Mukdary',
-        'checkout'  => 'Sargyt',
+        'checkout'  => 'Sargydy hasaba alyş',
         'cart'      => [
             'view-cart'     => 'Sebede geç',
-            'cart-summary'  => 'Kwitansiýa',
+            'cart-summary'  => 'Sargyt',
         ],
         'items'     => 'Harytlar',
         'subtotal'  => 'Harytlaryň tölegi',

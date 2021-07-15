@@ -10,11 +10,11 @@
             <div class="mini-cart-container">
                 <div class="row small-card-container" :key="index" v-for="(item, index) in cartItems">
                     <div class="col-3 product-image-container mr15">
-                        <a @click="removeProduct(item.id)">
+                        <a @click="removeProduct(item.id)" class="remove_item">
                             <span class="rango-close"></span>
                         </a>
 
-                        <a class="unset" :href="`${$root.baseUrl}/${item.url_key}`">
+                        <a class="unset cart_item" :href="`${$root.baseUrl}/${item.url_key}`">
                             <div
                                 class="product-image"
                                 :style="`background-image: url(${item.images.medium_image_url});`">

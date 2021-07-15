@@ -192,6 +192,10 @@ if (tab_link != undefined) {
 //   })
 // }
 
+function showCat() {
+    document.getElementById("cat_sidebar").classList.toggle("active");
+}
+
 
 let modal = document.getElementById("modal");
 let modalBtn = document.getElementById("modalBtn");
