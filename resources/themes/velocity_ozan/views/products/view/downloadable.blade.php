@@ -5,7 +5,7 @@
 
         @if ($product->downloadable_samples->count())
             <div class="sample-list">
-                <h3>{{ __('shop::app.products.samples') }}</h3>
+                <h3>{{ __('velocity::app.products.samples') }}</h3>
 
                 <ul type="none">
                     @foreach ($product->downloadable_samples as $sample)
@@ -21,7 +21,7 @@
 
         @if ($product->downloadable_links->count())
             <div class=" link-list control-group" :class="[errors.has('links[]') ? 'has-error' : '']">
-                <h3>{{ __('shop::app.products.links') }}</h3>
+                <h3>{{ __('velocity::app.products.links') }}</h3>
 
                 <ul type="none" class="mt15">
                     @foreach ($product->downloadable_links as $link)
@@ -33,7 +33,7 @@
                                     id="{{ $link->id }}"
                                     v-validate="'required'"
                                     value="{{ $link->id }}"
-                                    data-vv-as="&quot;{{ __('shop::app.products.links') }}&quot;" />
+                                    data-vv-as="&quot;{{ __('velocity::app.products.links') }}&quot;" />
 
                                 <span>{{ $link->title . ' + ' . core()->currency($link->price) }}</span>
 
@@ -46,7 +46,7 @@
                                             'id' => $link->id
                                         ]) }}">
 
-                                        {{ __('shop::app.products.sample') }}
+                                        {{ __('velocity::app.products.sample') }}
                                     </a>
                             </div>
 

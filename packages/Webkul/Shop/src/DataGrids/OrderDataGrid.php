@@ -24,7 +24,7 @@ class OrderDataGrid extends DataGrid
     {
         $this->addColumn([
             'index'      => 'increment_id',
-            'label'      => trans('shop::app.customer.account.order.index.order_id'),
+            'label'      => trans('velocity::app.customer.account.order.index.order_id'),
             'type'       => 'string',
             'searchable' => false,
             'sortable'   => true,
@@ -33,7 +33,7 @@ class OrderDataGrid extends DataGrid
 
         $this->addColumn([
             'index'      => 'created_at',
-            'label'      => trans('shop::app.customer.account.order.index.date'),
+            'label'      => trans('velocity::app.customer.account.order.index.date'),
             'type'       => 'datetime',
             'searchable' => true,
             'sortable'   => true,
@@ -42,7 +42,7 @@ class OrderDataGrid extends DataGrid
 
         $this->addColumn([
             'index'      => 'grand_total',
-            'label'      => trans('shop::app.customer.account.order.index.total'),
+            'label'      => trans('velocity::app.customer.account.order.index.total'),
             'type'       => 'number',
             'searchable' => true,
             'sortable'   => true,
@@ -54,26 +54,26 @@ class OrderDataGrid extends DataGrid
 
         $this->addColumn([
             'index'      => 'status',
-            'label'      => trans('shop::app.customer.account.order.index.status'),
+            'label'      => trans('velocity::app.customer.account.order.index.status'),
             'type'       => 'string',
             'searchable' => false,
             'sortable'   => true,
             'closure'    => true,
             'wrapper'    => function ($value) {
                 if ($value->status == 'processing') {
-                    return '<span class="badge badge-md badge-success">' . trans('shop::app.customer.account.order.index.processing') . '</span>';
+                    return '<span class="badge badge-md badge-success">' . trans('velocity::app.customer.account.order.index.processing') . '</span>';
                 } elseif ($value->status == 'completed') {
-                    return '<span class="badge badge-md badge-success">' . trans('shop::app.customer.account.order.index.completed') . '</span>';
+                    return '<span class="badge badge-md badge-success">' . trans('velocity::app.customer.account.order.index.completed') . '</span>';
                 } elseif ($value->status == "canceled") {
-                    return '<span class="badge badge-md badge-danger">' . trans('shop::app.customer.account.order.index.canceled') . '</span>';
+                    return '<span class="badge badge-md badge-danger">' . trans('velocity::app.customer.account.order.index.canceled') . '</span>';
                 } elseif ($value->status == "closed") {
-                    return '<span class="badge badge-md badge-info">' . trans('shop::app.customer.account.order.index.closed') . '</span>';
+                    return '<span class="badge badge-md badge-info">' . trans('velocity::app.customer.account.order.index.closed') . '</span>';
                 } elseif ($value->status == "pending") {
-                    return '<span class="badge badge-md badge-warning">' . trans('shop::app.customer.account.order.index.pending') . '</span>';
+                    return '<span class="badge badge-md badge-warning">' . trans('velocity::app.customer.account.order.index.pending') . '</span>';
                 } elseif ($value->status == "pending_payment") {
-                    return '<span class="badge badge-md badge-warning">' . trans('shop::app.customer.account.order.index.pending-payment') . '</span>';
+                    return '<span class="badge badge-md badge-warning">' . trans('velocity::app.customer.account.order.index.pending-payment') . '</span>';
                 } elseif ($value->status == "fraud") {
-                    return '<span class="badge badge-md badge-danger">' . trans('shop::app.customer.account.order.index.fraud') . '</span>';
+                    return '<span class="badge badge-md badge-danger">' . trans('velocity::app.customer.account.order.index.fraud') . '</span>';
                 }
             },
             'filterable' => true,
