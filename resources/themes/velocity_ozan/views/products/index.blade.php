@@ -115,9 +115,9 @@
                             style="width: 100%"
                         @endif>
 
-                        <shimmer-component v-if="isLoading" shimmer-count="4"></shimmer-component>
+                        {{-- <shimmer-component v-if="isLoading"></shimmer-component> --}}
 
-                        <template v-else-if="products.length > 0">
+                        <template v-if="products.length > 0">
                             @if ($toolbarHelper->getCurrentMode() == 'grid')
                                 <div class="row col-12 remove-padding-margin">
                                     <product-card

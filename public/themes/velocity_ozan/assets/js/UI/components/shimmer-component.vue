@@ -4,13 +4,13 @@
             id="shimmer-carousel"
             navigation-enabled="hide"
             pagination-enabled="hide"
-            :slides-count="shimmerCountInt + 1"
-            :slides-per-page="shimmerCountInt">
+            :slides-count="slidesPerPage + 1"
+            :slides-per-page="slidesPerPage">
 
                 <slide
                     :key="count"
                     :slot="`slide-${count}`"
-                    v-for="count in shimmerCountInt">
+                    v-for="count in slidesPerPage">
 
                     <div class="shimmer-card">
                         <div class="shimmer-wrapper">
@@ -36,6 +36,38 @@
         data: function () {
             return {
                 shimmerCountInt: parseInt(this.shimmerCount),
+                windowWidth: window.innerWidth,
+                slidesPerPage: 6,
+            }
+        },
+
+
+        mounted: function () {
+            // this.setWindowWidth();
+            this.setSlidesPerPage(this.windowWidth);
+        },
+
+        watch: {
+            /* checking the window width */
+            windowWidth(newWidth, oldWidth) {
+                this.setSlidesPerPage(newWidth);
+            }
+        },
+
+        methods: {
+                  /* setting slides on the basis of window width */
+            setSlidesPerPage: function (width) {
+                if (width >= 1200) {
+                    this.slidesPerPage = 6;
+                } else if (width < 1200 && width >= 992) {
+                    this.slidesPerPage = 5;
+                } else if (width < 992 && width >= 822) {
+                    this.slidesPerPage = 3;
+                } else if (width < 822 && width >= 626) {
+                    this.slidesPerPage = 3;
+                } else {
+                    this.slidesPerPage = 2;
+                }
             }
         }
     }

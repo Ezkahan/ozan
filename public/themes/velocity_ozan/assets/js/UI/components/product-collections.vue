@@ -1,6 +1,6 @@
 <template>
     <div class="container-fluid">
-        <shimmer-component v-if="isLoading"></shimmer-component>
+        <shimmer-component  v-if="isLoading"></shimmer-component>
 
         <template v-else-if="productCollections.length > 0">
             <card-list-header
