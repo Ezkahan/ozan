@@ -112,7 +112,7 @@
 
                                                 <div class="reviews">
                                                     <span>
-                                                        {{ __('shop::app.reviews.ratingreviews', [
+                                                        {{ __('velocity::app.reviews.ratingreviews', [
                                                             'rating' => $avgRatings,
                                                             'review' => $total])
                                                         }}

@@ -6,7 +6,7 @@
     @endphp
 
     @if ($customAttributeValues)
-        <accordian :title="'{{ __('shop::app.products.specification') }}'" :active="'{{ $active }}' == true ? true : false">
+        <accordian :title="'{{ __('velocity::app.products.specification') }}'" :active="'{{ $active }}' == true ? true : false">
             <div slot="header">
                 <h3 class="no-margin display-inbl">
                     {{ __('velocity::app.products.more-infomation') }}

@@ -1,7 +1,7 @@
 @extends('shop::layouts.master')
 
 @section('page_title')
-    {{ __('shop::app.reviews.add-review-page-title') }} - {{ $product->name }}
+    {{ __('velocity::app.reviews.add-review-page-title') }} - {{ $product->name }}
 @endsection
 
 @section('full-content-wrapper')
@@ -13,7 +13,7 @@
             <div class="col-lg-6 col-md-12">
                 <div class="row customer-rating col-12 remove-padding-margin">
                     <h2 class="full-width">
-                        {{ __('shop::app.reviews.write-review') }}
+                        {{ __('velocity::app.reviews.write-review') }}
                     </h2>
 
                     <form
@@ -26,7 +26,7 @@
 
                         <div :class="`${errors.has('rating') ? 'has-error' : ''}`">
                             <label for="title" class="required">
-                                {{ __('admin::app.customers.reviews.rating') }}
+                                {{ __('velocity::app.reviews.ratings') }}
                             </label>
                             <star-ratings ratings="5" size="24" editable="true"></star-ratings>
                             <span :class="`control-error ${errors.has('rating') ? '' : 'hide'}`" v-if="errors.has('rating')">
@@ -36,7 +36,7 @@
 
                         <div :class="`${errors.has('title') ? 'has-error' : ''}`">
                             <label for="title" class="required">
-                                {{ __('shop::app.reviews.title') }}
+                                {{ __('velocity::app.reviews.title') }}
                             </label>
                             <input
                                 type="text"
@@ -53,7 +53,7 @@
                         @if (core()->getConfigData('catalog.products.review.guest_review') && ! auth()->guard('customer')->user())
                             <div :class="`${errors.has('name') ? 'has-error' : ''}`">
                                 <label for="title" class="required">
-                                    {{ __('shop::app.reviews.name') }}
+                                    {{ __('velocity::app.reviews.name') }}
                                 </label>
                                 <input  type="text" class="control" name="name" v-validate="'required'" value="{{ old('name') }}">
                                 <span :class="`control-error ${errors.has('name') ? '' : 'hide'}`">
@@ -64,7 +64,7 @@
 
                         <div :class="`${errors.has('comment') ? 'has-error' : ''}`">
                             <label for="comment" class="required">
-                                {{ __('admin::app.customers.reviews.comment') }}
+                                {{ __('velocity::app.reviews.comment') }}
                             </label>
                             <textarea
                                 type="text"

@@ -41,7 +41,7 @@
             </div>
 
             <h5 class="filter-title fw6 mb20 cat_filter">
-                {{ __('shop::app.products.layered-nav-title') }}
+                {{ __('velocity::app.products.layered-nav-title') }}
             </h5>
 
             <div class="filter-content ">
@@ -67,7 +67,7 @@
 
                 <div class="float-right display-table">
                     <span class="link-color cursor-pointer" v-if="appliedFilters.length" @click.stop="clearFilters()">
-                        {{ __('shop::app.products.remove-filter-link-title') }}
+                        {{ __('velocity::app.products.remove-filter-link-title') }}
                     </span>
 
                     <i :class="`icon fs16 cell ${active ? 'rango-arrow-up' : 'rango-arrow-down'}`"></i>
@@ -113,7 +113,7 @@
                             :value="sliderConfig.priceFrom"
                             id="price_from" />
 
-                        <label class="col text-center" for="to">{{ __('shop::app.products.filter-to') }}</label>
+                        <label class="col text-center" for="to">{{ __('velocity::app.products.filter-to') }}</label>
                         <input
                         type="text"
                         disabled

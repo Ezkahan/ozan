@@ -1,7 +1,7 @@
 @extends('shop::layouts.master')
 
 @section('page_title')
-    {{ __('shop::app.reviews.product-review-page-title') }}
+    {{ __('velocity::app.reviews.product-review-page-title') }}
 @endsection
 
 @php

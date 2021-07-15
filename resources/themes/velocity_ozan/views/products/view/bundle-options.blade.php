@@ -20,7 +20,7 @@
         <script type="text/x-template" id="bundle-option-list-template">
             <div class="bundle-options-wrapper">
                 <div class="bundle-option-list">
-                    <h3>{{ __('shop::app.products.customize-options') }}</h3>
+                    <h3>{{ __('velocity::app.products.customize-options') }}</h3>
 
                     <bundle-option-item
                         v-for="(option, index) in options"
@@ -32,12 +32,12 @@
                 </div>
 
                 <div class="bundle-summary">
-                    <h3 class="mb10">{{ __('shop::app.products.your-customization') }}</h3>
+                    <h3 class="mb10">{{ __('velocity::app.products.your-customization') }}</h3>
 
                     <quantity-changer></quantity-changer>
 
                     <div class="control-group">
-                        <label>{{ __('shop::app.products.total-amount') }}</label>
+                        <label>{{ __('velocity::app.products.total-amount') }}</label>
 
                         <div class="bundle-price no-margin">
                             @{{ formated_total_price | currency(currency_options) }}
@@ -66,7 +66,7 @@
 
                     <div v-if="option.type == 'select'">
                         <select class="control styled-select" :name="'bundle_options[' + option.id + '][]'" v-model="selected_product" v-validate="option.is_required ? 'required' : ''" :data-vv-as="option.label + '&quot;'">
-                            <option value="">{{ __('shop::app.products.choose-selection') }}</option>
+                            <option value="">{{ __('velocity::app.products.choose-selection') }}</option>
                             <option v-for="(product, index2) in option.products" :value="product.id">
                                 @{{ product.name + ' + ' + product.price.final_price.formated_price }}
                             </option>
@@ -82,7 +82,7 @@
                                 value="0" />
 
                             <label class="radio-view no-padding" :for="'bundle_options[' + option.id + '][]'"></label>
-                            {{ __('shop::app.products.none') }}
+                            {{ __('velocity::app.products.none') }}
                         </span>
 
                         <span class="radio col-12 ml5" v-for="(product, index2) in option.products">

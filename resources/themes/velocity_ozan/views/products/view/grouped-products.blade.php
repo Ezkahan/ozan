@@ -6,8 +6,8 @@
             <div class="grouped-product-list">
                 <ul type="none">
                     <li>
-                        <span>{{ __('shop::app.products.name') }}</span>
-                        <span>{{ __('shop::app.products.qty') }}</span>
+                        <span>{{ __('velocity::app.products.name') }}</span>
+                        <span>{{ __('velocity::app.products.qty') }}</span>
                     </li>
                     @foreach ($product->grouped_products as $groupedProduct)
                         @if($groupedProduct->associated_product->getTypeInstance()->isSaleable())

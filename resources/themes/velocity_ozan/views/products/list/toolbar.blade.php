@@ -27,12 +27,12 @@
             </div>
 
             <div class="sorter">
-                <label>{{ __('shop::app.products.sort-by') }}</label>
+                <label>{{ __('velocity::app.products.sort-by') }}</label>
 
                 <select class="selective-div border-normal styled-select" onchange="window.location.href = this.value" aria-label="Sort By">
                     @foreach ($toolbarHelper->getAvailableOrders() as $key => $order)
                         <option value="{{ $toolbarHelper->getOrderUrl($key) }}" {{ $toolbarHelper->isOrderCurrent($key) ? 'selected' : '' }}>
-                            {{ __('shop::app.products.' . $order) }}
+                            {{ __('velocity::app.products.' . $order) }}
                         </option>
                     @endforeach
                 </select>
@@ -43,7 +43,7 @@
             </div>
 
             <div class="limiter">
-                <label>{{ __('shop::app.products.show') }}</label>
+                <label>{{ __('velocity::app.products.show') }}</label>
 
                 <select class="selective-div border-normal styled-select" onchange="window.location.href = this.value" style="width: 57px;" aria-label="Show">
 
@@ -102,7 +102,7 @@
                     <select class="selective-div no-border" onchange="window.location.href = this.value">
                         @foreach ($toolbarHelper->getAvailableOrders() as $key => $order)
                             <option value="{{ $toolbarHelper->getOrderUrl($key) }}" {{ $toolbarHelper->isOrderCurrent($key) ? 'selected' : '' }}>
-                                {{ __('shop::app.products.' . $order) }}
+                                {{ __('velocity::app.products.' . $order) }}
                             </option>
                         @endforeach
                     </select>
