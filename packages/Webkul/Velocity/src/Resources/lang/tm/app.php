@@ -234,6 +234,7 @@ return [
             'become-user'       => 'Agza bol',
             'user-registration' => 'Agzalyk formasy',
             'form-sginup-text'  => 'Bu biziň bazarymyzda ilkinji gezek bolsa, sizi alyjy hökmünde görýänimize begenýäris.',
+            'phone' => 'Telefon'
         ],
         'forget-password'   => [
             'login'                 => '',

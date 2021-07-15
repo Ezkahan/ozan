@@ -234,6 +234,7 @@ return [
             'become-user'       => 'Become User',
             'user-registration' => 'User Registration',
             'form-sginup-text'  => 'If you are new to our store, we glad to have you as member.',
+            'phone' => 'Phone'
         ],
         'forget-password'   => [
             'login'                 => 'Login',

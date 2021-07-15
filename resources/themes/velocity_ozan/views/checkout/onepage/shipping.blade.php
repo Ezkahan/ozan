@@ -14,7 +14,7 @@
 
                     {!! view_render_event('bagisto.shop.checkout.shipping-method.before', ['rateGroup' => $rateGroup]) !!}
                         @foreach ($rateGroup['rates'] as $rate)
-                            <div class="row col-12">
+                            <div class="row">
                                 <div>
                                     <label class="radio-container">
                                         <input
@@ -32,12 +32,13 @@
                                 </div>
 
                                 <div class="pl30">
-                                    <div class="row">
-                                        <b>{{ core()->currency($rate->base_price) }}</b>
-                                    </div>
+
 
                                     <div class="row">
                                         <b>{{ $rate->method_title }}</b> - {{ __($rate->method_description) }}
+                                    </div>
+                                    <div class="row">
+                                        <b>{{ core()->currency($rate->base_price) }}</b>
                                     </div>
                                 </div>
                             </div>

@@ -45,9 +45,9 @@ return [
             ]
         ]
     ], [
-        'key'    => 'sales.carriers.flatrate',
-        'name'   => 'admin::app.admin.system.flate-rate-shipping',
-        'sort'   => 2,
+        'key'    => 'sales.carriers.irden',
+        'name'   => 'Irden dostawka',
+        'sort'   => 3,
         'fields' => [
             [
                 'name'          => 'title',
@@ -103,9 +103,125 @@ return [
             ]
         ]
     ], [
+        'key'    => 'sales.carriers.obetda',
+        'name'   => 'Obetda dostawka',
+        'sort'   => 4,
+        'fields' => [
+            [
+                'name'          => 'title',
+                'title'         => 'admin::app.admin.system.title',
+                'type'          => 'depends',
+                'depend'        => 'active:1',
+                'validation'    => 'required_if:active,1',
+                'channel_based' => true,
+                'locale_based'  => true,
+            ], [
+                'name'          => 'description',
+                'title'         => 'admin::app.admin.system.description',
+                'type'          => 'textarea',
+                'channel_based' => true,
+                'locale_based'  => false,
+            ], [
+                'name'          => 'default_rate',
+                'title'         => 'admin::app.admin.system.rate',
+                'type'          => 'depends',
+                'depend'        => 'active:1',
+                'validation'    => 'required_if:active,1',
+                'channel_based' => true,
+                'locale_based'  => false,
+            ], [
+                'name'       => 'type',
+                'title'      => 'admin::app.admin.system.type',
+                'type'       => 'depends',
+                'depend'     => 'active:1',
+                'options'    => [
+                    [
+                        'title' => 'Per Unit',
+                        'value' => 'per_unit',
+                    ], [
+                        'title' => 'Per Order',
+                        'value' => 'per_order',
+                    ]
+                ],
+                'validation' => 'required_if:active,1'
+            ], [
+                'name'          => 'active',
+                'title'         => 'admin::app.admin.system.status',
+                'type'          => 'boolean',
+                'validation'    => 'required',
+                'channel_based' => false,
+                'locale_based'  => true,
+            ], [
+                'name'          => 'is_calculate_tax',
+                'title'         => 'admin::app.admin.system.calculate-tax',
+                'type'          => 'boolean',
+                'validation'    => 'required',
+                'channel_based' => false,
+                'locale_based'  => false,
+            ]
+        ]
+    ],[
+        'key'    => 'sales.carriers.agsam',
+        'name'   => 'Agşam dostawka',
+        'sort'   => 5,
+        'fields' => [
+            [
+                'name'          => 'title',
+                'title'         => 'admin::app.admin.system.title',
+                'type'          => 'depends',
+                'depend'        => 'active:1',
+                'validation'    => 'required_if:active,1',
+                'channel_based' => true,
+                'locale_based'  => true,
+            ], [
+                'name'          => 'description',
+                'title'         => 'admin::app.admin.system.description',
+                'type'          => 'textarea',
+                'channel_based' => true,
+                'locale_based'  => false,
+            ], [
+                'name'          => 'default_rate',
+                'title'         => 'admin::app.admin.system.rate',
+                'type'          => 'depends',
+                'depend'        => 'active:1',
+                'validation'    => 'required_if:active,1',
+                'channel_based' => true,
+                'locale_based'  => false,
+            ], [
+                'name'       => 'type',
+                'title'      => 'admin::app.admin.system.type',
+                'type'       => 'depends',
+                'depend'     => 'active:1',
+                'options'    => [
+                    [
+                        'title' => 'Per Unit',
+                        'value' => 'per_unit',
+                    ], [
+                        'title' => 'Per Order',
+                        'value' => 'per_order',
+                    ]
+                ],
+                'validation' => 'required_if:active,1'
+            ], [
+                'name'          => 'active',
+                'title'         => 'admin::app.admin.system.status',
+                'type'          => 'boolean',
+                'validation'    => 'required',
+                'channel_based' => false,
+                'locale_based'  => true,
+            ], [
+                'name'          => 'is_calculate_tax',
+                'title'         => 'admin::app.admin.system.calculate-tax',
+                'type'          => 'boolean',
+                'validation'    => 'required',
+                'channel_based' => false,
+                'locale_based'  => false,
+            ]
+        ]
+    ],[
         'key'    => 'sales.carriers.express',
         'name'   => 'Express shipping',
-        'sort'   => 3,
+        'sort'   => 6,
         'fields' => [
             [
                 'name'          => 'title',
