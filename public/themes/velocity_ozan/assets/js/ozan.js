@@ -41585,6 +41585,7 @@ var render = function() {
                           _c(
                             "a",
                             {
+                              staticClass: "remove_item",
                               on: {
                                 click: function($event) {
                                   return _vm.removeProduct(item.id)
@@ -41597,7 +41598,7 @@ var render = function() {
                           _c(
                             "a",
                             {
-                              staticClass: "unset",
+                              staticClass: "unset cart_item",
                               attrs: {
                                 href: _vm.$root.baseUrl + "/" + item.url_key
                               }
@@ -43196,6 +43197,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: ['list', 'product'],
@@ -43374,89 +43379,99 @@ var render = function() {
           1
         ),
         _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "card-body" },
-          [
-            _c("div", { staticClass: "product-name col-12 no-padding" }, [
-              _c(
-                "a",
-                {
-                  staticClass: "unset",
-                  attrs: {
-                    title: _vm.product.name,
-                    href: _vm.baseUrl + "/" + _vm.product.slug
-                  }
-                },
-                [
-                  _c("span", { staticClass: "fs16" }, [
-                    _vm._v(_vm._s(_vm._f("truncate")(_vm.product.name)))
-                  ])
-                ]
-              )
-            ]),
-            _vm._v(" "),
-            _vm.product.new
-              ? _c("div", { staticClass: "sticker new" }, [
-                  _vm._v(
-                    "\n            " + _vm._s(_vm.product.new) + "\n        "
-                  )
+        _c("div", { staticClass: "card-body" }, [
+          _c("div", { staticClass: "product-name col-12 no-padding" }, [
+            _c(
+              "a",
+              {
+                staticClass: "unset",
+                attrs: {
+                  title: _vm.product.name,
+                  href: _vm.baseUrl + "/" + _vm.product.slug
+                }
+              },
+              [
+                _c("span", { staticClass: "fs16" }, [
+                  _vm._v(_vm._s(_vm._f("truncate")(_vm.product.name)))
                 ])
-              : _vm._e(),
-            _vm._v(" "),
-            _c("div", {
-              staticClass: "product-price fs16",
-              domProps: { innerHTML: _vm._s(_vm.product.priceHTML) }
-            }),
-            _vm._v(" "),
-            _vm.product.totalReviews && _vm.product.totalReviews > 0
-              ? _c(
-                  "div",
-                  { staticClass: "product-rating col-12 no-padding" },
-                  [
-                    _c("star-ratings", {
-                      attrs: { ratings: _vm.product.avgRating }
-                    }),
-                    _vm._v(" "),
-                    _c(
-                      "a",
-                      {
-                        staticClass: "fs14 align-top unset active-hover",
-                        attrs: {
-                          href:
-                            _vm.$root.baseUrl + "/reviews/" + _vm.product.slug
-                        }
-                      },
+              ]
+            )
+          ]),
+          _vm._v(" "),
+          _vm.product.new
+            ? _c("div", { staticClass: "sticker new" }, [
+                _vm._v(
+                  "\n            " + _vm._s(_vm.product.new) + "\n        "
+                )
+              ])
+            : _vm._e(),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "product_item_box" },
+            [
+              _c("div", { staticClass: "product_item_box_inner" }, [
+                _c("div", {
+                  staticClass: "product-price fs16",
+                  domProps: { innerHTML: _vm._s(_vm.product.priceHTML) }
+                }),
+                _vm._v(" "),
+                _vm.product.totalReviews && _vm.product.totalReviews > 0
+                  ? _c(
+                      "div",
+                      { staticClass: "product-rating col-12 no-padding" },
                       [
-                        _vm._v(
-                          "\n                " +
-                            _vm._s(
-                              _vm.__("products.reviews-count", {
-                                totalReviews: _vm.product.totalReviews
-                              })
-                            ) +
-                            "\n            "
+                        _c("star-ratings", {
+                          attrs: { ratings: _vm.product.avgRating }
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "a",
+                          {
+                            staticClass: "fs14 align-top unset active-hover",
+                            attrs: {
+                              href:
+                                _vm.$root.baseUrl +
+                                "/reviews/" +
+                                _vm.product.slug
+                            }
+                          },
+                          [
+                            _vm._v(
+                              "\n                        " +
+                                _vm._s(
+                                  _vm.__("products.reviews-count", {
+                                    totalReviews: _vm.product.totalReviews
+                                  })
+                                ) +
+                                "\n                    "
+                            )
+                          ]
                         )
+                      ],
+                      1
+                    )
+                  : _c(
+                      "div",
+                      { staticClass: "product-rating col-12 no-padding" },
+                      [
+                        _c("span", {
+                          staticClass: "fs14",
+                          domProps: {
+                            textContent: _vm._s(_vm.product.firstReviewText)
+                          }
+                        })
                       ]
                     )
-                  ],
-                  1
-                )
-              : _c("div", { staticClass: "product-rating col-12 no-padding" }, [
-                  _c("span", {
-                    staticClass: "fs14",
-                    domProps: {
-                      textContent: _vm._s(_vm.product.firstReviewText)
-                    }
-                  })
-                ]),
-            _vm._v(" "),
-            _c("vnode-injector", {
-              attrs: { nodes: _vm.getDynamicHTML(_vm.product.addToCartHtml) }
-            })
-          ],
-          1
-        )
+              ]),
+              _vm._v(" "),
+              _c("vnode-injector", {
+                attrs: { nodes: _vm.getDynamicHTML(_vm.product.addToCartHtml) }
+              })
+            ],
+            1
+          )
+        ])
       ])
 }
 var staticRenderFns = []
@@ -44666,8 +44681,39 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     data: function data() {
         return {
-            shimmerCountInt: parseInt(this.shimmerCount)
+            shimmerCountInt: parseInt(this.shimmerCount),
+            windowWidth: window.innerWidth,
+            slidesPerPage: 6
         };
+    },
+
+    mounted: function mounted() {
+        // this.setWindowWidth();
+        this.setSlidesPerPage(this.windowWidth);
+    },
+
+    watch: {
+        /* checking the window width */
+        windowWidth: function windowWidth(newWidth, oldWidth) {
+            this.setSlidesPerPage(newWidth);
+        }
+    },
+
+    methods: {
+        /* setting slides on the basis of window width */
+        setSlidesPerPage: function setSlidesPerPage(width) {
+            if (width >= 1200) {
+                this.slidesPerPage = 6;
+            } else if (width < 1200 && width >= 992) {
+                this.slidesPerPage = 5;
+            } else if (width < 992 && width >= 822) {
+                this.slidesPerPage = 3;
+            } else if (width < 822 && width >= 626) {
+                this.slidesPerPage = 3;
+            } else {
+                this.slidesPerPage = 2;
+            }
+        }
     }
 });
 
@@ -44690,11 +44736,11 @@ var render = function() {
             id: "shimmer-carousel",
             "navigation-enabled": "hide",
             "pagination-enabled": "hide",
-            "slides-count": _vm.shimmerCountInt + 1,
-            "slides-per-page": _vm.shimmerCountInt
+            "slides-count": _vm.slidesPerPage + 1,
+            "slides-per-page": _vm.slidesPerPage
           }
         },
-        _vm._l(_vm.shimmerCountInt, function(count) {
+        _vm._l(_vm.slidesPerPage, function(count) {
           return _c(
             "slide",
             {

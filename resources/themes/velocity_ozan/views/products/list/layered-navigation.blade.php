@@ -31,16 +31,16 @@
     <script type="text/x-template" id="layered-navigation-template">
         <div v-if="attributes.length > 0">
             @if(count($subCats))
-            <div class="sidebar__header">
+            <div class="sidebar__header" onclick="showCat()">
                 {{$category->name}}
             </div>
             @endif
 
-            <div class="cat_sidebar">
+            <div class="cat_sidebar" id="cat_sidebar">
                 <categories :categories='@json($subCats->toArray())' public_path="{{ url()->to('/storage/') }}"></categories>
             </div>
 
-            <h5 class="filter-title fw6 mb20">
+            <h5 class="filter-title fw6 mb20 cat_filter">
                 {{ __('shop::app.products.layered-nav-title') }}
             </h5>
 

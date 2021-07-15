@@ -2251,6 +2251,21 @@ li {
   -o-object-fit: contain;
 }
 
+.hero .product_item_box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+  -ms-flex-direction: column;
+  -moz-flex-direction: column;
+  -o-flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
 .hero__sidebar {
   background: #ffffff;
   width: 22em;
@@ -2612,8 +2627,8 @@ li {
   width: calc(25% - 2.4em - 2px);
 }
 
-.cat_sidebar {
-  margin-bottom: 50px;
+.cat_filter {
+  margin-top: 50px;
 }
 
 .cat_sidebar .vsa-item__heading button {
@@ -3881,11 +3896,60 @@ li {
   .full-content-wrapper p .container-fluid {
     margin-bottom: 0 !important;
   }
+  .cat_filter {
+    margin-top: 30px;
+  }
   .velocity-divide-page .left {
-    width: 300px;
+    width: 100%;
+    position: relative;
+  }
+  .velocity-divide-page .left .cat_sidebar {
+    display: none;
+  }
+  .velocity-divide-page .left .cat_sidebar.active {
+    display: block;
+    -webkit-animation: showCat .2s linear;
+            animation: showCat .2s linear;
+  }
+  @-webkit-keyframes showCat {
+    0% {
+      max-height: 0;
+      margin-top: -10px;
+    }
+    100% {
+      max-height: 100%;
+      margin-top: 0;
+    }
+  }
+  @keyframes showCat {
+    0% {
+      max-height: 0;
+      margin-top: -10px;
+    }
+    100% {
+      max-height: 100%;
+      margin-top: 0;
+    }
+  }
+  .velocity-divide-page .left .sidebar__header {
+    padding: 12px 20px;
+    font-size: 18px;
+    text-align: initial;
+    cursor: pointer;
+  }
+  .velocity-divide-page .left .sidebar__btn {
+    padding: 12px 20px;
+    font-size: 16px;
   }
   .velocity-divide-page .right {
-    padding-left: 320px !important;
+    padding-left: 0px !important;
+  }
+  .lg-card-container .list-card {
+    padding-left: 15px;
+  }
+  .category-container .grid-card,
+  .search-container .grid-card {
+    width: calc(33.33% - 20px) !important;
   }
 }
 
