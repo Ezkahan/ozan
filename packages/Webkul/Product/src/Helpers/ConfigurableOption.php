@@ -52,7 +52,7 @@ class ConfigurableOption extends AbstractProduct
             'variant_prices' => $this->getVariantPrices($product),
             'variant_images' => $this->getVariantImages($product),
             'variant_videos' => $this->getVariantVideos($product),
-            'chooseText'     => trans('shop::app.products.choose-option'),
+            'chooseText'     => trans('velocity::app.products.choose-option'),
         ];
 
         return $config;
