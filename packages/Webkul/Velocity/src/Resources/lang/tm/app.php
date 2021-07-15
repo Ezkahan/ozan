@@ -155,8 +155,8 @@ return [
     'home' => [
         'view-all'           => 'Ählisi',
         'add-to-cart'        => 'Sebede goş',
-        'hot-categories'     => 'Gyzgyn bölümler',
-        'payment-methods'    => 'Töleg usullary',
+        'hot-categories'     => 'Meşhur bölümler',
+        'payment-methods'    => 'Tölegiň usullary',
         'customer-reviews'   => 'Müşderileriň synlary',
         'shipping-methods'   => 'Eltip bermegiň görnüşleri',
         'popular-categories' => 'Ýörgünli bölümler',
@@ -174,14 +174,14 @@ return [
         'cart'              => 'Sebet',
         'guest'             => 'Myhman',
         'logout'            => 'Çykyş',
-        'title'             => 'Hasap',
+        'title'             => 'Ady',
         'account'           => 'Hasap',
-        'profile'           => 'Maglumatlarym',
-        'wishlist'          => 'Halanlylanlar',
+        'profile'           => 'Profil',
+        'wishlist'          => 'Halanlarym',
         'all-categories'    => 'Ähli bölümler',
         'search-text'       => 'Harytlary şu ýerde gözläň',
         'welcome-message'   => ':customer_name hoş geldiňiz!',
-        'dropdown-text'     => 'Halanylanlary, sargytlary we sebedi dolandyrmak üçin içeri giriň',
+        'dropdown-text'     => 'Halanlarymy, sargytlary we sebedi dolandyrmak üçin içeri giriň',
     ],
 
     'menu-navbar'   => [
@@ -192,12 +192,12 @@ return [
     'minicart'      => [
         'cart'      => 'Sebet',
         'view-cart' => 'Sebede geç',
-        'checkout' => 'Sarga'
+        'checkout' => 'Sargyt et'
     ],
 
     'checkout'      => [
         'qty'       => 'Mukdary',
-        'checkout'  => 'Sargydy hasaba alyş',
+        'checkout'  => 'Sargydy resmileşdirmek',
         'cart'      => [
             'view-cart'     => 'Sebede geç',
             'cart-summary'  => 'Sargyt',
@@ -233,14 +233,14 @@ return [
             'login'             => 'Giriş',
             'become-user'       => 'Agza bol',
             'user-registration' => 'Agzalyk formasy',
-            'form-sginup-text'  => 'Bu biziň bazarymyzda ilkinji gezek bolsa, sizi alyjy hökmünde görýänimize begenýäris.',
+            'form-sginup-text'  => 'Biziň onlaýn-marketimize ilkinji gezek giren bolsa, sizi alyjy hökmünde görmäge şat.',
             'phone' => 'Telefon'
         ],
         'forget-password'   => [
             'login'                 => '',
             'forgot-password'       => 'Açar sözüni unutdyňyzmy?',
             'recover-password'      => 'Açar sözüni dikeltmek',
-            'recover-password-text' => 'Eger açar sözüni unudan bolsaňyz elektron poçtaňyzy görkezip, ony dikeldip bilersiňiz',
+            'recover-password-text' => 'Eger açar sözüni unudan bolsaňyz telefon belgiňizi görkezip, ony dikeldip bilersiňiz',
         ],
         'wishlist' => [
             'remove-all-success' => 'Halanylanlardan ähli harytlar aýryldy',
@@ -473,8 +473,8 @@ return [
     'details'           => 'Maglumatlar',
     'reviews-title'     => 'Synlar',
     'reviewed'          => 'Synlanan',
-    'review-by'         => 'syçy',
-    'quick-view'        => 'Ýüzleý seretmek',
+    'review-by'         => 'synçy',
+    'quick-view'        => 'Ýüzleý görkez',
     'not-available'     => 'Elýeter däl',
     'submit-review'     => 'Syn goşmäk',
     'ratings'           => ':totalRatings bal',
@@ -482,8 +482,8 @@ return [
     'customer-rating'   => 'Müşderi ballary',
     'more-infomation'   => 'Giňişleýin maglumat',
     'view-all-reviews'  => 'Ähli synlara seretmek',
-    'write-your-review' => 'Synyňy ýaz',
-    'short-description' => 'Gysga beýannama',
+    'write-your-review' => 'Öz synyňyzy ýazyň',
+    'short-description' => 'Gysga beýannamasy',
     'recently-viewed'   => 'Ýakynda görlen harytlar',
     'be-first-review'   => 'Ilkinji syny siz ýazyň',
     'new'               => 'täze',
@@ -500,7 +500,7 @@ return [
         'no'                     => 'Ýok',
         'yes'                    => 'Hawa',
         'view'                   => 'Gör',
-        'filter'                 => 'Süzmek',
+        'filter'                 => 'Filtrlemek',
         'orders'                 => 'Sargytlar',
         'update'                 => 'Täzelemek',
         'reviews'                => 'Synlar',
@@ -522,8 +522,8 @@ return [
         ],
     ],
     'wishlist'  => [
-        'add-wishlist-text'     => 'Halanylanlara goşmak',
-        'remove-wishlist-text'  => 'Halanylanlaradan aýyrmak'
+        'add-wishlist-text'     => 'Halanlaryma goşmak',
+        'remove-wishlist-text'  => 'Halanlarymdan aýyrmak'
     ]
 ],
 

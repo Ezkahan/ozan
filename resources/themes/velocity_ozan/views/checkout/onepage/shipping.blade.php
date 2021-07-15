@@ -14,7 +14,7 @@
 
                     {!! view_render_event('bagisto.shop.checkout.shipping-method.before', ['rateGroup' => $rateGroup]) !!}
                         @foreach ($rateGroup['rates'] as $rate)
-                            <div class="row">
+                            <div class="row col-12">
                                 <div>
                                     <label class="radio-container">
                                         <input
