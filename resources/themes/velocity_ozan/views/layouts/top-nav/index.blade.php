@@ -11,7 +11,18 @@
     <div class="auto__container">
         <div class="upheader__inner" id="upheader_inner">
             <div class="upheader__language">
-                <i class="icon-global"></i>
+                <!-- <i class="icon-global"></i> -->
+                <div class="lang_img">
+                        @if(app()->getLocale() == 'en')
+                            <img src="{{asset('themes/velocity_ozan/assets/images/en.png')}}" alt="flag_icon">
+                        @endif
+                        @if(app()->getLocale() == 'ru')
+                            <img src="{{asset('themes/velocity_ozan/assets/images/ru.png')}}" alt="flag_icon">
+                        @endif
+                        @if(app()->getLocale() == 'tm')
+                            <img src="{{asset('themes/velocity_ozan/assets/images/tm.png')}}" alt="flag_icon">
+                        @endif
+                </div>
                 <select
                     name="language"
                     onchange="window.location.href = this.value"
