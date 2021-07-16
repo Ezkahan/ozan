@@ -295,7 +295,7 @@ class Helper extends Review
 
         $priceHTML = view('shop::products.price', ['product' => $product])->render();
 
-        $isProductNew = ($product->new && ! strpos($priceHTML, 'sticker sale') > 0) ? __('shop::app.products.new') : false;
+        $isProductNew = ($product->new && ! strpos($priceHTML, 'sticker sale') > 0) ? __('velocity::app.products.new') : false;
 
         return [
             'priceHTML'         => $priceHTML,
