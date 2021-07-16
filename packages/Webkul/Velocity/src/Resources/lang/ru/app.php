@@ -183,6 +183,9 @@ return [
         'search-text'       => 'Искать товары здесь',
         'welcome-message'   => 'Добро пожаловать, :customer_name',
         'dropdown-text'     => 'Управление корзиной, заказами и избранными',
+        'sign-in' => 'Войти',
+        'sign-up' => 'Зарегистрироваться',
+        'search' => 'Поиск'
     ],
     'search' => [
         'no-results' => 'Результаты не найдены',

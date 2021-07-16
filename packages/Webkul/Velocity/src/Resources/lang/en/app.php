@@ -182,6 +182,10 @@ return [
         'search-text'       => 'Search products here',
         'welcome-message'   => 'Welcome, :customer_name',
         'dropdown-text'     => 'Manage Cart, Orders & Wishlist',
+        'sign-in' => 'Sign In',
+        'sign-up' => 'Sign Up',
+
+        'search' => 'Search'
     ],
     'search' => [
         'no-results' => 'No Results Found',
@@ -235,6 +239,18 @@ return [
             'registered-user'       => 'Registered User',
             'your-email-address'    => 'Your email address',
             'form-login-text'       => 'If you have an account, sign in with your email address.',
+            'page-title' => 'Customer Login',
+            'title' => 'Sign In',
+            'email' => 'Email',
+            'password' => 'Password',
+            'forgot_pass' => 'Forgot Password?',
+            'button_title' => 'Sign In',
+            'remember' => 'Remember Me',
+            'footer' => '© Copyright :year Webkul Software, All rights reserved',
+            'invalid-creds' => 'Please check your credentials and try again.',
+            'verify-first' => 'Verify your email account first.',
+            'not-activated' => 'Your activation seeks admin approval',
+            'resend-verification' => 'Resend verification mail again'
         ],
         'signup-form'       => [
             'login'             => 'Login',

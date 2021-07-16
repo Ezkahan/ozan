@@ -182,6 +182,9 @@ return [
         'search-text'       => 'Harytlary şu ýerde gözläň',
         'welcome-message'   => ':customer_name hoş geldiňiz!',
         'dropdown-text'     => 'Halanlarymy, sargytlary we sebedi dolandyrmak üçin içeri giriň',
+        'sign-in' => 'Giriş',
+        'sign-up' => 'Agza bol',
+        'search' => 'Gözleg'
     ],
     'search' => [
         'no-results' => 'Netije tapylmady',
