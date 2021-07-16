@@ -49,7 +49,7 @@
                     <i class="icon-info"></i>
                     <span>@lang('app.about_us')</span>
                 </a>
-                <a href="{!! url('page/delivery') !!}" class="upheader__nav-link">
+                <a href="{!! url('page/shipping-policy') !!}" class="upheader__nav-link">
                     <i class="icon-box"></i>
                     <span>@lang('app.shipment_policy')</span>
                 </a>

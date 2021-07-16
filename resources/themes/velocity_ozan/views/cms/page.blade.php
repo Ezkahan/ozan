@@ -19,7 +19,7 @@
 @endsection
 
 @section('content-wrapper')
-    <div class="auto__container">
+    <div class="auto__container p-5">
         {!! DbView::make($page)->field('html_content')->render() !!}
     </div>
 @endsection
