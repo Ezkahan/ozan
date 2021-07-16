@@ -140,3 +140,9 @@
         @content;
     }
 }
+
+@mixin sh-sh {
+    @media (max-height: 600px) {
+        @content;
+    }
+}

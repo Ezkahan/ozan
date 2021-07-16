@@ -7,7 +7,7 @@
         <div class="dropdown upheader__nav-link">
             <div id="account">
                 <div class="d-inline-block welcome-content" @click="togglePopup">
-                    <i class="icon-user"></i>
+                    <i class="icon-user ml-2"></i>
                     <span class="text-center">
                         @guest('customer')
                             {{ __('velocity::app.header.welcome-message', ['customer_name' => trans('velocity::app.header.guest')]) }}!

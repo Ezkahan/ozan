@@ -7,7 +7,7 @@
                 @include('shop::customers.account.partials.sidemenu')
             </div>
 
-            <div class="account-layout right mt10">
+            <div class="account-layout right mt10 pl-0">
                 @yield('page-detail-wrapper')
             </div>
         </div>
