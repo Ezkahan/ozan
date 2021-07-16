@@ -19,7 +19,7 @@
 @endsection
 
 @section('content-wrapper')
-    <div class="cms-page-container cart-details row offset-1">
+    <div class="auto__container p-5">
         {!! DbView::make($page)->field('html_content')->render() !!}
     </div>
 @endsection

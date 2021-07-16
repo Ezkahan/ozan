@@ -145,8 +145,8 @@
                         </template>
 
                         <div class="product-list empty" v-else>
-                            <h2>{{ __('shop::app.products.whoops') }}</h2>
-                            <p>{{ __('shop::app.products.empty') }}</p>
+                            <h2>{{ __('velocity::app.products.whoops') }}</h2>
+                            <p>{{ __('velocity::app.products.empty') }}</p>
                         </div>
                     </div>
                 @endif

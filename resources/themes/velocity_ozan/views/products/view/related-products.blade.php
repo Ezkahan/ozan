@@ -4,7 +4,7 @@
 
 @if ($relatedProducts->count())
     <card-list-header
-        heading="{{ __('shop::app.products.related-product-title') }}"
+        heading="{{ __('velocity::app.products.related-product-title') }}"
         view-all="false"
         row-class="pt20"
     ></card-list-header>

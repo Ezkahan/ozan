@@ -12,7 +12,7 @@
 @if (isset($products))
 
     <card-list-header
-        heading="{{ __('shop::app.products.cross-sell-title') }}"
+        heading="{{ __('velocity::app.products.cross-sell-title') }}"
         view-all="false"
         row-class="pt20"
     ></card-list-header>
@@ -24,7 +24,7 @@
             pagination-enabled="hide"
             id="upsell-products-carousel"
             :slides-count="{{ $product->cross_sells()->count() }}">
-            
+
             @foreach($products as $product)
                 @foreach ($product->cross_sells()->paginate(2) as $index => $crossSellProduct)
                     <slide slot="slide-{{ $index }}">

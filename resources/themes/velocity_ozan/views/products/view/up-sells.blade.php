@@ -4,7 +4,7 @@
 
 @if ($productUpSells->count())
     <card-list-header
-        heading="{{ __('shop::app.products.up-sell-title') }}"
+        heading="{{ __('velocity::app.products.up-sell-title') }}"
         view-all="false"
         row-class="pt20"
     ></card-list-header>

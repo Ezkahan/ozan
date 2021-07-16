@@ -3,7 +3,7 @@
 @extends('shop::layouts.master')
 
 @section('page_title')
-    {{ __('shop::app.search.page-title') }}
+    {{ __('velocity::app.search.page-title') }}
 @endsection
 
 @push('css')
@@ -61,7 +61,7 @@
 
             <div class="searched-terms">
                 <h3 class="fw6 fs20 mb-4">
-                    {{ __('shop::app.search.analysed-keywords') }}
+                    {{ __('velocity::app.search.analysed-keywords') }}
                 </h3>
 
                 <div class="term-list">
@@ -90,19 +90,19 @@
             @endif
 
             @if (! $results)
-                <h2 class="fw6 col-12">{{ __('shop::app.search.no-results') }}</h2>
+                <h2 class="fw6 col-12">{{ __('velocity::app.search.no-results') }}</h2>
             @else
                 @if ($results->isEmpty())
-                    <h2 class="fw6 col-12">{{ __('shop::app.products.whoops') }}</h2>
-                    <span class="col-12">{{ __('shop::app.search.no-results') }}</span>
+                    <h2 class="fw6 col-12">{{ __('velocity::app.products.whoops') }}</h2>
+                    <span class="col-12">{{ __('velocity::app.search.no-results') }}</span>
                 @else
                     @if ($results->total() == 1)
                         <h5 class="fw6 col-12 mb20">
-                            {{ $results->total() }} {{ __('shop::app.search.found-result') }}
+                            {{ $results->total() }} {{ __('velocity::app.search.found-result') }}
                         </h5>
                     @else
                         <h2 class="fw6 col-12 mb20">
-                            {{ $results->total() }} {{ __('shop::app.search.found-results') }}
+                            {{ $results->total() }} {{ __('velocity::app.search.found-results') }}
                         </h2>
                     @endif
 

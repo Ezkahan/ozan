@@ -49,7 +49,7 @@
                     <i class="icon-info"></i>
                     <span>@lang('app.about_us')</span>
                 </a>
-                <a href="{!! url('page/delivery') !!}" class="upheader__nav-link">
+                <a href="{!! url('page/shipping-policy') !!}" class="upheader__nav-link">
                     <i class="icon-box"></i>
                     <span>@lang('app.shipment_policy')</span>
                 </a>
@@ -57,10 +57,10 @@
                     <i class="icon-money"></i>
                     <span>@lang('app.payment_policy')</span>
                 </a>
-                <a href="{!! url('page/cutomer-service') !!}" class="upheader__nav-link">
-                    <i class="icon-help"></i>
-                    <span>@lang('app.customer_service')</span>
-                </a>
+{{--                <a href="{!! url('page/cutomer-service') !!}" class="upheader__nav-link">--}}
+{{--                    <i class="icon-help"></i>--}}
+{{--                    <span>@lang('app.customer_service')</span>--}}
+{{--                </a>--}}
                 @php
                     $showWishlist = core()->getConfigData('general.content.shop.wishlist_option') == "1" ? true : false;
 

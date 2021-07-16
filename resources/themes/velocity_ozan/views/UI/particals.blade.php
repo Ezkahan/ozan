@@ -25,7 +25,7 @@
 
     <script type="text/x-template" id="quantity-changer-template">
         <div :class="`quantity control-group ${errors.has(controlName) ? 'has-error' : ''}`">
-            <label class="required" for="quantity-changer">{{ __('shop::app.products.quantity') }}</label>
+            <label class="required" for="quantity-changer">{{ __('velocity::app.products.quantity') }}</label>
             <button type="button" class="decrease" @click="decreaseQty()">-</button>
 
             <input
@@ -34,7 +34,7 @@
                 :name="controlName"
                 :v-validate="validations"
                 id="quantity-changer"
-                data-vv-as="&quot;{{ __('shop::app.products.quantity') }}&quot;"
+                data-vv-as="&quot;{{ __('velocity::app.products.quantity') }}&quot;"
                 readonly />
 
             <button type="button" class="increase" @click="increaseQty()">+</button>

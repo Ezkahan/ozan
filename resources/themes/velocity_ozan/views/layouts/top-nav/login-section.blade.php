@@ -46,7 +46,7 @@
                                         type="button"
                                         class="theme-btn fs14 fw6">
 
-                                        {{ __('shop::app.header.sign-in') }}
+                                        {{ __('velocity::app.header.sign-in') }}
                                     </button>
                                 </a>
                             </div>
@@ -56,7 +56,7 @@
                                     <button
                                         type="button"
                                         class="theme-btn fs14 fw6">
-                                        {{ __('shop::app.header.sign-up') }}
+                                        {{ __('velocity::app.header.sign-up') }}
                                     </button>
                                 </a>
                             </div>
@@ -74,7 +74,7 @@
 
                         <ul type="none">
                             <li>
-                                <a href="{{ route('customer.profile.index') }}" class="unset">{{ __('shop::app.header.profile') }}</a>
+                                <a href="{{ route('customer.profile.index') }}" class="unset">{{ __('velocity::app.header.profile') }}</a>
                             </li>
 
                             <li>
@@ -89,7 +89,7 @@
 
                             @if ($showWishlist)
                                 <li>
-                                    <a href="{{ route('customer.wishlist.index') }}" class="unset">{{ __('shop::app.header.wishlist') }}</a>
+                                    <a href="{{ route('customer.wishlist.index') }}" class="unset">{{ __('velocity::app.header.wishlist') }}</a>
                                 </li>
                             @endif
 
@@ -100,7 +100,7 @@
                             @endif
 
                             <li>
-                                <a href="{{ route('customer.session.destroy') }}" class="unset">{{ __('shop::app.header.logout') }}</a>
+                                <a href="{{ route('customer.session.destroy') }}" class="unset">{{ __('velocity::app.header.logout') }}</a>
                             </li>
                         </ul>
                     </div>
