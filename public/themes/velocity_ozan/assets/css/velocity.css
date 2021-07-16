@@ -2321,7 +2321,7 @@
 }
 
 .account-content .account-layout.right {
-  padding-left: 400px !important;
+  padding-left: 400px;
 }
 
 .account-content .account-layout.right h2 {
@@ -2551,7 +2551,7 @@
 
 .account-content .account-layout .account-table-content.profile-page-content .table {
   padding: 0;
-  width: 800px;
+  width: 100%;
   margin-bottom: 15px;
 }
 
@@ -6282,6 +6282,7 @@ button[disabled] {
     margin: 0 auto !important;
   }
   .main-content-wrapper {
+    min-height: unset !important;
     z-index: 100;
     margin-bottom: 25px;
     background-color: #FFFFFF;
@@ -6476,7 +6477,6 @@ button[disabled] {
   }
   .account-content .account-layout .account-table-content #datagrid-filters .dropdown-filters.per-page {
     margin-top: 0;
-    margin-bottom: 10px;
     position: relative;
   }
   .account-content .account-layout .sale-container .tabs-content .totals .sale-summary {
@@ -6504,7 +6504,6 @@ button[disabled] {
     border: 1px solid #CCCCCC;
   }
   .account-content .account-layout .table table tr td {
-    width: 100%;
     border-top: none;
     border-right: 1px solid #CCCCCC !important;
   }
@@ -6513,12 +6512,16 @@ button[disabled] {
     font-size: 15px;
     font-weight: 600;
     display: inline-block;
+    margin-right: 20px;
   }
   .account-content .account-layout .table table tr td .action {
     display: inline-block;
   }
   .account-content .account-layout .table table tr td:first-child {
     font-weight: bold;
+  }
+  #datagrid-filters .filter-right {
+    width: 100% !important;
   }
   .mini-cart-container {
     display: none;
@@ -6903,6 +6906,27 @@ button[disabled] {
   }
 }
 
+@media only screen and (max-width: 805px) {
+  .account-table-content .table .grid-container {
+    overflow-x: auto;
+  }
+  .account-table-content .table .grid-container table {
+    width: 850px !important;
+  }
+  .account-table-content .search-filter {
+    width: 140px;
+  }
+  .account-table-content .search-filter input {
+    width: 100%;
+  }
+  .account-table-content .control-group {
+    width: 140px;
+  }
+  .account-table-content .dropdown-filters {
+    margin-right: 0 !important;
+  }
+}
+
 /* medium devices */
 @media only screen and (max-width: 768px) {
   .sticky-header {
@@ -6927,9 +6951,8 @@ button[disabled] {
     display: block !important;
   }
   .table {
-    width: 90%;
+    width: 100%;
     margin-bottom: 1rem;
-    margin-top: 68px;
     color: #212529;
     overflow-x: auto;
   }
@@ -6999,6 +7022,20 @@ button[disabled] {
   .product-price {
     height: auto !important;
   }
+  .cart_table_group {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+            flex-direction: column;
+    -ms-flex-direction: column;
+    -moz-flex-direction: column;
+    -o-flex-direction: column;
+  }
+  .cart_table_group .compare_table {
+    overflow-x: unset;
+  }
+  .cart_table_group h2 {
+    font-size: 18px !important;
+  }
   .cart-details h2 {
     font-size: 20px;
   }
@@ -7031,6 +7068,19 @@ button[disabled] {
 @media only screen and (max-width: 420px) {
   .sticky-header {
     display: none !important;
+  }
+  .account-table-content .table .grid-container {
+    overflow-x: auto;
+  }
+  .account-table-content .table .grid-container table {
+    width: 715px !important;
+  }
+  .account-head .account-heading {
+    font-size: 15px !important;
+  }
+  .account-head .account-action a {
+    padding: 7px 12px !important;
+    font-size: 13px !important;
   }
   .form-header h3 {
     font-size: 24px;
@@ -7832,6 +7882,7 @@ body {
 
 #top #account + .account-modal .modal-content {
   top: 0;
+  float: unset;
   padding: 0;
 }
 

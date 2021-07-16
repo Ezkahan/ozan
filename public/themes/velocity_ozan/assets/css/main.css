@@ -3565,6 +3565,12 @@ li {
   }
 }
 
+@media (max-height: 600px) {
+  .modal-content {
+    top: -40px !important;
+  }
+}
+
 @media (max-width: 1024px) {
   html {
     font-size: 10px;
@@ -3608,6 +3614,9 @@ li {
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
+  }
+  .account-content .sidebar {
+    height: auto;
   }
   .hero {
     padding-top: 0;
