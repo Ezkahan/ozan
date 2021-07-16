@@ -41,29 +41,30 @@
 
                             {{ csrf_field() }}
 
-                            {!! view_render_event('bagisto.shop.customers.login_form_controls.before') !!}
+                            <div class="input-group" :class="[errors.has('phone') ? 'has-error' : '']">
 
-                            <div class="form-group" :class="[errors.has('phone') ? 'has-error' : '']">
-                                <label for="phone" class="mandatory label-style">
+                                <label for="phone" class="required label-style">
                                     {{ __('shop::app.registerlogin.phoneNumber') }}
                                 </label>
-
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon1">+993</span>
+                                </div>
                                 <input
-                                    type="text"
-                                    class="form-style"
+                                    type="tel"
+
+                                    class="form-control pl-2"
                                     name="phone"
-                                    v-validate="'required|numeric'"
+                                    v-validate="'required|numeric|digits:8'"
                                     value="{{ old('phone') }}"
-                                    data-vv-as="&quot;{{ __('shop::app.customer.login-form.phone') }}&quot;" />
+                                    data-vv-as="&quot;{{ __('velocity::app.customer.signup-form.phone') }}&quot;" />
 
                                 <span class="control-error" v-if="errors.has('phone')">
-                                    @{{ errors.first('phone') }}
-                                </span>
+                                @{{ errors.first('phone') }}
+                            </span>
                             </div>
-
                             <div class="form-group" :class="[errors.has('password') ? 'has-error' : '']">
                                 <label for="password" class="mandatory label-style">
-                                    {{ __('shop::app.customer.login-form.password') }}
+                                    {{ __('velocity::app.customer.login-form.password') }}
                                 </label>
 
                                 <input
@@ -72,20 +73,20 @@
                                     name="password"
                                     v-validate="'required'"
                                     value="{{ old('password') }}"
-                                    data-vv-as="&quot;{{ __('shop::app.customer.login-form.password') }}&quot;" />
+                                    data-vv-as="&quot;{{ __('velocity::app.customer.login-form.password') }}&quot;" />
 
                                 <span class="control-error" v-if="errors.has('password')">
                                     @{{ errors.first('password') }}
                                 </span>
 
                                 <a href="{{ route('customer.forgot-password.create') }}" class="float-right">
-                                    {{ __('shop::app.customer.login-form.forgot_pass') }}
+                                    {{ __('velocity::app.customer.login-form.forgot_pass') }}
                                 </a>
 
                                 <div class="mt10">
                                     @if (Cookie::has('enable-resend'))
                                         @if (Cookie::get('enable-resend') == true)
-                                            <a href="{{ route('customer.resend.verification-email', Cookie::get('email-for-resend')) }}">{{ __('shop::app.customer.login-form.resend-verification') }}</a>
+                                            <a href="{{ route('customer.resend.verification-email', Cookie::get('email-for-resend')) }}">{{ __('velocity::app.customer.login-form.resend-verification') }}</a>
                                         @endif
                                     @endif
                                 </div>
@@ -93,7 +94,7 @@
 
                             {!! view_render_event('bagisto.shop.customers.login_form_controls.after') !!}
 
-                            <input class="theme-btn" type="submit" value="{{ __('shop::app.customer.login-form.button_title') }}">
+                            <input class="theme-btn" type="submit" value="{{ __('velocity::app.customer.login-form.button_title') }}">
 
                         </form>
                     </div>

@@ -1,4 +1,4 @@
 <?xml version="1.0" ?><svg id="Layer_1" style="enable-background:new 0 0 24 24;" version="1.1" viewBox="0 0 24 24" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><style type="text/css">
-	.st0{fill:none;stroke:#303C42;stroke-linecap:round;stroke-linejoin:round;}
-	.st1{fill:#303C42;}
+	.st0{fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;}
+	.st1{fill:#fff;}
 </style><title/><g id="Imo"><g id="_Group_"><path class="st0" d="M12,0.5C5.7,0.5,0.5,5.6,0.5,12c0,2,0.5,4,1.5,5.7l0,0c0.8,1.2-1.5,2.8-1.5,2.8    C1.7,21,3,21,4.2,20.5c4.7,4.3,12,3.9,16.2-0.8s3.9-12-0.8-16.2C17.6,1.6,14.8,0.5,12,0.5z" id="_Path_"/><line class="st0" id="_Path_2" x1="5.5" x2="5.5" y1="14.5" y2="10.5"/><path class="st0" d="M10.5,14.5V12c0-0.8,0.7-1.5,1.5-1.5l0,0c0.8,0,1.5,0.7,1.5,1.5v2.5" id="_Path_3"/><path class="st0" d="M17,10.5L17,10.5c0.8,0,1.5,0.7,1.5,1.5v1c0,0.8-0.7,1.5-1.5,1.5l0,0    c-0.8,0-1.5-0.7-1.5-1.5v-1C15.5,11.2,16.2,10.5,17,10.5z" id="_Rectangle_"/><path class="st0" d="M7.5,10.5V12c0-0.8,0.7-1.5,1.5-1.5l0,0c0.8,0,1.5,0.7,1.5,1.5v2.5" id="_Path_4"/><circle class="st1" cx="5.5" cy="8.5" id="_Path_5" r="0.5"/><line class="st0" x1="7.5" x2="7.5" y1="12" y2="14.5"/></g></g></svg>
