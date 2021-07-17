@@ -8,5 +8,6 @@ return [
     'customer_service' => 'Customer Service',
     'contact_us' => 'Contact us',
     'main_page' => 'Main page',
-    'search' => 'Search'
+    'search' => 'Search',
+    'our-brands'=>'Our brands'
 ];

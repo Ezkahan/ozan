@@ -8,5 +8,6 @@ return [
     'customer_service' => 'Kömek',
     'contact_us' => 'Habarlaşmak',
     'main_page' => 'Baş sahypa',
-    'search' => 'Gözleg'
+    'search' => 'Gözleg',
+    'our-brands'=>'Brendlerimiz'
 ];
