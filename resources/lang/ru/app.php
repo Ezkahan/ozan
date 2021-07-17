@@ -8,5 +8,6 @@ return [
     'customer_service' => 'Поддержка',
     'contact_us' => 'Свяжитесь с нами',
     'main_page' => 'Главная',
-    'search' => 'Поиск'
+    'search' => 'Поиск',
+    'our-brands'=>'Наши бренды'
 ];

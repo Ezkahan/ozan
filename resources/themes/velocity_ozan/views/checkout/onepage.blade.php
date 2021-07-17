@@ -12,7 +12,7 @@
     @include('shop::checkout.cart.coupon')
 
     <script type="text/x-template" id="checkout-template">
-        <div id="checkout" class="checkout-process row offset-lg-1 col-lg-11 col-md-12">
+        <div id="checkout" class="row offset-lg-1 col-lg-11 col-md-12 px-sm-3">
 
             <h1 class="col-12">{{ __('velocity::app.checkout.checkout') }}</h1>
 
