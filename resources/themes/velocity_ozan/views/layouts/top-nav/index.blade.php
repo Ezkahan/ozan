@@ -57,10 +57,10 @@
                     <i class="icon-money"></i>
                     <span>@lang('app.payment_policy')</span>
                 </a>
-{{--                <a href="{!! url('page/cutomer-service') !!}" class="upheader__nav-link">--}}
-{{--                    <i class="icon-help"></i>--}}
-{{--                    <span>@lang('app.customer_service')</span>--}}
-{{--                </a>--}}
+                <a href="{!! url('page/our-brands') !!}" class="upheader__nav-link">
+                    <i class="icon-help"></i>
+                    <span>@lang('app.our-brands')</span>
+                </a>
                 @php
                     $showWishlist = core()->getConfigData('general.content.shop.wishlist_option') == "1" ? true : false;
 
