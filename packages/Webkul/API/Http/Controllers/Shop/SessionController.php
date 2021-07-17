@@ -48,19 +48,19 @@ class SessionController extends Controller
     public function create()
     {
         request()->validate([
-            'email'    => 'required|email',
+            'phone'    => 'required|numeric|digits:8',
             'password' => 'required',
         ]);
 
         $jwtToken = null;
 
-        if (! $jwtToken = auth()->guard($this->guard)->attempt(request()->only('email', 'password'))) {
+        if (! $jwtToken = auth()->guard($this->guard)->attempt(request()->only('phone', 'password'))) {
             return response()->json([
                 'error' => 'Invalid Email or Password',
             ], 401);
         }
 
-        Event::dispatch('customer.after.login', request('email'));
+        Event::dispatch('customer.after.login', request('phone'));
 
         $customer = auth($this->guard)->user();
 
