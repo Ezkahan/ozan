@@ -103,9 +103,10 @@ class SessionController extends Controller
             'date_of_birth' => 'nullable|date|before:today',
             'email'         => 'email|unique:customers,email,' . $customer->id,
             'password'      => 'confirmed|min:6',
+            'phone' => 'numeric|digits:8'
         ]);
 
-        $data = request()->only('first_name', 'last_name', 'gender', 'date_of_birth', 'email', 'password');
+        $data = request()->only('first_name', 'last_name', 'gender', 'date_of_birth', 'email', 'password','phone');
 
         if (! isset($data['password']) || ! $data['password']) {
             unset($data['password']);

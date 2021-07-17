@@ -75,15 +75,15 @@ class CustomerController extends Controller
         $this->validate($request, [
             'first_name' => 'required',
             'last_name'  => 'required',
-            'email'      => 'email|required|unique:customers,email',
+            'phone'      => 'numeric|digits:8|required|unique:customers,phone',
             'password'   => 'confirmed|min:6|required',
         ]);
 
         $data = [
             'first_name'  => $request->get('first_name'),
             'last_name'   => $request->get('last_name'),
-            'email'       => $request->get('email'),
-            'password'    => $request->get('password'),
+            'phone'       => $request->get('phone'),
+//            'password'    => $request->get('password'),
             'password'    => bcrypt($request->get('password')),
             'channel_id'  => core()->getCurrentChannel()->id,
             'is_verified' => 1,
