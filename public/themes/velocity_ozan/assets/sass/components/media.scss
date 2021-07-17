@@ -75,6 +75,15 @@
         }
     }
 
+    .compare_table {
+        width: 100%;
+        overflow-x: auto !important;
+
+        table {
+            width: 1000px;
+        }
+    }
+
     .cart-details h2 {
         font-size: 28px;
     }

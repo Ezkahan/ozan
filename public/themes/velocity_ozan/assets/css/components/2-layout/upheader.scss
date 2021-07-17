@@ -53,6 +53,27 @@
             margin-right: 0.5rem;
         }
 
+        .lang_select {
+            position: relative;
+
+            &::after {
+                position: absolute;
+                content: "";
+                top: 70%;
+                right: -20px;
+                transform: translateY(-50%);
+                -ms-transform: translateY(-50%);
+                -moz-transform: translateY(-50%);
+                -o-transform: translateY(-50%);
+                -webkit-transform: translateY(-50%);
+                width: 0;
+                height: 0;
+                border: 6px solid #000;
+                border-color: #000 transparent transparent transparent;
+                pointer-events: none;
+            }
+        }
+
         select {
             background: none;
             cursor: pointer;
@@ -61,6 +82,11 @@
             font-weight: 400;
             color: $black;
             border: none;
+            appearance: none;
+            -moz-appearance: none;
+            -o-appearance: none;
+            -ms-appearance: none;
+            -webkit-appearance: none;
 
             option {
                 background: none;

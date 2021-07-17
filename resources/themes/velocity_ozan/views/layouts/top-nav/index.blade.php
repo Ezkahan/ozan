@@ -23,26 +23,28 @@
                             <img src="{{asset('themes/velocity_ozan/assets/images/tm.png')}}" alt="flag_icon">
                         @endif
                 </div>
-                <select
-                    name="language"
-                    onchange="window.location.href = this.value"
-                    aria-label="Locale"
-                    @if (count(core()->getCurrentChannel()->locales) == 1)
-                        disabled="disabled"
-                    @endif>
+                <div class="lang_select">
+                    <select
+                        name="language"
+                        onchange="window.location.href = this.value"
+                        aria-label="Locale"
+                        @if (count(core()->getCurrentChannel()->locales) == 1)
+                            disabled="disabled"
+                        @endif>
 
-                    @foreach (core()->getCurrentChannel()->locales as $locale)
-                        @if (isset($searchQuery) && $searchQuery)
-                            <option
-                                value="?{{ $searchQuery }}&locale={{ $locale->code }}"
-                                {{ $locale->code == app()->getLocale() ? 'selected' : '' }}>
-                                {{ $locale->name }}
-                            </option>
-                        @else
-                            <option value="?locale={{ $locale->code }}" {{ $locale->code == app()->getLocale() ? 'selected' : '' }}>{{ $locale->name }}</option>
-                        @endif
-                    @endforeach
-                </select>
+                        @foreach (core()->getCurrentChannel()->locales as $locale)
+                            @if (isset($searchQuery) && $searchQuery)
+                                <option
+                                    value="?{{ $searchQuery }}&locale={{ $locale->code }}"
+                                    {{ $locale->code == app()->getLocale() ? 'selected' : '' }}>
+                                    {{ $locale->name }}
+                                </option>
+                            @else
+                                <option value="?locale={{ $locale->code }}" {{ $locale->code == app()->getLocale() ? 'selected' : '' }}>{{ $locale->name }}</option>
+                            @endif
+                        @endforeach
+                    </select>
+                </div>
             </div>
             <div class="upheader__nav" id="top">
                 <a href="{!! url('page/about-us') !!}" class="upheader__nav-link">

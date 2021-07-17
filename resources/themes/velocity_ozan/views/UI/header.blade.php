@@ -356,7 +356,7 @@
                                 </div>
                                 <i class="material-icons">compare_arrows</i>
                             </a>
-                        @endif
+                        @endif 
 
                         @if ($showWishlist)
                             <a class="wishlist-btn unset" :href="`{{ route('customer.wishlist.index') }}`">
