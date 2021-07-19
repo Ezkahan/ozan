@@ -288,6 +288,12 @@ body {
     align-items: center;
 }
 
+.cart-details {
+    .cart_table_group {
+        display: block;
+    }
+}
+
 .dropdown-menu {
     border-top: 3px solid $border-primary;
     border-radius: 0px;
