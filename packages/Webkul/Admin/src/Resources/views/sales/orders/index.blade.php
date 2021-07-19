@@ -1,5 +1,7 @@
 @extends('admin::layouts.content')
-
+@section('head')
+    <meta http-equiv="refresh" content="60">
+@endsection
 @section('page_title')
     {{ __('admin::app.sales.orders.title') }}
 @stop
