@@ -91,7 +91,16 @@
                                     @endif
                                 </div>
                             </div>
-
+                            <div class="signup-confirm" :class="[errors.has('agreement') ? 'has-error' : '']">
+                            <span class="checkbox">
+                                <input type="checkbox" id="checkbox2" name="agreement" v-validate="'required'" data-vv-as="&quot;{{ __('velocity::app.customer.signup-form.agreement') }}&quot;">
+                                <label class="checkbox-view" for="checkbox2"></label>
+                                <span>{{ __('velocity::app.customer.signup-form.agree') }}
+                                    <a href="{{route('shop.cms.page',['privacy-policy'])}}">{{ __('velocity::app.customer.signup-form.terms') }}</a> & <a href="{{route('shop.cms.page',['privacy-policy'])}}">{{ __('velocity::app.customer.signup-form.conditions') }}</a> {{ __('velocity::app.customer.signup-form.using') }}.
+                                </span>
+                            </span>
+                                <span class="control-error" v-if="errors.has('agreement')">@{{ errors.first('agreement') }}</span>
+                            </div>
                             {!! view_render_event('bagisto.shop.customers.login_form_controls.after') !!}
 
                             <input class="theme-btn" type="submit" value="{{ __('velocity::app.customer.login-form.button_title') }}">
