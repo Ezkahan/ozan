@@ -102,9 +102,9 @@ class CustomerController extends Controller
         $this->validate(request(), [
             'first_name'            => 'string',
             'last_name'             => 'string',
-            'gender'                => 'required',
+//            'gender'                => 'required',
             'date_of_birth'         => 'date|before:today',
-            'email'                 => 'email|unique:customers,email,' . $id,
+            'phone'                 => 'required|unique:customers,phone,' . $id,
             'password'              => 'confirmed|min:6|required_with:oldpassword',
             'oldpassword'           => 'required_with:password',
             'password_confirmation' => 'required_with:password',
@@ -112,9 +112,9 @@ class CustomerController extends Controller
 
         $data = collect(request()->input())->except('_token')->toArray();
 
-        if (isset ($data['date_of_birth']) && $data['date_of_birth'] == "") {
-            unset($data['date_of_birth']);
-        }
+//        if (isset ($data['date_of_birth']) && $data['date_of_birth'] == "") {
+//            unset($data['date_of_birth']);
+//        }
 
         $data['subscribed_to_news_letter'] = isset($data['subscribed_to_news_letter']) ? 1 : 0;
 
@@ -143,40 +143,40 @@ class CustomerController extends Controller
 
             Event::dispatch('customer.update.after', $customer);
 
-            if ($data['subscribed_to_news_letter']) {
-                $subscription = $this->subscriptionRepository->findOneWhere(['email' => $data['email']]);
-
-                if ($subscription) {
-                    $this->subscriptionRepository->update([
-                        'customer_id'   => $customer->id,
-                        'is_subscribed' => 1,
-                    ], $subscription->id);
-                } else {
-                    $this->subscriptionRepository->create([
-                        'email'         => $data['email'],
-                        'customer_id'   => $customer->id,
-                        'channel_id'    => core()->getCurrentChannel()->id,
-                        'is_subscribed' => 1,
-                        'token'         => $token = uniqid(),
-                    ]);
-
-                    try {
-                        Mail::queue(new SubscriptionEmail([
-                            'email' => $data['email'],
-                            'token' => $token,
-                        ]));
-                    } catch (\Exception $e) { }
-                }
-            } else {
-                $subscription = $this->subscriptionRepository->findOneWhere(['email' => $data['email']]);
-
-                if ($subscription) {
-                    $this->subscriptionRepository->update([
-                        'customer_id'   => $customer->id,
-                        'is_subscribed' => 0,
-                    ], $subscription->id);
-                }
-            }
+//            if ($data['subscribed_to_news_letter']) {
+//                $subscription = $this->subscriptionRepository->findOneWhere(['email' => $data['email']]);
+//
+//                if ($subscription) {
+//                    $this->subscriptionRepository->update([
+//                        'customer_id'   => $customer->id,
+//                        'is_subscribed' => 1,
+//                    ], $subscription->id);
+//                } else {
+//                    $this->subscriptionRepository->create([
+//                        'email'         => $data['email'],
+//                        'customer_id'   => $customer->id,
+//                        'channel_id'    => core()->getCurrentChannel()->id,
+//                        'is_subscribed' => 1,
+//                        'token'         => $token = uniqid(),
+//                    ]);
+//
+//                    try {
+//                        Mail::queue(new SubscriptionEmail([
+//                            'email' => $data['email'],
+//                            'token' => $token,
+//                        ]));
+//                    } catch (\Exception $e) { }
+//                }
+//            } else {
+//                $subscription = $this->subscriptionRepository->findOneWhere(['email' => $data['email']]);
+//
+//                if ($subscription) {
+//                    $this->subscriptionRepository->update([
+//                        'customer_id'   => $customer->id,
+//                        'is_subscribed' => 0,
+//                    ], $subscription->id);
+//                }
+//            }
 
             Session()->flash('success', trans('shop::app.customer.account.profile.edit-success'));
 
