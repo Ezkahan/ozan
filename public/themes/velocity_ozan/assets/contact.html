@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/font.css">
+    <link rel="stylesheet" href="css/main.css">
+    <title>Contact</title>
+</head>
+
+<body>
+    <!-- Forget Password ========================== -->
+    <section class="forget">
+        <div class="auto__container">
+            <div class="forget_inner">
+                <div class="forget_mail">
+                    <div class="forget_title">
+                        Восстановление пароля
+                    </div>
+                    <form action="#" class="forget_form">
+                        <div class="forget_input">
+                            <label>Ваша электронная почта</label>
+                            <input type="text">
+                        </div>
+                        <button class="forget_btn">
+                            Отправить запрос
+                        </button>
+                    </form>
+                </div>
+
+                <div class="forget_pass">
+                    <div class="forget_title">
+                        Восстановление пароля
+                    </div>
+                    <form action="#" class="forget_form">
+                        <div class="forget_input">
+                            <label>Новый пароль</label>
+                            <input type="text">
+                        </div>
+                        <div class="forget_input">
+                            <label>Повторите новый пароль</label>
+                            <input type="text">
+                        </div>
+                        <button class="forget_btn">
+                            Отправить запрос
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Forget Password end ====================== -->
+
+    <!-- upheader start
+    =========================================== -->
+    <section class="upheader">
+        <div class="auto__container">
+            <div class="upheader__inner">
+                <div class="upheader__language">
+                    <i class="icon-global"></i>
+                    <select name="language" id="">
+                        <option value="0">Русский</option>
+                        <option value="1">Русский</option>
+                        <option value="2">Русский</option>
+                    </select>
+                </div>
+                <div class="upheader__nav">
+                    <a href="about.html" class="upheader__nav-link">
+                        <i class="icon-info"></i>
+                        <span>О нас</span>
+                    </a>
+                    <a href="delivery.html" class="upheader__nav-link">
+                        <i class="icon-box"></i>
+                        <span>Доставка</span>
+                    </a>
+                    <a href="#" class="upheader__nav-link">
+                        <i class="icon-money"></i>
+                        <span>Методы оплаты</span>
+                    </a>
+                    <a href="#" class="upheader__nav-link">
+                        <i class="icon-help"></i>
+                        <span>Поддержка</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- upheader end
+    =========================================== -->
+    <!-- header start
+    =========================================== -->
+    <header class="header">
+        <div class="auto__container">
+            <div class="header__inner">
+                <div class="header__column">
+                    <div class="header__logo">
+                        <img src="images/logo-2.gif" alt="">
+                    </div>
+                    <div class="header__menu">
+                        <div class="menu" onclick="showMenu()">
+                            <button class="menu__btn ham" id="menuBtn">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="19.5" height="13.5"
+                                    viewBox="0 0 19.5 13.5">
+                                    <g id="align-justify" transform="translate(-2.25 -5.25)">
+                                        <line id="Line_57" data-name="Line 57" x1="10" transform="translate(3 12)"
+                                            fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round"
+                                            stroke-width="1.5" />
+                                        <line id="Line_58" data-name="Line 58" x1="18" transform="translate(3 6)"
+                                            fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round"
+                                            stroke-width="1.5" />
+                                        <line id="Line_59" data-name="Line 59" x1="18" transform="translate(3 18)"
+                                            fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round"
+                                            stroke-width="1.5" />
+                                    </g>
+                                </svg>
+                                <span>Меню</span>
+                            </button>
+                            <div id="menuDropdown" class="menu__content ham">
+                                <div class="menu__content-header">
+                                    <div class="menu__content-header-logo">
+                                        <img src="images/logo.svg" alt="">
+                                    </div>
+                                    <div class="menu__content-header-close" onclick="closeMenu()">
+                                        <i class="icon-close"></i>
+                                    </div>
+                                </div>
+                                <a href="about.html" class="menu__content-link">
+                                    <i class="icon-info"></i>
+                                    О нас
+                                </a>
+                                <a href="delivery.html" class="menu__content-link">
+                                    <i class="icon-box"></i>
+                                    Доставка
+                                </a>
+                                <a href="#" class="menu__content-link">
+                                    <i class="icon-money"></i>
+                                    Методы оплаты
+                                </a>
+                                <a href="#" class="menu__content-link">
+                                    <i class="icon-help"></i>
+                                    Поддержка
+                                </a>
+                                <a href="favourite.html" class="menu__content-link">
+                                    <i class="icon-star"></i>
+                                    Избранное
+                                </a>
+                                <a href="basket.html" class="menu__content-link">
+                                    <i class="icon-Inactive"></i>
+                                    Корзина
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="header__column">
+                    <form class="search">
+                        <div class="search__input">
+                            <input type="text" placeholder="Поиск">
+                        </div>
+                        <button type="submit" class="search__btn">Найти</button>
+                    </form>
+                    <div class="header__column-row">
+                        <a href="#" class="dropdown__btn" id="modalBtn">
+                            <i class="icon-user"></i>
+                            <span>Профиль</span>
+                        </a>
+                        <!-- if you loged in it must be like this -->
+                        <!-- <div class="dropdown" onclick="showProfile()">
+                            <button class="dropdown__btn" id="dropbtn">
+                                <i class="icon-user"></i>
+                                <span>Профиль</span>
+                            </button>
+                            <div id="myDropdown" class="dropdown__content">
+                                <a href="#" class="dropdown__content-link">
+                                    <i class="icon-coins"></i>
+                                    12.00 TMT
+                                </a>
+                                <a href="#" class="dropdown__content-link">
+                                    <i class="icon-user"></i>
+                                    Личный кабинет
+                                </a>
+                                <a href="#" class="dropdown__content-link">
+                                    <i class="icon-checklist"></i>
+                                    Мои заказы
+                                </a>
+                                <a href="#" class="dropdown__content-link">
+                                    <i class="icon-logout"></i>
+                                    Выйти
+                                </a>
+                            </div>
+                        </div> -->
+                        <!-- if you loged in it must be like this -->
+                        <a href="#" class="dropdown__btn">
+                            <i class="icon-star"></i>
+                            <span>Избранное</span>
+                        </a>
+                        <a href="#" class="dropdown__btn">
+                            <i class="icon-Inactive"></i>
+                            <span>Избранное</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- header end
+    =========================================== -->
+
+    <!-- Contact ============================= -->
+    <section class="contact">
+        <div class="auto__container">
+            <div class="contact_wrap">
+                <div class="contact_title">
+                    Связаться с нами
+                </div>
+                <form action="#" class="contact_form">
+                    <div class="contact_input">
+                        <label for="name">Ваше имя</label>
+                        <input type="text" id="name" placeholder="Введите ваше имя...">
+                    </div>
+
+                    <div class="contact_input">
+                        <label for="last-name"> Название организации</label>
+                        <input type="text" id="last-name" placeholder="Введите ваше фамилию..."">
+                    </div>
+
+                    <div class="contact_input">
+                        <label for="mail">E-mail</label>
+                        <input type="text" id="mail" placeholder="Введите ваше почту...">
+                    </div>
+
+                    <div class="contact_input">
+                        <label for="theme">Тема</label>
+                        <input type="text" id="theme" placeholder="Введите ваше тему...">
+                    </div>
+
+                    <div class="contact_message">
+                        <label for="message">Сообщение</label>
+                        <textarea id="message" placeholder="Введите текст..."></textarea>
+                    </div>
+
+                    <button class="contact_btn" type="submit">
+                        Отправить
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+    <!-- Contact end ========================= -->
+
+    <!-- footer start
+    =========================================== -->
+    <footer class="footer">
+        <div class="auto__container">
+            <div class="footer__inner">
+                <p class="footer__copyright">
+                    1993 - 2018 - ИП "Парахат". Все права зашищены.
+                </p>
+                <a href="" class="footer__social">
+                    <img src="images/svg/instagram.svg" alt="">
+                </a>
+            </div>
+        </div>
+    </footer>
+    <!-- footer end
+    =========================================== -->
+    <script src="js/jquery.js"></script>
+    <script src="js/slick.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

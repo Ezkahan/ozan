@@ -1,0 +1,104 @@
+.contact {
+    padding: 100px 0;
+
+    &_title {
+        position: relative;
+        font-size: 32px;
+        font-weight: 600;
+        line-height: 1.3;
+        margin-bottom: 80px;
+
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: -40px;
+            left: 0;
+            width: 300px;
+            height: 4px;
+            background: $main-color;
+        }
+    }
+
+    &_form {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+        -moz-flex-wrap: wrap;
+        -o-flex-wrap: wrap;
+        -webkit-flex-wrap: wrap;
+        margin: -15px -25px;
+    }
+
+    &_input {
+        width: calc(50% - 50px);
+        margin: 15px 25px;
+
+        label {
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 1.3;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        input {
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 1.3;
+            border: 1px solid rgba(218, 45, 121, 1);
+            width: calc(100% - 20px);
+            padding: 15px 10px;
+            border-radius: 5px;
+
+            &::placeholder {
+                font-size: 14px;
+                font-weight: 400;
+                line-height: 1.3;
+                font-family: "Open Sans", sans-serif;
+            }
+        }
+    }
+
+    &_message {
+        width: calc(100% - 50px);
+        margin: 15px 25px;
+
+        label {
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 1.3;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        textarea {
+            padding: 15px 10px;
+            width: calc(100% - 20px);
+            border: 1px solid rgba(218, 45, 121, 1);
+            resize: none;
+            height: 150px;
+
+            &::placeholder {
+                font-family: "Open Sans", sans-serif;
+                font-size: 14px;
+                font-weight: 400;
+                line-height: 1.3;
+            }
+        }
+    }
+
+    &_btn {
+        text-align: center;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1.3;
+        cursor: pointer;
+        color: #fff;
+        background: $main-color;
+        padding: 15px 50px;
+        margin: 35px auto 0;
+    }
+
+
+}
