@@ -53,25 +53,12 @@
                         <td>{{ $customer->last_name }}</td>
                     </tr>
 
-                    {!! view_render_event('bagisto.shop.customers.account.profile.view.table.last_name.after', ['customer' => $customer]) !!}
-
-                    <tr>
-                        <td>{{ __('velocity::app.customer.account.profile.gender') }}</td>
-                        <td>{{ $customer->gender ?? '-' }}</td>
-                    </tr>
-
-                    {!! view_render_event('bagisto.shop.customers.account.profile.view.table.gender.after', ['customer' => $customer]) !!}
-
-                    <tr>
-                        <td>{{ __('velocity::app.customer.account.profile.dob') }}</td>
-                        <td>{{ $customer->date_of_birth ?? '-' }}</td>
-                    </tr>
 
                     {!! view_render_event('bagisto.shop.customers.account.profile.view.table.date_of_birth.after', ['customer' => $customer]) !!}
 
                     <tr>
-                        <td>{{ __('velocity::app.customer.account.profile.email') }}</td>
-                        <td>{{ $customer->email }}</td>
+                        <td>{{ __('velocity::app.customer.account.profile.phone') }}</td>
+                        <td>{{ $customer->phone }}</td>
                     </tr>
 
                     {!! view_render_event(

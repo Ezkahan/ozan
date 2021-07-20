@@ -3,8 +3,9 @@ import accounting from 'accounting';
 import VueCarousel from 'vue-carousel';
 import VueToast from 'vue-toast-notification';
 import 'vue-toast-notification/dist/index.css';
-import de from 'vee-validate/dist/locale/de';
-import ar from 'vee-validate/dist/locale/ar';
+import ru from 'vee-validate/dist/locale/ru';
+// import tm from 'vee-validate/dist/locale/tr';
+import tm from './lang/tm'
 import VeeValidate, { Validator } from 'vee-validate';
 import axios from 'axios';
 import 'lazysizes';
@@ -21,8 +22,9 @@ Vue.prototype.$http = axios;
 
 Vue.use(VeeValidate, {
     dictionary: {
-        ar: ar,
-        de: de,
+        // ar: ar,
+        ru: ru,
+        tm: tm,
     }
 });
 

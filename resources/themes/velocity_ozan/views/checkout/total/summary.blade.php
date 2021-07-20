@@ -47,14 +47,18 @@
     <div class="row">
         @php
             $minimumOrderAmount = (float) core()->getConfigData('sales.orderSettings.minimum-order.minimum_order_amount') ?? 0;
+
         @endphp
 
+        @if(request()->route()->getName() != 'shop.checkout.summary')
         <proceed-to-checkout
+
             href="{{ route('shop.checkout.onepage.index') }}"
             add-class="theme-btn text-uppercase col-12 remove-decoration fw6 text-center"
             text="{{ __('velocity::app.checkout.proceed') }}"
             is-minimum-order-completed="{{ $cart->checkMinimumOrder() }}"
             minimum-order-message="{{ __('shop::app.checkout.cart.minimum-order-message', ['amount' => core()->currency($minimumOrderAmount)]) }}">
         </proceed-to-checkout>
+        @endif
     </div>
 </div>
