@@ -18,11 +18,11 @@
             $isRendered = true;
             $slides = [];
             foreach ($advertisementFour as $adv) {
-                $slides[] =['path'=>$adv,'slider_path'=> $url[0]??'/'];
+                $slides[] =['path'=>$adv,'slider_path'=> $url[0]??url()->to('/page/our-brands')];
             }
 
         @endphp
-        
+
 
         <!--  -->
         <slider  :slides='@json($slides)' public_path="{{ url()->to('/storage/') }}" item_class="brand__slider-item-image" :time=4000 :items=6></slider>
