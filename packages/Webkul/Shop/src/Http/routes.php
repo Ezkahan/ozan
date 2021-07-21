@@ -141,7 +141,7 @@ Route::group(['middleware' => ['web', 'locale', 'theme', 'currency']], function 
 
         // Login form store
         Route::post('login', 'Webkul\Customer\Http\Controllers\SessionController@create')->defaults('_config', [
-            'redirect' => 'customer.profile.index'
+            'redirect' => 'shop.checkout.cart.index'
         ])->name('customer.session.create');
 
         // Registration Routes

@@ -306,10 +306,10 @@ return [
         ],
 
         'forgot-password' => [
-            'title' => 'Recover Password',
+            'title' => 'Açar sözini dikeltme',
             'email' => 'Email',
-            'submit' => 'Send Password Reset Email',
-            'page_title' => 'Forgot your password ?'
+            'submit' => 'Ugrat',
+            'page_title' => 'Açar sözüňizi unytdyňyzmy ?'
         ],
 
         'reset-password' => [

@@ -219,6 +219,12 @@ return [
     ],
 
     'customer'      => [
+        'forgot-password' => [
+            'title' => 'Açar sözini dikeltme',
+            'email' => 'Email',
+            'submit' => 'Ugrat',
+            'page_title' => 'Açar sözüňizi unytdyňyzmy ?'
+        ],
         'compare'           => [
             'text'                  => 'Deňeşdirme',
             'compare_similar_items' => 'Harytlary deňeşdirme',
@@ -457,13 +463,13 @@ return [
             ],
 
             'wishlist' => [
-                'page-title' => 'islenegler sanawy',
-                'title' => 'Islegler sanawy',
-                'deleteall' => 'ählisini aýyrmak',
-                'moveall' => 'ähli harytlary sebede geçirmek',
-                'move-to-cart' => 'sebede geçirmek',
-                'error' => 'Näbelli meseleler sebäpli isleg sanawyna önüm goşup bolmaýar, soňrak barlaň',
-                'add' => 'Isleg sanawyna haryt üstünlikli goşuldy',
+                'page-title' => 'Halanylanlar',
+                'title' => 'Halanylanlar',
+                'deleteall' => 'Ählisini aýyr',
+                'moveall' => 'Ähli harytlary sebede geçir',
+                'move-to-cart' => 'Sebede geçir',
+                'error' => 'Käbir meseleler sebäpli halanylanlara haryt goşup bolmaýar, soňrak barlaň',
+                'add' => 'Halanylanlara haryt üstünlikli goşuldy',
                 'remove' => 'Haryt isleg sanawyndan üstünlikli aýryldy',
                 'add-wishlist-text'     => 'Isleg sanawyna önüm goşuň',
                 'remove-wishlist-text'  => 'Harytlary isleg sanawyndan aýyryň',

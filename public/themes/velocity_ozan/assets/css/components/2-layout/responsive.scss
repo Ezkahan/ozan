@@ -310,6 +310,10 @@
     }
 
     // detail page end
+
+    .contact {
+        padding: 70px 0;
+    }
 }
 
 @include xh-xxh {
@@ -826,6 +830,10 @@
             width: calc(33.33% - 20px) !important;
         }
     }
+
+    .contact {
+        padding: 50px 0;
+    }
 }
 
 @include md-lg {
@@ -920,6 +928,32 @@
 
     .category-container {
         padding: 0 !important;
+    }
+
+
+    .contact {
+        padding: 40px 0;
+
+        &_title {
+            font-size: 26px;
+            margin-bottom: 60px;
+
+            &::after {
+                bottom: -20px;
+            }
+        }
+
+        &_input {
+            width: calc(100% - 50px);
+            margin: 10px 25px;
+        }
+
+        &_message {
+
+            textarea {
+                height: 120px;
+            }
+        }
     }
 
 }
