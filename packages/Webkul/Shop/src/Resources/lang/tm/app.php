@@ -51,7 +51,7 @@ return [
             'proceed-to-checkout' => 'Sargyda geçmek',
             'remove' => 'Aýyrmak',
             'remove-link' => 'Aýyrmak',
-            'move-to-wishlist' => 'Halanylanlara geçmek',
+            'move-to-wishlist' => 'Isleglerime geçir',
             'move-to-wishlist-success' => 'Haryt isleg sanawyna üstünlikli geçdi.',
             'move-to-wishlist-error' => 'Isleg sanawyna elementi geçirip bolmaýar, soňrak synanyşyň.',
             'add-config-warning' => 'Sebede goşmazdan ozal görnüşi saýlaň.',

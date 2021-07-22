@@ -166,7 +166,7 @@ return [
         'profile' => 'Profil',
         'address' => 'Salgylar',
         'reviews' => 'Synlar',
-        'wishlist' => 'Halanylanlar',
+        'wishlist' => 'Isleglerim',
         'orders' => 'Sargytlar',
         'downloadable-products' => 'Göçürip bolýan önümler'
     ],
@@ -177,11 +177,11 @@ return [
         'title'             => 'Ady',
         'account'           => 'Hasap',
         'profile'           => 'Profil',
-        'wishlist'          => 'Halanlarym',
+        'wishlist'          => 'Isleglerim',
         'all-categories'    => 'Ähli bölümler',
         'search-text'       => 'Harytlary şu ýerde gözläň',
         'welcome-message'   => ':customer_name hoş geldiňiz!',
-        'dropdown-text'     => 'Halanlarymy, sargytlary we sebedi dolandyrmak üçin içeri giriň',
+        'dropdown-text'     => 'Islegleri, sargytlary we sebedi dolandyrmak üçin içeri giriň',
         'sign-in' => 'Giriş',
         'sign-up' => 'Agza bol',
         'search' => 'Gözleg'
@@ -295,7 +295,7 @@ return [
             'recover-password-text' => 'Eger açar sözüni unudan bolsaňyz telefon belgiňizi görkezip, ony dikeldip bilersiňiz',
         ],
         'wishlist' => [
-            'remove-all-success' => 'Halanylanlardan ähli harytlar aýryldy',
+            'remove-all-success' => 'Isleglerden ähli harytlar aýryldy',
         ],
         'account' => [
             'dashboard' => 'Profili redaktirläň',
@@ -463,13 +463,13 @@ return [
             ],
 
             'wishlist' => [
-                'page-title' => 'Halanylanlar',
-                'title' => 'Halanylanlar',
+                'page-title' => 'Isleglerim',
+                'title' => 'Isleglerim',
                 'deleteall' => 'Ählisini aýyr',
                 'moveall' => 'Ähli harytlary sebede geçir',
                 'move-to-cart' => 'Sebede geçir',
-                'error' => 'Käbir meseleler sebäpli halanylanlara haryt goşup bolmaýar, soňrak barlaň',
-                'add' => 'Halanylanlara haryt üstünlikli goşuldy',
+                'error' => 'Käbir meseleler sebäpli isleglere haryt goşup bolmaýar, soňrak barlaň',
+                'add' => 'Isleglere haryt üstünlikli goşuldy',
                 'remove' => 'Haryt isleg sanawyndan üstünlikli aýryldy',
                 'add-wishlist-text'     => 'Isleg sanawyna önüm goşuň',
                 'remove-wishlist-text'  => 'Harytlary isleg sanawyndan aýyryň',
@@ -641,8 +641,8 @@ return [
         ],
     ],
     'wishlist'  => [
-        'add-wishlist-text'     => 'Halanlaryma goşmak',
-        'remove-wishlist-text'  => 'Halanlarymdan aýyrmak'
+        'add-wishlist-text'     => 'Isleglerime goşmak',
+        'remove-wishlist-text'  => 'Isleglerimden aýyrmak'
     ]
 ],
 
@@ -653,6 +653,22 @@ return [
         'greeting'  => 'Hoş geldiňiz :customer !',
     ]
 ],
+    'contactus' => [
+        'title' => 'Biziň bilen habarlaşyň',
+        'name' => 'Adyňyz',
+        'name_placeholder' => 'Adyňyzy ýazmagyňyzy haýyş edýäris',
+        'contact' => 'E-poçta / Telefon',
+        'contact_placeholder' => 'E-poçta ýa-da telefon giriziň',
+        'subject' => 'Mowzuk',
+        'subject_placeholder' => 'Mowzuk girmegiňizi haýyş edýäris',
+        'message' => 'Hat',
+        'message_placeholder' => 'Hatyňyzy ýazmagyňyzy haýyş edýäris',
+        'send' => 'Ugrat',
+        'gapja' => 'Gapja',
+        'gapja_placeholder' => 'Suratda görkezilen teksti giriziň',
+        'success_message' => 'Habaryňyz üçin sag boluň. Gyzga wagtda gözden geçirip siz bilen habarlaşarys ',
+        'error_message' => 'Habarynyz kabir sebäpden bize gowuşmady. Soňrak täzeden barlap görüň'
+     ]
 ]
 
 ?>

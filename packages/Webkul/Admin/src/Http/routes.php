@@ -815,6 +815,22 @@ Route::group(['middleware' => ['web']], function () {
             });
 
             Route::prefix('cms')->group(function () {
+                Route::get('/messages','Webkul\CMS\Http\Controllers\Admin\MessageController@index')->defaults('_config', [
+                    'view' => 'admin::cms.messages',
+                ])->name('admin.cms.messages');
+
+                Route::get('/messages/view','Webkul\CMS\Http\Controllers\Admin\MessageController@view')->defaults('_config', [
+                    'view' => 'admin::cms.messages',
+                ])->name('admin.cms.messages.view');
+
+                Route::post('/messages/delete/{id}', 'Webkul\CMS\Http\Controllers\Admin\MessageController@delete')->defaults('_config', [
+                    'redirect' => 'admin.cms.messages',
+                ])->name('admin.cms.messages.delete');
+
+                Route::post('/messages/massdelete', 'Webkul\CMS\Http\Controllers\Admin\MessageController@massDelete')->defaults('_config', [
+                    'redirect' => 'admin.cms.messages',
+                ])->name('admin.cms.messages.mass-delete');
+
                 Route::get('/', 'Webkul\CMS\Http\Controllers\Admin\PageController@index')->defaults('_config', [
                     'view' => 'admin::cms.index',
                 ])->name('admin.cms.index');
