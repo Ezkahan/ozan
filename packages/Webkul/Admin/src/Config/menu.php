@@ -241,5 +241,11 @@ return [
         'route'      => 'admin.cms.index',
         'sort'       => 1,
         'icon-class' => '',
+    ], [
+        'key'        => 'cms.messages',
+        'name'       => 'admin::app.cms.messages.title',
+        'route'      => 'admin.cms.messages',
+        'sort'       => 2,
+        'icon-class' => '',
     ]
 ];

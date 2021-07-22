@@ -6,6 +6,7 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 
+use Webkul\CMS\Repositories\MessageRepository;
 use Webkul\Velocity\Helpers\Helper;
 use Webkul\Product\Repositories\SearchRepository;
 use Webkul\Product\Repositories\ProductRepository;
@@ -74,6 +75,7 @@ class Controller extends BaseController
      */
     protected $compareProductsRepository;
 
+    protected  $messageRepository;
 
     /**
      * Create a new controller instance.
@@ -84,7 +86,7 @@ class Controller extends BaseController
      * @param  \Webkul\Category\Repositories\CategoryRepository                        $categoryRepository
      * @param  \Webkul\Velocity\Repositories\Product\ProductRepository                 $velocityProductRepository
      * @param  \Webkul\Velocity\Repositories\VelocityCustomerCompareProductRepository  $compareProductsRepository
-     *
+     * @param  \Webkul\CMS\Repositories\MessageRepository                              $messageRepository
      * @return void
      */
     public function __construct(
@@ -94,7 +96,8 @@ class Controller extends BaseController
         WishlistRepository $wishlistRepository,
         CategoryRepository $categoryRepository,
         VelocityProductRepository $velocityProductRepository,
-        CustomerCompareProductRepository $compareProductsRepository
+        CustomerCompareProductRepository $compareProductsRepository,
+        MessageRepository $messageRepository
     ) {
         $this->_config = request('_config');
 
@@ -111,5 +114,7 @@ class Controller extends BaseController
         $this->velocityProductRepository = $velocityProductRepository;
 
         $this->compareProductsRepository = $compareProductsRepository;
+
+        $this->messageRepository = $messageRepository;
     }
 }

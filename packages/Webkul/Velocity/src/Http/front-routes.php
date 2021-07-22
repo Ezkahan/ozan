@@ -2,6 +2,19 @@
 
 Route::group(['middleware' => ['web', 'locale', 'theme', 'currency']], function () {
     Route::namespace('Webkul\Velocity\Http\Controllers\Shop')->group(function () {
+
+        Route::get('/contact-us', 'ContactController@index')
+            ->name('velocity.contact')
+            ->defaults('_config', [
+                'view' => 'shop::cms.contactus'
+            ]);
+
+        Route::post('/contact-us', 'ContactController@sendMessage')
+            ->name('velocity.contact.send')
+            ->defaults('_config', [
+                'view' => 'shop::cms.contactus'
+            ]);
+
         Route::get('/product-details/{slug}', 'ShopController@fetchProductDetails')
             ->name('velocity.shop.product');
 

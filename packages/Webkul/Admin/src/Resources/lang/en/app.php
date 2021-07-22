@@ -1294,6 +1294,14 @@ return [
             'two-col' => '<div class="mt-10">Use class: <b>"static-container two-column"</b> for two column layout.</div>',
             'three-col' => '<div class="mt-10">Use class: <b>"static-container three-column"</b> for three column layout.</div>',
             'helper-classes' => 'Helper Classes'
+        ],
+        'messages' => [
+            'title' => 'Contact Messages',
+            'name' => 'Name',
+            'contact' => 'Contact',
+            'subject' => 'Subject',
+            'send-at' => 'Send at',
+            'message' => 'Message'
         ]
     ],
 

@@ -624,6 +624,23 @@ return [
             'greeting'  => 'Welcome, :customer !',
         ]
     ],
+
+    'contactus' => [
+        'title' => 'Contact us',
+        'name' => 'Your name',
+        'name_plaaceholder' => 'Please enter name',
+        'contact' => 'Email/Phone',
+        'contact_placeholder' => 'Please enter either email or phone',
+        'subject' => 'Subject',
+        'subject_placeholder' => 'Please enter subject',
+        'message' => 'Message',
+        'message_placeholder' => 'Please enter your text',
+        'send' => 'Send',
+        'gapja' => 'Captcha',
+        'gapja_placeholder' => 'Please enter text displayed on image',
+        'success_message' => 'Thank you for your message. We will review and contact you in mean time',
+        'error_message' => 'Some problem with message. Please try again later'
+    ]
 ]
 
 ?>
