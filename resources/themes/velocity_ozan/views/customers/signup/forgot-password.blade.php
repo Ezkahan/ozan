@@ -1,7 +1,7 @@
 @extends('shop::layouts.master')
 
 @section('page_title')
-    {{ __('shop::app.customer.forgot-password.page_title') }}
+    {{ __('velocity::app.customer.forgot-password.page_title') }}
 @endsection
 
 @section('full-content-wrapper')
@@ -59,7 +59,7 @@
                         {!! view_render_event('bagisto.shop.customers.forget_password_form_controls.after') !!}
 
                         <button class="theme-btn" type="submit">
-                            {{ __('shop::app.customer.forgot-password.submit') }}
+                            {{ __('velocity::app.customer.forgot-password.submit') }}
                         </button>
                     </form>
 

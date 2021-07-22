@@ -79,7 +79,7 @@
                     @auth('customer') href="{{ route('velocity.customer.product.compare') }}" @endauth
                     @guest('customer') href="{{ route('velocity.product.compare') }}"@endguest>
                     <i class="material-icons">compare_arrows</i>
-                    <span>Deňeşdirmek</span>
+                    <span>@lang('velocity::app.customer.compare.text')</span>
                 </a>
                 @endif
                 @include('velocity::layouts.top-nav.login-section')
