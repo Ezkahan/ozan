@@ -3,6 +3,72 @@
     background: #0f0f0f;
     margin-top: 40px;
 
+    .set-vk {
+        position: relative;
+        width: 50px;
+        height: 50px;
+
+        &::after {
+            content: url("../../../images/svg/vk.svg");
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            -moz-transform: translate(-50%, -50%);
+            -o-transform: translate(-50%, -50%);
+            -webkit-transform: translate(-50%, -50%);
+            width: 100%;
+            height: 100%;
+            // background: url("../../../images/svg/vk.svg") no-repeat center;
+            // background-size: contain;
+        }
+    }
+
+    .set-odnoklasniki {
+        position: relative;
+        width: 50px;
+        height: 50px;
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            -moz-transform: translate(-50%, -50%);
+            -o-transform: translate(-50%, -50%);
+            -webkit-transform: translate(-50%, -50%);
+            width: 100%;
+            height: 100%;
+            background: url("../../../images/svg/odnoklassniki.svg") no-repeat center;
+            background-size: contain;
+        }
+    }
+
+    .set-telegram {
+        position: relative;
+        width: 50px;
+        height: 50px;
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            -moz-transform: translate(-50%, -50%);
+            -o-transform: translate(-50%, -50%);
+            -webkit-transform: translate(-50%, -50%);
+            width: 100%;
+            height: 100%;
+            background: url("../../../images/svg/telegram.svg") no-repeat center;
+            background-size: contain;
+        }
+    }
+
     &__inner {
         display: flex;
         align-items: center;

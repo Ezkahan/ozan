@@ -1,0 +1,42 @@
+@font-face {
+    font-family: 'new-icomoon';
+    src: url('fonts/new-icomoon.eot?lunl8p');
+    src: url('fonts/new-icomoon.eot?lunl8p#iefix') format('embedded-opentype'),
+        url('fonts/new-icomoon.ttf?lunl8p') format('truetype'),
+        url('fonts/new-icomoon.woff?lunl8p') format('woff'),
+        url('fonts/new-icomoon.svg?lunl8p#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}
+
+[class^="icon-"],
+[class*=" icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'new-icomoon' !important;
+    speak: never;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-vk:before {
+    content: "\e900";
+    color: #fff;
+}
+
+.icon-telegram:before {
+    content: "\e901";
+    color: #fff;
+}
+
+.icon-odnoklassniki:before {
+    content: "\e902";
+    color: #fff;
+}
