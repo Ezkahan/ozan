@@ -1343,6 +1343,7 @@ li {
   background: #da2d79;
   color: #ffffff;
   cursor: pointer;
+  border: none !important;
 }
 
 .card {
@@ -3679,6 +3680,7 @@ li {
   background: #da2d79;
   padding: 15px 50px;
   margin: 35px auto 0;
+  border: none !important;
 }
 
 @media (max-width: 1740px) {

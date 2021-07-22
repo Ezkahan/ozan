@@ -7,7 +7,9 @@
 @stop
 
 @section('content-wrapper')
-    <cart-component></cart-component>
+<div class="auto__container">
+<cart-component></cart-component>
+</div>
 @endsection
 
 @push('css')
@@ -124,7 +126,7 @@
                                                 $showWishlist = core()->getConfigData('general.content.shop.wishlist_option') == "1" ? true : false;
                                             @endphp
 
-                                            <div class="no-padding col-12 cursor-pointer fs16">
+                                            <div class="no-padding col-12 cursor-pointer fs16 mt-4">
                                                 @auth('customer')
                                                     @if ($showWishlist)
                                                         @if ($item->parent_id != 'null' ||$item->parent_id != null)
@@ -170,7 +172,7 @@
                                         </div>
 
                                         <div class="product-price fs18 col-1">
-                                                <span class="card-current-price fw6 mr10">
+                                                <span class="card-current-price fw6">
                                                     {{ core()->currency( $item->base_total) }}
                                                 </span>
                                         </div>
