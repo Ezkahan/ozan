@@ -628,7 +628,7 @@ return [
     'contactus' => [
         'title' => 'Contact us',
         'name' => 'Your name',
-        'name_plaaceholder' => 'Please enter name',
+        'name_placeholder' => 'Please enter name',
         'contact' => 'Email/Phone',
         'contact_placeholder' => 'Please enter either email or phone',
         'subject' => 'Subject',
