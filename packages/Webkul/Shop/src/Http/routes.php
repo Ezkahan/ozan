@@ -152,8 +152,14 @@ Route::group(['middleware' => ['web', 'locale', 'theme', 'currency']], function 
 
         //registration form store
         Route::post('register', 'Webkul\Customer\Http\Controllers\RegistrationController@create')->defaults('_config', [
-            'redirect' => 'customer.session.index',
+            'redirect' => 'customer.verify-phone',
         ])->name('customer.register.create');
+
+        Route::get('/verify-phone', 'Webkul\Customer\Http\Controllers\RegistrationController@show')->defaults('_config', [
+            'view' => 'shop::customers.account.index',
+        ])->name('customer.verify-phone');
+
+        Route::post('/verify-phone', 'Webkul\Customer\Http\Controllers\RegistrationController@verifyPhone')->name('customer.check-phone');
 
         //verify account
         Route::get('/verify-account/{token}', 'Webkul\Customer\Http\Controllers\RegistrationController@verifyAccount')->name('customer.verify');
