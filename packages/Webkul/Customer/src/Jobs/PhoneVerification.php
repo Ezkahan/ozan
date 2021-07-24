@@ -9,6 +9,7 @@ use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Log;
 use Throwable;
 use Webkul\Customer\SMS\VerificationSMS;
 
@@ -53,8 +54,12 @@ class PhoneVerification implements ShouldQueue
             ->timeout(30)
             ->post('https://lcab.smsint.ru/json/v1.0/sms/send/text');
 
+
         if($response->failed())
+        {
+            Log::error($response);
             $response->throw();
+        }
 
     }
     public function failed(Throwable $exception)
