@@ -156,7 +156,7 @@ Route::group(['middleware' => ['web', 'locale', 'theme', 'currency']], function 
         ])->name('customer.register.create');
 
         Route::get('/verify-phone', 'Webkul\Customer\Http\Controllers\RegistrationController@show')->defaults('_config', [
-            'view' => 'shop::customers.account.index',
+            'view' => 'shop::customers.signup.verify',
         ])->name('customer.verify-phone');
 
         Route::post('/verify-phone', 'Webkul\Customer\Http\Controllers\RegistrationController@verifyPhone')->name('customer.check-phone');
