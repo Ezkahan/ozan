@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Mail;
 use Webkul\Customer\Mail\RegistrationEmail;
 use Webkul\Customer\Mail\VerificationEmail;
+use Webkul\Customer\SMS\PhoneVerification;
 use Webkul\Shop\Mail\SubscriptionEmail;
 use Webkul\Customer\Repositories\CustomerRepository;
 use Webkul\Customer\Repositories\CustomerGroupRepository;
@@ -97,7 +98,7 @@ class RegistrationController extends Controller
             'api_token'         => Str::random(80),
             'is_verified'       => core()->getConfigData('customer.settings.email.verification') ? 0 : 1,
             'customer_group_id' => $this->customerGroupRepository->findOneWhere(['code' => 'general'])->id,
-            'token'             => md5(uniqid(rand(), true)),
+            'token'             => substr(str_shuffle("0123456789"), 0, 5),//md5(uniqid(rand(), true)),
             'subscribed_to_news_letter' => isset(request()->input()['is_subscribed']) ? 1 : 0,
         ]);
 
@@ -105,13 +106,14 @@ class RegistrationController extends Controller
 
         $customer = $this->customerRepository->create($data);
 
-        Event::dispatch('customer.registration.after', $customer);
 
         if (! $customer) {
             session()->flash('error', trans('shop::app.customer.signup-form.failed'));
 
             return redirect()->back();
         }
+
+        Event::dispatch('customer.registration.after', $customer);
 
         if (isset($data['is_subscribed'])) {
             $subscription = $this->subscriptionRepository->findOneWhere(['email' => $data['email']]);
@@ -138,10 +140,13 @@ class RegistrationController extends Controller
             }
         }
 
+        \Webkul\Customer\Jobs\PhoneVerification::dispatchIf(core()->getConfigData('customer.settings.email.verification'), $customer->toArray());
+
         if (core()->getConfigData('customer.settings.email.verification')) {
             try {
                 if (core()->getConfigData('emails.general.notifications.emails.general.notifications.verification')) {
                     Mail::queue(new VerificationEmail(['email' => $data['email'], 'token' => $data['token']]));
+
                 }
 
                 session()->flash('success', trans('shop::app.customer.signup-form.success-verify'));
