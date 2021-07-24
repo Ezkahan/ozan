@@ -19,7 +19,8 @@ class VerificationSMS
     public $recipient;
     public $recipientType = "recipient";
     public $id;
-    public $source;
+    public $source = 'ozan.com.tm';
+    public $groupId = 'customer';
     public $shortenUrl = true;
     public $text;
     public $timeout = 360;
@@ -28,7 +29,7 @@ class VerificationSMS
     {
         $this->recipient = '993'.$data['phone'];
         $this->id = 'customer_'.$data['id'];
-        $this->source = url();
+//        $this->source = url();
         $this->text = $data['token'];//trans('shop::app.sms.verification',$data);
     }
 
