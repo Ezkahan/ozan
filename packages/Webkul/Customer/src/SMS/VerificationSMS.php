@@ -28,7 +28,7 @@ class VerificationSMS
     {
         $this->recipient = '993'.$data['phone'];
         $this->id = $data['id'];
-        $this->source = $data['source'];
+        $this->source = url();
         $this->text = $data['token'];//trans('shop::app.sms.verification',$data);
     }
 
