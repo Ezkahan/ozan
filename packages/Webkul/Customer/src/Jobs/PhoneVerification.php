@@ -46,7 +46,7 @@ class PhoneVerification implements ShouldQueue
         ];
 
         $response = Http::withHeaders([
-            'X-Token' => 'adq2ryioqifw',
+            'X-Token' => 'uabv52b9nvqq3baar4xj12l00y7k1z709e7a2nlzgfz8k9co92mbns53irj47ht6',
             'Content-Type' => 'application/json'
         ])->withBody(json_encode($data),'application/json')
             ->timeout(30)

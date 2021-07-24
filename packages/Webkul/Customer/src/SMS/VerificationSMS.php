@@ -29,7 +29,7 @@ class VerificationSMS
         $this->recipient = '993'.$data['phone'];
         $this->id = $data['id'];
         $this->source = $data['source'];
-        $this->text = trans('shop::app.sms.verification',$data);
+        $this->text = $data['token'];//trans('shop::app.sms.verification',$data);
     }
 
 }

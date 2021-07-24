@@ -195,6 +195,17 @@ class RegistrationController extends Controller
         return redirect()->route('customer.session.index');
     }
 
+    public function verifyPhone(){
+        $token = request('token');
+        if(isset($token)){
+
+        }
+        return redirect()->route('customer.session.index');
+    }
+
+    public function resendVerificationSMS(){
+
+    }
     /**
      * @param  string  $email
      * @return \Illuminate\Http\Response
