@@ -28,3 +28,4 @@ yarn-error.log
 /public/storage/
 public/storage
 storage/app/public
+composer.lock
