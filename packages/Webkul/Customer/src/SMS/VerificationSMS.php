@@ -17,7 +17,7 @@ class VerificationSMS
 //}
 
     public $recipient;
-    public $recipientType = "customer";
+    public $recipientType = "recipient";
     public $id;
     public $source = 'ozan.com.tm';
 //    public $groupId = 'customer';
