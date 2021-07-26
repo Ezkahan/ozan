@@ -145,11 +145,11 @@ class RegistrationController extends Controller
         if (core()->getConfigData('customer.settings.email.verification')) {
             try {
                 if (core()->getConfigData('emails.general.notifications.emails.general.notifications.verification')) {
-                    Mail::queue(new VerificationEmail(['email' => $data['email'], 'token' => $data['token']]));
+//                    Mail::queue(new VerificationEmail(['email' => $data['email'], 'token' => $data['token']]));
 
                 }
 
-                session()->flash('success', trans('shop::app.customer.signup-form.success-verify'));
+//                session()->flash('success', trans('shop::app.customer.signup-form.success-verify'));
             } catch (\Exception $e) {
                 report($e);
 
@@ -171,7 +171,7 @@ class RegistrationController extends Controller
             session()->flash('success', trans('shop::app.customer.signup-form.success'));
         }
 
-        return redirect()->route($this->_config['redirect']);
+        return view('shop::customers.signup.verify',compact('customer'));
     }
 
     /**
@@ -203,8 +203,10 @@ class RegistrationController extends Controller
         return redirect()->route('customer.session.index');
     }
 
-    public function resendVerificationSMS(){
-
+    public function resendVerificationSMS($api_token){
+        $customer = $this->customerRepository->findOneByField('api_token', $api_token);
+        \Webkul\Customer\Jobs\PhoneVerification::dispatchIf(core()->getConfigData('customer.settings.email.verification'), $customer->toArray());
+        return view('shop::customers.signup.verify',compact('customer'));
     }
     /**
      * @param  string  $email

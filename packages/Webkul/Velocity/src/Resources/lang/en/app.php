@@ -259,6 +259,13 @@ return [
             'form-sginup-text'  => 'If you are new to our store, we glad to have you as member.',
             'phone' => 'Phone'
         ],
+        'verify' =>[
+            'title' =>'Please verify your phone number',
+            'submit' => 'Verify',
+            'token' => 'Enter the sms code we have sent to your number',
+            'resend' => 'Resend verification code'
+
+        ],
         'forget-password'   => [
             'login'                 => 'Login',
             'forgot-password'       => 'Forgot Password',

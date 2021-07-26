@@ -164,6 +164,8 @@ Route::group(['middleware' => ['web', 'locale', 'theme', 'currency']], function 
         //verify account
         Route::get('/verify-account/{token}', 'Webkul\Customer\Http\Controllers\RegistrationController@verifyAccount')->name('customer.verify');
 
+        //resend verification sms
+        Route::get('resend/verification_sms/{api_token}','Webkul\Customer\Http\Controllers\RegistrationController@resendVerificationSMS')->name('customer.resend.verification-sms');
         //resend verification email
         Route::get('/resend/verification/{email}', 'Webkul\Customer\Http\Controllers\RegistrationController@resendVerificationEmail')->name('customer.resend.verification-email');
 

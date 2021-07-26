@@ -288,6 +288,12 @@ return [
             'dont-have-account' => 'Ulgamda Siziň hasabyňyz ýok.',
             'customer-registration' => 'Müşderi, üstünlikli Registratsiýa bolduňyz'
         ],
+        'verify' =>[
+            'title' =>'Telefon belgiňizi tassyklamak',
+            'submit' => 'Tassykla',
+            'token' => 'Size ugradylan sms kody giriziň',
+            'resend' => 'Sms kody gaýtadan ugrat'
+        ],
         'forget-password'   => [
             'login'                 => '',
             'forgot-password'       => 'Açar sözüni unutdyňyzmy?',
