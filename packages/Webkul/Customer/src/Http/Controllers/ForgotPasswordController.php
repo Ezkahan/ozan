@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Password;
 class ForgotPasswordController extends Controller
 {
     use SendsPasswordResetEmails;
-    
+
     /**
      * Contains route related configuration
      *
@@ -45,11 +45,11 @@ class ForgotPasswordController extends Controller
     {
         try {
             $this->validate(request(), [
-                'email' => 'required|email',
+                'phone' => 'required|numeric|digits:8',
             ]);
 
             $response = $this->broker()->sendResetLink(
-                request(['email'])
+                request(['phone'])
             );
 
             if ($response == Password::RESET_LINK_SENT) {

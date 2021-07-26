@@ -196,9 +196,17 @@ class RegistrationController extends Controller
     }
 
     public function verifyPhone(){
+        $api_token = request('api_token');
         $token = request('token');
-        if(isset($token)){
+        if(isset($token) && isset($api_token)){
+            $customer = $this->customerRepository->findOneByField('api_token', $token);
+            if ($customer && $customer->token === $token ) {
+                $customer->update(['is_verified' => 1, 'token' => 'NULL']);
 
+                session()->flash('success', trans('shop::app.customer.signup-form.verified'));
+            } else {
+                session()->flash('warning', trans('shop::app.customer.signup-form.verify-failed'));
+            }
         }
         return redirect()->route('customer.session.index');
     }

@@ -17,20 +17,20 @@ class VerificationSMS
 //}
 
     public $recipient;
-    public $recipientType = "recipient";
+    public $recipientType = "customer";
     public $id;
     public $source = 'ozan.com.tm';
-    public $groupId = 'customer';
+//    public $groupId = 'customer';
     public $shortenUrl = true;
     public $text;
-    public $timeout = 360;
+    public $timeout = 3600;
 
     public function __construct($data)
     {
         $this->recipient = '993'.$data['phone'];
         $this->id = 'customer_'.$data['id'];
 //        $this->source = url();
-        $this->text = $data['token'];//trans('shop::app.sms.verification',$data);
+        $this->text = 'Sizin ozan.com.tm kodynyz: '.$data['token'];//trans('shop::app.sms.verification',$data);
     }
 
 }
