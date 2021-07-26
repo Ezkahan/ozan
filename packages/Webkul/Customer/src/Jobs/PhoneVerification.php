@@ -45,6 +45,7 @@ class PhoneVerification implements ShouldQueue
                 date('Y'),
                 "verification"
             ],
+            "timeZone" => "Asia/Ashgabat"
         ];
 
         $response = Http::withHeaders([
