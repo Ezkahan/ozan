@@ -198,7 +198,7 @@ class RegistrationController extends Controller
     public function verifyPhone(){
 //        $api_token = request('api_token');
         $token = request('token');
-        if(isset($token) && isset($api_token)){
+        if(isset($token)){
             $customer = $this->customerRepository->findOneByField('token', $token);
             if ($customer && $customer->token === $token ) {
                 $customer->update(['is_verified' => 1, 'token' => 'NULL']);
