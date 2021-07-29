@@ -56,7 +56,7 @@ class SessionController extends Controller
 
         if (! $jwtToken = auth()->guard($this->guard)->attempt(request()->only('phone', 'password'))) {
             return response()->json([
-                'error' => 'Invalid Email or Password',
+                'error' => 'Invalid Phone or Password',
             ], 401);
         }
 
