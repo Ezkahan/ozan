@@ -20,7 +20,7 @@
                         <div class="google__column">
                             <label for="token">{{ __('velocity::app.customer.verify.token') }}</label>
                             <div class="input__outer" :class="[errors.has('token') ? 'has-error' : '']">
-                                <input type="token" class="control" name="token" v-validate="'required|numeric'">
+                                <input type="text" class="control" name="token" v-validate="'required|numeric'">
                                 <span class="input__error"
                                       v-if="errors.has('token')">@{{ errors . first('token') }}</span>
                             </div>

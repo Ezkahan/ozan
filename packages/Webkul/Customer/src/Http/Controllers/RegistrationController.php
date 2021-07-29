@@ -196,10 +196,10 @@ class RegistrationController extends Controller
     }
 
     public function verifyPhone(){
-        $api_token = request('api_token');
+//        $api_token = request('api_token');
         $token = request('token');
         if(isset($token) && isset($api_token)){
-            $customer = $this->customerRepository->findOneByField('api_token', $token);
+            $customer = $this->customerRepository->findOneByField('token', $token);
             if ($customer && $customer->token === $token ) {
                 $customer->update(['is_verified' => 1, 'token' => 'NULL']);
 
@@ -213,6 +213,7 @@ class RegistrationController extends Controller
 
     public function resendVerificationSMS($api_token){
         $customer = $this->customerRepository->findOneByField('api_token', $api_token);
+        //todo phone verification settings
         \Webkul\Customer\Jobs\PhoneVerification::dispatchIf(core()->getConfigData('customer.settings.email.verification'), $customer->toArray());
         return view('shop::customers.signup.verify',compact('customer'));
     }
