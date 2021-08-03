@@ -278,15 +278,15 @@ return [
             'agreement' => 'Razylyk',
             'subscribe-to-newsletter' => 'Täzeliklere agza bolmuň',
             'success' => 'Hasap üstünlikli döredildi',
-            'success-verify' => 'Hasap üstünlikli döredildi we tassyklamak üçin poçtaňyza hat ugradyldy',
-            'success-verify-email-unsent' => 'Hasap üstünlikli döredildi , emma tassyklamak üçin poçtaňyza hat ugradylmady, soňrak synanyşyň.',
-            'already-verified' => 'Hasabyňyz eýýäm tassyklandy ýa-da täze tassyklama e-poçta iberip görmegiňizi haýyş edýäris.',
-            'verification-not-sent' => 'Ýalňyşlyk!!! Barlag e-poçta ibermekde kynçylyk, soňrak synanyşyň.',
-            'verification-sent' => 'Barlag e-poçta iberildi',
+            'success-verify' => 'Hasap döredildi we tassyklamak üçin telefonyňyza kod ugradyldy',
+            'success-verify-email-unsent' => 'Hasap döredildi, emma tassyklamak üçin telefonyňyza kod ugradylmady, soňrak synanyşyň.',
+            'already-verified' => 'Hasabyňyz eýýäm tassyklandy.',
+            'verification-not-sent' => 'Ýalňyşlyk!!! Barlag sms kod ibermekde kynçylyk, soňrak synanyşyň.',
+            'verification-sent' => 'Barlag sms kod iberildi',
             'verified' => 'Hasabyňyz tassyklandy, indi girmäge synanyşyň.',
-            'verify-failed' => 'Poçta hasabyňyzy tassyklap bilmeris.',
+            'verify-failed' => 'Hasabyňyzy tassyklap bilmedik.',
             'dont-have-account' => 'Ulgamda Siziň hasabyňyz ýok.',
-            'customer-registration' => 'Müşderi, üstünlikli Registratsiýa bolduňyz'
+            'customer-registration' => 'Müşderi, üstünlikli agza bolduňyz'
         ],
         'verify' =>[
             'title' =>'Telefon belgiňizi tassyklamak',
@@ -299,6 +299,14 @@ return [
             'forgot-password'       => 'Açar sözüni unutdyňyzmy?',
             'recover-password'      => 'Açar sözüni dikeltmek',
             'recover-password-text' => 'Eger açar sözüni unudan bolsaňyz telefon belgiňizi görkezip, ony dikeldip bilersiňiz',
+        ],
+        'reset-password' => [
+            'title' => 'Açar sözini gaýtadan düzmek',
+            'token' => 'Sms kody giriziň',
+            'password' => 'Açar sözi',
+            'confirm-password' => 'Açar sözüni gaýtalaň',
+            'back-link-title' => 'Girişe dolanmak',
+            'submit-btn-title' => 'Ugrat'
         ],
         'wishlist' => [
             'remove-all-success' => 'Isleglerden ähli harytlar aýryldy',

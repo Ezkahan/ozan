@@ -257,7 +257,18 @@ return [
             'become-user'       => 'Become User',
             'user-registration' => 'User Registration',
             'form-sginup-text'  => 'If you are new to our store, we glad to have you as member.',
-            'phone' => 'Phone'
+            'phone' => 'Phone',
+            'success' => 'Account created successfully.',
+            'success-verify' => 'Account created successfully, an e-mail has been sent for verification.',
+            'success-verify-email-unsent' => 'Account created successfully, but verification e-mail unsent.',
+            'failed' => 'Error! Can not create your account, please try again later.',
+            'already-verified' => 'Your account is already verified Or please try sending a new verification email again.',
+            'verification-not-sent' => 'Error! Problem in sending verification email, please try again later.',
+            'verification-sent' => 'Verification email sent',
+            'verified' => 'Your account has been verified, try to login now.',
+            'verify-failed' => 'We cannot verify your mail account.',
+            'dont-have-account' => 'You do not have account with us.',
+            'customer-registration' => 'Customer Registered Successfully'
         ],
         'verify' =>[
             'title' =>'Please verify your phone number',
@@ -271,6 +282,15 @@ return [
             'forgot-password'       => 'Forgot Password',
             'recover-password'      => 'Recover Password',
             'recover-password-text' => 'If you forgot your password, recover it by entering your email address.',
+            'phone_not_exist' => 'This phone number does not exist'
+        ],
+        'reset-password' => [
+            'title' => 'Reset Password',
+            'token' => 'Enter sms code',
+            'password' => 'Password',
+            'confirm-password' => 'Confirm Password',
+            'back-link-title' => 'Back to Sign In',
+            'submit-btn-title' => 'Reset Password'
         ],
         'wishlist' => [
             'remove-all-success' => 'All the items from your wishlist have been removed',

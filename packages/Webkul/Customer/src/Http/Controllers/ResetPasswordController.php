@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Support\Str;
+use Webkul\Customer\Models\Customer;
 
 class ResetPasswordController extends Controller
 {
@@ -49,7 +50,7 @@ class ResetPasswordController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function store()
+    public function reset()
     {
         try {
             $this->validate(request(), [
@@ -80,6 +81,36 @@ class ResetPasswordController extends Controller
         }
     }
 
+    public function store()
+    {
+        try {
+            $this->validate(request(), [
+                'token'    => 'required',
+                'phone' => 'required|numeric|digits:8',
+                'password' => 'required|confirmed|min:6',
+            ]);
+
+            $response = $this->broker()->reset(
+                request(['phone', 'password', 'password_confirmation', 'token']), function ($customer, $password) {
+                $this->resetPassword($customer, $password);
+            }
+            );
+
+            if ($response == Password::PASSWORD_RESET) {
+                return redirect()->route($this->_config['redirect']);
+            }
+
+            return back()
+                ->withInput(request(['phone']))
+                ->withErrors([
+                    'phone' => trans($response),
+                ]);
+        } catch(\Exception $e) {
+            session()->flash('error', trans($e->getMessage()));
+
+            return redirect()->back();
+        }
+    }
     /**
      * Reset the given customer password.
      *

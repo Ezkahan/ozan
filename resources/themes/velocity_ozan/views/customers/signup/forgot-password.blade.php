@@ -49,7 +49,7 @@
                                 type="tel"
                                 name="phone"
                                 class="form-style"
-                                v-validate="'required|phone'" />
+                                v-validate="'required|numeric|digits:8'" />
 
                             <span class="control-error" v-if="errors.has('phone')">
                                 @{{ errors.first('phone') }}

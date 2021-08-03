@@ -54,7 +54,7 @@ class AddressController extends Controller
     public function get()
     {
         $customer = auth($this->guard)->user();
-        
+
         $addresses = $customer->addresses()->get();
 
         return CustomerAddressResource::collection($addresses);
@@ -80,14 +80,14 @@ class AddressController extends Controller
                 'address1'    => implode(PHP_EOL, array_filter(json_decode(request()->input('address1')))),
                 'customer_id' => $customer->id,
             ]);
-        }        
+        }
 
         $this->validate(request(), [
             'address1' => 'string|required',
-            'country'  => 'string|required',
-            'state'    => 'string|required',
-            'city'     => 'string|required',
-            'postcode' => 'required',
+//            'country'  => 'string|required',
+//            'state'    => 'string|required',
+//            'city'     => 'string|required',
+//            'postcode' => 'required',
             'phone'    => 'required',
         ]);
 
@@ -112,10 +112,10 @@ class AddressController extends Controller
 
         $this->validate(request(), [
             'address1' => 'string|required',
-            'country'  => 'string|required',
-            'state'    => 'string|required',
-            'city'     => 'string|required',
-            'postcode' => 'required',
+//            'country'  => 'string|required',
+//            'state'    => 'string|required',
+//            'city'     => 'string|required',
+//            'postcode' => 'required',
             'phone'    => 'required',
         ]);
 

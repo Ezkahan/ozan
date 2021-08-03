@@ -275,7 +275,7 @@ return [
             'success' => 'Account created successfully.',
             'success-verify' => 'Account created successfully, an e-mail has been sent for verification.',
             'success-verify-email-unsent' => 'Account created successfully, but verification e-mail unsent.',
-            'failed' => 'Error! Can not create your account, pleae try again later.',
+            'failed' => 'Error! Can not create your account, please try again later.',
             'already-verified' => 'Your account is already verified Or please try sending a new verification email again.',
             'verification-not-sent' => 'Error! Problem in sending verification email, please try again later.',
             'verification-sent' => 'Verification email sent',
