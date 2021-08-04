@@ -2690,13 +2690,20 @@
 }
 
 .account-content .account-layout .max-sm-img-dimention {
-  max-width: 110px;
+  max-width: 150px;
   max-height: 110px;
+  -webkit-box-flex: 0;
+      -ms-flex: none;
+          flex: none;
+  width: 150px;
+  height: 100px;
 }
 
 .account-content .account-layout .max-sm-img-dimention img {
   width: 100%;
   height: 100%;
+  object-fit: contain;
+  -o-object-fit: contain;
 }
 
 .account-content .account-layout .reviews-container > .row {
@@ -3081,8 +3088,21 @@
   position: sticky !important;
 }
 
-.order-summary-container .textarea_wrap {
+.order-summary-container .comment-wrap {
   width: 100%;
+  height: 150px;
+  margin-bottom: 20px;
+}
+
+.order-summary-container .comment-wrap textarea {
+  width: 100%;
+  height: 100%;
+  padding: 15px;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.5;
+  border: 1px solid #000;
+  border-radius: 5px;
 }
 
 .order-summary-container > div {
@@ -5843,13 +5863,20 @@ button[disabled] {
 }
 
 .max-sm-img-dimention {
-  max-width: 110px;
+  max-width: 150px;
   max-height: 110px;
+  -webkit-box-flex: 0;
+      -ms-flex: none;
+          flex: none;
+  width: 150px;
+  height: 100px;
 }
 
 .max-sm-img-dimention img {
   width: 100%;
   height: 100%;
+  object-fit: contain;
+  -o-object-fit: contain;
 }
 
 .max-width {
