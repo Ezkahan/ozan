@@ -329,7 +329,7 @@
     }
 }
 
-@include sh-sh{
+@include sh-sh {
     .modal-content {
         top: -40px !important;
     }
@@ -506,9 +506,11 @@
             .cart {
                 display: block;
                 position: relative;
+
                 img {
                     z-index: 3;
                 }
+
                 // z-index: 111;
                 .card_added {
                     position: absolute;
@@ -534,7 +536,43 @@
                 width: auto;
 
                 .searchbar {
-                    display: none;
+                    // display: none;
+
+                    .row {
+                        .my-col {
+                            &:first-child {
+                                display: none;
+                            }
+
+                            &:last-child {
+                                margin: 0 0 0 auto !important;
+                            }
+
+                            a {
+                                display: none;
+                            }
+
+                            .mini-cart-container {
+                                display: block;
+                                padding: 0 !important;
+                                margin: 0 !important;
+
+                                .mini-cart-content {
+                                    display: block;
+                                    padding: 0 !important;
+                                    margin: 0 !important;
+                                }
+
+                                span {
+                                    display: none;
+
+                                    &::before {
+                                        display: none;
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }
