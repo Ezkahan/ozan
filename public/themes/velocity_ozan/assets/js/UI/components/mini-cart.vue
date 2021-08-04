@@ -1,10 +1,10 @@
 <template>
     <div :class="`dropdown ${cartItems.length > 0 ? '' : 'disable-active'}`">
-        <cart-btn :item-count="cartItems.length"></cart-btn>
+        <cart-btn :item-count="cartItems.length" :view-cart="viewCart"></cart-btn>
 
         <div
             id="cart-modal-content"
-            v-if="cartItems.length > 0"
+            v-if="cartItems.length > 0 && !isMobile()"
             class="modal-content sensitive-modal cart-modal-content hide">
 
             <div class="mini-cart-container">

@@ -164,11 +164,11 @@
                         </div>
                     </div>
 
-                    <slot name="place-order-btn"></slot>
+
                 </div>
 
                 <div class="col-lg-6 col-md-12 order-summary-container bottom pt0 offset-lg-2">
-                    <slot name="summary-section"></slot>
+                    <slot name="place-order-btn"></slot>
                 </div>
             </div>
         </div>

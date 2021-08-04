@@ -41640,9 +41640,11 @@ var render = function() {
     "div",
     { class: "dropdown " + (_vm.cartItems.length > 0 ? "" : "disable-active") },
     [
-      _c("cart-btn", { attrs: { "item-count": _vm.cartItems.length } }),
+      _c("cart-btn", {
+        attrs: { "item-count": _vm.cartItems.length, "view-cart": _vm.viewCart }
+      }),
       _vm._v(" "),
-      _vm.cartItems.length > 0
+      _vm.cartItems.length > 0 && !_vm.isMobile()
         ? _c(
             "div",
             {

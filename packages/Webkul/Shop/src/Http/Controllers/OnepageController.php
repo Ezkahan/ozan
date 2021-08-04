@@ -3,6 +3,7 @@
 namespace Webkul\Shop\Http\Controllers;
 
 use Illuminate\Support\Facades\Event;
+use Webkul\Sales\Repositories\OrderCommentRepository;
 use Webkul\Shop\Http\Controllers\Controller;
 use Webkul\Checkout\Facades\Cart;
 use Webkul\Shipping\Facades\Shipping;
@@ -27,21 +28,26 @@ class OnepageController extends Controller
      */
     protected $customerRepository;
 
+    protected $commentRepository;
     /**
      * Create a new controller instance.
      *
      * @param  \Webkul\Attribute\Repositories\OrderRepository  $orderRepository
      * @param  \Webkul\Customer\Repositories\CustomerRepository  $customerRepository
+     * @param  \Webkul\Sales\Repositories\OrderCommentRepository  $orderCommentRepository
      * @return void
      */
     public function __construct(
         OrderRepository $orderRepository,
-        CustomerRepository $customerRepository
+        CustomerRepository $customerRepository,
+        OrderCommentRepository $orderCommentRepository
     )
     {
         $this->orderRepository = $orderRepository;
 
         $this->customerRepository = $customerRepository;
+
+        $this->commentRepository = $orderCommentRepository;
 
         parent::__construct();
     }
@@ -203,6 +209,10 @@ class OnepageController extends Controller
         }
 
         $order = $this->orderRepository->create(Cart::prepareDataForOrder());
+
+        if(request()->has('comment')){
+            $this->commentRepository->create(['order_id' => $order->id,'comment' =>request('comment')]);
+        }
 
         Cart::deActivateCart();
 
