@@ -282,6 +282,10 @@
 
         >div:last-child {
             margin-top: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: calc(100% - 30px);
         }
 
         .product-name,
