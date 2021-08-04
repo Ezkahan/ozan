@@ -93,7 +93,7 @@ return [
             'sign-in' => 'Ulgama girmek',
             'company-name' => 'Kompaniýanyň ady',
             'first-name' => 'Ady',
-            'last-name' => 'FAmilýasy',
+            'last-name' => 'Familýasy',
             'email' => 'Email',
             'address1' => 'Köçesiniň salgysy',
             'city' => 'Şäher',

@@ -41,11 +41,3 @@
         })()
     </script>
 @endpush
-
-
-
-<!-- <script>
-
-
-
-</script> -->

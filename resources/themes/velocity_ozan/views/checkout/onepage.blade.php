@@ -61,6 +61,8 @@
 
                         <div slot="place-order-btn">
                             <div class="mb20">
+                                <textarea type="text" name="comment" class="comment" rows="4" cols="42" style="border: 1px solid #0b2e13;"
+                                          placeholder="@lang('velocity::app.checkout.comment')" ></textarea>
                                 <button
                                     type="button"
                                     class="theme-btn"
@@ -511,8 +513,9 @@
                             this.isPlaceOrderEnabled = false;
 
                             this.$root.showLoader();
+                            let comment = $(document).find('textarea[name=comment]').val();
 
-                            this.$http.post("{{ route('shop.checkout.save-order') }}", {'_token': "{{ csrf_token() }}"})
+                            this.$http.post("{{ route('shop.checkout.save-order') }}", {'_token': "{{ csrf_token() }}",'comment':comment})
                             .then(response => {
                                 if (response.data.success) {
                                     if (response.data.redirect_url) {

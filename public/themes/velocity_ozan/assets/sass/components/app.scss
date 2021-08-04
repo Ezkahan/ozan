@@ -1649,11 +1649,15 @@
 }
 
 .order-summary-container {
-    top: 50px;
+    // top: 50px;
     padding-top: 25px;
     height: max-content;
     position: sticky !important;
-    max-width: 500px !important;
+    // max-width: 500px !important;
+
+    .textarea_wrap {
+        width: 100%;
+    }
 
     >div {
         width: 100%;

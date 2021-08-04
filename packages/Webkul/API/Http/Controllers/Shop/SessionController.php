@@ -56,7 +56,7 @@ class SessionController extends Controller
 
         if (! $jwtToken = auth()->guard($this->guard)->attempt(request()->only('phone', 'password'))) {
             return response()->json([
-                'error' => 'Invalid Email or Password',
+                'error' => 'Invalid Phone or Password',
             ], 401);
         }
 
@@ -99,11 +99,11 @@ class SessionController extends Controller
         $this->validate(request(), [
             'first_name'    => 'required',
             'last_name'     => 'required',
-            'gender'        => 'required',
+//            'gender'        => 'required',
             'date_of_birth' => 'nullable|date|before:today',
-            'email'         => 'email|unique:customers,email,' . $customer->id,
+//            'email'         => 'email|unique:customers,email,' . $customer->id,
             'password'      => 'confirmed|min:6',
-            'phone' => 'numeric|digits:8'
+            'phone' => 'numeric|digits:8|unique:customers,phone,' . $customer->id
         ]);
 
         $data = request()->only('first_name', 'last_name', 'gender', 'date_of_birth', 'email', 'password','phone');

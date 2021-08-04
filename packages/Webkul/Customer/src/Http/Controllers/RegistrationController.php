@@ -83,6 +83,7 @@ class RegistrationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function create()
     {
 
@@ -187,9 +188,9 @@ class RegistrationController extends Controller
         if ($customer) {
             $customer->update(['is_verified' => 1, 'token' => 'NULL']);
 
-            session()->flash('success', trans('shop::app.customer.signup-form.verified'));
+            session()->flash('success', trans('velocity::app.customer.signup-form.verified'));
         } else {
-            session()->flash('warning', trans('shop::app.customer.signup-form.verify-failed'));
+            session()->flash('warning', trans('velocity::app.customer.signup-form.verify-failed'));
         }
 
         return redirect()->route('customer.session.index');
@@ -199,20 +200,22 @@ class RegistrationController extends Controller
         $api_token = request('api_token');
         $token = request('token');
         if(isset($token) && isset($api_token)){
-            $customer = $this->customerRepository->findOneByField('api_token', $token);
-            if ($customer && $customer->token === $token ) {
+            $customer = $this->customerRepository->findOneByField('api_token', $api_token);
+            if ($customer && $customer->token == $token ) {
                 $customer->update(['is_verified' => 1, 'token' => 'NULL']);
 
-                session()->flash('success', trans('shop::app.customer.signup-form.verified'));
+                session()->flash('success', trans('velocity::app.customer.signup-form.verified'));
             } else {
-                session()->flash('warning', trans('shop::app.customer.signup-form.verify-failed'));
+                session()->flash('warning', trans('velocity::app.customer.signup-form.verify-failed'));
             }
+            return redirect()->route('customer.session.index');
         }
-        return redirect()->route('customer.session.index');
+        return redirect()->back();
     }
 
     public function resendVerificationSMS($api_token){
         $customer = $this->customerRepository->findOneByField('api_token', $api_token);
+        //todo phone verification settings
         \Webkul\Customer\Jobs\PhoneVerification::dispatchIf(core()->getConfigData('customer.settings.email.verification'), $customer->toArray());
         return view('shop::customers.signup.verify',compact('customer'));
     }
@@ -244,12 +247,12 @@ class RegistrationController extends Controller
         } catch (\Exception $e) {
             report($e);
 
-            session()->flash('error', trans('shop::app.customer.signup-form.verification-not-sent'));
+            session()->flash('error', trans('velocity::app.customer.signup-form.verification-not-sent'));
 
             return redirect()->back();
         }
 
-        session()->flash('success', trans('shop::app.customer.signup-form.verification-sent'));
+        session()->flash('success', trans('velocity::app.customer.signup-form.verification-sent'));
 
         return redirect()->back();
     }

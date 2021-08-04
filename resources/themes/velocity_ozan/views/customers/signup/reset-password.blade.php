@@ -13,7 +13,7 @@
                 <div class="col-lg-10 col-md-12 offset-lg-1">
                     <div class="heading">
                         <h2 class="fs24 fw6">
-                            {{ __('shop::app.customer.reset-password.title')}}
+                            {{ __('velocity::app.customer.reset-password.title')}}
                         </h2>
                     </div>
 
@@ -28,31 +28,31 @@
 
                             {{ csrf_field() }}
 
-                            <input type="hidden" name="token" value="{{ $token }}">
+                            <input type="hidden" name="phone" value="{{ $customer->phone }}">
 
                             {!! view_render_event('bagisto.shop.customers.forget_password_form_controls.before') !!}
 
-                            <div :class="`form-group ${errors.has('email') ? 'has-error' : ''}`">
-                                <label for="email" class="required label-style mandatory">
-                                    {{ __('shop::app.customer.reset-password.email') }}
+                            <div :class="`form-group ${errors.has('token') ? 'has-error' : ''}`">
+                                <label for="token" class="required label-style mandatory">
+                                    {{ __('velocity::app.customer.verify.token') }}
                                 </label>
 
                                 <input
-                                    id="email"
+                                    id="token"
                                     type="text"
-                                    name="email"
+                                    name="token"
                                     class="form-style"
-                                    value="{{ old('email') }}"
-                                    v-validate="'required|email'" />
+                                    value="{{ old('token') }}"
+                                    v-validate="'required|numeric|digits:5'" />
 
-                                <span class="control-error" v-if="errors.has('email')">
-                                    @{{ errors.first('email') }}
+                                <span class="control-error" v-if="errors.has('token')">
+                                    @{{ errors.first('token') }}
                                 </span>
                             </div>
 
                             <div :class="`form-group ${errors.has('password') ? 'has-error' : ''}`">
                                 <label for="password" class="required label-style mandatory">
-                                    {{ __('shop::app.customer.reset-password.password') }}
+                                    {{ __('velocity::app.customer.reset-password.password') }}
                                 </label>
 
                                 <input
@@ -69,7 +69,7 @@
 
                             <div :class="`form-group ${errors.has('confirm_password') ? 'has-error' : ''}`">
                                 <label for="confirm_password" class="required label-style mandatory">
-                                    {{ __('shop::app.customer.reset-password.confirm-password') }}
+                                    {{ __('velocity::app.customer.reset-password.confirm-password') }}
                                 </label>
 
                                 <input
@@ -86,7 +86,7 @@
                             {!! view_render_event('bagisto.shop.customers.forget_password_form_controls.after') !!}
 
                             <button class="theme-btn" type="submit">
-                                {{ __('shop::app.customer.reset-password.submit-btn-title') }}
+                                {{ __('velocity::app.customer.reset-password.submit-btn-title') }}
                             </button>
                         </form>
 

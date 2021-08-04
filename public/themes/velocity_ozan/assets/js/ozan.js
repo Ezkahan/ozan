@@ -12475,6 +12475,7 @@ $(document).ready(function () {
             },
 
             isMobile: function isMobile() {
+
                 if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i | /mobi/i.test(navigator.userAgent)) {
                     if (this.isMaxWidthCrossInLandScape()) {
                         return false;
@@ -12489,6 +12490,9 @@ $(document).ready(function () {
                 return window.innerWidth > 900;
             },
 
+            isPlanshet: function isPlanshet() {
+                return window.innerWidth > 425;
+            },
             getDynamicHTML: function getDynamicHTML(input) {
                 var _staticRenderFns;
 
@@ -25978,7 +25982,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;var _typeof = 
       }, min_value: function min_value(a, e) {
         return a + " alanı " + e[0] + " ya da daha fazla bir değer olmalıdır";
       }, numeric: function numeric(a) {
-        return a + " belgisine diňe san giriniz";
+        return a + " belgisi diňe sanlardan ybarat bolmalydyr ";
       }, regex: function regex(a) {
         return a + " formatı geçersiz";
       }, required: function required(a) {
@@ -41636,9 +41640,11 @@ var render = function() {
     "div",
     { class: "dropdown " + (_vm.cartItems.length > 0 ? "" : "disable-active") },
     [
-      _c("cart-btn", { attrs: { "item-count": _vm.cartItems.length } }),
+      _c("cart-btn", {
+        attrs: { "item-count": _vm.cartItems.length, "view-cart": _vm.viewCart }
+      }),
       _vm._v(" "),
-      _vm.cartItems.length > 0
+      _vm.cartItems.length > 0 && !_vm.isMobile()
         ? _c(
             "div",
             {
@@ -43756,13 +43762,20 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    props: ['id', 'loop', 'timeout', 'autoplay', 'addClass', 'direction', 'slidesCount', 'slidesPerPage', 'localeDirection', 'navigationEnabled', 'paginationEnabled'],
+    props: ['id', 'loop', 'timeout', 'autoplay', 'addClass', 'direction', 'slidesCount', 'slidesPerPage', 'localeDirection', 'navigationEnabled', 'paginationEnabled', 'perPageCustom'],
 
     data: function data() {
         return {};
     },
+
+    mounted: function mounted() {
+        console.log(this.loop + this.slidesPerPage);
+    },
+
 
     methods: {
         slideClicked: function slideClicked() {
@@ -43792,13 +43805,15 @@ var render = function() {
         rtl: _vm.localeDirection == "rtl",
         dir: _vm.localeDirection,
         id: _vm.id,
+        centerMode: true,
         navigationEnabled: true,
         paginationEnabled: true,
         perPage: parseInt(_vm.slidesPerPage),
         loop: _vm.loop == "true" ? true : false,
         autoplay: _vm.autoplay == "true" ? true : false,
         autoplayTimeout: _vm.timeout ? parseInt(_vm.timeout) : 2000,
-        autoplayDirection: "forward"
+        autoplayDirection: "forward",
+        perPageCustom: _vm.perPageCustom
       }
     },
     [
@@ -45843,6 +45858,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: {
@@ -46030,7 +46047,14 @@ var render = function() {
                                 ? _vm.categoryDetails.name + "-carousel"
                                 : _vm.productId,
                               "locale-direction": _vm.localeDirection,
-                              "slides-count": _vm.productCollections.length
+                              "slides-count": _vm.productCollections.length,
+                              loop: "true",
+                              perPageCustom: [
+                                [320, 1],
+                                [425, 2],
+                                [768, 3],
+                                [1199, 5]
+                              ]
                             }
                           },
                           _vm._l(_vm.productCollections, function(

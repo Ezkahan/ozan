@@ -175,6 +175,7 @@ $(document).ready(function () {
             },
 
             isMobile: function () {
+
                 if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i|/mobi/i.test(navigator.userAgent)) {
                     if (this.isMaxWidthCrossInLandScape()) {
                         return false;
@@ -189,6 +190,9 @@ $(document).ready(function () {
                 return window.innerWidth > 900;
             },
 
+            isPlanshet: function() {
+                return window.innerWidth > 425;
+            },
             getDynamicHTML: function (input) {
                 var _staticRenderFns;
                 const { render, staticRenderFns } = Vue.compile(input);

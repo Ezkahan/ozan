@@ -3074,13 +3074,15 @@
 }
 
 .order-summary-container {
-  top: 50px;
   padding-top: 25px;
   height: -webkit-max-content;
   height: -moz-max-content;
   height: max-content;
   position: sticky !important;
-  max-width: 500px !important;
+}
+
+.order-summary-container .textarea_wrap {
+  width: 100%;
 }
 
 .order-summary-container > div {

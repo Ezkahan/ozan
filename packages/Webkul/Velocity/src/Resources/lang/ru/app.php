@@ -217,6 +217,7 @@ return [
         'subtotal'  => 'Сумма заказа ',
         'sub-total' => 'Сумма заказа ',
         'proceed'   => 'Перейти к оформлению',
+        'comment' => 'Примечания'
     ],
 
     'customer'      => [
@@ -303,6 +304,14 @@ return [
             'forgot-password'       => 'Забыли пароль',
             'recover-password'      => 'Восстановить пароль',
             'recover-password-text' => 'Если вы забыли пароль, восстановите его, указав свой адрес электронной почты.',
+        ],
+        'reset-password' => [
+            'title' => 'Сброс пароля',
+            'token' => 'Введите смс код',
+            'password' => 'Пароль',
+            'confirm-password' => 'Подтвердить пароль',
+            'back-link-title' => 'вернуться к входу',
+            'submit-btn-title' => 'Сброс пароля'
         ],
         'wishlist' => [
             'remove-all-success' => 'Все товраы из вашего списка избранных были удалены',

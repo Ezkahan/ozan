@@ -200,10 +200,15 @@
             Vue.component('cart-btn', {
                 template: '#cart-btn-template',
 
-                props: ['itemCount'],
+                props: ['itemCount','viewCart'],
 
                 methods: {
                     toggleMiniCart: function () {
+
+                        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i|/mobi/i.test(navigator.userAgent)) {
+                            window.location = this.viewCart;
+                        }
+
                         let modal = $('#cart-modal-content')[0];
                         if (modal)
                             modal.classList.toggle('hide');
