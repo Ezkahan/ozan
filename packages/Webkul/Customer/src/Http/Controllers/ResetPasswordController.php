@@ -91,7 +91,8 @@ class ResetPasswordController extends Controller
             ]);
 
             $response = $this->broker()->reset(
-                request(['phone', 'password', 'password_confirmation', 'token']), function ($customer, $password) {
+                request(['phone', 'password', 'password_confirmation', 'token']),
+                function ($customer, $password) {
                 $this->resetPassword($customer, $password);
             }
             );
