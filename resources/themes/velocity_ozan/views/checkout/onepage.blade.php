@@ -61,7 +61,8 @@
 
                         <div slot="place-order-btn">
                             <div class="mb20">
-                                <textarea type="text" name="comment" class="comment" rows="4" cols="42" style="border: 1px solid #0b2e13;" placeholder="Goshmacha bellik" ></textarea>
+                                <textarea type="text" name="comment" class="comment" rows="4" cols="42" style="border: 1px solid #0b2e13;"
+                                          placeholder="@lang('velocity::app.checkout.comment')" ></textarea>
                                 <button
                                     type="button"
                                     class="theme-btn"

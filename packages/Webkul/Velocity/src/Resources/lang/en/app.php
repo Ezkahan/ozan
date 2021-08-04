@@ -217,6 +217,7 @@ return [
         'subtotal'  => 'Subtotal',
         'sub-total' => 'Sub Total',
         'proceed'   => 'Proceed to checkout',
+        'comment' => 'Notes'
     ],
 
     'customer'      => [

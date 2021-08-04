@@ -216,6 +216,7 @@ return [
         'subtotal'  => 'Harytlaryň tölegi',
         'sub-total' => 'Harytlaryň tölegi ',
         'proceed'   => 'Sargyda geç',
+        'comment' => 'Bellikler'
     ],
 
     'customer'      => [
