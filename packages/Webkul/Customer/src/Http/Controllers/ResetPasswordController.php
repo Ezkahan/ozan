@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Support\Str;
 use Webkul\Customer\Models\Customer;
+use Webkul\Customer\Repositories\CustomerRepository;
 
 class ResetPasswordController extends Controller
 {
@@ -20,14 +21,16 @@ class ResetPasswordController extends Controller
      */
     protected $_config;
 
+    protected $customerRepository;
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(CustomerRepository $customerRepository)
     {
         $this->_config = request('_config');
+        $this->customerRepository = $customerRepository;
     }
 
     /**
@@ -90,21 +93,27 @@ class ResetPasswordController extends Controller
                 'password' => 'required|confirmed|min:6',
             ]);
 
-            $response = $this->broker()->reset(
-                request(['phone', 'password', 'password_confirmation', 'token']),
-                function ($customer, $password) {
-                $this->resetPassword($customer, $password);
-            }
-            );
+            $customer = $this->customerRepository->findOneByField('phone',request('phone'));
 
-            if ($response == Password::PASSWORD_RESET) {
+            if($customer && $customer->token == request('token')){
+                $this->resetPassword($customer, request('password'));
                 return redirect()->route($this->_config['redirect']);
             }
+//            $response = $this->broker()->reset(
+//                request(['phone', 'password', 'password_confirmation', 'token']),
+//                function ($customer, $password) {
+//                $this->resetPassword($customer, $password);
+//            }
+//            );
+
+//            if ($response == Password::PASSWORD_RESET) {
+//                return redirect()->route($this->_config['redirect']);
+//            }
 
             return back()
                 ->withInput(request(['phone']))
                 ->withErrors([
-                    'phone' => trans($response),
+                    'phone' => trans(Password::INVALID_TOKEN),
                 ]);
         } catch(\Exception $e) {
             session()->flash('error', trans($e->getMessage()));

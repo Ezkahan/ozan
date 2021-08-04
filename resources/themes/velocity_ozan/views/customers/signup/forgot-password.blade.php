@@ -39,17 +39,22 @@
                         {{ csrf_field() }}
 
                         {!! view_render_event('bagisto.shop.customers.forget_password_form_controls.before') !!}
+                        <div class="input-group" :class="[errors.has('phone') ? 'has-error' : '']">
 
-                        <div class="control-group" :class="[errors.has('email') ? 'has-error' : '']">
-                            <label for="phone" class="mandatory label-style">
-                                {{ __('velocity::app.customer.signup-form.phone') }}
+                            <label for="phone" class="required label-style">
+                                {{ __('shop::app.registerlogin.phoneNumber') }}
                             </label>
-
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1">+993</span>
+                            </div>
                             <input
                                 type="tel"
+
+                                class="form-control pl-2"
                                 name="phone"
-                                class="form-style"
-                                v-validate="'required|numeric|digits:8'" />
+                                v-validate="'required|numeric|digits:8'"
+                                value="{{ old('phone') }}"
+                                data-vv-as="&quot;{{ __('velocity::app.customer.signup-form.phone') }}&quot;" />
 
                             <span class="control-error" v-if="errors.has('phone')">
                                 @{{ errors.first('phone') }}
