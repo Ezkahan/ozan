@@ -3985,12 +3985,6 @@ li {
   }
 }
 
-@media (max-height: 600px) {
-  .modal-content {
-    top: -40px !important;
-  }
-}
-
 @media only screen and (max-width: 1024px) {
   html {
     font-size: 10px;
@@ -4176,7 +4170,7 @@ li {
     display: none;
   }
   .header__column:last-child .searchbar .row .my-col:last-child {
-    margin: 0 0 0 auto !important;
+    margin: 0 25px 0 auto !important;
   }
   .header__column:last-child .searchbar .row .my-col a {
     display: none;
@@ -4185,6 +4179,10 @@ li {
     display: block;
     padding: 0 !important;
     margin: 0 !important;
+  }
+  .header__column:last-child .searchbar .row .my-col .mini-cart-container #cart-modal-content {
+    left: unset;
+    right: 10px;
   }
   .header__column:last-child .searchbar .row .my-col .mini-cart-container .mini-cart-content {
     display: block;
@@ -4197,8 +4195,12 @@ li {
   .header__column:last-child .searchbar .row .my-col .mini-cart-container span::before {
     display: none;
   }
+  .header__column:last-child .searchbar .row .my-col .mini-cart-container .badge {
+    display: block;
+  }
   .main-content-wrapper {
     margin-bottom: 20px;
+    z-index: 2;
   }
   .category-container h2 {
     font-size: 28px;
@@ -4461,6 +4463,9 @@ li {
   .contact {
     padding: 50px 0;
   }
+  .mini-cart-container .product-image-container {
+    height: 90px !important;
+  }
 }
 
 @media (max-width: 768px) {
@@ -4540,6 +4545,23 @@ li {
   .contact_message textarea {
     height: 120px;
   }
+  .footer .social__icons {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    -moz-flex-wrap: wrap;
+    -o-flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+  }
+  .footer .social__icons .media_item {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    padding: 7px;
+  }
 }
 
 @media (max-width: 650px) {
@@ -4598,7 +4620,14 @@ li {
     padding: 15px;
   }
   .product-image-container {
-    height: 145px !important;
+    height: 80px !important;
+  }
+  #cart-modal-content {
+    width: calc(100vw - 70px);
+    z-index: 15;
+  }
+  .modal-footer h5 {
+    font-size: 16px;
   }
   .upheader__inner {
     width: 80%;

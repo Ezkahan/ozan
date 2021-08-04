@@ -330,9 +330,9 @@
 }
 
 @include sh-sh {
-    .modal-content {
-        top: -40px !important;
-    }
+    // .modal-content {
+    //     top: -40px !important;
+    // }
 }
 
 @include lg-xlg {
@@ -545,7 +545,7 @@
                             }
 
                             &:last-child {
-                                margin: 0 0 0 auto !important;
+                                margin: 0 25px 0 auto !important;
                             }
 
                             a {
@@ -556,6 +556,11 @@
                                 display: block;
                                 padding: 0 !important;
                                 margin: 0 !important;
+
+                                #cart-modal-content {
+                                    left: unset;
+                                    right: 10px;
+                                }
 
                                 .mini-cart-content {
                                     display: block;
@@ -570,6 +575,10 @@
                                         display: none;
                                     }
                                 }
+
+                                .badge {
+                                    display: block;
+                                }
                             }
                         }
                     }
@@ -580,6 +589,7 @@
 
     .main-content-wrapper {
         margin-bottom: 20px;
+        z-index: 2;
     }
 
     .category-container h2 {
@@ -903,6 +913,12 @@
     .contact {
         padding: 50px 0;
     }
+
+    .mini-cart-container {
+        .product-image-container {
+            height: 90px !important;
+        }
+    }
 }
 
 @include md-lg {
@@ -1025,6 +1041,25 @@
         }
     }
 
+    .footer {
+        .social__icons {
+            justify-content: center;
+            flex-wrap: wrap;
+            -ms-flex-wrap: wrap;
+            -moz-flex-wrap: wrap;
+            -o-flex-wrap: wrap;
+            -webkit-flex-wrap: wrap;
+
+            .media_item {
+                width: 40px;
+                height: 40px;
+                margin-right: 10px;
+                margin-bottom: 10px;
+                padding: 7px;
+            }
+        }
+
+    }
 }
 
 @include sm-md {
@@ -1107,7 +1142,19 @@
     }
 
     .product-image-container {
-        height: 145px !important;
+        height: 80px !important;
+    }
+
+    #cart-modal-content {
+        width: calc(100vw - 70px);
+        z-index: 15;
+
+    }
+
+    .modal-footer {
+        h5 {
+            font-size: 16px;
+        }
     }
 
     .upheader__inner {
