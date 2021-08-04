@@ -38,7 +38,7 @@
 
         .menu_burger {
             width: 20px;
-            height: 15px;
+            height: 20px;
             cursor: pointer;
             display: none;
 
@@ -165,4 +165,32 @@
             align-items: center;
         }
     }
+}
+
+.stick {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: calc(100% - 0px);
+    z-index: 1000;
+    // padding: 15px 0;
+    background: #da2d79;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    // transition: all .1s linear;
+    // -o-transition: all .1s linear;
+    // -moz-transition: all .1s linear;
+    // -webkit-transition: all .1s linear;
+}
+
+.stick-2 {
+    position: fixed;
+    top: 45px;
+    left: 0;
+    width: calc(100% - 0px);
+    z-index: 1000;
+    background: #fff;
+    transition: all .1s linear;
+    -o-transition: all .1s linear;
+    -moz-transition: all .1s linear;
+    -webkit-transition: all .1s linear;
 }

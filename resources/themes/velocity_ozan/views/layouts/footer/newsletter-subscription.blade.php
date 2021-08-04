@@ -1,51 +1,44 @@
 @if (
-    $velocityMetaData
-    && $velocityMetaData->subscription_bar_content
-    || core()->getConfigData('customer.settings.newsletter.subscription')
+$velocityMetaData
+&& $velocityMetaData->subscription_bar_content
+|| core()->getConfigData('customer.settings.newsletter.subscription')
 )
-    <div class="newsletter-subscription">
-        <div class="newsletter-wrapper row col-12">
-            @if ($velocityMetaData && $velocityMetaData->subscription_bar_content)
-                {!! $velocityMetaData->subscription_bar_content !!}
-            @endif
+<div class="newsletter-subscription">
+    <div class="newsletter-wrapper row col-12">
+        @if ($velocityMetaData && $velocityMetaData->subscription_bar_content)
+        {!! $velocityMetaData->subscription_bar_content !!}
+        @endif
 
-            @if (core()->getConfigData('customer.settings.newsletter.subscription'))
-                <div class="subscribe-newsletter col-lg-6">
-                    <div class="form-container">
-                        <form action="{{ route('shop.subscribe') }}">
-                            <div class="subscriber-form-div">
-                                <div class="control-group">
-                                    <input
-                                        type="email"
-                                        name="subscriber_email"
-                                        class="control subscribe-field"
-                                        placeholder="{{ __('velocity::app.customer.login-form.your-email-address') }}"
-                                        aria-label="Newsletter"
-                                        required />
+        @if (core()->getConfigData('customer.settings.newsletter.subscription'))
+        <div class="subscribe-newsletter col-lg-6">
+            <div class="form-container">
+                <form action="{{ route('shop.subscribe') }}">
+                    <div class="subscriber-form-div">
+                        <div class="control-group">
+                            <input type="email" name="subscriber_email" class="control subscribe-field" placeholder="{{ __('velocity::app.customer.login-form.your-email-address') }}" aria-label="Newsletter" required />
 
-                                    <button class="theme-btn subscribe-btn fw6">
-                                        {{ __('shop::app.subscription.subscribe') }}
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
+                            <button class="theme-btn subscribe-btn fw6">
+                                {{ __('shop::app.subscription.subscribe') }}
+                            </button>
+                        </div>
                     </div>
-                </div>
-            @endif
+                </form>
+            </div>
         </div>
+        @endif
     </div>
+</div>
 @endif
-{{--<div class="social-icons col-lg-6">--}}
-{{--    <a href="https://webkul.com" target="_blank" class="unset" rel="noopener noreferrer">--}}
-{{--        <i class="fs24 within-circle rango-facebook" title="facebook"></i> </a>--}}
-{{--    <a href="https://webkul.com" target="_blank" class="unset" rel="noopener noreferrer">--}}
-{{--        <i class="fs24 within-circle rango-twitter" title="twitter"></i> </a>--}}
-{{--    <a href="https://webkul.com" target="_blank" class="unset" rel="noopener noreferrer">--}}
-{{--        <i class="fs24 within-circle rango-linked-in" title="linkedin"></i> </a>--}}
-{{--    <a href="https://webkul.com" target="_blank" class="unset" rel="noopener noreferrer">--}}
-{{--        <i class="fs24 within-circle rango-pintrest" title="Pinterest"></i> </a>--}}
-{{--    <a href="https://webkul.com" target="_blank" class="unset" rel="noopener noreferrer">--}}
-{{--        <i class="fs24 within-circle rango-youtube" title="Youtube"></i> </a>--}}
-{{--    <a href="https://webkul.com" target="_blank" class="unset" rel="noopener noreferrer">--}}
-{{--        <i class="fs24 within-circle rango-instagram" title="instagram"></i></a>--}}
-{{--</div>--}}
+
+<!-- <a href="#" class="media_item pinterest">
+    <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80">
+        <g id="Pinterest" transform="translate(0 0)">
+            <path id="Вычитание_1" data-name="Вычитание 1" d="M-893-1151a39.753,39.753,0,0,1-15.57-3.143,39.868,39.868,0,0,1-12.715-8.572,39.867,39.867,0,0,1-8.572-12.714A39.747,39.747,0,0,1-933-1191a39.748,39.748,0,0,1,3.143-15.57,39.868,39.868,0,0,1,8.572-12.715,39.871,39.871,0,0,1,12.715-8.573A39.75,39.75,0,0,1-893-1231a39.749,39.749,0,0,1,15.57,3.143,39.87,39.87,0,0,1,12.714,8.573,39.868,39.868,0,0,1,8.572,12.715A39.751,39.751,0,0,1-853-1191a39.749,39.749,0,0,1-3.143,15.57,39.867,39.867,0,0,1-8.572,12.714,39.866,39.866,0,0,1-12.714,8.572A39.752,39.752,0,0,1-893-1151Zm-2.427-52.458a4.392,4.392,0,0,0-3.506,1.9,7.911,7.911,0,0,0-1.447,4.753,10.038,10.038,0,0,0,.82,4.065l-.492,2.086c-.857,3.63-2.451,10.388-2.812,11.913a27.852,27.852,0,0,0-.094,9.654c.007.048.013.086.016.112a.343.343,0,0,0,.258.273.355.355,0,0,0,.08.01.346.346,0,0,0,.274-.136l.072-.093a26.416,26.416,0,0,0,4.564-8.316c.311-1.121,1.792-7,1.806-7.063a5.743,5.743,0,0,0,2.434,2.241,8.364,8.364,0,0,0,3.843.963,12.28,12.28,0,0,0,5.651-1.334,13.067,13.067,0,0,0,4.378-3.691,20.6,20.6,0,0,0,3.833-12.585,13.71,13.71,0,0,0-1.161-5.514,14.586,14.586,0,0,0-3.29-4.7,15.674,15.674,0,0,0-5.129-3.272,18.075,18.075,0,0,0-6.676-1.228h-.007c-7.05,0-11.373,2.875-13.757,5.287a16.155,16.155,0,0,0-3.451,5.175,14.713,14.713,0,0,0-1.153,5.587,13.448,13.448,0,0,0,1.285,6.014,7.656,7.656,0,0,0,3.976,3.8,1.164,1.164,0,0,0,.439.093.867.867,0,0,0,.847-.734c.058-.215.151-.585.241-.943.107-.427.218-.869.287-1.12a1.262,1.262,0,0,0-.372-1.434,7.461,7.461,0,0,1-1.694-5.037,12.267,12.267,0,0,1,3.4-8.587,11.83,11.83,0,0,1,3.983-2.708,13.61,13.61,0,0,1,5.263-1.01,11.093,11.093,0,0,1,7.931,2.812,9.528,9.528,0,0,1,2.758,7.035,19.665,19.665,0,0,1-2.246,9.606,9.109,9.109,0,0,1-2.571,2.959,5.671,5.671,0,0,1-3.326,1.093,4.227,4.227,0,0,1-3.359-1.55,3.91,3.91,0,0,1-.7-3.4c.279-1.173.652-2.383,1.013-3.553l0,0a21.561,21.561,0,0,0,1.253-5.56,4.224,4.224,0,0,0-.856-2.716A3.241,3.241,0,0,0-895.427-1203.458Z" transform="translate(933 1231)" fill="#fff" />
+        </g>
+    </svg>
+</a>
+<a href="#" class="media_item twitter">
+    <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80">
+        <path id="twitter" d="M40,0A40,40,0,1,0,80,40,40,40,0,0,0,40,0ZM38.886,33.9,38.8,32.512a8.087,8.087,0,0,1,5.456-8.135,9.557,9.557,0,0,1,4.9-.113,11.385,11.385,0,0,1,2.378,1.243l1.371.932,1.511-.48A15.606,15.606,0,0,0,56.876,25c.476-.254.9-.4.9-.311a8.216,8.216,0,0,1-1.9,3.022c-1.175,1.271-.839,1.384,1.539.537,1.427-.48,1.455-.48,1.175.057a18.454,18.454,0,0,1-1.959,2.175c-1.567,1.554-1.651,1.723-1.651,3.022a29.134,29.134,0,0,1-1.9,8.474,24.563,24.563,0,0,1-9.317,10.96A23.633,23.633,0,0,1,25.4,55.025c-1.986-.621-5.4-2.2-5.4-2.486a8.276,8.276,0,0,1,2.294-.226,15.753,15.753,0,0,0,7.5-2.09l1.511-.9-1.735-.593c-2.462-.847-4.672-2.8-5.232-4.632-.168-.593-.112-.621,1.455-.621l1.623-.028-1.371-.65a9.036,9.036,0,0,1-3.833-3.616c-.532-1.017-1.2-3.587-1.007-3.785a3.3,3.3,0,0,1,1.315.311c1.93.706,2.182.537,1.063-.65a8.152,8.152,0,0,1-1.735-8.361l.476-1.356,1.846,1.836a22.756,22.756,0,0,0,13.318,6.553Z" fill="#fff" fill-rule="evenodd" />
+    </svg>
+</a> -->

@@ -1,5 +1,5 @@
 
-<header class="header">
+<header class="header" id="header">
     <div class="auto__container">
         <div class="header__inner">
             <div class="header__column">
@@ -13,9 +13,12 @@
             <div class="header__column">
                 <searchbar-component></searchbar-component>
 
-                <a href="{{ route('shop.checkout.cart.index') }}" class="cart">
+                <!-- <a href="{{ route('shop.checkout.cart.index') }}" class="cart">
                     <img src="{{asset('themes/velocity_ozan/assets/images/svg/Cart.svg')}}" alt="cart">
-                </a>
+                    <div class="card_added">
+                        1
+                    </div>
+                </a> -->
 
             </div>
         </div>
@@ -28,19 +31,13 @@
                 scrollPosition = Math.round(window.scrollY);
 
                 if (scrollPosition > 50){
-                    document.querySelector('header').classList.add('header-shadow');
+                    document.querySelector('header').classList.add('stick-2');
+                    document.getElementById("upheader").classList.add('stick')
                 } else {
-                    document.querySelector('header').classList.remove('header-shadow');
+                    document.querySelector('header').classList.remove('stick-2');
+                    document.getElementById("upheader").classList.remove('stick')
                 }
             });
         })()
     </script>
 @endpush
-
-
-
-<!-- <script>
-
-
-
-</script> -->

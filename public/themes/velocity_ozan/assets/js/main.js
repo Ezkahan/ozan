@@ -236,6 +236,7 @@ let forget_mail = document.querySelector(".forget_mail");
 let forget_pass = document.querySelector(".forget_pass");
 
 
+
 window.onclick = function (event) {
     if (
         !event.target.matches(".dropdown__btn") &

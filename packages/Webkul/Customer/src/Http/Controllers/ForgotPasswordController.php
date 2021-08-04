@@ -4,6 +4,7 @@ namespace Webkul\Customer\Http\Controllers;
 
 use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
 use Illuminate\Support\Facades\Password;
+use Webkul\Customer\Models\Customer;
 
 class ForgotPasswordController extends Controller
 {
@@ -41,7 +42,7 @@ class ForgotPasswordController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function store()
+    public function store_old()
     {
         try {
             $this->validate(request(), [
@@ -83,5 +84,27 @@ class ForgotPasswordController extends Controller
     public function broker()
     {
         return Password::broker('customers');
+    }
+
+    public function store(){
+        $this->validate(request(), [
+            'phone' => 'required|numeric|digits:8',
+        ]);
+
+        $customer = Customer::where('phone',request('phone'))->first();
+
+        if($customer){
+            $customer->token = substr(str_shuffle("0123456789"), 0, 5);
+            \Webkul\Customer\Jobs\PhoneVerification::dispatch($customer->toArray());
+            $customer->save();
+            return view('shop::customers.signup.reset-password',compact('customer'));
+        }
+        else{
+            return back()
+                ->withInput(request(['phone']))
+                ->withErrors([
+                    'phone' => trans('customer::app.forget_password.email_not_exist'),
+                ]);
+        }
     }
 }

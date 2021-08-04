@@ -14,7 +14,7 @@
     <script type="text/x-template" id="checkout-template">
         <div id="checkout" class="row offset-lg-1 col-lg-11 col-md-12 px-sm-3">
 
-            <h1 class="col-12">{{ __('velocity::app.checkout.checkout') }}</h1>
+            <h2 class="col-12">{{ __('velocity::app.checkout.checkout') }}</h2>
 
             <div class="col-lg-7 col-md-12">
                 <div class="step-content information" id="address-section">
@@ -61,6 +61,11 @@
 
                         <div slot="place-order-btn">
                             <div class="mb20">
+                                <div class="comment-wrap">
+
+                                <textarea type="text" name="comment" class="comment" rows="4" cols="42" style="border: 1px solid #0b2e13;"
+                                          placeholder="@lang('velocity::app.checkout.comment')" ></textarea>
+                                </div>
                                 <button
                                     type="button"
                                     class="theme-btn"
@@ -511,8 +516,9 @@
                             this.isPlaceOrderEnabled = false;
 
                             this.$root.showLoader();
+                            let comment = $(document).find('textarea[name=comment]').val();
 
-                            this.$http.post("{{ route('shop.checkout.save-order') }}", {'_token': "{{ csrf_token() }}"})
+                            this.$http.post("{{ route('shop.checkout.save-order') }}", {'_token': "{{ csrf_token() }}",'comment':comment})
                             .then(response => {
                                 if (response.data.success) {
                                     if (response.data.redirect_url) {

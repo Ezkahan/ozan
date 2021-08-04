@@ -16,6 +16,6 @@ return [
     ],
     'forget_password' => [
         'reset_link_sent' => 'Siziň elektron bukçaňyza açar çalşma salgysyny ugratdyk',
-        'email_not_exist' => "Bu elektron bukja degişli ulanyjyny tapyp bilmedik"
+        'email_not_exist' => "Bu telefon belgä degişli ulanyjyny tapyp bilmedik"
     ]
 ];

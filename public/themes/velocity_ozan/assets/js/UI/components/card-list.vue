@@ -9,7 +9,7 @@
             <div @click="redirect(card.route)" class="card padding-10">
 
                 <template v-if="card.price > card.max_price">
-                    <button type="button" class="sale-btn card-sale-btn fw6">Sale</button>
+                    <button type="button" class="sale-btn card-sale-btn fw6">{{ round(card.max_price*100/card.price)}}</button>
                 </template>
 
                 <div class="card-product-image-container">

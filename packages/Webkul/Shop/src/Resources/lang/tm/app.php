@@ -93,7 +93,7 @@ return [
             'sign-in' => 'Ulgama girmek',
             'company-name' => 'Kompaniýanyň ady',
             'first-name' => 'Ady',
-            'last-name' => 'FAmilýasy',
+            'last-name' => 'Familýasy',
             'email' => 'Email',
             'address1' => 'Köçesiniň salgysy',
             'city' => 'Şäher',
@@ -153,10 +153,10 @@ return [
         ],
 
         'success' => [
-            'title' => 'Sargyt üstünlikli ýerleşdirildi',
-            'thanks' => 'Sargyt üçin sag boluň!',
+            'title' => 'Sargyt ýerleşdirildi',
+            'thanks' => 'Söwdaňyz üçin sag boluň!',
             'order-id-info' => 'Siziň sargyt belgiňiz #:order_id',
-            'info' => 'Size, sargyt maglumatlaryňyzy we yzarlaýyş maglumatlaryňyzy e-poçta bilen ibereris.'
+            'info' => 'Size, sargydyňyz barada operatorymyz maglumat berjekdir.'
         ]
     ],
     'common' => [
