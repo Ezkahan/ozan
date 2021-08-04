@@ -3,6 +3,7 @@
         :rtl="localeDirection == 'rtl'"
         :dir="localeDirection"
         :id="id"
+        :centerMode="true"
         :navigationEnabled="true"
         :paginationEnabled="true"
         :perPage="parseInt(slidesPerPage)"
@@ -10,6 +11,7 @@
         :autoplay="autoplay == 'true' ? true : false"
         :autoplayTimeout="timeout ? parseInt(timeout) : 2000"
         :autoplayDirection="'forward'"
+        :perPageCustom="perPageCustom"
         :class="[
             localeDirection,
             (navigationEnabled == 'hide') ? 'navigation-hide' : '',
@@ -38,10 +40,16 @@
             'localeDirection',
             'navigationEnabled',
             'paginationEnabled',
+            'perPageCustom'
         ],
 
         data: function () {
             return {}
+        },
+
+        mounted() {
+            console.log(this.loop+this.slidesPerPage);
+
         },
 
         methods: {

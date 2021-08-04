@@ -19,6 +19,8 @@
                         :id="isCategory ? `${categoryDetails.name}-carousel` : productId"
                         :locale-direction="localeDirection"
                         :slides-count="productCollections.length"
+                        :loop="'true'"
+                        :perPageCustom="[[320, 1], [425, 2], [768, 3],[1199, 5]]"
                         v-if="count != 0">
 
                         <slide
