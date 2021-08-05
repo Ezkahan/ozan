@@ -96,7 +96,7 @@
                                 <input type="checkbox" id="checkbox2" name="agreement" v-validate="'required'" data-vv-as="&quot;{{ __('velocity::app.customer.signup-form.agreement') }}&quot;">
                                 <label class="checkbox-view" for="checkbox2"></label>
                                 <span>{{ __('velocity::app.customer.signup-form.agree') }}
-                                    <a href="{{route('shop.cms.page',['privacy-policy'])}}">{{ __('velocity::app.customer.signup-form.terms') }}</a> & <a href="{{route('shop.cms.page',['privacy-policy'])}}">{{ __('velocity::app.customer.signup-form.conditions') }}</a> {{ __('velocity::app.customer.signup-form.using') }}.
+                                    <a href="{{route('shop.cms.page',['privacy-policy'])}}">{{ __('velocity::app.customer.signup-form.terms') }}</a>  <a href="{{route('shop.cms.page',['privacy-policy'])}}">{{ __('velocity::app.customer.signup-form.conditions') }}</a> {{ __('velocity::app.customer.signup-form.using') }}.
                                 </span>
                             </span>
                                 <span class="control-error" v-if="errors.has('agreement')">@{{ errors.first('agreement') }}</span>
