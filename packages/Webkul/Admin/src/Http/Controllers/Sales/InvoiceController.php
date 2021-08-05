@@ -4,6 +4,7 @@ namespace Webkul\Admin\Http\Controllers\Sales;
 
 use PDF;
 use Webkul\Admin\Http\Controllers\Controller;
+use Webkul\Sales\Repositories\OrderCommentRepository;
 use Webkul\Sales\Repositories\OrderRepository;
 use Webkul\Sales\Repositories\InvoiceRepository;
 
@@ -30,6 +31,7 @@ class InvoiceController extends Controller
      */
     protected $invoiceRepository;
 
+    protected $commentRepository;
     /**
      * Create a new controller instance.
      *
@@ -39,7 +41,8 @@ class InvoiceController extends Controller
      */
     public function __construct(
         OrderRepository $orderRepository,
-        InvoiceRepository $invoiceRepository
+        InvoiceRepository $invoiceRepository,
+        OrderCommentRepository $commentRepository
     )
     {
         $this->middleware('admin');
@@ -49,6 +52,8 @@ class InvoiceController extends Controller
         $this->orderRepository = $orderRepository;
 
         $this->invoiceRepository = $invoiceRepository;
+
+        $this->commentRepository = $commentRepository;
     }
 
     /**
@@ -141,7 +146,9 @@ class InvoiceController extends Controller
     {
         $invoice = $this->invoiceRepository->findOrFail($id);
 
-        $html = view('admin::sales.invoices.pdf', compact('invoice'))->render();
+        $comments = $this->commentRepository->findByField('order_id',$invoice->order_id);
+
+        $html = view('admin::sales.invoices.pdf', compact('invoice', 'comments'))->render();
 
         return PDF::loadHTML($this->adjustArabicAndPersianContent($html))
             ->setPaper('a4')
