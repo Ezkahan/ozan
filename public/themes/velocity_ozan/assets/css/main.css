@@ -4035,6 +4035,9 @@ li {
   .account-content .sidebar {
     height: auto;
   }
+  .new_title {
+    display: none;
+  }
   .hero {
     padding-top: 0;
   }
@@ -4201,6 +4204,9 @@ li {
   .main-content-wrapper {
     margin-bottom: 20px;
     z-index: 2;
+  }
+  .category-container {
+    padding: 0 15px 40px;
   }
   .category-container h2 {
     font-size: 28px;

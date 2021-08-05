@@ -401,6 +401,10 @@
         }
     }
 
+    .new_title {
+        display: none;
+    }
+
     .hero {
         padding-top: 0;
 
@@ -592,8 +596,12 @@
         z-index: 2;
     }
 
-    .category-container h2 {
-        font-size: 28px;
+    .category-container {
+        padding: 0 15px 40px;
+
+        h2 {
+            font-size: 28px;
+        }
     }
 
     .d-inline-block {
