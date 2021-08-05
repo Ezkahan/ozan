@@ -88,12 +88,12 @@
                 @endif
             </div>
 
-            <div class="col-4" @click="toggleLayeredNavigation({event: $event, actionType: 'open'})">
-                <a class="unset">
-                    <i class="material-icons">filter_list</i>
-                    <span>{{ __('velocity::app.shop.general.filter') }}</span>
-                </a>
-            </div>
+{{--            <div class="col-4" @click="toggleLayeredNavigation({event: $event, actionType: 'open'})">--}}
+{{--                <a class="unset">--}}
+{{--                    <i class="material-icons">filter_list</i>--}}
+{{--                    <span>{{ __('velocity::app.shop.general.filter') }}</span>--}}
+{{--                </a>--}}
+{{--            </div>--}}
 
             <div class="col-4">
                 <div class="sorter" id="sort-by">
