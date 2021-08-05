@@ -104,28 +104,29 @@ class SMSAuthenticationController extends Controller
     }
 
     public function verifyPhone(){
-        $api_token = request('api_token');
-        $token = request('token');
-        if(isset($token) && isset($api_token)){
-            $customer = $this->customerRepository->findOneByField('api_token', $api_token);
+        $phone = request('phone');
+        $token = request('code');
+        if(isset($token) && isset($phone)){
+            $customer = $this->customerRepository->findOneByField('phone', $phone);
             if ($customer && $customer->token == $token ) {
                 $customer->update(['is_verified' => 1, 'token' => 'NULL']);
 
-                session()->flash('success', trans('velocity::app.customer.signup-form.verified'));
             } else {
-                session()->flash('warning', trans('velocity::app.customer.signup-form.verify-failed'));
+                return response()->json([
+                    'message' =>  trans('velocity::app.customer.signup-form.verify-failed'),
+                ]);
             }
             return response()->json([
-                'message' => 'Verification code sent successfully.',
+                'message' => trans('velocity::app.customer.signup-form.verified'),
             ]);
         }
         return response()->json([
-            'message' => 'Verification code sent successfully.',
+            'message' => 'Phone and token is required',
         ],400);
     }
 
-    public function resendVerificationSMS($api_token){
-        $customer = $this->customerRepository->findOneByField('api_token', $api_token);
+    public function resendVerificationSMS($phone){
+        $customer = $this->customerRepository->findOneByField('phone', $phone);
         //todo phone verification settings
         try {
             \Webkul\Customer\Jobs\PhoneVerification::dispatchIf(core()->getConfigData('customer.settings.email.verification'), $customer->toArray());
