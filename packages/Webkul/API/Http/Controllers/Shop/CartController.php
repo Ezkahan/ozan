@@ -60,7 +60,7 @@ class CartController extends Controller
 
         auth()->setDefaultDriver($this->guard);
 
-        // $this->middleware('auth:' . $this->guard);
+        $this->middleware('auth:' . $this->guard);
 
         $this->_config = request('_config');
 

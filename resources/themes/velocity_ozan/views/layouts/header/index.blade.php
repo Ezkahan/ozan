@@ -12,14 +12,6 @@
             </div>
             <div class="header__column">
                 <searchbar-component></searchbar-component>
-
-                <!-- <a href="{{ route('shop.checkout.cart.index') }}" class="cart">
-                    <img src="{{asset('themes/velocity_ozan/assets/images/svg/Cart.svg')}}" alt="cart">
-                    <div class="card_added">
-                        1
-                    </div>
-                </a> -->
-
             </div>
         </div>
     </div>
