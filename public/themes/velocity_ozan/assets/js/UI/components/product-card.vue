@@ -51,7 +51,6 @@
 
             <product-quick-view-btn :quick-view-details="product"></product-quick-view-btn>
         </a>
-
         <div class="card-body">
             <div class="product-name col-12 no-padding">
                 <a
@@ -59,7 +58,7 @@
                     :title="product.name"
                     :href="`${baseUrl}/${product.slug}`">
 
-                    <span class="fs16">{{ product.name  }}</span>
+                    <span class="fs16">{{ product.name }}</span>
                 </a>
             </div>
 
