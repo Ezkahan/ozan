@@ -82,7 +82,7 @@
             <div class="category-container right">
                 <div class="row remove-padding-margin">
                     <div class="pl0 col-12">
-                        <h2 class="fw6 mb10">{{ $category->name }}</h2>
+                        <h2 class="fw6 mb10 new_title">{{ $category->name }}</h2>
 
                         @if ($isDescriptionDisplayMode)
                             @if ($category->description)

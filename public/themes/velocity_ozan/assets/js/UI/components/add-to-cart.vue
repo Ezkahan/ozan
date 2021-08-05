@@ -1,5 +1,5 @@
 <template>
-    <form method="POST" @submit.prevent="addToCart">
+    <form class="cart_btn_form" method="POST" @submit.prevent="addToCart">
 
         <!-- for move to cart from wishlist -->
         <a
@@ -18,7 +18,7 @@
         <button
             type="submit"
             :disabled="isButtonEnable == 'false' || isButtonEnable == false"
-            :class="`btn btn-add-to-cart ${addClassToBtn}`"
+            :class="`btn btn-add-to-cart cat_cart_btn  ${addClassToBtn}`"
             v-else
             >
 
