@@ -42122,6 +42122,7 @@ var render = function() {
   return _c(
     "form",
     {
+      staticClass: "cart_btn_form",
       attrs: { method: "POST" },
       on: {
         submit: function($event) {
@@ -42158,7 +42159,7 @@ var render = function() {
         : _c(
             "button",
             {
-              class: "btn btn-add-to-cart " + _vm.addClassToBtn,
+              class: "btn btn-add-to-cart cat_cart_btn  " + _vm.addClassToBtn,
               attrs: {
                 type: "submit",
                 disabled:

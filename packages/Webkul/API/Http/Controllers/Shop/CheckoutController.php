@@ -6,6 +6,7 @@ use Cart;
 use Exception;
 use Illuminate\Support\Str;
 use Webkul\Payment\Facades\Payment;
+use Webkul\Sales\Repositories\OrderCommentRepository;
 use Webkul\Shipping\Facades\Shipping;
 use Webkul\Sales\Repositories\OrderRepository;
 use Webkul\Checkout\Repositories\CartRepository;
@@ -38,7 +39,7 @@ class CheckoutController extends Controller
      * @var \Webkul\Checkout\Repositories\CartItemRepository
      */
     protected $cartItemRepository;
-
+    protected $commentRepository;
     /**
      * Controller instance
      *
@@ -49,7 +50,8 @@ class CheckoutController extends Controller
     public function __construct(
         CartRepository $cartRepository,
         CartItemRepository $cartItemRepository,
-        OrderRepository $orderRepository
+        OrderRepository $orderRepository,
+        OrderCommentRepository $commentRepository
     )
     {
         $this->guard = request()->has('token') ? 'api' : 'customer';
@@ -65,6 +67,8 @@ class CheckoutController extends Controller
         $this->cartItemRepository = $cartItemRepository;
 
         $this->orderRepository = $orderRepository;
+
+        $this->commentRepository = $commentRepository;
     }
 
     /**
@@ -207,6 +211,9 @@ class CheckoutController extends Controller
 
         $order = $this->orderRepository->create(Cart::prepareDataForOrder());
 
+        if(request()->has('comment')){
+            $this->commentRepository->create(['order_id' => $order->id,'comment' =>request('comment')]);
+        }
         Cart::deActivateCart();
 
         return response()->json([

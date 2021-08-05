@@ -28,7 +28,7 @@
                 <button
                     type="submit"
                     {{ ! $product->isSaleable() ? 'disabled' : '' }}
-                    class="theme-btn {{ $addToCartBtnClass ?? '' }}">
+                    class="theme-btn  {{ $addToCartBtnClass ?? '' }} ">
 
                     @if (! (isset($showCartIcon) && !$showCartIcon))
                         <i class="material-icons text-down-3">shopping_cart</i>
@@ -48,7 +48,7 @@
                     <button
                         type="submit"
                         {{ ! $product->isSaleable() ? 'disabled' : '' }}
-                        class="btn btn-add-to-cart {{ $addToCartBtnClass ?? '' }}">
+                        class="btn btn-add-to-cart  {{ $addToCartBtnClass ?? '' }}">
 
                         @if (! (isset($showCartIcon) && !$showCartIcon))
                             <i class="material-icons text-down-3">shopping_cart</i>

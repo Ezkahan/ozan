@@ -93,6 +93,12 @@
     }
 }
 
+@mixin sm-mdd {
+    @media (max-width: 450px) {
+        @content;
+    }
+}
+
 @mixin sm-md {
     @media (max-width: 650px) {
         @content;

@@ -3,6 +3,7 @@
 namespace Webkul\API\Http\Controllers\Shop;
 
 use Illuminate\Support\Facades\Event;
+use Illuminate\Support\Str;
 use Webkul\Customer\Repositories\CustomerRepository;
 use Webkul\API\Http\Resources\Customer\Customer as CustomerResource;
 
@@ -48,10 +49,9 @@ class SMSAuthenticationController extends Controller
     public function create(Request $request)
     {
         $this->validate($request, [
-            'phone' => 'required|numeric|unique:customers,phone',
+            'phone' => 'required|numeric|digits:8|unique:customers,phone',
             'first_name' => 'required',
             'last_name'  => 'required',
-            'address' => 'required',
             'password'   => 'confirmed|min:6|required',
         ]);
 
@@ -59,24 +59,34 @@ class SMSAuthenticationController extends Controller
             'first_name'  => $request->get('first_name'),
             'last_name'   => $request->get('last_name'),
             'email'       => $request->get('email'),
-            'password'    => $request->get('password'),
+//            'password'    => $request->get('password'),
             'password'    => bcrypt($request->get('password')),
             'channel_id'  => core()->getCurrentChannel()->id,
-            'phonePasscodeTimeStamp' => "now",
-            'is_verified' => 1,
+            'api_token'         => Str::random(80),
+            'is_verified' => core()->getConfigData('customer.settings.email.verification') ? 0 : 1,
+            'token'       => substr(str_shuffle("0123456789"), 0, 5),
             'customer_group_id' => $this->customerGroupRepository->findOneWhere(['code' => 'general'])->id
         ];
         // su yerde sms ugratmaly
 
         Event::dispatch('customer.registration.before');
-
         $customer = $this->customerRepository->create($data);
 
-        Event::dispatch('customer.registration.after', $customer);
+        try {
+            \Webkul\Customer\Jobs\PhoneVerification::dispatchIf(core()->getConfigData('customer.settings.email.verification'), $customer->toArray());
+            Event::dispatch('customer.registration.after', $customer);
 
-        return response()->json([
-            'message' => 'Your account has been created successfully.',
-        ]);
+            return response()->json([
+                'message' => trans('shop::app.customer.signup-form.success-verify'),
+            ]);
+        }
+        catch (\Exception $exception){
+            report($exception);
+
+            return response()->json([
+                'message' => trans('shop::app.customer.signup-form.success-verify-email-unsent'),
+            ],400);
+        }
     }
 
     /**
@@ -91,5 +101,45 @@ class SMSAuthenticationController extends Controller
         return response()->json([
             'message' => 'Logged out successfully.',
         ]);
+    }
+
+    public function verifyPhone(){
+        $phone = request('phone');
+        $token = request('code');
+        if(isset($token) && isset($phone)){
+            $customer = $this->customerRepository->findOneByField('phone', $phone);
+            if ($customer && $customer->token == $token ) {
+                $customer->update(['is_verified' => 1, 'token' => 'NULL']);
+
+            } else {
+                return response()->json([
+                    'message' =>  trans('velocity::app.customer.signup-form.verify-failed'),
+                ]);
+            }
+            return response()->json([
+                'message' => trans('velocity::app.customer.signup-form.verified'),
+            ]);
+        }
+        return response()->json([
+            'message' => 'Phone and token is required',
+        ],400);
+    }
+
+    public function resendVerificationSMS($phone){
+        $customer = $this->customerRepository->findOneByField('phone', $phone);
+        //todo phone verification settings
+        try {
+            \Webkul\Customer\Jobs\PhoneVerification::dispatchIf(core()->getConfigData('customer.settings.email.verification'), $customer->toArray());
+
+            return response()->json([
+                'message' => 'Verification code sent successfully.',
+            ]);
+        }
+        catch (\Exception $exception){
+            report($exception);
+            return response()->json([
+                'message' => 'Verification code cannot be sent.',
+            ],400);
+        }
     }
 }

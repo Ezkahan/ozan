@@ -1636,11 +1636,6 @@
   margin: 20px 0;
 }
 
-.filters-container .toolbar-wrapper > div {
-  margin: 0 20px 0 0;
-  display: inline-block;
-}
-
 .filters-container .toolbar-wrapper > div label {
   font-weight: 500;
   margin-right: 10px;
@@ -1753,10 +1748,8 @@
 }
 
 .product-card-new {
-  width: calc(100% - 20px);
-  margin: 10px 10px 10px 10px;
+  width: calc(100% - 0px);
   padding: 20px 25px;
-  height: calc(100% - 10px);
   border: 1px solid #707070;
   border-radius: 5px;
   position: relative;
@@ -6993,11 +6986,48 @@ button[disabled] {
     padding-top: 20px;
   }
   #sort-by.sorter select {
-    top: 2px;
-    left: 25px;
     padding: 0 10px;
-    position: absolute;
-    display: inline-block;
+  }
+  .my_box {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: baseline;
+        -ms-flex-align: baseline;
+            align-items: baseline;
+    flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    -moz-flex-wrap: wrap;
+    -o-flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+  }
+  .my_item #sort-by {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin-top: 5px;
+  }
+  .my_item #sort-by select {
+    width: auto;
+    background: transparent;
+  }
+  .my_item:first-child {
+    margin-right: 15px;
+  }
+  .my_item a {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .my_item a span {
+    margin-left: 10px;
   }
 }
 
@@ -7159,6 +7189,14 @@ button[disabled] {
   }
 }
 
+@media only screen and (max-width: 500px) {
+  .category-container .grid-card,
+  .search-container .grid-card {
+    width: calc(95% - 20px) !important;
+    margin: 15px auto;
+  }
+}
+
 /* small devices */
 @media only screen and (max-width: 420px) {
   .sticky-header {
@@ -7225,7 +7263,7 @@ button[disabled] {
   }
   .category-container .grid-card,
   .search-container .grid-card {
-    width: calc(90% - 20px) !important;
+    width: calc(100% - 20px) !important;
     margin: 15px auto;
   }
 }

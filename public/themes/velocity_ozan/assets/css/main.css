@@ -1280,12 +1280,29 @@ li {
   color: #ffffff;
   background: #2d2d2d;
   border-radius: 10px 10px 0 0;
+  position: relative;
 }
 
 .sidebar__header i {
   margin-right: 1.3rem;
   pointer-events: none;
   text-align: unset;
+}
+
+.sidebar__header::after {
+  content: '';
+  position: absolute;
+  top: 56%;
+  right: 20px;
+  width: 15px;
+  height: 15px;
+  transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  border: 6px solid #fff;
+  border-color: #fff transparent transparent transparent;
 }
 
 .sidebar__body {
@@ -1414,7 +1431,7 @@ li {
 }
 
 .card {
-  border: 1px solid #ececec;
+  border: 1px solid #c9c9c9;
   position: relative;
 }
 
@@ -4211,6 +4228,33 @@ li {
   .category-container h2 {
     font-size: 28px;
   }
+  .layered-filter-wrapper {
+    margin-bottom: 20px;
+  }
+  .cart_btn_form {
+    margin-top: 15px;
+  }
+  .cart_btn_form button:disabled {
+    border: 1px solid #da2d78af;
+  }
+  .cart_btn_form button:disabled span {
+    color: #da2d78b3;
+    top: 0;
+  }
+  .cat_cart_btn {
+    background: transparent;
+    border: 1px solid #da2d79;
+  }
+  .cat_cart_btn i {
+    display: none;
+  }
+  .cat_cart_btn span {
+    color: #da2d79;
+    top: 0;
+  }
+  .filters-container {
+    margin: 0 0 40px;
+  }
   .d-inline-block {
     display: block !important;
   }
@@ -4464,13 +4508,17 @@ li {
   }
   .category-container .grid-card,
   .search-container .grid-card {
-    width: calc(33.33% - 20px) !important;
+    width: calc(33.33% - 10px) !important;
+    margin: 5px;
   }
   .contact {
     padding: 50px 0;
   }
   .mini-cart-container .product-image-container {
     height: 90px !important;
+  }
+  .product-card-new .product-image-container {
+    height: 150px !important;
   }
 }
 
@@ -4576,7 +4624,8 @@ li {
   }
   .category-container .grid-card,
   .search-container .grid-card {
-    width: calc(50% - 20px) !important;
+    width: calc(50% - 10px) !important;
+    margin: 5px;
   }
   .brand__slider-item-image {
     height: 70px;
@@ -4640,11 +4689,15 @@ li {
   }
 }
 
-@media (max-width: 350px) {
+@media (max-width: 450px) {
   .category-container .grid-card,
   .search-container .grid-card {
-    width: calc(100% - 20px) !important;
+    width: calc(100% - 10px) !important;
+    margin: 5px;
   }
+}
+
+@media (max-width: 350px) {
   .product {
     font-size: 13px;
   }
