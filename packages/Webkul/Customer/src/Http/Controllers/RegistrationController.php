@@ -166,7 +166,7 @@ class RegistrationController extends Controller
             } catch (\Exception $e) {
                 report($e);
 
-                session()->flash('info', trans('shop::app.customer.signup-form.success-verify-email-unsent'));
+                    session()->flash('info', trans('shop::app.customer.signup-form.success-verify-email-unsent'));
             }
 
             session()->flash('success', trans('shop::app.customer.signup-form.success'));
