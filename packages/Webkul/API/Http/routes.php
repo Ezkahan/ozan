@@ -152,7 +152,9 @@ Route::group(['prefix' => 'api'], function ($router) {
 
         Route::put('customer/profile', 'SessionController@update');
 
-        Route::post('customer/register', 'CustomerController@create');
+        Route::post('customer/register', 'SMSAuthenticationController@create');
+        Route::post('customer/verify_phone', 'SMSAuthenticationController@verifyPhone'); //send phone, code
+        Route::post('customer/resend_code', 'SMSAuthenticationController@resendVerificationSMS');// send phone
 
         Route::get('customers/{id}', 'CustomerController@get')->defaults('_config', [
             'repository' => 'Webkul\Customer\Repositories\CustomerRepository',
