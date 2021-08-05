@@ -43476,7 +43476,7 @@ var render = function() {
               },
               [
                 _c("span", { staticClass: "fs16" }, [
-                  _vm._v(_vm._s(_vm._f("truncate")(_vm.product.name)))
+                  _vm._v(_vm._s(_vm.product.name))
                 ])
               ]
             )
