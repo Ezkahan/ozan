@@ -459,19 +459,25 @@ class Cart
             return false;
         }
 
-        $billingAddressData = $this->gatherBillingAddress($data, $cart);
+        try {
+            $billingAddressData = $this->gatherBillingAddress($data, $cart);
 
-        $shippingAddressData = $this->gatherShippingAddress($data, $cart);
+            $shippingAddressData = $this->gatherShippingAddress($data, $cart);
 
-        $this->saveAddressesWhenRequested($data, $billingAddressData, $shippingAddressData);
+            $this->saveAddressesWhenRequested($data, $billingAddressData, $shippingAddressData);
 
-        $this->linkAddresses($cart, $billingAddressData, $shippingAddressData);
+            $this->linkAddresses($cart, $billingAddressData, $shippingAddressData);
 
-        $this->assignCustomerFields($cart);
+            $this->assignCustomerFields($cart);
 
-        $cart->save();
+            $cart->save();
 
-        $this->collectTotals();
+            $this->collectTotals();
+        }
+        catch (Exception $ex){
+            Log::info($data);
+            return false;
+        }
 
         return true;
     }
@@ -1228,17 +1234,10 @@ class Cart
 
         if (isset($data['shipping']['address_id']) && $data['shipping']['address_id']) {
 
-            try {
                 $customerAddress = $this
                     ->customerAddressRepository
                     ->findOneWhere(['id' => $data['shipping']['address_id']])
                     ->toArray();
-            }
-            catch (Exception $exception){
-//                report($exception);
-                Log::error($data['shipping']);
-                $customerAddress = null;
-            }
         }
 
         $shippingAddress = array_merge(
