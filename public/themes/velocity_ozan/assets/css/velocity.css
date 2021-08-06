@@ -2846,7 +2846,7 @@
 }
 
 #alert-container {
-  top: 100px;
+  top: 150px;
   right: 15px;
   z-index: 100;
   position: fixed;
@@ -3949,6 +3949,12 @@
 .compare-products tr td {
   max-width: 30%;
   min-width: 30%;
+}
+
+.compare-products tr td:first-child {
+  max-width: 20%;
+  width: 100%;
+  min-width: 20%;
 }
 
 .compare-products tr td:last-child {
@@ -6336,6 +6342,18 @@ button[disabled] {
   .sticky-header {
     display: block !important;
   }
+  .compare_table {
+    width: 100%;
+    overflow-x: auto !important;
+  }
+  .compare_table table {
+    width: 1000px;
+  }
+  .compare-products td:first-child {
+    max-width: 20%;
+    width: 100%;
+    min-width: 20%;
+  }
   .vc-full-screen {
     display: block !important;
   }
@@ -6370,13 +6388,6 @@ button[disabled] {
     color: #7f7f7f;
     opacity: 0.8;
     overflow: hidden;
-  }
-  .compare_table {
-    width: 100%;
-    overflow-x: auto !important;
-  }
-  .compare_table table {
-    width: 1000px;
   }
   .cart-details h2 {
     font-size: 28px;
@@ -7141,7 +7152,7 @@ button[disabled] {
   .cart-details table {
     margin-top: 20px;
     margin-right: 0 !important;
-    width: 100%;
+    width: 1100px;
   }
   .cart-details table .fs16, .cart-details table .account-content .account-layout .bottom-toolbar .pagination .page-item, .account-content .account-layout .bottom-toolbar .pagination .cart-details table .page-item, .cart-details table .product-detail .right, .product-detail .cart-details table .right {
     font-size: 14px;
@@ -7198,20 +7209,13 @@ button[disabled] {
     width: calc(50% - 20px) !important;
   }
   .compare-products td:first-child {
-    max-width: 30%;
+    max-width: 20%;
     width: 100%;
-    min-width: 30%;
-  }
-  .compare-products td:last-child {
-    max-width: 70%;
-    width: 100%;
+    min-width: 20%;
   }
   .compare_table {
     width: 100%;
     overflow-x: auto;
-  }
-  .compare_table table {
-    width: 600px;
   }
   .compare_table table td h2 {
     font-size: 16px !important;
@@ -7250,9 +7254,6 @@ button[disabled] {
   #home-right-bar-container {
     position: unset;
     top: unset;
-  }
-  .compare_table table {
-    width: 450px;
   }
   .cart-details h2 {
     font-size: 18px;
@@ -8096,6 +8097,10 @@ body {
 
 .cart-details .cart_table_group {
   display: block;
+}
+
+.cart-details .cart_table_group .theme-btn, .cart-details .cart_table_group .continue-shopping-btn, .cart-details .cart_table_group .account-content .account-layout .account-table-content #datagrid-filters .dropdown-filters .dropdown-container button.btn, .account-content .account-layout .account-table-content #datagrid-filters .dropdown-filters .dropdown-container .cart-details .cart_table_group button.btn, .cart-details .cart_table_group .account-content .account-layout .account-table-content #datagrid-filters .dropdown-filters .dropdown-container .quantity button, .account-content .account-layout .account-table-content #datagrid-filters .dropdown-filters .dropdown-container .quantity .cart-details .cart_table_group button, .cart-details .cart_table_group .quantity .account-content .account-layout .account-table-content #datagrid-filters .dropdown-filters .dropdown-container button, .quantity .account-content .account-layout .account-table-content #datagrid-filters .dropdown-filters .dropdown-container .cart-details .cart_table_group button, .cart-details .cart_table_group .account-content .account-layout .bottom-toolbar .pagination .page-item, .account-content .account-layout .bottom-toolbar .pagination .cart-details .cart_table_group .page-item {
+  margin: 10px 0;
 }
 
 .dropdown-menu {

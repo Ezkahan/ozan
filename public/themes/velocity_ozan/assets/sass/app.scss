@@ -291,6 +291,10 @@ body {
 .cart-details {
     .cart_table_group {
         display: block;
+
+        .theme-btn {
+            margin: 10px 0;
+        }
     }
 }
 

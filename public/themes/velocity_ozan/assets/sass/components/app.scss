@@ -1441,7 +1441,7 @@
 }
 
 #alert-container {
-    top: 100px;
+    top: 150px;
     right: 15px;
     z-index: 100;
     position: fixed;
@@ -2610,6 +2610,12 @@
         td {
             max-width: 30%;
             min-width: 30%;
+
+            &:first-child {
+                max-width: 20%;
+                width: 100%;
+                min-width: 20%;
+            }
 
             &:last-child {
                 max-width: 50%;
