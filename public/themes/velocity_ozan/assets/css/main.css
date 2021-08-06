@@ -2905,6 +2905,14 @@ li {
   margin-right: 15px;
 }
 
+.my_wrap h3 {
+  font-size: 28px;
+}
+
+.my_wrap p {
+  font-size: 17px;
+}
+
 .category {
   padding-top: 6.6em;
   font-size: 15px;
@@ -4013,6 +4021,12 @@ li {
   .upheader__language select {
     padding-left: 10px;
   }
+  .my_wrap h3 {
+    font-size: 24px;
+  }
+  .my_wrap p {
+    font-size: 15px;
+  }
   .about {
     padding-top: 3.3em;
   }
@@ -4625,6 +4639,12 @@ li {
 @media (max-width: 650px) {
   .menu__content.ham {
     width: 100%;
+  }
+  .my_wrap h3 {
+    font-size: 19px;
+  }
+  .my_wrap p {
+    font-size: 15px;
   }
   .category-container .grid-card,
   .search-container .grid-card {
