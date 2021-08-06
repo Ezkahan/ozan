@@ -4,6 +4,7 @@ namespace Webkul\Checkout;
 
 use Exception;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Log;
 use Webkul\Tax\Helpers\Tax;
 use Illuminate\Support\Facades\Event;
 use Webkul\Shipping\Facades\Shipping;
@@ -1225,10 +1226,18 @@ class Cart
         $customerAddress = [];
 
         if (isset($data['shipping']['address_id']) && $data['shipping']['address_id']) {
-            $customerAddress = $this
-                ->customerAddressRepository
-                ->findOneWhere(['id' => $data['shipping']['address_id']])
-                ->toArray();
+
+            try {
+
+                $customerAddress = $this
+                    ->customerAddressRepository
+                    ->findOneWhere(['id' => $data['shipping']['address_id']])
+                    ->toArray();
+            }
+            catch (Exception $exception){
+                report($exception);
+                Log::error($data);
+            }
         }
 
         $shippingAddress = array_merge(
