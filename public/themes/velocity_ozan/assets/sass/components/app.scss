@@ -279,6 +279,12 @@
         cursor: default;
         padding: 0;
         margin-top: 15px;
+        display: flex;
+        flex-direction: column;
+        -ms-flex-direction: column;
+        -moz-flex-direction: column;
+        -o-flex-direction: column;
+        -webkit-flex-direction: column;
 
         >div:last-child {
             margin-top: 10px;
@@ -290,11 +296,22 @@
 
         .product-name,
         .product-rating {
-            width: 15rem;
-            overflow: hidden;
-            white-space: nowrap;
-            text-overflow: ellipsis;
+            width: 100% !important;
+            flex: unset;
         }
+
+        .product-name {
+            a {
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                width: 100% !important;
+            }
+        }
+
     }
 
     .sticker {
@@ -332,6 +349,20 @@
                 }
             }
         }
+    }
+}
+
+.VueCarousel-wrapper {
+    .product-card-new {
+        width: calc(100% - 20px);
+        margin: 10px;
+        padding: 20px 25px;
+        // height: calc(100% - 10px);
+        border: 1px solid #707070;
+        border-radius: 5px;
+        position: relative;
+        height: calc(100% - 20px);
+
     }
 }
 

@@ -85,6 +85,13 @@
         -o-flex-direction: column;
         -webkit-flex-direction: column;
         justify-content: space-between;
+
+        .add-to-cart-btn {
+            .cart_btn_form {
+                margin-top: 0;
+            }
+        }
+
     }
 
     &__sidebar {
