@@ -95,6 +95,10 @@ class CheckoutController extends Controller
             unset($data['shipping']['address_id']);
         }
 
+        if(!isset($data['shipping']['address_id']))
+            return response()->json([
+                'error' => 'shipping address id is required'
+            ]);
 
         if (Cart::hasError() || ! Cart::saveCustomerAddress($data) || ! Shipping::collectRates()) {
             abort(400);
