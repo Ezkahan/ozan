@@ -1236,7 +1236,7 @@ class Cart
 
                 $customerAddress = $this
                     ->customerAddressRepository
-                    ->findOneWhere(['id' => 148])
+                    ->findOneWhere(['id' => $data['shipping']['address_id']])
                     ->toArray();
         }
 
