@@ -1142,6 +1142,7 @@ class Cart
             $attributes['first_name'] = $user->first_name;
             $attributes['last_name'] = $user->last_name;
             $attributes['email'] = $user->email;
+            $attributes['phone'] = $user->phone;
             $attributes['customer_id'] = $user->id;
         }
 
@@ -1228,7 +1229,6 @@ class Cart
         if (isset($data['shipping']['address_id']) && $data['shipping']['address_id']) {
 
             try {
-
                 $customerAddress = $this
                     ->customerAddressRepository
                     ->findOneWhere(['id' => $data['shipping']['address_id']])
@@ -1236,7 +1236,7 @@ class Cart
             }
             catch (Exception $exception){
 //                report($exception);
-                Log::error($data);
+                Log::error($data['shipping']);
                 $customerAddress = null;
             }
         }
