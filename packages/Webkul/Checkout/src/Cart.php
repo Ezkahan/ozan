@@ -1235,8 +1235,9 @@ class Cart
                     ->toArray();
             }
             catch (Exception $exception){
-                report($exception);
+//                report($exception);
                 Log::error($data);
+                $customerAddress = null;
             }
         }
 
