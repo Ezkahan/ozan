@@ -346,6 +346,16 @@
         }
     }
 
+    .my_wrap {
+        h3 {
+            font-size: 24px;
+        }
+
+        p {
+            font-size: 15px;
+        }
+    }
+
     .about {
         padding-top: 3.3em;
     }
@@ -1116,6 +1126,17 @@
     .menu__content.ham {
         width: 100%;
     }
+
+    .my_wrap {
+        h3 {
+            font-size: 19px;
+        }
+
+        p {
+            font-size: 15px;
+        }
+    }
+
 
     .category-container,
     .search-container {
