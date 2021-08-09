@@ -46,16 +46,16 @@ class SMSAuthenticationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request)
+    public function create()
     {
-        $this->validate($request, [
+        $this->validate(request()->all(), [
             'phone' => 'required|numeric|digits:8',
             'first_name' => 'required',
             'last_name'  => 'required',
             'password'   => 'confirmed|min:6|required',
         ]);
 
-        $customer = $this->customerRepository->findOneByField('phone',$request->get('phone'));
+        $customer = $this->customerRepository->findOneByField('phone',request('phone'));
 
         if($customer && $customer->is_verified){
             return response()->json([
@@ -67,11 +67,11 @@ class SMSAuthenticationController extends Controller
         }
 
         $data = [
-            'first_name'  => $request->get('first_name'),
-            'last_name'   => $request->get('last_name'),
+            'first_name'  => request('first_name'),
+            'last_name'   => request('last_name'),
 //            'email'       => $request->get('email'),
 //            'password'    => $request->get('password'),
-            'password'    => bcrypt($request->get('password')),
+            'password'    => bcrypt(request('password')),
             'channel_id'  => core()->getCurrentChannel()->id,
             'api_token'         => Str::random(80),
             'is_verified' => core()->getConfigData('customer.settings.email.verification') ? 0 : 1,
@@ -154,6 +154,7 @@ class SMSAuthenticationController extends Controller
 
         $customer->token = substr(str_shuffle("0123456789"), 0, 5);
         $customer->save();
+
         try {
 
             \Webkul\Customer\Jobs\PhoneVerification::dispatchIf(core()->getConfigData('customer.settings.email.verification'), $customer->toArray());
