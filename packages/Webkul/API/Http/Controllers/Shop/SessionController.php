@@ -60,18 +60,18 @@ class SessionController extends Controller
             ], 401);
         }
 
-        if (auth()->guard('customer')->user()->status == 0) {
-            auth()->guard('customer')->logout();
+        if (auth()->guard( $this->guard)->user()->status == 0) {
+            auth()->guard( $this->guard)->logout();
 
             return response()->json([
                 'error' => trans('shop::app.customer.login-form.not-activated'),
             ], 401);
         }
 
-        if (auth()->guard('customer')->user()->is_verified == 0) {
+        if (auth()->guard( $this->guard)->user()->is_verified == 0) {
 
 
-            auth()->guard('customer')->logout();
+            auth()->guard( $this->guard)->logout();
 
             return response()->json([
                 'error' => trans('shop::app.customer.login-form.verify-first'),
