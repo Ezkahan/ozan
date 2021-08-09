@@ -135,8 +135,9 @@ class SMSAuthenticationController extends Controller
         ],400);
     }
 
-    public function resendVerificationSMS($phone){
-        $customer = $this->customerRepository->findOneByField('phone', $phone);
+    public function resendVerificationSMS(){
+
+        $customer = $this->customerRepository->findOneByField('phone', request('phone'));
         //todo phone verification settings
         try {
             \Webkul\Customer\Jobs\PhoneVerification::dispatchIf(core()->getConfigData('customer.settings.email.verification'), $customer->toArray());
