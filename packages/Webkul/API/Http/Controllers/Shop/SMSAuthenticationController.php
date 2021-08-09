@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Str;
 use Webkul\Customer\Repositories\CustomerRepository;
 use Webkul\API\Http\Resources\Customer\Customer as CustomerResource;
-
+use Illuminate\Http\Request;
 class SMSAuthenticationController extends Controller
 {
     /**
@@ -46,16 +46,16 @@ class SMSAuthenticationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        $this->validate(request()->all(), [
+        $this->validate($request, [
             'phone' => 'required|numeric|digits:8',
             'first_name' => 'required',
             'last_name'  => 'required',
             'password'   => 'confirmed|min:6|required',
         ]);
 
-        $customer = $this->customerRepository->findOneByField('phone',request('phone'));
+        $customer = $this->customerRepository->findOneByField('phone',$request->get('phone'));
 
         if($customer && $customer->is_verified){
             return response()->json([
@@ -67,11 +67,11 @@ class SMSAuthenticationController extends Controller
         }
 
         $data = [
-            'first_name'  => request('first_name'),
-            'last_name'   => request('last_name'),
+            'first_name'  => $request->get('first_name'),
+            'last_name'   => $request->get('last_name'),
 //            'email'       => $request->get('email'),
 //            'password'    => $request->get('password'),
-            'password'    => bcrypt(request('password')),
+            'password'    => bcrypt($request->get('password')),
             'channel_id'  => core()->getCurrentChannel()->id,
             'api_token'         => Str::random(80),
             'is_verified' => core()->getConfigData('customer.settings.email.verification') ? 0 : 1,
