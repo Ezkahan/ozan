@@ -49,16 +49,27 @@ class SMSAuthenticationController extends Controller
     public function create(Request $request)
     {
         $this->validate($request, [
-            'phone' => 'required|numeric|digits:8|unique:customers,phone',
+            'phone' => 'required|numeric|digits:8',
             'first_name' => 'required',
             'last_name'  => 'required',
             'password'   => 'confirmed|min:6|required',
         ]);
 
+        $customer = $this->customerRepository->findOneByField('phone',$request->get('phone'));
+
+        if($customer && $customer->is_verified){
+            return response()->json([
+                'error' => 'Already registered',
+            ],400);
+        }
+        elseif ($customer && !$customer->is_verified){
+            $this->customerRepository->delete($customer->id);
+        }
+
         $data = [
             'first_name'  => $request->get('first_name'),
             'last_name'   => $request->get('last_name'),
-            'email'       => $request->get('email'),
+//            'email'       => $request->get('email'),
 //            'password'    => $request->get('password'),
             'password'    => bcrypt($request->get('password')),
             'channel_id'  => core()->getCurrentChannel()->id,

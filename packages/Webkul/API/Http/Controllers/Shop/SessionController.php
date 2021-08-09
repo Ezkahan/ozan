@@ -63,19 +63,13 @@ class SessionController extends Controller
         if (auth()->guard('customer')->user()->status == 0) {
             auth()->guard('customer')->logout();
 
-            session()->flash('warning', trans('shop::app.customer.login-form.not-activated'));
-
             return response()->json([
                 'error' => trans('shop::app.customer.login-form.not-activated'),
             ], 401);
         }
 
         if (auth()->guard('customer')->user()->is_verified == 0) {
-            session()->flash('info', trans('shop::app.customer.login-form.verify-first'));
 
-//            Cookie::queue(Cookie::make('enable-resend', 'true', 1));
-//
-//            Cookie::queue(Cookie::make('email-for-resend', request('email'), 1));
 
             auth()->guard('customer')->logout();
 
