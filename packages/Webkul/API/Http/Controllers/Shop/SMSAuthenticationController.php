@@ -138,8 +138,10 @@ class SMSAuthenticationController extends Controller
     public function resendVerificationSMS(){
 
         $customer = $this->customerRepository->findOneByField('phone', request('phone'));
-        //todo phone verification settings
+        $customer->token = substr(str_shuffle("0123456789"), 0, 5);
+        $customer->save();
         try {
+
             \Webkul\Customer\Jobs\PhoneVerification::dispatchIf(core()->getConfigData('customer.settings.email.verification'), $customer->toArray());
 
             return response()->json([
