@@ -5,6 +5,7 @@ namespace Webkul\API\Http\Controllers\Shop;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Str;
 use Webkul\Customer\Repositories\CustomerRepository;
+use Webkul\Customer\Repositories\CustomerGroupRepository;
 use Webkul\API\Http\Resources\Customer\Customer as CustomerResource;
 use Illuminate\Http\Request;
 class SMSAuthenticationController extends Controller
@@ -23,12 +24,13 @@ class SMSAuthenticationController extends Controller
      */
     protected $_config;
 
+    protected $customerGroupRepository;
     /**
      * Controller instance
      *
      * @param  \Webkul\Customer\Repositories\CustomerRepository  $customerRepository
      */
-    public function __construct(CustomerRepository $customerRepository)
+    public function __construct(CustomerRepository $customerRepository, CustomerGroupRepository $customerGroupRepository)
     {
         $this->guard = request()->has('token') ? 'api' : 'customer';
 
@@ -39,6 +41,8 @@ class SMSAuthenticationController extends Controller
         $this->_config = request('_config');
 
         $this->customerRepository = $customerRepository;
+
+        $this->customerGroupRepository = $customerGroupRepository;
     }
 
     /**
