@@ -60,6 +60,29 @@ class SessionController extends Controller
             ], 401);
         }
 
+        if (auth()->guard('customer')->user()->status == 0) {
+            auth()->guard('customer')->logout();
+
+            session()->flash('warning', trans('shop::app.customer.login-form.not-activated'));
+
+            return response()->json([
+                'error' => trans('shop::app.customer.login-form.not-activated'),
+            ], 401);
+        }
+
+        if (auth()->guard('customer')->user()->is_verified == 0) {
+            session()->flash('info', trans('shop::app.customer.login-form.verify-first'));
+
+//            Cookie::queue(Cookie::make('enable-resend', 'true', 1));
+//
+//            Cookie::queue(Cookie::make('email-for-resend', request('email'), 1));
+
+            auth()->guard('customer')->logout();
+
+            return response()->json([
+                'error' => trans('shop::app.customer.login-form.verify-first'),
+            ], 401);
+        }
         Event::dispatch('customer.after.login', request('phone'));
 
         $customer = auth($this->guard)->user();
@@ -117,7 +140,7 @@ class SessionController extends Controller
         $updatedCustomer = $this->customerRepository->update($data, $customer->id);
 
         return response()->json([
-            'message' => 'Your account has been updated successfully.',
+            'message' => trans('shop::app.customer.account.profile.edit-success'),
             'data'    => new CustomerResource($updatedCustomer),
         ]);
     }
