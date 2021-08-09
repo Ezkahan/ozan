@@ -137,7 +137,21 @@ class SMSAuthenticationController extends Controller
 
     public function resendVerificationSMS(){
 
+        if(!$phone = request('phone'))
+        {
+            return response()->json([
+                'error' => 'Phone number is required.',
+            ],400);
+        }
+
         $customer = $this->customerRepository->findOneByField('phone', request('phone'));
+
+        if(!$customer){
+            return response()->json([
+                'error' => 'Customer not found.',
+            ],400);
+        }
+
         $customer->token = substr(str_shuffle("0123456789"), 0, 5);
         $customer->save();
         try {
