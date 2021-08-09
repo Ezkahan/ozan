@@ -67,7 +67,6 @@ class SMSAuthenticationController extends Controller
             'token'       => substr(str_shuffle("0123456789"), 0, 5),
             'customer_group_id' => $this->customerGroupRepository->findOneWhere(['code' => 'general'])->id
         ];
-        // su yerde sms ugratmaly
 
         Event::dispatch('customer.registration.before');
         $customer = $this->customerRepository->create($data);
@@ -84,7 +83,7 @@ class SMSAuthenticationController extends Controller
             report($exception);
 
             return response()->json([
-                'message' => trans('shop::app.customer.signup-form.success-verify-email-unsent'),
+                'error' => trans('shop::app.customer.signup-form.success-verify-email-unsent'),
             ],400);
         }
     }
@@ -110,18 +109,18 @@ class SMSAuthenticationController extends Controller
             $customer = $this->customerRepository->findOneByField('phone', $phone);
             if ($customer && $customer->token == $token ) {
                 $customer->update(['is_verified' => 1, 'token' => 'NULL']);
-
+                return response()->json([
+                    'message' => trans('velocity::app.customer.signup-form.verified'),
+                ]);
             } else {
                 return response()->json([
-                    'message' =>  trans('velocity::app.customer.signup-form.verify-failed'),
-                ]);
+                    'error' =>  trans('velocity::app.customer.signup-form.verify-failed'),
+                ],400);
             }
-            return response()->json([
-                'message' => trans('velocity::app.customer.signup-form.verified'),
-            ]);
+
         }
         return response()->json([
-            'message' => 'Phone and token is required',
+            'error' => 'Phone and code is required',
         ],400);
     }
 
@@ -138,7 +137,7 @@ class SMSAuthenticationController extends Controller
         catch (\Exception $exception){
             report($exception);
             return response()->json([
-                'message' => 'Verification code cannot be sent.',
+                'error' => 'Verification code cannot be sent.',
             ],400);
         }
     }
