@@ -73,7 +73,7 @@ class SMSAuthenticationController extends Controller
         $data = [
             'first_name'  => $request->get('first_name'),
             'last_name'   => $request->get('last_name'),
-//            'email'       => $request->get('email'),
+            'phone'       => $request->get('phone'),
 //            'password'    => $request->get('password'),
             'password'    => bcrypt($request->get('password')),
             'channel_id'  => core()->getCurrentChannel()->id,
