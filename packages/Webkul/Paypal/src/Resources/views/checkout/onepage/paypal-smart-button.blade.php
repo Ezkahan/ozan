@@ -1,4 +1,4 @@
-@if (request()->route()->getName() == 'shop.checkout.onepage.index')
+@if (request()->route() && request()->route()->getName() == 'shop.checkout.onepage.index')
 
     @php
         $clientId = core()->getConfigData('sales.paymentmethods.paypal_smart_button.client_id');
