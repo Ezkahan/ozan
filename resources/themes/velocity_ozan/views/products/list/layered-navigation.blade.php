@@ -30,15 +30,16 @@
 @push('scripts')
     <script type="text/x-template" id="layered-navigation-template">
         <div v-if="attributes.length > 0">
-            @if(count($subCats))
+            @if($subCats && count($subCats)>0)
             <div class="sidebar__header" onclick="showCat()">
                 {{$category->name}}
             </div>
+                <div class="cat_sidebar" id="cat_sidebar">
+                    <categories :categories='@json($subCats->toArray())' public_path="{{ url()->to('/storage/') }}"></categories>
+                </div>
             @endif
 
-            <div class="cat_sidebar" id="cat_sidebar">
-                <categories :categories='@json($subCats->toArray())' public_path="{{ url()->to('/storage/') }}"></categories>
-            </div>
+
 
             <h5 class="filter-title fw6 mb20 cat_filter">
                 {{ __('velocity::app.products.layered-nav-title') }}
