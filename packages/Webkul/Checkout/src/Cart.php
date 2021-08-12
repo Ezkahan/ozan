@@ -362,7 +362,7 @@ class Cart
                     'is_guest'            => 0,
                     'customer_first_name' => $this->getCurrentCustomer()->user()->first_name,
                     'customer_last_name'  => $this->getCurrentCustomer()->user()->last_name,
-                    'customer_email'      => $this->getCurrentCustomer()->user()->email,
+                    'customer_email'      => $this->getCurrentCustomer()->user()->phone,
                 ], $guestCart->id);
 
                 session()->forget('cart');
@@ -1085,11 +1085,11 @@ class Cart
             && ($user = $this->getCurrentCustomer()->user())
             && $this->profileIsComplete($user)
         ) {
-            $cart->customer_email = $user->email;
+            $cart->customer_email = $user->phone;
             $cart->customer_first_name = $user->first_name;
             $cart->customer_last_name = $user->last_name;
         } else {
-            $cart->customer_email = $cart->billing_address->email;
+            $cart->customer_email = $cart->billing_address->phone;
             $cart->customer_first_name = $cart->billing_address->first_name;
             $cart->customer_last_name = $cart->billing_address->last_name;
         }
