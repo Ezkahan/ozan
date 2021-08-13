@@ -54,4 +54,22 @@ class Order
             report($e);
         }
     }
+
+    public function sendAcceptOrderSMS($order)
+    {
+        $customerLocale = $this->getLocale($order);
+
+        try {
+            /* email to customer */
+            $configKey = 'emails.general.notifications.emails.general.notifications.new-order';
+            if (core()->getConfigData($configKey)) {
+                app()->setLocale($customerLocale);
+
+                \Webkul\Admin\Notifications\OrderAcceptedNotification::dispatch($order);
+            }
+
+        } catch (\Exception $e) {
+            report($e);
+        }
+    }
 }

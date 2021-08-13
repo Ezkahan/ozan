@@ -11,9 +11,9 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
-use Webkul\Admin\SMS\CancellOrder;
+use Webkul\Admin\SMS\AcceptOrder;
 
-class CancelOrderNotification implements ShouldQueue
+class OrderAcceptedNotification implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
@@ -29,7 +29,7 @@ class CancelOrderNotification implements ShouldQueue
     public function handle(){
         $data = (object)[
             'messages' => [
-                new CancellOrder($this->order)
+                new AcceptOrder($this->order)
             ],
             'validate' => false,
             "tags" => [
