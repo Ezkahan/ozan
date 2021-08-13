@@ -75,16 +75,16 @@ class AddressController extends Controller
         $data = collect(request()->input())->except('_token')->toArray();
 
         $this->validate(request(), [
-            'company_name' => 'string',
+//            'company_name' => 'string',
             'first_name'   => 'string|required',
             'last_name'    => 'string|required',
             'address1'     => 'string|required',
-            'country'      => 'string|required',
-            'state'        => 'string|required',
-            'city'         => 'string|required',
-            'postcode'     => 'required',
-            'phone'        => 'required',
-            'vat_id'       => new VatIdRule(),
+//            'country'      => 'string|required',
+//            'state'        => 'string|required',
+//            'city'         => 'string|required',
+//            'postcode'     => 'required',
+            'phone'        => 'required|numeric|digits:8',
+//            'vat_id'       => new VatIdRule(),
         ]);
 
         $cust_id['customer_id'] = $this->customer->id;
