@@ -1636,9 +1636,23 @@
   margin: 20px 0;
 }
 
+.filters-container .toolbar-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  -moz-flex-wrap: wrap;
+  -o-flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+}
+
 .filters-container .toolbar-wrapper > div label {
   font-weight: 500;
-  margin-right: 10px;
+  margin-right: 5px;
 }
 
 .filters-container .toolbar-wrapper > div select {
@@ -1655,6 +1669,31 @@
 
 .filters-container .toolbar-wrapper > div:not(:first-child) {
   vertical-align: super;
+}
+
+.filters-container .toolbar-wrapper .select-icon-container .select-icon {
+  display: none;
+}
+
+.filters-container .toolbar-wrapper .view-mode {
+  width: 100%;
+}
+
+.filters-container .toolbar-wrapper .sorter {
+  margin: 10px 20px 10px 0;
+}
+
+.filters-container .toolbar-wrapper .sorter select {
+  border-radius: 5px;
+  width: 100px;
+}
+
+.filters-container .toolbar-wrapper .limiter label {
+  text-transform: capitalize;
+}
+
+.filters-container .toolbar-wrapper .limiter select {
+  border-radius: 5px;
 }
 
 .filters-container .toolbar-wrapper .limiter::after {
