@@ -79,7 +79,20 @@
         }
     </style>
 @endpush
+@section('content-wrapper')
+    <div class="breadcumb">
+        <div class="auto__container">
+            <div class="breadcumb__inner">
+                <a href="{{ route('shop.home.index') }}">
+                    <span>@lang('app.main_page')</span>
+                    <i class="icon-chevron-right"></i>
+                </a>
+                <span>{{$product->name}}</span>
+            </div>
+        </div>
+    </div>
 
+@endsection
 @section('full-content-wrapper')
     {!! view_render_event('bagisto.shop.products.view.before', ['product' => $product]) !!}
         <div class="row no-margin">
