@@ -11,7 +11,7 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
-use Webkul\Admin\SMS\AcceptOrder;
+use Webkul\Admin\SMS\AcceptOrderSMS;
 
 class OrderAcceptedNotification implements ShouldQueue
 {
@@ -27,31 +27,12 @@ class OrderAcceptedNotification implements ShouldQueue
     }
 
     public function handle(){
-        $data = (object)[
-            'messages' => [
-                new AcceptOrder($this->order)
-            ],
-            'validate' => false,
-            "tags" => [
-                date('Y'),
-                "order",
-                'cancel'
-            ],
-            "timeZone" => "Asia/Ashgabat"
-        ];
 
-        $response = Http::withHeaders([
-            'X-Token' => 'uabv52b9nvqq3baar4xj12l00y7k1z709e7a2nlzgfz8k9co92mbns53irj47ht6',
-            'Content-Type' => 'application/json'
-        ])->withBody(json_encode($data),'application/json')
-            ->timeout(30)
-            ->post('https://lcab.smsint.ru/json/v1.0/sms/send/text');
+        (new AcceptOrderSMS($this->order))->send([
+            date('Y'),
+            "order",
+            'accept'
+        ]);
 
-
-        if($response->failed())
-        {
-            Log::error($response);
-            $response->throw();
-        }
     }
 }

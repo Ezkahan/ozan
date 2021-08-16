@@ -15,6 +15,9 @@
     if (! count($filterAttributes) > 0) {
         $filterAttributes = $attributeRepository->getFilterAttributes();
     }
+
+
+    $subCats = app('Webkul\Category\Repositories\CategoryRepository')->getVisibleCategoryTree($category->id);
 ?>
 
 <div class="layered-filter-wrapper left">
