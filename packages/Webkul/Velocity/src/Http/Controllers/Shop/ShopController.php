@@ -285,7 +285,7 @@ class ShopController extends Controller
             'products' => collect($products->items())->map(function ($product) {
                 return $this->velocityHelper->formatProduct($product);
             }),
-            'paginationHTML' => $products->appends(request()->input())->links()->toHtml()
+            'paginationHTML' => $products->appends(request()->input())->onEachSide(3)->links()->toHtml()
         ]);
     }
 }
