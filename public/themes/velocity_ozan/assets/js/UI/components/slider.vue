@@ -4,7 +4,7 @@
         :options="slickOptions">
 
         <a  v-for="(slide, index) in slides" :key="index" :class="item_class" :href="slide.slider_path">
-           <img :src="public_path +'/'+ slide.path" />
+           <img :src="public_path +'/'+ slide.path"  alt="brand icon"/>
         </a>
     </slick>
 </template>
