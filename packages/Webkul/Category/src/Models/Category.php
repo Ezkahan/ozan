@@ -94,11 +94,11 @@ class Category extends TranslatableModel implements CategoryContract
      */
     public function getPathCategories(): array
     {
-        $category = $this->findInTree();
+        $category = $this;
 
-        $categories = [$category];
+        $categories = [];
 
-        while (isset($category->parent)) {
+        while (isset($category->parent) && $category->parent_id != 1 ) {
             $category = $category->parent;
             $categories[] = $category;
         }
@@ -122,11 +122,12 @@ class Category extends TranslatableModel implements CategoryContract
 
         $category = $categoryTree->first();
 
-        if (! $category) {
+        if (!$category) {
             throw new NotFoundHttpException('category not found in tree');
         }
 
         if ($category->id === $this->id) {
+            dump($category);
             return $category;
         }
 

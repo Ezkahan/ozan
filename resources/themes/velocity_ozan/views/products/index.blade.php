@@ -50,7 +50,7 @@
         ]
     );
 
-    $subCats = app('Webkul\Category\Repositories\CategoryRepository')->getVisibleCategoryTree($category->id);
+
 @endphp
 @section('content-wrapper')
     <div class="breadcumb">
@@ -60,7 +60,13 @@
                     <span>@lang('app.main_page')</span>
                     <i class="icon-chevron-right"></i>
                 </a>
-                <a href="#">{{$category->name}}</a>
+                @foreach($category->getPathCategories() as $parentCat)
+                    <a href="{{ url($parentCat->url_path) }}">
+                        <span>{{$parentCat->name}}</span>
+                        <i class="icon-chevron-right"></i>
+                    </a>
+                @endforeach
+                <span>{{$category->name}}</span>
             </div>
         </div>
     </div>
