@@ -115,13 +115,21 @@
     margin: 20px 0;
 
     .toolbar-wrapper {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+        -moz-flex-wrap: wrap;
+        -o-flex-wrap: wrap;
+        -webkit-flex-wrap: wrap;
+
         >div {
             // margin: 0 20px 0 0;
             // display: inline-block;
 
             label {
                 font-weight: 500;
-                margin-right: 10px;
+                margin-right: 5px;
             }
 
             select {
@@ -139,6 +147,35 @@
 
         >div:not(:first-child) {
             vertical-align: super;
+        }
+
+        .select-icon-container {
+            .select-icon {
+                display: none;
+            }
+        }
+
+        .view-mode {
+            width: 100%;
+        }
+
+        .sorter {
+            margin: 10px 20px 10px 0;
+
+            select {
+                border-radius: 5px;
+                width: 100px;
+            }
+        }
+
+        .limiter {
+            label {
+                text-transform: capitalize;
+            }
+
+            select {
+                border-radius: 5px;
+            }
         }
 
         .limiter::after {
