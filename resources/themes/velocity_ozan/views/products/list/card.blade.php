@@ -61,7 +61,7 @@
 
                     <img
                         src="{{ $productBaseImage['medium_image_url'] }}"
-                        :onerror="`this.src='${this.$root.baseUrl}/vendor/webkul/ui/assets/images/product/large-product-placeholder.png'`" alt="" />
+                        :onerror="`this.src='${this.$root.baseUrl}/vendor/webkul/ui/assets/images/product/large-product-placeholder.png'`" alt="{{ $product->name }}" />
                     <div class="quick-view-in-list">
                         <product-quick-view-btn :quick-view-details="{{ json_encode($product) }}"></product-quick-view-btn>
                     </div>

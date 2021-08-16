@@ -4,7 +4,7 @@
             @if ($logo = core()->getCurrentChannel()->logo_url)
                 <img
                     src="{{ $logo }}"
-                    class="logo full-img" alt="" width="200" height="50" />
+                    class="logo full-img" alt="Ozan Logo" width="200" height="50" />
             @endif
 
         </a>

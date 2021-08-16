@@ -38,7 +38,7 @@
                             href="{{ url()->to('/').'/'.$review->product->url_key }}"
                             title="{{ $review->product->name }}"
                             class="col-2 max-sm-img-dimention no-padding">
-                            <img class="media" src="{{ $image['small_image_url'] }}" alt=""/>
+                            <img class="media" src="{{ $image['small_image_url'] }}" alt="{{ $review->product->name }}"/>
                         </a>
 
                         <div class="col-8">

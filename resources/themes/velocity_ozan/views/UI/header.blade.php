@@ -72,7 +72,7 @@
                                                 <img
                                                     class="category-icon"
 
-                                                    :src="`${$root.baseUrl}/storage/${category.category_icon_path}`" alt="" width="20" height="20" />
+                                                    :src="`${$root.baseUrl}/storage/${category.category_icon_path}`" :alt="category.name" width="20" height="20" />
                                             </div>
                                             <span v-text="category.name"></span>
                                         </a>
@@ -145,11 +145,11 @@
                                                 @if ($locale->locale_image)
                                                     <img
                                                         class="language-logo"
-                                                        src="{{ asset('/storage/' . $locale->locale_image) }}" alt="" />
+                                                        src="{{ asset('/storage/' . $locale->locale_image) }}" alt="{{$locale->code}}" />
                                                 @elseif ($locale->code == "en")
                                                     <img
                                                         class="language-logo"
-                                                        src="{{ asset('/themes/velocity/assets/images/flags/en.png') }}" alt="" />
+                                                        src="{{ asset('/themes/velocity/assets/images/flags/en.png') }}" alt="en" />
                                                 @endif
                                             </div>
                                             <span>{{ $locale->name }}</span>
@@ -224,7 +224,7 @@
                                                 <img
                                                     class="category-icon"
                                                     v-if="nestedSubCategory.category_icon_path"
-                                                    :src="`${$root.baseUrl}/storage/${nestedSubCategory.category_icon_path}`" alt="" width="20" height="20" />
+                                                    :src="`${$root.baseUrl}/storage/${nestedSubCategory.category_icon_path}`" :alt="nestedSubCategory.name" width="20" height="20" />
                                             </div>
                                             <span>@{{ nestedSubCategory.name }}</span>
                                         </a>
@@ -245,7 +245,7 @@
                                                         <img
                                                             class="category-icon"
                                                             v-if="thirdLevelCategory.category_icon_path"
-                                                            :src="`${$root.baseUrl}/storage/${thirdLevelCategory.category_icon_path}`" alt="" width="20" height="20" />
+                                                            :src="`${$root.baseUrl}/storage/${thirdLevelCategory.category_icon_path}`" :alt="thirdLevelCategory.name" width="20" height="20" />
                                                     </div>
                                                     <span>@{{ thirdLevelCategory.name }}</span>
                                                 </a>
@@ -277,14 +277,14 @@
                                                     <div class="category-logo">
                                                         <img
                                                         class="category-icon"
-                                                        src="{{ asset('/themes/velocity/assets/images/flags/en.png') }}" alt="" width="20" height="20" />
+                                                        src="{{ asset('/themes/velocity/assets/images/flags/en.png') }}" alt="en" width="20" height="20" />
                                                     </div>
                                                 @else
 
                                                     <div class="category-logo">
                                                         <img
                                                         class="category-icon"
-                                                        src="{{ asset('/storage/' . $locale->locale_image) }}" alt="" width="20" height="20" />
+                                                        src="{{ asset('/storage/' . $locale->locale_image) }}" alt="{{$locale->code}}" width="20" height="20" />
                                                     </div>
                                                 @endif
 
@@ -356,7 +356,7 @@
                                 </div>
                                 <i class="material-icons">compare_arrows</i>
                             </a>
-                        @endif 
+                        @endif
 
                         @if ($showWishlist)
                             <a class="wishlist-btn unset" :href="`{{ route('customer.wishlist.index') }}`">

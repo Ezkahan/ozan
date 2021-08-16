@@ -226,7 +226,7 @@
                 )
                     @foreach (json_decode($velocityMetaData['product_view_images'], true) as $image)
                         @if ($image && $image !== '')
-                            <img src="{{ url()->to('/') }}/storage/{{ $image }}" alt=""/>
+                            <img src="{{ url()->to('/') }}/storage/{{ $image }}" alt="products"/>
                         @endif
                     @endforeach
                 @endif

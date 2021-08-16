@@ -53,7 +53,7 @@
             href="{{ route('shop.home.index') }}"
             aria-label="Logo">
 
-            <img class="logo" src="{{ asset('themes/velocity_ozan/assets/images/logo.svg') }}" alt="" width="192" height="80" />
+            <img class="logo" src="{{ asset('themes/velocity_ozan/assets/images/logo.svg') }}" alt="Ozan Logo" width="192" height="80" />
         </a>
     </script>
 
