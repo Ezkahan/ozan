@@ -1,0 +1,45 @@
+<?php
+
+namespace Webkul\Admin\SMS;
+
+use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Log;
+
+abstract class SMS
+{
+    public $recipient;
+    public $recipientType = "recipient";
+    public $id;
+    public $source = 'ozan.com.tm';
+//    public $groupId = 'customer';
+    public $shortenUrl = true;
+    public $text;
+    public $timeout = 3600;
+
+    public function  send(){
+        $data = (object)[
+            'messages' => [
+                $this
+            ],
+            'validate' => false,
+            "tags" => $this->tags(),
+            "timeZone" => "Asia/Ashgabat"
+        ];
+
+        $response = Http::withHeaders([
+            'X-Token' => config('notification.sms.token'),
+            'Content-Type' => 'application/json'
+        ])->withBody(json_encode($data),'application/json')
+            ->timeout(30)
+            ->post(config('notification.sms.url'));
+
+
+        if($response->failed())
+        {
+            Log::error($response);
+            $response->throw();
+        }
+    }
+
+    abstract function tags();
+}
