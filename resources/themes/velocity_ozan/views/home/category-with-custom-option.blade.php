@@ -10,7 +10,7 @@
 <div class="container-fluid category-with-custom-options">
     <div class="row">
         <div class="col pr15">
-            <img data-src="{{ asset ('/storage/' . $category['2']->image) }}" class="lazyload" alt="" />
+            <img data-src="{{ asset ('/storage/' . $category['2']->image) }}" class="lazyload" alt="{{$category['2']->name}}" />
         </div>
 
         <div class="col">
@@ -39,7 +39,7 @@
         </div>
 
         <div class="col pr15">
-            <img data-src="{{ asset ('/storage/' . $category['0']->image) }}" class="lazyload" alt=""/>
+            <img data-src="{{ asset ('/storage/' . $category['0']->image) }}" class="lazyload" alt="{{$category['0']->name}}"/>
         </div>
 
         <div class="col">
@@ -94,7 +94,7 @@
             </div>
         </div>
         <div class="col mt15">
-            <img data-src="{{ asset ('/storage/' . $category['3']->image) }}" class="lazyload" alt="" />
+            <img data-src="{{ asset ('/storage/' . $category['3']->image) }}" class="lazyload" alt="{{$category['3']->name}}" />
         </div>
 
         <div class="col mt15 mr15">
@@ -123,7 +123,7 @@
         </div>
 
         <div class="col">
-            <img data-src="{{ asset ('/storage/' . $category['1']->image) }}" class="lazyload" alt="" />
+            <img data-src="{{ asset ('/storage/' . $category['1']->image) }}" class="lazyload" alt="{{$category['1']->name}}" />
         </div>
 
     </div>
@@ -133,7 +133,7 @@
     @foreach ($category as $categoryItem)
         <div class="smart-category-container">
             <div class="col-12">
-                <img data-src="{{ asset ('/storage/' . $categoryItem->image) }}" class="lazyload" alt="" />
+                <img data-src="{{ asset ('/storage/' . $categoryItem->image) }}" class="lazyload" alt="{{$categoryItem->name}}" />
             </div>
 
             <div class="col-12">
