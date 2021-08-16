@@ -4,6 +4,7 @@ namespace Webkul\Checkout;
 
 use Exception;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Log;
 use Webkul\Tax\Helpers\Tax;
 use Illuminate\Support\Facades\Event;
 use Webkul\Shipping\Facades\Shipping;
@@ -361,7 +362,7 @@ class Cart
                     'is_guest'            => 0,
                     'customer_first_name' => $this->getCurrentCustomer()->user()->first_name,
                     'customer_last_name'  => $this->getCurrentCustomer()->user()->last_name,
-                    'customer_email'      => $this->getCurrentCustomer()->user()->email,
+                    'customer_email'      => $this->getCurrentCustomer()->user()->phone,
                 ], $guestCart->id);
 
                 session()->forget('cart');
@@ -458,19 +459,25 @@ class Cart
             return false;
         }
 
-        $billingAddressData = $this->gatherBillingAddress($data, $cart);
+        try {
+            $billingAddressData = $this->gatherBillingAddress($data, $cart);
 
-        $shippingAddressData = $this->gatherShippingAddress($data, $cart);
+            $shippingAddressData = $this->gatherShippingAddress($data, $cart);
 
-        $this->saveAddressesWhenRequested($data, $billingAddressData, $shippingAddressData);
+            $this->saveAddressesWhenRequested($data, $billingAddressData, $shippingAddressData);
 
-        $this->linkAddresses($cart, $billingAddressData, $shippingAddressData);
+            $this->linkAddresses($cart, $billingAddressData, $shippingAddressData);
 
-        $this->assignCustomerFields($cart);
+            $this->assignCustomerFields($cart);
 
-        $cart->save();
+            $cart->save();
 
-        $this->collectTotals();
+            $this->collectTotals();
+        }
+        catch (Exception $ex){
+            Log::info($data);
+            return false;
+        }
 
         return true;
     }
@@ -1078,11 +1085,11 @@ class Cart
             && ($user = $this->getCurrentCustomer()->user())
             && $this->profileIsComplete($user)
         ) {
-            $cart->customer_email = $user->email;
+            $cart->customer_email = $user->phone;
             $cart->customer_first_name = $user->first_name;
             $cart->customer_last_name = $user->last_name;
         } else {
-            $cart->customer_email = $cart->billing_address->email;
+            $cart->customer_email = $cart->billing_address->phone;
             $cart->customer_first_name = $cart->billing_address->first_name;
             $cart->customer_last_name = $cart->billing_address->last_name;
         }
@@ -1141,6 +1148,7 @@ class Cart
             $attributes['first_name'] = $user->first_name;
             $attributes['last_name'] = $user->last_name;
             $attributes['email'] = $user->email;
+            $attributes['phone'] = $user->phone;
             $attributes['customer_id'] = $user->id;
         }
 
@@ -1225,10 +1233,11 @@ class Cart
         $customerAddress = [];
 
         if (isset($data['shipping']['address_id']) && $data['shipping']['address_id']) {
-            $customerAddress = $this
-                ->customerAddressRepository
-                ->findOneWhere(['id' => $data['shipping']['address_id']])
-                ->toArray();
+
+                $customerAddress = $this
+                    ->customerAddressRepository
+                    ->findOneWhere(['id' => $data['shipping']['address_id']])
+                    ->toArray();
         }
 
         $shippingAddress = array_merge(

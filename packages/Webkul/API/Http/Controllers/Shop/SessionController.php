@@ -60,6 +60,23 @@ class SessionController extends Controller
             ], 401);
         }
 
+        if (auth()->guard( $this->guard)->user()->status == 0) {
+            auth()->guard( $this->guard)->logout();
+
+            return response()->json([
+                'error' => trans('shop::app.customer.login-form.not-activated'),
+            ], 401);
+        }
+
+        if (auth()->guard( $this->guard)->user()->is_verified == 0) {
+
+
+            auth()->guard( $this->guard)->logout();
+
+            return response()->json([
+                'error' => trans('shop::app.customer.login-form.verify-first'),
+            ], 401);
+        }
         Event::dispatch('customer.after.login', request('phone'));
 
         $customer = auth($this->guard)->user();
@@ -117,7 +134,7 @@ class SessionController extends Controller
         $updatedCustomer = $this->customerRepository->update($data, $customer->id);
 
         return response()->json([
-            'message' => 'Your account has been updated successfully.',
+            'message' => trans('shop::app.customer.account.profile.edit-success'),
             'data'    => new CustomerResource($updatedCustomer),
         ]);
     }

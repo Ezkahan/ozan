@@ -272,7 +272,7 @@ class AkHasapController extends Controller
                         [
                             'sku' => $sku ,
                             'type' => 'simple',
-                            'name' => $akhasap_product->material_name,
+                            'name' => $akhasap_product->mat_name_lang_tm,
                             'status' => 1,
                             'price' => $akhasap_product->mat_sale_price ,
                             'cost' => $akhasap_product->mat_purch_price,
@@ -310,7 +310,7 @@ class AkHasapController extends Controller
                         [
                             'channel' => 'default',
 
-                            'text_value' => $akhasap_product->material_name,
+                            'text_value' => $akhasap_product->mat_name_lang_tm,
 
                             'product_id' => $product->id
 
@@ -363,8 +363,8 @@ class AkHasapController extends Controller
                             'product_id' => $product->id
 
 
-                        ]);    
-                    
+                        ]);
+
                         ProductAttributeValue::updateOrCreate(['product_id' => $product->id, 'attribute_id' => 10,'locale' => 'tm'],
                         [
                             'channel' => 'default',
@@ -393,7 +393,7 @@ class AkHasapController extends Controller
                             'product_id' => $product->id
 
 
-                        ]);   
+                        ]);
                     ProductInventory::updateOrCreate(['product_id' => $product->id],
                         [
                             'qty' => $akhasap_product->wh_all ? $akhasap_product->wh_all : 0,
@@ -450,7 +450,7 @@ class AkHasapController extends Controller
 
                         ]
                     );
-                    
+
                     $inventory = ProductInventory::updateOrCreate([
                         'product_id'          => $product->id,
                     ],[                        'inventory_source_id' => 1,

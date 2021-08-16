@@ -2,6 +2,9 @@
 
 namespace Webkul\Admin\Listeners;
 
+use Illuminate\Support\Facades\Mail;
+use Webkul\Admin\Mail\CancelOrderAdminNotification;
+use Webkul\Admin\Mail\CancelOrderNotification;
 use Webkul\Admin\Traits\Mails;
 use Webkul\Paypal\Payment\SmartButton;
 
@@ -31,6 +34,42 @@ class Order
                     'currency_code' => $refund->order_currency_code
                   ]
             ]);
+        }
+    }
+
+    public function sendCancelOrderSMS($order)
+    {
+        $customerLocale = $this->getLocale($order);
+
+        try {
+            /* email to customer */
+            $configKey = 'emails.general.notifications.emails.general.notifications.cancel-order';
+            if (core()->getConfigData($configKey)) {
+                app()->setLocale($customerLocale);
+
+                \Webkul\Admin\Notifications\CancelOrderNotification::dispatch($order);
+            }
+
+        } catch (\Exception $e) {
+            report($e);
+        }
+    }
+
+    public function sendAcceptOrderSMS($order)
+    {
+        $customerLocale = $this->getLocale($order);
+
+        try {
+            /* email to customer */
+            $configKey = 'emails.general.notifications.emails.general.notifications.new-order';
+            if (core()->getConfigData($configKey)) {
+                app()->setLocale($customerLocale);
+
+                \Webkul\Admin\Notifications\OrderAcceptedNotification::dispatch($order);
+            }
+
+        } catch (\Exception $e) {
+            report($e);
         }
     }
 }

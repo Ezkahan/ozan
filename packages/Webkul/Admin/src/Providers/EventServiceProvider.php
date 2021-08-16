@@ -18,11 +18,11 @@ class EventServiceProvider extends ServiceProvider
 
         Event::listen('checkout.order.save.after', 'Webkul\Admin\Listeners\Order@sendNewOrderMail');
 
-        Event::listen('sales.invoice.save.after', 'Webkul\Admin\Listeners\Order@sendNewInvoiceMail');
+        Event::listen('sales.invoice.save.after', 'Webkul\Admin\Listeners\Order@sendAcceptOrderSMS');
 
         Event::listen('sales.shipment.save.after', 'Webkul\Admin\Listeners\Order@sendNewShipmentMail');
 
-        Event::listen('sales.order.cancel.after', 'Webkul\Admin\Listeners\Order@sendCancelOrderMail');
+        Event::listen('sales.order.cancel.after', 'Webkul\Admin\Listeners\Order@sendCancelOrderSMS');
 
         Event::listen('sales.refund.save.after', 'Webkul\Admin\Listeners\Order@refundOrder');
 

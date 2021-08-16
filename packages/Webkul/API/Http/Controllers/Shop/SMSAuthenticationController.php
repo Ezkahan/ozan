@@ -5,8 +5,9 @@ namespace Webkul\API\Http\Controllers\Shop;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Str;
 use Webkul\Customer\Repositories\CustomerRepository;
+use Webkul\Customer\Repositories\CustomerGroupRepository;
 use Webkul\API\Http\Resources\Customer\Customer as CustomerResource;
-
+use Illuminate\Http\Request;
 class SMSAuthenticationController extends Controller
 {
     /**
@@ -23,12 +24,13 @@ class SMSAuthenticationController extends Controller
      */
     protected $_config;
 
+    protected $customerGroupRepository;
     /**
      * Controller instance
      *
      * @param  \Webkul\Customer\Repositories\CustomerRepository  $customerRepository
      */
-    public function __construct(CustomerRepository $customerRepository)
+    public function __construct(CustomerRepository $customerRepository, CustomerGroupRepository $customerGroupRepository)
     {
         $this->guard = request()->has('token') ? 'api' : 'customer';
 
@@ -39,6 +41,8 @@ class SMSAuthenticationController extends Controller
         $this->_config = request('_config');
 
         $this->customerRepository = $customerRepository;
+
+        $this->customerGroupRepository = $customerGroupRepository;
     }
 
     /**
@@ -49,16 +53,27 @@ class SMSAuthenticationController extends Controller
     public function create(Request $request)
     {
         $this->validate($request, [
-            'phone' => 'required|numeric|digits:8|unique:customers,phone',
+            'phone' => 'required|numeric|digits:8',
             'first_name' => 'required',
             'last_name'  => 'required',
             'password'   => 'confirmed|min:6|required',
         ]);
 
+        $customer = $this->customerRepository->findOneByField('phone',$request->get('phone'));
+
+        if($customer && $customer->is_verified){
+            return response()->json([
+                'error' => 'Already registered',
+            ],400);
+        }
+        elseif ($customer && !$customer->is_verified){
+            $this->customerRepository->delete($customer->id);
+        }
+
         $data = [
             'first_name'  => $request->get('first_name'),
             'last_name'   => $request->get('last_name'),
-            'email'       => $request->get('email'),
+            'phone'       => $request->get('phone'),
 //            'password'    => $request->get('password'),
             'password'    => bcrypt($request->get('password')),
             'channel_id'  => core()->getCurrentChannel()->id,
@@ -67,7 +82,6 @@ class SMSAuthenticationController extends Controller
             'token'       => substr(str_shuffle("0123456789"), 0, 5),
             'customer_group_id' => $this->customerGroupRepository->findOneWhere(['code' => 'general'])->id
         ];
-        // su yerde sms ugratmaly
 
         Event::dispatch('customer.registration.before');
         $customer = $this->customerRepository->create($data);
@@ -84,7 +98,7 @@ class SMSAuthenticationController extends Controller
             report($exception);
 
             return response()->json([
-                'message' => trans('shop::app.customer.signup-form.success-verify-email-unsent'),
+                'error' => trans('shop::app.customer.signup-form.success-verify-email-unsent'),
             ],400);
         }
     }
@@ -110,25 +124,43 @@ class SMSAuthenticationController extends Controller
             $customer = $this->customerRepository->findOneByField('phone', $phone);
             if ($customer && $customer->token == $token ) {
                 $customer->update(['is_verified' => 1, 'token' => 'NULL']);
-
+                return response()->json([
+                    'message' => trans('velocity::app.customer.signup-form.verified'),
+                ]);
             } else {
                 return response()->json([
-                    'message' =>  trans('velocity::app.customer.signup-form.verify-failed'),
-                ]);
+                    'error' =>  trans('velocity::app.customer.signup-form.verify-failed'),
+                ],400);
             }
-            return response()->json([
-                'message' => trans('velocity::app.customer.signup-form.verified'),
-            ]);
+
         }
         return response()->json([
-            'message' => 'Phone and token is required',
+            'error' => 'Phone and code is required',
         ],400);
     }
 
-    public function resendVerificationSMS($phone){
-        $customer = $this->customerRepository->findOneByField('phone', $phone);
-        //todo phone verification settings
+    public function resendVerificationSMS(){
+
+        if(!$phone = request('phone'))
+        {
+            return response()->json([
+                'error' => 'Phone number is required.',
+            ],400);
+        }
+
+        $customer = $this->customerRepository->findOneByField('phone', request('phone'));
+
+        if(!$customer){
+            return response()->json([
+                'error' => 'Customer not found.',
+            ],400);
+        }
+
+        $customer->token = substr(str_shuffle("0123456789"), 0, 5);
+        $customer->save();
+
         try {
+
             \Webkul\Customer\Jobs\PhoneVerification::dispatchIf(core()->getConfigData('customer.settings.email.verification'), $customer->toArray());
 
             return response()->json([
@@ -138,7 +170,7 @@ class SMSAuthenticationController extends Controller
         catch (\Exception $exception){
             report($exception);
             return response()->json([
-                'message' => 'Verification code cannot be sent.',
+                'error' => 'Verification code cannot be sent.',
             ],400);
         }
     }
