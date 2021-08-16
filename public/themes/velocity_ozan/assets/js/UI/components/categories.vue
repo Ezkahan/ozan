@@ -11,7 +11,7 @@
                              class="logo-img" height="20px" width="20px"
                              style="
                             -webkit-mask: url({public_path + '/' + category.category_icon_path}) no-repeat center;
-                            mask: url({public_path + '/' + category.category_icon_path}) no-repeat center;"
+                            mask: url({public_path + '/' + category.category_icon_path}) no-repeat center;" :alt="category.name"
                         >
                         <span> {{ category.name }}</span>
                     </a>
@@ -22,7 +22,7 @@
                         <img v-if="category.category_icon_path" :src="public_path + '/' + category.category_icon_path" class="logo-img"
                             style="
                             -webkit-mask: url({public_path + '/' + category.category_icon_path}) no-repeat center;
-                            mask: url({public_path + '/' + category.category_icon_path}) no-repeat center;" height="20px" width="20px"
+                            mask: url({public_path + '/' + category.category_icon_path}) no-repeat center;" height="20px" width="20px" :alt="category.name"
                         >
                         <span> {{ category.name }}</span>
                     </div>
@@ -35,7 +35,7 @@
                         <img v-if="child.category_icon_path" :src="public_path + '/' + child.category_icon_path" alt="Logo" class="logo-img"
                             style="
                             -webkit-mask: url({public_path + '/' + child.category_icon_path}) no-repeat center;
-                            mask: url({public_path + '/' + child.category_icon_path}) no-repeat center;" height="20px" width="20px"
+                            mask: url({public_path + '/' + child.category_icon_path}) no-repeat center;" height="20px" width="20px" :alt="child.name"
                         >
                         {{ child.name }}
                     </a>
