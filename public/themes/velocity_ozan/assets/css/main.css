@@ -3629,13 +3629,10 @@ li {
   color: #2d2d2d;
 }
 
-<<<<<<< HEAD
 .breadcumb__inner span {
   font-size: 18px;
 }
 
-=======
->>>>>>> c7caa45bd5d909a4a4da4ca866d71fc8acf2c762
 .contact {
   padding: 100px 0;
 }
@@ -4028,7 +4025,6 @@ li {
   .upheader__language select {
     padding-left: 10px;
   }
-<<<<<<< HEAD
   .product-information .no-padding {
     margin-top: 10px;
   }
@@ -4042,8 +4038,6 @@ li {
   .product-information .no-padding .cart_btn_form {
     margin-top: 0;
   }
-=======
->>>>>>> c7caa45bd5d909a4a4da4ca866d71fc8acf2c762
   .my_wrap h3 {
     font-size: 24px;
   }
@@ -4227,25 +4221,18 @@ li {
             justify-content: flex-end;
     width: auto;
   }
-<<<<<<< HEAD
   .header__column:last-child .searchbar .row {
     margin: 0 !important;
   }
-=======
->>>>>>> c7caa45bd5d909a4a4da4ca866d71fc8acf2c762
   .header__column:last-child .searchbar .row .my-col:first-child {
     display: none;
   }
   .header__column:last-child .searchbar .row .my-col:last-child {
-<<<<<<< HEAD
     margin: 0 0 0 auto !important;
   }
   .header__column:last-child .searchbar .row .my-col:last-child .down-arrow-container {
     vertical-align: unset !important;
     display: none;
-=======
-    margin: 0 25px 0 auto !important;
->>>>>>> c7caa45bd5d909a4a4da4ca866d71fc8acf2c762
   }
   .header__column:last-child .searchbar .row .my-col a {
     display: none;
@@ -4697,12 +4684,9 @@ li {
   .breadcumb__inner a {
     font-size: 16px;
   }
-<<<<<<< HEAD
   .breadcumb__inner span {
     font-size: 16px;
   }
-=======
->>>>>>> c7caa45bd5d909a4a4da4ca866d71fc8acf2c762
   .main-content-wrapper {
     margin-bottom: 0;
   }
