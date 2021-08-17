@@ -114,7 +114,7 @@
                                 <div class="right col-lg-7 col-md-6">
                                     {{-- product-info-section --}}
                                     <div class="row info">
-                                        <h2 class="col-12">{{ $product->name }}</h2>
+                                        <h1 class="col-12 fs40">{{ $product->name }}</h1>
 
                                         @if ($total)
                                             <div class="reviews col-lg-12">
@@ -169,7 +169,7 @@
 
                                     @if ($product->short_description)
                                         <div class="description">
-                                            <h3 class="col-lg-12">{{ __('velocity::app.products.short-description') }}</h3>
+                                            <h2 class="fs18 fw6">{{ __('velocity::app.products.short-description') }}</h2>
 
                                             {!! $product->short_description !!}
                                         </div>
