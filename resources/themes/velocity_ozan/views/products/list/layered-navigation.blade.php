@@ -44,9 +44,9 @@
 
 
 
-            <h5 class="filter-title fw6 mb20 cat_filter">
+            <span class="filter-title fw6 mb20 cat_filter fs20 display-block">
                 {{ __('velocity::app.products.layered-nav-title') }}
-            </h5>
+            </span>
 
             <div class="filter-content ">
                 <div class="filter-attributes">
@@ -67,7 +67,7 @@
     <script type="text/x-template" id="filter-attribute-item-template">
         <div :class="`cursor-pointer filter-attributes-item ${active ? 'active' : ''}`">
             <div class="filter-attributes-title" @click="active = !active">
-                <h6 class="fw6 display-inbl">@{{ attribute.name ? attribute.name : attribute.admin_name }}</h6>
+                <span class="fw6 fs18 display-inbl">@{{ attribute.name ? attribute.name : attribute.admin_name }}</span>
 
                 <div class="float-right display-table">
                     <span class="link-color cursor-pointer" v-if="appliedFilters.length" @click.stop="clearFilters()">
