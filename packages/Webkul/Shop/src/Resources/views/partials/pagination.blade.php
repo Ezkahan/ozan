@@ -1,5 +1,5 @@
 @if ($paginator->hasPages())
-    <div class="pagination shop mt-50">
+    <div class="pagination shop mt-5">
         {{-- Previous Page Link --}}
         @if ($paginator->onFirstPage())
             <a class="page-item previous">
@@ -11,31 +11,35 @@
             </a>
         @endif
 
-        {{-- Pagination Elements --}}
-        @foreach ($elements as $element)
-            {{-- "Three Dots" Separator --}}
-            @if (is_string($element))
-                <a class="page-item disabled" aria-disabled="true">
-                    {{ $element }}
-                </a>
-            @endif
+        @if ($paginator->lastPage() > 1)
 
-            {{-- Array Of Links --}}
-            @if (is_array($element))
-                @foreach ($element as $page => $url)
-                    @if ($page == $paginator->currentPage())
-                        <a class="page-item active">
-                            {{ $page }}
-                        </a>
-                    @else
-                        <a class="page-item as" href="{{ urldecode($url) }}">
-                            {{ $page }}
-                        </a>
+                @for ($i = 1; $i <= $paginator->lastPage(); $i++)
+                    <?php
+                    $half_total_links = 4;
+                    $from = $paginator->currentPage() - $half_total_links;
+                    $to = $paginator->currentPage() + $half_total_links;
+                    if ($paginator->currentPage() < $half_total_links) {
+                        $to += $half_total_links - $paginator->currentPage();
+                    }
+                    if ($paginator->lastPage() - $paginator->currentPage() < $half_total_links) {
+                        $from -= $half_total_links - ($paginator->lastPage() - $paginator->currentPage()) - 1;
+                    }
+                    ?>
+                    @if ($from < $i && $i < $to)
+
+                            @if ($i == $paginator->currentPage())
+                                <a class="page-item active">
+                                    {{ $i }}
+                                </a>
+                            @else
+                                <a class="page-item as" href="{{ $paginator->url($i) }}">
+                                    {{ $i }}
+                                </a>
+                            @endif
                     @endif
-                @endforeach
-            @endif
-        @endforeach
+                @endfor
 
+        @endif
         {{-- Next Page Link --}}
         @if ($paginator->hasMorePages())
             <a href="{{ urldecode($paginator->nextPageUrl()) }}" data-page="{{ urldecode($paginator->nextPageUrl()) }}" id="next" class="page-item next">
