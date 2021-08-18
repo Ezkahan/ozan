@@ -8,7 +8,7 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Webkul\Admin\PUSH\Firebase;
 use Webkul\Admin\SMS\AcceptOrderSMS;
-
+use Exception;
 class OrderAcceptedNotification implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
@@ -32,7 +32,7 @@ class OrderAcceptedNotification implements ShouldQueue
             }
         }
 
-        catch(\Exception $ex) {
+        catch(Exception $ex) {
             report($ex);
         }
 
@@ -40,7 +40,7 @@ class OrderAcceptedNotification implements ShouldQueue
             (new AcceptOrderSMS($this->order->id, $this->order->customer_email))
                 ->send();
         }
-        catch (\Exception $e){
+        catch (Exception $e){
             report($e);
         }
 
