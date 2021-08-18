@@ -30,7 +30,13 @@ class CancelOrderNotification implements ShouldQueue
 
     public function handle(){
         try{
-            (new CancellOrderSMS($this->order->id, $this->order->customer_email))->send();
+            if($phone = $this->order->customer_email) {
+                (new CancellOrderSMS($this->order->id, $phone))->send();
+            }
+            else{
+                Log::warning("telefon nomer yoga houuu");
+                Log::info($this->order);
+            }
         }
         catch(\Exception $exception){
             report($exception);
