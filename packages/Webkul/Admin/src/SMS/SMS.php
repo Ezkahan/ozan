@@ -25,7 +25,7 @@ abstract class SMS
             "tags" => $this->tags(),
             "timeZone" => "Asia/Ashgabat"
         ]);
-        Log::info("sending push notification to: ".$this->recipient);
+        Log::info("sending sms to: ".$this->recipient);
         Log::info($data);
         $response = Http::withHeaders([
             'X-Token' => config('notification.sms.token'),
