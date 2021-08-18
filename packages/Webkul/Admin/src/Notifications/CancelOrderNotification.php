@@ -11,7 +11,7 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
-use mysql_xdevapi\Exception;
+use Exception;
 use Webkul\Admin\PUSH\Firebase;
 use Webkul\Admin\SMS\CancellOrderSMS;
 
