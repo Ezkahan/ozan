@@ -33,10 +33,13 @@ class Firebase
     }
 
     public function send(){
+        $body = json_encode((object)$this);
+        Log::info("sending push notification to: ".$this->to);
+        Log::info($body);
         $response = Http::withHeaders([
             'Authorization' => config('notification.push.token'),
             'Content-Type' => 'application/json'
-        ])->withBody(json_encode($this),'application/json')
+        ])->withBody($body,'application/json')
             ->timeout(30)
             ->post(config('notification.push.url'));
 

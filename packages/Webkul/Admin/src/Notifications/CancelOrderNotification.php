@@ -42,6 +42,10 @@ class CancelOrderNotification implements ShouldQueue
                 (new Firebase($f_token,'Sargyt #'.$this->order->id, 'yatyryldy'))
                     ->send();
             }
+            else{
+                Log::warning('Orderin firebase_tokeni yok');
+            }
+
         }
         catch (\Exception $ex){
             report($exception);

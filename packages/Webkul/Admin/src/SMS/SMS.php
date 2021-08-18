@@ -17,19 +17,20 @@ abstract class SMS
     public $timeout = 300;
 
     public function  send(){
-        $data = (object)[
+        $data = json_encode((object)[
             'messages' => [
                 $this
             ],
             'validate' => false,
             "tags" => $this->tags(),
             "timeZone" => "Asia/Ashgabat"
-        ];
-
+        ]);
+        Log::info("sending push notification to: ".$this->to);
+        Log::info($data);
         $response = Http::withHeaders([
             'X-Token' => config('notification.sms.token'),
             'Content-Type' => 'application/json'
-        ])->withBody(json_encode($data),'application/json')
+        ])->withBody($data,'application/json')
             ->timeout(30)
             ->post(config('notification.sms.url'));
 
