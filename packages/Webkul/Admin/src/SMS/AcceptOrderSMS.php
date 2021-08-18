@@ -7,12 +7,12 @@ namespace Webkul\Admin\SMS;
 class AcceptOrderSMS extends SMS
 {
 
-    public function __construct($order)
+    public function __construct($id,$phone)
     {
-        $this->recipient = '993'.$order->customer_email;
-        $this->id = 'order_'.$order->id;
+        $this->recipient = '993'.$phone;
+        $this->id = 'order_'.$id;
 //        $this->source = url();
-        $this->text = 'Sizin ozan.com.tm  #'.$order->id.' belgili sargydyňyz kabul edildi';//trans('shop::app.sms.verification',$data);
+        $this->text = 'Sizin ozan.com.tm  #'.$id.' belgili sargydyňyz kabul edildi';//trans('shop::app.sms.verification',$data);
     }
 
     function tags(){

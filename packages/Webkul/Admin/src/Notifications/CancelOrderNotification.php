@@ -11,6 +11,8 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
+use mysql_xdevapi\Exception;
+use Webkul\Admin\PUSH\Firebase;
 use Webkul\Admin\SMS\CancellOrderSMS;
 
 class CancelOrderNotification implements ShouldQueue
@@ -27,10 +29,23 @@ class CancelOrderNotification implements ShouldQueue
     }
 
     public function handle(){
-        (new CancellOrderSMS($this->order))->send([
-            date('Y'),
-            "order",
-            'cancel'
-        ]);
+        try{
+            (new CancellOrderSMS($this->order->id, $this->order->customer_email))->send();
+        }
+        catch(\Exception $exception){
+            report($exception);
+        }
+
+        try {
+            if($f_token = $this->order->firebase_token)
+            {
+                (new Firebase($f_token,'Sargyt #'.$this->order->id, 'yatyryldy'))
+                    ->send();
+            }
+        }
+        catch (\Exception $ex){
+            report($exception);
+        }
+
     }
 }
