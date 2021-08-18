@@ -12,6 +12,7 @@ abstract class SMS
 //    public $groupId = 'customer';
     public $shortenUrl = true;
     public $timeout = 300;
+    public $validate = true;
     public $recipient;
     public $text;
     public $id;
