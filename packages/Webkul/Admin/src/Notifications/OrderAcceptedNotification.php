@@ -27,7 +27,7 @@ class OrderAcceptedNotification implements ShouldQueue
     {
         try{
             Log::info($this->order);
-            if($phone = $this->order->customer_email) {
+            if(!$phone = $this->order->customer_email) {
                 (new AcceptOrderSMS($this->order->id, $phone))
                     ->send();
             }else{
