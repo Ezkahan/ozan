@@ -4,6 +4,8 @@
 namespace Webkul\Admin\SMS;
 
 
+use Illuminate\Support\Facades\Log;
+
 class CancellOrderSMS extends SMS
 {
 
@@ -13,6 +15,10 @@ class CancellOrderSMS extends SMS
         $this->id = 'order_'.$id;
 //        $this->source = url();
         $this->text = 'Sizin ozan.com.tm  #'.$id.' belgili sargydyňyz ýatyryldy';//trans('shop::app.sms.verification',$data);
+
+        Log::info('CancellOrderSMS const');
+        Log::info($this->recipient);
+        Log::info($phone);
     }
 
     function tags(){
