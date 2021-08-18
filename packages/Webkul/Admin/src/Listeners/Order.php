@@ -2,6 +2,7 @@
 
 namespace Webkul\Admin\Listeners;
 
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 use Webkul\Admin\Mail\CancelOrderAdminNotification;
 use Webkul\Admin\Mail\CancelOrderNotification;
@@ -40,7 +41,7 @@ class Order
     public function sendCancelOrderSMS($order)
     {
         $customerLocale = $this->getLocale($order);
-
+        Log::info('function sendCancelOrderSMS called');
         try {
             /* email to customer */
             $configKey = 'emails.general.notifications.emails.general.notifications.cancel-order';
@@ -48,6 +49,8 @@ class Order
                 app()->setLocale($customerLocale);
 
                 \Webkul\Admin\Notifications\CancelOrderNotification::dispatch($order);
+            }else{
+                Log::info('function sendCancelOrderSMS CancelOrderNotification not dispatched');
             }
 
         } catch (\Exception $e) {
@@ -58,14 +61,18 @@ class Order
     public function sendAcceptOrderSMS($order)
     {
         $customerLocale = $this->getLocale($order);
-
+        Log::info('function sendAcceptOrderSMS called');
         try {
             /* email to customer */
             $configKey = 'emails.general.notifications.emails.general.notifications.new-order';
+            Log::info('');
             if (core()->getConfigData($configKey)) {
                 app()->setLocale($customerLocale);
 
                 \Webkul\Admin\Notifications\OrderAcceptedNotification::dispatch($order);
+            }
+            else{
+                Log::info('function sendAcceptOrderSMS OrderAcceptedNotification not dispatched');
             }
 
         } catch (\Exception $e) {
