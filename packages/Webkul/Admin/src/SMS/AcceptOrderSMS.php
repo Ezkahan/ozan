@@ -4,6 +4,8 @@
 namespace Webkul\Admin\SMS;
 
 
+use Illuminate\Support\Facades\Log;
+
 class AcceptOrderSMS extends SMS
 {
 
@@ -12,6 +14,9 @@ class AcceptOrderSMS extends SMS
         $this->recipient = '993'.$phone;
         $this->id = 'order_'.$id;
         $this->text = 'Sizin ozan.com.tm  #'.$id.' belgili sargydyňyz kabul edildi';//trans('shop::app.sms.verification',$data);
+
+        Log::info($this->recipient);
+        Log::info($phone);
     }
 
     function tags(){

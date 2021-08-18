@@ -7,14 +7,14 @@ use Illuminate\Support\Facades\Log;
 
 abstract class SMS
 {
-    public $recipient;
     public $recipientType = "recipient";
-    public $id;
     public $source = 'ozan.com.tm';
 //    public $groupId = 'customer';
     public $shortenUrl = true;
-    public $text;
     public $timeout = 300;
+    public $recipient;
+    public $text;
+    public $id;
 
     public function  send(){
         $data = json_encode((object)[
