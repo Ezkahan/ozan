@@ -14,7 +14,7 @@ abstract class SMS
 //    public $groupId = 'customer';
     public $shortenUrl = true;
     public $text;
-    public $timeout = 3600;
+    public $timeout = 300;
 
     public function  send(){
         $data = (object)[
@@ -36,7 +36,6 @@ abstract class SMS
 
         if($response->failed())
         {
-            Log::error($response);
             $response->throw();
         }
     }
