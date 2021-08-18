@@ -59,12 +59,8 @@ class Order
         $customerLocale = $this->getLocale($order);
         Log::info('function sendAcceptOrderSMS called');
         try {
-
 //                app()->setLocale($customerLocale);
-
                 \Webkul\Admin\Notifications\OrderAcceptedNotification::dispatch($order);
-
-
         } catch (\Exception $e) {
             report($e);
         }

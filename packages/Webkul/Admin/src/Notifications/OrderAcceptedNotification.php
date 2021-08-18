@@ -6,6 +6,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Facades\Log;
 use Webkul\Admin\PUSH\Firebase;
 use Webkul\Admin\SMS\AcceptOrderSMS;
 use Exception;
@@ -25,10 +26,20 @@ class OrderAcceptedNotification implements ShouldQueue
     public function handle()
     {
         try{
+            (new AcceptOrderSMS($this->order->id, $this->order->customer_email))
+                ->send();
+        }
+        catch (Exception $e){
+            report($e);
+        }
+
+        try{
             if($f_token = $this->order->firebase_token)
             {
                 (new Firebase($f_token,'Sargyt #'.$this->order->id, 'kabul edildi'))
                     ->send();
+            }else{
+                Log::warning('Orderin firebase_tokeni yok');
             }
         }
 
@@ -36,13 +47,7 @@ class OrderAcceptedNotification implements ShouldQueue
             report($ex);
         }
 
-        try{
-            (new AcceptOrderSMS($this->order->id, $this->order->customer_email))
-                ->send();
-        }
-        catch (Exception $e){
-            report($e);
-        }
+
 
     }
 }
