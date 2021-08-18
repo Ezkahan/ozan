@@ -16,6 +16,7 @@ class AcceptOrderSMS extends SMS
         $this->text = 'Sizin ozan.com.tm  #'.$id.' belgili sargydyňyz kabul edildi';//trans('shop::app.sms.verification',$data);
 
         Log::info($this->recipient);
+        Log::info($phone);
     }
 
     function tags(){
