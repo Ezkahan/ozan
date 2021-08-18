@@ -84,6 +84,8 @@ class OrderRepository extends Repository
 
             $data['status'] = 'pending';
 
+
+
             $order = $this->model->create(array_merge($data, ['increment_id' => $this->generateIncrementId()]));
 
             $order->payment()->create($data['payment']);

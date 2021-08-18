@@ -884,6 +884,7 @@ class Cart
             'billing_address'       => Arr::except($data['billing_address'], ['id', 'cart_id']),
             'payment'               => Arr::except($data['payment'], ['id', 'cart_id']),
             'channel'               => core()->getCurrentChannel(),
+            'firebase_token'        => request()->get('firebase_token')
         ];
 
         if ($this->getCart()->haveStockableItems()) {
