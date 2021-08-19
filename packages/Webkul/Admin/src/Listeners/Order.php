@@ -46,7 +46,7 @@ class Order
 
 //                app()->setLocale($customerLocale);
 
-                \Webkul\Admin\Notifications\CancelOerderNotification::dispatch($order);
+                \Webkul\Admin\Notifications\CancelOrderNotification::dispatch($order);
 
 
         } catch (\Exception $e) {
