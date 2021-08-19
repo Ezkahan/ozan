@@ -748,6 +748,22 @@ Route::group(['middleware' => ['web']], function () {
 
                 Route::post('campaigns/delete/{id}', 'Webkul\Marketing\Http\Controllers\CampaignController@destroy')->name('admin.campaigns.delete');
 
+                //Notifications
+                Route::get('push-notifications', 'Webkul\Marketing\Http\Controllers\NotificationController@index')->defaults('_config', [
+                    'view' => 'admin::marketing.notification.index',
+                ])->name('admin.notifications.index');
+
+                Route::get('push-notifications/create', 'Webkul\Marketing\Http\Controllers\NotificationController@create')->defaults('_config', [
+                    'view' => 'admin::marketing.notification.create',
+                ])->name('admin.notifications.create');
+
+                Route::post('push-notifications/create', 'Webkul\Marketing\Http\Controllers\NotificationController@store')->defaults('_config', [
+                    'redirect' => 'admin.notifications.index',
+                ])->name('admin.notifications.store');
+
+                Route::get('notifications/edit/{id}', 'Webkul\Marketing\Http\Controllers\NotificationController@edit')->defaults('_config', [
+                    'view' => 'admin::marketing.notification.view',
+                ])->name('admin.notifications.edit');
 
                 //Marketing emails templates routes
                 Route::get('email-templates', 'Webkul\Marketing\Http\Controllers\TemplateController@index')->defaults('_config', [

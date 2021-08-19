@@ -20,5 +20,5 @@ class Notification extends Model implements  NotificationContract
         'last_send_at'
     ];
 
-    protected $dates = ['created_at','updated_at','last_send_at'];
+    protected $dates = ['created_at','updated_at','last_sent_at'];
 }

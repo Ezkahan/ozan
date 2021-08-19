@@ -2,6 +2,9 @@
 
 namespace Webkul\Marketing\Http\Controllers;
 
+use Webkul\Admin\PUSH\Firebase;
+use Webkul\Marketing\Repositories\NotificationRepository;
+
 class NotificationController extends Controller
 {
     /**
@@ -10,6 +13,15 @@ class NotificationController extends Controller
      * @var array
      */
     protected $_config;
+
+    protected  $notificationRepository;
+
+    public function __construct(NotificationRepository $notificationRepository)
+    {
+        $this->notificationRepository = $notificationRepository;
+
+        $this->_config = request('_config');
+    }
 
     /**
      * Display a listing of the resource.
@@ -27,11 +39,11 @@ class NotificationController extends Controller
      * @param  int  $id
      * @return \Illuminate\View\View
      */
-    public function view($id)
+    public function edit($id)
     {
-//        $order = $this->orderRepository->findOrFail($id);
+        $notification = $this->notificationRepository->findOrFail($id);
 
-        return view($this->_config['view']);
+        return view($this->_config['view'],compact('notification'));
     }
     /**
      * Show the form for creating a new resource.
@@ -39,11 +51,9 @@ class NotificationController extends Controller
      * @param  int  $orderId
      * @return \Illuminate\View\View
      */
-    public function create($orderId)
+    public function create()
     {
-//        $order = $this->orderRepository->findOrFail($orderId);
-//
-//        return view($this->_config['view'], compact('order'));
+        return view($this->_config['view']);
     }
 
     /**
@@ -52,12 +62,32 @@ class NotificationController extends Controller
      * @param  int  $orderId
      * @return \Illuminate\Http\Response
      */
-    public function store($orderId)
+    public function store()
     {
+        $this->validate(request(),[
+            'title' => 'required|max:500',
+            'content' => 'required|max:3000'
+        ]);
 
+        if($note = $this->notificationRepository->create(request()->all())){
+            $this->sendNotification($note);
+
+            return redirect()->route($this->_config['redirect']);
+        }else {
+            session()->flash('error', trans('Error on creating notification'));
+
+            return redirect()->back();
+        }
     }
 
-    public function sendNotification(){
+    private function sendNotification($note){
+        try {
+            (new Firebase('/topics/notifications',$note->title,$note->content))->send();
+            session()->flash('success', trans('Notification sent successfully'));
+        }catch (\Exception $ex){
+            report($ex);
+            session()->flash('error', trans('Notification does not sent'));
+        }
 
     }
 }
