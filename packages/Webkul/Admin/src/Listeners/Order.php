@@ -46,7 +46,7 @@ class Order
 
 //                app()->setLocale($customerLocale);
 
-                \Webkul\Admin\Notifications\CancelOrderNotification::dispatch($order);
+                \Webkul\Admin\Notifications\CancelOrderNotification::dispatch($order->only(['id','customer_email']));
 
 
         } catch (\Exception $e) {
@@ -60,7 +60,7 @@ class Order
 //        Log::info('function sendAcceptOrderSMS called');
         try {
 //                app()->setLocale($customerLocale);
-                \Webkul\Admin\Notifications\OrderAcceptedNotification::dispatch($order);
+                \Webkul\Admin\Notifications\OrderAcceptedNotification::dispatch($order->only(['id','customer_email']));
         } catch (\Exception $e) {
             report($e);
         }
