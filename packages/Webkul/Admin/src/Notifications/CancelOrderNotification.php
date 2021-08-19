@@ -38,7 +38,7 @@ class CancelOrderNotification implements ShouldQueue
                 Log::info($this->order);
             }
         }
-        catch(\Exception $exception){
+        catch(Exception $exception){
             report($exception);
         }
 
@@ -53,7 +53,7 @@ class CancelOrderNotification implements ShouldQueue
             }
 
         }
-        catch (\Exception $ex){
+        catch (Exception $ex){
             report($exception);
         }
 
