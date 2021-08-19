@@ -16,9 +16,6 @@ class CancellOrderSMS extends SMS
 //        $this->source = url();
         $this->text = 'Sizin ozan.com.tm  #'.$id.' belgili sargydyňyz ýatyryldy';//trans('shop::app.sms.verification',$data);
 
-        Log::info('CancellOrderSMS const');
-        Log::info($this->recipient);
-        Log::info($phone);
     }
 
     function tags(){

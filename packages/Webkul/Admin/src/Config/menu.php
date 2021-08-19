@@ -229,7 +229,13 @@ return [
         'route'      => 'admin.customers.subscribers.index',
         'sort'       => 3,
         'icon-class' => '',
-    ], [
+    ],[
+        'key'        => 'marketing.push-notification',
+        'name'       => 'admin::app.push-notification',
+        'route'      => 'admin.email-templates.index',
+        'sort'       => 3,
+        'icon-class' => '',
+    ],[
         'key'        => 'cms',
         'name'       => 'admin::app.layouts.cms',
         'route'      => 'admin.cms.index',

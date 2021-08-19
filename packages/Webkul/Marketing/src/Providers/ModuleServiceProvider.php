@@ -10,5 +10,6 @@ class ModuleServiceProvider extends CoreModuleServiceProvider
         \Webkul\Marketing\Models\Campaign::class,
         \Webkul\Marketing\Models\Template::class,
         \Webkul\Marketing\Models\Event::class,
+        \Webkul\Marketing\Models\Notification::class,
     ];
 }
