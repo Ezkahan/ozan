@@ -46,7 +46,7 @@ class Order
 
 //                app()->setLocale($customerLocale);
 
-                \Webkul\Admin\Notifications\CancelOrderNotification::dispatch($order->only(['id','customer_email']));
+                \Webkul\Admin\Notifications\CancelOrderNotification::dispatch($order->only(['id','customer_email','firebase_token']));
 
 
         } catch (\Exception $e) {
