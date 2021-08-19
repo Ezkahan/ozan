@@ -40,13 +40,13 @@ class Order
 
     public function sendCancelOrderSMS($order)
     {
-        $customerLocale = $this->getLocale($order);
-        Log::info('function sendCancelOrderSMS called');
+//        $customerLocale = $this->getLocale($order);
+//        Log::info('function sendCancelOrderSMS called');
         try {
 
 //                app()->setLocale($customerLocale);
 
-                \Webkul\Admin\Notifications\CancelOrderNotification::dispatch($order);
+                \Webkul\Admin\Notifications\CancelOerderNotification::dispatch($order);
 
 
         } catch (\Exception $e) {
@@ -56,8 +56,8 @@ class Order
 
     public function sendAcceptOrderSMS($order)
     {
-        $customerLocale = $this->getLocale($order);
-        Log::info('function sendAcceptOrderSMS called');
+//        $customerLocale = $this->getLocale($order);
+//        Log::info('function sendAcceptOrderSMS called');
         try {
 //                app()->setLocale($customerLocale);
                 \Webkul\Admin\Notifications\OrderAcceptedNotification::dispatch($order);

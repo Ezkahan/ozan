@@ -54,7 +54,5 @@ class OrderAcceptedNotification implements ShouldQueue
             report($ex);
         }
 
-
-
     }
 }
