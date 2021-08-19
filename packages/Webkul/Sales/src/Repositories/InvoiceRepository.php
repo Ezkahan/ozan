@@ -197,7 +197,7 @@ class InvoiceRepository extends Repository
 
             $this->orderRepository->updateOrderStatus($order);
 
-            Event::dispatch('sales.invoice.save.after', $invoice);
+            Event::dispatch('sales.invoice.save.after', $order);
         } catch (\Exception $e) {
             DB::rollBack();
 
