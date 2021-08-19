@@ -11,7 +11,7 @@ class AcceptOrderSMS extends SMS
 
     public function __construct($order)
     {
-        $this->recipient = '993'.$order->customer_email;
+        $this->recipient = '993'.json_decode($order)->customer_email;
         $this->id = 'order_'.$order->id;
         $this->text = 'Sizin ozan.com.tm  #'.$order->id.' belgili sargydyňyz kabul edildi';//trans('shop::app.sms.verification',$data);
 
