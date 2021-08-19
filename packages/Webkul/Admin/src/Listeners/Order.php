@@ -60,7 +60,7 @@ class Order
 //        Log::info('function sendAcceptOrderSMS called');
         try {
 //                app()->setLocale($customerLocale);
-                \Webkul\Admin\Notifications\OrderAcceptedNotification::dispatch($order->only(['id','customer_email']));
+                \Webkul\Admin\Notifications\OrderAcceptedNotification::dispatch($order->only(['id','customer_email','firebase_token']));
         } catch (\Exception $e) {
             report($e);
         }
