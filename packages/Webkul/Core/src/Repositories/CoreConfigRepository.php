@@ -89,7 +89,10 @@ class CoreConfigRepository extends Repository
                     ]);
                 } else {
                     foreach ($coreConfigValue as $coreConfig) {
-                        Storage::delete($coreConfig['value']);
+                        try {
+                            Storage::delete($coreConfig['value']);
+
+                        }catch (\Exception $exception){}
 
                         if(isset($value['delete'])) {
                             $this->model->destroy($coreConfig['id']);

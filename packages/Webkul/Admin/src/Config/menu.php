@@ -231,8 +231,8 @@ return [
         'icon-class' => '',
     ],[
         'key'        => 'marketing.push-notification',
-        'name'       => 'admin::app.push-notification',
-        'route'      => 'admin.email-templates.index',
+        'name'       => 'Push notifications',
+        'route'      => 'admin.notifications.index',
         'sort'       => 3,
         'icon-class' => '',
     ],[

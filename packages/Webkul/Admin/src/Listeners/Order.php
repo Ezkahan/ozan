@@ -2,10 +2,6 @@
 
 namespace Webkul\Admin\Listeners;
 
-use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Mail;
-use Webkul\Admin\Mail\CancelOrderAdminNotification;
-use Webkul\Admin\Mail\CancelOrderNotification;
 use Webkul\Admin\Traits\Mails;
 use Webkul\Paypal\Payment\SmartButton;
 
@@ -40,14 +36,8 @@ class Order
 
     public function sendCancelOrderSMS($order)
     {
-//        $customerLocale = $this->getLocale($order);
-//        Log::info('function sendCancelOrderSMS called');
         try {
-
-//                app()->setLocale($customerLocale);
-
                 \Webkul\Admin\Notifications\CancelOrderNotification::dispatch($order->only(['id','customer_email','firebase_token']));
-
 
         } catch (\Exception $e) {
             report($e);
@@ -56,10 +46,7 @@ class Order
 
     public function sendAcceptOrderSMS($order)
     {
-//        $customerLocale = $this->getLocale($order);
-//        Log::info('function sendAcceptOrderSMS called');
         try {
-//                app()->setLocale($customerLocale);
                 \Webkul\Admin\Notifications\OrderAcceptedNotification::dispatch($order->only(['id','customer_email','firebase_token']));
         } catch (\Exception $e) {
             report($e);
