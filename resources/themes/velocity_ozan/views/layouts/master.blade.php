@@ -20,6 +20,7 @@
         {{-- seo meta data --}}
         @section('seo')
             <meta name="description" content="{{ core()->getCurrentChannel()->description }}"/>
+            <meta name="yandex-verification" content="d45e5dd4863302ed" />
         @show
 
         {{-- fav icon --}}
