@@ -75,3 +75,17 @@
 <script>
     {!! core()->getConfigData('general.content.custom_scripts.custom_javascript') !!}
 </script>
+<script type='text/javascript'>
+    (function(d, w, m) {
+        window.supportAPIMethod = m;
+        var s = d.createElement('script');
+        s.type ='text/javascript'; s.id = 'supportScript'; s.charset = 'utf-8';
+        s.async = true;
+        var id = 'e6c2dd844d696688cf46bdbb93796ee0';
+        s.src = '//me-talk.ru/support/support.js?h='+id;
+        var sc = d.getElementsByTagName('script')[0];
+        w[m] = w[m] || function() { (w[m].q = w[m].q || []).push(arguments); };
+        if (sc) sc.parentNode.insertBefore(s, sc);
+        else d.documentElement.firstChild.appendChild(s);
+    })(document, window, 'MeTalk');
+</script>
