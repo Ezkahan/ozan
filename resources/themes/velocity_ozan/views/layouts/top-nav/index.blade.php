@@ -7,7 +7,7 @@
         @include('velocity::layouts.top-nav.login-section')
     </div>
 </nav>--}}
-<section class="upheader" id="upheader">
+<section class="upheader" id="upheader" style="transition: none !important;">
     <div class="auto__container">
         <div class="upheader__inner" id="upheader_inner">
             <div class="upheader__language">
