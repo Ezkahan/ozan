@@ -6,6 +6,12 @@
 
 <script
     type="text/javascript"
+    baseUrl="{{ url()->to('/') }}"
+    src="{{ asset('themes/velocity_ozan/assets/js/main.js') }}">
+</script>
+
+<script
+    type="text/javascript"
     src="{{ asset('vendor/webkul/ui/assets/js/ui.js') }}">
 </script>
 
