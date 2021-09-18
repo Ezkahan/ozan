@@ -60,7 +60,7 @@ class Product extends JsonResource
                 'average_rating' => $total ? $this->productReviewHelper->getAverageRating($product) : 0,
                 'percentage'     => $total ? json_encode($this->productReviewHelper->getPercentageRating($product)) : [],
             ],
-
+            'categories' => Category::collection($product->categories),
             /* product's checks */
             'in_stock'               => $product->haveSufficientQuantity(1),
             'is_saved'               => false,
