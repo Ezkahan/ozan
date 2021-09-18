@@ -1,5 +1,5 @@
 
-<header class="header" id="header">
+<header class="header" id="header" style="transition: none !important;">
     <div class="auto__container">
         <div class="header__inner">
             <div class="header__column">
