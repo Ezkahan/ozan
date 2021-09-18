@@ -87,6 +87,12 @@
                     <span>@lang('app.main_page')</span>
                     <i class="icon-chevron-right"></i>
                 </a>
+                @if($category = $product->product->categories->first())
+                    <a href="{{ url($category->url_path) }}">
+                        <span>{{$category->name}}</span>
+                        <i class="icon-chevron-right"></i>
+                    </a>
+                @endif
                 <span>{{$product->name}}</span>
             </div>
         </div>
