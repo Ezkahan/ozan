@@ -7,6 +7,8 @@ use Webkul\Product\Facades\ProductImage as ProductImageFacade;
 
 class Product extends JsonResource
 {
+    public $categories;
+    public $related_products;
     /**
      * Create a new resource instance.
      *
@@ -27,6 +29,7 @@ class Product extends JsonResource
      * @param  \Illuminate\Http\Request
      * @return array
      */
+
     public function toArray($request)
     {
         /* assign product */
@@ -81,6 +84,15 @@ class Product extends JsonResource
             $this->mergeWhen($productTypeInstance->isComposite(), [
                 'super_attributes' => Attribute::collection($product->super_attributes),
             ]),
+
+            $this->mergeWhen($this->categories,[
+                'cateories' => Category::collection($this->categories)
+            ]),
+
+            $this->mergeWhen($this->related_products,[
+                'related_products' => $this->related_products
+            ])
+
         ];
     }
 
