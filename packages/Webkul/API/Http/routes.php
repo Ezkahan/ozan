@@ -50,6 +50,8 @@ Route::group(['prefix' => 'api'], function ($router) {
         //Product routes
         Route::get('products', 'ProductController@index');
 
+        Route::get('products/aksia', 'ProductController@aksia');
+
         Route::get('products/{id}', 'ProductController@get');
 
         Route::get('product-additional-information/{id}', 'ProductController@additionalInformation');
