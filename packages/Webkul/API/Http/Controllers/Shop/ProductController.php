@@ -38,6 +38,11 @@ class ProductController extends Controller
         return ProductResource::collection($this->productRepository->getAllApi(request()->input('category_id')));
     }
 
+    public function aksia(){
+        $products = $this->productRepository->getAllApi(env('AKSIA_CATEGORY'));
+
+        return ProductResource::collection($products);
+    }
     /**
      * Returns a individual resource.
      *

@@ -85,12 +85,12 @@ class Product extends JsonResource
                 'super_attributes' => Attribute::collection($product->super_attributes),
             ]),
 
-            $this->mergeWhen($this->categories,[
-                'cateories' => Category::collection($this->categories)
+            $this->mergeWhen(!is_null($this->categories),[
+                'cateories' => is_null($this->categories)? null: Category::collection($this->categories)
             ]),
 
-            $this->mergeWhen($this->related_products,[
-                'related_products' => $this->related_products
+            $this->mergeWhen(!is_null($this->related_products),[
+                'related_products' => is_null($this->related_products)? null: Product::collection($this->related_products)
             ])
 
         ];
