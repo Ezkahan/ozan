@@ -12,6 +12,8 @@
         <meta http-equiv="content-language" content="{{ app()->getLocale() }}">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="yandex-verification" content="1957e95274e51782" />
+        <meta name="google-site-verification" content="_Bw6eFXaY5xtJfH3n7tp9HN-9nV6sJiYY-BVbNBYIhk" />
+
         {!! view_render_event('bagisto.shop.layout.head') !!}
 
         {{-- for extra head data --}}
