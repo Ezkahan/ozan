@@ -188,6 +188,10 @@ class ShopController extends Controller
         return view($this->_config['view']);
     }
 
+    public function getBrands(){
+        return view($this->_config['view']);
+    }
+
     /**
      * this function will provide the count of wishlist and comparison for logged in user
      *

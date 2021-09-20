@@ -11,7 +11,7 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <meta http-equiv="content-language" content="{{ app()->getLocale() }}">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+        <meta name="yandex-verification" content="1957e95274e51782" />
         {!! view_render_event('bagisto.shop.layout.head') !!}
 
         {{-- for extra head data --}}

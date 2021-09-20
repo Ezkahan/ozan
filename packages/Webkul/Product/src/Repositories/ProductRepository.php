@@ -377,6 +377,10 @@ class ProductRepository extends Repository
                 $qb->where('product_flat.featured', $params['featured']);
             }
 
+            if (isset($params['brand'])){
+                $qb->where('product_flat.brand', $params['brand']);
+            }
+
             return $qb->groupBy('product_flat.id');
 
         });
