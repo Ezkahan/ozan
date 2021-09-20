@@ -90,7 +90,7 @@ class ResourceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function get($id)
+    public function get($id = 25)
     {
         $query = isset($this->_config['authorization_required']) && $this->_config['authorization_required'] ?
                 $this->repository->where('customer_id', auth()->user()->id)->findOrFail($id) :
