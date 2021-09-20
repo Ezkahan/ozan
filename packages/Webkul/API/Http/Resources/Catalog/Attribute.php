@@ -25,4 +25,16 @@ class Attribute extends JsonResource
             'updated_at'  => $this->updated_at,
         ];
     }
+
+    private function getOptions(){
+//        dd($this->options);
+        if($this->swatch_type==='image'){
+            return collect(array_map(function ($item){
+                $item->swatch_value = $item->swatch_value_url;
+                return $item;
+
+                },$this->options->toArray()));
+        }
+        return $this->options;
+    }
 }

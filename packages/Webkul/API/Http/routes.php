@@ -78,7 +78,10 @@ Route::group(['prefix' => 'api'], function ($router) {
             'authorization_required' => true
         ]);
 
-
+        Route::get('attribute/{id}','ResourceController@get')->defaults('_config',[
+            'repository' => 'Webkul\Attribute\Repositories\AttributeRepository',
+            'resource' => 'Webkul\API\Http\Resources\Catalog\Attribute',
+        ]);
         //Channel routes
         Route::get('channels', 'ResourceController@index')->defaults('_config', [
             'repository' => 'Webkul\Core\Repositories\ChannelRepository',
