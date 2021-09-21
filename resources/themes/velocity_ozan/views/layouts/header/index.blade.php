@@ -12,10 +12,20 @@
             </div>
             <div class="header__column">
                 <searchbar-component></searchbar-component>
+                <div class="mobile_search" id="mobile_search">
+                    <searchbar-component></searchbar-component>
+                </div>
             </div>
+
         </div>
     </div>
 </header>
+
+<div class="mobile_search_btn" onclick="openSearch()">
+    <img class="search_img" src="{{asset('themes/velocity_ozan/assets/images/svg/search.svg')}}" alt="">
+    <img class="close_img" src="{{asset('themes/velocity_ozan/assets/images/svg/x.svg')}}" alt="">
+</div>
+
 @push('scripts')
     <script type="text/javascript">
         (() => {
