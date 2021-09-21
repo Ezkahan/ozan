@@ -19,7 +19,7 @@
         @foreach($brands as $brand)
         <div tabindex="-1" role="tabpanel" class="VueCarousel-slide VueCarousel-slide-active">
             <div class="card grid-card product-card-new">
-                <a href="#" title="{{$brand->admin_name}}" class="product-image-container">
+                <a href="{{route('velocity.search.index',['brand'=>$brand->id])}}" title="{{$brand->admin_name}}" class="product-image-container">
                     <img loading="lazy" alt="{{$brand->admin_name}}"
                          src="{{$brand->swatch_value_url}}"
                          data-src="{{$brand->swatch_value_url}}"
