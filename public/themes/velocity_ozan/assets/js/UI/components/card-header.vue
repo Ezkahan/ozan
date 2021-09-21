@@ -9,7 +9,7 @@
             <h2 class="fs20 fw6">{{ headerHeading }}</h2>
         </div>
 
-        <div class="col-8 no-padding">
+        <div class="col-8 no-padding" v-if="tabs || viewAll || scrollable">
             <div class="row justify-content-end text-right">
 
                 <template v-if="tabs">
