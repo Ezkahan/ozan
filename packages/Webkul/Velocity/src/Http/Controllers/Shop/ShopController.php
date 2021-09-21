@@ -190,7 +190,7 @@ class ShopController extends Controller
     }
 
     public function getBrands(AttributeRepository $attributeRepository){
-        $brands = $attributeRepository->getAttributeByCode('brend');
+        $brands = $attributeRepository->getAttributeByCode('brand');
 
         if (!$brands)
             abort(404);
