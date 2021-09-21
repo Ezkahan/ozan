@@ -4,6 +4,7 @@ namespace Webkul\API\Http\Controllers\Shop;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Webkul\API\Http\Resources\Catalog\Category;
 use Webkul\Product\Repositories\ProductRepository;
 use Webkul\API\Http\Resources\Catalog\Product as ProductResource;
 
@@ -34,9 +35,14 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return ProductResource::collection($this->productRepository->getAll(request()->input('category_id')));
+        return ProductResource::collection($this->productRepository->getAllApi(request()->input('category_id')));
     }
 
+    public function aksia(){
+        $products = $this->productRepository->getAllApi(env('AKSIA_CATEGORY'));
+
+        return ProductResource::collection($products);
+    }
     /**
      * Returns a individual resource.
      *
@@ -45,9 +51,16 @@ class ProductController extends Controller
      */
     public function get($id)
     {
-        return new ProductResource(
+        $product = $this->productRepository->findOrFail($id);
+
+        $productResource =  new ProductResource(
             $this->productRepository->findOrFail($id)
         );
+        $productResource->categories = $product->categories;
+
+        $productResource->related_products = $product->related_products()->get();
+
+        return $productResource;
     }
 
     /**

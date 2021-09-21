@@ -278,7 +278,8 @@ class AkHasapController extends Controller
                             'cost' => $akhasap_product->mat_purch_price,
                             'channel' => 'default',
                             'short_description' => $akhasap_product->material_description,
-                            'description' => $akhasap_product->material_description1
+                            'description' => $akhasap_product->material_description1,
+                            'product_number' => $akhasap_product->bar_barcode
 
                         ]);
                     ProductFlat::updateOrCreate(['product_id' => $product->id,'locale' => 'en'],
@@ -291,7 +292,8 @@ class AkHasapController extends Controller
                             'cost' => $akhasap_product->mat_purch_price,
                             'channel' => 'default',
                             'short_description' => $akhasap_product->material_description_en,
-                            'description' => $akhasap_product->material_description1_en
+                            'description' => $akhasap_product->material_description1_en,
+                            'product_number' => $akhasap_product->bar_barcode
                         ]);
                     ProductFlat::updateOrCreate(['product_id' => $product->id,'locale' => 'ru'],
                         [
@@ -303,7 +305,8 @@ class AkHasapController extends Controller
                             'cost' => $akhasap_product->mat_purch_price,
                             'channel' => 'default',
                             'short_description' => $akhasap_product->material_description_ru,
-                            'description' => $akhasap_product->material_description1_ru
+                            'description' => $akhasap_product->material_description1_ru,
+                            'product_number' => $akhasap_product->bar_barcode
 
                         ]);
                     ProductAttributeValue::updateOrCreate(['product_id' => $product->id, 'attribute_id' => 2,'locale' => 'tm'],

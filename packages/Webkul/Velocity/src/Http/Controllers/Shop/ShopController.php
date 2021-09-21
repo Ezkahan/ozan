@@ -3,6 +3,7 @@
 namespace Webkul\Velocity\Http\Controllers\Shop;
 
 use Illuminate\Http\Request;
+use Webkul\Attribute\Repositories\AttributeRepository;
 use Webkul\Product\Facades\ProductImage;
 use Webkul\Velocity\Http\Shop\Controllers;
 use Webkul\Checkout\Contracts\Cart as CartModel;
@@ -186,6 +187,15 @@ class ShopController extends Controller
     public function getWishlistList()
     {
         return view($this->_config['view']);
+    }
+
+    public function getBrands(AttributeRepository $attributeRepository){
+        $brands = $attributeRepository->getAttributeByCode('brend');
+
+        if (!$brands)
+            abort(404);
+//dd($brands->options);
+        return view($this->_config['view'])->with(['brands' => $brands->options]);
     }
 
     /**

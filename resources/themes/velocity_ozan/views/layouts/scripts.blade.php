@@ -89,3 +89,42 @@
         else d.documentElement.firstChild.appendChild(s);
     })(document, window, 'MeTalk');
 </script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter85380733 = new Ya.Metrika({
+                    id:85380733,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true,
+                    webvisor:true,
+                    trackHash:true,
+                    ecommerce:"dataLayer"
+                });
+            } catch(e) { }
+        });
+
+        var n = d.getElementsByTagName("script")[0],
+            s = d.createElement("script"),
+            f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = "https://cdn.jsdelivr.net/npm/yandex-metrica-watch/watch.js";
+
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+    })(document, window, "yandex_metrika_callbacks");
+</script>
+<!-- /Yandex.Metrika counter -->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6HSL6DZ02W"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-6HSL6DZ02W');
+</script>

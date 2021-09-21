@@ -50,6 +50,8 @@ Route::group(['prefix' => 'api'], function ($router) {
         //Product routes
         Route::get('products', 'ProductController@index');
 
+        Route::get('products/aksia', 'ProductController@aksia');
+
         Route::get('products/{id}', 'ProductController@get');
 
         Route::get('product-additional-information/{id}', 'ProductController@additionalInformation');
@@ -76,7 +78,10 @@ Route::group(['prefix' => 'api'], function ($router) {
             'authorization_required' => true
         ]);
 
-
+        Route::get('attribute/{id}','ResourceController@get')->defaults('_config',[
+            'repository' => 'Webkul\Attribute\Repositories\AttributeRepository',
+            'resource' => 'Webkul\API\Http\Resources\Catalog\Attribute',
+        ]);
         //Channel routes
         Route::get('channels', 'ResourceController@index')->defaults('_config', [
             'repository' => 'Webkul\Core\Repositories\ChannelRepository',
