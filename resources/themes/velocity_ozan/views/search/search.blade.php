@@ -46,25 +46,26 @@
     </style>
 @endpush
 @section('content-wrapper')
+    <h2 class="ml-5 mt-5 col-12 fs30 fw6">{{ __('velocity::app.search.result') }}
     @if (! $results)
-        <h2 class="fw6 col-12">{{ __('velocity::app.search.no-results') }}</h2>
+        {{ __('velocity::app.search.no-results') }}
     @else
         @if ($results->isEmpty())
-            <h2 class="fw6 col-12">{{ __('velocity::app.products.whoops') }}</h2>
-            <span class="col-12">{{ __('velocity::app.search.no-results') }}</span>
+            {{ __('velocity::app.search.no-results') }}
         @else
             @if ($results->total() == 1)
-                <h5 class="fw6 col-12 mb20">
+
                     {{ $results->total() }} {{ __('velocity::app.search.found-result') }}
-                </h5>
+
             @else
-                <h2 class="fw6 col-12 mb20">
+
                     {{ $results->total() }} {{ __('velocity::app.search.found-results') }}
-                </h2>
+
             @endif
 
         @endif
     @endif
+    </h2>
 @endsection
 @section('full-content-wrapper')
     <search-component></search-component>

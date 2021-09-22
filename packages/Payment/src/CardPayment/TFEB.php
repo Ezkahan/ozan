@@ -8,8 +8,7 @@
 
 namespace Payment\CardPayment;
 
-
-use Webkul\Payment\Payment;
+use Webkul\Payment\Payment\Payment;
 
 class TFEB extends Payment
 {
@@ -49,5 +48,10 @@ class TFEB extends Payment
 
         return json_decode($client->post('register.do',$params)->getBody(),true);
 
+    }
+
+    public function getRedirectUrl()
+    {
+        // TODO: Implement getRedirectUrl() method.
     }
 }

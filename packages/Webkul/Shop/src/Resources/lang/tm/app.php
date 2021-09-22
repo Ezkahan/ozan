@@ -215,7 +215,7 @@ return [
     ],
 
     'search' => [
-        'no-results' => 'NEtije tapylmady',
+        'no-results' => 'Netije tapylmady',
         'page-title' => config('app.name') . ' - Search',
         'found-results' => 'Gözleg netijeleri tapyldy',
         'found-result' => 'Gözleg netijesi tapyldy',

@@ -188,6 +188,7 @@ return [
         'search' => 'Поиск'
     ],
     'search' => [
+        'result' => 'Результат поиска: ',
         'no-results' => 'Результаты не найдены',
         'page-title' => config('app.name') . ' - Поиск',
         'found-results' => 'Результаты поиска найдены',

@@ -187,6 +187,7 @@ return [
         'search' => 'Gözleg'
     ],
     'search' => [
+        'result' => 'Gözleg netijesi: ',
         'no-results' => 'Haryt tapylmady',
         'page-title' => config('app.name') . ' - Gözleg',
         'found-results' => 'haryt tapyldy',
