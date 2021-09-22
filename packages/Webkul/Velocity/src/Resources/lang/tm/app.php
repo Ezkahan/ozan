@@ -189,10 +189,10 @@ return [
     'search' => [
         'no-results' => 'Haryt tapylmady',
         'page-title' => config('app.name') . ' - Gözleg',
-        'found-results' => 'Tapylan harytlar',
-        'found-result' => 'Tapylan haryt',
-        'analysed-keywords' => 'Derňelýän açar sözler',
-        'image-search-option' => 'Surat gözlemegiň görnüşi'
+        'found-results' => 'haryt tapyldy',
+        'found-result' => 'haryt tapyldy',
+        'analysed-keywords' => 'gözlenen sözler',
+        'image-search-option' => 'Surat gözlegi'
     ],
     'menu-navbar'   => [
         'text-more'     => 'Ýene',

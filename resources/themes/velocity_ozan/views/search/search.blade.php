@@ -45,11 +45,29 @@
         }
     </style>
 @endpush
+@section('content-wrapper')
+    @if (! $results)
+        <h2 class="fw6 col-12">{{ __('velocity::app.search.no-results') }}</h2>
+    @else
+        @if ($results->isEmpty())
+            <h2 class="fw6 col-12">{{ __('velocity::app.products.whoops') }}</h2>
+            <span class="col-12">{{ __('velocity::app.search.no-results') }}</span>
+        @else
+            @if ($results->total() == 1)
+                <h5 class="fw6 col-12 mb20">
+                    {{ $results->total() }} {{ __('velocity::app.search.found-result') }}
+                </h5>
+            @else
+                <h2 class="fw6 col-12 mb20">
+                    {{ $results->total() }} {{ __('velocity::app.search.found-results') }}
+                </h2>
+            @endif
 
+        @endif
+    @endif
+@endsection
 @section('full-content-wrapper')
-    <div class="container category-page-wrapper">
-        <search-component></search-component>
-    </div>
+    <search-component></search-component>
 @endsection
 
 @push('scripts')
@@ -80,31 +98,9 @@
             @endif
 
             @if ($results && $results->count())
-                <div class="filters-container col-12" style="
-                    margin-top: 20px;
-                    padding-left: 0px !important;
-                    padding-bottom: 10px !important;
-                ">
+                <div class="filters-container col-12">
                     @include ('shop::products.list.toolbar')
                 </div>
-            @endif
-
-            @if (! $results)
-                <h2 class="fw6 col-12">{{ __('velocity::app.search.no-results') }}</h2>
-            @else
-                @if ($results->isEmpty())
-                    <h2 class="fw6 col-12">{{ __('velocity::app.products.whoops') }}</h2>
-                    <span class="col-12">{{ __('velocity::app.search.no-results') }}</span>
-                @else
-                    @if ($results->total() == 1)
-                        <h5 class="fw6 col-12 mb20">
-                            {{ $results->total() }} {{ __('velocity::app.search.found-result') }}
-                        </h5>
-                    @else
-                        <h2 class="fw6 col-12 mb20">
-                            {{ $results->total() }} {{ __('velocity::app.search.found-results') }}
-                        </h2>
-                    @endif
 
                     @foreach ($results as $productFlat)
                         @if ($toolbarHelper->getCurrentMode() == 'grid')
@@ -118,8 +114,8 @@
                     @endforeach
 
                     @include('ui::datagrid.pagination')
-                @endif
             @endif
+
         </section>
     </script>
 

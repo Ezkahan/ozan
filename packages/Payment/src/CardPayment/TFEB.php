@@ -2,25 +2,19 @@
 /**
  * Created by PhpStorm.
  * User: merdan
- * Date: 7/24/2019
- * Time: 16:48
+ * Date: 9/22/2021
+ * Time: 15:40
  */
 
 namespace Payment\CardPayment;
 
-use Carbon\Carbon;
-use GuzzleHttp\Client;
-use Webkul\Payment\Payment\Payment;
 
+use Webkul\Payment\Payment;
 
-class AltynAsyr extends Payment
+class TFEB extends Payment
 {
-    protected $code  = 'altynasyr';
 
-    public function getRedirectUrl():String
-    {
-        return route('paymentmethod.altynasyr.redirect');
-    }
+    protected $code = 'tfeb';
 
     private function getApiClient():Client{
         return new Client([
@@ -31,18 +25,12 @@ class AltynAsyr extends Payment
         ]);
     }
 
-    public function isRegistered(){
-        $payment = $this->getCart()->payment;
-        return (!empty($payment) && !empty($payment->orderId));
-    }
-
     public function registerOrder(){
 
         $cart = $this->getCart();
         $lifeTime = config('session.lifetime',10);//10 minutes
 
         $client = $this->getApiClient();
-
 
         $params =[
             'form_params' => [
@@ -60,30 +48,6 @@ class AltynAsyr extends Payment
         ];
 
         return json_decode($client->post('register.do',$params)->getBody(),true);
-
-    }
-
-    public function registerOrderId($orderId){
-        $payment = $this->getCart()->payment;
-        $payment->order_id = $orderId;
-//        dd($payment);
-//        $payment->paymentFormUrl = $formUrl;
-        $payment->save();
-    }
-
-    public function getOrderStatus(){
-        $client = $this->getApiClient();
-        $payment = $this->getCart()->payment;
-
-        $params = [
-            'form_params' => [
-                'userName' => $this->getConfigData('business_account'),//'103161020074',
-                'password' => $this->getConfigData('account_password'),//'E12wKp7a7vD8',
-                'orderId' => $payment->order_id,
-            ]
-        ];
-
-        return json_decode($client->post('getOrderStatus.do',$params)->getBody(),true);
 
     }
 }
