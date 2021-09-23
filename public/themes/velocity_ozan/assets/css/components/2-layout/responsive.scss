@@ -340,6 +340,16 @@
         font-size: 10px;
     }
 
+    .my_brands {
+        &_item {
+            width: calc(25% - 20px);;
+
+            .product-image-container {
+                max-height: 150px !important;
+            }
+        }
+    }
+
     .mobile_search_btn {
         display: block;
 
@@ -1076,6 +1086,12 @@
 }
 
 @include md-lg {
+    .my_brands {
+        &_item {
+            width: calc(33.33% - 20px);;
+        }
+    }
+
 
     // index page start
     .product {
@@ -1368,6 +1384,11 @@
 }
 
 @include sm-mdd {
+    .my_brands {
+        &_item {
+            width: calc(50% - 20px);;
+        }
+    }
 
     .category-container,
     .search-container {

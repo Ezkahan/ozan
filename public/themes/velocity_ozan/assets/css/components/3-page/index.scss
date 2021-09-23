@@ -377,3 +377,22 @@
         font-size: 17px;
     }
 }
+
+.my_brands {
+    display: flex;
+    flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    -moz-flex-wrap: wrap;
+    -o-flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+    margin: -10px;
+
+    &_item {
+        width: calc(20% - 20px);
+        margin: 10px;
+
+        .product-image-container {
+            max-height: 220px !important;
+        }
+    }
+}

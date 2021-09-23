@@ -3,7 +3,6 @@
         :rtl="localeDirection == 'rtl'"
         :dir="localeDirection"
         :id="id"
-        :centerMode="true"
         :navigationEnabled="true"
         :paginationEnabled="true"
         :perPage="parseInt(slidesPerPage)"
