@@ -8,6 +8,7 @@ Route::group(['middleware' => ['web', 'locale', 'theme', 'currency']], function 
             ->defaults('_config', [
                 'view' => 'shop::cms.contactus'
             ]);
+
         Route::get('/brands', 'ShopController@getBrands')
             ->name('velocity.brands')
             ->defaults('_config', [

@@ -59,7 +59,7 @@
                     <i class="icon-money"></i>
                     <span>@lang('app.payment_policy')</span>
                 </a>
-                <a href="{!! url('page/our-brands') !!}" class="upheader__nav-link">
+                <a href="{!! url('brands') !!}" class="upheader__nav-link">
                     <i class="icon-help"></i>
                     <span>@lang('app.our-brands')</span>
                 </a>
