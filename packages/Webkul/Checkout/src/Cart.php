@@ -145,14 +145,14 @@ class Cart
         }
 
         $cartProducts = $product->getTypeInstance()->prepareForCart($data);
-
+        Log::info('148',$cartProducts);
         if (is_string($cartProducts)) {
             $this->collectTotals();
 
             if (count($cart->all_items) <= 0) {
                 session()->forget('cart');
             }
-
+            Log::info('149',$cartProducts);
             throw new Exception($cartProducts);
         } else {
             $parentCartItem = null;
@@ -243,7 +243,7 @@ class Cart
      */
     public function updateItems($data)
     {
-        Log::info($data);
+
         foreach ($data['qty'] as $itemId => $quantity) {
             $item = $this->cartItemRepository->findOneByField('id', $itemId);
 
