@@ -137,13 +137,13 @@ class Cart
             return ['warning' => __('shop::app.checkout.cart.item.error-add')];
         }
 
-        Log::info('134'.$productId);
 
         $product = $this->productRepository->findOneByField('id', $productId);
 
         if ($product->status === 0) {
             return ['info' => __('shop::app.checkout.cart.item.inactive-add')];
         }
+        Log::info('134',$product);
 
         $cartProducts = $product->getTypeInstance()->prepareForCart($data);
 
