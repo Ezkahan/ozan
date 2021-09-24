@@ -754,14 +754,19 @@ abstract class AbstractType
 
         $price = $this->getFinalPrice();
 
-
+        $convertedPrice = core()->convertPrice($price);
+        Log::info($convertedPrice);
+        Log::info($price);
+        Log::info($data['quantity']);
+        Log::info($convertedPrice*$data['quantity']);
+        Log::info($price*$data['quantity']);
         $products = [
             [
                 'product_id'        => $this->product->id,
                 'sku'               => $this->product->sku,
                 'quantity'          => $data['quantity'],
                 'name'              => $this->product->name,
-                'price'             => $convertedPrice = core()->convertPrice($price),
+                'price'             => $convertedPrice,
                 'base_price'        => $price,
                 'total'             => $convertedPrice * $data['quantity'],
                 'base_total'        => $price * $data['quantity'],

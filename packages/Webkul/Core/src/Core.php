@@ -483,12 +483,11 @@ class Core
 
         $exchangeRate = $this->getExchangeRate($targetCurrency->id);
         if ('' === $exchangeRate || null === $exchangeRate || ! $exchangeRate->rate) {
-            Log::info($exchangeRate);
             return $amount;
         }
 
         $result = (float)$amount * (float)($this->lastCurrencyCode == $targetCurrency->code ? 1.0 : $exchangeRate->rate);
-        Log::info(492);
+
         if ($this->lastCurrencyCode != $targetCurrency->code) {
             $this->lastCurrencyCode = $targetCurrency->code;
         }
