@@ -469,30 +469,31 @@ class Core
                 && ($orderCurrencyCode != $this->getBaseCurrencyCode())
                 && ($orderCurrencyCode != $this->lastCurrencyCode)
             ) {
+                Log::info(472);
                 $amount = $this->convertToBasePrice($amount, $orderCurrencyCode);
             }
         }
-
+        Log::info(475);
         $targetCurrency = ! $targetCurrencyCode
             ? $this->getCurrentCurrency()
             : $this->currencyRepository->findOneByField('code', $targetCurrencyCode);
-
+        Log::info(480);
         if (! $targetCurrency) {
             return $amount;
         }
 
         $exchangeRate = $this->getExchangeRate($targetCurrency->id);
-
+        Log::info(486);
         if ('' === $exchangeRate || null === $exchangeRate || ! $exchangeRate->rate) {
             return $amount;
         }
 
         $result = (float)$amount * (float)($this->lastCurrencyCode == $targetCurrency->code ? 1.0 : $exchangeRate->rate);
-
+        Log::info(492);
         if ($this->lastCurrencyCode != $targetCurrency->code) {
             $this->lastCurrencyCode = $targetCurrency->code;
         }
-        Log::info($result);
+
         return $result;
     }
 
