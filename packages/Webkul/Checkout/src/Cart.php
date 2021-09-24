@@ -143,9 +143,9 @@ class Cart
         if ($product->status === 0) {
             return ['info' => __('shop::app.checkout.cart.item.inactive-add')];
         }
-        Log::info('134',$product);
 
         $cartProducts = $product->getTypeInstance()->prepareForCart($data);
+        Log::info($cartProducts);
 
         if (is_string($cartProducts)) {
             $this->collectTotals();
