@@ -3,6 +3,7 @@
 namespace Webkul\Core;
 
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Log;
 use Webkul\Core\Models\Channel;
 use Illuminate\Support\Facades\Config;
 use Webkul\Core\Repositories\LocaleRepository;
@@ -474,6 +475,7 @@ class Core
             }
         }
         Log::info(475);
+
         $targetCurrency = ! $targetCurrencyCode
             ? $this->getCurrentCurrency()
             : $this->currencyRepository->findOneByField('code', $targetCurrencyCode);
