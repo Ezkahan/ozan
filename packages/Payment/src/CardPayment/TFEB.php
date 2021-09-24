@@ -8,6 +8,8 @@
 
 namespace Payment\CardPayment;
 
+use GuzzleHttp\Client;
+use Payment\Http\Resoures\Payment\Order;
 use Webkul\Payment\Payment\Payment;
 
 class TFEB extends Payment
@@ -18,8 +20,8 @@ class TFEB extends Payment
     private function getApiClient():Client{
         return new Client([
             'base_uri' => $this->getConfigData('api_url'),
-            'connect_timeout' => 10,
-            'timeout' => 10,
+            'connect_timeout' => 25,//sec
+            'timeout' => 25,//sec
             'verify' => true,
         ]);
     }
@@ -32,21 +34,16 @@ class TFEB extends Payment
         $client = $this->getApiClient();
 
         $params =[
-            'form_params' => [
-                'userName' => $this->getConfigData('business_account'),//'103161020074',
-                'password' => $this->getConfigData('account_password'),//'E12wKp7a7vD8',
-                'sessionTimeoutSecs' => $lifeTime * 30, //(600 sec)
-                'orderNumber' =>$cart->id . Carbon::now()->timestamp,
-                'currency' => 934,
-                'language' => 'ru',
-                'description'=> "bagisto multivendor {$cart->grand_total}m.",
-                'amount' =>$cart->grand_total * 100,// amount w kopeykah
-                'returnUrl' => route('paymentmethod.altynasyr.success'),
-                'failUrl' => route('paymentmethod.altynasyr.cancel')
+            'header' =>[
+                'ClientId' => $this->getConfigData('client_id'),
+                'ClientSecret' => $this->getConfigData('client_secret'),
+                'Accept' => "application/hal+json",
+                "Content" => 'application/json'
             ],
+            'body' => new Order($this->getCart())
         ];
 
-        return json_decode($client->post('register.do',$params)->getBody(),true);
+        return json_decode($client->post('',$params)->getBody(),true);
 
     }
 

@@ -17,7 +17,7 @@
 @section('content-wrapper')
     <div class="auto__container p-5 my_wrap my_brands">
         @foreach($brands as $brand)
-        <div tabindex="-1" role="tabpanel" class="VueCarousel-slide VueCarousel-slide-active my_brands_item">
+        <div class="my_brands_item">
             <div class="card grid-card product-card-new">
                 <a href="{{route('velocity.search.index',['brand'=>$brand->id])}}" title="{{$brand->admin_name}}" class="product-image-container">
                     <img loading="lazy" alt="{{$brand->admin_name}}"

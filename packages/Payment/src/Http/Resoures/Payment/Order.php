@@ -14,32 +14,40 @@ use function Symfony\Component\Translation\t;
 
 class Order extends JsonResource
 {
+    public function getConfigData($field)
+    {
+        return core()->getConfigData('sales.paymentmethods.tfeb.' . $field);
+    }
+
     public function toArray($request){
         return  [
-            "RequestId" => $this->requestId,
+            "RequestId" => $this->id,
             "Environment" => [
                 "Merchant" => [
-                    "Id" => $this->merchantId
+                    "Id" =>$this->getConfigData('merchant')
                 ],
                 "POI" => [
-                    "Id" => $this->terminalId,
+                    "Id" => $this->getConfigData('terminal'),
                     "Language" => "ru-RU"
                 ],
-                "Card" => Card::make($this->card),
-                "Customer" => Cusromer::make($this->customer),
-
-                "CustomerDevice" => [
-                    "Browser" => Browser::make($this->browser),
-                    "MobileApp" => null,
+                "transport" => [
+                    "merchantFinalResponseUrl" => route('paymentmethod.tfeb.complete',['id'=>$this->id])
                 ]
+                //"Card" => Card::make($this->card),
+               // "Customer" => Cusromer::make($this->customer),
+
+//                "CustomerDevice" => [
+//                    "Browser" => Browser::make($this->browser),
+//                    "MobileApp" => null,
+//                ]
             ],
             "Transaction" => [
-                "InvoiceNumber" => $this->invoiceNumber,
+                "InvoiceNumber" => $this->id,
                 "Type" => "CRDP",
-                "TransactionText" => "sowda",
-                "TotalAmount" => $this->totalAmount,
+                "TransactionText" => "ozan online sowda",
+                "TotalAmount" => $this->grand_otal,
                 "Currency" => "934",
-                "MerchantOrderId" => $this->orderId,
+                "MerchantOrderId" => $this->id,
                 "AutoComplete" => false
             ]
         ];

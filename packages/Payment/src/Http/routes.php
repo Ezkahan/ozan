@@ -13,5 +13,6 @@ Route::group(['middleware' => ['web']], function () {
             ->middleware('theme');
         Route::get('/cancel', 'Payment\Http\Controllers\AltynAsyrController@cancel')->name('paymentmethod.altynasyr.cancel');
 
+        Route::get('tfeb/order/{id}','Payment\Http\Controllers\AltynAsyrController@cancel')->name('paymentmethod.tfeb.complete');
     });
 });

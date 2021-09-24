@@ -25,8 +25,8 @@ class AltynAsyr extends Payment
     private function getApiClient():Client{
         return new Client([
             'base_uri' => $this->getConfigData('api_url'),
-            'connect_timeout' => 10,
-            'timeout' => 10,
+            'connect_timeout' => 10,//sec
+            'timeout' => 10,//sec
             'verify' => true,
         ]);
     }
