@@ -2,6 +2,7 @@
 
 namespace Webkul\Product\Type;
 
+use Illuminate\Support\Facades\Log;
 use Webkul\Checkout\Facades\Cart;
 use Webkul\Checkout\Models\CartItem;
 use Illuminate\Support\Facades\Storage;
@@ -753,6 +754,7 @@ abstract class AbstractType
 
         $price = $this->getFinalPrice();
 
+        Log::info($price);
         $products = [
             [
                 'product_id'        => $this->product->id,

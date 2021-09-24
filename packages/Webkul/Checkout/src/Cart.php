@@ -145,7 +145,7 @@ class Cart
         }
 
         $cartProducts = $product->getTypeInstance()->prepareForCart($data);
-        Log::info($cartProducts);
+
 
         if (is_string($cartProducts)) {
             $this->collectTotals();
