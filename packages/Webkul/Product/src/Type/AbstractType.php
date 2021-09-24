@@ -754,7 +754,7 @@ abstract class AbstractType
 
         $price = $this->getFinalPrice();
 
-        Log::info($price);
+
         $products = [
             [
                 'product_id'        => $this->product->id,

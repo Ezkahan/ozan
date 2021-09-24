@@ -492,7 +492,7 @@ class Core
         if ($this->lastCurrencyCode != $targetCurrency->code) {
             $this->lastCurrencyCode = $targetCurrency->code;
         }
-
+        Log::info($result);
         return $result;
     }
 
