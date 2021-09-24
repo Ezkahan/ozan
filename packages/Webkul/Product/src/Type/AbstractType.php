@@ -766,14 +766,13 @@ abstract class AbstractType
                 'base_price'        => $price,
                 'total'             => $convertedPrice * $data['quantity'],
                 'base_total'        => $price * $data['quantity'],
-//                'weight'            => $this->product->weight ?? 0,
-//                'total_weight'      => ($this->product->weight ?? 0) * $data['quantity'],
-//                'base_total_weight' => ($this->product->weight ?? 0) * $data['quantity'],
+                'weight'            => 0,
+                'total_weight'      => 0,
+                'base_total_weight' => 0,
                 'type'              => $this->product->type,
                 'additional'        => $this->getAdditionalOptions($data),
             ],
         ];
-        Log::info(776);
         return $products;
     }
 
