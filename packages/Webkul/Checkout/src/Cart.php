@@ -131,12 +131,13 @@ class Cart
     public function addProduct($productId, $data)
     {
         Event::dispatch('checkout.cart.add.before', $productId);
-
+        Log::info('134',$productId);
         $cart = $this->getCart();
 
         if (! $cart && ! $cart = $this->create($data)) {
             return ['warning' => __('shop::app.checkout.cart.item.error-add')];
         }
+
 
         $product = $this->productRepository->findOneByField('id', $productId);
 
@@ -145,7 +146,7 @@ class Cart
         }
 
         $cartProducts = $product->getTypeInstance()->prepareForCart($data);
-        Log::info('148',$cartProducts);
+
         if (is_string($cartProducts)) {
             $this->collectTotals();
 
