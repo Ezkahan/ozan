@@ -755,11 +755,7 @@ abstract class AbstractType
         $price = $this->getFinalPrice();
 
         $convertedPrice = core()->convertPrice($price);
-        Log::info($convertedPrice);
-        Log::info($price);
-        Log::info($data['quantity']);
-        Log::info($convertedPrice*$data['quantity']);
-        Log::info($price*$data['quantity']);
+
         $products = [
             [
                 'product_id'        => $this->product->id,
@@ -777,7 +773,7 @@ abstract class AbstractType
                 'additional'        => $this->getAdditionalOptions($data),
             ],
         ];
-
+        Log::info(776);
         return $products;
     }
 
