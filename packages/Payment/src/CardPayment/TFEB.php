@@ -28,9 +28,6 @@ class TFEB extends Payment
 
     public function registerOrder(){
 
-        $cart = $this->getCart();
-        $lifeTime = config('session.lifetime',10);//10 minutes
-
         $client = $this->getApiClient();
 
         $params =[
@@ -49,6 +46,35 @@ class TFEB extends Payment
 
     public function getRedirectUrl()
     {
-        // TODO: Implement getRedirectUrl() method.
+        return route('paymentmethod.tfeb.redirect');
+    }
+
+    public function isRegistered(){
+        $payment = $this->getCart()->payment;
+        return (!empty($payment) && !empty($payment->orderId));
+    }
+
+    public function getOrderStatus(){
+        $client = $this->getApiClient();
+        $payment = $this->getCart()->payment;
+
+        $params = [
+            'form_params' => [
+                'userName' => $this->getConfigData('business_account'),//'103161020074',
+                'password' => $this->getConfigData('account_password'),//'E12wKp7a7vD8',
+                'orderId' => $payment->order_id,
+            ]
+        ];
+
+        return json_decode($client->post('getOrderStatus.do',$params)->getBody(),true);
+
+    }
+
+    public function registerOrderId($orderId){
+        $payment = $this->getCart()->payment;
+        $payment->order_id = $orderId;
+//        dd($payment);
+//        $payment->paymentFormUrl = $formUrl;
+        $payment->save();
     }
 }

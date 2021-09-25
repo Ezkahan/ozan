@@ -6,13 +6,17 @@
  * Time: 16:49
  */
 Route::group(['middleware' => ['web']], function () {
-    Route::prefix('card/payment')->group(function () {
-        Route::get('/redirect', 'Payment\Http\Controllers\AltynAsyrController@redirect')->name('paymentmethod.altynasyr.redirect');
-        Route::get('/success', 'Payment\Http\Controllers\AltynAsyrController@success')
+    Route::prefix('card/payment/')->group(function () {
+        Route::get('altynasyr/redirect', 'Payment\Http\Controllers\AltynAsyrController@redirect')->name('paymentmethod.altynasyr.redirect');
+        Route::get('altynasyr/success', 'Payment\Http\Controllers\AltynAsyrController@success')
             ->name('paymentmethod.altynasyr.success')
             ->middleware('theme');
-        Route::get('/cancel', 'Payment\Http\Controllers\AltynAsyrController@cancel')->name('paymentmethod.altynasyr.cancel');
+        Route::get('altynasyr/cancel', 'Payment\Http\Controllers\AltynAsyrController@cancel')->name('paymentmethod.altynasyr.cancel');
 
-        Route::get('tfeb/order/{id}','Payment\Http\Controllers\AltynAsyrController@cancel')->name('paymentmethod.tfeb.complete');
+        Route::get('tfeb/redirect','Payment\Http\Controllers\TFEBController@redirect')->name('paymentmethod.tfeb.redirect');
+        Route::get('tfeb/success', 'Payment\Http\Controllers\TFEBController@success')
+            ->name('paymentmethod.tfeb.success')
+            ->middleware('theme');
+        Route::get('tfeb/cancel', 'Payment\Http\Controllers\TFEBController@cancel')->name('paymentmethod.tfeb.cancel');
     });
 });
