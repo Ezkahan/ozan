@@ -3,6 +3,7 @@
 namespace Webkul\Product\Repositories;
 
 use Exception;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
 use Webkul\Product\Models\Product;
@@ -293,7 +294,7 @@ class ProductRepository extends Repository
 
     public function getAllApi($categoryId = null){
         $params = request()->input();
-
+Log::info('cat:'.$categoryId);
         if (core()->getConfigData('catalog.products.storefront.products_per_page')) {
             $pages = explode(',', core()->getConfigData('catalog.products.storefront.products_per_page'));
 
