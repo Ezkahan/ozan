@@ -53,7 +53,7 @@ class ProductController extends Controller
     public function get($id)
     {
 //        $product = $this->productFlatRepository->findOneWhere(['product_id'=>$id,'locale'=> request('locale')??'ru']);
-        $product = $this->productFlatRepository->findOrFail($id);
+        $product = $this->productRepository->findOrFail($id);
 //Log::info($product);
         $productResource =  ProductResource::make(
             $product
