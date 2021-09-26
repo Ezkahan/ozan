@@ -57,6 +57,8 @@ class Product extends JsonResource
             'base_image'             => ProductImageFacade::getProductBaseImage($product),
             'created_at'             => $product->created_at,
             'updated_at'             => $product->updated_at,
+            'brand'                  => $product->brand,
+            'brand_label'            => $product->brand_label,
 
             /* product's reviews */
             'reviews'                => [
