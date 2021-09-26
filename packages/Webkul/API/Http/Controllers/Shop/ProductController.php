@@ -2,10 +2,10 @@
 
 namespace Webkul\API\Http\Controllers\Shop;
 
-use AWS\CRT\Log;
 use Webkul\Product\Repositories\ProductFlatRepository;
 use Webkul\Product\Repositories\ProductRepository;
 use Webkul\API\Http\Resources\Catalog\Product as ProductResource;
+use Log;
 
 class ProductController extends Controller
 {
