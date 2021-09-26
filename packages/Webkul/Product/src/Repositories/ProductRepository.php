@@ -378,7 +378,9 @@ class ProductRepository extends Repository
             }
 
             if (isset($params['brand'])){
-                $qb->where('product_flat.brand', $params['brand']);
+                $filterInputValues = explode(',',$params['brand']);
+
+                $qb->whereIn('product_flat.brand', $filterInputValues);
             }
 
             return $qb->groupBy('product_flat.id');
