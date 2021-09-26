@@ -35,6 +35,7 @@ class ProductController extends Controller
      */
     public function index()
     {
+//        dd($this->productRepository->getAllApi(request()->input('category_id')));
         return ProductResource::collection($this->productRepository->getAllApi(request()->input('category_id')));
     }
 

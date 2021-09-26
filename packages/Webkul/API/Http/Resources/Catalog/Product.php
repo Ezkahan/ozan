@@ -35,6 +35,8 @@ class Product extends JsonResource
         /* assign product */
         $product = $this->product ? $this->product : $this;
 
+//        dd($this);
+
         /* get type instance */
         $productTypeInstance = $product->getTypeInstance();
 
@@ -58,7 +60,7 @@ class Product extends JsonResource
             'created_at'             => $product->created_at,
             'updated_at'             => $product->updated_at,
             'brand'                  => $product->brand,
-            'brand_label'            => $product->brand_label,
+            'brand_label'            => $this->brand_label,
 
             /* product's reviews */
             'reviews'                => [
