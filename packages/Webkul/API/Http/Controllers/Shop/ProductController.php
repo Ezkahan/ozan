@@ -61,7 +61,7 @@ Log::info($product);
 
         $productResource->related_products = $product->related_products()->get();
 
-        Log::info($productResource);
+//        Log::info($productResource);
         return $productResource;
     }
 
