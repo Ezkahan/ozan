@@ -23,6 +23,12 @@ class TFEB extends Payment
             'connect_timeout' => 25,//sec
             'timeout' => 25,//sec
             'verify' => true,
+            'header' =>[
+                'ClientId' => $this->getConfigData('client_id'),
+                'ClientSecret' => $this->getConfigData('client_secret'),
+                'Accept' => "application/hal+json",
+                "Content" => 'application/json'
+            ],
         ]);
     }
 
@@ -31,12 +37,6 @@ class TFEB extends Payment
         $client = $this->getApiClient();
 
         $params =[
-            'header' =>[
-                'ClientId' => $this->getConfigData('client_id'),
-                'ClientSecret' => $this->getConfigData('client_secret'),
-                'Accept' => "application/hal+json",
-                "Content" => 'application/json'
-            ],
             'body' => new Order($this->getCart())
         ];
 
@@ -58,16 +58,7 @@ class TFEB extends Payment
         $client = $this->getApiClient();
         $payment = $this->getCart()->payment;
 
-        $params = [
-            'form_params' => [
-                'userName' => $this->getConfigData('business_account'),//'103161020074',
-                'password' => $this->getConfigData('account_password'),//'E12wKp7a7vD8',
-                'orderId' => $payment->order_id,
-            ]
-        ];
-
-        return json_decode($client->post('getOrderStatus.do',$params)->getBody(),true);
-
+        return json_decode($client->post($payment->order_id)->getBody(),true);
     }
 
     public function registerOrderId($orderId){

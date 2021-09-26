@@ -39,5 +39,21 @@
 @stop
 
 @push('scripts')
+    @php
+        $count = $orderGrid->getCollection()->where('status','pending')->count();
+    @endphp
+    @if($count))
+        <script type="text/javascript">
+            $(document).ready(function (e) {
+                (new Audio("/mp3/notification.mp3")).play();
+
+            });
+            window.flashMessages = [{
+                'type': 'alert-success',
+                'message': {!! $count !!}+'taze sargyt bar'
+            }];
+        </script>
+    @endif
     @include('admin::export.export', ['gridName' => $orderGrid])
+
 @endpush

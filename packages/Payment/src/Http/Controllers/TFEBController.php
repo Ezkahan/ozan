@@ -68,18 +68,14 @@ class TFEBController extends Controller
         try {
             $result = $this->teb->getOrderStatus();
 
-            if ($result['ErrorCode'] == 0) {
-                if ($result['OrderStatus'] == 2) {
-                    $order = $this->orderRepository->create(Cart::prepareDataForOrder());
-                    //todo save card details to cart->payment
-                    Cart::deActivateCart();
+            if ($result['Response']['OperationResult'] == 'GEN-00000') {
+                $order = $this->orderRepository->create(Cart::prepareDataForOrder());
+                //todo save card details to cart->payment
+                Cart::deActivateCart();
 
-                    session()->flash('order', $order);
+                session()->flash('order', $order);
 
-                    return redirect()->route('shop.checkout.success');
-                } else {
-                    return view('payment::order-status')->with('cart', $this->teb->getCart());
-                }
+                return redirect()->route('shop.checkout.success');
 
             } else {
                 session()->flash('error', trans('payment.unsuccessfull'));
