@@ -56,7 +56,7 @@ class ProductController extends Controller
      */
     public function get($id)
     {
-        $product = $this->productFlatRepository->findOrFail($id);
+        $product = $this->productFlatRepository->findOneWhere(['product_id'=>$id]);
 //        dd($product->brand_label);
 
         $productResource =  ProductResource::make(
