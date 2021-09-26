@@ -2,9 +2,6 @@
 
 namespace Webkul\API\Http\Controllers\Shop;
 
-use Illuminate\Http\Request;
-use Illuminate\Http\Response;
-use Webkul\API\Http\Resources\Catalog\Category;
 use Webkul\Product\Repositories\ProductFlatRepository;
 use Webkul\Product\Repositories\ProductRepository;
 use Webkul\API\Http\Resources\Catalog\Product as ProductResource;
@@ -17,9 +14,7 @@ class ProductController extends Controller
      * @var \Webkul\Product\Repositories\ProductRepository
      */
     protected $productRepository;
-
     protected $productFlatRepository;
-
     /**
      * Create a new controller instance.
      *
@@ -57,14 +52,13 @@ class ProductController extends Controller
     public function get($id)
     {
         $product = $this->productFlatRepository->findOneWhere(['product_id'=>$id]);
-//        dd($product->brand_label);
 
         $productResource =  ProductResource::make(
             $product
         );
-        $productResource->categories = $product->product->categories;
+        $productResource->categories = $product->categories;
 
-        $productResource->related_products = $product->product->related_products;
+        $productResource->related_products = $product->related_products()->get();
 
         return $productResource;
     }
