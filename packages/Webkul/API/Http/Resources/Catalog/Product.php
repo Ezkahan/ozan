@@ -55,7 +55,7 @@ class Product extends JsonResource
             'short_description'      => $product->short_description,
             'description'            => $product->description,
             'images'                 => ProductImage::collection($product->images),
-            'videos'                 => ProductVideo::collection($product->videos),
+//            'videos'                 => ProductVideo::collection($product->videos),
             'base_image'             => ProductImageFacade::getProductBaseImage($product),
             'created_at'             => $product->created_at,
             'updated_at'             => $product->updated_at,
@@ -63,12 +63,12 @@ class Product extends JsonResource
             'brand_label'            => $this->brand_label,
 
             /* product's reviews */
-            'reviews'                => [
-                'total'          => $total = $this->productReviewHelper->getTotalReviews($product),
-                'total_rating'   => $total ? $this->productReviewHelper->getTotalRating($product) : 0,
-                'average_rating' => $total ? $this->productReviewHelper->getAverageRating($product) : 0,
-                'percentage'     => $total ? json_encode($this->productReviewHelper->getPercentageRating($product)) : [],
-            ],
+//            'reviews'                => [
+//                'total'          => $total = $this->productReviewHelper->getTotalReviews($product),
+//                'total_rating'   => $total ? $this->productReviewHelper->getTotalRating($product) : 0,
+//                'average_rating' => $total ? $this->productReviewHelper->getAverageRating($product) : 0,
+//                'percentage'     => $total ? json_encode($this->productReviewHelper->getPercentageRating($product)) : [],
+//            ],
 
             /* product's checks */
             'in_stock'               => $product->haveSufficientQuantity(1),
