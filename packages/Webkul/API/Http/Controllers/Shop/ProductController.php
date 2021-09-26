@@ -2,6 +2,7 @@
 
 namespace Webkul\API\Http\Controllers\Shop;
 
+use AWS\CRT\Log;
 use Webkul\Product\Repositories\ProductFlatRepository;
 use Webkul\Product\Repositories\ProductRepository;
 use Webkul\API\Http\Resources\Catalog\Product as ProductResource;
@@ -52,7 +53,7 @@ class ProductController extends Controller
     public function get($id)
     {
         $product = $this->productFlatRepository->findOneWhere(['product_id'=>$id]);
-
+Log::info($product);
         $productResource =  ProductResource::make(
             $product
         );
@@ -60,6 +61,7 @@ class ProductController extends Controller
 
         $productResource->related_products = $product->related_products()->get();
 
+        Log::info($productResource);
         return $productResource;
     }
 
