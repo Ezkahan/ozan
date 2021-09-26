@@ -49,8 +49,8 @@
 
             });
             window.flashMessages = [{
-                'type': 'alert-success',
-                'message': {!! $count !!}+'taze sargyt bar'
+                'type': 'alert-info',
+                'message': {!! $count !!}+' taze sargyt bar!!!'
             }];
         </script>
     @endif
