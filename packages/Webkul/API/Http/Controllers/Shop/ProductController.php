@@ -58,7 +58,7 @@ class ProductController extends Controller
         $productResource =  ProductResource::make(
             $product
         );
-        $productResource->categories = $product->categories;
+        $productResource->categories = $product->produt->categories;
 
         $productResource->related_products = $product->related_products()->get();
 
