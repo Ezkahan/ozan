@@ -8,6 +8,7 @@
 
 namespace Payment\Http\Controllers;
 use GuzzleHttp\Exception\ConnectException;
+use Illuminate\Support\Facades\Log;
 use Webkul\Checkout\Facades\Cart;
 use Payment\CardPayment\TFEB;
 use Webkul\Sales\Repositories\OrderRepository;
@@ -40,19 +41,21 @@ class TFEBController extends Controller
     public function redirect(){
         // register order to payment gateway
         try{
-            $result =  $this->teb->registerOrder();
+            $result =  json_decode($this->teb->registerOrder(),true);
+            Log::info($result);
             if($result['response']['operationResult'] == 'OPG-00100' && $orderId = $result['response']['orderId']){
 //                dd($result);
                 $this->teb->registerOrderId($orderId);
-                return redirect($result[$result['_links']['redirectToCheckout']['href']]);
+                return redirect($result['_links']['redirectToCheckout']['href']);
             }
             else{//if already registered or otkazana w dostupe
                 //todo log
-                session()->flash('error', $result['errorMessage']);
+                session()->flash('error', $result['response']['operationResultDescription']);
             }
 
         }catch (\Exception $exception){
             //todo Check exception if not connection excepion redirect to login ore somewhere if session expired
+            Log::error($exception);
             session()->flash('error', $exception->getMessage());
         }
 
@@ -64,10 +67,10 @@ class TFEBController extends Controller
      *
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function success(){
+    public function complete(){
         try {
-            $result = $this->teb->getOrderStatus();
-
+            $result = json_decode($this->teb->getOrderStatus(),true);
+Log::info($result);
             if ($result['Response']['OperationResult'] == 'GEN-00000') {
                 $order = $this->orderRepository->create(Cart::prepareDataForOrder());
                 //todo save card details to cart->payment
@@ -85,7 +88,8 @@ class TFEBController extends Controller
             session()->flash('error',trans('payment::messages.connection_failed'));
         }
         catch (\Exception $exception){
-            session()->flash('error',trans('payment::messages.session_expired'));
+            Log::error($exception);
+            session()->flash('error',$exception->getMessage());
         }
         return redirect()->route('shop.checkout.cart.index');
     }

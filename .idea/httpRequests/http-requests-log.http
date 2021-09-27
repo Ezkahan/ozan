@@ -1,0 +1,518 @@
+POST https://ecomt.tfeb.gov.tm/v1/orders/fffcb161-f7e0-4eec-b82f-db47a3a9ca7d
+ClientId: 1.300000000000011.30000011
+ClientSecret: OvQ4nBTQDQPAwz4gpxNZ7JeDNLESMkI=
+Content-Type: application/json
+Accept: application/hal+json
+Authorization: Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6Ijg2MUU1QjJGMDYxMDY5MTMxMDdFN0FCRUZCNUMxMjY0ODE2NTkxRkMiLCJ0eXAiOiJKV1QiLCJ4NXQiOiJoaDViTHdZUWFSTVFmbnEtLTF3U1pJRmxrZncifQ.eyJuYmYiOjE2MzI3MzgxNTUsImV4cCI6MTYzMjc0MTc1NSwiaXNzIjoiaHR0cHM6Ly9wZ2FwcC9BcHAuSWRlbnRpdHlTZXJ2ZXIvIiwiYXVkIjpbImh0dHBzOi8vcGdhcHAvQXBwLklkZW50aXR5U2VydmVyL3Jlc291cmNlcyIsIlRTWVMuUHJpbWUuV2ViQXBwbGljYXRpb25zLk9yZGVyUHJvY2Vzc2luZyJdLCJjbGllbnRfaWQiOiIxLjMwMDAwMDAwMDAwMDAxMS4zMDAwMDAxMSIsInNjb3BlIjpbIlRTWVMuUHJpbWUuV2ViQXBwbGljYXRpb25zLk9yZGVyUHJvY2Vzc2luZyJdfQ.R4t9PkbA65yePbz0tuYr0a-eMhQzETrvKXVwoyUafoKSMzYdgSbvNUs3EP7ovIlt6aw_69YR76LHGQImdjeXe8uPXslm1vXNC4lKp9vQbxjj5k-ckdgNk7wvhetY_iUsRxUdhf8BL_DjsbXl1xuwZulgdKVqc58en5Xk27RTz_hTAVw8qeJYUZ_1QvlQ4Wo8muwOzJDQEvZo40Hso6yHeER_uEnvzBXDVBqTXFfOogqQC-5NB9no8oxrJJGnlmZvPym83P2fLHrfLJwa6v63bvWwmXuX64gjsaKuZ35mhPIR5y0VE0J4DS8X25XyNjW5tYTcF653g-go_ynpHJ5Frw
+
+###
+
+POST https://ecomt.tfeb.gov.tm/v1/orders/fffcb161-f7e0-4eec-b82f-db47a3a9ca7d
+ClientId: 1.300000000000011.30000011
+ClientSecret: OvQ4nBTQDQPAwz4gpxNZ7JeDNLESMkI=
+Content-Type: application/json
+Accept: application/hal+json
+
+###
+
+POST https://ecomt.tfeb.gov.tm/v1/orders/fffcb161-f7e0-4eec-b82f-db47a3a9ca7d
+ClientId: 1.300000000000011.30000011
+ClientSecret: OvQ4nBTQDQPAwz4gpxNZ7JeDNLESMkI=
+Content-Type: application/json
+Accept: application/hal+json
+
+###
+
+POST https://ecomt.tfeb.gov.tm/v1/orders/
+ClientId: 1.300000000000011.30000011
+ClientSecret: OvQ4nBTQDQPAwz4gpxNZ7JeDNLESMkI=
+Content-Type: application/json
+Accept: application/hal+json
+
+{   "RequestId": "4b0bdd35-e12d-4612-ae88-ebd73b60781c",   "Environment": {     "Merchant": {       "Id": "300000000000011"     },     "POI": {       "Id": "30000011",       "Language": "ru-RU"     },     "transport": {       "merchantFinalResponseUrl": "http://localhost:8160/Order/FinalResponse/fb88ae0c-712d-4987-b189-5d8d5724f4d4",      }    },   "Transaction": {     "InvoiceNumber": "2",     "Type": "CRDP",     "TransactionText":"sowda",     "TotalAmount": 1.99,     "Currency": "934",     "MerchantOrderId": "11",     "AutoComplete": false,   } }
+
+<> 2021-09-24T011359.201.json
+
+###
+
+POST https://ecomt.tfeb.gov.tm/v1/orders/
+ClientId: 1.300000000000011.30000011
+ClientSecret: OvQ4nBTQDQPAwz4gpxNZ7JeDNLESMkI=
+Content-Type: application/json
+Accept: application/hal+json
+User-Agent: TSYS.Prime.EcomCheckoutSimulator.Web/1.0.5
+
+{   "RequestId": "4b0bdd35-e12d-4612-ae88-ebd73b60781c",   "Environment": {     "Merchant": {       "Id": "300000000000011"     },     "POI": {       "Id": "30000011",       "Language": "ru-RU"     },     "transport": {       "merchantFinalResponseUrl": "http://localhost:8160/Order/FinalResponse/fb88ae0c-712d-4987-b189-5d8d5724f4d4",      }    },   "Transaction": {     "InvoiceNumber": "2",     "Type": "CRDP",     "TransactionText":"sowda",     "TotalAmount": 1.99,     "Currency": "934",     "MerchantOrderId": "11",     "AutoComplete": false,   } }
+
+<> 2021-09-24T125339.201.json
+
+###
+
+POST https://ecomt.tfeb.gov.tm/v1/orders/
+ClientId: 1.300000000000011.30000011
+ClientSecret: OvQ4nBTQDQPAwz4gpxNZ7JeDNLESMkI=
+Content-Type: application/json
+Accept: application/hal+json
+User-Agent: TSYS.Prime.EcomCheckoutSimulator.Web/1.0.5
+
+{   "RequestId": "4b0bdd35-e12d-4612-ae88-ebd73b60781c",   "Environment": {     "Merchant": {       "Id": "300000000000011"     },     "POI": {       "Id": "30000011",       "Language": "ru-RU"     },     "transport": {       "merchantFinalResponseUrl": "http://localhost:8160/Order/FinalResponse/fb88ae0c-712d-4987-b189-5d8d5724f4d4",       "challengeResponseUrl": "http://localhost:8160/Order/NotificationUrl/fb88ae0c-712d-4987-b189-5d8d5724f4d4",       "challengeWindowSize": 3,       "threeDSMethodNotificationUrl": "http://localhost:8160/Order/ThreeDSecureNotificationUrl/fb88ae0c-712d-4987-b189-5d8d5724f4d4",       "methodCompletion": false,       "consent": false,       "endpointHostAddress": "http://localhost:8150/v1/Orders"     }    },   "Transaction": {     "InvoiceNumber": "2",     "Type": "CRDP",     "TransactionText":"sowda",     "TotalAmount": 1.99,     "Currency": "934",     "MerchantOrderId": "11",     "AutoComplete": false,   } }
+
+<> 2021-09-24T125104.201.json
+
+###
+
+POST https://ecomt.tfeb.gov.tm/v1/orders/
+ClientId: 1.300000000000011.30000011
+ClientSecret: OvQ4nBTQDQPAwz4gpxNZ7JeDNLESMkI=
+Content-Type: application/json
+Accept: application/hal+json
+User-Agent: TSYS.Prime.EcomCheckoutSimulator.Web/1.0.5
+
+{   "RequestId": "4b0bdd35-e12d-4612-ae88-ebd73b60781c",   "Environment": {     "Merchant": {       "Id": "300000000000011"     },     "POI": {       "Id": "30000011",       "Language": "ru-RU"     },     "transport": {       "merchantFinalResponseUrl": "http://localhost:8160/Order/FinalResponse/fb88ae0c-712d-4987-b189-5d8d5724f4d4",       "challengeResponseUrl": "http://localhost:8160/Order/NotificationUrl/fb88ae0c-712d-4987-b189-5d8d5724f4d4",       "challengeWindowSize": 3,       "threeDSMethodNotificationUrl": "http://localhost:8160/Order/ThreeDSecureNotificationUrl/fb88ae0c-712d-4987-b189-5d8d5724f4d4",       "methodCompletion": false,       "consent": false,       "endpointHostAddress": "http://localhost:8150/v1/Orders"     },     "Transaction": {       "InvoiceNumber": "2",       "Type": "CRDP",       "TransactionText":"sowda",       "TotalAmount": 1.99,       "Currency": "934",       "MerchantOrderId": "11",       "AutoComplete": false,     }   },
+
+###
+
+POST https://ecomt.tfeb.gov.tm/v1/orders/
+ClientId: 1.300000000000011.30000011
+ClientSecret: OvQ4nBTQDQPAwz4gpxNZ7JeDNLESMkI=
+Content-Type: application/json
+Accept: application/hal+json
+User-Agent: TSYS.Prime.EcomCheckoutSimulator.Web/1.0.5
+
+{   "RequestId": "4",   "Environment": {     "Merchant": {       "Id": "300000000000011"     },     "POI": {       "Id": "30000011",       "Language": "ru-RU"     },    },   "Transaction": {     "Type": "CRDP",     "TransactionText":"sowda",     "TotalAmount": 1.99,     "Currency": "934",     "MerchantOrderId": 11,     "AutoComplete": false   } }
+
+<> 2021-09-24T120133.200.json
+
+###
+
+POST https://ecomt.tfeb.gov.tm/v1/orders/
+ClientId: 1.300000000000011.30000011
+ClientSecret: OvQ4nBTQDQPAwz4gpxNZ7JeDNLESMkI=
+Content-Type: application/json
+Accept: application/hal+json
+User-Agent: TSYS.Prime.EcomCheckoutSimulator.Web/1.0.5
+
+{   "RequestId": "4",   "Environment": {     "Merchant": {       "Id": "300000000000011"     },     "POI": {       "Id": "30000011",       "Language": "ru-RU"     },    },   "Transaction": {     "InvoiceNumber": "2",     "Type": "CRDP",     "TransactionText":"sowda",     "TotalAmount": 1.99,     "Currency": "934",     "MerchantOrderId": 11,     "AutoComplete": false   } }
+
+<> 2021-09-24T120033.201.json
+
+###
+
+POST https://ecomt.tfeb.gov.tm/v1/orders/
+ClientId: 1.300000000000011.30000011
+ClientSecret: OvQ4nBTQDQPAwz4gpxNZ7JeDNLESMkI=
+Content-Type: application/json
+Accept: application/hal+json
+User-Agent: TSYS.Prime.EcomCheckoutSimulator.Web/1.0.5
+
+{   "RequestId": "4",   "Environment": {     "Merchant": {       "Id": "300000000000011"     },     "POI": {       "Id": "30000011",       "Language": "ru-RU"     },      "CustomerDevice": {       "Browser": {         "AcceptHeader": "*/*",         "IpAddress": "10.33.27.3",         "Language": "en-US",         "ScreenColorDepth": 48,         "ScreenHeight": 1200,         "ScreenWidth": 1900,         "UserAgentString": "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:40.0) Gecko/20100101 Firefox/40.3"       },       "MobileApp": null     }    },   "Transaction": {     "InvoiceNumber": "2",     "Type": "CRDP",     "TransactionText":"sowda",     "TotalAmount": 1.99,     "Currency": "934",     "MerchantOrderId": 11,     "AutoComplete": false   } }
+
+<> 2021-09-24T115919.201.json
+
+###
+
+POST https://ecomt.tfeb.gov.tm/v1/orders/
+ClientId: 1.300000000000011.30000011
+ClientSecret: OvQ4nBTQDQPAwz4gpxNZ7JeDNLESMkI=
+Content-Type: application/json
+Accept: application/hal+json
+User-Agent: TSYS.Prime.EcomCheckoutSimulator.Web/1.0.5
+
+###
+
+POST https://ecomt.tfeb.gov.tm/v1/orders/
+CleintId: 1.300000000000011.30000011
+CleintSecret: OvQ4nBTQDQPAwz4gpxNZ7JeDNLESMkI=
+Content-Type: application/json
+Accept: application/hal+json
+User-Agent: TSYS.Prime.EcomCheckoutSimulator.Web/1.0.5
+
+{   "RequestId": "4",   "Environment": {     "Merchant": {       "Id": "300000000000011"     },     "POI": {       "Id": "30000011",       "Language": "ru-RU"     },     "Card": {       "PAN": "6015840000000843",       "ExpiryDate": "2401",       "SecurityCode2": "725",       "Name": "John Doe",       "TAVV": null,       "IsCardOnFile": false     },     "Customer": {       "Name": "John Doe",       "Language": "en-US",       "Email": "john.doe@email.com",       "MobilePhone": {         "cc": "993",         "subscriber": "63432211"       }     },     "CustomerDevice": {       "Browser": {         "AcceptHeader": "*/*",         "IpAddress": "10.33.27.3",         "Language": "en-US",         "ScreenColorDepth": 48,         "ScreenHeight": 1200,         "ScreenWidth": 1900,         "UserAgentString": "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:40.0) Gecko/20100101 Firefox/40.3"       },       "MobileApp": null     }    },   "Transaction": {     "InvoiceNumber": "2",     "Type": "CRDP",     "TransactionText":"sowda",     "TotalAmount": 1.99,     "Currency": "934",     "MerchantOrderId": 11,     "AutoComplete": false   } }
+
+###
+
+POST https://ecomt.tfeb.gov.tm/v1/orders/
+CleintId: 1.300000000000011.30000011
+CleintSecret: OvQ4nBTQDQPAwz4gpxNZ7JeDNLESMkI=
+Content-Type: application/json
+Accept: application/hal+json
+User-Agent: TSYS.Prime.EcomCheckoutSimulator.Web/1.0.5
+
+{   "RequestId": "4b0bdd35-e12d-4612-ae88-ebd73b60781c",   "Environment": {     "Merchant": {       "Id": "300000000000011"     },     "POI": {       "Id": "30000011",       "Language": "ru-RU"     },     "CustomerDevice": {       "Browser": {         "AcceptHeader": "*/*",         "IpAddress": "10.33.27.3",         "JavaEnabled": false,         "Language": "ru-RU",         "ScreenColorDepth": 48,         "ScreenHeight": 1200,         "ScreenWidth": 1900,         "TimeZone": 120,         "UserAgentString": "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:40.0) Gecko/20100101 Firefox/40.3"       },       "MobileApp": null     },    },   "Transaction": {     "InvoiceNumber": "2",     "Type": "CRDP",     "TransactionText":"sowda",     "TotalAmount": 1.99,     "Currency": "934",     "MerchantOrderId": "11",     "AutoComplete": false,   } }
+
+###
+
+POST https://ecomt.tfeb.gov.tm/v1/orders/
+CleintId: 1.300000000000011.30000011
+CleintSecret: OvQ4nBTQDQPAwz4gpxNZ7JeDNLESMkI=
+Content-Type: application/json
+Accept: application/hal+json
+User-Agent: TSYS.Prime.EcomCheckoutSimulator.Web/1.0.5
+
+###
+
+POST https://ecomt.tfeb.gov.tm/v1/orders/
+CleintId: 1.300000000000011.30000011
+CleintSecret: OvQ4nBTQDQPAwz4gpxNZ7JeDNLESMkI=
+Content-Type: application/json
+Accept: application/hal+json
+
+###
+
+POST https://ecomt.tfeb.gov.tm/v1/orders/
+CleintId: "1.300000000000011.30000011"
+CleintSecret: "OvQ4nBTQDQPAwz4gpxNZ7JeDNLESMkI="
+
+###
+
+POST https://ecomt.tfeb.gov.tm/v1/orders/
+CleintId: '1.300000000000011.30000011'
+CleintSecret: 'OvQ4nBTQDQPAwz4gpxNZ7JeDNLESMkI='
+
+###
+
+POST https://ecomt.tfeb.gov.tm/v1/orders/
+CleintId: '1.300000000000011.30000011'
+CleintSecret: OvQ4nBTQDQPAwz4gpxNZ7JeDNLESMkI=
+
+###
+
+POST https://ecomt.tfeb.gov.tm/v1/orders/
+CleintId: 1.300000000000011.30000011
+CleintSecret: OvQ4nBTQDQPAwz4gpxNZ7JeDNLESMkI=
+
+###
+
+POST https://ecomt.tfeb.gov.tm/v1/orders/
+CleintId: 1.300000000000011.30000011
+CleintSecret: OvQ4nBTQDQPAwz4gpxNZ7JeDNLESMkI=
+
+###
+
+POST https://ecomt.tfeb.gov.tm/v1/orders/
+CleintId: 1.300000000000011.30000011
+CleintSecret: OvQ4nBTQDQPAwz4gpxNZ7JeDNLESMkI=
+
+###
+
+POST https://ecomt.tfeb.gov.tm/v1/orders/
+CleintId: 1.300000000000011.30000011
+CleintSecret: OvQ4nBTQDQPAwz4gpxNZ7JeDNLESMkI=
+
+###
+
+POST https://ecomt.tfeb.gov.tm/v1/orders/
+Accept: application/hal+json
+Cache-Control: no-cache
+Content-Type: application/json
+CleintId: 1.300000000000011.30000011
+CleintSecret: OvQ4nBTQDQPAwz4gpxNZ7JeDNLESMkI=
+
+###
+
+POST https://ecomt.tfeb.gov.tm/v1/orders/
+Accept: application/hal+json
+Cache-Control: no-cache
+Content-Type: application/json
+CleintId: 1.300000000000011.30000011
+CleintSecret: OvQ4nBTQDQPAwz4gpxNZ7JeDNLESMkI=
+
+###
+
+POST https://ecomt.tfeb.gov.tm/v1/orders/
+Accept: application/hal+json
+Cache-Control: no-cache
+Content-Type: application/json
+CleintId: 1.300000000000011.30000011
+CleintSecret: OvQ4nBTQDQPAwz4gpxNZ7JeDNLESMkI=
+
+###
+
+POST https://ecomt.tfeb.gov.tm/v1/orders/
+Accept: application/hal+json
+Cache-Control: no-cache
+Content-Type: application/json
+CleintId: 1.300000000000011.30000011
+CleintSecret: OvQ4nBTQDQPAwz4gpxNZ7JeDNLESMkI=
+
+###
+
+POST https://ecomt.tfeb.gov.tm/v1/orders/
+Accept: application/hal+json
+Cache-Control: no-cache
+Content-Type: application/json
+CleintId: 1.300000000000011.30000011
+CleintSecret: OvQ4nBTQDQPAwz4gpxNZ7JeDNLESMkI=
+
+###
+
+POST https://ecomt.tfeb.gov.tm/v1/orders/
+Accept: application/hal+json
+Cache-Control: no-cache
+Content-Type: application/json
+CleintId: 1.300000000000011.30000011
+CleintSecret: OvQ4nBTQDQPAwz4gpxNZ7JeDNLESMkI=
+
+###
+
+POST https://ecomt.tfeb.gov.tm/v1/orders/
+Accept: application/hal+json
+Cache-Control: no-cache
+Content-Type: application/json
+CleintId: 1.300000000000011.30000011
+CleintSecret: OvQ4nBTQDQPAwz4gpxNZ7JeDNLESMkI=
+
+{   "RequestId": "4b0bdd35-e12d-4612-ae88-ebd73b60781c",   "Environment": {     "Merchant": {       "Id": "300000000000011"     },     "POI": {       "Id": "30000011",       "Language": "ru-RU"     },     "CustomerDevice": {       "Browser": {         "AcceptHeader": "*/*",         "IpAddress": "10.33.27.3",         "JavaEnabled": false,         "Language": "ru-RU",         "ScreenColorDepth": 48,         "ScreenHeight": 1200,         "ScreenWidth": 1900,         "TimeZone": 120,         "UserAgentString": "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:40.0) Gecko/20100101 Firefox/40.3"       },       "MobileApp": null     },    },   "Transaction": {     "InvoiceNumber": "2",     "Type": "CRDP",     "TransactionText":"sowda",     "TotalAmount": 1.99,     "Currency": "934",     "MerchantOrderId": "11",     "AutoComplete": false,   } }
+
+###
+
+POST https://ecomt.tfeb.gov.tm/v1/orders/
+Accept: application/hal+json
+Cache-Control: no-cache
+Content-Type: application/json
+CleintId: 1.300000000000011.30000011
+CleintSecret: OvQ4nBTQDQPAwz4gpxNZ7JeDNLESMkI=
+
+{   "RequestId": "4b0bdd35-e12d-4612-ae88-ebd73b60781c",   "Environment": {     "Merchant": {       "Id": "300000000000011"     },     "POI": {       "Id": "30000011",       "Language": "ru-RU"     },     "CustomerDevice": {       "Browser": {         "AcceptHeader": "*/*",         "IpAddress": "10.33.27.3",         "JavaEnabled": false,         "Language": "ru-RU",         "ScreenColorDepth": 48,         "ScreenHeight": 1200,         "ScreenWidth": 1900,         "TimeZone": 120,         "UserAgentString": "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:40.0) Gecko/20100101 Firefox/40.3"       },       "MobileApp": null     },    },   "Transaction": {     "InvoiceNumber": "2",     "Type": "CRDP",     "TransactionText":"sowda",     "TotalAmount": 1.99,     "Currency": "934",     "MerchantOrderId": "11",     "AutoComplete": false,   } }
+
+###
+
+POST https://ecomt.tfeb.gov.tm/v1/orders/
+Accept: application/hal+json
+Cache-Control: no-cache
+Content-Type: application/json
+CleintId: 1.300000000000011.30000011
+CleintSecret: OvQ4nBTQDQPAwz4gpxNZ7JeDNLESMkI=
+
+{   "RequestId": "4b0bdd35-e12d-4612-ae88-ebd73b60781c",   "Environment": {     "Merchant": {       "Id": "300000000000011"     },     "POI": {       "Id": "30000011",       "Language": "ru-RU"     },     "CustomerDevice": {       "Browser": {         "AcceptHeader": "*/*",         "IpAddress": "10.33.27.3",         "JavaEnabled": false,         "Language": "ru-RU",         "ScreenColorDepth": 48,         "ScreenHeight": 1200,         "ScreenWidth": 1900,         "TimeZone": 120,         "UserAgentString": "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:40.0) Gecko/20100101 Firefox/40.3"       },       "MobileApp": null     },    },   "Transaction": {     "InvoiceNumber": "2",     "Type": "CRDP",     "TransactionText":"sowda",     "TotalAmount": 1.99,     "Currency": "934",     "MerchantOrderId": "11",     "AutoComplete": false,   } }
+
+###
+
+POST https://ecomt.tfeb.gov.tm/v1/orders/
+Accept: application/hal+json
+Cache-Control: no-cache
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6Ijg2MUU1QjJGMDYxMDY5MTMxMDdFN0FCRUZCNUMxMjY0ODE2NTkxRkMiLCJ0eXAiOiJKV1QiLCJ4NXQiOiJoaDViTHdZUWFSTVFmbnEtLTF3U1pJRmxrZncifQ.eyJuYmYiOjE2MzIzMDM3NjIsImV4cCI6MTYzMjMwNzM2MiwiaXNzIjoiaHR0cHM6Ly9wZ2FwcC9BcHAuSWRlbnRpdHlTZXJ2ZXIvIiwiYXVkIjpbImh0dHBzOi8vcGdhcHAvQXBwLklkZW50aXR5U2VydmVyL3Jlc291cmNlcyIsIlRTWVMuUHJpbWUuV2ViQXBwbGljYXRpb25zLk9yZGVyUHJvY2Vzc2luZyJdLCJjbGllbnRfaWQiOiIxLjMwMDAwMDAwMDAwMDAxMS4zMDAwMDAxMSIsInNjb3BlIjpbIlRTWVMuUHJpbWUuV2ViQXBwbGljYXRpb25zLk9yZGVyUHJvY2Vzc2luZyJdfQ.XsJKTf1ZfMdrhkUFETh3net8ccV2-a1UOrym1pJN156FdoLzS3jB4H3HELL72ltBfVKWu5CUsWkVrKRHbjmZt5f-j8YZnG8uVYEx9RtXUJV97IG5nkhS0-cctoUawTZDnKKp-7WPOASrBsYGXW3gY-5l8WejmM3CBhRYPjq5XBqNSyl0Ua5Z7MSWh9DNcBFlko53oq_FPTCY-0iY6zmIGaUzkANDV5tNI_-pOyudzix-g15rLQqriwnSan8qpYCA2ykxzJHHFDA5_c4OlBzaJH9pGtHug7s7LQaddPWcUzw_HS6q9QuKnUeAvCFbPz4Y3pibYNG2CFxNYltUaWKPsw
+
+{   "RequestId": "4b0bdd35-e12d-4612-ae88-ebd73b60781c",   "Environment": {     "Merchant": {       "Id": "300000000000011"     },     "POI": {       "Id": "30000011",       "Language": "ru-RU"     },     "CustomerDevice": {       "Browser": {         "AcceptHeader": "*/*",         "IpAddress": "10.33.27.3",         "JavaEnabled": false,         "Language": "ru-RU",         "ScreenColorDepth": 48,         "ScreenHeight": 1200,         "ScreenWidth": 1900,         "TimeZone": 120,         "UserAgentString": "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:40.0) Gecko/20100101 Firefox/40.3"       },       "MobileApp": null     },    },   "Transaction": {     "InvoiceNumber": "2",     "Type": "CRDP",     "TransactionText":"sowda",     "TotalAmount": 1.99,     "Currency": "934",     "MerchantOrderId": "11",     "AutoComplete": false,   } }
+
+###
+
+POST https://ecomt.tfeb.gov.tm/v1/orders/
+Accept: application/hal+json
+Cache-Control: no-cache
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6Ijg2MUU1QjJGMDYxMDY5MTMxMDdFN0FCRUZCNUMxMjY0ODE2NTkxRkMiLCJ0eXAiOiJKV1QiLCJ4NXQiOiJoaDViTHdZUWFSTVFmbnEtLTF3U1pJRmxrZncifQ.eyJuYmYiOjE2MzIzMDM3NjIsImV4cCI6MTYzMjMwNzM2MiwiaXNzIjoiaHR0cHM6Ly9wZ2FwcC9BcHAuSWRlbnRpdHlTZXJ2ZXIvIiwiYXVkIjpbImh0dHBzOi8vcGdhcHAvQXBwLklkZW50aXR5U2VydmVyL3Jlc291cmNlcyIsIlRTWVMuUHJpbWUuV2ViQXBwbGljYXRpb25zLk9yZGVyUHJvY2Vzc2luZyJdLCJjbGllbnRfaWQiOiIxLjMwMDAwMDAwMDAwMDAxMS4zMDAwMDAxMSIsInNjb3BlIjpbIlRTWVMuUHJpbWUuV2ViQXBwbGljYXRpb25zLk9yZGVyUHJvY2Vzc2luZyJdfQ.XsJKTf1ZfMdrhkUFETh3net8ccV2-a1UOrym1pJN156FdoLzS3jB4H3HELL72ltBfVKWu5CUsWkVrKRHbjmZt5f-j8YZnG8uVYEx9RtXUJV97IG5nkhS0-cctoUawTZDnKKp-7WPOASrBsYGXW3gY-5l8WejmM3CBhRYPjq5XBqNSyl0Ua5Z7MSWh9DNcBFlko53oq_FPTCY-0iY6zmIGaUzkANDV5tNI_-pOyudzix-g15rLQqriwnSan8qpYCA2ykxzJHHFDA5_c4OlBzaJH9pGtHug7s7LQaddPWcUzw_HS6q9QuKnUeAvCFbPz4Y3pibYNG2CFxNYltUaWKPsw
+
+{   "RequestId": "4",   "Environment": {     "Merchant": {       "Id": "300000000000011"     },     "POI": {       "Id": "30000011",       "Language": "ru-RU"     },     "Card": {       "PAN": "6015840000000843",       "ExpiryDate": "2401",       "SecurityCode2": "725",       "Name": "John Doe",       "TAVV": null,       "IsCardOnFile": false     },     "Customer": {       "Name": "John Doe",       "Language": "en-US",       "Email": "john.doe@email.com",       "MobilePhone": {         "cc": "993",         "subscriber": "63432211"       }     },     "CustomerDevice": {       "Browser": {         "AcceptHeader": "*/*",         "IpAddress": "10.33.27.3",         "Language": "en-US",         "ScreenColorDepth": 48,         "ScreenHeight": 1200,         "ScreenWidth": 1900,         "UserAgentString": "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:40.0) Gecko/20100101 Firefox/40.3"       },       "MobileApp": null     }    },   "Transaction": {     "InvoiceNumber": "2",     "Type": "CRDP",     "TransactionText":"sowda",     "TotalAmount": 1.99,     "Currency": "934",     "MerchantOrderId": 11,     "AutoComplete": false   } }
+
+<> 2021-09-22T031847.200.json
+
+###
+
+POST https://ecomt.tfeb.gov.tm/v1/orders/
+Accept: application/hal+json
+Cache-Control: no-cache
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6Ijg2MUU1QjJGMDYxMDY5MTMxMDdFN0FCRUZCNUMxMjY0ODE2NTkxRkMiLCJ0eXAiOiJKV1QiLCJ4NXQiOiJoaDViTHdZUWFSTVFmbnEtLTF3U1pJRmxrZncifQ.eyJuYmYiOjE2MzIzMDM3NjIsImV4cCI6MTYzMjMwNzM2MiwiaXNzIjoiaHR0cHM6Ly9wZ2FwcC9BcHAuSWRlbnRpdHlTZXJ2ZXIvIiwiYXVkIjpbImh0dHBzOi8vcGdhcHAvQXBwLklkZW50aXR5U2VydmVyL3Jlc291cmNlcyIsIlRTWVMuUHJpbWUuV2ViQXBwbGljYXRpb25zLk9yZGVyUHJvY2Vzc2luZyJdLCJjbGllbnRfaWQiOiIxLjMwMDAwMDAwMDAwMDAxMS4zMDAwMDAxMSIsInNjb3BlIjpbIlRTWVMuUHJpbWUuV2ViQXBwbGljYXRpb25zLk9yZGVyUHJvY2Vzc2luZyJdfQ.XsJKTf1ZfMdrhkUFETh3net8ccV2-a1UOrym1pJN156FdoLzS3jB4H3HELL72ltBfVKWu5CUsWkVrKRHbjmZt5f-j8YZnG8uVYEx9RtXUJV97IG5nkhS0-cctoUawTZDnKKp-7WPOASrBsYGXW3gY-5l8WejmM3CBhRYPjq5XBqNSyl0Ua5Z7MSWh9DNcBFlko53oq_FPTCY-0iY6zmIGaUzkANDV5tNI_-pOyudzix-g15rLQqriwnSan8qpYCA2ykxzJHHFDA5_c4OlBzaJH9pGtHug7s7LQaddPWcUzw_HS6q9QuKnUeAvCFbPz4Y3pibYNG2CFxNYltUaWKPsw
+
+{   "RequestId": "4",   "Environment": {     "Merchant": {       "Id": "300000000000011"     },     "POI": {       "Id": "30000011",       "Language": "ru-RU"     },     "Card": {       "PAN": "6015840000000843",       "ExpiryDate": "2409",       "SecurityCode2": "725",       "Name": "John Doe",       "TAVV": null,       "IsCardOnFile": false     },     "Customer": {       "Name": "John Doe",       "Language": "en-US",       "Email": "john.doe@email.com",       "MobilePhone": {         "cc": "993",         "subscriber": "63432211"       }     },     "CustomerDevice": {       "Browser": {         "AcceptHeader": "*/*",         "IpAddress": "10.33.27.3",         "Language": "en-US",         "ScreenColorDepth": 48,         "ScreenHeight": 1200,         "ScreenWidth": 1900,         "UserAgentString": "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:40.0) Gecko/20100101 Firefox/40.3"       },       "MobileApp": null     }    },   "Transaction": {     "InvoiceNumber": "2",     "Type": "CRDP",     "TransactionText":"sowda",     "TotalAmount": 1.99,     "Currency": "934",     "MerchantOrderId": 11,     "AutoComplete": false   } }
+
+<> 2021-09-22T031711.200.json
+
+###
+
+POST https://ecomt.tfeb.gov.tm/v1/orders/
+Accept: application/hal+json
+Cache-Control: no-cache
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6Ijg2MUU1QjJGMDYxMDY5MTMxMDdFN0FCRUZCNUMxMjY0ODE2NTkxRkMiLCJ0eXAiOiJKV1QiLCJ4NXQiOiJoaDViTHdZUWFSTVFmbnEtLTF3U1pJRmxrZncifQ.eyJuYmYiOjE2MzIzMDM3NjIsImV4cCI6MTYzMjMwNzM2MiwiaXNzIjoiaHR0cHM6Ly9wZ2FwcC9BcHAuSWRlbnRpdHlTZXJ2ZXIvIiwiYXVkIjpbImh0dHBzOi8vcGdhcHAvQXBwLklkZW50aXR5U2VydmVyL3Jlc291cmNlcyIsIlRTWVMuUHJpbWUuV2ViQXBwbGljYXRpb25zLk9yZGVyUHJvY2Vzc2luZyJdLCJjbGllbnRfaWQiOiIxLjMwMDAwMDAwMDAwMDAxMS4zMDAwMDAxMSIsInNjb3BlIjpbIlRTWVMuUHJpbWUuV2ViQXBwbGljYXRpb25zLk9yZGVyUHJvY2Vzc2luZyJdfQ.XsJKTf1ZfMdrhkUFETh3net8ccV2-a1UOrym1pJN156FdoLzS3jB4H3HELL72ltBfVKWu5CUsWkVrKRHbjmZt5f-j8YZnG8uVYEx9RtXUJV97IG5nkhS0-cctoUawTZDnKKp-7WPOASrBsYGXW3gY-5l8WejmM3CBhRYPjq5XBqNSyl0Ua5Z7MSWh9DNcBFlko53oq_FPTCY-0iY6zmIGaUzkANDV5tNI_-pOyudzix-g15rLQqriwnSan8qpYCA2ykxzJHHFDA5_c4OlBzaJH9pGtHug7s7LQaddPWcUzw_HS6q9QuKnUeAvCFbPz4Y3pibYNG2CFxNYltUaWKPsw
+
+{   "RequestId": "4",   "Environment": {     "Merchant": {       "Id": "300000000000011"     },     "POI": {       "Id": "30000011",       "Language": "ru-RU"     },     "Card": {       "PAN": "6015840000000843",       "ExpiryDate": "2401",       "SecurityCode2": "725",       "Name": "John Doe",       "TAVV": null,       "IsCardOnFile": false     },     "Customer": {       "Name": "John Doe",       "Language": "en-US",       "Email": "john.doe@email.com",       "MobilePhone": {         "cc": "993",         "subscriber": "63432211"       }     },     "CustomerDevice": {       "Browser": {         "AcceptHeader": "*/*",         "IpAddress": "10.33.27.3",         "Language": "en-US",         "ScreenColorDepth": 48,         "ScreenHeight": 1200,         "ScreenWidth": 1900,         "UserAgentString": "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:40.0) Gecko/20100101 Firefox/40.3"       },       "MobileApp": null     }    },   "Transaction": {     "InvoiceNumber": "2",     "Type": "CRDP",     "TransactionText":"sowda",     "TotalAmount": 1.99,     "Currency": "934",     "MerchantOrderId": 11,     "AutoComplete": false   } }
+
+<> 2021-09-22T031424.200.json
+
+###
+
+POST https://ecomt.tfeb.gov.tm/v1/orders/
+Accept: application/hal+json
+Cache-Control: no-cache
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6Ijg2MUU1QjJGMDYxMDY5MTMxMDdFN0FCRUZCNUMxMjY0ODE2NTkxRkMiLCJ0eXAiOiJKV1QiLCJ4NXQiOiJoaDViTHdZUWFSTVFmbnEtLTF3U1pJRmxrZncifQ.eyJuYmYiOjE2MzIzMDM3NjIsImV4cCI6MTYzMjMwNzM2MiwiaXNzIjoiaHR0cHM6Ly9wZ2FwcC9BcHAuSWRlbnRpdHlTZXJ2ZXIvIiwiYXVkIjpbImh0dHBzOi8vcGdhcHAvQXBwLklkZW50aXR5U2VydmVyL3Jlc291cmNlcyIsIlRTWVMuUHJpbWUuV2ViQXBwbGljYXRpb25zLk9yZGVyUHJvY2Vzc2luZyJdLCJjbGllbnRfaWQiOiIxLjMwMDAwMDAwMDAwMDAxMS4zMDAwMDAxMSIsInNjb3BlIjpbIlRTWVMuUHJpbWUuV2ViQXBwbGljYXRpb25zLk9yZGVyUHJvY2Vzc2luZyJdfQ.XsJKTf1ZfMdrhkUFETh3net8ccV2-a1UOrym1pJN156FdoLzS3jB4H3HELL72ltBfVKWu5CUsWkVrKRHbjmZt5f-j8YZnG8uVYEx9RtXUJV97IG5nkhS0-cctoUawTZDnKKp-7WPOASrBsYGXW3gY-5l8WejmM3CBhRYPjq5XBqNSyl0Ua5Z7MSWh9DNcBFlko53oq_FPTCY-0iY6zmIGaUzkANDV5tNI_-pOyudzix-g15rLQqriwnSan8qpYCA2ykxzJHHFDA5_c4OlBzaJH9pGtHug7s7LQaddPWcUzw_HS6q9QuKnUeAvCFbPz4Y3pibYNG2CFxNYltUaWKPsw
+
+{   "RequestId": "4b0bdd35-e12d-4612-ae88-ebd73b60781c",   "Environment": {     "Merchant": {       "Id": "300000000000011"     },     "POI": {       "Id": "30000011",       "Language": "ru-RU"     },     "Card": {       "PAN": "6015840000000843",       "ExpiryDate": "2401",       "SecurityCode2": "725",       "Name": "John Doe",       "TAVV": null,       "IsCardOnFile": false     },     "Customer": {       "Name": "John Doe",       "Language": "en-US",       "Email": "john.doe@email.com",       "MobilePhone": {         "cc": "993",         "subscriber": "63432211"       }     },     "CustomerDevice": {       "Browser": {         "AcceptHeader": "*/*",         "IpAddress": "10.33.27.3",         "Language": "en-US",         "ScreenColorDepth": 48,         "ScreenHeight": 1200,         "ScreenWidth": 1900,         "UserAgentString": "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:40.0) Gecko/20100101 Firefox/40.3"       },       "MobileApp": null     }    },   "Transaction": {     "InvoiceNumber": "2",     "Type": "CRDP",     "TransactionText":"sowda",     "TotalAmount": 1.99,     "Currency": "934",     "MerchantOrderId": 11,     "AutoComplete": false   } }
+
+<> 2021-09-22T031030.200.json
+
+###
+
+POST https://ecomt.tfeb.gov.tm/v1/orders/
+Accept: application/hal+json
+Cache-Control: no-cache
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6Ijg2MUU1QjJGMDYxMDY5MTMxMDdFN0FCRUZCNUMxMjY0ODE2NTkxRkMiLCJ0eXAiOiJKV1QiLCJ4NXQiOiJoaDViTHdZUWFSTVFmbnEtLTF3U1pJRmxrZncifQ.eyJuYmYiOjE2MzIzMDM3NjIsImV4cCI6MTYzMjMwNzM2MiwiaXNzIjoiaHR0cHM6Ly9wZ2FwcC9BcHAuSWRlbnRpdHlTZXJ2ZXIvIiwiYXVkIjpbImh0dHBzOi8vcGdhcHAvQXBwLklkZW50aXR5U2VydmVyL3Jlc291cmNlcyIsIlRTWVMuUHJpbWUuV2ViQXBwbGljYXRpb25zLk9yZGVyUHJvY2Vzc2luZyJdLCJjbGllbnRfaWQiOiIxLjMwMDAwMDAwMDAwMDAxMS4zMDAwMDAxMSIsInNjb3BlIjpbIlRTWVMuUHJpbWUuV2ViQXBwbGljYXRpb25zLk9yZGVyUHJvY2Vzc2luZyJdfQ.XsJKTf1ZfMdrhkUFETh3net8ccV2-a1UOrym1pJN156FdoLzS3jB4H3HELL72ltBfVKWu5CUsWkVrKRHbjmZt5f-j8YZnG8uVYEx9RtXUJV97IG5nkhS0-cctoUawTZDnKKp-7WPOASrBsYGXW3gY-5l8WejmM3CBhRYPjq5XBqNSyl0Ua5Z7MSWh9DNcBFlko53oq_FPTCY-0iY6zmIGaUzkANDV5tNI_-pOyudzix-g15rLQqriwnSan8qpYCA2ykxzJHHFDA5_c4OlBzaJH9pGtHug7s7LQaddPWcUzw_HS6q9QuKnUeAvCFbPz4Y3pibYNG2CFxNYltUaWKPsw
+
+{   "RequestId": "4b0bdd35-e12d-4612-ae88-ebd73b60781c",   "Environment": {     "Merchant": {       "Id": "300000000000011"     },     "POI": {       "Id": "30000011",       "Language": "ru-RU"     },     "Card": {       "PAN": "6015840000000843",       "ExpiryDate": "2401",       "SecurityCode2": "725",       "Name": "John Doe",       "TAVV": null,       "IsCardOnFile": false     },     "Customer": {       "Name": "John Doe",       "Language": "en-US",       "Email": "john.doe@email.com",       "MobilePhone": {         "cc": "993",         "subscriber": "63432211"       }     },     "CustomerDevice": {       "Browser": {         "IpAddress": "10.33.27.3",         "UserAgentString": "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:40.0) Gecko/20100101 Firefox/40.3"       },       "MobileApp": null     }    },   "Transaction": {     "InvoiceNumber": "2",     "Type": "CRDP",     "TransactionText":"sowda",     "TotalAmount": 1.99,     "Currency": "934",     "MerchantOrderId": 11,     "AutoComplete": false   } }
+
+<> 2021-09-22T030837.200.json
+
+###
+
+POST https://ecomt.tfeb.gov.tm/v1/orders/
+Accept: application/hal+json
+Cache-Control: no-cache
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6Ijg2MUU1QjJGMDYxMDY5MTMxMDdFN0FCRUZCNUMxMjY0ODE2NTkxRkMiLCJ0eXAiOiJKV1QiLCJ4NXQiOiJoaDViTHdZUWFSTVFmbnEtLTF3U1pJRmxrZncifQ.eyJuYmYiOjE2MzIzMDM3NjIsImV4cCI6MTYzMjMwNzM2MiwiaXNzIjoiaHR0cHM6Ly9wZ2FwcC9BcHAuSWRlbnRpdHlTZXJ2ZXIvIiwiYXVkIjpbImh0dHBzOi8vcGdhcHAvQXBwLklkZW50aXR5U2VydmVyL3Jlc291cmNlcyIsIlRTWVMuUHJpbWUuV2ViQXBwbGljYXRpb25zLk9yZGVyUHJvY2Vzc2luZyJdLCJjbGllbnRfaWQiOiIxLjMwMDAwMDAwMDAwMDAxMS4zMDAwMDAxMSIsInNjb3BlIjpbIlRTWVMuUHJpbWUuV2ViQXBwbGljYXRpb25zLk9yZGVyUHJvY2Vzc2luZyJdfQ.XsJKTf1ZfMdrhkUFETh3net8ccV2-a1UOrym1pJN156FdoLzS3jB4H3HELL72ltBfVKWu5CUsWkVrKRHbjmZt5f-j8YZnG8uVYEx9RtXUJV97IG5nkhS0-cctoUawTZDnKKp-7WPOASrBsYGXW3gY-5l8WejmM3CBhRYPjq5XBqNSyl0Ua5Z7MSWh9DNcBFlko53oq_FPTCY-0iY6zmIGaUzkANDV5tNI_-pOyudzix-g15rLQqriwnSan8qpYCA2ykxzJHHFDA5_c4OlBzaJH9pGtHug7s7LQaddPWcUzw_HS6q9QuKnUeAvCFbPz4Y3pibYNG2CFxNYltUaWKPsw
+
+{   "RequestId": "4b0bdd35-e12d-4612-ae88-ebd73b60781c",   "Environment": {     "Merchant": {       "Id": "300000000000011"     },     "POI": {       "Id": "30000011",       "Language": "ru-RU"     },     "Card": {       "PAN": "6015840000000843",       "ExpiryDate": "2401",       "SecurityCode2": "725",       "Name": "John Doe",       "TAVV": null,       "IsCardOnFile": false     },     "Customer": {       "Name": "John Doe",       "Language": "en-US",       "Email": "john.doe@email.com",       "MobilePhone": {         "cc": "993",         "subscriber": "63432211"       }     },     "CustomerDevice": {       "Browser": {         "AcceptHeader": "*/*",         "IpAddress": "10.33.27.3",         "JavaEnabled": false,         "Language": "en-US",         "ScreenColorDepth": 48,         "ScreenHeight": 1200,         "ScreenWidth": 1900,         "TimeZone": 120,         "UserAgentString": "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:40.0) Gecko/20100101 Firefox/40.3"       },       "MobileApp": null     }    },   "Transaction": {     "InvoiceNumber": "2",     "Type": "CRDP",     "TransactionText":"sowda",     "TotalAmount": 1.99,     "Currency": "934",     "MerchantOrderId": 11,     "AutoComplete": false   } }
+
+<> 2021-09-22T030633.200.json
+
+###
+
+POST https://ecomt.tfeb.gov.tm/v1/orders/
+Accept: application/hal+json
+Cache-Control: no-cache
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6Ijg2MUU1QjJGMDYxMDY5MTMxMDdFN0FCRUZCNUMxMjY0ODE2NTkxRkMiLCJ0eXAiOiJKV1QiLCJ4NXQiOiJoaDViTHdZUWFSTVFmbnEtLTF3U1pJRmxrZncifQ.eyJuYmYiOjE2MzIzMDM3NjIsImV4cCI6MTYzMjMwNzM2MiwiaXNzIjoiaHR0cHM6Ly9wZ2FwcC9BcHAuSWRlbnRpdHlTZXJ2ZXIvIiwiYXVkIjpbImh0dHBzOi8vcGdhcHAvQXBwLklkZW50aXR5U2VydmVyL3Jlc291cmNlcyIsIlRTWVMuUHJpbWUuV2ViQXBwbGljYXRpb25zLk9yZGVyUHJvY2Vzc2luZyJdLCJjbGllbnRfaWQiOiIxLjMwMDAwMDAwMDAwMDAxMS4zMDAwMDAxMSIsInNjb3BlIjpbIlRTWVMuUHJpbWUuV2ViQXBwbGljYXRpb25zLk9yZGVyUHJvY2Vzc2luZyJdfQ.XsJKTf1ZfMdrhkUFETh3net8ccV2-a1UOrym1pJN156FdoLzS3jB4H3HELL72ltBfVKWu5CUsWkVrKRHbjmZt5f-j8YZnG8uVYEx9RtXUJV97IG5nkhS0-cctoUawTZDnKKp-7WPOASrBsYGXW3gY-5l8WejmM3CBhRYPjq5XBqNSyl0Ua5Z7MSWh9DNcBFlko53oq_FPTCY-0iY6zmIGaUzkANDV5tNI_-pOyudzix-g15rLQqriwnSan8qpYCA2ykxzJHHFDA5_c4OlBzaJH9pGtHug7s7LQaddPWcUzw_HS6q9QuKnUeAvCFbPz4Y3pibYNG2CFxNYltUaWKPsw
+
+{   "RequestId": "4b0bdd35-e12d-4612-ae88-ebd73b60781c",   "Environment": {     "Merchant": {       "Id": "300000000000011"     },     "POI": {       "Id": "30000011",       "Language": "ru-RU"     },     "Card": {       "PAN": "6015840000000843",       "ExpiryDate": "2401",       "SecurityCode2": "725",       "Name": "John Doe",       "TAVV": null,       "IsCardOnFile": false     },     "Customer": {       "Name": "John Doe",       "Language": "en-US",       "Email": "john.doe@email.com",       "MobilePhone": {         "cc": "993",         "subscriber": "63432211"       },     },     "CustomerDevice": {       "Browser": {         "AcceptHeader": "*/*",         "IpAddress": "10.33.27.3",         "JavaEnabled": false,         "Language": "en-US",         "ScreenColorDepth": 48,         "ScreenHeight": 1200,         "ScreenWidth": 1900,         "TimeZone": 120,         "UserAgentString": "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:40.0) Gecko/20100101 Firefox/40.3"       },       "MobileApp": null     }    },   "Transaction": {     "InvoiceNumber": "2",     "Type": "CRDP",     "TransactionText":"sowda",     "TotalAmount": 1.99,     "Currency": "934",     "MerchantOrderId": "87bddd1a-317e-46dc-b0b8-ff9b83257e5a",     "AutoComplete": false   } }
+
+<> 2021-09-22T030442.200.json
+
+###
+
+POST https://ecomt.tfeb.gov.tm/v1/orders/
+Accept: application/hal+json
+Cache-Control: no-cache
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6Ijg2MUU1QjJGMDYxMDY5MTMxMDdFN0FCRUZCNUMxMjY0ODE2NTkxRkMiLCJ0eXAiOiJKV1QiLCJ4NXQiOiJoaDViTHdZUWFSTVFmbnEtLTF3U1pJRmxrZncifQ.eyJuYmYiOjE2MzIzMDM3NjIsImV4cCI6MTYzMjMwNzM2MiwiaXNzIjoiaHR0cHM6Ly9wZ2FwcC9BcHAuSWRlbnRpdHlTZXJ2ZXIvIiwiYXVkIjpbImh0dHBzOi8vcGdhcHAvQXBwLklkZW50aXR5U2VydmVyL3Jlc291cmNlcyIsIlRTWVMuUHJpbWUuV2ViQXBwbGljYXRpb25zLk9yZGVyUHJvY2Vzc2luZyJdLCJjbGllbnRfaWQiOiIxLjMwMDAwMDAwMDAwMDAxMS4zMDAwMDAxMSIsInNjb3BlIjpbIlRTWVMuUHJpbWUuV2ViQXBwbGljYXRpb25zLk9yZGVyUHJvY2Vzc2luZyJdfQ.XsJKTf1ZfMdrhkUFETh3net8ccV2-a1UOrym1pJN156FdoLzS3jB4H3HELL72ltBfVKWu5CUsWkVrKRHbjmZt5f-j8YZnG8uVYEx9RtXUJV97IG5nkhS0-cctoUawTZDnKKp-7WPOASrBsYGXW3gY-5l8WejmM3CBhRYPjq5XBqNSyl0Ua5Z7MSWh9DNcBFlko53oq_FPTCY-0iY6zmIGaUzkANDV5tNI_-pOyudzix-g15rLQqriwnSan8qpYCA2ykxzJHHFDA5_c4OlBzaJH9pGtHug7s7LQaddPWcUzw_HS6q9QuKnUeAvCFbPz4Y3pibYNG2CFxNYltUaWKPsw
+
+{   "RequestId": "4b0bdd35-e12d-4612-ae88-ebd73b60781c",   "Environment": {     "Merchant": {       "Id": "300000000000011"     },     "POI": {       "Id": "30000011",       "Language": "ru-RU"     },     "Card": {       "PAN": "6015840000000843",       "ExpiryDate": "2401",       "SecurityCode2": "725",       "Name": "John Doe",       "TAVV": null,       "IsCardOnFile": false     },      "CustomerDevice": {       "Browser": {         "AcceptHeader": "*/*",         "IpAddress": "10.33.27.3",         "JavaEnabled": false,         "Language": "en-US",         "ScreenColorDepth": 48,         "ScreenHeight": 1200,         "ScreenWidth": 1900,         "TimeZone": 120,         "UserAgentString": "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:40.0) Gecko/20100101 Firefox/40.3"       },       "MobileApp": null     },    },   "Transaction": {     "InvoiceNumber": "2",     "Type": "CRDP",     "TransactionText":"sowda",     "TotalAmount": 1.99,     "Currency": "934",     "MerchantOrderId": "87bddd1a-317e-46dc-b0b8-ff9b83257e5a",     "AutoComplete": false,   } }
+
+<> 2021-09-22T030328.200.json
+
+###
+
+POST https://ecomt.tfeb.gov.tm/v1/orders/
+Accept: application/hal+json
+Cache-Control: no-cache
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6Ijg2MUU1QjJGMDYxMDY5MTMxMDdFN0FCRUZCNUMxMjY0ODE2NTkxRkMiLCJ0eXAiOiJKV1QiLCJ4NXQiOiJoaDViTHdZUWFSTVFmbnEtLTF3U1pJRmxrZncifQ.eyJuYmYiOjE2MzIzMDM3NjIsImV4cCI6MTYzMjMwNzM2MiwiaXNzIjoiaHR0cHM6Ly9wZ2FwcC9BcHAuSWRlbnRpdHlTZXJ2ZXIvIiwiYXVkIjpbImh0dHBzOi8vcGdhcHAvQXBwLklkZW50aXR5U2VydmVyL3Jlc291cmNlcyIsIlRTWVMuUHJpbWUuV2ViQXBwbGljYXRpb25zLk9yZGVyUHJvY2Vzc2luZyJdLCJjbGllbnRfaWQiOiIxLjMwMDAwMDAwMDAwMDAxMS4zMDAwMDAxMSIsInNjb3BlIjpbIlRTWVMuUHJpbWUuV2ViQXBwbGljYXRpb25zLk9yZGVyUHJvY2Vzc2luZyJdfQ.XsJKTf1ZfMdrhkUFETh3net8ccV2-a1UOrym1pJN156FdoLzS3jB4H3HELL72ltBfVKWu5CUsWkVrKRHbjmZt5f-j8YZnG8uVYEx9RtXUJV97IG5nkhS0-cctoUawTZDnKKp-7WPOASrBsYGXW3gY-5l8WejmM3CBhRYPjq5XBqNSyl0Ua5Z7MSWh9DNcBFlko53oq_FPTCY-0iY6zmIGaUzkANDV5tNI_-pOyudzix-g15rLQqriwnSan8qpYCA2ykxzJHHFDA5_c4OlBzaJH9pGtHug7s7LQaddPWcUzw_HS6q9QuKnUeAvCFbPz4Y3pibYNG2CFxNYltUaWKPsw
+
+{   "RequestId": "4b0bdd35-e12d-4612-ae88-ebd73b60781c",   "Environment": {     "Merchant": {       "Id": "300000000000011"     },     "POI": {       "Id": "30000011",       "Language": "ru-RU"     },     "Card": {       "PAN": "6015840000000843",       "ExpiryDate": "2401",       "SecurityCode2": "725",       "Name": "John Doe",       "TAVV": null,       "IsCardOnFile": false     },     "CardRecipient": null,     "Customer": {       "Name": "John Doe",       "Language": "en-US",       "Email": "john.doe@email.com",       "HomePhone": {         "cc": "993",         "subscriber": "63432211"       },       "MobilePhone": {         "cc": "993",         "subscriber": "63432211"       },       "WorkPhone": null     },     "CustomerDevice": {       "Browser": {         "AcceptHeader": "*/*",         "IpAddress": "10.33.27.3",         "JavaEnabled": false,         "Language": "en-US",         "ScreenColorDepth": 48,         "ScreenHeight": 1200,         "ScreenWidth": 1900,         "TimeZone": 120,         "UserAgentString": "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:40.0) Gecko/20100101 Firefox/40.3"       },       "MobileApp": null     },    },   "Transaction": {     "InvoiceNumber": "2",     "Type": "CRDP",     "TransactionText":"sowda",     "TotalAmount": 1.99,     "Currency": "934",     "MerchantOrderId": "87bddd1a-317e-46dc-b0b8-ff9b83257e5a",     "AutoComplete": false,   } }
+
+<> 2021-09-22T030208.200.json
+
+###
+
+POST https://ecomt.tfeb.gov.tm/v1/orders/
+Accept: application/hal+json
+Cache-Control: no-cache
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6Ijg2MUU1QjJGMDYxMDY5MTMxMDdFN0FCRUZCNUMxMjY0ODE2NTkxRkMiLCJ0eXAiOiJKV1QiLCJ4NXQiOiJoaDViTHdZUWFSTVFmbnEtLTF3U1pJRmxrZncifQ.eyJuYmYiOjE2MzIzMDM3NjIsImV4cCI6MTYzMjMwNzM2MiwiaXNzIjoiaHR0cHM6Ly9wZ2FwcC9BcHAuSWRlbnRpdHlTZXJ2ZXIvIiwiYXVkIjpbImh0dHBzOi8vcGdhcHAvQXBwLklkZW50aXR5U2VydmVyL3Jlc291cmNlcyIsIlRTWVMuUHJpbWUuV2ViQXBwbGljYXRpb25zLk9yZGVyUHJvY2Vzc2luZyJdLCJjbGllbnRfaWQiOiIxLjMwMDAwMDAwMDAwMDAxMS4zMDAwMDAxMSIsInNjb3BlIjpbIlRTWVMuUHJpbWUuV2ViQXBwbGljYXRpb25zLk9yZGVyUHJvY2Vzc2luZyJdfQ.XsJKTf1ZfMdrhkUFETh3net8ccV2-a1UOrym1pJN156FdoLzS3jB4H3HELL72ltBfVKWu5CUsWkVrKRHbjmZt5f-j8YZnG8uVYEx9RtXUJV97IG5nkhS0-cctoUawTZDnKKp-7WPOASrBsYGXW3gY-5l8WejmM3CBhRYPjq5XBqNSyl0Ua5Z7MSWh9DNcBFlko53oq_FPTCY-0iY6zmIGaUzkANDV5tNI_-pOyudzix-g15rLQqriwnSan8qpYCA2ykxzJHHFDA5_c4OlBzaJH9pGtHug7s7LQaddPWcUzw_HS6q9QuKnUeAvCFbPz4Y3pibYNG2CFxNYltUaWKPsw
+
+{   "RequestId": "4b0bdd35-e12d-4612-ae88-ebd73b60781c",   "Environment": {     "Merchant": {       "Id": "300000000000011"     },     "POI": {       "Id": "30000011",       "Language": "ru-RU"     },     "Card": {       "PAN": "6015840000000843",       "ExpiryDate": "2401",       "SecurityCode2": "725",       "Name": "John Doe",       "TAVV": null,       "IsCardOnFile": false     },     "CardRecipient": null,     "Customer": {       "Name": "John Doe",       "Language": "en-US",       "Email": "john.doe@email.com",       "HomePhone": {         "cc": "993",         "subscriber": "63432211"       },       "MobilePhone": {         "cc": "993",         "subscriber": "63432211"       },       "WorkPhone": null     },     "CustomerDevice": {       "Browser": {         "AcceptHeader": "*/*",         "IpAddress": "10.33.27.3",         "JavaEnabled": false,         "Language": "en-US",         "ScreenColorDepth": 48,         "ScreenHeight": 1200,         "ScreenWidth": 1900,         "TimeZone": 120,         "UserAgentString": "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:40.0) Gecko/20100101 Firefox/40.3"       },       "MobileApp": null     },     "Transport": {       "MerchantFinalResponseUrl": "http://localhost:8000/Order/FinalResponse/87bddd1a-317e-46dc-b0b8-ff9b83257e5a",       "ChallengeResponseUrl": "http://localhost:8000/Order/NotificationUrl/87bddd1a-317e-46dc-b0b8-ff9b83257e5a",       "ChallengeWindowSize": 3,       "ChallengeResponseData": null,       "ThreeDSMethodNotificationUrl": "http://localhost:8000/Order/ThreeDSecureNotificationUrl/87bddd1a-317e-46dc-b0b8-ff9b83257e5a",       "MethodCompletion": false,       "Consent": false,       "EndpointHostAddress": "/orders/87bddd1a-317e-46dc-b0b8-ff9b83257e5a"     }   },   "Transaction": {     "InvoiceNumber": "2",     "Type": "CRDP",     "TransactionText":"sowda",     "TotalAmount": 1.99,     "Currency": "934",     "MerchantOrderId": "87bddd1a-317e-46dc-b0b8-ff9b83257e5a",     "AutoComplete": false,   } }
+
+<> 2021-09-22T030101.200.json
+
+###
+
+POST https://ecomt.tfeb.gov.tm/v1/orders/
+Accept: application/hal+json
+Cache-Control: no-cache
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6Ijg2MUU1QjJGMDYxMDY5MTMxMDdFN0FCRUZCNUMxMjY0ODE2NTkxRkMiLCJ0eXAiOiJKV1QiLCJ4NXQiOiJoaDViTHdZUWFSTVFmbnEtLTF3U1pJRmxrZncifQ.eyJuYmYiOjE2MzIzMDM3NjIsImV4cCI6MTYzMjMwNzM2MiwiaXNzIjoiaHR0cHM6Ly9wZ2FwcC9BcHAuSWRlbnRpdHlTZXJ2ZXIvIiwiYXVkIjpbImh0dHBzOi8vcGdhcHAvQXBwLklkZW50aXR5U2VydmVyL3Jlc291cmNlcyIsIlRTWVMuUHJpbWUuV2ViQXBwbGljYXRpb25zLk9yZGVyUHJvY2Vzc2luZyJdLCJjbGllbnRfaWQiOiIxLjMwMDAwMDAwMDAwMDAxMS4zMDAwMDAxMSIsInNjb3BlIjpbIlRTWVMuUHJpbWUuV2ViQXBwbGljYXRpb25zLk9yZGVyUHJvY2Vzc2luZyJdfQ.XsJKTf1ZfMdrhkUFETh3net8ccV2-a1UOrym1pJN156FdoLzS3jB4H3HELL72ltBfVKWu5CUsWkVrKRHbjmZt5f-j8YZnG8uVYEx9RtXUJV97IG5nkhS0-cctoUawTZDnKKp-7WPOASrBsYGXW3gY-5l8WejmM3CBhRYPjq5XBqNSyl0Ua5Z7MSWh9DNcBFlko53oq_FPTCY-0iY6zmIGaUzkANDV5tNI_-pOyudzix-g15rLQqriwnSan8qpYCA2ykxzJHHFDA5_c4OlBzaJH9pGtHug7s7LQaddPWcUzw_HS6q9QuKnUeAvCFbPz4Y3pibYNG2CFxNYltUaWKPsw
+
+{   "RequestId": "4b0bdd35-e12d-4612-ae88-ebd73b60781c",   "Environment": {     "Merchant": {       "Id": "300000000000011"     },     "POI": {       "Id": "30000011",       "Language": "ru-RU"     },     "Card": {       "PAN": "6015840000000843",       "ExpiryDate": "2401",       "SecurityCode2": "725",       "Name": "John Doe",       "TAVV": null,       "IsCardOnFile": false     },     "CardRecipient": null,     "Customer": {       "Name": "John Doe",       "Language": "en-US",       "Email": "john.doe@email.com",       "HomePhone": {         "cc": "993",         "subscriber": "63432211"       },       "MobilePhone": {         "cc": "993",         "subscriber": "63432211"       },       "WorkPhone": null     },      "BillingAddress": {       "SameAsShipping": true,       "Line1": "Annex 4",       "Line2": "1st floor",       "PostCode": "2020",       "City": "01",       "CountrySubdivision": "01",       "Country": "196"     },     "ShippingAddress": {       "SameAsShipping": false,       "Line1": "Annex 4",       "Line2": "1st floor",       "PostCode": "2020",       "City": "01",       "CountrySubdivision": "01",       "Country": "196"     },     "Transport": {       "MerchantFinalResponseUrl": "http://localhost:8000/Order/FinalResponse/87bddd1a-317e-46dc-b0b8-ff9b83257e5a",       "ChallengeResponseUrl": "http://localhost:8000/Order/NotificationUrl/87bddd1a-317e-46dc-b0b8-ff9b83257e5a",       "ChallengeWindowSize": 3,       "ChallengeResponseData": null,       "ThreeDSMethodNotificationUrl": "http://localhost:8000/Order/ThreeDSecureNotificationUrl/87bddd1a-317e-46dc-b0b8-ff9b83257e5a",       "MethodCompletion": false,       "Consent": false,       "EndpointHostAddress": "/orders/87bddd1a-317e-46dc-b0b8-ff9b83257e5a"     }   },   "Transaction": {     "InvoiceNumber": "2",     "Type": "CRDP",     "TransactionText":"sowda",     "TotalAmount": 1.99,     "Currency": "934",     "MerchantOrderId": "87bddd1a-317e-46dc-b0b8-ff9b83257e5a",     "AutoComplete": false,   } }
+
+<> 2021-09-22T025945.200.json
+
+###
+
+POST https://ecomt.tfeb.gov.tm/v1/orders/
+Accept: application/hal+json
+Cache-Control: no-cache
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6Ijg2MUU1QjJGMDYxMDY5MTMxMDdFN0FCRUZCNUMxMjY0ODE2NTkxRkMiLCJ0eXAiOiJKV1QiLCJ4NXQiOiJoaDViTHdZUWFSTVFmbnEtLTF3U1pJRmxrZncifQ.eyJuYmYiOjE2MzIzMDM3NjIsImV4cCI6MTYzMjMwNzM2MiwiaXNzIjoiaHR0cHM6Ly9wZ2FwcC9BcHAuSWRlbnRpdHlTZXJ2ZXIvIiwiYXVkIjpbImh0dHBzOi8vcGdhcHAvQXBwLklkZW50aXR5U2VydmVyL3Jlc291cmNlcyIsIlRTWVMuUHJpbWUuV2ViQXBwbGljYXRpb25zLk9yZGVyUHJvY2Vzc2luZyJdLCJjbGllbnRfaWQiOiIxLjMwMDAwMDAwMDAwMDAxMS4zMDAwMDAxMSIsInNjb3BlIjpbIlRTWVMuUHJpbWUuV2ViQXBwbGljYXRpb25zLk9yZGVyUHJvY2Vzc2luZyJdfQ.XsJKTf1ZfMdrhkUFETh3net8ccV2-a1UOrym1pJN156FdoLzS3jB4H3HELL72ltBfVKWu5CUsWkVrKRHbjmZt5f-j8YZnG8uVYEx9RtXUJV97IG5nkhS0-cctoUawTZDnKKp-7WPOASrBsYGXW3gY-5l8WejmM3CBhRYPjq5XBqNSyl0Ua5Z7MSWh9DNcBFlko53oq_FPTCY-0iY6zmIGaUzkANDV5tNI_-pOyudzix-g15rLQqriwnSan8qpYCA2ykxzJHHFDA5_c4OlBzaJH9pGtHug7s7LQaddPWcUzw_HS6q9QuKnUeAvCFbPz4Y3pibYNG2CFxNYltUaWKPsw
+
+{   "RequestId": "4b0bdd35-e12d-4612-ae88-ebd73b60781c",   "Environment": {     "Merchant": {       "Id": "300000000000011"     },     "POI": {       "Id": "30000011",       "Language": "ru-RU"     },     "Card": {       "PAN": "6015840000000843",       "ExpiryDate": "2401",       "SecurityCode2": "725",       "Name": "John Doe",       "TAVV": null,       "IsCardOnFile": false     },      "SameAsShipping": false,     "Line1": "Annex 4",     "Line2": "1st floor",     "PostCode": "2020",     "City": "01",     "CountrySubdivision": "01",     "Country": "196"   },   "Transport": {     "MerchantFinalResponseUrl": "http://localhost:8000/Order/FinalResponse/87bddd1a-317e-46dc-b0b8-ff9b83257e5a",     "ChallengeResponseUrl": "http://localhost:8000/Order/NotificationUrl/87bddd1a-317e-46dc-b0b8-ff9b83257e5a",     "ChallengeWindowSize": 3,     "ChallengeResponseData": null,     "ThreeDSMethodNotificationUrl": "http://localhost:8000/Order/ThreeDSecureNotificationUrl/87bddd1a-317e-46dc-b0b8-ff9b83257e5a",     "MethodCompletion": false,     "Consent": false,     "EndpointHostAddress": "/orders/87bddd1a-317e-46dc-b0b8-ff9b83257e5a"   } }, "Transaction": { "InvoiceNumber": "2", "Type": "CRDP", "TransactionText":"sowda", "TotalAmount": 1.99, "Currency": "934", "MerchantOrderId": "87bddd1a-317e-46dc-b0b8-ff9b83257e5a", "AutoComplete": false, } }
+
+<> 2021-09-22T025820.500.json
+
+###
+
+POST https://ecomt.tfeb.gov.tm/v1/orders/
+Accept: application/hal+json
+Cache-Control: no-cache
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6Ijg2MUU1QjJGMDYxMDY5MTMxMDdFN0FCRUZCNUMxMjY0ODE2NTkxRkMiLCJ0eXAiOiJKV1QiLCJ4NXQiOiJoaDViTHdZUWFSTVFmbnEtLTF3U1pJRmxrZncifQ.eyJuYmYiOjE2MzIzMDM3NjIsImV4cCI6MTYzMjMwNzM2MiwiaXNzIjoiaHR0cHM6Ly9wZ2FwcC9BcHAuSWRlbnRpdHlTZXJ2ZXIvIiwiYXVkIjpbImh0dHBzOi8vcGdhcHAvQXBwLklkZW50aXR5U2VydmVyL3Jlc291cmNlcyIsIlRTWVMuUHJpbWUuV2ViQXBwbGljYXRpb25zLk9yZGVyUHJvY2Vzc2luZyJdLCJjbGllbnRfaWQiOiIxLjMwMDAwMDAwMDAwMDAxMS4zMDAwMDAxMSIsInNjb3BlIjpbIlRTWVMuUHJpbWUuV2ViQXBwbGljYXRpb25zLk9yZGVyUHJvY2Vzc2luZyJdfQ.XsJKTf1ZfMdrhkUFETh3net8ccV2-a1UOrym1pJN156FdoLzS3jB4H3HELL72ltBfVKWu5CUsWkVrKRHbjmZt5f-j8YZnG8uVYEx9RtXUJV97IG5nkhS0-cctoUawTZDnKKp-7WPOASrBsYGXW3gY-5l8WejmM3CBhRYPjq5XBqNSyl0Ua5Z7MSWh9DNcBFlko53oq_FPTCY-0iY6zmIGaUzkANDV5tNI_-pOyudzix-g15rLQqriwnSan8qpYCA2ykxzJHHFDA5_c4OlBzaJH9pGtHug7s7LQaddPWcUzw_HS6q9QuKnUeAvCFbPz4Y3pibYNG2CFxNYltUaWKPsw
+
+{   "RequestId": "4b0bdd35-e12d-4612-ae88-ebd73b60781c",   "Environment": {     "Merchant": {       "Id": "300000000000011"     },     "POI": {       "Id": "30000011",       "Language": "ru-RU"     },     "Card": {       "PAN": "6015840000000843",       "ExpiryDate": "2401",       "SecurityCode2": "725",       "Name": "John Doe",       "TAVV": null,       "IsCardOnFile": false     },     "CardRecipient": null,     "Customer": {       "Name": "John Doe",       "Language": "en-US",       "Email": "john.doe@email.com",       "HomePhone": {         "cc": "993",         "subscriber": "63432211"       },       "MobilePhone": {         "cc": "993",         "subscriber": "63432211"       },       "WorkPhone": null     },     "CustomerDevice": {       "Browser": {         "AcceptHeader": "*/*",         "IpAddress": "10.33.27.3",         "JavaEnabled": false,         "Language": "en-US",         "ScreenColorDepth": 48,         "ScreenHeight": 1200,         "ScreenWidth": 1900,         "TimeZone": 120,         "UserAgentString": "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:40.0) Gecko/20100101 Firefox/40.3"       },       "MobileApp": null     },     "BillingAddress": {       "SameAsShipping": true,       "Line1": "Annex 4",       "Line2": "1st floor",       "PostCode": "2020",       "City": "01",       "CountrySubdivision": "01",       "Country": "196"     },     "ShippingAddress": {       "SameAsShipping": false,       "Line1": "Annex 4",       "Line2": "1st floor",       "PostCode": "2020",       "City": "01",       "CountrySubdivision": "01",       "Country": "196"     },     "Transport": {       "MerchantFinalResponseUrl": "http://localhost:8000/Order/FinalResponse/87bddd1a-317e-46dc-b0b8-ff9b83257e5a",       "ChallengeResponseUrl": "http://localhost:8000/Order/NotificationUrl/87bddd1a-317e-46dc-b0b8-ff9b83257e5a",       "ChallengeWindowSize": 3,       "ChallengeResponseData": null,       "ThreeDSMethodNotificationUrl": "http://localhost:8000/Order/ThreeDSecureNotificationUrl/87bddd1a-317e-46dc-b0b8-ff9b83257e5a",       "MethodCompletion": false,       "Consent": false,       "EndpointHostAddress": "/orders/87bddd1a-317e-46dc-b0b8-ff9b83257e5a"     }   },   "Transaction": {     "InvoiceNumber": "2",     "Type": "CRDP",     "TransactionText":"sowda",     "TotalAmount": 1.99,     "Currency": "934",     "MerchantOrderId": "87bddd1a-317e-46dc-b0b8-ff9b83257e5a",     "AutoComplete": false,   } }
+
+<> 2021-09-22T025630.200.json
+
+###
+
+POST https://ecomt.tfeb.gov.tm/v1/Orders/ee265ab7-d16b-43c5-84b6-7424b1902af8/complete
+Accept: application/hal+json
+Cache-Control: no-cache
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6Ijg2MUU1QjJGMDYxMDY5MTMxMDdFN0FCRUZCNUMxMjY0ODE2NTkxRkMiLCJ0eXAiOiJKV1QiLCJ4NXQiOiJoaDViTHdZUWFSTVFmbnEtLTF3U1pJRmxrZncifQ.eyJuYmYiOjE2MzIzMDM3NjIsImV4cCI6MTYzMjMwNzM2MiwiaXNzIjoiaHR0cHM6Ly9wZ2FwcC9BcHAuSWRlbnRpdHlTZXJ2ZXIvIiwiYXVkIjpbImh0dHBzOi8vcGdhcHAvQXBwLklkZW50aXR5U2VydmVyL3Jlc291cmNlcyIsIlRTWVMuUHJpbWUuV2ViQXBwbGljYXRpb25zLk9yZGVyUHJvY2Vzc2luZyJdLCJjbGllbnRfaWQiOiIxLjMwMDAwMDAwMDAwMDAxMS4zMDAwMDAxMSIsInNjb3BlIjpbIlRTWVMuUHJpbWUuV2ViQXBwbGljYXRpb25zLk9yZGVyUHJvY2Vzc2luZyJdfQ.XsJKTf1ZfMdrhkUFETh3net8ccV2-a1UOrym1pJN156FdoLzS3jB4H3HELL72ltBfVKWu5CUsWkVrKRHbjmZt5f-j8YZnG8uVYEx9RtXUJV97IG5nkhS0-cctoUawTZDnKKp-7WPOASrBsYGXW3gY-5l8WejmM3CBhRYPjq5XBqNSyl0Ua5Z7MSWh9DNcBFlko53oq_FPTCY-0iY6zmIGaUzkANDV5tNI_-pOyudzix-g15rLQqriwnSan8qpYCA2ykxzJHHFDA5_c4OlBzaJH9pGtHug7s7LQaddPWcUzw_HS6q9QuKnUeAvCFbPz4Y3pibYNG2CFxNYltUaWKPsw
+
+{   "RequestId": "4b0bdd35-e12d-4612-ae88-ebd73b60781c",   "Environment": {     "Merchant": {       "Id": "300000000000011"     },     "POI": {       "Id": "30000011",       "Language": "ru-RU"     },     "Card": {       "PAN": "6015840000000843",       "ExpiryDate": "2401",       "SecurityCode2": "725",       "Name": "John Doe",       "TAVV": null,       "IsCardOnFile": false     },     "CardRecipient": null,     "Customer": {       "Name": "John Doe",       "Language": "en-US",       "Email": "john.doe@email.com",       "HomePhone": {         "cc": "993",         "subscriber": "63432211"       },       "MobilePhone": {         "cc": "993",         "subscriber": "63432211"       },       "WorkPhone": null     },     "CustomerDevice": {       "Browser": {         "AcceptHeader": "*/*",         "IpAddress": "10.33.27.3",         "JavaEnabled": false,         "Language": "en-US",         "ScreenColorDepth": 48,         "ScreenHeight": 1200,         "ScreenWidth": 1900,         "TimeZone": 120,         "UserAgentString": "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:40.0) Gecko/20100101 Firefox/40.3"       },       "MobileApp": null     },     "BillingAddress": {       "SameAsShipping": true,       "Line1": "Annex 4",       "Line2": "1st floor",       "PostCode": "2020",       "City": "01",       "CountrySubdivision": "01",       "Country": "196"     },     "ShippingAddress": {       "SameAsShipping": false,       "Line1": "Annex 4",       "Line2": "1st floor",       "PostCode": "2020",       "City": "01",       "CountrySubdivision": "01",       "Country": "196"     },     "Transport": {       "MerchantFinalResponseUrl": "http://localhost:8000/Order/FinalResponse/87bddd1a-317e-46dc-b0b8-ff9b83257e5a",       "ChallengeResponseUrl": "http://localhost:8000/Order/NotificationUrl/87bddd1a-317e-46dc-b0b8-ff9b83257e5a",       "ChallengeWindowSize": 3,       "ChallengeResponseData": null,       "ThreeDSMethodNotificationUrl": "http://localhost:8000/Order/ThreeDSecureNotificationUrl/87bddd1a-317e-46dc-b0b8-ff9b83257e5a",       "MethodCompletion": false,       "Consent": false,       "EndpointHostAddress": "/orders/87bddd1a-317e-46dc-b0b8-ff9b83257e5a"     }   },   "Transaction": {     "InvoiceNumber": "2",     "Type": "CRDP",     "TransactionText":"sowda",     "TotalAmount": 1.99,     "Currency": "934",     "MerchantOrderId": "87bddd1a-317e-46dc-b0b8-ff9b83257e5a",     "AutoComplete": false,   } }
+
+<> 2021-09-22T024741.200.json
+
+###
+
+POST https://ecomt.tfeb.gov.tm/v1/orders
+Accept: application/hal+json
+Cache-Control: no-cache
+ClientId: 1.300000000000011.30000011
+ClientSecret: OvQ4nBTQDQPAwz4gpxNZ7JeDNLESMkI=
+Content-Type: application/json
+
+{   "RequestId": "4b0bdd35-e12d-4612-ae88-ebd73b60781c",   "Environment": {     "Merchant": {       "Id": "300000000000011"     },     "POI": {       "Id": "30000011",       "Language": "ru-RU"     },     "Card": {       "PAN": "6015840000000843",       "ExpiryDate": "2401",       "SecurityCode2": "725",       "Name": "John Doe",       "TAVV": null,       "IsCardOnFile": false     },     "CardRecipient": null,     "Customer": {       "Name": "John Doe",       "Language": "en-US",       "Email": "john.doe@email.com",       "HomePhone": {         "cc": "993",         "subscriber": "63432211"       },       "MobilePhone": {         "cc": "993",         "subscriber": "63432211"       },       "WorkPhone": null     },     "CustomerDevice": {       "Browser": {         "AcceptHeader": "*/*",         "IpAddress": "10.33.27.3",         "JavaEnabled": false,         "Language": "en-US",         "ScreenColorDepth": 48,         "ScreenHeight": 1200,         "ScreenWidth": 1900,         "TimeZone": 120,         "UserAgentString": "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:40.0) Gecko/20100101 Firefox/40.3"       },       "MobileApp": null     },     "BillingAddress": {       "SameAsShipping": true,       "Line1": "Annex 4",       "Line2": "1st floor",       "PostCode": "2020",       "City": "01",       "CountrySubdivision": "01",       "Country": "196"     },     "ShippingAddress": {       "SameAsShipping": false,       "Line1": "Annex 4",       "Line2": "1st floor",       "PostCode": "2020",       "City": "01",       "CountrySubdivision": "01",       "Country": "196"     },     "Transport": {       "MerchantFinalResponseUrl": "http://localhost:8000/Order/FinalResponse/87bddd1a-317e-46dc-b0b8-ff9b83257e5a",       "ChallengeResponseUrl": "http://localhost:8000/Order/NotificationUrl/87bddd1a-317e-46dc-b0b8-ff9b83257e5a",       "ChallengeWindowSize": 3,       "ChallengeResponseData": null,       "ThreeDSMethodNotificationUrl": "http://localhost:8000/Order/ThreeDSecureNotificationUrl/87bddd1a-317e-46dc-b0b8-ff9b83257e5a",       "MethodCompletion": false,       "Consent": false,       "EndpointHostAddress": "/orders/87bddd1a-317e-46dc-b0b8-ff9b83257e5a"     }   },   "Transaction": {     "InvoiceNumber": "2",     "Type": "CRDP",     "TransactionText":"sowda",     "TotalAmount": 1.99,     "Currency": "934",     "MerchantOrderId": "87bddd1a-317e-46dc-b0b8-ff9b83257e5a",     "AutoComplete": false,   } }
+
+<> 2021-09-22T024145.200.json
+
+###
+
+POST https://ecomt.tfeb.gov.tm/v1/orders
+Accept: application/hal+json
+Cache-Control: no-cache
+ClientId: 1.300000000000011.30000011
+ClientSecret: OvQ4nBTQDQPAwz4gpxNZ7JeDNLESMkI=
+Content-Type: application/json
+
+}, "CustomerDevice": { "Browser": { "AcceptHeader": "*/*", "IpAddress": "10.33.27.3", "JavaEnabled": false, "Language": "en-US", "ScreenColorDepth": 48, "ScreenHeight": 1200, "ScreenWidth": 1900, "TimeZone": 120, "UserAgentString": "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:40.0) Gecko/20100101 Firefox/40.3" }, "MobileApp": null }, "BillingAddress": { "SameAsShipping": true, "Line1": "Annex 4", "Line2": "1st floor", "PostCode": "2020", "City": "01", "CountrySubdivision": "01", "Country": "196" }, "ShippingAddress": { "SameAsShipping": false, "Line1": "Annex 4", "Line2": "1st floor", "PostCode": "2020", "City": "01", "CountrySubdivision": "01", "Country": "196" },
+
+###
+
+POST https://ecomt.tfeb.gov.tm/v1/orders
+Accept: application/hal+json
+Cache-Control: no-cache
+ClientId: 1.300000000000011.30000011
+ClientSecret: OvQ4nBTQDQPAwz4gpxNZ7JeDNLESMkI=
+Content-Type: application/json
+
+{   "RequestId": "4b0bdd35-e12d-4612-ae88-ebd73b60711c",   "Environment": {     "Merchant": {       "Id": "300000000000011"     },     "POI": {       "Id": "30000011",       "Language": "ru-RU"     },      "Transport": {       "MerchantFinalResponseUrl": "http://localhost:8000/Order/FinalResponse/87bddd1a-317e-46dc-b0b8-ff9b83257e5a",       "ChallengeResponseUrl": "http://localhost:8000/Order/NotificationUrl/87bddd1a-317e-46dc-b0b8-ff9b83257e5a",       "ChallengeWindowSize": 3,       "ChallengeResponseData": null,       "ThreeDSMethodNotificationUrl": "http://localhost:8000/Order/ThreeDSecureNotificationUrl/87bddd1a-317e-46dc-b0b8-ff9b83257e5a",       "MethodCompletion": false,       "Consent": false,       "EndpointHostAddress": "/orders/87bddd1a-317e-46dc-b0b8-ff9b83257e5a"     }   },   "Transaction": {     "InvoiceNumber": "1",     "Type": "CRDP",     "TransactionText":"sowda",     "TotalAmount": 15.99,     "Currency": "934",     "MerchantOrderId": "87bddd1a-317e-46dc-b0b8-ff9b83257e5a",     "AutoComplete": false,   } }
+
+<> 2021-09-22T022420.201.json
+
+###
+
+POST https://ecomt.tfeb.gov.tm/v1/orders
+Accept: application/hal+json
+Cache-Control: no-cache
+ClientId: 1.300000000000011.30000011
+ClientSecret: OvQ4nBTQDQPAwz4gpxNZ7JeDNLESMkI=
+Content-Type: application/json
+
+{   "RequestId": "4b0bdd35-e12d-4612-ae88-ebd73b60711c",   "Environment": {     "Merchant": {       "Id": "300000000000011"     },     "POI": {       "Id": "30000011",       "Language": "ru-RU"     },      "Transport": {       "MerchantFinalResponseUrl": "http://localhost:8000/Order/FinalResponse/87bddd1a-317e-46dc-b0b8-ff9b83257e5a",       "ChallengeResponseUrl": "http://localhost:8000/Order/NotificationUrl/87bddd1a-317e-46dc-b0b8-ff9b83257e5a",       "ChallengeWindowSize": 3,       "ChallengeResponseData": null,       "ThreeDSMethodNotificationUrl": "http://localhost:8000/Order/ThreeDSecureNotificationUrl/87bddd1a-317e-46dc-b0b8-ff9b83257e5a",       "MethodCompletion": false,       "Consent": false,       "EndpointHostAddress": "/orders/87bddd1a-317e-46dc-b0b8-ff9b83257e5a"     }   },   "Transaction": {     "InvoiceNumber": "1",     "Type": "CRDP",     "TransactionText":"sowda",     "TotalAmount": 15.99,     "Currency": "934",     "MerchantOrderId": "87bddd1a-317e-46dc-b0b8-ff9b83257e5a",     "AutoComplete": false,   } }
+
+<> 2021-09-21T102248.201.json
+
+###
+

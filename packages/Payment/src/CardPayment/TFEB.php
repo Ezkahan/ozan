@@ -9,6 +9,7 @@
 namespace Payment\CardPayment;
 
 use GuzzleHttp\Client;
+use Illuminate\Support\Facades\Log;
 use Payment\Http\Resoures\Payment\Order;
 use Webkul\Payment\Payment\Payment;
 
@@ -22,12 +23,12 @@ class TFEB extends Payment
             'base_uri' => $this->getConfigData('api_url'),
             'connect_timeout' => 25,//sec
             'timeout' => 25,//sec
-            'verify' => true,
-            'header' =>[
+            'verify' => false,
+            'headers' =>[
                 'ClientId' => $this->getConfigData('client_id'),
                 'ClientSecret' => $this->getConfigData('client_secret'),
                 'Accept' => "application/hal+json",
-                "Content" => 'application/json'
+                "Content-Type" => 'application/json'
             ],
         ]);
     }
@@ -36,11 +37,17 @@ class TFEB extends Payment
 
         $client = $this->getApiClient();
 
+//        Log::info($this->getCart());
+
+        $body = (new Order($this->getCart()))->toJson();
+
+        Log::info($body);
+
         $params =[
-            'body' => new Order($this->getCart())
+            'body' => $body
         ];
 
-        return json_decode($client->post('',$params)->getBody(),true);
+        return $client->post('',$params)->getBody();
 
     }
 
@@ -58,7 +65,7 @@ class TFEB extends Payment
         $client = $this->getApiClient();
         $payment = $this->getCart()->payment;
 
-        return json_decode($client->post($payment->order_id)->getBody(),true);
+        return $client->post($payment->order_id)->getBody();
     }
 
     public function registerOrderId($orderId){

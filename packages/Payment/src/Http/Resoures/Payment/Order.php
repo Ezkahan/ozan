@@ -28,7 +28,7 @@ class Order extends JsonResource
                 ],
                 "POI" => [
                     "Id" => $this->getConfigData('terminal'),
-                    "Language" => "ru-RU"
+                    "Language" => "en-EN"
                 ],
                 "transport" => [
                     "merchantFinalResponseUrl" => route('paymentmethod.tfeb.complete',['id'=>$this->id])
@@ -45,7 +45,7 @@ class Order extends JsonResource
                 "InvoiceNumber" => $this->id,
                 "Type" => "CRDP",
                 "TransactionText" => "ozan online sowda",
-                "TotalAmount" => $this->grand_otal,
+                "TotalAmount" => (double)$this->grand_total,
                 "Currency" => "934",
                 "MerchantOrderId" => $this->id,
                 "AutoComplete" => false
