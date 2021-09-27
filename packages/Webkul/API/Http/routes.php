@@ -193,20 +193,10 @@ Route::group(['prefix' => 'api'], function ($router) {
             'authorization_required' => true
         ]);
 
-
         //Order routes
-        Route::get('orders', 'ResourceController@index')->defaults('_config', [
-            'repository' => 'Webkul\Sales\Repositories\OrderRepository',
-            'resource' => 'Webkul\API\Http\Resources\Sales\Order',
-            'authorization_required' => true
-        ]);
-
-        Route::get('orders/{id}', 'ResourceController@get')->defaults('_config', [
-            'repository' => 'Webkul\Sales\Repositories\OrderRepository',
-            'resource' => 'Webkul\API\Http\Resources\Sales\Order',
-            'authorization_required' => true
-        ]);
-
+        Route::get('orders', 'OrderController@index');
+        Route::get('orders/{id}', 'OrderController@get');
+        Route::get('orders/{id}/cancel', 'OrderController@cancel');
 
         //Invoice routes
         Route::get('invoices', 'InvoiceController@index')->defaults('_config', [
@@ -220,7 +210,6 @@ Route::group(['prefix' => 'api'], function ($router) {
             'resource' => 'Webkul\API\Http\Resources\Sales\Invoice',
             'authorization_required' => true
         ]);
-
 
         //Invoice routes
         Route::get('shipments', 'ResourceController@index')->defaults('_config', [

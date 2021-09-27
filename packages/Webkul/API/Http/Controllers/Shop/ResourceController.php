@@ -107,7 +107,7 @@ class ResourceController extends Controller
      */
     public function destroy($id)
     {
-        $wishlistProduct = $this->repository->findOrFail($id);
+//        $wishlistProduct = $this->repository->findOrFail($id);
 
         $this->repository->delete($id);
 
