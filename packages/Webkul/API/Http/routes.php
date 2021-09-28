@@ -1,6 +1,6 @@
 <?php
 
-Route::group(['prefix' => 'api'], function ($router) {
+Route::group(['prefix' => 'api', 'middleware'=>'version'], function ($router) {
 
     Route::group(['namespace' => 'Webkul\API\Http\Controllers\Shop', 'middleware' => ['locale', 'theme', 'currency']], function ($router) {
         //Currency and Locale switcher

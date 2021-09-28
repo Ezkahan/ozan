@@ -28,7 +28,7 @@ class OrderController extends Controller
     }
 
     public function index(){
-        $query = $this->repository->scopeQuery(function($query) {
+        $query = $this->orderRepository->scopeQuery(function($query) {
 
             $query = $query->where('customer_id', auth()->user()->id );
 
@@ -56,7 +56,7 @@ class OrderController extends Controller
 
     public function get($id)
     {
-        return new Order($this->repository->where('customer_id', auth()->user()->id)->findOrFail($id));
+        return new Order($this->orderRepository->where('customer_id', auth()->user()->id)->findOrFail($id)->first());
     }
 
     /**
