@@ -17,6 +17,7 @@
                     <div class="google">
 
                         <div class="google__title">{{ __('velocity::app.customer.verify.title') }}</div>
+                        <div id="time">02:00</div>
                         <div class="google__column">
                             <label for="token">{{ __('velocity::app.customer.verify.token') }}</label>
                             <div class="input__outer" :class="[errors.has('token') ? 'has-error' : '']">
@@ -30,8 +31,8 @@
                             <button type="submit" class="register__btn btn-lg btn-primary">
                                 {{ __('velocity::app.customer.verify.submit') }}
                             </button>
-                            <a href="{{ route('customer.resend.verification-sms',['api_token'=>$customer->api_token]) }}"
-                               class="btn btn-success btn-new-customer align-self-end ml-5">
+                            <a id="reset_btn" onclick="start_timer()" href="{{ route('customer.resend.verification-sms',['api_token'=>$customer->api_token]) }}"
+                               class="btn btn-success btn-new-customer align-self-end ml-5 d-able">
                                 {{  __('velocity::app.customer.verify.resend') }}
                             </a>
                         </div>

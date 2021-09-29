@@ -396,3 +396,20 @@
         }
     }
 }
+
+#reset_btn.d-able{
+    pointer-events: none !important;
+    background: #c4c4c4 !important;
+    border-color: #c4c4c4 !important;
+}
+
+#reset_btn {
+    background: blue;
+    cursor: pointer;
+    vertical-align: unset !important;
+}
+
+#time {
+    text-align: center;
+    margin-bottom: 20px;
+}
