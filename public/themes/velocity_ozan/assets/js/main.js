@@ -192,6 +192,91 @@ function openSearch() {
 }
 
 
+// Timer ====================================
+
+function startTimer(duration, display) {
+    var timer = duration, minutes, seconds;
+    var myTime = setInterval(function () {
+        minutes = parseInt(timer / 60, 10);
+        seconds = parseInt(timer % 60, 10);
+
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        display.textContent = minutes + ":" + seconds;
+
+        if (--timer < 0) {
+            // timer = duration;
+            clearInterval(myTime);
+            document.getElementById('reset_btn').classList.remove('d-able')
+
+        }
+    }, 1000);
+
+}
+
+window.onload = function () {
+
+    let fiveMinutes = 60 * 2,
+        display = document.querySelector('#time');
+
+
+    if (display != undefined) {
+        startTimer(fiveMinutes, display);
+        alert("This right site");
+
+    }
+
+
+};
+
+
+function start_timer() {
+    let fiveMinutes = 60 * 2,
+        display = document.querySelector('#time');
+
+    startTimer(fiveMinutes, display);
+
+    document.getElementById('reset_btn').classList.add('d-able')
+}
+
+
+// New Lang =========================
+
+
+// let c_current = document.querySelector('.c-current');
+// let c_group = document.querySelector('.c-group');
+
+
+// if (c_current != undefined) {
+//     c_current.addEventListener('click', function () {
+//         sleep(2).then(() => {
+//             c_group.classList.toggle('active');
+//             alert("fuck")
+//         });
+//     });
+// }
+
+function openLang() {
+    document.querySelector('.c-group').classList.toggle("active");
+}
+
+function closeLang() {
+    document.querySelector('.c-group').classList.remove("active");
+}
+
+
+
+// New Lang =========================
+
+
+
+
+
+
+// Timer end ================================
+
+
 
 // console.log(mobile_search != undefined)
 // console.log(mobile_search_btn != undefined)

@@ -11,41 +11,78 @@
     <div class="auto__container">
         <div class="upheader__inner" id="upheader_inner">
             <div class="upheader__language">
-                <!-- <i class="icon-global"></i> -->
-                <div class="lang_img">
+
+                <div class="c-lang">
+                    <div class="c-current" onclick="openLang()">
                         @if(app()->getLocale() == 'en')
-                            <img src="{{asset('themes/velocity_ozan/assets/images/en.png')}}" alt="flag_icon">
+                            <span class="c-icon">
+                                <img src="{{asset('themes/velocity_ozan/assets/images/en.png')}}" alt="lang-icon">
+                            </span>
+                            <span class="c-text">
+                                English
+                            </span>
                         @endif
                         @if(app()->getLocale() == 'ru')
-                            <img src="{{asset('themes/velocity_ozan/assets/images/ru.png')}}" alt="flag_icon">
+                            <span class="c-icon">
+                                <img src="{{asset('themes/velocity_ozan/assets/images/ru.png')}}" alt="lang-icon">
+                            </span>
+                            <span class="c-text">
+                                Русский
+                            </span>
                         @endif
                         @if(app()->getLocale() == 'tm')
-                            <img src="{{asset('themes/velocity_ozan/assets/images/tm.png')}}" alt="flag_icon">
+                            <span class="c-icon">
+                                <img src="{{asset('themes/velocity_ozan/assets/images/tm.png')}}" alt="lang-icon">
+                            </span>
+                            <span class="c-text">
+                                Türkmen
+                            </span>
                         @endif
-                </div>
-                <div class="lang_select">
-                    <select
-                        name="language"
-                        onchange="window.location.href = this.value"
-                        aria-label="Locale"
-                        @if (count(core()->getCurrentChannel()->locales) == 1)
-                            disabled="disabled"
-                        @endif>
+                    </div>
 
+                    <div class="c-group">
                         @foreach (core()->getCurrentChannel()->locales as $locale)
                             @if (isset($searchQuery) && $searchQuery)
-                                <option
-                                    value="?{{ $searchQuery }}&locale={{ $locale->code }}"
-                                    {{ $locale->code == app()->getLocale() ? 'selected' : '' }}>
-                                    {{ $locale->name }}
-                                </option>
+                                <a class="c-item" href="?{{ $searchQuery }}&locale={{ $locale->code }}">
+                                    <span class="c-icon">
+                                        @if( $locale->code == 'en')
+                                            <img src="{{asset('themes/velocity_ozan/assets/images/en.png')}}" alt="lang-icon">
+                                        @endif
+                                        @if( $locale->code == 'ru')
+                                            <img src="{{asset('themes/velocity_ozan/assets/images/ru.png')}}" alt="lang-icon">
+                                        @endif
+                                        @if( $locale->code == 'tm')
+                                            <img src="{{asset('themes/velocity_ozan/assets/images/tm.png')}}" alt="lang-icon">
+                                        @endif
+                                    </span>
+                                    <span class="c-text">
+                                        {{ $locale->name }}
+                                    </span>
+                                </a>
                             @else
-                                <option value="?locale={{ $locale->code }}" {{ $locale->code == app()->getLocale() ? 'selected' : '' }}>{{ $locale->name }}</option>
+                                <a class="c-item" href="?locale={{ $locale->code }}">
+                                    <span class="c-icon">
+                                        @if( $locale->code == 'en')
+                                            <img src="{{asset('themes/velocity_ozan/assets/images/en.png')}}" alt="lang-icon">
+                                        @endif
+                                        @if( $locale->code == 'ru')
+                                            <img src="{{asset('themes/velocity_ozan/assets/images/ru.png')}}" alt="lang-icon">
+                                        @endif
+                                        @if( $locale->code == 'tm')
+                                            <img src="{{asset('themes/velocity_ozan/assets/images/tm.png')}}" alt="lang-icon">
+                                        @endif
+                                    </span>
+                                    <span class="c-text">
+                                        {{ $locale->name }}
+                                    </span>
+                                </a>
                             @endif
                         @endforeach
-                    </select>
+
+                    </div>
                 </div>
             </div>
+
             <div class="upheader__nav" id="top">
                 <a href="{!! url('page/about-us') !!}" class="upheader__nav-link">
                     <i class="icon-info"></i>
