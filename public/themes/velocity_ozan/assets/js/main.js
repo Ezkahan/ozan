@@ -216,11 +216,19 @@ function startTimer(duration, display) {
 }
 
 window.onload = function () {
+
     let fiveMinutes = 60 * 2,
         display = document.querySelector('#time');
-    startTimer(fiveMinutes, display);
-};
 
+
+    if (display != undefined) {
+        startTimer(fiveMinutes, display);
+        alert("This right site");
+
+    }
+
+
+};
 
 
 function start_timer() {
@@ -231,6 +239,39 @@ function start_timer() {
 
     document.getElementById('reset_btn').classList.add('d-able')
 }
+
+
+// New Lang =========================
+
+
+// let c_current = document.querySelector('.c-current');
+// let c_group = document.querySelector('.c-group');
+
+
+// if (c_current != undefined) {
+//     c_current.addEventListener('click', function () {
+//         sleep(2).then(() => {
+//             c_group.classList.toggle('active');
+//             alert("fuck")
+//         });
+//     });
+// }
+
+function openLang() {
+    document.querySelector('.c-group').classList.toggle("active");
+}
+
+function closeLang() {
+    document.querySelector('.c-group').classList.remove("active");
+}
+
+
+
+// New Lang =========================
+
+
+
+
 
 
 // Timer end ================================

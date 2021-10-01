@@ -69,6 +69,7 @@
 
             .row {
                 justify-content: space-between;
+                align-items: center;
             }
 
             .input-group {
@@ -177,7 +178,7 @@
     top: 0;
     left: 0;
     width: calc(100% - 0px);
-    z-index: 1000;
+    z-index: 1001;
     // padding: 15px 0;
     background: #da2d79;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);

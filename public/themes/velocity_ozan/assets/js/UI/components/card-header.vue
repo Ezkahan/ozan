@@ -1,7 +1,7 @@
 <template>
 
     <div :class="`row mb15 col-12 ${rowClass}`">
-        <div class="col-4 no-padding" v-if="tabs || viewAll || scrollable">
+        <div class="col-4 f-w no-padding" v-if="tabs || viewAll || scrollable">
             <h2 class="fs20 fw6">{{ headerHeading }}</h2>
         </div>
 
@@ -9,7 +9,7 @@
             <h2 class="fs20 fw6">{{ headerHeading }}</h2>
         </div>
 
-        <div class="col-8 no-padding" v-if="tabs || viewAll || scrollable">
+        <div class="col-8 d-rel no-padding" v-if="tabs || viewAll || scrollable">
             <div class="row justify-content-end text-right">
 
                 <template v-if="tabs">
