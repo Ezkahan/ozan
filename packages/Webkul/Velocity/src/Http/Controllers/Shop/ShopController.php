@@ -3,6 +3,8 @@
 namespace Webkul\Velocity\Http\Controllers\Shop;
 
 use Illuminate\Http\Request;
+use Webkul\Attribute\Models\AttributeOption;
+use Webkul\Attribute\Repositories\AttributeOptionRepository;
 use Webkul\Attribute\Repositories\AttributeRepository;
 use Webkul\Product\Facades\ProductImage;
 use Webkul\Velocity\Http\Shop\Controllers;
@@ -189,13 +191,13 @@ class ShopController extends Controller
         return view($this->_config['view']);
     }
 
-    public function getBrands(AttributeRepository $attributeRepository){
-        $brands = $attributeRepository->getAttributeByCode('brand');
+    public function getBrands(){
+        $brands = AttributeOption::where('attribute_id',28)->paginate(30);
 
         if (!$brands)
             abort(404);
 //dd($brands->options);
-        return view($this->_config['view'])->with(['brands' => $brands->options]);
+        return view($this->_config['view'])->with(['brands' => $brands]);
     }
 
     /**

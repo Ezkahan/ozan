@@ -153,7 +153,7 @@ class Cart
             if (count($cart->all_items) <= 0) {
                 session()->forget('cart');
             }
-            Log::info('149',$cartProducts);
+            Log::info($cartProducts);
             throw new Exception($cartProducts);
         } else {
             $parentCartItem = null;

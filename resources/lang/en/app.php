@@ -9,5 +9,5 @@ return [
     'contact_us' => 'Contact us',
     'main_page' => 'Main page',
     'search' => 'Search',
-    'our-brands'=>'Our brands'
+    'our-brands'=>'Brands'
 ];
