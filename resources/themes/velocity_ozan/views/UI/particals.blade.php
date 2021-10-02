@@ -7,7 +7,7 @@
             :class="`btn btn-link disable-box-shadow ${itemCount == 0 ? 'cursor-not-allowed' : ''}`">
 
             <div class="mini-cart-content">
-                <i class="material-icons-outlined text-down-3">cart</i>
+                <i class="material-icons-outlined text-down-3">shopping_cart</i>
                 <span class="badge" v-text="itemCount" v-if="itemCount != 0"></span>
                 <span class="fs16 fw6 cart-text">{{ __('velocity::app.minicart.cart') }}</span>
             </div>
@@ -131,7 +131,7 @@
                         {!! view_render_event('bagisto.shop.layout.header.wishlist.before') !!}
                             @if($showWishlist)
                                 <a class="wishlist-btn unset" :href="`{{ route('customer.wishlist.index') }}`">
-                                    <i class="material-icons">favorite</i>
+                                    <i class="material-icons">favorite_border</i>
                                     <div class="badge-container" v-if="wishlistCount > 0">
                                         <span class="badge" v-text="wishlistCount"></span>
                                     </div>
@@ -153,7 +153,7 @@
                                     @endguest
                                     >
 
-                                    <i class="material-icons">compare</i>
+                                    <i class="material-icons">compare_arrows</i>
                                     <div class="badge-container" v-if="compareCount > 0">
                                         <span class="badge" v-text="compareCount"></span>
                                     </div>

@@ -107,7 +107,7 @@
                 @endphp
                 @if($showWishlist)
                 <a href="{{ route('customer.wishlist.index') }}" class="upheader__nav-link mobile_link">
-                    <i class="material-icons">favorite</i>
+                    <i class="material-icons">favorite_border</i>
                     <span>{{ __('shop::app.header.wishlist') }}</span>
                 </a>
                 @endif
@@ -115,7 +115,7 @@
                 <a  class="upheader__nav-link mobile_link"
                     @auth('customer') href="{{ route('velocity.customer.product.compare') }}" @endauth
                     @guest('customer') href="{{ route('velocity.product.compare') }}"@endguest>
-                    <i class="material-icons">compare</i>
+                    <i class="material-icons">compare_arrows</i>
                     <span>@lang('velocity::app.customer.compare.text')</span>
                 </a>
                 @endif
