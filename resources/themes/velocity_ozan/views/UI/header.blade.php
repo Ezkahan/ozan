@@ -354,7 +354,7 @@
                                 <div class="badge-container" v-if="compareCount > 0">
                                     <span class="badge" v-text="compareCount"></span>
                                 </div>
-                                <i class="material-icons">compare_arrows</i>
+                                <i class="material-icons">compare</i>
                             </a>
                         @endif
 
@@ -363,7 +363,7 @@
                                 <div class="badge-container" v-if="wishlistCount > 0">
                                     <span class="badge" v-text="wishlistCount"></span>
                                 </div>
-                                <i class="material-icons">favorite_border</i>
+                                <i class="material-icons">favorite</i>
                             </a>
                         @endif
 
@@ -375,7 +375,7 @@
                             <div class="badge-wrapper">
                                 <span class="badge">@{{ cartItemsCount }}</span>
                             </div>
-                            <i class="material-icons text-down-3">shopping_cart</i>
+                            <i class="material-icons text-down-3">cart</i>
                         </a>
                     </div>
 

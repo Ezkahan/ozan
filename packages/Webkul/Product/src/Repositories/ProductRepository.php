@@ -141,9 +141,9 @@ class ProductRepository extends Repository
         if (core()->getConfigData('catalog.products.storefront.products_per_page')) {
             $pages = explode(',', core()->getConfigData('catalog.products.storefront.products_per_page'));
 
-            $perPage = isset($params['limit']) ? (! empty($params['limit']) ? $params['limit'] : 21) : current($pages);
+            $perPage = isset($params['limit']) ? (! empty($params['limit']) ? $params['limit'] : 18) : current($pages);
         } else {
-            $perPage = isset($params['limit']) && ! empty($params['limit']) ? $params['limit'] : 21;
+            $perPage = isset($params['limit']) && ! empty($params['limit']) ? $params['limit'] : 18;
         }
 
         $page = Paginator::resolveCurrentPage('page');
