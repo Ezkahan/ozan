@@ -192,7 +192,7 @@ class ShopController extends Controller
     }
 
     public function getBrands(){
-        $brands = AttributeOption::where('attribute_id',28)->paginate(30);
+        $brands = AttributeOption::where('attribute_id',25)->paginate(30);//brand id 25
 
         if (!$brands)
             abort(404);
