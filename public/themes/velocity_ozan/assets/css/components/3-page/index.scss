@@ -388,12 +388,15 @@
     margin: -10px;
 
     &_item {
-        width: calc(20% - 20px);
-        margin: 10px;
+        width: calc(15% + 6px);
 
         .product-image-container {
             max-height: 220px !important;
         }
+    }
+
+    .product-card-new{
+        padding: 0px !important;
     }
 }
 
