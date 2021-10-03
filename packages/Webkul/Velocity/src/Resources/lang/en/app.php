@@ -190,8 +190,8 @@ return [
     'search' => [
         'no-results' => 'No Results Found',
         'page-title' => config('app.name') . ' - Search',
-        'found-results' => 'Search Results Found',
-        'found-result' => 'Search Result Found',
+        'found-results' => 'Results Found',
+        'found-result' => 'Result Found',
         'analysed-keywords' => 'Analysed Keywords',
         'image-search-option' => 'Image Search Option'
     ],

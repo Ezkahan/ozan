@@ -86,6 +86,12 @@
 }
 
 @include xxflg-xxxlg {
+    .search-container {
+        .grid-card {
+            width: calc(20% - 10px) !important;
+            margin: 5px;
+        }
+    }
     .header {
         &__column {
             .searchbar {
@@ -126,6 +132,12 @@
 }
 
 @include xlg-xxlg {
+    .search-container {
+        .grid-card {
+            width: calc(25% - 10px) !important;
+            margin: 5px;
+        }
+    }
     .adert_slider {
         margin: 40px 0;
     }
@@ -314,8 +326,8 @@
     .contact {
         padding: 70px 0;
     }
-}
 
+}
 @include xh-xxh {
     .modal {
         height: 100vh;
@@ -1401,6 +1413,10 @@
         }
     }
 
+}
+
+@include xsm-sm {
+
     .category-container,
     .search-container {
         .grid-card {
@@ -1408,10 +1424,6 @@
             margin: 5px;
         }
     }
-}
-
-@include xsm-sm {
-
     .my_brands_item{
         max-height: 100px;
     }

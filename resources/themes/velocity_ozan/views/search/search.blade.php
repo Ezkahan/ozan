@@ -93,13 +93,13 @@
     </script>
 
     <script type="text/x-template" id="seach-component-template">
-        <section class="search-container p-0">
+        <div class="search-container p-0 row">
             @if (request('image-search'))
                 <image-search-result-component></image-search-result-component>
             @endif
 
             @if ($results && $results->count())
-                <div class="filters-container col-md-12 col-sm-auto">
+                <div class="col-12 my-4 mt-lg-0">
                     @include ('shop::products.list.toolbar')
                 </div>
 
@@ -117,7 +117,7 @@
                     @include('ui::datagrid.pagination')
             @endif
 
-        </section>
+        </div>
     </script>
 
     <script>

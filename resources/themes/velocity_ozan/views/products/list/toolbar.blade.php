@@ -6,7 +6,7 @@
 
 @push('scripts')
     <script type="text/x-template" id="toolbar-template">
-        <div class="toolbar-wrapper" v-if='!isMobile()'>
+        <div class="col-12 d-flex" v-if='!isMobile()'>
             <div class="view-mode">
                 @php
                   $viewOption = $toolbarHelper->getViewOption();
@@ -26,7 +26,7 @@
                 </div>
             </div>
 
-            <div class="sorter">
+            <div class="ml-auto sorter">
                 <label>{{ __('velocity::app.products.sort-by') }}</label>
 
                 <select class="selective-div border-normal styled-select" onchange="window.location.href = this.value" aria-label="Sort By">
@@ -42,10 +42,10 @@
                 </div>
             </div>
 
-            <div class="limiter">
+            <div class="ml-auto limiter">
                 <label>{{ __('velocity::app.products.show') }}</label>
 
-                <select class="selective-div border-normal styled-select" onchange="window.location.href = this.value" style="width: 57px;" aria-label="Show">
+                <select class="selective-div border-normal styled-select" onchange="window.location.href = this.value" style="width: 60px;" aria-label="Show">
 
                     @foreach ($toolbarHelper->getAvailableLimits() as $limit)
 
@@ -63,7 +63,7 @@
             </div>
         </div>
 
-        <div class="toolbar-wrapper row col-12 remove-padding-margin my_box" v-else>
+        <div class="col-12" v-else>
             <div
                 v-if="layeredNavigation"
                 class="nav-container scrollable"
@@ -95,8 +95,8 @@
 {{--                    <span>{{ __('velocity::app.shop.general.filter') }}</span>--}}
 {{--                </a>--}}
 {{--            </div>--}}
-
-            <div class="my_item">
+<div class="d-flex px-4">
+            <div class=" my_item">
                 <div class="sorter" id="sort-by">
                     <i class="material-icons">sort_by_alpha</i>
 
@@ -110,7 +110,7 @@
                 </div>
             </div>
 
-            <div class="my_item">
+            <div class="ml-auto my_item ">
                 @php
                     $isList = $toolbarHelper->isModeActive('list');
                 @endphp
@@ -129,6 +129,7 @@
                     <span>{{ __('velocity::app.shop.general.view') }}</span>
                 </a>
             </div>
+</div>
         </div>
     </script>
 
