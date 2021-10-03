@@ -217,9 +217,9 @@ return [
     'search' => [
         'no-results' => 'Netije tapylmady',
         'page-title' => config('app.name') . ' - Search',
-        'found-results' => 'Gözleg netijeleri tapyldy',
-        'found-result' => 'Gözleg netijesi tapyldy',
-        'analysed-keywords' => 'Derňelýän açar sözler',
+        'found-results' => 'haryt tapyldy',
+        'found-result' => 'haryt tapyldy',
+        'analysed-keywords' => 'Derňelýän sözler',
         'image-search-option' => 'Surat gözlemek görnüşi'
     ],
 

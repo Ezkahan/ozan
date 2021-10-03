@@ -46,7 +46,7 @@
     </style>
 @endpush
 @section('content-wrapper')
-    <h2 class="ml-5 mt-5 col-12 fs30 fw6">{{ __('velocity::app.search.result') }}
+    <h2 class="ml-md-5 mt-lg-5 col-12 fs24 fw6 ">{{ __('velocity::app.search.result') }}
     @if (! $results)
         {{ __('velocity::app.search.no-results') }}
     @else
@@ -93,13 +93,13 @@
     </script>
 
     <script type="text/x-template" id="seach-component-template">
-        <section class="search-container row category-container">
+        <section class="search-container p-0">
             @if (request('image-search'))
                 <image-search-result-component></image-search-result-component>
             @endif
 
             @if ($results && $results->count())
-                <div class="filters-container col-12">
+                <div class="filters-container col-md-12 col-sm-auto">
                     @include ('shop::products.list.toolbar')
                 </div>
 

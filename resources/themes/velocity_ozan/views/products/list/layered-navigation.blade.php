@@ -20,7 +20,7 @@
     $subCats = app('Webkul\Category\Repositories\CategoryRepository')->getVisibleCategoryTree($category->id);
 ?>
 
-<div class="layered-filter-wrapper left">
+<div class="layered-filter-wrapper left mt-4 mt-md-0">
 
     {!! view_render_event('bagisto.shop.products.list.layered-nagigation.before') !!}
 

@@ -218,8 +218,8 @@ return [
     'search' => [
         'no-results' => 'Результаты не найдены',
         'page-title' => config('app.name') . ' - Поиск',
-        'found-results' => 'Результаты поиска найдены',
-        'found-result' => 'Результат поиска найдены',
+        'found-results' => 'найдены',
+        'found-result' => 'найден',
         'analysed-keywords' => 'Анализируемые ключевые слова',
         'image-search-option' => 'Вариант поиска изображения'
     ],
