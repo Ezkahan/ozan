@@ -22,6 +22,8 @@ Route::group(['prefix' => 'api', 'middleware'=>'version'], function ($router) {
             'resource' => 'Webkul\API\Http\Resources\Catalog\Category'
         ]);
 
+        Route::get('category/filters', 'CategoryController@getFilters');
+
 
         //Attribute routes
         Route::get('attributes', 'ResourceController@index')->defaults('_config', [
