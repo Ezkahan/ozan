@@ -69,6 +69,17 @@ class CheckoutController extends Controller
         $this->orderRepository = $orderRepository;
 
         $this->commentRepository = $commentRepository;
+
+        $minimumOrderAmount = (float) core()->getConfigData('sales.orderSettings.minimum-order.minimum_order_amount') ?? 0;
+
+        $status = Cart::checkMinimumOrder();
+
+        if(!$status)
+            return response()->json([
+                'success' => false,
+                'message' => trans('shop::app.checkout.cart.minimum-order-message', ['amount' => core()->currency($minimumOrderAmount)]) ,
+
+            ]);
     }
 
     /**
