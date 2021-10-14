@@ -203,7 +203,17 @@ class CheckoutController extends Controller
 
         Cart::collectTotals();
 
-        $this->validateOrder();
+        try {
+            app(OnepageController::class)->validateOrder();
+        }
+        catch (Exception $ex){
+            return response()->json([
+                'success' => false,
+                'message' => $ex->getMessage()
+
+            ]);
+        }
+
 
         $cart = Cart::getCart();
 
@@ -234,15 +244,6 @@ class CheckoutController extends Controller
      */
     public function validateOrder()
     {
-        try {
             app(OnepageController::class)->validateOrder();
-        }
-        catch (Exception $ex){
-            return response()->json([
-                'success' => false,
-                'message' => $ex->getMessage()
-
-            ]);
-        }
     }
 }
