@@ -70,16 +70,6 @@ class CheckoutController extends Controller
 
         $this->commentRepository = $commentRepository;
 
-        $minimumOrderAmount = (float) core()->getConfigData('sales.orderSettings.minimum-order.minimum_order_amount') ?? 0;
-
-        $status = Cart::checkMinimumOrder();
-
-        if(!$status)
-            return response()->json([
-                'success' => false,
-                'message' => trans('shop::app.checkout.cart.minimum-order-message', ['amount' => core()->currency($minimumOrderAmount)]) ,
-
-            ]);
     }
 
     /**
@@ -242,8 +232,17 @@ class CheckoutController extends Controller
      *
      * @throws Exception
      */
-    public function validateOrder(): void
+    public function validateOrder()
     {
-        app(OnepageController::class)->validateOrder();
+        try {
+            app(OnepageController::class)->validateOrder();
+        }
+        catch (Exception $ex){
+            return response()->json([
+                'success' => false,
+                'message' => $ex->getMessage()
+
+            ]);
+        }
     }
 }
