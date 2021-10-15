@@ -3,6 +3,7 @@
 namespace Webkul\Shop\Http\Controllers;
 
 use Illuminate\Support\Facades\Event;
+use Illuminate\Support\Facades\Log;
 use Webkul\Sales\Repositories\OrderCommentRepository;
 use Webkul\Shop\Http\Controllers\Controller;
 use Webkul\Checkout\Facades\Cart;
@@ -250,6 +251,9 @@ class OnepageController extends Controller
 
         if (! $cart->checkMinimumOrder()) {
             throw new \Exception(trans('shop::app.checkout.cart.minimum-order-message', ['amount' => core()->currency($minimumOrderAmount)]));
+        }
+        else{
+            Log::info('minimumOrder:'.$minimumOrderAmount);
         }
 
         if ($cart->haveStockableItems() && ! $cart->shipping_address) {

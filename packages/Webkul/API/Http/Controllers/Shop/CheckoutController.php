@@ -214,7 +214,6 @@ class CheckoutController extends Controller
             ]);
         }
 
-
         $cart = Cart::getCart();
 
         if ($redirectUrl = Payment::getRedirectUrl($cart)) {
@@ -244,6 +243,6 @@ class CheckoutController extends Controller
      */
     public function validateOrder()
     {
-            app(OnepageController::class)->validateOrder();
+        app(OnepageController::class)->validateOrder();
     }
 }

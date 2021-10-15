@@ -15,7 +15,7 @@ return [
         'description' => 'THE STATE BANK FOR FOREIGN ECONOMIC AFFAIRS OF TURKMENISTAN',
         'api_url' => 'https://ecomt.tfeb.gov.tm/v1/orders/',
         'class' => 'Payment\CardPayment\TFEB',
-        'active' => true,
+        'active' => false,
         'sort' => 5
     ]
 ];
