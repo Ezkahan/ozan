@@ -240,6 +240,7 @@
                         <thead>
                             <tr>
                                 <th>{{ __('admin::app.sales.orders.SKU') }}</th>
+                                <th>{{ __('admin::app.datagrid.product-number') }}</th>
                                 <th>{{ __('admin::app.sales.orders.product-name') }}</th>
                                 <th class="text-center">{{ __('admin::app.sales.orders.price') }}</th>
                                 <th class="text-center">{{ __('admin::app.sales.orders.qty') }}</th>
@@ -254,6 +255,7 @@
                             @foreach ($invoice->items as $item)
                                 <tr>
                                     <td>{{ $item->getTypeInstance()->getOrderedItem($item)->sku }}</td>
+                                    <td>{{ $item->product_number ?? '#'}}</td>
                                     <td>
                                         {{ $item->name }}
 
