@@ -61,7 +61,7 @@ class Product extends JsonResource
             'updated_at'             => $product->updated_at,
             'brand'                  => $product->brand,
             'brand_label'            => $this->brand_label,
-            'stock'                  =>$product->totalQuantity(),
+            'stock'                  => $product->totalQuantity(),
             /* product's reviews */
 //            'reviews'                => [
 //                'total'          => $total = $this->productReviewHelper->getTotalReviews($product),
