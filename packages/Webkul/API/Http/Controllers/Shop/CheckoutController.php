@@ -4,6 +4,7 @@ namespace Webkul\API\Http\Controllers\Shop;
 
 use Cart;
 use Exception;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 use Webkul\Payment\Facades\Payment;
 use Webkul\Sales\Repositories\OrderCommentRepository;
@@ -80,6 +81,8 @@ class CheckoutController extends Controller
     */
     public function saveAddress(CustomerAddressForm $request)
     {
+        Log::info($request);
+
         $data = request()->all();
 
         $data['billing']['address1'] = implode(PHP_EOL, array_filter($data['billing']['address1']));
