@@ -81,7 +81,7 @@ class CheckoutController extends Controller
     */
     public function saveAddress(CustomerAddressForm $request)
     {
-        Log::info($request);
+
 
         $data = request()->all();
 
@@ -103,8 +103,9 @@ class CheckoutController extends Controller
             return response()->json([
                 'error' => 'shipping address id is required'
             ],400);
-
+        Log::info('1');
         if (Cart::hasError() || ! Cart::saveCustomerAddress($data) || ! Shipping::collectRates()) {
+            Log::info('2');
             abort(400);
         }
 
@@ -116,7 +117,7 @@ class CheckoutController extends Controller
                 'rates'         => CartShippingRateResource::collection(collect($shippingMethod['rates'])),
             ];
         }
-
+        Log::info('3');
         Cart::collectTotals();
 
         return response()->json([

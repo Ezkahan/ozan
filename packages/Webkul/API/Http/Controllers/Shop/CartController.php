@@ -127,8 +127,8 @@ class CartController extends Controller
                 'data'    => $cart ? new CartResource($cart) : null,
             ]);
         } catch (Exception $e) {
-            Log::error('API CartController: ' . $e->getMessage(),
-                ['product_id' => $id, 'cart_id' => cart()->getCart() ?? 0]);
+//            Log::error('API CartController: ' . $e->getMessage(),
+//                ['product_id' => $id, 'cart_id' => cart()->getCart() ?? 0]);
 
             return response()->json([
                 'error' => [
