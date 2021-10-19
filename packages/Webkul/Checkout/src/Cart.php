@@ -757,10 +757,12 @@ class Cart
     public function hasError(): bool
     {
         if (! $this->getCart()) {
+            Log::info('cart yok');
             return true;
         }
 
         if (! $this->isItemsHaveSufficientQuantity()) {
+            Log::info('item yok');
             return true;
         }
 

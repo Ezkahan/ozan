@@ -82,7 +82,6 @@ class CheckoutController extends Controller
     public function saveAddress(CustomerAddressForm $request)
     {
 
-
         $data = request()->all();
 
         $data['billing']['address1'] = implode(PHP_EOL, array_filter($data['billing']['address1']));
@@ -104,16 +103,6 @@ class CheckoutController extends Controller
                 'error' => 'shipping address id is required'
             ],400);
 
-        if(Cart::hasError()){
-            Log::info('cart has error');
-        }
-
-        if(! Cart::saveCustomerAddress($data)){
-            Log::info('save adress has error');
-        }
-        if(! Shipping::collectRates()){
-            Log::info('collect rates has error');
-        }
 
         if (Cart::hasError() || ! Cart::saveCustomerAddress($data) || ! Shipping::collectRates()) {
 
