@@ -106,7 +106,11 @@ class CheckoutController extends Controller
 
         if (Cart::hasError() || ! Cart::saveCustomerAddress($data) || ! Shipping::collectRates()) {
 
-            abort(400);
+            return response()->json([
+                'success' => false,
+                'message' => 'Korzina usarel. Pozhaluysta obnavite korzinu'
+
+            ]);
         }
 
         $rates = [];
@@ -125,7 +129,7 @@ class CheckoutController extends Controller
                 'rates' => $rates,
                 'cart'  => new CartResource(Cart::getCart()),
             ]
-        ]);
+        ],400);
     }
 
     /**
@@ -141,7 +145,11 @@ class CheckoutController extends Controller
             || !$shippingMethod
             || ! Cart::saveShippingMethod($shippingMethod)
         ) {
-            abort(400);
+            return response()->json([
+                'success' => false,
+                'message' => 'Korzina usarel. Pozhaluysta obnavite korzinu'
+
+            ],400);
         }
 
         Cart::collectTotals();
@@ -164,7 +172,11 @@ class CheckoutController extends Controller
         $payment = request()->get('payment');
 
         if (Cart::hasError() || ! $payment || ! Cart::savePaymentMethod($payment)) {
-            abort(400);
+            return response()->json([
+                'success' => false,
+                'message' => 'Korzina usarel. Pozhaluysta obnavite korzinu'
+
+            ],400);
         }
 
         return response()->json([
@@ -202,7 +214,11 @@ class CheckoutController extends Controller
     public function saveOrder()
     {
         if (Cart::hasError()) {
-            abort(400);
+            return response()->json([
+                'success' => false,
+                'message' => 'Korzina usarel. Pozhaluysta obnavite korzinu'
+
+            ],400);
         }
 
         Cart::collectTotals();
