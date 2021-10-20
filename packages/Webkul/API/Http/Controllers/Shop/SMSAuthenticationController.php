@@ -87,11 +87,13 @@ class SMSAuthenticationController extends Controller
         $customer = $this->customerRepository->create($data);
 
         try {
-            \Webkul\Customer\Jobs\PhoneVerification::dispatchIf(core()->getConfigData('customer.settings.email.verification'), $customer->toArray());
             Event::dispatch('customer.registration.after', $customer);
+            if(core()->getConfigData('customer.settings.email.verification'))
+                \Webkul\Customer\Jobs\PhoneVerification::dispatchIf(core()->getConfigData('customer.settings.email.verification'), $customer->toArray());
 
             return response()->json([
-                'message' => trans('shop::app.customer.signup-form.success-verify'),
+                'success' =>true,
+                'message' => trans('shop::app.customer.signup-form.success'),
             ]);
         }
         catch (\Exception $exception){
