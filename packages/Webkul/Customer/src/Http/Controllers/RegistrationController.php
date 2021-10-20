@@ -172,7 +172,10 @@ class RegistrationController extends Controller
             session()->flash('success', trans('shop::app.customer.signup-form.success'));
         }
 
-        return view('shop::customers.signup.verify',compact('customer'));
+        if (core()->getConfigData('customer.settings.email.verification'))
+            return view('shop::customers.signup.verify',compact('customer'));
+
+        return redirect()->route($this->_config['redirect']);
     }
 
     /**
