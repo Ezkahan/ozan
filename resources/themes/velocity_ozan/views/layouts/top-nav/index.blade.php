@@ -46,13 +46,13 @@
                                 <a class="c-item" href="?{{ $searchQuery }}&locale={{ $locale->code }}">
                                     <span class="c-icon">
                                         @if( $locale->code == 'en')
-                                            <img src="{{asset('themes/velocity_ozan/assets/images/en.png')}}" alt="lang-icon">
+                                            <img src="{{asset('themes/velocity_ozan/assets/images/en.png')}}" alt="lang-icon" width="20px" height="18px">
                                         @endif
                                         @if( $locale->code == 'ru')
-                                            <img src="{{asset('themes/velocity_ozan/assets/images/ru.png')}}" alt="lang-icon">
+                                            <img src="{{asset('themes/velocity_ozan/assets/images/ru.png')}}" alt="lang-icon" width="20px" height="18px">
                                         @endif
                                         @if( $locale->code == 'tm')
-                                            <img src="{{asset('themes/velocity_ozan/assets/images/tm.png')}}" alt="lang-icon">
+                                            <img src="{{asset('themes/velocity_ozan/assets/images/tm.png')}}" alt="lang-icon" width="20px" height="18px">
                                         @endif
                                     </span>
                                     <span class="c-text">
@@ -63,13 +63,13 @@
                                 <a class="c-item" href="?locale={{ $locale->code }}">
                                     <span class="c-icon">
                                         @if( $locale->code == 'en')
-                                            <img src="{{asset('themes/velocity_ozan/assets/images/en.png')}}" alt="lang-icon">
+                                            <img src="{{asset('themes/velocity_ozan/assets/images/en.png')}}" alt="lang-icon" width="20px" height="18px">
                                         @endif
                                         @if( $locale->code == 'ru')
-                                            <img src="{{asset('themes/velocity_ozan/assets/images/ru.png')}}" alt="lang-icon">
+                                            <img src="{{asset('themes/velocity_ozan/assets/images/ru.png')}}" alt="lang-icon" width="20px" height="18px">
                                         @endif
                                         @if( $locale->code == 'tm')
-                                            <img src="{{asset('themes/velocity_ozan/assets/images/tm.png')}}" alt="lang-icon">
+                                            <img src="{{asset('themes/velocity_ozan/assets/images/tm.png')}}" alt="lang-icon" width="20px" height="18px">
                                         @endif
                                     </span>
                                     <span class="c-text">
