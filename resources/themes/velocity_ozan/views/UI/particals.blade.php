@@ -109,7 +109,6 @@
                                         aria-label="Search"
                                         v-model:value="inputVal" />
 
-
                                     <button class="search__btn" type="button"  aria-label="Search" @click="submitForm">
                                         @lang('app.search')
                                     </button>
@@ -170,7 +169,6 @@
             </div>
         </div>
     </script>
-
 
     <script type="text/javascript">
         (() => {

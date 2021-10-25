@@ -9,5 +9,7 @@ return [
     'contact_us' => 'Свяжитесь с нами',
     'main_page' => 'Главная',
     'search' => 'Поиск',
-    'our-brands'=>'Бренды'
+    'our-brands'=>'Бренды',
+    'tomorrow' => 'Завтра ',
+    'today' => 'Сегодня '
 ];

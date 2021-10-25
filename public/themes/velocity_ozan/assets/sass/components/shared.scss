@@ -729,6 +729,9 @@ select:focus,
 
 .control-error {
     color: $color-danger;
+    display: block;
+    width: 100%;
+    margin-top: 5px;
 }
 
 .mandatory,

@@ -18,7 +18,15 @@ class Free extends AbstractShipping
      * @var string
      */
     protected $code  = 'free';
-
+    /**
+     * Returns payment method title
+     *
+     * @return array
+     */
+    public function getTitle()
+    {
+        return $this->getConfigData('title');
+    }
     /**
      * Returns rate for flatrate
      *

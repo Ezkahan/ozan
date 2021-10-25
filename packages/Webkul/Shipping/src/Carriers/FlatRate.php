@@ -24,7 +24,15 @@ class FlatRate extends AbstractShipping
     {
         $this->code = $this->getConfigData('code');
     }
-
+    /**
+     * Returns payment method title
+     *
+     * @return array
+     */
+    public function getTitle()
+    {
+        return $this->getConfigData('title');
+    }
     /**
      * Returns rate for flatrate
      *

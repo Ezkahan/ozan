@@ -2,6 +2,7 @@
 
 namespace Webkul\Shipping\Carriers;
 
+use Carbon\Carbon;
 use Config;
 use Webkul\Checkout\Models\CartShippingRate;
 use Webkul\Shipping\Facades\Shipping;
@@ -19,7 +20,23 @@ class Irden extends AbstractShipping
      * @var string
      */
     protected $code = 'irden';
+    /**
+     * Returns payment method title
+     *
+     * @return array
+     */
+    public function getTitle()
+    {
+        $start_time = Carbon::createFromTimeString($this->getConfigData('start_time'));
 
+        $tomorrow = Carbon::now()->gte($start_time) ;
+
+        return  trans($tomorrow ? 'app.tomorrow' : 'app.today').' '
+            .$this->getConfigData('title').' '
+            .$this->getConfigData('start_time').' - '
+            .$this->getConfigData('end_time');
+
+    }
 
     /**
      * Returns rate for flatrate
@@ -32,16 +49,15 @@ class Irden extends AbstractShipping
             return false;
         }
 
-        $cart = Cart::getCart();
 
         $object = new CartShippingRate;
 
         $object->carrier = 'irden';
         $object->carrier_title = $this->getConfigData('title');
         $object->method = 'irden_irden';
-        $object->method_title = $this->getConfigData('title');
+        $object->method_title = $this->getTitle();
         $object->method_description = $this->getConfigData('description');
-        $object->is_calculate_tax = $this->getConfigData('is_calculate_tax');
+        $object->is_calculate_tax = false;
         $object->price = 0;
         $object->base_price = 0;
 

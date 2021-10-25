@@ -67,9 +67,18 @@ class OrderController extends Controller
      */
     public function cancel($id)
     {
-        $result = $this->orderRepository->cancel($id);
+        try {
+            $result = $this->orderRepository->cancel($id);
+
+        }catch (\Exception $x){
+            return response()->json([
+                'status' => false,
+                'message' => $x->getMessage()
+            ]);
+        }
 
         return response()->json([
+            'status' => true,
             'message' => trans($result?
                 'admin::app.response.cancel-success' : 'admin::app.response.cancel-error',
                 ['name' => 'Order']

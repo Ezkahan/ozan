@@ -37,9 +37,11 @@
                                     <div class="row">
                                         <b>{{ $rate->method_title }}</b> - {{ __($rate->method_description) }}
                                     </div>
+                                    @if($rate->base_price)
                                     <div class="row">
                                         <b>{{ core()->currency($rate->base_price) }}</b>
                                     </div>
+                                     @endif
                                 </div>
                             </div>
 

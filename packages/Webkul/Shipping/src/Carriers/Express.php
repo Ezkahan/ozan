@@ -10,6 +10,15 @@ use Webkul\Checkout\Models\CartShippingRate;
 class Express extends AbstractShipping
 {
     /**
+     * Returns payment method title
+     *
+     * @return array
+     */
+    public function getTitle()
+    {
+        return $this->getConfigData('title');
+    }
+    /**
      * Payment method code
      *
      * @var string

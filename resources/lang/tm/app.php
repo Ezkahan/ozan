@@ -9,5 +9,7 @@ return [
     'contact_us' => 'Habarlaşmak',
     'main_page' => 'Baş sahypa',
     'search' => 'Gözleg',
-    'our-brands'=>'Brendler'
+    'our-brands'=>'Brendler',
+    'tomorrow' => 'Ertir ',
+    'today' => 'Bugün '
 ];
