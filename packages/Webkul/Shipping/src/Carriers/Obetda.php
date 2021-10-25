@@ -20,22 +20,7 @@ class Obetda extends AbstractShipping
      * @var string
      */
     protected $code = 'obetda';
-    /**
-     * Returns payment method title
-     *
-     * @return array
-     */
-    public function getTitle()
-    {
-        $start_time = Carbon::createFromTimeString($this->getConfigData('start_time'));
 
-        $tomorrow = Carbon::now()->gte($start_time) ;
-
-        return  trans($tomorrow ? 'app.tomorrow' : 'app.today').' '
-            .$this->getConfigData('title').' '
-            .$this->getConfigData('start_time').' - '
-            .$this->getConfigData('end_time');
-    }
     /**
      * Returns rate for flatrate
      *
@@ -47,14 +32,21 @@ class Obetda extends AbstractShipping
             return false;
         }
 
-        $cart = Cart::getCart();
+        $start_time = Carbon::createFromTimeString($this->getConfigData('start_time'));
+
+        $tomorrow = Carbon::now()->gte($start_time) ;
+
+        $title =   trans($tomorrow ? 'app.tomorrow' : 'app.today').' '
+            .$this->getConfigData('title').' '
+            .$this->getConfigData('start_time').' - '
+            .$this->getConfigData('end_time');
 
         $object = new CartShippingRate;
 
         $object->carrier = 'obetda';
         $object->carrier_title = $this->getConfigData('title');
         $object->method = 'obetda_obetda';
-        $object->method_title = $this->getTitle();
+        $object->method_title = $title;
         $object->method_description = $this->getConfigData('description');
         $object->is_calculate_tax = false;
         $object->price = 0;
