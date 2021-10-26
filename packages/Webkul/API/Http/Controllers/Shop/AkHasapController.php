@@ -224,10 +224,10 @@ class AkHasapController extends Controller
         }
         catch (\Exception $ex){
             DB::rollBack();
-            Log::error($ex);
+            Log::error($ex->getMessage());
             return response()->json([
                 'error' => $ex->getMessage()
-            ],500);
+            ],400);
         }
 
     }
@@ -464,10 +464,10 @@ class AkHasapController extends Controller
             }
             catch (\Exception $exception){
                 DB::rollBack();
-                Log::error($exception);
+                Log::error($exception->getMessage());
                 return response()->json([
                     'error' => $exception->getMessage()
-                ],500);
+                ],400);
             }
 
         }
