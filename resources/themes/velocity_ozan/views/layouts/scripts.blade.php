@@ -17,8 +17,7 @@
 
 <script
     type="text/javascript"
-    src="{{ asset('themes/velocity/assets/js/jquery.ez-plu
-    s.js') }}">
+    src="{{ asset('themes/velocity/assets/js/jquery.ez-plus.js') }}">
 </script>
 <script type="text/javascript">
     (() => {
