@@ -198,7 +198,7 @@ Route::group(['prefix' => 'api', 'middleware'=>'version'], function ($router) {
         //Order routes
         Route::get('orders', 'OrderController@index');
         Route::get('orders/{id}', 'OrderController@get');
-        Route::get('orders/{id}/cancel', 'OrderController@cancel');
+        Route::post('orders/{id}/cancel', 'OrderController@cancel');
 
         //Invoice routes
         Route::get('invoices', 'InvoiceController@index')->defaults('_config', [

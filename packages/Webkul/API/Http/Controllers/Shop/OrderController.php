@@ -68,12 +68,12 @@ class OrderController extends Controller
      */
     public function cancel($id)
     {
-        Log::info('cancell order id'.$id);
+
         try {
             $result = $this->orderRepository->cancel($id);
 
         }catch (\Exception $x){
-            Log::error($x);
+
             return response()->json([
                 'status' => false,
                 'message' => $x->getMessage()
