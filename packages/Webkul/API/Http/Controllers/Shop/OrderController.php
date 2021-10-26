@@ -9,6 +9,7 @@
 namespace Webkul\API\Http\Controllers\Shop;
 
 
+use Illuminate\Support\Facades\Log;
 use Webkul\API\Http\Resources\Sales\Order;
 use Webkul\Sales\Repositories\OrderRepository;
 
@@ -67,10 +68,12 @@ class OrderController extends Controller
      */
     public function cancel($id)
     {
+        Log::info('cancell order id'.$id);
         try {
             $result = $this->orderRepository->cancel($id);
 
         }catch (\Exception $x){
+            Log::error($x);
             return response()->json([
                 'status' => false,
                 'message' => $x->getMessage()
