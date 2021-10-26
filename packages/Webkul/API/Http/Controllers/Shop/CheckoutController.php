@@ -121,7 +121,7 @@ class CheckoutController extends Controller
                 'rates'         => CartShippingRateResource::collection(collect($shippingMethod['rates'])),
             ];
         }
-        Log::info('3');
+
         Cart::collectTotals();
 
         return response()->json([

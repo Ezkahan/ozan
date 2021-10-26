@@ -33,7 +33,6 @@ class OrderAcceptedNotification implements ShouldQueue
                     ->send();
             }else{
                 Log::warning("order yoga houuu");
-                Log::info($this->order);
             }
         }
         catch (Exception $e){

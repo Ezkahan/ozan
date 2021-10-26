@@ -125,15 +125,11 @@ class OrderItemRepository extends Repository
                 if (isset($item->qty_ordered)) {
                     $qty = $item->qty_ordered;
                 } else {
-                    Log::info('OrderItem has no qty_ordered', ['orderItem' => $item, 'product' => $item->product]);
+
                     if (isset($item->parent->qty_ordered)) {
                         $qty = $item->parent->qty_ordered;
                     } else {
-                        Log::info('OrderItem has no parent with qty_ordered', [
-                            'orderItem' => $item,
-                            'parent' => $item->parent,
-                            'product' => $item->product
-                        ]);
+
                         $qty = 1;
                     }
                 }
@@ -187,13 +183,13 @@ class OrderItemRepository extends Repository
                     } else {
                         $shippedQty = $shipmentItem->qty;
                     }
-    
+
                     $inventory = $orderItem->product->inventories()
                     //  ->where('vendor_id', $data['vendor_id'])
                      ->where('inventory_source_id', $shipmentItem->shipment->inventory_source_id)
                      ->first();
-    
-                    $inventory->update(['qty' => $inventory->qty + $shippedQty]);                  
+
+                    $inventory->update(['qty' => $inventory->qty + $shippedQty]);
                 }
             }
         }

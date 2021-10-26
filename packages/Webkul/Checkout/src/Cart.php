@@ -153,7 +153,7 @@ class Cart
             if (count($cart->all_items) <= 0) {
                 session()->forget('cart');
             }
-            Log::info($cartProducts);
+
             throw new Exception($cartProducts);
         } else {
             $parentCartItem = null;
@@ -477,7 +477,7 @@ class Cart
             $this->collectTotals();
         }
         catch (Exception $ex){
-            Log::info($data);
+
             return false;
         }
 
