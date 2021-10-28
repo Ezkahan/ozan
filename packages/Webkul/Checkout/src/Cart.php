@@ -605,7 +605,10 @@ class Cart
         }
 
         if (count($cart->items) === 0) {
-            $this->cartRepository->delete($cart->id);
+
+            try {
+                $this->cartRepository->delete($cart->id);
+            }catch (Exception $ex){}
 
             return false;
         }
