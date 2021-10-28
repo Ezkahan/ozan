@@ -46,7 +46,13 @@ class CancelOrderNotification implements ShouldQueue
         try {
             if($f_token = $this->order['firebase_token'])
             {
-                (new Firebase($f_token,'Sargyt #'.$this->order['id'], 'yatyryldy'))
+                $data = [
+                    'id' =>   $this->order['id'],
+                    'title' => 'Sargyt #'.$this->order['id'].' ýatyryldy',
+                    'content' => 'Siziň ozan.com.tm #'.$this->order['id'].' belgili sargydyňyz ýatyryldy',
+                    'type' => 'order'
+                ];
+                (new Firebase($f_token,$data))
                     ->send();
             }
             else{

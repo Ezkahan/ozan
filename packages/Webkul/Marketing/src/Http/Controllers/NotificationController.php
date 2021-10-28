@@ -82,7 +82,8 @@ class NotificationController extends Controller
 
     private function sendNotification($note){
         try {
-            (new Firebase('/topics/notifications',$note->title,$note->content))->send();
+            $data = $note->only(['id','title','content'])->torArray()+['type'=>'topic'];
+            (new Firebase('/topics/notifications',$data))->send();
             session()->flash('success', trans('Notification sent successfully'));
         }catch (\Exception $ex){
             report($ex);

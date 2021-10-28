@@ -2,6 +2,7 @@
 
 namespace Webkul\Admin\PUSH;
 
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
 
@@ -13,20 +14,16 @@ class Firebase
 
     public $to;
 
-    public $notification;
 
-    public function __construct($to,$title,$body,$priority = 'high')
+    public function __construct($to,$content,$priority = 'high')
     {
         $this->data = [
-            'click_action' => 'FLUTTER_NOTIFICATION_CLICK'
-        ];
+            'click_action' => 'FLUTTER_NOTIFICATION_CLICK',
+            'sound'=>'default',
+            'date'=>Carbon::today()->format('Y-m-d'),
+        ] + $content;
 
         $this->to = $to;
-
-        $this->notification = [
-            'title' => $title,
-            'body' => $body
-        ];
 
         $this->priority = $priority;
 
