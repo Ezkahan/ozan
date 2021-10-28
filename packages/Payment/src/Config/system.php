@@ -46,7 +46,7 @@ return [
                 ],
                 'validation' => 'required',
                 'channel_based' => false,
-                'locale_based' => true
+                'locale_based' => false
             ],  [
                 'name' => 'sort',
                 'title' => 'admin::app.admin.system.sort_order',

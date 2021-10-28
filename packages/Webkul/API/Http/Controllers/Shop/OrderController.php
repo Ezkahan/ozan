@@ -68,9 +68,7 @@ class OrderController extends Controller
     public function cancel($id)
     {
         $order = auth()->guard($this->guard)->user()->all_orders()->find($id);
-        Log::info('cancel order');
-        Log::info(request()->url());
-        Log::info(request());
+
         try {
 
             if ($order && $this->repository->cancel($order))
@@ -93,14 +91,6 @@ class OrderController extends Controller
                 'message' => $x->getMessage()
             ]);
         }
-
-        return response()->json([
-            'status' => true,
-            'message' => trans($result?
-                'admin::app.response.cancel-success' : 'admin::app.response.cancel-error',
-                ['name' => 'Order']
-            )
-        ]);
     }
 
 }
