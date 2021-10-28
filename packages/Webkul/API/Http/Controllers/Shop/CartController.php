@@ -56,9 +56,6 @@ class CartController extends Controller
         CartItemRepository $cartItemRepository,
         WishlistRepository $wishlistRepository
     ) {
-        Log::info(request()->url());
-        Log::info(request());
-
         $this->guard = request()->has('token') ? 'api' : 'customer';
 
         auth()->setDefaultDriver($this->guard);
@@ -72,7 +69,6 @@ class CartController extends Controller
         $this->cartItemRepository = $cartItemRepository;
 
         $this->wishlistRepository = $wishlistRepository;
-
     }
 
     /**
