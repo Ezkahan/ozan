@@ -20,6 +20,8 @@ class OrderController extends Controller
     {
         $this->guard = request()->has('token') ? 'api' : 'customer';
 
+        Log::info(request());
+
         auth()->setDefaultDriver($this->guard);
 
         $this->middleware('auth:' . $this->guard);
