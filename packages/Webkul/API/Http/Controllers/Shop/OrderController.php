@@ -71,7 +71,7 @@ class OrderController extends Controller
 
         try {
 
-            if ($order && $this->repository->cancel($order))
+            if ($order && $this->orderRepository->cancel($order))
                 return response()->json([
                     'status'  => true,
                     'message' => __('admin::app.response.cancel-success', [
