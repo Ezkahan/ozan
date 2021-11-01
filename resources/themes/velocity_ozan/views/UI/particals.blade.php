@@ -73,32 +73,63 @@
                                 role="toolbar">
 
                                 <div class="btn-group full-width force-center">
-                                    <div class="selectdiv">
-                                        <select class="form-control fs13 styled-select" name="category" @change="focusInput($event)" aria-label="Category">
-                                            <option value="">
+{{--                                    <div class="selectdiv">--}}
+{{--                                        <select class="form-control fs13 styled-select" name="category" @change="focusInput($event)" aria-label="Category">--}}
+{{--                                            <option value="">--}}
 
-                                                @lang('velocity::app.header.all-categories')
-                                            </option>
+{{--                                                @lang('velocity::app.header.all-categories')--}}
+{{--                                            </option>--}}
 
-                                            <template v-for="(category, index) in $root.sharedRootCategories">
-                                                <option
-                                                    :key="index"
-                                                    selected="selected"
-                                                    :value="category.id"
-                                                    v-if="(category.id == searchedQuery.category)">
-                                                    @{{ category.name }}
-                                                </option>
+{{--                                            <template v-for="(category, index) in $root.sharedRootCategories">--}}
+{{--                                                <option--}}
+{{--                                                    :key="index"--}}
+{{--                                                    selected="selected"--}}
+{{--                                                    :value="category.id"--}}
+{{--                                                    v-if="(category.id == searchedQuery.category)">--}}
+{{--                                                    @{{ category.name }}--}}
+{{--                                                </option>--}}
 
-                                                <option :key="index" :value="category.id" v-else>
-                                                    @{{ category.name }}
-                                                </option>
-                                            </template>
-                                        </select>
+{{--                                                <option :key="index" :value="category.id" v-else>--}}
+{{--                                                    @{{ category.name }}--}}
+{{--                                                </option>--}}
+{{--                                            </template>--}}
+{{--                                        </select>--}}
 
-                                        <div class="select-icon-container">
-                                            <span class="select-icon rango-arrow-down"></span>
+{{--                                        <div class="select-icon-container">--}}
+{{--                                            <span class="select-icon rango-arrow-down"></span>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{------------------------------------------------------custom search---------------------------------------------------}}
+                                    <template>
+                                        <div
+                                            class="custom-select selectdiv"
+                                            :tabindex="tabindex"
+                                            @blur="open = false"
+                                        >
+                                            <div
+                                                class="selected"
+                                                :class="{open: open}"
+                                                @click="open = !open"
+                                            >
+                                                @{{ selected }}
+                                            </div>
+                                            <div
+                                                class="items"
+                                                :class="{selectHide: !open}"
+                                            >
+                                                <div
+                                                    class="item"
+                                                    v-for="(option, i) of options"
+                                                    :key="i"
+                                                    @click="selected=option; open=false; $emit('input', option)"
+                                                >
+                                                    @{{ option }}
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
+                                    </template>
+
+{{------------------------------------------------------custome search end----------------------------------------------}}
 
                                     <input
                                         required
@@ -267,82 +298,240 @@
                 props: ['addClass'],
             });
 
-            Vue.component('searchbar-component', {
-                template: '#searchbar-template',
+            {{--Vue.component('searchbar-component', {--}}
+            {{--    template: '#searchbar-template',--}}
 
-                data: function () {
-                    return {
-                        inputVal: '',
-                        compareCount: 0,
-                        wishlistCount: 0,
-                        searchedQuery: [],
-                        isCustomer: '{{ auth()->guard('customer')->user() ? "true" : "false" }}' == "true",
+            {{--    data: function () {--}}
+            {{--        return {--}}
+            {{--            inputVal: '',--}}
+            {{--            compareCount: 0,--}}
+            {{--            wishlistCount: 0,--}}
+            {{--            searchedQuery: [],--}}
+            {{--            isCustomer: '{{ auth()->guard('customer')->user() ? "true" : "false" }}' == "true",--}}
+            {{--        }--}}
+            {{--    },--}}
+
+            {{--    watch: {--}}
+            {{--        '$root.headerItemsCount': function () {--}}
+            {{--            this.updateHeaderItemsCount();--}}
+            {{--        }--}}
+            {{--    },--}}
+
+            {{--    created: function () {--}}
+            {{--        let searchedItem = window.location.search.replace("?", "");--}}
+            {{--        searchedItem = searchedItem.split('&');--}}
+
+            {{--        let updatedSearchedCollection = {};--}}
+
+            {{--        searchedItem.forEach(item => {--}}
+            {{--            let splitedItem = item.split('=');--}}
+            {{--            updatedSearchedCollection[splitedItem[0]] = decodeURI(splitedItem[1]);--}}
+            {{--        });--}}
+
+            {{--        if (updatedSearchedCollection['image-search'] == 1) {--}}
+            {{--            updatedSearchedCollection.term = '';--}}
+            {{--        }--}}
+
+            {{--        this.searchedQuery = updatedSearchedCollection;--}}
+
+            {{--        if (this.searchedQuery.term) {--}}
+            {{--            this.inputVal = decodeURIComponent(this.searchedQuery.term.split('+').join(' '));--}}
+            {{--        }--}}
+
+            {{--        this.updateHeaderItemsCount();--}}
+            {{--    },--}}
+
+            {{--    methods: {--}}
+            {{--        'focusInput': function (event) {--}}
+            {{--            $(event.target.parentElement.parentElement).find('input').focus();--}}
+            {{--        },--}}
+
+            {{--        'submitForm': function () {--}}
+            {{--            if (this.inputVal !== '') {--}}
+            {{--                $('input[name=term]').val(this.inputVal);--}}
+            {{--                $('#search-form').submit();--}}
+            {{--            }--}}
+            {{--        },--}}
+
+            {{--        'updateHeaderItemsCount': function () {--}}
+            {{--            if (! this.isCustomer) {--}}
+            {{--                let comparedItems = this.getStorageValue('compared_product');--}}
+
+            {{--                if (comparedItems) {--}}
+            {{--                    this.compareCount = comparedItems.length;--}}
+            {{--                }--}}
+            {{--            } else {--}}
+            {{--                this.$http.get(`${this.$root.baseUrl}/items-count`)--}}
+            {{--                    .then(response => {--}}
+            {{--                        this.compareCount = response.data.compareProductsCount;--}}
+            {{--                        this.wishlistCount = response.data.wishlistedProductsCount;--}}
+            {{--                    })--}}
+            {{--                    .catch(exception => {--}}
+            {{--                        console.log(this.__('error.something_went_wrong'));--}}
+            {{--                    });--}}
+            {{--            }--}}
+            {{--        }--}}
+            {{--    }--}}
+            {{--});--}}
+
+            Vue.component('searchbar-component',{
+                    template: '#searchbar-template',
+                props:{
+                    options:{
+                        type: Array,
+                        required: true
+                    },
+                    tabindex:{
+                        type: Number,
+                        required: false,
+                        default: 0
                     }
                 },
+                mounted(){
+                    this.$emit('input', this.selected);
+                },
+                    data: function () {
+                        return {
+                            inputVal: '',
+                            compareCount: 0,
+                            wishlistCount: 0,
+                            searchedQuery: [],
+                            isCustomer: '{{ auth()->guard('customer')->user() ? "true" : "false" }}' == "true",
 
-                watch: {
-                    '$root.headerItemsCount': function () {
+                            selected: this.options.length > 0 ? this.options[0] : null,
+                            open: false
+                        }
+                    },
+
+                    watch: {
+                        '$root.headerItemsCount': function () {
+                            this.updateHeaderItemsCount();
+                        }
+                    },
+
+                    created: function () {
+                        let searchedItem = window.location.search.replace("?", "");
+                        searchedItem = searchedItem.split('&');
+
+                        let updatedSearchedCollection = {};
+
+                        searchedItem.forEach(item => {
+                            let splitedItem = item.split('=');
+                            updatedSearchedCollection[splitedItem[0]] = decodeURI(splitedItem[1]);
+                        });
+
+                        if (updatedSearchedCollection['image-search'] == 1) {
+                            updatedSearchedCollection.term = '';
+                        }
+
+                        this.searchedQuery = updatedSearchedCollection;
+
+                        if (this.searchedQuery.term) {
+                            this.inputVal = decodeURIComponent(this.searchedQuery.term.split('+').join(' '));
+                        }
+
                         this.updateHeaderItemsCount();
-                    }
-                },
-
-                created: function () {
-                    let searchedItem = window.location.search.replace("?", "");
-                    searchedItem = searchedItem.split('&');
-
-                    let updatedSearchedCollection = {};
-
-                    searchedItem.forEach(item => {
-                        let splitedItem = item.split('=');
-                        updatedSearchedCollection[splitedItem[0]] = decodeURI(splitedItem[1]);
-                    });
-
-                    if (updatedSearchedCollection['image-search'] == 1) {
-                        updatedSearchedCollection.term = '';
-                    }
-
-                    this.searchedQuery = updatedSearchedCollection;
-
-                    if (this.searchedQuery.term) {
-                        this.inputVal = decodeURIComponent(this.searchedQuery.term.split('+').join(' '));
-                    }
-
-                    this.updateHeaderItemsCount();
-                },
-
-                methods: {
-                    'focusInput': function (event) {
-                        $(event.target.parentElement.parentElement).find('input').focus();
                     },
 
-                    'submitForm': function () {
-                        if (this.inputVal !== '') {
-                            $('input[name=term]').val(this.inputVal);
-                            $('#search-form').submit();
-                        }
-                    },
+                    methods: {
+                        'focusInput': function (event) {
+                            $(event.target.parentElement.parentElement).find('input').focus();
+                        },
 
-                    'updateHeaderItemsCount': function () {
-                        if (! this.isCustomer) {
-                            let comparedItems = this.getStorageValue('compared_product');
-
-                            if (comparedItems) {
-                                this.compareCount = comparedItems.length;
+                        'submitForm': function () {
+                            if (this.inputVal !== '') {
+                                $('input[name=term]').val(this.inputVal);
+                                $('#search-form').submit();
                             }
-                        } else {
-                            this.$http.get(`${this.$root.baseUrl}/items-count`)
-                                .then(response => {
-                                    this.compareCount = response.data.compareProductsCount;
-                                    this.wishlistCount = response.data.wishlistedProductsCount;
-                                })
-                                .catch(exception => {
-                                    console.log(this.__('error.something_went_wrong'));
-                                });
+                        },
+
+                        'updateHeaderItemsCount': function () {
+                            if (! this.isCustomer) {
+                                let comparedItems = this.getStorageValue('compared_product');
+
+                                if (comparedItems) {
+                                    this.compareCount = comparedItems.length;
+                                }
+                            } else {
+                                this.$http.get(`${this.$root.baseUrl}/items-count`)
+                                    .then(response => {
+                                        this.compareCount = response.data.compareProductsCount;
+                                        this.wishlistCount = response.data.wishlistedProductsCount;
+                                    })
+                                    .catch(exception => {
+                                        console.log(this.__('error.something_went_wrong'));
+                                    });
+                            }
                         }
                     }
-                }
             });
-
         })()
     </script>
 @endpush
+@push('styles')
+    <style scoped>
+
+        .custom-select {
+            position: relative;
+            width: 100%;
+            text-align: left;
+            outline: none;
+            height: 47px;
+            line-height: 47px;
+        }
+
+        .selected {
+            background-color: #080D0E;
+            border-radius: 6px;
+            border: 1px solid #858586;
+            color: #ffffff;
+            padding-left: 8px;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .selected.open{
+            border: 1px solid #CE9B2C;
+            border-radius: 6px 6px 0px 0px;
+        }
+
+        .selected:after {
+            position: absolute;
+            content: "";
+            top: 22px;
+            right: 10px;
+            width: 0;
+            height: 0;
+            border: 4px solid transparent;
+            border-color: #fff transparent transparent transparent;
+        }
+
+        .items {
+            color: #ffffff;
+            border-radius: 0px 0px 6px 6px;
+            overflow: hidden;
+            border-right: 1px solid #CE9B2C;
+            border-left: 1px solid #CE9B2C;
+            border-bottom: 1px solid #CE9B2C;
+            position: absolute;
+            background-color: #080D0E;
+            left: 0;
+            right: 0;
+        }
+
+        .item{
+            color: #ffffff;
+            padding-left: 8px;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .item:hover{
+            background-color: #B68A28;
+        }
+
+        .selectHide {
+            display: none;
+        }
+    </style>
+    @endpush

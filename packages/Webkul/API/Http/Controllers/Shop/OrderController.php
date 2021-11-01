@@ -86,6 +86,7 @@ class OrderController extends Controller
 
         }catch (\Exception $x){
 
+            Log::error($x);
             return response()->json([
                 'status' => false,
                 'message' => $x->getMessage()
