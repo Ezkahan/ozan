@@ -52,16 +52,32 @@ class TFEBController extends Controller
             if($result['response']['operationResult'] == 'OPG-00100' && $orderId = $result['response']['orderId']){
 //                dd($result);
                 $this->teb->registerOrderId($orderId);
-                return redirect($result['_links']['redirectToCheckout']['href']);
+                return request()->has('token') ? response()->json(['status' => true, 'redirect_url' => $result['_links']['redirectToCheckout']['href']]):
+                    redirect($result['_links']['redirectToCheckout']['href']);
             }
             else{//if already registered or otkazana w dostupe
                 //todo log
-                session()->flash('error', $result['response']['operationResultDescription']);
+                if(request()->has('token')){
+                    return response()->json([
+                        'status' => false,
+                        'message' => $result['response']['operationResultDescription']
+                    ]);
+                }
+                    session()->flash('error', $result['response']['operationResultDescription']);
             }
 
         }catch (\Exception $exception){
             //todo Check exception if not connection excepion redirect to login ore somewhere if session expired
             Log::error($exception);
+
+            if(request()->has('token')){
+                return response()->json([
+                    'status' => false,
+                    'message' => $exception->getMessage()
+                ]);
+
+            }
+
             session()->flash('error', $exception->getMessage());
         }
 
@@ -82,19 +98,34 @@ Log::info($result);
                 //todo save card details to cart->payment
                 Cart::deActivateCart();
 
+                if(request()->has('token')){
+                    return response()->json([
+                        'success' => true,
+                        'order' => $order
+                    ]);
+                }
+
                 session()->flash('order', $order);
 
                 return redirect()->route('shop.checkout.success');
 
             } else {
+                if(request()->has('token')){
+                    return response()->json([
+                        'success' => false,
+                        'message' => trans('payment.unsuccessfull')
+                    ]);
+                }
                 session()->flash('error', trans('payment.unsuccessfull'));
             }
         }
         catch (ConnectException $connectException){
+            if(!request()->has('token'))
             session()->flash('error',trans('payment::messages.connection_failed'));
         }
         catch (\Exception $exception){
             Log::error($exception);
+            if(!request()->has('token'))
             session()->flash('error',$exception->getMessage());
         }
         return redirect()->route('shop.checkout.cart.index');
