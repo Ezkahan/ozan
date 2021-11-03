@@ -12,6 +12,8 @@ class Firebase
 
     public  $priority;
 
+    public $notification;
+
     public $to;
 
 
@@ -19,10 +21,14 @@ class Firebase
     {
         $this->data = [
             'click_action' => 'FLUTTER_NOTIFICATION_CLICK',
-            'sound' => 'default',
-            'date' => Carbon::today()->format('Y-m-d'),
-            'title' => $content['title']
+
         ] + $content;
+
+        $this->notification = [
+            'sound' => 'default',
+            'title' => $content['title'],
+            'body' =>$content['content']
+        ];
 
         $this->to = $to;
 
