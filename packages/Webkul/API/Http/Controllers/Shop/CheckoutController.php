@@ -239,7 +239,7 @@ class CheckoutController extends Controller
         if ($redirectUrl = Payment::getRedirectUrl($cart)) {
             return response()->json([
                     'success'      => true,
-                    'redirect_url' => $redirectUrl,
+                    'register_order_url' => $redirectUrl,
                 ]);
         }
 
