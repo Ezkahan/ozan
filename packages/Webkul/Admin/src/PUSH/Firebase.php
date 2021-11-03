@@ -19,8 +19,9 @@ class Firebase
     {
         $this->data = [
             'click_action' => 'FLUTTER_NOTIFICATION_CLICK',
-            'sound'=>'default',
-            'date'=>Carbon::today()->format('Y-m-d'),
+            'sound' => 'default',
+            'date' => Carbon::today()->format('Y-m-d'),
+            'title' => $content['title']
         ] + $content;
 
         $this->to = $to;
