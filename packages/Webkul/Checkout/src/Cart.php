@@ -373,7 +373,12 @@ class Cart
             }
 
             foreach ($guestCart->items as $guestCartItem) {
-                $this->addProduct($guestCartItem->product_id, $guestCartItem->additional);
+                try {
+
+                        $this->addProduct($guestCartItem->product_id, $guestCartItem->additional);
+                }catch (Exception $ex){
+                    $this->removeItem($guestCartItem->id);
+                }
             }
 
             $this->collectTotals();

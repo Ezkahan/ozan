@@ -39,9 +39,9 @@ class TFEB extends Payment
 
 //        Log::info($this->getCart());
 
-        $body = (new Order($this->getCart()))->toJson();
-
-        Log::info($body);
+        $cart_order = new Order($this->getCart());
+        Log::info($cart_order);
+        $body = $cart_order->toJson();
 
         $params =[
             'body' => $body
