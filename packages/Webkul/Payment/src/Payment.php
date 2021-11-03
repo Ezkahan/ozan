@@ -78,7 +78,12 @@ class Payment
     public static function getAdditionalDetails($code)
     {
         $paymentMethodClass =  app(Config::get('paymentmethods.' . $code . '.class'));
-        
+
         return $paymentMethodClass->getAdditionalDetails();
+    }
+
+    public function registerOrder($cart){
+        $payment = app(Config::get('paymentmethods.' . $cart->payment->method . '.class'));
+        return $payment->registerOrder();
     }
 }

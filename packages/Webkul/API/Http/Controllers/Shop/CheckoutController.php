@@ -237,10 +237,33 @@ class CheckoutController extends Controller
         $cart = Cart::getCart();
 
         if ($redirectUrl = Payment::getRedirectUrl($cart)) {
-            return response()->json([
-                    'success'      => true,
-                    'register_order_url' => $redirectUrl,
+
+            try{
+                $result =  json_decode(Payment::registerOrder($cart),true);
+                Log::info($result);
+                if($result['response']['operationResult'] == 'OPG-00100' && $orderId = $result['response']['orderId']){
+//                dd($result);
+                    $this->teb->registerOrderId($orderId);
+                    return response()->json(['status' => true, 'redirect_url' => $result['_links']['redirectToCheckout']['href']]);
+                }
+                else{//if already registered or otkazana w dostupe
+
+                    return response()->json([
+                        'status' => false,
+                        'message' => $result['response']['operationResultDescription']
+                    ]);
+
+                }
+
+            }catch (\Exception $exception){
+                //todo Check exception if not connection excepion redirect to login ore somewhere if session expired
+                Log::error($exception);
+                return response()->json([
+                    'status' => false,
+                    'message' => $exception->getMessage()
                 ]);
+            }
+
         }
 
         $order = $this->orderRepository->create(Cart::prepareDataForOrder());
