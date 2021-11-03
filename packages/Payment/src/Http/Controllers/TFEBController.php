@@ -30,6 +30,12 @@ class TFEBController extends Controller
 
     public function __construct(OrderRepository $orderRepository, TFEB $teb)
     {
+        $this->guard = request()->has('token') ? 'api' : 'customer';
+
+        auth()->setDefaultDriver($this->guard);
+
+        $this->middleware('auth:' . $this->guard);
+
         $this->orderRepository = $orderRepository;
         $this->teb = $teb;
     }
