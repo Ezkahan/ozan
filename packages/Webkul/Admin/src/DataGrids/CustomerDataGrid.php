@@ -50,14 +50,14 @@ class CustomerDataGrid extends DataGrid
             'filterable' => true,
         ]);
 
-        $this->addColumn([
-            'index'      => 'email',
-            'label'      => trans('admin::app.datagrid.email'),
-            'type'       => 'string',
-            'searchable' => true,
-            'sortable'   => true,
-            'filterable' => true,
-        ]);
+//        $this->addColumn([
+//            'index'      => 'email',
+//            'label'      => trans('admin::app.datagrid.email'),
+//            'type'       => 'string',
+//            'searchable' => true,
+//            'sortable'   => true,
+//            'filterable' => true,
+//        ]);
 
         $this->addColumn([
             'index'      => 'group',
@@ -85,22 +85,22 @@ class CustomerDataGrid extends DataGrid
             },
         ]);
 
-        $this->addColumn([
-            'index'      => 'gender',
-            'label'      => trans('admin::app.datagrid.gender'),
-            'type'       => 'string',
-            'searchable' => false,
-            'sortable'   => true,
-            'filterable' => false,
-            'closure'    => true,
-            'wrapper'    => function ($row) {
-                if (! $row->gender) {
-                    return '-';
-                } else {
-                    return $row->gender;
-                }
-            },
-        ]);
+//        $this->addColumn([
+//            'index'      => 'gender',
+//            'label'      => trans('admin::app.datagrid.gender'),
+//            'type'       => 'string',
+//            'searchable' => false,
+//            'sortable'   => true,
+//            'filterable' => false,
+//            'closure'    => true,
+//            'wrapper'    => function ($row) {
+//                if (! $row->gender) {
+//                    return '-';
+//                } else {
+//                    return $row->gender;
+//                }
+//            },
+//        ]);
 
         $this->addColumn([
             'index'      => 'status',

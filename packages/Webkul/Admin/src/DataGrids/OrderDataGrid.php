@@ -73,14 +73,14 @@ class OrderDataGrid extends DataGrid
             'filterable' => true,
         ]);
 
-        $this->addColumn([
-            'index'      => 'channel_name',
-            'label'      => trans('admin::app.datagrid.channel-name'),
-            'type'       => 'string',
-            'sortable'   => true,
-            'searchable' => true,
-            'filterable' => true,
-        ]);
+//        $this->addColumn([
+//            'index'      => 'channel_name',
+//            'label'      => trans('admin::app.datagrid.channel-name'),
+//            'type'       => 'string',
+//            'sortable'   => true,
+//            'searchable' => true,
+//            'filterable' => true,
+//        ]);
 
         $this->addColumn([
             'index'      => 'status',

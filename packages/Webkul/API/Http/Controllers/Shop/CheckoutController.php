@@ -241,7 +241,7 @@ class CheckoutController extends Controller
             try{
                 $payment_method = Payment::getPaymentMethod($cart);
                 $result =  json_decode($payment_method->registerOrder(),true);
-                Log::info($result);
+
                 if($result['response']['operationResult'] == 'OPG-00100' && $orderId = $result['response']['orderId']){
 //                dd($result);
                     $payment_method->registerOrderId($orderId);
