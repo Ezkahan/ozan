@@ -31,7 +31,7 @@
                     class="theme-btn  {{ $addToCartBtnClass ?? '' }} ">
 
                     @if (! (isset($showCartIcon) && !$showCartIcon))
-                        <i class="material-icons text-down-3">shopping_cart</i>
+                        <i class="material-icons text-down-3">cart</i>
                     @endif
 
                     {{ ($product->type == 'booking') ?  __('velocity::app.products.book-now') :  __('velocity::app.home.add-to-cart') }}
@@ -51,7 +51,7 @@
                         class="btn btn-add-to-cart  {{ $addToCartBtnClass ?? '' }}">
 
                         @if (! (isset($showCartIcon) && !$showCartIcon))
-                            <i class="material-icons text-down-3">shopping_cart</i>
+                            <i class="material-icons text-down-3">cart</i>
                         @endif
 
                         <span class="fs14 fw6 text-uppercase text-up-4">

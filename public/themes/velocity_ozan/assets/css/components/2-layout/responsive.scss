@@ -342,7 +342,7 @@
 
     .my_brands {
         &_item {
-            width: calc(25% - 20px);;
+            width: calc(20% - 20px);
 
             .product-image-container {
                 max-height: 150px !important;
@@ -1098,7 +1098,7 @@
 @include md-lg {
     .my_brands {
         &_item {
-            width: calc(33.33% - 20px);;
+            width: calc(25% - 20px);
         }
     }
 
@@ -1396,7 +1396,8 @@
 @include sm-mdd {
     .my_brands {
         &_item {
-            width: calc(50% - 20px);;
+            width: calc(33.33% - 5px);
+            max-height: 128px;
         }
     }
 
@@ -1411,7 +1412,9 @@
 
 @include xsm-sm {
 
-
+    .my_brands_item{
+        max-height: 100px;
+    }
 
     // index page start
     .product {

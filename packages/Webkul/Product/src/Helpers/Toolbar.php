@@ -33,7 +33,7 @@ class Toolbar extends AbstractProduct
             return $pages;
         }
 
-        return [9, 15, 21, 28];
+        return [18, 21, 24, 27];
     }
 
     /**

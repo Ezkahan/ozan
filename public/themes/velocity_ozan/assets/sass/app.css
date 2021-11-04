@@ -2769,7 +2769,7 @@
 .category-container {
   min-height: 670px;
   margin-left: 15px;
-  padding: 40px 15px !important;
+  /*padding: 40px 15px !important;*/
 }
 
 .category-container .hero-image {
@@ -2936,7 +2936,7 @@
   max-height: 670px;
   overflow-x: hidden;
   margin-bottom: 42px;
-  padding: 42px 10px 0 10px;
+  /*padding: 42px 10px 0 10px;*/
 }
 
 .layered-filter-wrapper .recently-viewed {

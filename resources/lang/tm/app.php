@@ -9,5 +9,5 @@ return [
     'contact_us' => 'Habarlaşmak',
     'main_page' => 'Baş sahypa',
     'search' => 'Gözleg',
-    'our-brands'=>'Brendlerimiz'
+    'our-brands'=>'Brendler'
 ];
