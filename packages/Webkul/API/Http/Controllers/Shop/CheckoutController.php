@@ -239,11 +239,12 @@ class CheckoutController extends Controller
         if ($redirectUrl = Payment::getRedirectUrl($cart)) {
 
             try{
-                $result =  json_decode(Payment::registerOrder($cart),true);
+                $payment_method = Payment::getPaymentMethod($cart);
+                $result =  json_decode($payment_method->registerOrder(),true);
                 Log::info($result);
                 if($result['response']['operationResult'] == 'OPG-00100' && $orderId = $result['response']['orderId']){
 //                dd($result);
-                    $this->teb->registerOrderId($orderId);
+                    $payment_method->registerOrderId($orderId);
                     return response()->json(['status' => true, 'redirect_url' => $result['_links']['redirectToCheckout']['href']]);
                 }
                 else{//if already registered or otkazana w dostupe
@@ -256,7 +257,6 @@ class CheckoutController extends Controller
                 }
 
             }catch (\Exception $exception){
-                //todo Check exception if not connection excepion redirect to login ore somewhere if session expired
                 Log::error($exception);
                 return response()->json([
                     'status' => false,

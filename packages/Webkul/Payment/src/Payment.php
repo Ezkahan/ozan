@@ -86,4 +86,8 @@ class Payment
         $payment = app(Config::get('paymentmethods.' . $cart->payment->method . '.class'));
         return $payment->registerOrder();
     }
+
+    public function getPaymentMethod($cart){
+        return app(Config::get('paymentmethods.' . $cart->payment->method . '.class'));
+    }
 }

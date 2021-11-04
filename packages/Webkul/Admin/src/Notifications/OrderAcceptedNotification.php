@@ -42,7 +42,12 @@ class OrderAcceptedNotification implements ShouldQueue
         try{
             if($f_token = $this->order['firebase_token'])
             {
-                (new Firebase($f_token,'Sargyt #'.$this->order['id'], 'kabul edildi'))
+                (new Firebase($f_token,[
+                    'title' => 'Sargyt #'.$this->order['id']. ' kabul edildi',
+                    'id' => $this->order['id'],
+                    'type' => 'order',
+                    'content' => 'Sargyt #'.$this->order['id']. ' kabul edildi'
+                ]))
                     ->send();
             }else{
                 Log::warning('Orderin firebase_tokeni yok');
