@@ -17,7 +17,7 @@
                     font-size: 18px;
                     max-width: 250px;
                     padding: 10px 20px;
-                    color: rgba(0,0,0,0.83);
+                    color: rgba(0, 0, 0, 0.83);
                 }
 
                 // #30383F   gonur
@@ -72,7 +72,7 @@
             }
         }
 
-        > .row {
+        >.row {
             padding: 60px 130px;
             background: #000;
 
@@ -82,7 +82,7 @@
             }
 
             .footer-ct-content {
-                > div {
+                >div {
                     margin: 0;
                     padding: 0;
                     font-size: 14px;
@@ -95,7 +95,7 @@
                             margin-bottom: 5px;
 
                             a {
-                                color: rgba(255,255,255,0.83);
+                                color: rgba(255, 255, 255, 0.83);
                             }
                         }
                     }
@@ -106,7 +106,7 @@
                 padding-right: 0px;
 
                 .row {
-                    > div {
+                    >div {
                         width: 100%;
                         display: block;
                     }
@@ -125,19 +125,24 @@
                     .cash {
                         background-image: url('../images/static/cash.png');
                     }
+
                     .cheque {
                         width: 57px !important;
                         background-image: url('../images/static/cheque.png');
                     }
+
                     .visa {
                         background-image: url('../images/static/visa.png');
                     }
+
                     .master-card {
                         background-image: url('../images/static/master-card.png');
                     }
+
                     .paypal {
                         background-image: url('../images/static/paypal.png');
                     }
+
                     .discover {
                         background-image: url('../images/static/discover.png');
                     }
@@ -149,7 +154,7 @@
 
                 h3 {
                     font-size: 14px;
-                    color: rgba(255,255,255,0.52);
+                    color: rgba(255, 255, 255, 0.52);
                 }
             }
         }
@@ -159,9 +164,15 @@
                 padding-left: 0px;
 
                 p {
-                    @extend .clr-dark;
+                    // @extend .clr-dark;
+                    color: #ffffff85;
 
                     font-size: 14px;
+
+                    strong {
+                        // @extend .clr-dark;
+                        color: #ffffff85;
+                    }
                 }
             }
         }
@@ -191,8 +202,9 @@
         font-size: 16px;
         line-height: 6rem;
         text-align: center;
-        background: #30383F;;
-        color: rgba(255,255,255,0.83);
+        background: #30383F;
+        ;
+        color: rgba(255, 255, 255, 0.83);
 
         p {
             padding: 0px 20px;
