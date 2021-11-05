@@ -196,9 +196,19 @@ class ShopController extends Controller
 
         if (!$brands)
             abort(404);
-//dd($brands->options);
+
         return view($this->_config['view'])->with(['brands' => $brands]);
     }
+
+    public function getShops(){
+        $brands = AttributeOption::where('attribute_id',29)->paginate(30);//brand id 25
+
+        if (!$brands)
+            abort(404);
+
+        return view($this->_config['view'])->with(['shops' => $brands]);
+    }
+
 
     /**
      * this function will provide the count of wishlist and comparison for logged in user

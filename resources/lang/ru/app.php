@@ -11,5 +11,6 @@ return [
     'search' => 'Поиск',
     'our-brands'=>'Бренды',
     'tomorrow' => 'Завтра ',
-    'today' => 'Сегодня '
+    'today' => 'Сегодня ',
+    'shops' => 'Магазины'
 ];

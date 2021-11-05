@@ -11,5 +11,6 @@ return [
     'search' => 'Gözleg',
     'our-brands'=>'Brendler',
     'tomorrow' => 'Ertir ',
-    'today' => 'Bugün '
+    'today' => 'Bugün ',
+    'shops' => 'Dükanlar'
 ];

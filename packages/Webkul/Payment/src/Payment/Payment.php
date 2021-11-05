@@ -80,7 +80,15 @@ abstract class Payment
     public function setCart()
     {
         if (! $this->cart) {
-            $this->cart = Cart::getCart();
+            if(! $this->cart = Cart::getCart()){
+                if ($usertId = request('user')) {
+                    $this->cart = $this->cartRepository->findOneWhere([
+                        'customer_id' => $usertId,
+                        'is_active'   => 1,
+                    ]);
+                    session()->put('cart', $this->cart);
+                }
+            };
         }
     }
 

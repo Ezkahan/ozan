@@ -15,6 +15,12 @@ Route::group(['middleware' => ['web', 'locale', 'theme', 'currency']], function 
                 'view' => 'shop::cms.brands'
             ]);
 
+        Route::get('/shops', 'ShopController@getShops')
+            ->name('velocity.shops')
+            ->defaults('_config', [
+                'view' => 'shop::cms.shops'
+            ]);
+
         Route::post('/contact-us', 'ContactController@sendMessage')
             ->name('velocity.contact.send')
             ->defaults('_config', [

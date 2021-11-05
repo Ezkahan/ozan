@@ -11,6 +11,7 @@ use GuzzleHttp\Exception\ConnectException;
 use Illuminate\Support\Facades\Log;
 use Webkul\Checkout\Facades\Cart;
 use Payment\CardPayment\TFEB;
+use Webkul\Checkout\Repositories\CartRepository;
 use Webkul\Sales\Repositories\OrderRepository;
 
 
@@ -92,40 +93,28 @@ class TFEBController extends Controller
     public function complete(){
         try {
             $result = json_decode($this->teb->getOrderStatus(),true);
-Log::info($result);
+
             if ($result['Response']['OperationResult'] == 'GEN-00000') {
                 $order = $this->orderRepository->create(Cart::prepareDataForOrder());
                 //todo save card details to cart->payment
                 Cart::deActivateCart();
-
-                if(request()->has('token')){
-                    return response()->json([
-                        'success' => true,
-                        'order' => $order
-                    ]);
-                }
 
                 session()->flash('order', $order);
 
                 return redirect()->route('shop.checkout.success');
 
             } else {
-                if(request()->has('token')){
-                    return response()->json([
-                        'success' => false,
-                        'message' => trans('payment.unsuccessfull')
-                    ]);
-                }
+
                 session()->flash('error', trans('payment.unsuccessfull'));
             }
         }
         catch (ConnectException $connectException){
-            if(!request()->has('token'))
+
             session()->flash('error',trans('payment::messages.connection_failed'));
         }
         catch (\Exception $exception){
             Log::error($exception);
-            if(!request()->has('token'))
+
             session()->flash('error',$exception->getMessage());
         }
         return redirect()->route('shop.checkout.cart.index');

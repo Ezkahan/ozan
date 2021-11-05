@@ -11,5 +11,7 @@ return [
     'search' => 'Search',
     'our-brands'=>'Brands',
     'tomorrow' => 'Tomorrow ',
-    'today' => 'Today '
+    'today' => 'Today ',
+    'shops' => 'Shops'
+
 ];
