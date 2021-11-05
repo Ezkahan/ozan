@@ -97,8 +97,12 @@
                     <span>@lang('app.payment_policy')</span>
                 </a>
                 <a href="{!! url('brands') !!}" class="upheader__nav-link">
-                    <i class="icon-help"></i>
+                    <i class="icon-star"></i>
                     <span>@lang('app.our-brands')</span>
+                </a>
+                <a href="{!! url('shops') !!}" class="upheader__nav-link">
+                    <i class="icon-cart"></i>
+                    <span>@lang('app.shops')</span>
                 </a>
                 @php
                     $showWishlist = core()->getConfigData('general.content.shop.wishlist_option') == "1" ? true : false;
