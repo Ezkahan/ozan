@@ -31,7 +31,7 @@ class Order extends JsonResource
                     "Language" => "en-EN"
                 ],
                 "transport" => [
-                    "merchantFinalResponseUrl" => route('paymentmethod.tfeb.complete',['id'=>$this->id])
+                    "merchantFinalResponseUrl" => route('paymentmethod.tfeb.complete',['uid'=>auth()->user()->id])
                 ]
                 //"Card" => Card::make($this->card),
                // "Customer" => Cusromer::make($this->customer),

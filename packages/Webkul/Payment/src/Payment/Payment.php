@@ -79,16 +79,12 @@ abstract class Payment
      */
     public function setCart()
     {
-        if (! $this->cart) {
-            if(! $this->cart = Cart::getCart()){
-                if ($usertId = request('user')) {
-                    $this->cart = $this->cartRepository->findOneWhere([
-                        'customer_id' => $usertId,
-                        'is_active'   => 1,
-                    ]);
-                    session()->put('cart', $this->cart);
-                }
-            };
+        if (!($this->cart || $this->cart = Cart::getCart()) && request()->has('uid')) {
+            $this->cart = $this->cartRepository->findOneWhere([
+                'customer_id' => request('uid'),
+                'is_active'   => 1,
+            ]);
+            session()->put('cart', $this->cart);
         }
     }
 
