@@ -301,12 +301,6 @@
                     </tr>
 
                     <tr>
-                        <td>{{ __('admin::app.sales.orders.tax') }}</td>
-                        <td>-</td>
-                        <td>{!! core()->formatBasePrice($invoice->base_tax_amount, true) !!}</td>
-                    </tr>
-
-                    <tr>
                         <td>{{ __('admin::app.sales.orders.discount') }}</td>
                         <td>-</td>
                         <td>{!! core()->formatBasePrice($invoice->base_discount_amount, true) !!}</td>
