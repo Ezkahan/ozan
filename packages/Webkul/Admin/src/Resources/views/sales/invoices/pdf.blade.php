@@ -245,7 +245,7 @@
                                 <th class="text-center">{{ __('admin::app.sales.orders.price') }}</th>
                                 <th class="text-center">{{ __('admin::app.sales.orders.qty') }}</th>
                                 <th class="text-center">{{ __('admin::app.sales.orders.subtotal') }}</th>
-                                <th class="text-center">{{ __('admin::app.sales.orders.tax-amount') }}</th>
+{{--                                <th class="text-center">{{ __('admin::app.sales.orders.tax-amount') }}</th>--}}
                                 <th class="text-center">{{ __('admin::app.sales.orders.grand-total') }}</th>
                             </tr>
                         </thead>
@@ -255,7 +255,7 @@
                             @foreach ($invoice->items as $item)
                                 <tr>
                                     <td>{{ $item->getTypeInstance()->getOrderedItem($item)->sku }}</td>
-                                    <td>{{ $item->product_number ?? '#'}}</td>
+                                    <td>{{ $item->product->product_number ?? '#'}}</td>
                                     <td>
                                         {{ $item->name }}
 
@@ -272,7 +272,7 @@
                                     <td>{!! core()->formatBasePrice($item->base_price, true) !!}</td>
                                     <td class="text-center">{{ $item->qty }}</td>
                                     <td class="text-center">{!! core()->formatBasePrice($item->base_total, true) !!}</td>
-                                    <td class="text-center">{!! core()->formatBasePrice($item->base_tax_amount, true) !!}</td>
+{{--                                    <td class="text-center">{!! core()->formatBasePrice($item->base_tax_amount, true) !!}</td>--}}
                                     <td class="text-center">{!! core()->formatBasePrice($item->base_total + $item->base_tax_amount, true) !!}</td>
                                 </tr>
                             @endforeach
