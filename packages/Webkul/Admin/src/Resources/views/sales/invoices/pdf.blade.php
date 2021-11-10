@@ -255,7 +255,7 @@
                             @foreach ($invoice->items as $item)
                                 <tr>
                                     <td>{{ $item->getTypeInstance()->getOrderedItem($item)->sku }}</td>
-                                    <td>{{ $item->product_type ?? '#'}}</td>
+                                    <td>{{ $item->product->getAttribute('product_number') ?? '#'}}</td>
                                     <td>
                                         {{ $item->name }}
 
