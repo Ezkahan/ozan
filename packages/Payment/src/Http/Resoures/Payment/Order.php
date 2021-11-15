@@ -77,7 +77,7 @@ class Order extends JsonResource
             ],
             "Transaction" => [
                 "InvoiceNumber" => "Acquirer",
-                "Type" => "RFND",
+                "Type" => "CRDP",
                 "AdditionalService" => null,
                 "TransactionText" => "ozan online sowda",
                 "TotalAmount" => (double)$this->grand_total,

@@ -36,14 +36,8 @@ class TFEB extends Payment
     public function registerOrder(){
 
         $client = $this->getApiClient();
-
-        $cart = $this->getCart();
         $cart_order = new Order($this->getCart());
-
-
         $body = $cart_order->toJson();
-
-        Log::info($body);
         $params =[
             'body' => $body
         ];
