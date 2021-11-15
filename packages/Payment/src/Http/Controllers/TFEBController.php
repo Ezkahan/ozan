@@ -93,6 +93,7 @@ class TFEBController extends Controller
     public function complete(){
         try {
             $result = json_decode($this->teb->getOrderStatus(),true);
+            Log::info($result);
 
             if ($result['Response']['OperationResult'] == 'GEN-00000') {
                 $order = $this->orderRepository->create(Cart::prepareDataForOrder());
