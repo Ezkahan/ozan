@@ -142,17 +142,8 @@ class AkHasapController extends Controller
         }
 
        }
-         //name -> 2 locale leri bar
-         //price -> 11
-         // url_key -> 3
-         // visible_individually ->7  true
-         // guest_checkout -> 26 false
-
-        // }
-
 
     public function storeCategories(Request $request){
-
 
         $header = $request->header('Authorization');
 
@@ -451,6 +442,13 @@ class AkHasapController extends Controller
                             'text_value' => $sku,
 
 
+                        ]
+                    );
+                    ProductAttributeValue::updateOrCreate(
+                        ['product_id' => $product->product_id,
+                        'attribute_id' => 27],
+                        [
+                            'text_value' => $akhasap_product->bar_barcode,
                         ]
                     );
 
