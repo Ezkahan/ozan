@@ -413,7 +413,7 @@ class Cart
 
         if ($this->getCurrentCustomer()->check()) {
             $cart = $this->cartRepository->findOneWhere([
-                'customer_id' => $this->getCurrentCustomer()->user()->id,
+                'customer_id' => $this->getCurrentCustomer()->user()->id ?: request('uid'),
                 'is_active'   => 1,
             ]);
 

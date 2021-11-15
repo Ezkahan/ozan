@@ -95,9 +95,9 @@ class TFEBController extends Controller
             $result = json_decode($this->teb->getOrderStatus(),true);
 
             if ($result['response']['operationResult'] == 'GEN-00000') {
-                $order = $this->orderRepository->create($this->teb->prepareDataForOrder());
+                $order = $this->orderRepository->create(Cart::prepareDataForOrder());
                 //todo save card details to cart->payment
-                $this->teb->deActivateCart();
+                Cart::deActivateCart();
 
                 session()->flash('order', $order);
 
