@@ -38,9 +38,9 @@ class TFEB extends Payment
         $client = $this->getApiClient();
 
         $cart = $this->getCart();
-//        Log::info($cart);
         $cart_order = new Order($this->getCart());
 
+        Log::info($cart_order);
 
         $body = $cart_order->toJson();
 

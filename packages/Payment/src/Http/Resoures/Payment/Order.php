@@ -90,7 +90,7 @@ class Order extends JsonResource
                 "Instalment"=> null,
                 "MerchantCategoryCode"=> null,
                 "AntiMoneyLaundering"=> [
-                    "SenderName"=> $this->customer->name,
+                    "SenderName"=> $this->customer_first_name,
                     "SenderDateOfBirth"=> null,
                     "SenderPlaceOfBirth"=> null,
                     "NationalIdentifier"=> null,
