@@ -44,7 +44,20 @@ class Order extends JsonResource
                 "SponsoredMerchantPOI"=> null,
                 "Card" => null,
                 "CardRecipient"=> null,
-                "Customer" => Cusromer::make($this->customer),
+                "Customer" => [
+                    "Name" => $this->customer_first_name,
+                    "Language" => "en-US",
+                    "Email" => $this->customer_email.'@ozan.com.tm',
+                    "HomePhone" => [
+                        "cc" => "993",
+                        "subscriber" => $this->customer_email
+                    ],
+                    "MobilePhone" => [
+                        "cc" => "993",
+                        "subscriber" => $this->customer_email
+                    ],
+                    "WorkPhone" => null
+                ],
 
                 "CustomerDevice" => [
                     "Browser" =>  [
