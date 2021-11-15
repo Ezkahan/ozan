@@ -16,13 +16,18 @@ class Cusromer extends JsonResource
     public function toArray($request)
     {
         return [
-            "Name" => "John Doe",
+            "Name" => $this->name,
             "Language" => "en-US",
-            "Email" => "john.doe@email.com",
+            "Email" => $this->phone.'@ozan.com.tm',
+            "HomePhone" => [
+                "cc" => "993",
+                "subscriber" => $this->phone
+            ],
             "MobilePhone" => [
                 "cc" => "993",
-                "subscriber" => "63432211"
-            ]
+                "subscriber" => $this->phone
+            ],
+            "WorkPhone" => null
         ];
     }
 }

@@ -46,7 +46,7 @@ class OrderAcceptedNotification implements ShouldQueue
                     'title' => 'Sargyt #'.$this->order['id']. ' kabul edildi',
                     'id' => $this->order['id'],
                     'type' => 'order',
-                    'content' => 'Sargyt #'.$this->order['id']. ' kabul edildi'
+                    'content' => 'Siziň ozan.com.tm #'.$this->order['id']. ' belgili sargydyňyz kabul edildi'
                 ]))
                     ->send();
             }else{
