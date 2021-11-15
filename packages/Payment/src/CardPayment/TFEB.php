@@ -60,7 +60,7 @@ class TFEB extends Payment
         $client = $this->getApiClient();
         $payment = $this->getCart()->payment;
 
-        return $client->post($payment->order_id)->getBody();
+        return $client->get($payment->order_id)->getBody();
     }
 
     public function registerOrderId($orderId){
