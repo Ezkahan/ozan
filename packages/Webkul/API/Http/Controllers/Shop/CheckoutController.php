@@ -250,7 +250,7 @@ class CheckoutController extends Controller
                 else{//if already registered or otkazana w dostupe
 
                     return response()->json([
-                        'status' => false,
+                        'success' => false,
                         'message' => $result['response']['operationResultDescription']
                     ]);
 
@@ -259,7 +259,7 @@ class CheckoutController extends Controller
             }catch (\Exception $exception){
                 Log::error($exception);
                 return response()->json([
-                    'status' => false,
+                    'success' => false,
                     'message' => $exception->getMessage()
                 ]);
             }
