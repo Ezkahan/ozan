@@ -35,7 +35,7 @@ class TFEBController extends Controller
 
         auth()->setDefaultDriver($this->guard);
 
-        $this->middleware('auth:' . $this->guard);
+//        $this->middleware('auth:' . $this->guard);
 
         $this->orderRepository = $orderRepository;
         $this->teb = $teb;
