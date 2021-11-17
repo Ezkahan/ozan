@@ -4,6 +4,7 @@ namespace Webkul\Payment\Payment;
 
 use Illuminate\Support\Facades\Config;
 use Webkul\Checkout\Facades\Cart;
+use Webkul\Checkout\Repositories\CartRepository;
 
 abstract class Payment
 {
@@ -80,7 +81,7 @@ abstract class Payment
     public function setCart()
     {
         if (!($this->cart || $this->cart = Cart::getCart()) && request()->has('uid')) {
-            $this->cart = $this->cartRepository->findOneWhere([
+            $this->cart = CartRepository::findOneWhere([
                 'customer_id' => request('uid'),
                 'is_active'   => 1,
             ]);
