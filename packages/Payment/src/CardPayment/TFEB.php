@@ -21,8 +21,8 @@ class TFEB extends Payment
     private function getApiClient():Client{
         return new Client([
             'base_uri' => $this->getConfigData('api_url'),
-            'connect_timeout' => 25,//sec
-            'timeout' => 25,//sec
+            'connect_timeout' => 55,//sec
+            'timeout' => 55,//sec
             'verify' => false,
             'headers' =>[
                 'ClientId' => $this->getConfigData('client_id'),
