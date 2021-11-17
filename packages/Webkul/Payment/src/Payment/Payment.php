@@ -81,7 +81,7 @@ abstract class Payment
     public function setCart()
     {
         if (!($this->cart || $this->cart = Cart::getCart()) && request()->has('uid')) {
-            $this->cart = CartRepository::findOneWhere([
+            $this->cart = (new CartRepository())->findOneWhere([
                 'customer_id' => request('uid'),
                 'is_active'   => 1,
             ]);
