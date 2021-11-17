@@ -15,14 +15,14 @@ class OrderDataGrid extends DataGrid
     public function prepareQueryBuilder()
     {
         $queryBuilder = DB::table('orders')
-//            ->leftJoin('addresses as order_address_shipping', function($leftJoin) {
-//                $leftJoin->on('order_address_shipping.order_id', '=', 'orders.id')
-//                         ->where('order_address_shipping.address_type', OrderAddress::ADDRESS_TYPE_SHIPPING);
-//            })
-            ->leftJoin('addresses as order_address_billing', function($leftJoin) {
-                $leftJoin->on('order_address_billing.order_id', '=', 'orders.id')
-                         ->where('order_address_billing.address_type', OrderAddress::ADDRESS_TYPE_BILLING);
+            ->leftJoin('addresses as order_address_shipping', function($leftJoin) {
+                $leftJoin->on('order_address_shipping.order_id', '=', 'orders.id')
+                         ->where('order_address_shipping.address_type', OrderAddress::ADDRESS_TYPE_SHIPPING);
             })
+//            ->leftJoin('addresses as order_address_billing', function($leftJoin) {
+//                $leftJoin->on('order_address_billing.order_id', '=', 'orders.id')
+//                         ->where('order_address_billing.address_type', OrderAddress::ADDRESS_TYPE_BILLING);
+//            })
             ->leftJoin('cart_payment as payment','payment.cart_id','=','orders.cart_id')
             ->addSelect('payment.method')
             ->addSelect('orders.id','orders.increment_id', 'orders.base_sub_total', 'orders.base_grand_total', 'orders.created_at', 'channel_name', 'status')
