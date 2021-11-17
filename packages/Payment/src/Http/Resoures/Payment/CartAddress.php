@@ -10,8 +10,8 @@ class CartAddress extends JsonResource
     {
         return [
             "SameAsShipping" => true,
-        "Line1"=> substr($this->address1,0,50),//Line1 must be max 50 chars
-        "Line2"=> substr($this->address2,0,50),
+        "Line1"=> substr($this->address1,0,49),//Line1 must be max 50 chars
+        "Line2"=> substr($this->address2,0,49),
         "PostCode"=> "74000",
         "City"=> "01",
         "CountrySubdivision"=> "01",
