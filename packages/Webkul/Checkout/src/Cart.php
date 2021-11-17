@@ -5,6 +5,7 @@ namespace Webkul\Checkout;
 use Exception;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Log;
+use Webkul\Customer\Repositories\CustomerRepository;
 use Webkul\Tax\Helpers\Tax;
 use Illuminate\Support\Facades\Event;
 use Webkul\Shipping\Facades\Shipping;
@@ -858,7 +859,13 @@ class Cart
             }
         }
     }
+    private function uidUser(){
+        if ($uid = requst('uid')){
+            return app(CustomerRepository::class)->find($uid);
+        }
 
+        return null;
+    }
     /**
      * Validate order before creation
      *
@@ -875,7 +882,7 @@ class Cart
             'customer_email'        => $data['customer_email'],
             'customer_first_name'   => $data['customer_first_name'],
             'customer_last_name'    => $data['customer_last_name'],
-            'customer'              => $this->getCurrentCustomer()->check() ? $this->getCurrentCustomer()->user() : null,
+            'customer'              => $this->getCurrentCustomer()->check() ? $this->getCurrentCustomer()->user() : $this->uidUser(),
             'total_item_count'      => $data['items_count'],
             'total_qty_ordered'     => $data['items_qty'],
             'base_currency_code'    => $data['base_currency_code'],
