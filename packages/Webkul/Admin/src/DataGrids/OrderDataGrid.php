@@ -77,7 +77,7 @@ class OrderDataGrid extends DataGrid
 
         $this->addColumn([
             'index'      => 'method',
-            'label'      => trans('admin::app.app.sales.orders.payment-method'),
+            'label'      => trans('admin::app.sales.orders.payment-method'),
             'type'       => 'string',
             'sortable'   => false,
             'searchable' => false,
