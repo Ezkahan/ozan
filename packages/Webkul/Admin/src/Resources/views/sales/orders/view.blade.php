@@ -58,7 +58,109 @@
             <tabs>
                 {!! view_render_event('sales.order.tabs.before', ['order' => $order]) !!}
 
+                <tab name="{{ __('admin::app.sales.orders.info') }}" :selected="true">
+                    <div class="sale-container">
 
+                        <accordian :title="'{{ __('admin::app.sales.orders.order-and-account') }}'" :active="true">
+                            <div slot="body">
+
+                                <div class="sale-section">
+                                    <div class="secton-title">
+                                        <span>{{ __('admin::app.sales.orders.order-info') }}</span>
+                                    </div>
+
+                                    <div class="section-content">
+                                        <div class="row">
+                                            <span class="title">
+                                                {{ __('admin::app.sales.orders.order-date') }}
+                                            </span>
+
+                                            <span class="value">
+                                                {{ $order->created_at }}
+                                            </span>
+                                        </div>
+
+                                        {!! view_render_event('sales.order.created_at.after', ['order' => $order]) !!}
+
+                                        <div class="row">
+                                            <span class="title">
+                                                {{ __('admin::app.sales.orders.order-status') }}
+                                            </span>
+
+                                            <span class="value">
+                                                {{ $order->status_label }}
+                                            </span>
+                                        </div>
+
+                                        {!! view_render_event('sales.order.status_label.after', ['order' => $order]) !!}
+
+                                        <div class="row">
+                                            <span class="title">
+                                                {{ __('admin::app.sales.orders.channel') }}
+                                            </span>
+
+                                            <span class="value">
+                                                {{ $order->channel_name }}
+                                            </span>
+                                        </div>
+
+                                        {!! view_render_event('sales.order.channel_name.after', ['order' => $order]) !!}
+                                    </div>
+                                </div>
+
+                                <div class="sale-section">
+                                    <div class="secton-title">
+                                        <span>{{ __('admin::app.sales.orders.account-info') }}</span>
+                                    </div>
+
+                                    <div class="section-content">
+                                        <div class="row">
+                                            <span class="title">
+                                                {{ __('admin::app.sales.orders.customer-name') }}
+                                            </span>
+
+                                            <span class="value">
+                                                {{ $order->customer_full_name }}
+                                            </span>
+                                        </div>
+
+                                        {!! view_render_event('sales.order.customer_full_name.after', ['order' => $order]) !!}
+
+                                        <div class="row">
+                                            <span class="title">
+                                                {{ __('admin::app.sales.orders.email') }}
+                                            </span>
+
+                                            <span class="value">
+                                                {{ $order->customer_email }}
+                                            </span>
+                                        </div>
+
+                                        {!! view_render_event('sales.order.customer_email.after', ['order' => $order]) !!}
+
+                                        @if (! is_null($order->customer) && ! is_null($order->customer->group))
+                                            <div class="row">
+                                                <span class="title">
+                                                    {{ __('admin::app.customers.customers.customer_group') }}
+                                                </span>
+
+                                                <span class="value">
+                                                    {{ $order->customer->group->name }}
+                                                </span>
+                                            </div>
+                                        @endif
+
+                                        {!! view_render_event('sales.order.customer_group.after', ['order' => $order]) !!}
+                                    </div>
+                                </div>
+
+                            </div>
+                        </accordian>
+
+
+
+                    </div>
+                </tab>
 
                 <tab name="{{ __('admin::app.sales.orders.invoices') }}">
 
