@@ -25,10 +25,10 @@ class Version
             $version = explode('.',$version);
             $app_version = explode('.',config('app.version'));
             if($version[0]<$app_version[0])
-                return response()->json(['message' => 'Please update app to latest version'],406);
+                return response()->json(['message' => 'Please update app to latest version', 'status'=>false],406);
         }
         else{
-//            return response()->json(['message' => 'Please update app to latest version'],406);
+            return response()->json(['message' => 'Please update app to latest version', 'status'=>false],406);
         }
         return $next($request);
     }
