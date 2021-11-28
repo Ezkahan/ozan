@@ -28,7 +28,7 @@ class Version
                 return response()->json(['message' => 'Please update app to latest version', 'status'=>false],406);
         }
         else{
-            return response()->json(['message' => 'Please update app to latest version', 'status'=>false],406);
+//            return response()->json(['message' => 'Please update app to latest version', 'status'=>false],406);
         }
         return $next($request);
     }
