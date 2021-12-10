@@ -52,8 +52,12 @@
             :class="`left ${addClass}`"
             href="{{ route('shop.home.index') }}"
             aria-label="Logo">
+            @if ($logo = core()->getCurrentChannel()->logo_url)
+                <img class="logo" src="{{ $logo }}" alt="Ozan Logo" width="192" height="80" />
+            @else
+                <img class="logo" src="{{ asset('themes/velocity_ozan/assets/images/logo.svg') }}" alt="Ozan Logo" width="192" height="80" />
+            @endif
 
-            <img class="logo" src="{{ asset('themes/velocity_ozan/assets/images/logo.svg') }}" alt="Ozan Logo" width="192" height="80" />
         </a>
     </script>
 
