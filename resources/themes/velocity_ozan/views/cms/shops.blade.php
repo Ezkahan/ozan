@@ -19,7 +19,7 @@
         <div class="my_wrap my_brands pt-3">
             @foreach($shops as $shop)
                 <div class="card grid-card product-card-new my_brands_item m-lg-3 m-xl-2 m-md-3 m-1">
-                    <a href="{{route('velocity.search.index',['shop'=>$shop->id])}}" title="{{$shop->admin_name}}" class="product-image-container">
+                    <a href="{{route('velocity.search.index',['shops'=>$shop->id])}}" title="{{$shop->admin_name}}" class="product-image-container">
                         <img loading="lazy" alt="{{$shop->admin_name}}"
                              src="{{$shop->swatch_value_url}}"
                              data-src="{{$shop->swatch_value_url}}"
