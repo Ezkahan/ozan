@@ -294,6 +294,9 @@ class ProductRepository extends Repository
 
     public function getAllApi($categoryId = null){
         $params = request()->input();
+        if(request()->has('shop')){
+            $params['shops'] = request('shop');
+        }
 //Log::info('cat:'.$categoryId);
         if (core()->getConfigData('catalog.products.storefront.products_per_page')) {
             $pages = explode(',', core()->getConfigData('catalog.products.storefront.products_per_page'));
