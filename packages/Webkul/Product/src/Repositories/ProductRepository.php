@@ -387,6 +387,12 @@ class ProductRepository extends Repository
                 $qb->whereIn('product_flat.brand', $filterInputValues);
             }
 
+            if(isset($params['shop'])){
+                $filterInputValues = explode(',',$params['shop']);
+
+                $qb->whereIn('product_flat.shops', $filterInputValues);
+            }
+
             return $qb->groupBy('product_flat.id');
 
         });
