@@ -388,7 +388,7 @@ class ProductRepository extends Repository
             }
 
             if(isset($params['shops'])){
-                $filterInputValues = explode(',',$params['shop']);
+                $filterInputValues = explode(',',$params['shops']);
 
                 $qb->whereIn('product_flat.shops', $filterInputValues);
             }
