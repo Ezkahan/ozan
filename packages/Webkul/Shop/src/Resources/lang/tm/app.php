@@ -10,7 +10,7 @@ return [
         'profile' => 'Profil',
         'address' => 'Salgy',
         'reviews' => 'Synlar',
-        'wishlist' => 'Islenilýänler',
+        'wishlist' => 'Halanlarym',
         'orders' => 'Sargytlar',
         'downloadable-products' => 'Göçürip alyp bolýan önümler'
     ],
@@ -183,7 +183,7 @@ return [
         'account' => 'Hasabym',
         'cart' => 'Sebet',
         'profile' => 'Profil',
-        'wishlist' => 'Islenilýänler',
+        'wishlist' => 'Halanlarym',
         'logout' => 'Çykyş',
         'search-text' => 'Harytlary su ýerde gözläň',
         'search' => 'Gözleg'
