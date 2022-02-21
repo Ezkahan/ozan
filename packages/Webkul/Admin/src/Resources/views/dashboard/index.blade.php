@@ -193,7 +193,52 @@
             </div>
 
             <div class="sale-stock">
+                <div class="card">
+                    <div class="card-title">
+                        {{ __('admin::app.dashboard.top-selling-products') }}
+                    </div>
 
+                    <div class="card-info {{ !count($statistics['top_selling_products']) ? 'center' : '' }}">
+                        <ul>
+
+                            @foreach ($statistics['top_selling_products'] as $item)
+
+                                <li>
+                                    <a href="{{ route('admin.catalog.products.edit', $item->product_id) }}">
+
+
+                                        <div class="description do-not-cross-arrow">
+                                            <div class="name ellipsis">
+                                                @if (isset($item->name))
+                                                    {{ $item->name }}
+                                                @endif
+                                            </div>
+
+                                            <div class="info">
+                                                {{ __('admin::app.dashboard.sale-count', ['count' => $item->total_qty_invoiced]) }}
+                                            </div>
+                                        </div>
+
+                                        <span class="icon angle-right-icon"></span>
+                                    </a>
+                                </li>
+
+                            @endforeach
+
+                        </ul>
+
+                        @if (! count($statistics['top_selling_products']))
+
+                            <div class="no-result-found">
+
+                                <i class="icon no-result-icon"></i>
+                                <p>{{ __('admin::app.common.no-result-found') }}</p>
+
+                            </div>
+
+                        @endif
+                    </div>
+                </div>
 
                 <div class="card">
                     <div class="card-title">
