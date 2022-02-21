@@ -127,6 +127,71 @@
 
             </div>
 
+            <div class="graph-stats">
+
+                <div class="left-card-container graph">
+                    <div class="card" style="overflow: hidden;">
+                        <div class="card-title" style="margin-bottom: 30px;">
+                            {{ __('admin::app.dashboard.sales') }}
+                        </div>
+
+                        <div class="card-info" style="height: 100%;">
+
+                            <canvas id="myChart" style="width: 100%; height: 87%"></canvas>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="right-card-container category">
+                    <div class="card">
+                        <div class="card-title">
+                            {{ __('admin::app.dashboard.top-performing-categories') }}
+                        </div>
+
+                        <div class="card-info {{ !count($statistics['top_selling_categories']) ? 'center' : '' }}">
+                            <ul>
+
+                                @foreach ($statistics['top_selling_categories'] as $item)
+
+                                    <li>
+                                        <a href="{{ route('admin.catalog.categories.edit', $item->category_id) }}">
+                                            <div class="description">
+                                                <div class="name">
+                                                    {{ $item->name }}
+                                                </div>
+
+                                                <div class="info">
+                                                    {{ __('admin::app.dashboard.product-count', ['count' => $item->total_products]) }}
+                                                    &nbsp;.&nbsp;
+                                                    {{ __('admin::app.dashboard.sale-count', ['count' => $item->total_qty_invoiced]) }}
+                                                </div>
+                                            </div>
+
+                                            <span class="icon angle-right-icon"></span>
+                                        </a>
+                                    </li>
+
+                                @endforeach
+
+                            </ul>
+
+                            @if (! count($statistics['top_selling_categories']))
+
+                                <div class="no-result-found">
+
+                                    <i class="icon no-result-icon"></i>
+                                    <p>{{ __('admin::app.common.no-result-found') }}</p>
+
+                                </div>
+
+                            @endif
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
 
         </div>
     </div>
