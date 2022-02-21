@@ -6,7 +6,130 @@
 
 @section('content-wrapper')
 
+    <div class="content full-page dashboard">
+        <div class="page-header">
+            <div class="page-title">
+                <h1>{{ __('admin::app.dashboard.title') }}</h1>
+            </div>
 
+            <div class="page-action">
+                <date-filter></date-filter>
+            </div>
+        </div>
+
+        <div class="page-content">
+
+            <div class="dashboard-stats">
+
+                <div class="dashboard-card">
+                    <div class="title">
+                        {{ __('admin::app.dashboard.total-customers') }}
+                    </div>
+
+                    <div class="data">
+                        {{ $statistics['total_customers']['current'] }}
+
+                        <span class="progress">
+                            @if ($statistics['total_customers']['progress'] < 0)
+                                <span class="icon graph-down-icon"></span>
+                                {{ __('admin::app.dashboard.decreased', [
+                                        'progress' => -number_format($statistics['total_customers']['progress'], 1)
+                                    ])
+                                }}
+                            @else
+                                <span class="icon graph-up-icon"></span>
+                                {{ __('admin::app.dashboard.increased', [
+                                        'progress' => number_format($statistics['total_customers']['progress'], 1)
+                                    ])
+                                }}
+                            @endif
+                        </span>
+                    </div>
+                </div>
+
+                <div class="dashboard-card">
+                    <div class="title">
+                        {{ __('admin::app.dashboard.total-orders') }}
+                    </div>
+
+                    <div class="data">
+                        {{ $statistics['total_orders']['current'] }}
+
+                        <span class="progress">
+                            @if ($statistics['total_orders']['progress'] < 0)
+                                <span class="icon graph-down-icon"></span>
+                                {{ __('admin::app.dashboard.decreased', [
+                                        'progress' => -number_format($statistics['total_orders']['progress'], 1)
+                                    ])
+                                }}
+                            @else
+                                <span class="icon graph-up-icon"></span>
+                                {{ __('admin::app.dashboard.increased', [
+                                        'progress' => number_format($statistics['total_orders']['progress'], 1)
+                                    ])
+                                }}
+                            @endif
+                        </span>
+                    </div>
+                </div>
+
+                <div class="dashboard-card">
+                    <div class="title">
+                        {{ __('admin::app.dashboard.total-sale') }}
+                    </div>
+
+                    <div class="data">
+                        {{ core()->formatBasePrice($statistics['total_sales']['current']) }}
+
+                        <span class="progress">
+                            @if ($statistics['total_sales']['progress'] < 0)
+                                <span class="icon graph-down-icon"></span>
+                                {{ __('admin::app.dashboard.decreased', [
+                                        'progress' => -number_format($statistics['total_sales']['progress'], 1)
+                                    ])
+                                }}
+                            @else
+                                <span class="icon graph-up-icon"></span>
+                                {{ __('admin::app.dashboard.increased', [
+                                        'progress' => number_format($statistics['total_sales']['progress'], 1)
+                                    ])
+                                }}
+                            @endif
+                        </span>
+                    </div>
+                </div>
+
+                <div class="dashboard-card">
+                    <div class="title">
+                        {{ __('admin::app.dashboard.average-sale') }}
+                    </div>
+
+                    <div class="data">
+                        {{ core()->formatBasePrice($statistics['avg_sales']['current']) }}
+
+                        <span class="progress">
+                            @if ($statistics['avg_sales']['progress'] < 0)
+                                <span class="icon graph-down-icon"></span>
+                                {{ __('admin::app.dashboard.decreased', [
+                                        'progress' => -number_format($statistics['avg_sales']['progress'], 1)
+                                    ])
+                                }}
+                            @else
+                                <span class="icon graph-up-icon"></span>
+                                {{ __('admin::app.dashboard.increased', [
+                                        'progress' => number_format($statistics['avg_sales']['progress'], 1)
+                                    ])
+                                }}
+                            @endif
+                        </span>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
 
 @stop
 
