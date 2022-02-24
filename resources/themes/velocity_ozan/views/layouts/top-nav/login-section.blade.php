@@ -10,7 +10,7 @@
                     <i class="icon-user ml-2"></i>
                     <span class="text-center">
                         @guest('customer')
-                            {{ __('velocity::app.header.welcome-message', ['customer_name' => trans('velocity::app.header.guest')]) }}!
+                            {{ __('velocity::app.header.welcome-message', ['customer_name' => trans('velocity::app.header.guest')]) }}
                         @endguest
 
                         @auth('customer')
