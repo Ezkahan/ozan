@@ -2,14 +2,14 @@
 
 return [
     'wishlist' => [
-        'success' => 'Haryt isleglere goşuldy',
-        'failure' => 'Harydy isleglere goşup bolanok',
-        'already' => 'Haryt isleglere eýýäm goşulypdyr',
-        'removed' => 'Haryt isleglerden aýryldy',
-        'remove-fail' => 'Harydy isleglerden aýyryp bolmady',
-        'empty' => 'Isleglere entäk haryt goşmansyňyz',
-        'select-options' => 'Isleglere goşmazdan ozal bir görnüş saýlanmaly',
-        'remove-all-success' => 'Isleglerden ähli haryt aýryldy',
+        'success' => 'Haryt halanlaryma goşuldy',
+        'failure' => 'Harydy halanlaryma goşup bolanok',
+        'already' => 'Haryt halanlaryma eýýäm goşulypdyr',
+        'removed' => 'Haryt halanlarymdan aýryldy',
+        'remove-fail' => 'Harydy halanlarymdan aýyryp bolmady',
+        'empty' => 'Halanlaryma entäk haryt goşmansyňyz',
+        'select-options' => 'Halanlaryma goşmazdan ozal bir görnüş saýlanmaly',
+        'remove-all-success' => 'Halanlarymdan ähli haryt aýryldy',
     ],
     'reviews' => [
         'empty' => 'Entäk hiç haryda syn bermänsiňiz'
