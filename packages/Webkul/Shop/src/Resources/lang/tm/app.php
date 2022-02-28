@@ -23,13 +23,13 @@ return [
     ],
     'registerlogin' =>[
         'login' => 'Ulgama girmek',
-        'register' => 'Registratsiýa',
+        'register' => 'Registrasiýa',
         'phoneNumber' => 'Telefon belgisi',
         'password' => 'Açar sözi',
         'name' => 'Ady',
         'surname' => 'Familýasy',
         'address' => 'Salgysy',
-        'do-register' => 'Registratsiýa etmek',
+        'do-register' => 'Registrasiýa etmek',
         'terms' => 'Şertler we kadalar',
         'forgot-password' => 'Açar sözini unutdym?'
 
@@ -51,7 +51,7 @@ return [
             'proceed-to-checkout' => 'Sargyda geçmek',
             'remove' => 'Aýyrmak',
             'remove-link' => 'Aýyrmak',
-            'move-to-wishlist' => 'Isleglerime geçir',
+            'move-to-wishlist' => 'Halanlaryma geçir',
             'move-to-wishlist-success' => 'Haryt isleg sanawyna üstünlikli geçdi.',
             'move-to-wishlist-error' => 'Isleg sanawyna elementi geçirip bolmaýar, soňrak synanyşyň.',
             'add-config-warning' => 'Sebede goşmazdan ozal görnüşi saýlaň.',
@@ -170,14 +170,14 @@ return [
         'page-title' => config('app.name') . ' - Home',
         'featured-products' => 'Aýratyn önümler',
         'new-products' => 'Täze harytlar',
-        'verify-email' => 'Oz elektron salgyňyzy tassyklaň',
+        'verify-email' => 'Öz elektron salgyňyzy tassyklaň',
         'resend-verify-email' => 'tasssyklaýjy poçtany gaýtadan ugrat',
         'brands' => 'Brendlar'
     ],
 
     'header' => [
-        'title' => 'Hasapym',
-        'dropdown-text' => 'Sebedi, sargytlar we islegler sanwyny dolandyrmak',
+        'title' => 'Hasabym',
+        'dropdown-text' => 'Sebedi, sargytlar we halanlarym sanawyny dolandyrmak',
         'sign-in' => 'Giriş',
         'sign-up' => 'Agza bol',
         'account' => 'Hasabym',
@@ -185,7 +185,7 @@ return [
         'profile' => 'Profil',
         'wishlist' => 'Halanlarym',
         'logout' => 'Çykyş',
-        'search-text' => 'Harytlary su ýerde gözläň',
+        'search-text' => 'Harytlary şu ýerde gözläň',
         'search' => 'Gözleg'
     ],
 
@@ -205,7 +205,7 @@ return [
     ],
 
     'subscription' => [
-        'unsubscribe' => 'Abunadan Aýyrmak',
+        'unsubscribe' => 'Abunadan aýyrmak',
         'subscribe' => 'Abuna bolmak',
         'subscribed' => 'Indi abuna e-poçtalaryna abuna bolduňyz.',
         'not-subscribed' => 'Abuna e-poçtalaryna ýazylyp bilmersiňiz, soňrak synanyşyň.',
@@ -228,7 +228,7 @@ return [
         'add-review-page-title' => 'Syn goşmak',
         'write-review' => 'Syn ýazmak',
         'review-title' => 'Synyňyzyň ady',
-        'product-review-page-title' => 'HAryt barada syn',
+        'product-review-page-title' => 'Haryt barada syn',
         'rating-reviews' => 'Derejelendirme we Syn',
         'submit' => 'Tabşyrmak',
         'delete-all' => 'Ähli synlar üstünlikli aýryldy',
@@ -265,17 +265,17 @@ return [
             'lastname' => 'Familýasy',
             'email' => 'Email',
             'password' => 'açar sözi',
-            'confirm_pass' => 'Açar sözini gaýtalaň',
-            'button_title' => 'Registratsiýa',
+            'confirm_pass' => 'Açar sözüni gaýtalaň',
+            'button_title' => 'Registrasiýa',
             'agree' => 'razy',
             'terms' => 'kadalar',
             'conditions' => 'Şertler',
             'using' => 'şu web sahypany ulanmak bilen',
             'agreement' => 'Razylyk',
-            'subscribe-to-newsletter' => 'täzeliklere agza bolmuň',
+            'subscribe-to-newsletter' => 'täzeliklere agza boluň',
             'success' => 'hasap üstünlikli döredildi',
-            'success-verify' => 'HAsap üstünlikli döredildi we tassyklamak üçin poçtaňyza hat ugradyldy',
-            'success-verify-email-unsent' => 'HAsap üstünlikli döredildi , emma tassyklamak üçin poçtaňyza hat ugradylmady, soňrak synanyşyň.',
+            'success-verify' => 'Hasap üstünlikli döredildi we tassyklamak üçin poçtaňyza hat ugradyldy',
+            'success-verify-email-unsent' => 'Hasap üstünlikli döredildi , emma tassyklamak üçin poçtaňyza hat ugradylmady, soňrak synanyşyň.',
             'already-verified' => 'Hasabyňyz eýýäm tassyklandy ýa-da täze tassyklama e-poçta iberip görmegiňizi haýyş edýäris.',
             'verification-not-sent' => 'Ýalňyşlyk!!! Barlag e-poçta ibermekde kynçylyk, soňrak synanyşyň.',
             'verification-sent' => 'Barlag e-poçta iberildi',
@@ -295,7 +295,7 @@ return [
             'title' => 'Ulgama girmek',
             'email' => 'Email',
             'password' => 'Açar sözi',
-            'forgot_pass' => 'açar sözini unutdym?',
+            'forgot_pass' => 'açar sözüni unutdym?',
             'button_title' => 'Ulgama girmek',
             'remember' => 'Meni ýatda sakla',
             'footer' => '© Copyright :year Parahat, All rights reserved',
@@ -306,19 +306,19 @@ return [
         ],
 
         'forgot-password' => [
-            'title' => 'Açar sözini dikeltme',
+            'title' => 'Açar sözüni dikeltmek',
             'email' => 'Email',
             'submit' => 'Ugrat',
             'page_title' => 'Açar sözüňizi unytdyňyzmy ?'
         ],
 
         'reset-password' => [
-            'title' => 'Açar sözini gaýtadan düzmek',
+            'title' => 'Açar sözüni gaýtadan düzmek',
             'email' => 'Hasaba alnan e-poçta',
             'password' => 'açar sözi',
             'confirm-password' => 'açar sözüni gaýtalaň',
             'back-link-title' => 'Yza dolanmak',
-            'submit-btn-title' => 'Açar sözini gaýtadan düzmek'
+            'submit-btn-title' => 'Açar sözüni gaýtadan düzmek'
         ],
 
         'account' => [
@@ -344,7 +344,7 @@ return [
                 'fname' => 'ady',
                 'lname' => 'Familýasy',
                 'gender' => 'Jynsy',
-                'other' => 'basga',
+                'other' => 'başga',
                 'male' => 'erkek',
                 'female' => 'zenan',
                 'dob' => 'doglan senesi',
@@ -352,7 +352,7 @@ return [
                 'email' => 'Email',
                 'opassword' => 'Köne açar sözi',
                 'password' => 'açar sözi',
-                'cpassword' => 'açar sözini tassyklaň',
+                'cpassword' => 'açar sözüni tassyklaň',
                 'submit' => 'Profili täzelemek',
 
                 'edit-profile' => [
@@ -367,15 +367,15 @@ return [
                     'title' => 'salgysy',
                     'add' => 'salgyny goşmak',
                     'edit' => 'Redaktirlemek',
-                    'empty' => 'siňiz ýatda saklanan salgyňyz ýok, haýş edýaris, goş düwmesine basyp täze birini dörediň',
-                    'create' => 'salgyt döretmek',
+                    'empty' => 'siziň ýatda saklanan salgyňyz ýok, haýyş edýaris, goş düwmesine basyp täze salgyny dörediň',
+                    'create' => 'sargyt döretmek',
                     'delete' => 'Aýyrmak',
                     'make-default' => 'hemişelik ulanylýan etmek',
                     'default' => 'hemişelik',
                     'contact' => 'Kontakt',
-                    'confirm-delete' =>  'Siz dogrydanam bu salgyny aýyrmak isleýarsiňizmi?',
-                    'default-delete' => 'Hemişelik adressi çalşyp bolmaýar',
-                    'enter-password' => 'Açar sözini giriziň',
+                    'confirm-delete' =>  'Siz dogrudanam bu salgyny aýyrmak isleýärsiňizmi?',
+                    'default-delete' => 'Hemişelik adresi çalşyp bolmaýar',
+                    'enter-password' => 'Açar sözüni giriziň',
                 ],
 
                 'create' => [
@@ -386,7 +386,7 @@ return [
                     'vat_id' => 'salgyt töleg belgisi',
                     'vat_help_note' => '[Bellik: Salgyt töleg belgisini ýurduň kody bilen ulanyň. Mes. INV01234567891]',
                     'title' => 'Salgy goşmak',
-                    'street-address' => 'köçäniň salgysy',
+                    'street-address' => 'Köçe',
                     'country' => 'Döwlet',
                     'state' => 'Ýurt',
                     'select-state' => 'welaýaty ýa-da etraby saýlaň',
@@ -487,14 +487,14 @@ return [
             ],
 
             'wishlist' => [
-                'page-title' => 'islenegler sanawy',
-                'title' => 'Islegler sanawy',
+                'page-title' => 'Halanlarym',
+                'title' => 'Halanlarym',
                 'deleteall' => 'ählisini aýyrmak',
                 'moveall' => 'ähli harytlary sebede geçirmek',
                 'move-to-cart' => 'sebede geçirmek',
                 'error' => 'Näbelli meseleler sebäpli isleg sanawyna önüm goşup bolmaýar, soňrak barlaň',
                 'add' => 'Isleg sanawyna haryt üstünlikli goşuldy',
-                'remove' => 'Haryt isleg sanawyndan üstünlikli aýryldy',
+                'remove' => 'Haryt halanlarymdan üstünlikli aýryldy',
                 'add-wishlist-text'     => 'Isleg sanawyna önüm goşuň',
                 'remove-wishlist-text'  => 'Harytlary isleg sanawyndan aýyryň',
                 'moved' => 'Haryt üstünlikli sebede geçirildi',
@@ -559,7 +559,7 @@ return [
         'by' => ' :name boýunça',
         'up-sell-title' => 'Siziň halap biljek başga harytlaryňyz tapyldy!',
         'related-product-title' => 'baglanşykly harytlar',
-        'cross-sell-title' => 'has kän saýlawlar',
+        'cross-sell-title' => 'Maslahat berilýän harytlar',
         'reviews-title' => ' synyň Ady',
         'write-review-btn' => 'syn ýazmak',
         'choose-option' => 'görnüşi saýlaň',
