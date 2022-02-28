@@ -156,7 +156,7 @@ return [
         'view-all'           => 'Ählisi',
         'add-to-cart'        => 'Sebede goş',
         'hot-categories'     => 'Meşhur bölümler',
-        'payment-methods'    => 'Tölegiň usullary',
+        'payment-methods'    => 'Töleg usullary',
         'customer-reviews'   => 'Müşderileriň teswirleri',
         'shipping-methods'   => 'Eltip bermegiň görnüşleri',
         'popular-categories' => 'Ýörgünli bölümler',
@@ -190,9 +190,9 @@ return [
         'result' => 'Gözleg netijesi: ',
         'no-results' => 'Haryt tapylmady',
         'page-title' => config('app.name') . ' - Gözleg',
-        'found-results' => 'haryt tapyldy',
-        'found-result' => 'haryt tapyldy',
-        'analysed-keywords' => 'gözlenen sözler',
+        'found-results' => 'Haryt tapyldy',
+        'found-result' => 'Haryt tapyldy',
+        'analysed-keywords' => 'Gözlenen sözler',
         'image-search-option' => 'Surat gözlegi'
     ],
     'menu-navbar'   => [
@@ -222,7 +222,7 @@ return [
 
     'customer'      => [
         'forgot-password' => [
-            'title' => 'Açar sözini dikeltme',
+            'title' => 'Açar sözüni dikeltme',
             'email' => 'Email',
             'submit' => 'Ugrat',
             'page_title' => 'Açar sözüňizi unytdyňyzmy ?'
@@ -247,7 +247,7 @@ return [
             'your-email-address'    => 'Siziň telefon belgiňiz',
             'form-login-text'       => 'Eger hasabyňyz bar bolsa, telefon belgiňiz bilen ulgama giriň',
             'page-title' => 'Müşderi agzalylygy',
-            'title' => 'Ulgama girmek',
+            'title' => 'Ulgama gir',
             'email' => 'Email',
             'password' => 'Açar sözi',
             'forgot_pass' => 'Açar sözüni unutdyňyzmy?',
@@ -262,8 +262,8 @@ return [
         'signup-form'       => [
             'login'             => 'Giriş',
             'become-user'       => 'Agza bol',
-            'user-registration' => 'Agzalyk formasy',
-            'form-sginup-text'  => 'Biziň onlaýn-marketimize ilkinji gezek giren bolsa, sizi alyjy hökmünde görmäge şat.',
+            'user-registration' => 'Hasap döret',
+            'form-sginup-text'  => 'Biziň onlaýn-marketimize ilkinji gezek giren bolsaňyz, sizi alyjy hökmünde görmäge şat',
             'phone' => 'Telefon',
             'page-title' => 'täze müşderi hasabyny açmak',
             'title' => 'Agza bolmak',
@@ -271,19 +271,19 @@ return [
             'lastname' => 'Familýasy',
             'email' => 'Email',
             'password' => 'Açar sözi',
-            'confirm_pass' => 'Açar sözini gaýtalaň',
-            'button_title' => 'Registratsiýa',
+            'confirm_pass' => 'Açar sözüni gaýtalaň',
+            'button_title' => 'Registrasiýa',
             'agree' => 'Şu web sahypanyň ',
             'terms' => 'kadalary we şertleri bilen razy',
             'conditions' => '',
             'using' => '',
             'agreement' => 'Razylyk',
-            'subscribe-to-newsletter' => 'Täzeliklere agza bolmuň',
+            'subscribe-to-newsletter' => 'Täzeliklere agza boluň',
             'success' => 'Hasap üstünlikli döredildi',
             'success-verify' => 'Hasap döredildi we tassyklamak üçin telefonyňyza kod ugradyldy',
             'success-verify-email-unsent' => 'Hasap döredildi, emma tassyklamak üçin telefonyňyza kod ugradylmady, soňrak synanyşyň.',
             'already-verified' => 'Hasabyňyz eýýäm tassyklandy.',
-            'verification-not-sent' => 'Ýalňyşlyk!!! Barlag sms kod ibermekde kynçylyk, soňrak synanyşyň.',
+            'verification-not-sent' => 'Ýalňyşlyk! Barlag sms kod ibermekde kynçylyk, soňrak synanyşyň.',
             'verification-sent' => 'Barlag sms kod iberildi',
             'verified' => 'Hasabyňyz tassyklandy, indi girmäge synanyşyň.',
             'verify-failed' => 'Hasabyňyzy tassyklap bilmedik.',
@@ -303,7 +303,7 @@ return [
             'recover-password-text' => 'Eger açar sözüni unudan bolsaňyz telefon belgiňizi görkezip, ony dikeldip bilersiňiz',
         ],
         'reset-password' => [
-            'title' => 'Açar sözini gaýtadan düzmek',
+            'title' => 'Açar sözüni gaýtadan düzmek',
             'token' => 'Sms kody giriziň',
             'password' => 'Açar sözi',
             'confirm-password' => 'Açar sözüni gaýtalaň',
@@ -311,7 +311,7 @@ return [
             'submit-btn-title' => 'Ugrat'
         ],
         'wishlist' => [
-            'remove-all-success' => 'Isleglerden ähli harytlar aýryldy',
+            'remove-all-success' => 'Halanlarymdan ähli harytlar aýryldy',
         ],
         'account' => [
             'dashboard' => 'Profili redaktirläň',
@@ -596,7 +596,7 @@ return [
     'by' => ' :name boýunça',
     'up-sell-title' => 'Siziň halap biljek başga harytlaryňyz tapyldy!',
     'related-product-title' => 'baglanşykly harytlar',
-    'cross-sell-title' => 'has kän saýlawlar',
+    'cross-sell-title' => 'Maslahat berilýän harytlar',
     'write-review-btn' => 'syn ýazmak',
     'choose-option' => 'görnüşi saýlaň',
     'empty' => 'Bu bölümde elýeterli haryt ýok',
@@ -647,7 +647,7 @@ return [
         'no-file-available'      => 'Faýl ýok',
         'downloadables'          => 'Göçürip alyp bolýan faýllar',
         'confirm-new-password'   => 'Täze açar sözi tassyklaň',
-        'enter-current-password' => 'Häzirki açar sözini giriziň',
+        'enter-current-password' => 'Häzirki açar sözüni giriziň',
 
         'alert' => [
             'info'      => 'Bildiriş',
@@ -657,8 +657,8 @@ return [
         ],
     ],
     'wishlist'  => [
-        'add-wishlist-text'     => 'Isleglerime goşmak',
-        'remove-wishlist-text'  => 'Isleglerimden aýyrmak'
+        'add-wishlist-text'     => 'Halanlaryma goşmak',
+        'remove-wishlist-text'  => 'Halanlarymdan aýyrmak'
     ]
 ],
 
@@ -674,9 +674,9 @@ return [
         'name' => 'Adyňyz',
         'name_placeholder' => 'Adyňyzy ýazmagyňyzy haýyş edýäris',
         'contact' => 'E-poçta / Telefon',
-        'contact_placeholder' => 'E-poçta ýa-da telefon giriziň',
+        'contact_placeholder' => 'E-poçta ýa-da telefon belgiňizi giriziň',
         'subject' => 'Mowzuk',
-        'subject_placeholder' => 'Mowzuk girmegiňizi haýyş edýäris',
+        'subject_placeholder' => 'Mowzugy girizmegiňizi haýyş edýäris',
         'message' => 'Hat',
         'message_placeholder' => 'Hatyňyzy ýazmagyňyzy haýyş edýäris',
         'send' => 'Ugrat',
