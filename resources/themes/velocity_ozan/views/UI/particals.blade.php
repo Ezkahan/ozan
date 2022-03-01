@@ -77,32 +77,32 @@
                                 role="toolbar">
 
                                 <div class="btn-group full-width force-center">
-                                    <div class="selectdiv">
-                                        <select class="form-control fs13 styled-select" name="category" @change="focusInput($event)" aria-label="Category">
-                                            <option value="">
+{{--                                    <div class="selectdiv">--}}
+{{--                                        <select class="form-control fs13 styled-select" name="category" @change="focusInput($event)" aria-label="Category">--}}
+{{--                                            <option value="">--}}
 
-                                                @lang('velocity::app.header.all-categories')
-                                            </option>
+{{--                                                @lang('velocity::app.header.all-categories')--}}
+{{--                                            </option>--}}
 
-                                            <template v-for="(category, index) in $root.sharedRootCategories">
-                                                <option
-                                                    :key="index"
-                                                    selected="selected"
-                                                    :value="category.id"
-                                                    v-if="(category.id == searchedQuery.category)">
-                                                    @{{ category.name }}
-                                                </option>
+{{--                                            <template v-for="(category, index) in $root.sharedRootCategories">--}}
+{{--                                                <option--}}
+{{--                                                    :key="index"--}}
+{{--                                                    selected="selected"--}}
+{{--                                                    :value="category.id"--}}
+{{--                                                    v-if="(category.id == searchedQuery.category)">--}}
+{{--                                                    @{{ category.name }}--}}
+{{--                                                </option>--}}
 
-                                                <option :key="index" :value="category.id" v-else>
-                                                    @{{ category.name }}
-                                                </option>
-                                            </template>
-                                        </select>
+{{--                                                <option :key="index" :value="category.id" v-else>--}}
+{{--                                                    @{{ category.name }}--}}
+{{--                                                </option>--}}
+{{--                                            </template>--}}
+{{--                                        </select>--}}
 
-                                        <div class="select-icon-container">
-                                            <span class="select-icon rango-arrow-down"></span>
-                                        </div>
-                                    </div>
+{{--                                        <div class="select-icon-container">--}}
+{{--                                            <span class="select-icon rango-arrow-down"></span>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
 
                                     <input
                                         required
