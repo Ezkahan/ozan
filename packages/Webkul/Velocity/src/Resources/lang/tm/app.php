@@ -179,7 +179,7 @@ return [
         'profile'           => 'Profil',
         'wishlist'          => 'Halanlarym',
         'all-categories'    => 'Ähli bölümler',
-        'search-text'       => 'Harytlary şu ýerde gözläň!',
+        'search-text'       => 'Harytlary şu ýerde gözläň',
         'welcome-message'   => ':customer_name hoş geldiňiz!',
         'dropdown-text'     => 'Söwda başlamak üçin içeri giriň',
         'sign-in' => 'Giriş',

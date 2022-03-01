@@ -185,7 +185,7 @@ return [
         'profile' => 'Profil',
         'wishlist' => 'Halanlarym',
         'logout' => 'Çykyş',
-        'search-text' => 'Harytlary şu ýerde gözläň!',
+        'search-text' => 'Harytlary şu ýerde gözläň',
         'search' => 'Gözleg'
     ],
 
