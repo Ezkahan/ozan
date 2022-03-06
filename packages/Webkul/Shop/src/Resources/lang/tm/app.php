@@ -168,7 +168,7 @@ return [
     'home' => [
         'promotions' => 'Mahabatlandyryş',
         'page-title' => config('app.name') . ' - Home',
-        'featured-products' => 'Aýratyn önümler',
+        'featured-products' => 'Iň köp satylan',
         'new-products' => 'Täze harytlar',
         'verify-email' => 'Öz elektron salgyňyzy tassyklaň',
         'resend-verify-email' => 'tasssyklaýjy poçtany gaýtadan ugrat',
