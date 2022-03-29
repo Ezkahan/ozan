@@ -169,6 +169,7 @@ return [
         'promotions' => 'Mahabatlandyryş',
         'page-title' => config('app.name') . ' - Home',
         'featured-products' => 'Iň köp satylan',
+        'top-sells' => 'Iň köp satylan',
         'new-products' => 'Täze harytlar',
         'verify-email' => 'Öz elektron salgyňyzy tassyklaň',
         'resend-verify-email' => 'tasssyklaýjy poçtany gaýtadan ugrat',
