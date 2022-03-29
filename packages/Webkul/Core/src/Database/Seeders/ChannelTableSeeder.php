@@ -93,7 +93,7 @@ class ChannelTableSeeder extends Seeder
                     <div class="list-container">
                         <span class="list-heading">Connect With Us</span>
                             <ul class="list-group">
-                                <li><a href="#"><span class="icon icon-facebook"></span>Facebook </a></li>
+                                <li><a href="www.facebook.com"><span class="icon icon-facebook"></span>Facebook </a></li>
                                 <li><a href="#"><span class="icon icon-twitter"></span> Twitter </a></li>
                                 <li><a href="#"><span class="icon icon-instagram"></span> Instagram </a></li>
                                 <li><a href="#"> <span class="icon icon-google-plus"></span>Google+ </a></li>
