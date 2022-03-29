@@ -147,7 +147,7 @@ class CheckoutController extends Controller
         ) {
             return response()->json([
                 'success' => false,
-                'message' => 'Korzina usarel. Pozhaluysta obnavite korzinu'
+                'message' => 'Korzina ustarel. Pozhaluysta obnavite korzinu'
 
             ],400);
         }
@@ -174,7 +174,7 @@ class CheckoutController extends Controller
         if (Cart::hasError() || ! $payment || ! Cart::savePaymentMethod($payment)) {
             return response()->json([
                 'success' => false,
-                'message' => 'Korzina usarel. Pozhaluysta obnavite korzinu'
+                'message' => 'Korzina ustarel. Pozhaluysta obnavite korzinu'
 
             ],400);
         }
@@ -216,7 +216,7 @@ class CheckoutController extends Controller
         if (Cart::hasError()) {
             return response()->json([
                 'success' => false,
-                'message' => 'Korzina usarel. Pozhaluysta obnavite korzinu'
+                'message' => 'Korzina ustarel. Pozhaluysta obnavite korzinu'
 
             ],400);
         }
