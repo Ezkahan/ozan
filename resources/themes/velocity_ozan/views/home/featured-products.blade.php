@@ -6,7 +6,7 @@
 
 <product-collections
     product-id="fearured-products-carousel"
-    product-title="{{ __('shop::app.home.featured-products') }}"
+    product-title="{{ __('velocity::app.home.featured-products') }}"
     product-route="{{ route('velocity.category.details', ['category-slug' => 'featured-products', 'count' => $count]) }}"
     locale-direction="{{ $direction }}"
     :count="{{ (int) $count }}">
