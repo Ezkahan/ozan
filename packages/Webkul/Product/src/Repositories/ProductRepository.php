@@ -346,6 +346,10 @@ class ProductRepository extends Repository
                 $qb->where('product_flat.name', 'like', '%' . urldecode($params['search']) . '%');
             }
 
+            if (isset($params['term'])) {
+                $qb->where('product_flat.name', 'like', '%' . urldecode($params['term']) . '%');
+            }
+
             /* added for api as per the documentation */
             if (isset($params['url_key'])) {
                 $qb->where('product_flat.url_key', 'like', '%' . urldecode($params['url_key']) . '%');
