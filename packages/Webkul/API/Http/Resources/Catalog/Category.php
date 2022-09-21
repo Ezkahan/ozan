@@ -34,10 +34,10 @@ class Category extends JsonResource
             'updated_at'       => $this->updated_at,
             'position' => $this->position,
         ];
-
-        if (($request->has('include'))) {
-            $result['products'] = Product::whereHas('categories', function ($query){
-                $query->where('category_id', $this->id);
+        $categoryId = $this->id;
+        if ($request->has('include')) {
+            $result['products'] = Product::whereHas('categories', function ($query) use ($categoryId){
+                $query->where('category_id', $categoryId);
             })->limit(4)->get();
         }
 
