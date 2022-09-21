@@ -36,7 +36,9 @@ class Category extends JsonResource
         ];
 
         if (($request->has('include'))) {
-            $result['products'] = Product::where('product_categories.category_id', $this->id)->limit(4)->get();
+            $result['products'] = Product::whereHas('categories', function ($query){
+                $query->where('category_id', $this->id);
+            })->limit(4)->get();
         }
 
         return $result;
