@@ -3,6 +3,7 @@
 namespace Webkul\API\Http\Resources\Catalog;
 
 use Illuminate\Http\Resources\Json\JsonResource;
+use Webkul\Product\Models\Product;
 
 class Category extends JsonResource
 {
@@ -14,7 +15,7 @@ class Category extends JsonResource
      */
     public function toArray($request)
     {
-        return [
+        $result = [
             'id'               => $this->id,
             'code'             => $this->code,
             'name'             => $this->name,
@@ -31,7 +32,11 @@ class Category extends JsonResource
                                     : json_decode($this->resource->additional, true),
             'created_at'       => $this->created_at,
             'updated_at'       => $this->updated_at,
-            'position' => $this->position
+            'position' => $this->position,
         ];
+
+        if (($request->has('include'))) {
+            $result['products'] = Product::where('product_categories.category_id', $this->id)->limit(4)->get();
+        }
     }
 }
