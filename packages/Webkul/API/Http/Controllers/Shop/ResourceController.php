@@ -62,7 +62,7 @@ class ResourceController extends Controller
                 $query = $query->where('customer_id', auth()->user()->id );
             }
 
-            foreach (request()->except(['page', 'limit', 'pagination', 'sort', 'order', 'token']) as $input => $value) {
+            foreach (request()->except(['page', 'limit', 'pagination', 'sort', 'order', 'token', 'include']) as $input => $value) {
                 $query = $query->whereIn($input, array_map('trim', explode(',', $value)));
             }
 
