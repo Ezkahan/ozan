@@ -4,6 +4,7 @@ namespace Webkul\API\Http\Resources\Catalog;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 use Webkul\Product\Models\Product;
+use Webkul\API\Http\Resources\Catalog\Product as ProductResource;
 
 class Category extends JsonResource
 {
@@ -36,9 +37,9 @@ class Category extends JsonResource
         ];
         $categoryId = $this->id;
         if ($request->has('include')) {
-            $result['products'] = Product::whereHas('categories', function ($query) use ($categoryId){
+            $result['products'] = ProductResource::collection(Product::whereHas('categories', function ($query) use ($categoryId){
                 $query->where('category_id', $categoryId);
-            })->limit(4)->get();
+            })->limit(4)->get());
         }
 
         return $result;
