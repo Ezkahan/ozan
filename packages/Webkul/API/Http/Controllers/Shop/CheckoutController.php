@@ -4,6 +4,7 @@ namespace Webkul\API\Http\Controllers\Shop;
 
 use Cart;
 use Exception;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 use Webkul\Payment\Facades\Payment;
@@ -287,5 +288,163 @@ class CheckoutController extends Controller
     public function validateOrder()
     {
         app(OnepageController::class)->validateOrder();
+    }
+
+
+    public function checkout() {
+
+
+
+        $data = request()->all();
+
+        $data['billing']['address1'] = implode(PHP_EOL, array_filter($data['billing']['address1']));
+
+        $data['shipping']['address1'] = implode(PHP_EOL, array_filter($data['shipping']['address1']));
+
+        if (isset($data['billing']['id']) && str_contains($data['billing']['id'], 'address_')) {
+            unset($data['billing']['id']);
+            unset($data['billing']['address_id']);
+        }
+
+        if (isset($data['shipping']['id']) && Str::contains($data['shipping']['id'], 'address_')) {
+            unset($data['shipping']['id']);
+            unset($data['shipping']['address_id']);
+        }
+
+        if(!isset($data['shipping']['address_id']))
+            return response()->json([
+                'error' => 'shipping address id is required'
+            ],400);
+
+        $rates = [];
+        $shippingMethod = request()->get('shipping_method');
+        $payment = request()->get('payment');
+        $couponCode = request()->get('code');
+
+        DB::beginTransaction();
+        try {
+            // Start Save Address
+            if (Cart::hasError() || ! Cart::saveCustomerAddress($data) || ! Shipping::collectRates()) {
+
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Korzina usarel. Pozhaluysta obnavite korzinu'
+
+                ]);
+            }
+            // End Save Address
+
+            // Start Save Shipping
+            foreach (Shipping::getGroupedAllShippingRates() as $code => $shippingMethod) {
+                $rates[] = [
+                    'carrier_title' => $shippingMethod['carrier_title'],
+                    'rates'         => CartShippingRateResource::collection(collect($shippingMethod['rates'])),
+                ];
+            }
+            if (Cart::hasError() || !$shippingMethod || ! Cart::saveShippingMethod($shippingMethod)) {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Korzina ustarel. Pozhaluysta obnavite korzinu'
+
+                ],400);
+            }
+            // End Save Shipping
+
+            // Start Save Payment
+            if (Cart::hasError() || ! $payment || ! Cart::savePaymentMethod($payment)) {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Korzina ustarel. Pozhaluysta obnavite korzinu'
+
+                ],400);
+            }
+            // End Save Payment
+
+            // Start Check Cupon
+            if (strlen($couponCode)) {
+                Cart::setCouponCode($couponCode)->collectTotals();
+                if (Cart::getCart()->coupon_code != $couponCode) {
+                    return response()->json([
+                        'success' => false,
+                        'message' => trans('shop::app.checkout.total.invalid-coupon'),
+                    ]);
+                }
+            }
+            // End Check Cupon
+
+            $minimumOrderAmount = (float) core()->getConfigData('sales.orderSettings.minimum-order.minimum_order_amount') ?? 0;
+
+            $status = Cart::checkMinimumOrder();
+
+            if (Cart::hasError()) {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Korzina ustarel. Pozhaluysta obnavite korzinu'
+
+                ],400);
+            }
+
+            Cart::collectTotals();
+
+            try {
+                app(OnepageController::class)->validateOrder();
+            }
+            catch (Exception $ex){
+                return response()->json([
+                    'success' => false,
+                    'message' => $ex->getMessage()
+
+                ]);
+            }
+
+            $cart = Cart::getCart();
+
+            if ($redirectUrl = Payment::getRedirectUrl($cart)) {
+
+                try{
+                    $payment_method = Payment::getPaymentMethod($cart);
+                    $result =  json_decode($payment_method->registerOrder(),true);
+
+                    if($result['response']['operationResult'] == 'OPG-00100' && $orderId = $result['response']['orderId']){
+//                    dd($result);
+                        $payment_method->registerOrderId($orderId);
+                        return response()->json(['status' => true, 'redirect_url' => $result['_links']['redirectToCheckout']['href']]);
+                    }
+                    else{//if already registered or otkazana w dostupe
+
+                        return response()->json([
+                            'success' => false,
+                            'message' => $result['response']['operationResultDescription']
+                        ]);
+
+                    }
+
+                }catch (\Exception $exception){
+                    Log::error($exception);
+                    return response()->json([
+                        'success' => false,
+                        'message' => $exception->getMessage()
+                    ]);
+                }
+
+            }
+
+            $order = $this->orderRepository->create(Cart::prepareDataForOrder());
+
+            if(request()->has('comment')){
+                $this->commentRepository->create(['order_id' => $order->id,'comment' =>request('comment')]);
+            }
+            Cart::deActivateCart();
+
+            return response()->json([
+                'success' => true,
+                'order'   => new OrderResource($order),
+            ]);
+            
+            DB::commit();
+        } catch (\Exception $e) {
+            DB::rollback();
+            throw $e;
+        }
     }
 }
