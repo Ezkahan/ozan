@@ -278,6 +278,8 @@ Route::group(['prefix' => 'api', 'middleware'=>'version'], function ($router) {
             Route::post('check-minimum-order', 'CheckoutController@checkMinimumOrder');
 
             Route::post('save-order', 'CheckoutController@saveOrder');
+
+            Route::post('checkout', 'CheckoutController@checkout');
         });
     });
 });
