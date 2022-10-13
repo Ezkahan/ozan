@@ -440,11 +440,32 @@ class CheckoutController extends Controller
                 'success' => true,
                 'order'   => new OrderResource($order),
             ]);
-            
+
             DB::commit();
         } catch (\Exception $e) {
             DB::rollback();
             throw $e;
         }
+    }
+
+    public function method(){
+
+        $rates = [];
+
+        foreach (Shipping::getGroupedAllShippingRates() as $code => $shippingMethod) {
+            $rates[] = [
+                'carrier_title' => $shippingMethod['carrier_title'],
+                'rates'         => CartShippingRateResource::collection(collect($shippingMethod['rates'])),
+            ];
+        }
+
+
+        return response()->json([
+            'data' => [
+                'paymetMethods' => Payment::getPaymentMethods(),
+                'shippingMethods' => $rates,
+                'cart'    => new CartResource(Cart::getCart()),
+            ]
+        ]);
     }
 }
