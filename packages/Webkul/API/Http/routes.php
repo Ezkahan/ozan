@@ -9,6 +9,8 @@ Route::group(['prefix' => 'api', 'middleware'=>'version'], function ($router) {
         Route::get('switch-locale', 'CoreController@switchLocale');
 
 
+        Route::get('method', 'CategoryController@methods');
+
         //Category routes
         Route::get('categories', 'ResourceController@index')->defaults('_config', [
             'repository' => 'Webkul\Category\Repositories\CategoryRepository',
