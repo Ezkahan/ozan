@@ -281,7 +281,7 @@ Route::group(['prefix' => 'api', 'middleware'=>'version'], function ($router) {
 
             Route::post('save-order', 'CheckoutController@saveOrder');
 
-            Route::get('methods', 'CheckoutController@methods');
+            Route::get('methods', 'CheckoutController@method');
             Route::post('checkout', 'CheckoutController@checkout');
         });
     });
