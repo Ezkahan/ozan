@@ -7,6 +7,11 @@ use Webkul\Category\Models\Category;
 use Webkul\Category\Repositories\CategoryRepository;
 use Webkul\API\Http\Resources\Catalog\Category as CategoryResource;
 use Webkul\Product\Repositories\ProductFlatRepository;
+use Webkul\Payment\Facades\Payment;
+use Webkul\Shipping\Facades\Shipping;
+use Webkul\Checkout\Repositories\CartRepository;
+use Webkul\API\Http\Resources\Checkout\Cart as CartResource;
+use Webkul\API\Http\Resources\Checkout\CartShippingRate as CartShippingRateResource;
 
 class CategoryController extends Controller
 {
@@ -23,8 +28,11 @@ class CategoryController extends Controller
      * @param  Webkul\Category\Repositories\CategoryRepository  $categoryRepository
      * @return void
      */
-    public function __construct(CategoryRepository $categoryRepository)
+    public function __construct(
+        CartRepository $cartRepository,
+        CategoryRepository $categoryRepository)
     {
+        $this->cartRepository = $cartRepository;
         $this->categoryRepository = $categoryRepository;
     }
 
@@ -52,5 +60,26 @@ class CategoryController extends Controller
             'message' => 'not found'
         ],404);
 
+    }
+
+    public function method(){
+
+        $rates = [];
+
+        foreach (Shipping::getGroupedAllShippingRates() as $code => $shippingMethod) {
+            $rates[] = [
+                'carrier_title' => $shippingMethod['carrier_title'],
+                'rates'         => CartShippingRateResource::collection(collect($shippingMethod['rates'])),
+            ];
+        }
+
+
+        return response()->json([
+            'data' => [
+                'paymetMethods' => Payment::getPaymentMethods(),
+                'shippingMethods' => $rates,
+                'cart'    => new CartResource(Cart::getCart()),
+            ]
+        ]);
     }
 }
