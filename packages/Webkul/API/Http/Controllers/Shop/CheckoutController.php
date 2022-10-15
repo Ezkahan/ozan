@@ -342,6 +342,9 @@ class CheckoutController extends Controller
 
                 ],400);
             }
+
+            Cart::collectTotals();
+
             // End Save Shipping
 
             // Start Save Payment
