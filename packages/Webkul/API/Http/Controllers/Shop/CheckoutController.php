@@ -297,21 +297,21 @@ class CheckoutController extends Controller
 
         $data = request()->all();
 
-        $data['billing']['address1'] = implode(PHP_EOL, array_filter($data['billing']['address1']));
+        $data['billing']['billing']['address1'] = implode(PHP_EOL, array_filter($data['billing']['billing']['address1']));
 
-        $data['shipping']['address1'] = implode(PHP_EOL, array_filter($data['shipping']['address1']));
+        $data['billing']['shipping']['address1'] = implode(PHP_EOL, array_filter($data['billing']['shipping']['address1']));
 
-        if (isset($data['billing']['id']) && str_contains($data['billing']['id'], 'address_')) {
-            unset($data['billing']['id']);
-            unset($data['billing']['address_id']);
+        if (isset($data['billing']['billing']['id']) && str_contains($data['billing']['billing']['id'], 'address_')) {
+            unset($data['billing']['billing']['id']);
+            unset($data['billing']['billing']['address_id']);
         }
 
-        if (isset($data['shipping']['id']) && Str::contains($data['shipping']['id'], 'address_')) {
-            unset($data['shipping']['id']);
-            unset($data['shipping']['address_id']);
+        if (isset($data['billing']['shipping']['id']) && Str::contains($data['billing']['shipping']['id'], 'address_')) {
+            unset($data['billing']['shipping']['id']);
+            unset($data['billing']['shipping']['address_id']);
         }
 
-        if(!isset($data['shipping']['address_id']))
+        if(!isset($data['billing']['shipping']['address_id']))
             return response()->json([
                 'error' => 'shipping address id is required'
             ],400);
@@ -321,7 +321,7 @@ class CheckoutController extends Controller
         DB::beginTransaction();
         try {
             // Start Save Address
-            if (Cart::hasError() || ! Cart::saveCustomerAddress($data) || ! Shipping::collectRates()) {
+            if (Cart::hasError() || ! Cart::saveCustomerAddress($data['address']) || ! Shipping::collectRates()) {
 
                 return response()->json([
                     'success' => false,
