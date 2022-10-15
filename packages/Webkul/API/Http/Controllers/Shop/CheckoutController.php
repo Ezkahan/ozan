@@ -297,21 +297,21 @@ class CheckoutController extends Controller
 
         $data = request()->all();
 
-        $data['billing']['billing']['address1'] = implode(PHP_EOL, array_filter($data['billing']['billing']['address1']));
+        $data['address']['billing']['address1'] = implode(PHP_EOL, array_filter($data['address']['billing']['address1']));
 
-        $data['billing']['shipping']['address1'] = implode(PHP_EOL, array_filter($data['billing']['shipping']['address1']));
+        $data['address']['shipping']['address1'] = implode(PHP_EOL, array_filter($data['address']['shipping']['address1']));
 
-        if (isset($data['billing']['billing']['id']) && str_contains($data['billing']['billing']['id'], 'address_')) {
-            unset($data['billing']['billing']['id']);
-            unset($data['billing']['billing']['address_id']);
+        if (isset($data['address']['billing']['id']) && str_contains($data['address']['billing']['id'], 'address_')) {
+            unset($data['address']['billing']['id']);
+            unset($data['address']['billing']['address_id']);
         }
 
-        if (isset($data['billing']['shipping']['id']) && Str::contains($data['billing']['shipping']['id'], 'address_')) {
-            unset($data['billing']['shipping']['id']);
-            unset($data['billing']['shipping']['address_id']);
+        if (isset($data['address']['shipping']['id']) && Str::contains($data['address']['shipping']['id'], 'address_')) {
+            unset($data['address']['shipping']['id']);
+            unset($data['address']['shipping']['address_id']);
         }
 
-        if(!isset($data['billing']['shipping']['address_id']))
+        if(!isset($data['address']['shipping']['address_id']))
             return response()->json([
                 'error' => 'shipping address id is required'
             ],400);
