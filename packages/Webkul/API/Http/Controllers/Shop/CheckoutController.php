@@ -454,7 +454,8 @@ class CheckoutController extends Controller
 
         $addresses = $customer->addresses()->get();
 
-
+        Shipping::collectRates();
+        
         $rates = [];
 
         foreach (Shipping::getGroupedAllShippingRates() as $code => $shippingMethod) {
@@ -468,8 +469,8 @@ class CheckoutController extends Controller
         return response()->json([
             'data' => [
                 "addresses" =>  CustomerAddressResource::collection($addresses),
-                'paymetMethods' => Payment::getPaymentMethods(),
                 'shippingMethods' => $rates,
+                'paymetMethods' => Payment::getPaymentMethods(),
                 'cart'    => new CartResource(Cart::getCart()),
             ]
         ]);
