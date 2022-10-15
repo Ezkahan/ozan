@@ -18,6 +18,7 @@ use Webkul\Checkout\Http\Requests\CustomerAddressForm;
 use Webkul\API\Http\Resources\Sales\Order as OrderResource;
 use Webkul\API\Http\Resources\Checkout\Cart as CartResource;
 use Webkul\API\Http\Resources\Checkout\CartShippingRate as CartShippingRateResource;
+use Webkul\API\Http\Resources\Customer\CustomerAddress as CustomerAddressResource;
 
 class CheckoutController extends Controller
 {
@@ -294,8 +295,6 @@ class CheckoutController extends Controller
 
     public function checkout() {
 
-
-
         $data = request()->all();
 
         $data['billing']['address1'] = implode(PHP_EOL, array_filter($data['billing']['address1']));
@@ -318,9 +317,9 @@ class CheckoutController extends Controller
             ],400);
 
         $rates = [];
-        $shippingMethod = request()->get('shipping_method');
-        $payment = request()->get('payment');
-        $couponCode = request()->get('code');
+        $shippingMethod = $data['shipping_method'];
+        $payment = $data['payment'];
+        $couponCode = $data['code'];
 
         DB::beginTransaction();
         try {
@@ -451,6 +450,11 @@ class CheckoutController extends Controller
 
     public function method(){
 
+        $customer = auth($this->guard)->user();
+
+        $addresses = $customer->addresses()->get();
+
+
         $rates = [];
 
         foreach (Shipping::getGroupedAllShippingRates() as $code => $shippingMethod) {
@@ -463,6 +467,7 @@ class CheckoutController extends Controller
 
         return response()->json([
             'data' => [
+                "addresses" =>  CustomerAddressResource::collection($addresses),
                 'paymetMethods' => Payment::getPaymentMethods(),
                 'shippingMethods' => $rates,
                 'cart'    => new CartResource(Cart::getCart()),
