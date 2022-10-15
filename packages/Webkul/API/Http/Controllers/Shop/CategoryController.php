@@ -61,25 +61,4 @@ class CategoryController extends Controller
         ],404);
 
     }
-
-    public function method(){
-
-        $rates = [];
-
-        foreach (Shipping::getGroupedAllShippingRates() as $code => $shippingMethod) {
-            $rates[] = [
-                'carrier_title' => $shippingMethod['carrier_title'],
-                'rates'         => CartShippingRateResource::collection(collect($shippingMethod['rates'])),
-            ];
-        }
-
-
-        return response()->json([
-            'data' => [
-                'paymetMethods' => Payment::getPaymentMethods(),
-                'shippingMethods' => $rates,
-                'cart'    => new CartResource(Cart::getCart()),
-            ]
-        ]);
-    }
 }

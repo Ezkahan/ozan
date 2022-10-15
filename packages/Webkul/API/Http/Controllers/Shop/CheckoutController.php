@@ -128,6 +128,7 @@ class CheckoutController extends Controller
         return response()->json([
             'data' => [
                 'rates' => $rates,
+                'methods' => Payment::getPaymentMethods(),
                 'cart'  => new CartResource(Cart::getCart()),
             ]
         ],400);
