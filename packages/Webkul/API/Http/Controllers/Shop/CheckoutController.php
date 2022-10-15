@@ -316,10 +316,7 @@ class CheckoutController extends Controller
                 'error' => 'shipping address id is required'
             ],400);
 
-        $rates = [];
-        $shippingMethod = $data['shipping_method'];
-        $payment = $data['payment'];
-        $couponCode = $data['code'];
+
 
         DB::beginTransaction();
         try {
@@ -335,12 +332,9 @@ class CheckoutController extends Controller
             // End Save Address
 
             // Start Save Shipping
-            foreach (Shipping::getGroupedAllShippingRates() as $code => $shippingMethod) {
-                $rates[] = [
-                    'carrier_title' => $shippingMethod['carrier_title'],
-                    'rates'         => CartShippingRateResource::collection(collect($shippingMethod['rates'])),
-                ];
-            }
+
+            $shippingMethod = $data['shipping_method'];
+
             if (Cart::hasError() || !$shippingMethod || ! Cart::saveShippingMethod($shippingMethod)) {
                 return response()->json([
                     'success' => false,
@@ -351,6 +345,9 @@ class CheckoutController extends Controller
             // End Save Shipping
 
             // Start Save Payment
+
+            $payment = $data['payment'];
+
             if (Cart::hasError() || ! $payment || ! Cart::savePaymentMethod($payment)) {
                 return response()->json([
                     'success' => false,
@@ -361,6 +358,11 @@ class CheckoutController extends Controller
             // End Save Payment
 
             // Start Check Cupon
+
+            $couponCode = '';
+        if (array_key_exists('code', $data)) {
+            $couponCode = $data['code'];
+        }
             if (strlen($couponCode)) {
                 Cart::setCouponCode($couponCode)->collectTotals();
                 if (Cart::getCart()->coupon_code != $couponCode) {
@@ -455,7 +457,7 @@ class CheckoutController extends Controller
         $addresses = $customer->addresses()->get();
 
         Shipping::collectRates();
-        
+
         $rates = [];
 
         foreach (Shipping::getGroupedAllShippingRates() as $code => $shippingMethod) {
