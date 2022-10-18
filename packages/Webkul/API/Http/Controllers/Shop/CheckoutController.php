@@ -318,8 +318,8 @@ class CheckoutController extends Controller
 
 
 
-        DB::beginTransaction();
-        try {
+        // DB::beginTransaction();
+        // try {
             // Start Save Address
             if (Cart::hasError() || ! Cart::saveCustomerAddress($data['address']) || ! Shipping::collectRates()) {
 
@@ -446,11 +446,11 @@ class CheckoutController extends Controller
                 'order'   => new OrderResource($order),
             ]);
 
-            DB::commit();
-        } catch (\Exception $e) {
-            DB::rollback();
-            throw $e;
-        }
+        //     DB::commit();
+        // } catch (\Exception $e) {
+        //     DB::rollback();
+        //     throw $e;
+        // }
     }
 
     public function method(){
