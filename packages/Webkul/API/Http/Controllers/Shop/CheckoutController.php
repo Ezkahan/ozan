@@ -445,7 +445,7 @@ class CheckoutController extends Controller
                 'success' => true,
                 'order'   => new OrderResource($order),
             ]);
-
+  
         //     DB::commit();
         // } catch (\Exception $e) {
         //     DB::rollback();
