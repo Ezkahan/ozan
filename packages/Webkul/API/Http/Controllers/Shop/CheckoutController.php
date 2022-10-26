@@ -436,16 +436,17 @@ class CheckoutController extends Controller
 
             $order = $this->orderRepository->create(Cart::prepareDataForOrder());
 
-            if(request()->has('comment')){
-                $this->commentRepository->create(['order_id' => $order->id,'comment' =>request('comment')]);
+            if(array_key_exists('comment', $data)){
+                $this->commentRepository->create(['order_id' => $order->id,'comment' => $data['code']]);
             }
+
             Cart::deActivateCart();
 
             return response()->json([
                 'success' => true,
                 'order'   => new OrderResource($order),
             ]);
-  
+
         //     DB::commit();
         // } catch (\Exception $e) {
         //     DB::rollback();
