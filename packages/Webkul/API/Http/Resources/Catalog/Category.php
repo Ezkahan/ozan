@@ -37,7 +37,9 @@ class Category extends JsonResource
         ];
         $categoryId = $this->id;
         if ($request->has('include')) {
-            $result['products'] = ProductResource::collection(Product::whereHas('categories', function ($query) use ($categoryId){
+            $result['products'] = ProductResource::collection(Product::whereHas('inventories', function ($query){
+                $query->where('qty', '>', 0);
+            })->whereHas('categories', function ($query) use ($categoryId){
                 $query->where('category_id', $categoryId);
             })->inRandomOrder()->limit(4)->get());
         }
