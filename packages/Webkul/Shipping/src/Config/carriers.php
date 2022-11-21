@@ -48,5 +48,12 @@ return [
         'is_calculate_tax' => false,
         'default_rate'     => '20',
         'class'            => 'Webkul\Shipping\Carriers\Express',
+    ],
+    'takeaway' => [
+        'code'             => 'takeaway',
+        'title'            => 'Özum baryp aljak',
+        'description'      => '',
+        'active'           => true,
+        'class'            => 'Webkul\Shipping\Carriers\Takeaway',
     ]
 ];
