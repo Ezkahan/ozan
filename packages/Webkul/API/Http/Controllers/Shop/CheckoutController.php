@@ -437,7 +437,7 @@ class CheckoutController extends Controller
             $order = $this->orderRepository->create(Cart::prepareDataForOrder());
 
             if(array_key_exists('comment', $data)){
-                $this->commentRepository->create(['order_id' => $order->id,'comment' => $data['code']]);
+                $this->commentRepository->create(['order_id' => $order->id,'comment' => $data['comment']]);
             }
 
             Cart::deActivateCart();
