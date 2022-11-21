@@ -243,6 +243,34 @@ return [
                 'locale_based'  => false,
             ]
         ]
+    ],[
+        'key'    => 'sales.carriers.takeaway',
+        'name'   => 'Özüm baryp aljak',
+        'sort'   => 7,
+        'fields' => [
+            [
+                'name'          => 'title',
+                'title'         => 'admin::app.admin.system.title',
+                'type'          => 'depends',
+                'depend'        => 'active:1',
+                'validation'    => 'required_if:active,1',
+                'channel_based' => false,
+                'locale_based'  => true,
+            ], [
+                'name'          => 'description',
+                'title'         => 'admin::app.admin.system.description',
+                'type'          => 'textarea',
+                'channel_based' => false,
+                'locale_based'  => true,
+            ], [
+                'name'          => 'active',
+                'title'         => 'admin::app.admin.system.status',
+                'type'          => 'boolean',
+                'validation'    => 'required',
+                'channel_based' => false,
+                'locale_based'  => false,
+            ],
+        ]
     ], [
         'key'  => 'sales.shipping',
         'name' => 'admin::app.admin.system.shipping',
