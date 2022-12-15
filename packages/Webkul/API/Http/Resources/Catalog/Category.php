@@ -45,13 +45,11 @@ class Category extends JsonResource
             })->whereHas('product_flats', function ($query) use ($locale, $channel){
                 $query->where('status', 1)
                 ->where('visible_individually', 1)
-                ->where('new', 1)
                 ->where('channel', $channel)
                 ->where('locale', $locale);
             })->whereHas('categories', function ($query) use ($categoryId){
                 $query->where('category_id', $categoryId);
             })
-            ->where('status', true)
             ->inRandomOrder()
             ->limit(4)->get()
         );
