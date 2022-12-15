@@ -38,11 +38,16 @@ class Category extends JsonResource
         ];
         $categoryId = $this->id;
         if ($request->has('include')) {
-
+            $channel = request()->get('channel') ?: (core()->getCurrentChannelCode() ?: core()->getDefaultChannelCode());
+            $locale = request()->get('locale') ?: app()->getLocale();
             $result['products'] = ProductResource::collection(Product::whereHas('inventories', function ($query){
                 $query->where('qty', '>', 0);
-            })->whereHas('product_flat', function ($query){
-                $query->where('status', 1);
+            })->whereHas('product_flats', function ($query) use ($locale, $channel){
+                $query->where('status', 1)
+                ->where('visible_individually', 1)
+                ->where('new', 1)
+                ->where('channel', $channel)
+                ->where('locale', $locale);
             })->whereHas('categories', function ($query) use ($categoryId){
                 $query->where('category_id', $categoryId);
             })
