@@ -3,9 +3,7 @@
 namespace Webkul\API\Http\Resources\Catalog;
 
 use Illuminate\Http\Resources\Json\JsonResource;
-use Webkul\Product\Models\Product;
-use Webkul\Product\Repositories\ProductFlatRepository;
-use Webkul\Product\Repositories\ProductRepository;
+use Illuminate\Support\Facades\DB;
 use Webkul\API\Http\Resources\Catalog\Product as ProductResource;
 
 class Category extends JsonResource
@@ -16,26 +14,7 @@ class Category extends JsonResource
      * @param  \Illuminate\Http\Request
      * @return array
      */
-
-        /**
-     * ProductRepository object
-     *
-     * @var \Webkul\Product\Repositories\ProductRepository
-     */
-    protected $productRepository;
-    protected $productFlatRepository;
-    /**
-     * Create a new controller instance.
-     *
-     * @param  \Webkul\Product\Repositories\ProductRepository $productRepository
-     * @return void
-     */
-    public function __construct(ProductRepository $productRepository,ProductFlatRepository $productFlatRepository)
-    {
-        $this->productRepository = $productRepository;
-        $this->productFlatRepository = $productFlatRepository;
-    }
-
+    
     public function toArray($request)
     {
         $result = [
@@ -60,6 +39,7 @@ class Category extends JsonResource
         $categoryId = $this->id;
         if ($request->has('include')) {
 
+            $params = request()->input();
 
         $repository = app(ProductFlatRepository::class)->scopeQuery(function ($query) use ($params, $categoryId) {
             $channel = request()->get('channel') ?: (core()->getCurrentChannelCode() ?: core()->getDefaultChannelCode());
