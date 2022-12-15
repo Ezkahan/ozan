@@ -4,6 +4,8 @@ namespace Webkul\API\Http\Resources\Catalog;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 use Webkul\Product\Models\Product;
+use Webkul\Product\Repositories\ProductFlatRepository;
+use Webkul\Product\Repositories\ProductRepository;
 use Webkul\API\Http\Resources\Catalog\Product as ProductResource;
 
 class Category extends JsonResource
@@ -14,6 +16,26 @@ class Category extends JsonResource
      * @param  \Illuminate\Http\Request
      * @return array
      */
+
+        /**
+     * ProductRepository object
+     *
+     * @var \Webkul\Product\Repositories\ProductRepository
+     */
+    protected $productRepository;
+    protected $productFlatRepository;
+    /**
+     * Create a new controller instance.
+     *
+     * @param  \Webkul\Product\Repositories\ProductRepository $productRepository
+     * @return void
+     */
+    public function __construct(ProductRepository $productRepository,ProductFlatRepository $productFlatRepository)
+    {
+        $this->productRepository = $productRepository;
+        $this->productFlatRepository = $productFlatRepository;
+    }
+
     public function toArray($request)
     {
         $result = [
@@ -37,11 +59,20 @@ class Category extends JsonResource
         ];
         $categoryId = $this->id;
         if ($request->has('include')) {
-            $result['products'] = ProductResource::collection(Product::whereHas('inventories', function ($query){
-                $query->where('qty', '>', 0);
-            })->whereHas('categories', function ($query) use ($categoryId){
-                $query->where('category_id', $categoryId);
-            })->inRandomOrder()->limit(4)->get());
+            $result['products'] = ProductResource::collection(
+                $this->productRepository->getAllApi(request()->input($categoryId))
+            //     Product::
+            // whereHas('inventories', function ($query){
+            //     $query->where('qty', '>', 0);
+            // })->whereHas('product_flat', function ($query){
+            //     $query->where('status', 1);
+            // })->whereHas('categories', function ($query) use ($categoryId){
+            //     $query->where('category_id', $categoryId);
+            // })
+            // ->where('status', true)
+            // ->inRandomOrder()
+            // ->limit(4)->get()
+        );
         }
 
         return $result;
