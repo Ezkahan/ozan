@@ -3,8 +3,8 @@
 namespace Webkul\API\Http\Resources\Catalog;
 
 use Illuminate\Http\Resources\Json\JsonResource;
-use Webkul\API\Http\Resources\Catalog\Product as ProductResource;
 use Webkul\Product\Models\Product;
+use Webkul\API\Http\Resources\Catalog\Product as ProductResource;
 
 class Category extends JsonResource
 {
@@ -14,7 +14,6 @@ class Category extends JsonResource
      * @param  \Illuminate\Http\Request
      * @return array
      */
-
     public function toArray($request)
     {
         $result = [
@@ -38,23 +37,18 @@ class Category extends JsonResource
         ];
         $categoryId = $this->id;
         if ($request->has('include')) {
-            $channel = request()->get('channel') ?: (core()->getCurrentChannelCode() ?: core()->getDefaultChannelCode());
-            $locale = request()->get('locale') ?: app()->getLocale();
             $result['products'] = ProductResource::collection(Product::whereHas('inventories', function ($query){
                 $query->where('qty', '>', 0);
-            })->whereHas('product_flats', function ($query) use ($locale, $channel){
-                $query->where('status', 1)
-                ->where('visible_individually', 1)
-                ->where('channel', $channel)
-                ->where('locale', $locale);
-            })->whereHas('categories', function ($query) use ($categoryId){
+             })->whereHas('product_flats', function ($query){
+                $query->where('status', 1);
+             })->whereHas('categories', function ($query) use ($categoryId){
                 $query->where('category_id', $categoryId);
             })
-            ->inRandomOrder()
-            ->limit(4)->get()
-        );
-        }
+// ->inRandomOrder()
+->limit(4)->get());
 
+}
+return Product::whereId(3984)->first()->distinct()->isSa;
         return $result;
     }
 }

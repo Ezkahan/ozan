@@ -1,4 +1,4 @@
 db-blade-compiler
 public/akhasaplogs
-!public/
+public/
 !.gitignore
