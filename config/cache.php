@@ -69,7 +69,8 @@ return [
         ],
 
         'redis' => [
-
+            'driver' => 'redis',
+            'connection' => env('CACHE_CONNECTION', 'cache'),
             'client' => 'predis',
 
             'clusters' => [
