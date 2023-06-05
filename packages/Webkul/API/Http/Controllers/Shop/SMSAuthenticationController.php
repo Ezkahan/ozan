@@ -78,7 +78,7 @@ class SMSAuthenticationController extends Controller
             'password'    => bcrypt($request->get('password')),
             'channel_id'  => core()->getCurrentChannel()->id,
             'api_token'         => Str::random(80),
-            'is_verified' => core()->getConfigData('customer.settings.email.verification') ? 0 : 1,
+            'is_verified' => 1, //core()->getConfigData('customer.settings.email.verification') ? 0 : 1,
             'token'       => substr(str_shuffle("0123456789"), 0, 5),
             'customer_group_id' => $this->customerGroupRepository->findOneWhere(['code' => 'general'])->id
         ];
@@ -88,8 +88,8 @@ class SMSAuthenticationController extends Controller
 
         try {
             Event::dispatch('customer.registration.after', $customer);
-            if(core()->getConfigData('customer.settings.email.verification'))
-                \Webkul\Customer\Jobs\PhoneVerification::dispatchIf(core()->getConfigData('customer.settings.email.verification'), $customer->toArray());
+//            if(core()->getConfigData('customer.settings.email.verification'))
+//                \Webkul\Customer\Jobs\PhoneVerification::dispatchIf(core()->getConfigData('customer.settings.email.verification'), $customer->toArray());
 
             return response()->json([
                 'success' =>true,

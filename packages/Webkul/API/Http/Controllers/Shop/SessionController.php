@@ -79,7 +79,7 @@ class SessionController extends Controller
                 'error' => trans('shop::app.customer.login-form.verify-first'),
             ], 401);
         }
-        Event::dispatch('customer.after.login', request('phone'));
+//        Event::dispatch('customer.after.login', request('phone'));
 
         $customer = auth($this->guard)->user();
 
