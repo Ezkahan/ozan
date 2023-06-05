@@ -835,7 +835,7 @@ Route::group(['middleware' => ['web']], function () {
                     'view' => 'admin::cms.messages',
                 ])->name('admin.cms.messages');
 
-                Route::get('/messages/view','Webkul\CMS\Http\Controllers\Admin\MessageController@view')->defaults('_config', [
+                Route::get('/messages/view/{id}','Webkul\CMS\Http\Controllers\Admin\MessageController@view')->defaults('_config', [
                     'view' => 'admin::cms.messages',
                 ])->name('admin.cms.messages.view');
 

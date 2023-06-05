@@ -31,4 +31,11 @@ class MessageRepository extends Repository
 
         return $message;
     }
+
+//   public function findOrFail($id)
+//   {
+
+//	dd("hi");
+   
+//   }
 }

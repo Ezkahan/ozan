@@ -44,6 +44,7 @@
         "paypal/paypal-checkout-sdk": "1.0.1",
         "predis/predis": "^1.1",
         "prettus/l5-repository": "^2.6",
+        "spatie/laravel-responsecache": "^6.6",
         "tymon/jwt-auth": "^1.0.0"
     },
     "require-dev": {

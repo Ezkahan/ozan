@@ -55,8 +55,7 @@ class MessageController  extends Controller
      */
     public function view($id)
     {
-        $message= $this->messageRepository->findOrFail($id);
-
+        $message= $this->messageRepository->findOrFail(2);
         return view($this->_config['view'], compact('message'));
     }
 
