@@ -12,14 +12,14 @@ Route::group(['prefix' => 'api', 'middleware'=>'version'], function ($router) {
         Route::get('categories', 'ResourceController@index')->defaults('_config', [
             'repository' => 'Webkul\Category\Repositories\CategoryRepository',
             'resource' => 'Webkul\API\Http\Resources\Catalog\Category'
-        ])->middleware('cacheResponse:3600');;
+        ])->middleware('cacheResponse:36000');;
 
-        Route::get('descendant-categories', 'CategoryController@index')->middleware('cacheResponse:3600');;
+        Route::get('descendant-categories', 'CategoryController@index')->middleware('cacheResponse:36000');;
 
         Route::get('categories/{id}', 'ResourceController@get')->defaults('_config', [
             'repository' => 'Webkul\Category\Repositories\CategoryRepository',
             'resource' => 'Webkul\API\Http\Resources\Catalog\Category'
-        ])->middleware('cacheResponse:3600');;
+        ])->middleware('cacheResponse:36000');;
 
         Route::get('category/filters', 'CategoryController@getFilters');
 
@@ -28,43 +28,43 @@ Route::group(['prefix' => 'api', 'middleware'=>'version'], function ($router) {
         Route::get('attributes', 'ResourceController@index')->defaults('_config', [
             'repository' => 'Webkul\Attribute\Repositories\AttributeRepository',
             'resource' => 'Webkul\API\Http\Resources\Catalog\Attribute'
-        ])->middleware('cacheResponse:3600');;
+        ])->middleware('cacheResponse:36000');;
 
         Route::get('attributes/{id}', 'ResourceController@get')->defaults('_config', [
             'repository' => 'Webkul\Attribute\Repositories\AttributeRepository',
             'resource' => 'Webkul\API\Http\Resources\Catalog\Attribute'
-        ])->middleware('cacheResponse:3600');;
+        ])->middleware('cacheResponse:36000');;
 
 
         //AttributeFamily routes
         Route::get('families', 'ResourceController@index')->defaults('_config', [
             'repository' => 'Webkul\Attribute\Repositories\AttributeFamilyRepository',
             'resource' => 'Webkul\API\Http\Resources\Catalog\AttributeFamily'
-        ])->middleware('cacheResponse:3600');;
+        ])->middleware('cacheResponse:36000');;
 
         Route::get('families/{id}', 'ResourceController@get')->defaults('_config', [
             'repository' => 'Webkul\Attribute\Repositories\AttributeFamilyRepository',
             'resource' => 'Webkul\API\Http\Resources\Catalog\AttributeFamily'
-        ])->middleware('cacheResponse:3600');;
+        ])->middleware('cacheResponse:36000');;
 
 
         //Product routes
-        Route::get('products', 'ProductController@index')->middleware('cacheResponse:3600');;
+        Route::get('products', 'ProductController@index')->middleware('cacheResponse:1800');;
 
-        Route::get('products/aksia', 'ProductController@aksia')->middleware('cacheResponse:3600');;
+        Route::get('products/aksia', 'ProductController@aksia')->middleware('cacheResponse:1800');;
 
-        Route::get('products/{id}', 'ProductController@get')->middleware('cacheResponse:3600');;
+        Route::get('products/{id}', 'ProductController@get')->middleware('cacheResponse:1800');;
 
-        Route::get('product-additional-information/{id}', 'ProductController@additionalInformation')->middleware('cacheResponse:3600');;
+        Route::get('product-additional-information/{id}', 'ProductController@additionalInformation')->middleware('cacheResponse:1800');;
 
-        Route::get('product-configurable-config/{id}', 'ProductController@configurableConfig')->middleware('cacheResponse:3600');;
+        Route::get('product-configurable-config/{id}', 'ProductController@configurableConfig')->middleware('cacheResponse:1800');;
 
 
         //Product Review routes
         Route::get('reviews', 'ResourceController@index')->defaults('_config', [
             'repository' => 'Webkul\Product\Repositories\ProductReviewRepository',
             'resource' => 'Webkul\API\Http\Resources\Catalog\ProductReview'
-        ])->middleware('cacheResponse:3600');
+        ])->middleware('cacheResponse:1800');
 
         Route::get('reviews/{id}', 'ResourceController@get')->defaults('_config', [
             'repository' => 'Webkul\Product\Repositories\ProductReviewRepository',
@@ -82,43 +82,43 @@ Route::group(['prefix' => 'api', 'middleware'=>'version'], function ($router) {
         Route::get('attribute/{id}','ResourceController@get')->defaults('_config',[
             'repository' => 'Webkul\Attribute\Repositories\AttributeRepository',
             'resource' => 'Webkul\API\Http\Resources\Catalog\Attribute',
-        ])->middleware('cacheResponse:3600');;
+        ])->middleware('cacheResponse:1800');;
         //Channel routes
         Route::get('channels', 'ResourceController@index')->defaults('_config', [
             'repository' => 'Webkul\Core\Repositories\ChannelRepository',
             'resource' => 'Webkul\API\Http\Resources\Core\Channel'
-        ])->middleware('cacheResponse:3600');;
+        ])->middleware('cacheResponse:1800');;
 
         Route::get('channels/{id}', 'ResourceController@get')->defaults('_config', [
             'repository' => 'Webkul\Core\Repositories\ChannelRepository',
             'resource' => 'Webkul\API\Http\Resources\Core\Channel'
-        ])->middleware('cacheResponse:3600');;
+        ])->middleware('cacheResponse:1800');;
 
 
         //Locale routes
         Route::get('locales', 'ResourceController@index')->defaults('_config', [
             'repository' => 'Webkul\Core\Repositories\LocaleRepository',
             'resource' => 'Webkul\API\Http\Resources\Core\Locale'
-        ])->middleware('cacheResponse:3600');;
+        ])->middleware('cacheResponse:36000');;
 
         Route::get('locales/{id}', 'ResourceController@get')->defaults('_config', [
             'repository' => 'Webkul\Core\Repositories\LocaleRepository',
             'resource' => 'Webkul\API\Http\Resources\Core\Locale'
-        ])->middleware('cacheResponse:3600');;
+        ])->middleware('cacheResponse:36000');;
 
 
         //Country routes
         Route::get('countries', 'ResourceController@index')->defaults('_config', [
             'repository' => 'Webkul\Core\Repositories\CountryRepository',
             'resource' => 'Webkul\API\Http\Resources\Core\Country'
-        ])->middleware('cacheResponse:3600');;
+        ])->middleware('cacheResponse:36000');;
 
         Route::get('countries/{id}', 'ResourceController@get')->defaults('_config', [
             'repository' => 'Webkul\Core\Repositories\CountryRepository',
             'resource' => 'Webkul\API\Http\Resources\Core\Country'
-        ])->middleware('cacheResponse:3600');;
+        ])->middleware('cacheResponse:36000');;
 
-        Route::get('country-states', 'CoreController@getCountryStateGroup')->middleware('cacheResponse:3600');;
+        Route::get('country-states', 'CoreController@getCountryStateGroup')->middleware('cacheResponse:91800');;
 
 
         //Slider routes
@@ -137,7 +137,7 @@ Route::group(['prefix' => 'api', 'middleware'=>'version'], function ($router) {
         Route::get('currencies', 'ResourceController@index')->defaults('_config', [
             'repository' => 'Webkul\Core\Repositories\CurrencyRepository',
             'resource' => 'Webkul\API\Http\Resources\Core\Currency'
-        ])->middleware('cacheResponse:3600');;
+        ])->middleware('cacheResponse:36000');;
 
         Route::get('currencies/{id}', 'ResourceController@get')->defaults('_config', [
             'repository' => 'Webkul\Core\Repositories\CurrencyRepository',
