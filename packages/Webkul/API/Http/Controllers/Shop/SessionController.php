@@ -2,9 +2,11 @@
 
 namespace Webkul\API\Http\Controllers\Shop;
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Event;
 use Webkul\Customer\Repositories\CustomerRepository;
 use Webkul\API\Http\Resources\Customer\Customer as CustomerResource;
+use Webkul\Customer\Models\Customer;
 
 class SessionController extends Controller
 {
@@ -144,8 +146,15 @@ class SessionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function destroy()
+    public function destroy(Request $request)
     {
+        if ($request->has('account_delete')) {
+            Customer::whereId(auth()->guard($this->guard)->user()->id)->first()->delete();
+            return response()->json([
+                    'message' => 'Account deleted',
+            ]);
+        }
+
         auth()->guard($this->guard)->logout();
 
         return response()->json([
