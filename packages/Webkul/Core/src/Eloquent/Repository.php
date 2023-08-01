@@ -137,7 +137,8 @@ abstract class Repository extends BaseRepository implements CacheableInterface
      */
     public function delete($id)
     {
-        return $this->model->delete($id);
+        $model = $this->model->findOrFail($id);
+        return $model->delete($id);
     }
 
     /**
