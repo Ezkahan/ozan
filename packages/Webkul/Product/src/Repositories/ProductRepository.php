@@ -106,7 +106,9 @@ class ProductRepository extends Repository
     {
         Event::dispatch('catalog.product.delete.before', $id);
 
-        parent::delete($id);
+        $product = Product::find($id);
+        $product->delete();
+        // parent::delete($id);
 
         Event::dispatch('catalog.product.delete.after', $id);
     }
