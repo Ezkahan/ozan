@@ -831,11 +831,11 @@ Route::group(['middleware' => ['web']], function () {
             });
 
             Route::prefix('cms')->group(function () {
-                Route::get('/messages','Webkul\CMS\Http\Controllers\Admin\MessageController@index')->defaults('_config', [
+                Route::get('/messages', 'Webkul\CMS\Http\Controllers\Admin\MessageController@index')->defaults('_config', [
                     'view' => 'admin::cms.messages',
                 ])->name('admin.cms.messages');
 
-                Route::get('/messages/view/{id}','Webkul\CMS\Http\Controllers\Admin\MessageController@view')->defaults('_config', [
+                Route::get('/messages/view/{id}', 'Webkul\CMS\Http\Controllers\Admin\MessageController@view')->defaults('_config', [
                     'view' => 'admin::cms.messages',
                 ])->name('admin.cms.messages.view');
 

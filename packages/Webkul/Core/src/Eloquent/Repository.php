@@ -9,7 +9,8 @@ use Illuminate\Container\Container as App;
 use Prettus\Repository\Traits\CacheableRepository;
 
 
-abstract class Repository extends BaseRepository implements CacheableInterface {
+abstract class Repository extends BaseRepository implements CacheableInterface
+{
 
     use CacheableRepository;
 
@@ -77,7 +78,7 @@ abstract class Repository extends BaseRepository implements CacheableInterface {
         return $this->parserResult($model);
     }
 
-     /**
+    /**
      * Count results of repository
      *
      * @param  array  $where
@@ -128,6 +129,15 @@ abstract class Repository extends BaseRepository implements CacheableInterface {
         $this->resetModel();
 
         return $avg;
+    }
+
+    /**
+     * @param  int  $id
+     * @return model
+     */
+    public function delete($id)
+    {
+        return $this->model->delete($id);
     }
 
     /**
