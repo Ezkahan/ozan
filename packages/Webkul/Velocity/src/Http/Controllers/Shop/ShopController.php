@@ -62,7 +62,7 @@ class ShopController extends Controller
     {
         $slug = request()->get('category-slug');
 
-        if (! $slug) {
+        if (!$slug) {
             abort(404);
         }
 
@@ -191,8 +191,9 @@ class ShopController extends Controller
         return view($this->_config['view']);
     }
 
-    public function getBrands(){
-        $brands = AttributeOption::where('attribute_id',25)->paginate(30);//brand id 25
+    public function getBrands()
+    {
+        $brands = AttributeOption::where('attribute_id', 25)->paginate(30); //brand id 25
 
         if (!$brands)
             abort(404);
@@ -200,8 +201,9 @@ class ShopController extends Controller
         return view($this->_config['view'])->with(['brands' => $brands]);
     }
 
-    public function getShops(){
-        $brands = AttributeOption::where('attribute_id',29)->paginate(30);//brand id 25
+    public function getShops()
+    {
+        $brands = AttributeOption::where('attribute_id', 29)->paginate(30); //brand id 25
 
         if (!$brands)
             abort(404);
@@ -219,17 +221,17 @@ class ShopController extends Controller
     {
         if ($customer = auth()->guard('customer')->user()) {
 
-            if (! core()->getConfigData('catalog.products.homepage.out_of_stock_items')) {
+            if (!core()->getConfigData('catalog.products.homepage.out_of_stock_items')) {
                 $wishlistItemsCount = $this->wishlistRepository->getModel()
                     ->leftJoin('products as ps', 'wishlist.product_id', '=', 'ps.id')
                     ->leftJoin('product_inventories as pv', 'ps.id', '=', 'pv.product_id')
                     ->where(function ($qb) {
                         $qb
                             ->WhereIn('ps.type', ['configurable', 'grouped', 'downloadable', 'bundle', 'booking'])
-                            ->orwhereIn('ps.type', ['simple', 'virtual'])->where('pv.qty' , '>' , 0);
+                            ->orwhereIn('ps.type', ['simple', 'virtual'])->where('pv.qty', '>', 0);
                     })
-                    ->where('wishlist.customer_id' , $customer->id)
-                    ->where('wishlist.channel_id'  , core()->getCurrentChannel()->id)
+                    ->where('wishlist.customer_id', $customer->id)
+                    ->where('wishlist.channel_id', core()->getCurrentChannel()->id)
                     ->count('wishlist.id');
             } else {
                 $wishlistItemsCount = $this->wishlistRepository->count([
@@ -291,7 +293,7 @@ class ShopController extends Controller
         $categoryDetails = $this->categoryRepository->find($categoryId);
 
         /* if category not found then return empty response */
-        if (! $categoryDetails) {
+        if (!$categoryDetails) {
             return response()->json([
                 'products' => [],
                 'paginationHTML' => ''

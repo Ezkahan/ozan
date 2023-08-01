@@ -96,8 +96,7 @@ class ProductController extends Controller
         AttributeFamilyRepository $attributeFamilyRepository,
         InventorySourceRepository $inventorySourceRepository,
         ProductAttributeValueRepository $productAttributeValueRepository
-    )
-    {
+    ) {
         $this->_config = request('_config');
 
         $this->categoryRepository = $categoryRepository;
@@ -150,16 +149,18 @@ class ProductController extends Controller
      */
     public function store()
     {
-        if (! request()->get('family')
+        if (
+            !request()->get('family')
             && ProductType::hasVariants(request()->input('type'))
             && request()->input('sku') != ''
         ) {
             return redirect(url()->current() . '?type=' . request()->input('type') . '&family=' . request()->input('attribute_family_id') . '&sku=' . request()->input('sku'));
         }
 
-        if (ProductType::hasVariants(request()->input('type'))
-            && (! request()->has('super_attributes')
-                || ! count(request()->get('super_attributes')))
+        if (
+            ProductType::hasVariants(request()->input('type'))
+            && (!request()->has('super_attributes')
+                || !count(request()->get('super_attributes')))
         ) {
             session()->flash('error', trans('admin::app.catalog.products.configurable-error'));
 
@@ -192,7 +193,7 @@ class ProductController extends Controller
         $categories = $this->categoryRepository->getCategoryTree();
 
         $inventorySources = $this->inventorySourceRepository->findWhere(['status' => 1]);
-        
+
         return view($this->_config['view'], compact('product', 'categories', 'inventorySources'));
     }
 
@@ -226,7 +227,7 @@ class ProductController extends Controller
 
         if (count($multiselectAttributeCodes)) {
             foreach ($multiselectAttributeCodes as $multiselectAttributeCode) {
-                if (! isset($data[$multiselectAttributeCode])) {
+                if (!isset($data[$multiselectAttributeCode])) {
                     $data[$multiselectAttributeCode] = array();
                 }
             }
@@ -259,18 +260,22 @@ class ProductController extends Controller
     {
         $originalProduct = $this->productRepository->findOrFail($productId);
 
-        if (! $originalProduct->getTypeInstance()->canBeCopied()) {
-            session()->flash('error',
+        if (!$originalProduct->getTypeInstance()->canBeCopied()) {
+            session()->flash(
+                'error',
                 trans('admin::app.response.product-can-not-be-copied', [
                     'type' => $originalProduct->type,
-                ]));
+                ])
+            );
 
             return redirect()->to(route('admin.catalog.products.index'));
         }
 
         if ($originalProduct->parent_id) {
-            session()->flash('error',
-                trans('admin::app.catalog.products.variant-already-exist-message'));
+            session()->flash(
+                'error',
+                trans('admin::app.catalog.products.variant-already-exist-message')
+            );
 
             return redirect()->to(route('admin.catalog.products.index'));
         }
@@ -357,11 +362,11 @@ class ProductController extends Controller
     {
         $data = request()->all();
 
-        if (! isset($data['massaction-type'])) {
+        if (!isset($data['massaction-type'])) {
             return redirect()->back();
         }
 
-        if (! $data['massaction-type'] == 'update') {
+        if (!$data['massaction-type'] == 'update') {
             return redirect()->back();
         }
 
