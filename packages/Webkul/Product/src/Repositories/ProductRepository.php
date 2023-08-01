@@ -107,7 +107,8 @@ class ProductRepository extends Repository
         Event::dispatch('catalog.product.delete.before', $id);
 
         $product = Product::find($id);
-        $product->delete();
+        Log::info($product);
+        $product->delete() ? Log::alert("true") : Log::alert("false");
         // parent::delete($id);
 
         Event::dispatch('catalog.product.delete.after', $id);
