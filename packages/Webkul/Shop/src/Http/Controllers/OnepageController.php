@@ -22,7 +22,7 @@ class OnepageController extends Controller
      */
     protected $orderRepository;
 
-     /**
+    /**
      * customerRepository instance object
      *
      * @var \Webkul\Customer\Repositories\CustomerRepository
@@ -42,8 +42,7 @@ class OnepageController extends Controller
         OrderRepository $orderRepository,
         CustomerRepository $customerRepository,
         OrderCommentRepository $orderCommentRepository
-    )
-    {
+    ) {
         $this->orderRepository = $orderRepository;
 
         $this->customerRepository = $customerRepository;
@@ -57,13 +56,15 @@ class OnepageController extends Controller
      * Display a listing of the resource.
      *
      * @return \Illuminate\View\View
-    */
+     */
     public function index()
     {
         Event::dispatch('checkout.load.index');
 
-        if (! auth()->guard('customer')->check()
-            && ! core()->getConfigData('catalog.products.guest-checkout.allow-guest-checkout')) {
+        if (
+            !auth()->guard('customer')->check()
+            && !core()->getConfigData('catalog.products.guest-checkout.allow-guest-checkout')
+        ) {
             return redirect()->route('customer.session.index');
         }
 
@@ -73,17 +74,17 @@ class OnepageController extends Controller
 
         $cart = Cart::getCart();
 
-        if (! auth()->guard('customer')->check() && $cart->hasDownloadableItems()) {
+        if (!auth()->guard('customer')->check() && $cart->hasDownloadableItems()) {
             return redirect()->route('customer.session.index');
         }
 
-        if (! auth()->guard('customer')->check() && ! $cart->hasGuestCheckoutItems()) {
+        if (!auth()->guard('customer')->check() && !$cart->hasGuestCheckoutItems()) {
             return redirect()->route('customer.session.index');
         }
 
         $minimumOrderAmount = (float) core()->getConfigData('sales.orderSettings.minimum-order.minimum_order_amount') ?? 0;
 
-        if (! $cart->checkMinimumOrder()) {
+        if (!$cart->checkMinimumOrder()) {
             session()->flash('warning', trans('shop::app.checkout.cart.minimum-order-message', ['amount' => core()->currency($minimumOrderAmount)]));
 
             return redirect()->back();
@@ -98,7 +99,7 @@ class OnepageController extends Controller
      * Return order short summary
      *
      * @return \Illuminate\Http\Response
-    */
+     */
     public function summary()
     {
         $cart = Cart::getCart();
@@ -113,19 +114,19 @@ class OnepageController extends Controller
      *
      * @param  \Webkul\Checkout\Http\Requests\CustomerAddressForm  $request
      * @return \Illuminate\Http\Response
-    */
+     */
     public function saveAddress(CustomerAddressForm $request)
     {
         $data = request()->all();
 
-        if (! auth()->guard('customer')->check() && ! Cart::getCart()->hasGuestCheckoutItems()) {
+        if (!auth()->guard('customer')->check() && !Cart::getCart()->hasGuestCheckoutItems()) {
             return response()->json(['redirect_url' => route('customer.session.index')], 403);
         }
 
         $data['billing']['address1'] = implode(PHP_EOL, array_filter($data['billing']['address1']));
         $data['shipping']['address1'] = implode(PHP_EOL, array_filter($data['shipping']['address1']));
 
-        if (Cart::hasError() || ! Cart::saveCustomerAddress($data)) {
+        if (Cart::hasError() || !Cart::saveCustomerAddress($data)) {
             return response()->json(['redirect_url' => route('shop.checkout.cart.index')], 403);
         } else {
             $cart = Cart::getCart();
@@ -133,7 +134,7 @@ class OnepageController extends Controller
             Cart::collectTotals();
 
             if ($cart->haveStockableItems()) {
-                if (! $rates = Shipping::collectRates()) {
+                if (!$rates = Shipping::collectRates()) {
                     return response()->json(['redirect_url' => route('shop.checkout.cart.index')], 403);
                 } else {
                     return response()->json($rates);
@@ -148,7 +149,7 @@ class OnepageController extends Controller
      * Saves shipping method.
      *
      * @return \Illuminate\Http\Response
-    */
+     */
     public function saveShipping()
     {
         $shippingMethod = request()->get('shipping_method');
@@ -166,12 +167,12 @@ class OnepageController extends Controller
      * Saves payment method.
      *
      * @return \Illuminate\Http\Response
-    */
+     */
     public function savePayment()
     {
         $payment = request()->get('payment');
 
-        if (Cart::hasError() || ! $payment || ! Cart::savePaymentMethod($payment)) {
+        if (Cart::hasError() || !$payment || !Cart::savePaymentMethod($payment)) {
             return response()->json(['redirect_url' => route('shop.checkout.cart.index')], 403);
         }
 
@@ -189,7 +190,7 @@ class OnepageController extends Controller
      * Saves order.
      *
      * @return \Illuminate\Http\Response
-    */
+     */
     public function saveOrder()
     {
         if (Cart::hasError()) {
@@ -211,8 +212,8 @@ class OnepageController extends Controller
 
         $order = $this->orderRepository->create(Cart::prepareDataForOrder());
 
-        if(request()->has('comment')){
-            $this->commentRepository->create(['order_id' => $order->id,'comment' =>request('comment')]);
+        if (request()->has('comment')) {
+            $this->commentRepository->create(['order_id' => $order->id, 'comment' => request('comment')]);
         }
 
         Cart::deActivateCart();
@@ -228,10 +229,10 @@ class OnepageController extends Controller
      * Order success page
      *
      * @return \Illuminate\Http\Response
-    */
+     */
     public function success()
     {
-        if (! $order = session('order')) {
+        if (!$order = session('order')) {
             return redirect()->route('shop.checkout.cart.index');
         }
 
@@ -249,24 +250,24 @@ class OnepageController extends Controller
 
         $minimumOrderAmount = core()->getConfigData('sales.orderSettings.minimum-order.minimum_order_amount') ?? 0;
 
-        if (! $cart->checkMinimumOrder()) {
+        if (!$cart->checkMinimumOrder()) {
             throw new \Exception(trans('shop::app.checkout.cart.minimum-order-message', ['amount' => core()->currency($minimumOrderAmount)]));
         }
 
 
-        if ($cart->haveStockableItems() && ! $cart->shipping_address) {
+        if ($cart->haveStockableItems() && !$cart->shipping_address) {
             throw new \Exception(trans('Please check shipping address.'));
         }
 
-        if (! $cart->billing_address) {
+        if (!$cart->billing_address) {
             throw new \Exception(trans('Please check billing address.'));
         }
 
-        if ($cart->haveStockableItems() && ! $cart->selected_shipping_rate) {
+        if ($cart->haveStockableItems() && !$cart->selected_shipping_rate) {
             throw new \Exception(trans('Please specify shipping method.'));
         }
 
-        if (! $cart->payment) {
+        if (!$cart->payment) {
             throw new \Exception(trans('Please specify payment method.'));
         }
     }
@@ -278,15 +279,15 @@ class OnepageController extends Controller
      */
     public function checkExistCustomer()
     {
-       $customer = $this->customerRepository->findOneWhere([
+        $customer = $this->customerRepository->findOneWhere([
             'email' => request()->email,
-       ]);
+        ]);
 
-       if (! is_null($customer)) {
-           return 'true';
-       }
+        if (!is_null($customer)) {
+            return 'true';
+        }
 
-       return 'false';
+        return 'false';
     }
 
     /**
@@ -300,7 +301,7 @@ class OnepageController extends Controller
             'email' => 'required|email'
         ]);
 
-        if (! auth()->guard('customer')->attempt(request(['email', 'password']))) {
+        if (!auth()->guard('customer')->attempt(request(['email', 'password']))) {
             return response()->json(['error' => trans('shop::app.customer.login-form.invalid-creds')]);
         }
 
@@ -383,8 +384,8 @@ class OnepageController extends Controller
         $status = Cart::checkMinimumOrder();
 
         return response()->json([
-            'status' => ! $status ? false : true,
-            'message' => ! $status ? trans('shop::app.checkout.cart.minimum-order-message', ['amount' => core()->currency($minimumOrderAmount)]) : 'Success',
+            'status' => !$status ? false : true,
+            'message' => !$status ? trans('shop::app.checkout.cart.minimum-order-message', ['amount' => core()->currency($minimumOrderAmount)]) : 'Success',
         ]);
     }
 }

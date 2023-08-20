@@ -25,7 +25,7 @@ class Shipping
      */
     public function collectRates()
     {
-        if (! $cart = Cart::getCart()) {
+        if (!$cart = Cart::getCart()) {
             return false;
         }
 
@@ -59,7 +59,7 @@ class Shipping
      */
     public function removeAllShippingRates()
     {
-        if (! $cart = Cart::getCart()) {
+        if (!$cart = Cart::getCart()) {
             return;
         }
 
@@ -75,7 +75,7 @@ class Shipping
      */
     public function saveAllShippingRates()
     {
-        if (! $cart = Cart::getCart()) {
+        if (!$cart = Cart::getCart()) {
             return;
         }
 
@@ -101,7 +101,7 @@ class Shipping
         $rates = [];
 
         foreach ($this->rates as $rate) {
-            if (! isset($rates[$rate->carrier])) {
+            if (!isset($rates[$rate->carrier])) {
                 $rates[$rate->carrier] = [
                     'carrier_title' => $rate->carrier_title,
                     'rates'         => []
@@ -126,7 +126,7 @@ class Shipping
         foreach (Config::get('carriers') as $shippingMethod) {
             $object = new $shippingMethod['class'];
 
-            if (! $object->isAvailable()) {
+            if (!$object->isAvailable()) {
                 continue;
             }
 

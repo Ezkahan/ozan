@@ -66,8 +66,8 @@ class CategoryRepository extends Repository
     public function getCategoryTree($id = null)
     {
         return $id
-               ? $this->model::orderBy('position', 'ASC')->where('id', '!=', $id)->get()->toTree()
-               : $this->model::orderBy('position', 'ASC')->get()->toTree();
+            ? $this->model::orderBy('position', 'ASC')->where('id', '!=', $id)->get()->toTree()
+            : $this->model::orderBy('position', 'ASC')->get()->toTree();
     }
 
     /**
@@ -79,8 +79,8 @@ class CategoryRepository extends Repository
     public function getCategoryTreeWithoutDescendant($id = null)
     {
         return $id
-               ? $this->model::orderBy('position', 'ASC')->where('id', '!=', $id)->whereNotDescendantOf($id)->get()->toTree()
-               : $this->model::orderBy('position', 'ASC')->get()->toTree();
+            ? $this->model::orderBy('position', 'ASC')->where('id', '!=', $id)->whereNotDescendantOf($id)->get()->toTree()
+            : $this->model::orderBy('position', 'ASC')->get()->toTree();
     }
 
     /**
@@ -108,8 +108,8 @@ class CategoryRepository extends Repository
         }
 
         return $categories[$id] = $id
-               ? $this->model::orderBy('position', 'ASC')->where('status', 1)->descendantsAndSelf($id)->toTree($id)
-               : $this->model::orderBy('position', 'ASC')->where('status', 1)->get()->toTree();
+            ? $this->model::orderBy('position', 'ASC')->where('status', '=', 1)->descendantsAndSelf($id)->toTree($id)
+            : $this->model::orderBy('position', 'ASC')->where('status', '=', 1)->get()->toTree();
     }
 
     /**
@@ -120,7 +120,7 @@ class CategoryRepository extends Repository
      * @return bool
      */
     public function isSlugUnique($id, $slug)
-    {   
+    {
         $exists = CategoryTranslationProxy::modelClass()::where('category_id', '<>', $id)
             ->where('slug', $slug)
             ->limit(1)
@@ -145,7 +145,8 @@ class CategoryRepository extends Repository
         }
 
         throw (new ModelNotFoundException)->setModel(
-            get_class($this->model), $slug
+            get_class($this->model),
+            $slug
         );
     }
 

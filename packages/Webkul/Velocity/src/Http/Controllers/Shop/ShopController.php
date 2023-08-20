@@ -10,6 +10,7 @@ use Webkul\Product\Facades\ProductImage;
 use Webkul\Velocity\Http\Shop\Controllers;
 use Webkul\Checkout\Contracts\Cart as CartModel;
 use Cart;
+use Illuminate\Support\Facades\Log;
 
 class ShopController extends Controller
 {
@@ -130,6 +131,9 @@ class ShopController extends Controller
     {
         $formattedCategories = [];
         $categories = $this->categoryRepository->getVisibleCategoryTree(core()->getCurrentChannel()->root_category_id);
+
+        Log:
+        debug($categories);
 
         foreach ($categories as $category) {
             array_push($formattedCategories, $this->getCategoryFilteredData($category));

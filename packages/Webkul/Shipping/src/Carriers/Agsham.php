@@ -29,18 +29,18 @@ class Agsham extends AbstractShipping
      */
     public function calculate()
     {
-        if (! $this->isAvailable()) {
+        if (!$this->isAvailable()) {
             return false;
         }
 
         $start_time = Carbon::createFromTimeString($this->getConfigData('start_time'));
 
-        $tomorrow = Carbon::now()->gte($start_time) ;
+        $tomorrow = Carbon::now()->gte($start_time);
 
-        $title =   trans($tomorrow ? 'app.tomorrow' : 'app.today').' '
-            .$this->getConfigData('title').' '
-            .$this->getConfigData('start_time').' - '
-            .$this->getConfigData('end_time');
+        $title =   trans($tomorrow ? 'app.tomorrow' : 'app.today') . ' '
+            . $this->getConfigData('title') . ' '
+            . $this->getConfigData('start_time') . ' - '
+            . $this->getConfigData('end_time');
 
         $object = new CartShippingRate;
 
@@ -53,8 +53,8 @@ class Agsham extends AbstractShipping
         $object->price = 0;
         $object->base_price = 0;
 
-            $object->price = core()->convertPrice($this->getConfigData('default_rate'));
-            $object->base_price = $this->getConfigData('default_rate');
+        $object->price = core()->convertPrice($this->getConfigData('default_rate'));
+        $object->base_price = $this->getConfigData('default_rate');
 
         return $object;
     }
