@@ -30,8 +30,8 @@ class CategoryController extends Controller
      */
     public function __construct(
         CartRepository $cartRepository,
-        CategoryRepository $categoryRepository)
-    {
+        CategoryRepository $categoryRepository
+    ) {
         $this->cartRepository = $cartRepository;
         $this->categoryRepository = $categoryRepository;
     }
@@ -43,22 +43,26 @@ class CategoryController extends Controller
      */
     public function index()
     {
+        return response()->json([
+            "message" => "success",
+        ]);
+
         return CategoryResource::collection(
             $this->categoryRepository->getVisibleCategoryTree(request()->input('parent_id'))
         );
     }
 
-    public function getFilters(ProductFlatRepository $productFlatRepository){
-        if($cat_id = request()->get('category')){
+    public function getFilters(ProductFlatRepository $productFlatRepository)
+    {
+        if ($cat_id = request()->get('category')) {
             $category = $this->categoryRepository->findOrFail($cat_id);
             $filters = $productFlatRepository->getProductsRelatedFilterableAttributes($category);
             return response()->json([
-               'data' =>$filters
+                'data' => $filters
             ]);
         }
         return response()->json([
             'message' => 'not found'
-        ],404);
-
+        ], 404);
     }
 }
