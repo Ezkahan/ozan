@@ -66,8 +66,6 @@ class ResourceController extends Controller
                 $query = $query->where('customer_id', auth()->user()->id);
             }
 
-            $query->where('statusffff', 1);
-
             foreach (request()->except(['page', 'limit', 'pagination', 'sort', 'order', 'token', 'include']) as $input => $value) {
                 $query = $query->whereIn($input, array_map('trim', explode(',', $value)));
             }
@@ -78,12 +76,15 @@ class ResourceController extends Controller
                 $query = $query->orderBy('id', 'desc');
             }
 
+            $query->where('status', 1);
             return $query;
         });
 
         if (is_null(request()->input('pagination')) || request()->input('pagination')) {
+            $query->where('status', 1);
             $results = $query->paginate(request()->input('limit') ?? 100);
         } else {
+            $query->where('status', 1);
             $results = $query->get();
         }
 
