@@ -12,9 +12,9 @@ Route::group(['prefix' => 'api', 'middleware' => 'version'], function ($router) 
         Route::get('categories', 'ResourceController@index')->defaults('_config', [
             'repository' => 'Webkul\Category\Repositories\CategoryRepository',
             'resource' => 'Webkul\API\Http\Resources\Catalog\Category'
-        ])->middleware('cacheResponse:36000');;
+        ])->middleware('cacheResponse:30');;
 
-        Route::get('descendant-categories', 'CategoryController@index')->middleware('cacheResponse:36000');;
+        Route::get('descendant-categories', 'CategoryController@index')->middleware('cacheResponse:30');;
 
         Route::get('categories/{id}', 'ResourceController@get')->defaults('_config', [
             'repository' => 'Webkul\Category\Repositories\CategoryRepository',
