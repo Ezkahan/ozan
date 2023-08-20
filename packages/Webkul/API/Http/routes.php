@@ -49,7 +49,7 @@ Route::group(['prefix' => 'api', 'middleware' => 'version'], function ($router) 
 
 
         //Product routes
-        Route::get('products', 'ProductController@index')->middleware('cacheResponse:1800');;
+        Route::get('products', 'ProductController@index');
 
         Route::get('products/aksia', 'ProductController@aksia')->middleware('cacheResponse:1800');;
 

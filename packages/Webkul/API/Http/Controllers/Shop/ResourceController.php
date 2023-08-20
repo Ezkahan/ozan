@@ -57,10 +57,6 @@ class ResourceController extends Controller
      */
     public function index()
     {
-        // return response()->json([
-        //     "message" => "success",
-        // ]);
-
         $query = $this->repository->scopeQuery(function ($query) {
             if (isset($this->_config['authorization_required']) && $this->_config['authorization_required']) {
                 $query = $query->where('customer_id', auth()->user()->id);
