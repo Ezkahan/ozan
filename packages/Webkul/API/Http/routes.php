@@ -1,6 +1,6 @@
 <?php
 
-Route::group(['prefix' => 'api', 'middleware'=>'version'], function ($router) {
+Route::group(['prefix' => 'api', 'middleware' => 'version'], function ($router) {
 
     Route::group(['namespace' => 'Webkul\API\Http\Controllers\Shop', 'middleware' => ['locale', 'theme', 'currency']], function ($router) {
         //Currency and Locale switcher
@@ -79,7 +79,7 @@ Route::group(['prefix' => 'api', 'middleware'=>'version'], function ($router) {
             'authorization_required' => true
         ]);
 
-        Route::get('attribute/{id}','ResourceController@get')->defaults('_config',[
+        Route::get('attribute/{id}', 'ResourceController@get')->defaults('_config', [
             'repository' => 'Webkul\Attribute\Repositories\AttributeRepository',
             'resource' => 'Webkul\API\Http\Resources\Catalog\Attribute',
         ])->middleware('cacheResponse:1800');;
@@ -160,7 +160,7 @@ Route::group(['prefix' => 'api', 'middleware'=>'version'], function ($router) {
 
         Route::post('customer/register', 'SMSAuthenticationController@create');
         Route::post('customer/verify_phone', 'SMSAuthenticationController@verifyPhone'); //send phone, code
-        Route::post('customer/resend_code', 'SMSAuthenticationController@resendVerificationSMS');// send phone
+        Route::post('customer/resend_code', 'SMSAuthenticationController@resendVerificationSMS'); // send phone
 
         Route::get('customers/{id}', 'CustomerController@get')->defaults('_config', [
             'repository' => 'Webkul\Customer\Repositories\CustomerRepository',
@@ -243,10 +243,10 @@ Route::group(['prefix' => 'api', 'middleware'=>'version'], function ($router) {
 
         Route::get('wishlist/add/{id}', 'WishlistController@create');
 
-        Route::group(['prefix' => 'akhasap'], function($router){
-            Route::post('products/store','AkHasapController@store');
-            Route::get('products/fixdb/{page}','AkHasapController@fixdb');
-            Route::post('categories/store','AkHasapController@storeCategories');
+        Route::group(['prefix' => 'akhasap'], function ($router) {
+            Route::post('products/store', 'AkHasapController@store');
+            Route::get('products/fixdb/{page}', 'AkHasapController@fixdb');
+            Route::post('categories/store', 'AkHasapController@storeCategories');
             //Route::put('products/update',)
         });
 
