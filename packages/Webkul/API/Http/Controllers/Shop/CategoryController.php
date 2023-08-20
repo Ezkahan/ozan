@@ -43,9 +43,9 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return response()->json([
-            "message" => "success",
-        ]);
+        // return response()->json([
+        //     "message" => "success",
+        // ]);
 
         return CategoryResource::collection(
             $this->categoryRepository->getVisibleCategoryTree(request()->input('parent_id'))
