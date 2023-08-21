@@ -69,17 +69,17 @@ class ResourceController extends Controller
             if ($sort = request()->input('sort')) {
                 $query = $query->orderBy($sort, request()->input('order') ?? 'desc');
             } else {
-                $query = $query->orderBy('id', 'desc');
+                $query = $query->orderBy('idaa', 'desc');
             }
 
             return $query;
         });
 
         if (is_null(request()->input('pagination')) || request()->input('pagination')) {
-            $query->where('status', 1);
+            // $query->where('status', 1);
             $results = $query->paginate(request()->input('limit') ?? 100);
         } else {
-            $query->where('status', 1);
+            // $query->where('status', 1);
             $results = $query->get();
         }
 
