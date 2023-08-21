@@ -86,10 +86,8 @@ class ResourceController extends Controller
         });
 
         if (is_null(request()->input('pagination')) || request()->input('pagination')) {
-            // $query->where('status', 1);
             $results = $query->paginate(request()->input('limit') ?? 100);
         } else {
-            // $query->where('status', 1);
             $results = $query->get();
         }
 
@@ -130,7 +128,34 @@ class ResourceController extends Controller
 
     public function getCategories()
     {
-        $categories = $this->categoryRepo->getVisibleCategoryTree();
-        return CategoryResource::collection($categories);
+        // $categories = $this->categoryRepo->getVisibleCategoryTree();
+        $query = $this->repository->scopeQuery(function ($query) {
+            if (isset($this->_config['authorization_required']) && $this->_config['authorization_required']) {
+                $query = $query->where('customer_id', auth()->user()->id);
+            }
+
+            foreach (request()->except(['page', 'limit', 'pagination', 'sort', 'order', 'token', 'include']) as $input => $value) {
+                $query = $query->whereIn($input, array_map('trim', explode(',', $value)));
+            }
+
+            if ($sort = request()->input('sort')) {
+                $query = $query->orderBy($sort, request()->input('order') ?? 'desc');
+            } else {
+                $query = $query->orderBy('id', 'desc');
+            }
+
+            return $query;
+        });
+
+        $query->where('status', 1);
+
+        if (is_null(request()->input('pagination')) || request()->input('pagination')) {
+            $results = $query->paginate(request()->input('limit') ?? 100);
+        } else {
+            $results = $query->get();
+        }
+
+        return $this->_config['resource']::collection($results);
+        // return CategoryResource::collection($categories);
     }
 }
