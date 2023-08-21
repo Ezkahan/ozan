@@ -26,8 +26,7 @@ class AttributeRepository extends Repository
     public function __construct(
         AttributeOptionRepository $attributeOptionRepository,
         App $app
-    )
-    {
+    ) {
         $this->attributeOptionRepository = $attributeOptionRepository;
 
         parent::__construct($app);
@@ -136,11 +135,11 @@ class AttributeRepository extends Repository
      */
     public function validateUserInput($data)
     {
-        if ($data['is_configurable']) {
+        if (array_key_exists('is_configurable', $data) && $data['is_configurable']) {
             $data['value_per_channel'] = $data['value_per_locale'] = 0;
         }
 
-        if (! in_array($data['type'], ['select', 'multiselect', 'price', 'checkbox'])) {
+        if (!in_array($data['type'], ['select', 'multiselect', 'price', 'checkbox'])) {
             $data['is_filterable'] = 0;
         }
 
@@ -160,7 +159,7 @@ class AttributeRepository extends Repository
     }
 
     /**
-     * 
+     *
      * @param  array  $codes
      * @return array
      */
@@ -168,7 +167,7 @@ class AttributeRepository extends Repository
     {
         $attributeColumns  = ['id', 'code', 'value_per_channel', 'value_per_locale', 'type', 'is_filterable'];
 
-        if (! is_array($codes) && ! $codes)
+        if (!is_array($codes) && !$codes)
             return $this->findWhereIn('code', [
                 'name',
                 'description',
@@ -227,13 +226,14 @@ class AttributeRepository extends Repository
 
         $trimmed = [];
 
-        foreach($attributes as $key => $attribute) {
-            if ($attribute->code != 'tax_category_id'
-                && (
-                    $attribute->type == 'select'
+        foreach ($attributes as $key => $attribute) {
+            if (
+                $attribute->code != 'tax_category_id'
+                && ($attribute->type == 'select'
                     || $attribute->type == 'multiselect'
                     || $attribute->code == 'sku'
-            )) {
+                )
+            ) {
                 if ($attribute->options()->exists()) {
                     array_push($trimmed, [
                         'id'          => $attribute->id,
@@ -253,7 +253,6 @@ class AttributeRepository extends Repository
                         'options'     => null,
                     ]);
                 }
-
             }
         }
 

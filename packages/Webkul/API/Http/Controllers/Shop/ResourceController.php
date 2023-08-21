@@ -2,9 +2,6 @@
 
 namespace Webkul\API\Http\Controllers\Shop;
 
-use Webkul\API\Http\Resources\Catalog\Category as CategoryResource;
-use Webkul\Category\Repositories\CategoryRepository;
-
 class ResourceController extends Controller
 {
     /**
@@ -29,18 +26,11 @@ class ResourceController extends Controller
     protected $repository;
 
     /**
-     * Category repository
-     *
-     * @var Webkul\Category\Repositories\CategoryRepository
-     */
-    protected $categoryRepo;
-
-    /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct(CategoryRepository $categoryRepo)
+    public function __construct()
     {
         $this->guard = request()->has('token') ? 'api' : 'customer';
 
@@ -56,8 +46,6 @@ class ResourceController extends Controller
         if ($this->_config) {
             $this->repository = app($this->_config['repository']);
         }
-
-        $this->categoryRepo = $categoryRepo;
     }
 
     /**
@@ -117,8 +105,6 @@ class ResourceController extends Controller
      */
     public function destroy($id)
     {
-        //        $wishlistProduct = $this->repository->findOrFail($id);
-
         $this->repository->delete($id);
 
         return response()->json([
@@ -128,7 +114,6 @@ class ResourceController extends Controller
 
     public function getCategories()
     {
-        // $categories = $this->categoryRepo->getVisibleCategoryTree();
         $query = $this->repository->scopeQuery(function ($query) {
             if (isset($this->_config['authorization_required']) && $this->_config['authorization_required']) {
                 $query = $query->where('customer_id', auth()->user()->id);
@@ -156,6 +141,5 @@ class ResourceController extends Controller
         }
 
         return $this->_config['resource']::collection($results);
-        // return CategoryResource::collection($categories);
     }
 }
