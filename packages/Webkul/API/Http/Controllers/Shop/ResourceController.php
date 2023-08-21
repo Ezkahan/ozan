@@ -76,11 +76,11 @@ class ResourceController extends Controller
             return $query;
         });
 
+        $query->where('status', 1);
+
         if (is_null(request()->input('pagination')) || request()->input('pagination')) {
-            $query->where('status', 1);
             $results = $query->paginate(request()->input('limit') ?? 100);
         } else {
-            $query->where('status', 1);
             $results = $query->get();
         }
 
