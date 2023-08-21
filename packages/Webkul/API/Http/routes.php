@@ -9,7 +9,7 @@ Route::group(['prefix' => 'api', 'middleware' => 'version'], function ($router) 
         Route::get('switch-locale', 'CoreController@switchLocale');
 
         //Category routes
-        Route::get('categories', 'ResourceController@index')->defaults('_config', [
+        Route::get('categories', 'ResourceController@getCategories')->defaults('_config', [
             'repository' => 'Webkul\Category\Repositories\CategoryRepository',
             'resource' => 'Webkul\API\Http\Resources\Catalog\Category'
         ]);

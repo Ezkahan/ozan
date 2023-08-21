@@ -2,7 +2,8 @@
 
 namespace Webkul\API\Http\Controllers\Shop;
 
-use Illuminate\Http\Request;
+use Webkul\API\Http\Resources\Catalog\Category as CategoryResource;
+use Webkul\Category\Repositories\CategoryRepository;
 
 class ResourceController extends Controller
 {
@@ -28,11 +29,18 @@ class ResourceController extends Controller
     protected $repository;
 
     /**
+     * Category repository
+     *
+     * @var Webkul\Category\Repositories\CategoryRepository
+     */
+    protected $categoryRepo;
+
+    /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(CategoryRepository $categoryRepo)
     {
         $this->guard = request()->has('token') ? 'api' : 'customer';
 
@@ -48,6 +56,8 @@ class ResourceController extends Controller
         if ($this->_config) {
             $this->repository = app($this->_config['repository']);
         }
+
+        $this->categoryRepo = $categoryRepo;
     }
 
     /**
@@ -69,7 +79,7 @@ class ResourceController extends Controller
             if ($sort = request()->input('sort')) {
                 $query = $query->orderBy($sort, request()->input('order') ?? 'desc');
             } else {
-                $query = $query->orderBy('idaa', 'desc');
+                $query = $query->orderBy('id', 'desc');
             }
 
             return $query;
@@ -116,5 +126,11 @@ class ResourceController extends Controller
         return response()->json([
             'message' => 'Item removed successfully.',
         ]);
+    }
+
+    public function getCategories()
+    {
+        $categories = $this->categoryRepo->getVisibleCategoryTree();
+        return CategoryResource::collection($categories);
     }
 }
