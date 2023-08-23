@@ -104,7 +104,7 @@ class RegistrationController extends Controller
             'subscribed_to_news_letter' => isset(request()->input()['is_subscribed']) ? 1 : 0,
         ]);
 
-        shell_exec("mosquitto_pub -h 216.250.8.162 -t sms -u dev -P developer -m '{'phone': " . request()->input('phone') . ", 'message': " . $code . "}'");
+        shell_exec("mosquitto_pub -h 216.250.8.162 -t sms -u dev -P developer -m '{''phone'': '" . request()->input('phone') . "', ''message'': '" . $code . "'}'");
 
         Event::dispatch('customer.registration.before');
 
