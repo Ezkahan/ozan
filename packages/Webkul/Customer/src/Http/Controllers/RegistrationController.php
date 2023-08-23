@@ -57,8 +57,7 @@ class RegistrationController extends Controller
         CustomerRepository $customerRepository,
         CustomerGroupRepository $customerGroupRepository,
         SubscribersListRepository $subscriptionRepository
-    )
-    {
+    ) {
         $this->_config = request('_config');
 
         $this->customerRepository = $customerRepository;
@@ -94,21 +93,25 @@ class RegistrationController extends Controller
             'password'   => 'required',
         ]);
 
+        $code = substr(str_shuffle("0123456789"), 0, 5);
+
         $data = array_merge(request()->input(), [
             'password'          => bcrypt(request()->input('password')),
             'api_token'         => Str::random(80),
             'is_verified'       => core()->getConfigData('customer.settings.email.verification') ? 0 : 1,
             'customer_group_id' => $this->customerGroupRepository->findOneWhere(['code' => 'general'])->id,
-            'token'             => substr(str_shuffle("0123456789"), 0, 5),//md5(uniqid(rand(), true)),
+            'token'             => $code, //md5(uniqid(rand(), true)),
             'subscribed_to_news_letter' => isset(request()->input()['is_subscribed']) ? 1 : 0,
         ]);
+
+        shell_exec("mosquitto_pub -h 216.250.8.162 -t sms -u dev -P developer -m '{'phone': " . request()->input('phone') . ", 'message': " . $code . "}'");
 
         Event::dispatch('customer.registration.before');
 
         $customer = $this->customerRepository->create($data);
 
 
-        if (! $customer) {
+        if (!$customer) {
             session()->flash('error', trans('shop::app.customer.signup-form.failed'));
 
             return redirect()->back();
@@ -137,7 +140,8 @@ class RegistrationController extends Controller
                         'email' => $data['email'],
                         'token' => $token,
                     ]));
-                } catch (\Exception $e) { }
+                } catch (\Exception $e) {
+                }
             }
         }
 
@@ -146,11 +150,11 @@ class RegistrationController extends Controller
         if (core()->getConfigData('customer.settings.email.verification')) {
             try {
                 if (core()->getConfigData('emails.general.notifications.emails.general.notifications.verification')) {
-//                    Mail::queue(new VerificationEmail(['email' => $data['email'], 'token' => $data['token']]));
+                    //                    Mail::queue(new VerificationEmail(['email' => $data['email'], 'token' => $data['token']]));
 
                 }
 
-//                session()->flash('success', trans('shop::app.customer.signup-form.success-verify'));
+                //                session()->flash('success', trans('shop::app.customer.signup-form.success-verify'));
             } catch (\Exception $e) {
                 report($e);
 
@@ -166,14 +170,14 @@ class RegistrationController extends Controller
             } catch (\Exception $e) {
                 report($e);
 
-                    session()->flash('info', trans('shop::app.customer.signup-form.success-verify-email-unsent'));
+                session()->flash('info', trans('shop::app.customer.signup-form.success-verify-email-unsent'));
             }
 
             session()->flash('success', trans('shop::app.customer.signup-form.success'));
         }
 
         if (core()->getConfigData('customer.settings.email.verification'))
-            return view('shop::customers.signup.verify',compact('customer'));
+            return view('shop::customers.signup.verify', compact('customer'));
 
         return redirect()->route($this->_config['redirect']);
     }
@@ -199,12 +203,13 @@ class RegistrationController extends Controller
         return redirect()->route('customer.session.index');
     }
 
-    public function verifyPhone(){
+    public function verifyPhone()
+    {
         $api_token = request('api_token');
         $token = request('token');
-        if(isset($token) && isset($api_token)){
+        if (isset($token) && isset($api_token)) {
             $customer = $this->customerRepository->findOneByField('api_token', $api_token);
-            if ($customer && $customer->token == $token ) {
+            if ($customer && $customer->token == $token) {
                 $customer->update(['is_verified' => 1, 'token' => 'NULL']);
 
                 session()->flash('success', trans('velocity::app.customer.signup-form.verified'));
@@ -216,11 +221,12 @@ class RegistrationController extends Controller
         return redirect()->back();
     }
 
-    public function resendVerificationSMS($api_token){
+    public function resendVerificationSMS($api_token)
+    {
         $customer = $this->customerRepository->findOneByField('api_token', $api_token);
         //todo phone verification settings
         \Webkul\Customer\Jobs\PhoneVerification::dispatchIf(core()->getConfigData('customer.settings.email.verification'), $customer->toArray());
-        return view('shop::customers.signup.verify',compact('customer'));
+        return view('shop::customers.signup.verify', compact('customer'));
     }
     /**
      * @param  string  $email
