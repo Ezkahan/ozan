@@ -56,7 +56,7 @@ class SMSAuthenticationController extends Controller
             'phone' => 'required|numeric|digits:8',
             'first_name' => 'required',
             'last_name'  => 'required',
-            'password'   => 'confirmed|min:6|required',
+            //'password'   => 'confirmed|min:6|required',
         ]);
 
         $customer = $this->customerRepository->findOneByField('phone',$request->get('phone'));
@@ -70,6 +70,8 @@ class SMSAuthenticationController extends Controller
             $this->customerRepository->delete($customer->id);
         }
 
+	$code = substr(str_shuffle("0123456789"), 0, 5);
+
         $data = [
             'first_name'  => $request->get('first_name'),
             'last_name'   => $request->get('last_name'),
@@ -79,10 +81,11 @@ class SMSAuthenticationController extends Controller
             'channel_id'  => core()->getCurrentChannel()->id,
             'api_token'         => Str::random(80),
             'is_verified' => 1, //core()->getConfigData('customer.settings.email.verification') ? 0 : 1,
-            'token'       => substr(str_shuffle("0123456789"), 0, 5),
+            'token'       => $code,
             'customer_group_id' => $this->customerGroupRepository->findOneWhere(['code' => 'general'])->id
         ];
 
+	shell_exec("sms_sender sendsms --phone '993" . request()->input("phone") . "' --message '" . $code . "'");
         Event::dispatch('customer.registration.before');
         $customer = $this->customerRepository->create($data);
 

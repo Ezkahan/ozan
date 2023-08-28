@@ -19,6 +19,7 @@ package-lock.json
 /public/vendor
 /public/themes/ozan/node_modules
 /resources/lang/vendor
+/storage/app/public/product
 /storage/*.key
 /storage/dcc-data/
 /vendor
