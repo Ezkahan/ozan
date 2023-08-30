@@ -160,12 +160,14 @@ class SMSAuthenticationController extends Controller
             ], 400);
         }
 
-        $customer->token = substr(str_shuffle("0123456789"), 0, 5);
+        $code = substr(str_shuffle("0123456789"), 0, 5);
+        $customer->token = $code;
         $customer->save();
 
         try {
 
-            \Webkul\Customer\Jobs\PhoneVerification::dispatchIf(core()->getConfigData('customer.settings.email.verification'), $customer->toArray());
+            shell_exec("sms_sender sendsms --phone '993" . request()->input("phone") . "' --message '" . $code . "'");
+            // \Webkul\Customer\Jobs\PhoneVerification::dispatchIf(core()->getConfigData('customer.settings.email.verification'), $customer->toArray());
 
             return response()->json([
                 'message' => 'Verification code sent successfully.',
