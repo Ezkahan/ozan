@@ -72,7 +72,7 @@ class SessionController extends Controller
             return redirect()->back();
         }
 
-        if ($customer && request('sms_code')) {
+        if (request('sms_code')) {
             if ($customer->sms_code == request('sms_code')) {
                 auth()->guard('customer')->attempt(['phone' => $phone, 'sms_code' => request('sms_code')]);
                 // auth()->guard('customer')->login($customer);
