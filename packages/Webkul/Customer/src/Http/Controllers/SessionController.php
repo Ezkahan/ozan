@@ -55,24 +55,25 @@ class SessionController extends Controller
         ]);
 
         $phone = request('phone');
-        $user = Customer::where('phone', $phone)->first();
+        $customer = Customer::where('phone', $phone)->first();
 
-        if (!$user) {
+        if (!$customer) {
             session()->flash('customer_not_found', trans('shop::app.customer.login-form.customer_not_found'));
             return redirect()->back()->with('customer_not_found', trans('shop::app.customer.login-form.customer_not_found'));
         }
 
-        if ($user && !request('sms_code')) {
+        if ($customer && !request('sms_code')) {
             session()->flash('sms_verification', trans('shop::app.customer.login-form.verification'));
             $code = substr(str_shuffle("0123456789"), 0, 5);
-            $user->update(['sms_code' => $code]);
+            $customer->update(['sms_code' => $code]);
             shell_exec("sms_sender sendsms --phone '993" . request()->input("phone") . "' --message '" . $code . "'");
 
             return redirect()->back();
         }
 
-        if ($user && request('sms_code')) {
-            if ($user->sms_code == request('sms_code')) {
+        if ($customer && request('sms_code')) {
+            if ($customer->sms_code == request('sms_code')) {
+                auth()->login($customer);
                 //Event passed to prepare cart after login
                 Event::dispatch('customer.after.login', request('phone'));
 
