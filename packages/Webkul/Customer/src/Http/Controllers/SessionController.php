@@ -66,7 +66,7 @@ class SessionController extends Controller
             $customer->update(['sms_code' => $code]);
             shell_exec("sms_sender sendsms --phone '993" . request()->input("phone") . "' --message '" . $code . "'");
 
-            return redirect()->intended(route($this->_config['redirect']))->withInput(['phone']);
+            return redirect()->intended(route($this->_config['redirect']))->withInput();
         }
     }
 
@@ -78,6 +78,8 @@ class SessionController extends Controller
         $phone = $request->phone;
         $smsCode = $request->sms_code;
         $customer = Customer::where('phone', $phone)->first();
+
+        return $request->all();
 
         Log::debug($request->all());
 
