@@ -72,7 +72,12 @@ class SessionController extends Controller
             return redirect()->back();
         }
 
+        Log::info(request()->all());
+        Log::info(request('sms_code'));
+
         if (request('sms_code')) {
+            Log::info("TEST");
+
             if ($customer->sms_code == request('sms_code')) {
                 auth()->guard('customer')->attempt(['phone' => $phone, 'sms_code' => request('sms_code')]);
                 // auth()->guard('customer')->login($customer);
