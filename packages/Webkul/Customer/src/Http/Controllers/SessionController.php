@@ -49,10 +49,10 @@ class SessionController extends Controller
      */
     public function create()
     {
-        $this->validate(request(), [
-            'phone'    => 'required',
-            // 'password' => 'required',
-        ]);
+        // $this->validate(request(), [
+        //     // 'phone'    => 'required',
+        //     // 'password' => 'required',
+        // ]);
 
         $phone = request('phone');
         $customer = Customer::where('phone', $phone)->first();
