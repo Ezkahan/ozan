@@ -1,10 +1,10 @@
 @font-face {
-    font-family: 'icomoon';
-    src: url('../fonts/icomoon.eot?gpxayz');
-    src: url('../fonts/icomoon.eot?gpxayz#iefix') format('embedded-opentype'),
-    url('../fonts/icomoon.ttf?gpxayz') format('truetype'),
-    url('../fonts/icomoon.woff?gpxayz') format('woff'),
-    url('../fonts/icomoon.svg?gpxayz#icomoon') format('svg');
+    font-family: "icomoon";
+    src: url("../fonts/icomoon.eot?gpxayz");
+    src: url("../fonts/icomoon.eot?gpxayz#iefix") format("embedded-opentype"),
+        url("../fonts/icomoon.ttf?gpxayz") format("truetype"),
+        url("../fonts/icomoon.woff?gpxayz") format("woff"),
+        url("../fonts/icomoon.svg?gpxayz#icomoon") format("svg");
     font-weight: normal;
     font-style: normal;
     font-display: block;
@@ -13,7 +13,7 @@
 [class^="icon-"],
 [class*=" icon-"] {
     /* use !important to prevent issues with browser extensions that change fonts */
-    font-family: 'icomoon' !important;
+    font-family: "icomoon" !important;
     speak: never;
     font-style: normal;
     font-weight: normal;
@@ -5017,7 +5017,7 @@
 
 .icon-Inactive:before {
     content: "\e903";
-    color: #da2d79;
+    color: #c70039;
 }
 
 .icon-info:before {
@@ -5044,7 +5044,7 @@
 
 .icon-coins:before {
     content: "\e909";
-    color: #da2d79;
+    color: #c70039;
 }
 
 .icon-garbage:before {
@@ -5053,7 +5053,7 @@
 
 .icon-logout:before {
     content: "\e90b";
-    color: #da2d79;
+    color: #c70039;
 }
 
 .icon-minus:before {

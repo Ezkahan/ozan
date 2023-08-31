@@ -7,7 +7,7 @@
         .newsletter-subscription {
             color: white;
             padding: 10px 130px;
-            background-color: #da2d79;
+            background-color: #c70039;
 
             .newsletter-wrapper {
                 input.subscribe-field {
@@ -45,16 +45,16 @@
                         // background: #4d7ea8;
                         margin-right: 2px;
                         border: 1px solid rgba(255, 255, 255, 0.52);
-                        transition: border-color .2s linear;
-                        -ms-transition: border-color .2s linear;
-                        -moz-transition: border-color .2s linear;
-                        -o-transition: border-color .2s linear;
-                        -webkit-transition: border-color .2s linear;
+                        transition: border-color 0.2s linear;
+                        -ms-transition: border-color 0.2s linear;
+                        -moz-transition: border-color 0.2s linear;
+                        -o-transition: border-color 0.2s linear;
+                        -webkit-transition: border-color 0.2s linear;
                     }
 
                     .within-circle:hover {
                         // opacity: 0.5;
-                        border-color: #30383F;
+                        border-color: #30383f;
                     }
 
                     img {
@@ -72,7 +72,7 @@
             }
         }
 
-        >.row {
+        > .row {
             padding: 60px 130px;
             background: #000;
 
@@ -82,7 +82,7 @@
             }
 
             .footer-ct-content {
-                >div {
+                > div {
                     margin: 0;
                     padding: 0;
                     font-size: 14px;
@@ -106,7 +106,7 @@
                 padding-right: 0px;
 
                 .row {
-                    >div {
+                    > div {
                         width: 100%;
                         display: block;
                     }
@@ -123,28 +123,28 @@
                     }
 
                     .cash {
-                        background-image: url('../images/static/cash.png');
+                        background-image: url("../images/static/cash.png");
                     }
 
                     .cheque {
                         width: 57px !important;
-                        background-image: url('../images/static/cheque.png');
+                        background-image: url("../images/static/cheque.png");
                     }
 
                     .visa {
-                        background-image: url('../images/static/visa.png');
+                        background-image: url("../images/static/visa.png");
                     }
 
                     .master-card {
-                        background-image: url('../images/static/master-card.png');
+                        background-image: url("../images/static/master-card.png");
                     }
 
                     .paypal {
-                        background-image: url('../images/static/paypal.png');
+                        background-image: url("../images/static/paypal.png");
                     }
 
                     .discover {
-                        background-image: url('../images/static/discover.png');
+                        background-image: url("../images/static/discover.png");
                     }
                 }
 
@@ -202,8 +202,7 @@
         font-size: 16px;
         line-height: 6rem;
         text-align: center;
-        background: #30383F;
-        ;
+        background: #30383f;
         color: rgba(255, 255, 255, 0.83);
 
         p {
@@ -218,5 +217,4 @@
             color: $link-color;
         }
     }
-
 }

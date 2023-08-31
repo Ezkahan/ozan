@@ -2,38 +2,38 @@
     Added back again because in chrome this is not using and light house also saying not used.
     But in mozilla all fonts are gone which creating problem.
 */
-@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap");
 
 /* velocity variables */
-$white-color: #FFFFFF;
+$white-color: #ffffff;
 $black-color: #111111;
-$font-color: rgba(0,0,0,0.83);
+$font-color: rgba(0, 0, 0, 0.83);
 $font-color-light: rgba(255, 255, 255, 0.83);
-$button-primary-bg: #da2d79;
-$border-primary: #da2d79;
-$button-danger: #F05153;
-$border-danger: #F05153;
-$color-danger: #F05153;
-$border-common: #CCCCCC;
-$border-dark: #DCDCDC;
-$border-light: #ECECEC;
-$border-general: #E5E5E5;
-$theme-color: #da2d79;
-$theme-dark-color: #da2d79;
-$btn-text-color: #FFFFFF;
-$light-color: #FFFFFF;
+$button-primary-bg: #c70039;
+$border-primary: #c70039;
+$button-danger: #f05153;
+$border-danger: #f05153;
+$color-danger: #f05153;
+$border-common: #cccccc;
+$border-dark: #dcdcdc;
+$border-light: #ececec;
+$border-general: #e5e5e5;
+$theme-color: #c70039;
+$theme-dark-color: #c70039;
+$btn-text-color: #ffffff;
+$light-color: #ffffff;
 $dark-color: #000000;
 $light1-black: #141516;
 $light2-black: #cfcfd0;
-$link-color: #4D7EA8;
-$light-link-color: #28557B;
-$grey-clr: rgba(0,0,0,0.53);
+$link-color: #4d7ea8;
+$light-link-color: #28557b;
+$grey-clr: rgba(0, 0, 0, 0.53);
 $light-grey-clr: rgb(158, 158, 158);
-$light-background: #F7F7F9;
+$light-background: #f7f7f9;
 
 /* other stuffs */
 $sidebar-width: 300px;
 $box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-$material-icons-font-path: '../material-icons/iconfont/' !default;
+$material-icons-font-path: "../material-icons/iconfont/" !default;
 $border-normal: 1px solid $border-dark;
-$font-family-pro: 'Source Sans Pro', sans-serif;
+$font-family-pro: "Source Sans Pro", sans-serif;

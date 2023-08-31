@@ -100,7 +100,7 @@
                 }
 
                 .form-control {
-                    border: 1px solid rgba(0, 0, 0, .5);
+                    border: 1px solid rgba(0, 0, 0, 0.5);
                 }
 
                 .btn-group {
@@ -129,7 +129,6 @@
                                 background: #fff !important;
                                 color: #000;
                             }
-
 
                             -webkit-appearance: none;
                             -moz-appearance: none;
@@ -180,7 +179,7 @@
     width: calc(100% - 0px);
     z-index: 1001;
     // padding: 15px 0;
-    background: #da2d79;
+    background: #c70039;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
     // transition: all .1s linear;
     // -o-transition: all .1s linear;
@@ -195,8 +194,8 @@
     width: calc(100% - 0px);
     z-index: 1000;
     background: #fff;
-    transition: all .1s linear;
-    -o-transition: all .1s linear;
-    -moz-transition: all .1s linear;
-    -webkit-transition: all .1s linear;
+    transition: all 0.1s linear;
+    -o-transition: all 0.1s linear;
+    -moz-transition: all 0.1s linear;
+    -webkit-transition: all 0.1s linear;
 }

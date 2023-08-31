@@ -1,5 +1,4 @@
 @include xxxlg-xxxxlg {
-
     //
     .category {
         font-size: 12px;
@@ -17,7 +16,6 @@
 }
 
 @include xxlg-xxxlg {
-
     // header start
     .header {
         &__logo {
@@ -326,7 +324,6 @@
     .contact {
         padding: 70px 0;
     }
-
 }
 @include xh-xxh {
     .modal {
@@ -420,11 +417,11 @@
         height: 100%;
         background: #fff;
         z-index: 15;
-        transition: all .2s ease-out;
-        -ms-transition: all .2s ease-out;
-        -moz-transition: all .2s ease-out;
-        -o-transition: all .2s ease-out;
-        -webkit-transition: all .2s ease-out;
+        transition: all 0.2s ease-out;
+        -ms-transition: all 0.2s ease-out;
+        -moz-transition: all 0.2s ease-out;
+        -o-transition: all 0.2s ease-out;
+        -webkit-transition: all 0.2s ease-out;
 
         &.active {
             top: 0;
@@ -670,7 +667,6 @@
                 width: auto;
 
                 .searchbar {
-
                     .row {
                         margin: 0 !important;
 
@@ -759,14 +755,14 @@
 
     .cat_cart_btn {
         background: transparent;
-        border: 1px solid #da2d79;
+        border: 1px solid #c70039;
 
         i {
             display: none;
         }
 
         span {
-            color: #da2d79;
+            color: #c70039;
             top: 0;
         }
     }
@@ -792,13 +788,13 @@
         width: 100%;
         height: 100%;
         z-index: 110;
-        background: rgba(0, 0, 0, .5);
+        background: rgba(0, 0, 0, 0.5);
 
-        transition: all .1s linear;
-        -ms-transition: all .1s linear;
-        -moz-transition: all .1s linear;
-        -o-transition: all .1s linear;
-        -webkit-transition: all .1s linear;
+        transition: all 0.1s linear;
+        -ms-transition: all 0.1s linear;
+        -moz-transition: all 0.1s linear;
+        -o-transition: all 0.1s linear;
+        -webkit-transition: all 0.1s linear;
         z-index: 1001;
 
         &.active {
@@ -812,12 +808,11 @@
             height: 100%;
             align-items: unset;
 
-            transition: all .2s linear;
-            -ms-transition: all .2s linear;
-            -moz-transition: all .2s linear;
-            -o-transition: all .2s linear;
-            -webkit-transition: all .2s linear;
-
+            transition: all 0.2s linear;
+            -ms-transition: all 0.2s linear;
+            -moz-transition: all 0.2s linear;
+            -o-transition: all 0.2s linear;
+            -webkit-transition: all 0.2s linear;
 
             flex-direction: column-reverse;
             -ms-flex-direction: column-reverse;
@@ -848,7 +843,7 @@
             &-link {
                 padding: 20px 30px;
                 margin: 0 !important;
-                border-bottom: 1px solid #da2d79;
+                border-bottom: 1px solid #c70039;
                 width: 100%;
 
                 display: flex;
@@ -863,7 +858,7 @@
 
         &__language {
             padding: 20px 30px;
-            border-bottom: 1px solid #da2d79;
+            border-bottom: 1px solid #c70039;
             width: 100%;
 
             select {
@@ -1041,7 +1036,7 @@
 
                 &.active {
                     display: block;
-                    animation: showCat .2s linear;
+                    animation: showCat 0.2s linear;
                 }
             }
 
@@ -1062,7 +1057,6 @@
                 font-size: 16px;
                 text-align: initial;
                 cursor: pointer;
-
             }
 
             .sidebar__btn {
@@ -1113,7 +1107,6 @@
             width: calc(25% - 20px);
         }
     }
-
 
     // index page start
     .product {
@@ -1207,7 +1200,6 @@
         padding: 0 !important;
     }
 
-
     .contact {
         padding: 40px 0;
 
@@ -1226,7 +1218,6 @@
         }
 
         &_message {
-
             textarea {
                 height: 120px;
             }
@@ -1250,7 +1241,6 @@
                 padding: 7px;
             }
         }
-
     }
 }
 
@@ -1290,7 +1280,7 @@
                     padding: 10px 30px 10px 20px !important;
                 }
 
-                .select-icon  {
+                .select-icon {
                     top: -28px !important;
                 }
             }
@@ -1301,7 +1291,6 @@
             }
         }
     }
-
 
     .category-container,
     .search-container {
@@ -1342,7 +1331,6 @@
     .hero {
         &__sidebar {
             &-inner {
-
                 &-link,
                 .vsa-item__heading button .vsa-item__trigger__content {
                     padding: 10px 15px;
@@ -1389,7 +1377,6 @@
     #cart-modal-content {
         width: calc(100vw - 70px);
         z-index: 15;
-
     }
 
     .modal-footer {
@@ -1412,11 +1399,9 @@
             max-height: 128px;
         }
     }
-
 }
 
 @include xsm-sm {
-
     .category-container,
     .search-container {
         .grid-card {
@@ -1424,7 +1409,7 @@
             margin: 5px;
         }
     }
-    .my_brands_item{
+    .my_brands_item {
         max-height: 100px;
     }
 
