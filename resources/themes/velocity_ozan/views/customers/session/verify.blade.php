@@ -38,6 +38,10 @@
 
                         {{ csrf_field() }}
 
+                        @error('sms_code_error')
+                            <p class="has-error">{{ trans('shop::app.customer.login-form.sms_code_error') }}</p>
+                        @enderror
+
                         <input type="hidden" name="phone" value={{ old('phone') }}>
 
                         <div class="form-group" :class="[errors.has('sms_code_error') ? 'has-error' : '']">
