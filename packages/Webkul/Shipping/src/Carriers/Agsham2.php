@@ -12,14 +12,14 @@ use Webkul\Checkout\Facades\Cart;
  * Class Rate.
  *
  */
-class Irden extends AbstractShipping
+class Agsham2 extends AbstractShipping
 {
     /**
      * Payment method code
      *
      * @var string
      */
-    protected $code = 'irden';
+    protected $code = 'agsam2';
 
 
     /**
@@ -44,9 +44,9 @@ class Irden extends AbstractShipping
 
         $object = new CartShippingRate;
 
-        $object->carrier = 'irden';
+        $object->carrier = 'agsam2';
         $object->carrier_title = $this->getConfigData('title');
-        $object->method = 'irden_irden';
+        $object->method = 'agsam2_agsam2';
         $object->method_title = $title;
         $object->method_description = $this->getConfigData('description');
         $object->is_calculate_tax = false;
