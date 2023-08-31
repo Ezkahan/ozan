@@ -3,10 +3,8 @@
 namespace Webkul\Customer\Http\Controllers;
 
 use Illuminate\Support\Facades\Event;
-use Cookie;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
-use Tymon\JWTAuth\Claims\Custom;
 use Webkul\Customer\Models\Customer;
 
 class SessionController extends Controller
@@ -75,6 +73,7 @@ class SessionController extends Controller
      */
     public function verifySMS(Request $request)
     {
+        Log::debug("test");
         dd($request->all());
         // $phone = $request->phone;
         // $smsCode = $request->sms_code;

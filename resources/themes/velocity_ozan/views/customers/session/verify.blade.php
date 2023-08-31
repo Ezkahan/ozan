@@ -45,7 +45,7 @@
                                 {{ __('velocity::app.customer.login-form.sms_code') }}
                             </label>
 
-                            <input type="sms_code" class="form-style" name="sms_code" v-validate="'required'"
+                            <input type="text" class="form-style" name="sms_code" v-validate="'required'"
                                 value="{{ old('sms_code') }}"
                                 data-vv-as="&quot;{{ __('velocity::app.customer.login-form.sms_code') }}&quot;" />
 
