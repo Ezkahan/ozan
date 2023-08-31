@@ -75,7 +75,7 @@ class SessionController extends Controller
     {
         $phone = $request->phone;
         $smsCode = $request->sms_code;
-        $customer = Customer::where('phoned', $phone)->first();
+        $customer = Customer::where('phone', $phone)->first();
 
         Log::debug($customer);
 
