@@ -258,7 +258,9 @@ return [
             'verify-first' => 'Ilki öz elektron poçtaňyzy tassyklaň',
             'not-activated' => 'Aktiwasiýa, administratoryň razylygyny garaşýar',
             'resend-verification' => 'Barlag hatyny gaýtadan iberiň',
-            'sms_code' => 'SMS kody giriziň'
+            'sms_code' => 'SMS kody giriziň',
+            'sms_code_error' => 'SMS kod nädogry!',
+            'customer_not_found' => 'Beýle agzamyz ýok!'
         ],
         'signup-form'       => [
             'login'             => 'Giriş',

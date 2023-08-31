@@ -34,7 +34,7 @@
                         </p>
                     </div>
 
-                    @if ($errors->has('customer_not_found'))
+                    @if (session()->has('customer_not_found'))
                         <p class="has-error">Bagyslan bizde beyle agza yok.</p>
                     @endif
 

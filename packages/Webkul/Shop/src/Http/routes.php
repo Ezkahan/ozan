@@ -107,7 +107,7 @@ Route::group(['middleware' => ['web', 'locale', 'theme', 'currency']], function 
         'redirect' => 'shop.home.index'
     ])->name('shop.reviews.store');
 
-     // Download file or image
+    // Download file or image
     Route::get('/product/{id}/{attribute_id}', 'Webkul\Shop\Http\Controllers\ProductController@download')->defaults('_config', [
         'view' => 'shop.products.index'
     ])->name('shop.product.file.download');
@@ -141,8 +141,14 @@ Route::group(['middleware' => ['web', 'locale', 'theme', 'currency']], function 
 
         // Login form store
         Route::post('login', 'Webkul\Customer\Http\Controllers\SessionController@create')->defaults('_config', [
-            'redirect' => 'shop.checkout.cart.index'
+            'redirect' => 'shop::customers.session.verify'
         ])->name('customer.session.create');
+
+        // Login sms verify
+        Route::post('sms_verify', 'Webkul\Customer\Http\Controllers\SessionController@verifySMS')->defaults('_config', [
+            'redirect' => 'shop.checkout.cart.index'
+        ])->name('customer.session.sms_verify');
+
 
         // Registration Routes
         //registration form show
@@ -165,7 +171,7 @@ Route::group(['middleware' => ['web', 'locale', 'theme', 'currency']], function 
         Route::get('/verify-account/{token}', 'Webkul\Customer\Http\Controllers\RegistrationController@verifyAccount')->name('customer.verify');
 
         //resend verification sms
-        Route::get('resend/verification_sms/{api_token}','Webkul\Customer\Http\Controllers\RegistrationController@resendVerificationSMS')->name('customer.resend.verification-sms');
+        Route::get('resend/verification_sms/{api_token}', 'Webkul\Customer\Http\Controllers\RegistrationController@resendVerificationSMS')->name('customer.resend.verification-sms');
         //resend verification email
         Route::get('/resend/verification/{email}', 'Webkul\Customer\Http\Controllers\RegistrationController@resendVerificationEmail')->name('customer.resend.verification-email');
 

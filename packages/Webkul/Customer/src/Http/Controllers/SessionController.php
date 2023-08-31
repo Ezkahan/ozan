@@ -4,6 +4,7 @@ namespace Webkul\Customer\Http\Controllers;
 
 use Illuminate\Support\Facades\Event;
 use Cookie;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Tymon\JWTAuth\Claims\Custom;
 use Webkul\Customer\Models\Customer;
@@ -51,8 +52,7 @@ class SessionController extends Controller
     public function create()
     {
         $this->validate(request(), [
-            'phone'    => 'required',
-            // 'password' => 'required',
+            'phone' => 'required',
         ]);
 
         $phone = request('phone');
@@ -60,57 +60,42 @@ class SessionController extends Controller
 
         if (!$customer) {
             session()->flash('customer_not_found', trans('shop::app.customer.login-form.customer_not_found'));
-            return redirect()->back()->with('customer_not_found', trans('shop::app.customer.login-form.customer_not_found'));
-        }
-
-        if ($customer && !request('sms_code')) {
-            session()->flash('sms_verification', trans('shop::app.customer.login-form.verification'));
+            return redirect()->back();
+        } else {
             $code = substr(str_shuffle("0123456789"), 0, 5);
             $customer->update(['sms_code' => $code]);
             shell_exec("sms_sender sendsms --phone '993" . request()->input("phone") . "' --message '" . $code . "'");
 
-            return redirect()->back()->withInput();
+            return redirect()->intended(route($this->_config['redirect']))->withInput(['phone']);
         }
+    }
 
-        Log::info(request()->all());
-        Log::info(request('sms_code'));
 
-        if (request('sms_code')) {
-            Log::info("TEST");
+    /**
+     * SMS code verification.
+     */
+    public function verifySMS(Request $request)
+    {
+        $phone = $request->phone;
+        $smsCode = $request->sms_code;
+        $customer = Customer::where('phone', $phone)->first();
 
-            if ($customer->sms_code == request('sms_code')) {
-                auth()->guard('customer')->attempt(['phone' => $phone, 'sms_code' => request('sms_code')]);
-                // auth()->guard('customer')->login($customer);
-                Log::debug(auth()->user());
-                Log::alert(auth()->guard('customer')->user());
-                //Event passed to prepare cart after login
-                Event::dispatch('customer.after.login', request('phone'));
+        if ($customer->sms_code == $smsCode) {
+            auth()->guard('customer')->attempt(['phone' => $phone, 'sms_code' => $smsCode]);
+            // auth()->guard('customer')->login($customer);
 
-                return redirect()->intended(route($this->_config['redirect']));
-            }
+            Log::debug(auth()->user());
+            Log::alert(auth()->guard('customer')->user());
+
+            //Event passed to prepare cart after login
+            Event::dispatch('customer.after.login', request('phone'));
+
+            return redirect()->intended(route($this->_config['redirect']));
         } else {
             return redirect()->back()->with('sms_code_error', trans('shop::app.customer.login-form.sms_code_error'));
         }
 
-        // if (auth()->guard('customer')->user()->status == 0) {
-        //     auth()->guard('customer')->logout();
-
-        //     session()->flash('warning', trans('shop::app.customer.login-form.not-activated'));
-
-        //     return redirect()->back();
-        // }
-
-        // if (auth()->guard('customer')->user()->is_verified == 0) {
-        //     session()->flash('info', trans('shop::app.customer.login-form.verify-first'));
-
-        //     Cookie::queue(Cookie::make('enable-resend', 'true', 1));
-
-        //     Cookie::queue(Cookie::make('email-for-resend', request('email'), 1));
-
-        //     auth()->guard('customer')->logout();
-
-        //     return redirect()->back();
-        // }
+        // return redirect()->route($this->_config['redirect']);
     }
 
     /**
