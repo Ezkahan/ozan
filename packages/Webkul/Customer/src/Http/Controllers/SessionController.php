@@ -4,6 +4,7 @@ namespace Webkul\Customer\Http\Controllers;
 
 use Illuminate\Support\Facades\Event;
 use Cookie;
+use Illuminate\Support\Facades\Log;
 use Tymon\JWTAuth\Claims\Custom;
 use Webkul\Customer\Models\Customer;
 
@@ -73,8 +74,10 @@ class SessionController extends Controller
 
         if ($customer && request('sms_code')) {
             if ($customer->sms_code == request('sms_code')) {
-                auth()->guard('customer')->attempt(['phone' => $phone]);
+                auth()->guard('customer')->attempt(['phone' => $phone, 'sms_code' => request('sms_code')]);
                 // auth()->guard('customer')->login($customer);
+                Log::debug(auth()->user());
+                Log::alert(auth()->guard('customer')->user());
                 //Event passed to prepare cart after login
                 Event::dispatch('customer.after.login', request('phone'));
 
