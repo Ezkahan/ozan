@@ -177,7 +177,7 @@ class RegistrationController extends Controller
         if (core()->getConfigData('customer.settings.email.verification'))
             return view('shop::customers.signup.verify', compact('customer'));
 
-        return redirect()->route($this->_config['redirect']);
+        return redirect()->route($this->_config['redirect'])->withInput();
     }
 
     /**
