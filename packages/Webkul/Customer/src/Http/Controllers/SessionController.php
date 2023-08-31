@@ -70,7 +70,6 @@ class SessionController extends Controller
         }
     }
 
-
     /**
      * SMS code verification.
      */
