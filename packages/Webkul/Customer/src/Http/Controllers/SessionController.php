@@ -77,14 +77,12 @@ class SessionController extends Controller
         $smsCode = $request->sms_code;
         $customer = Customer::where('phone', $phone)->first();
 
-        Log::debug($customer);
+        if (!$phone) {
+            return redirect()->route($this->_config['redirect']);
+        }
 
         if ($customer && $customer->sms_code == $smsCode) {
-            // auth()->guard('customer')->attempt(['phone' => $phone, 'sms_code' => $smsCode]);
             auth()->guard('customer')->login($customer);
-
-            Log::debug(auth()->user());
-            Log::alert(auth()->guard('customer')->user());
 
             //Event passed to prepare cart after login
             Event::dispatch('customer.after.login', request('phone'));

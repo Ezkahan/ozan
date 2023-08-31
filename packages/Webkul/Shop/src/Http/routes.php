@@ -142,6 +142,7 @@ Route::group(['middleware' => ['web', 'locale', 'theme', 'currency']], function 
         // Login verify form
         Route::get('sms_verify', 'Webkul\Customer\Http\Controllers\SessionController@show')->defaults('_config', [
             'view' => 'shop::customers.session.verify',
+            'redirect' => 'customer.session.index'
         ])->name('customer.session.verify');
 
         // Login form store
