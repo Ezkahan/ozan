@@ -50,10 +50,10 @@ class SessionController extends Controller
      */
     public function create()
     {
-        // $this->validate(request(), [
-        //     // 'phone'    => 'required',
-        //     // 'password' => 'required',
-        // ]);
+        $this->validate(request(), [
+            'phone'    => 'required',
+            // 'password' => 'required',
+        ]);
 
         $phone = request('phone');
         $customer = Customer::where('phone', $phone)->first();
@@ -69,7 +69,7 @@ class SessionController extends Controller
             $customer->update(['sms_code' => $code]);
             shell_exec("sms_sender sendsms --phone '993" . request()->input("phone") . "' --message '" . $code . "'");
 
-            return redirect()->back();
+            return redirect()->back()->withInput();
         }
 
         Log::info(request()->all());
