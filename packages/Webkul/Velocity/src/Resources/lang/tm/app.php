@@ -260,6 +260,9 @@ return [
             'resend-verification' => 'Barlag hatyny gaýtadan iberiň',
             'sms_code' => 'SMS kody giriziň',
             'sms_code_error' => 'SMS kod nädogry!',
+            'sms_verification' => 'SMS kody tassyklamak',
+            'sms_verification_text' => 'Girizilen telefon belga iberilen SMS kody giriziň we tassyklaň!',
+            'confirm' => 'Tassykla!',
             'customer_not_found' => 'Beýle agzamyz ýok!'
         ],
         'signup-form'       => [

@@ -26,11 +26,11 @@
                 <div class="body col-12">
                     <div class="form-header">
                         <h3 class="fw6">
-                            {{ __('velocity::app.customer.login-form.registered-user') }}
+                            {{ __('velocity::app.customer.login-form.sms_verification') }}
                         </h3>
 
                         <p class="fs16">
-                            {{ __('velocity::app.customer.login-form.form-login-text') }}
+                            {{ __('velocity::app.customer.login-form.sms_verification_text') }}
                         </p>
                     </div>
 
@@ -62,7 +62,7 @@
                         {!! view_render_event('bagisto.shop.customers.login_form_controls.after') !!}
 
                         <input class="theme-btn" type="submit"
-                            value="{{ __('velocity::app.customer.login-form.button_title') }}">
+                            value="{{ __('velocity::app.customer.login-form.confirm') }}">
 
                     </form>
                 </div>
