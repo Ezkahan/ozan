@@ -12,7 +12,7 @@
 
             $channelLocales = app('Webkul\Core\Repositories\ChannelRepository')->findOneByField('code', $channel)->locales;
 
-            if (! $channelLocales->contains('code', $locale)) {
+            if (!$channelLocales->contains('code', $locale)) {
                 $locale = config('app.fallback_locale');
             }
         @endphp
@@ -29,11 +29,10 @@
                     <div class="control-group">
                         <select class="control" id="channel-switcher" name="channel">
                             @foreach (core()->getAllChannels() as $channelModel)
-
-                                <option value="{{ $channelModel->code }}" {{ ($channelModel->code) == $channel ? 'selected' : '' }}>
+                                <option value="{{ $channelModel->code }}"
+                                    {{ $channelModel->code == $channel ? 'selected' : '' }}>
                                     {{ core()->getChannelName($channelModel) }}
                                 </option>
-
                             @endforeach
                         </select>
                     </div>
@@ -41,11 +40,10 @@
                     <div class="control-group">
                         <select class="control" id="locale-switcher" name="locale">
                             @foreach ($channelLocales as $localeModel)
-
-                                <option value="{{ $localeModel->code }}" {{ ($localeModel->code) == $locale ? 'selected' : '' }}>
+                                <option value="{{ $localeModel->code }}"
+                                    {{ $localeModel->code == $locale ? 'selected' : '' }}>
                                     {{ $localeModel->name }}
                                 </option>
-
                             @endforeach
                         </select>
                     </div>
@@ -62,27 +60,28 @@
                 <div class="form-container">
                     @csrf()
 
-                    @if ($groups = \Illuminate\Support\Arr::get($config->items, request()->route('slug') . '.children.' . request()->route('slug2') . '.children'))
+                    @if (
+                        $groups = \Illuminate\Support\Arr::get(
+                            $config->items,
+                            request()->route('slug') . '.children.' . request()->route('slug2') . '.children'))
+
+                        {{ dd($groups) }}
 
                         @foreach ($groups as $key => $item)
-
                             <accordian :title="'{{ __($item['name']) }}'" :active="true">
                                 <div slot="body">
 
                                     @foreach ($item['fields'] as $field)
-
                                         @include ('admin::configuration.field-type', ['field' => $field])
 
-                                        @php ($hint = $field['title'] . '-hint')
+                                        @php($hint = $field['title'] . '-hint')
                                         @if ($hint !== __($hint))
                                             {{ __($hint) }}
                                         @endif
-
                                     @endforeach
 
                                 </div>
                             </accordian>
-
                         @endforeach
 
                     @endif
@@ -96,12 +95,15 @@
 
 @push('scripts')
     <script>
-        $(document).ready(function () {
-            $('#channel-switcher, #locale-switcher').on('change', function (e) {
+        $(document).ready(function() {
+            $('#channel-switcher, #locale-switcher').on('change', function(e) {
                 $('#channel-switcher').val()
-                var query = '?channel=' + $('#channel-switcher').val() + '&locale=' + $('#locale-switcher').val();
+                var query = '?channel=' + $('#channel-switcher').val() + '&locale=' + $('#locale-switcher')
+                    .val();
 
-                window.location.href = "{{ route('admin.configuration.index', [request()->route('slug'), request()->route('slug2')]) }}" + query;
+                window.location.href =
+                    "{{ route('admin.configuration.index', [request()->route('slug'), request()->route('slug2')]) }}" +
+                    query;
             })
         });
     </script>

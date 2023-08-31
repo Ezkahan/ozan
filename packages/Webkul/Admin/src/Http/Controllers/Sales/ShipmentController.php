@@ -49,8 +49,7 @@ class ShipmentController extends Controller
         ShipmentRepository $shipmentRepository,
         OrderRepository $orderRepository,
         OrderItemRepository $orderItemRepository
-    )
-    {
+    ) {
         $this->middleware('admin');
 
         $this->_config = request('_config');
@@ -82,7 +81,7 @@ class ShipmentController extends Controller
     {
         $order = $this->orderRepository->findOrFail($orderId);
 
-        if (! $order->channel || !$order->canShip()) {
+        if (!$order->channel || !$order->canShip()) {
             session()->flash('error', trans('admin::app.sales.shipments.creation-error'));
 
             return redirect()->back();
@@ -101,7 +100,7 @@ class ShipmentController extends Controller
     {
         $order = $this->orderRepository->findOrFail($orderId);
 
-        if (! $order->canShip()) {
+        if (!$order->canShip()) {
             session()->flash('error', trans('admin::app.sales.shipments.order-error'));
 
             return redirect()->back();
@@ -114,7 +113,7 @@ class ShipmentController extends Controller
 
         $data = request()->all();
 
-        if (! $this->isInventoryValidate($data)) {
+        if (!$this->isInventoryValidate($data)) {
             session()->flash('error', trans('admin::app.sales.shipments.quantity-invalid'));
 
             return redirect()->back();
@@ -135,8 +134,8 @@ class ShipmentController extends Controller
      */
     public function isInventoryValidate(&$data)
     {
-        if (! isset($data['shipment']['items'])) {
-            return ;
+        if (!isset($data['shipment']['items'])) {
+            return;
         }
 
         $valid = false;
@@ -153,7 +152,7 @@ class ShipmentController extends Controller
 
                 if ($orderItem->getTypeInstance()->isComposite()) {
                     foreach ($orderItem->children as $child) {
-                        if (! $child->qty_ordered) {
+                        if (!$child->qty_ordered) {
                             continue;
                         }
 
@@ -169,8 +168,8 @@ class ShipmentController extends Controller
                     }
                 } else {
                     $availableQty = $orderItem->product->inventories()
-                            ->where('inventory_source_id', $inventorySourceId)
-                            ->sum('qty');
+                        ->where('inventory_source_id', $inventorySourceId)
+                        ->sum('qty');
 
                     if ($orderItem->qty_to_ship < $qty || $availableQty < $qty) {
                         return false;
