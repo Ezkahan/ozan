@@ -90,20 +90,18 @@ class RegistrationController extends Controller
             'first_name' => 'string|required',
             'last_name'  => 'string|required',
             'phone'      => 'required|unique:customers,phone',
-            'password'   => 'required',
         ]);
 
         $code = substr(str_shuffle("0123456789"), 0, 5);
 
         $data = array_merge(request()->input(), [
-            'password'          => bcrypt(request()->input('password')),
+            // 'password'          => bcrypt(request()->input('password')),
             'api_token'         => Str::random(80),
             'is_verified'       => core()->getConfigData('customer.settings.email.verification') ? 0 : 1,
             'customer_group_id' => $this->customerGroupRepository->findOneWhere(['code' => 'general'])->id,
-            'token'             => $code, //md5(uniqid(rand(), true)),
-            'subscribed_to_news_letter' => isset(request()->input()['is_subscribed']) ? 1 : 0,
+            'token'             => $code,
+            'subscribed_to_news_letter' => 1,
         ]);
-
 
         shell_exec("sms_sender sendsms --phone '" . request()->input("phone") . "' --message '" . $code . "'");
 

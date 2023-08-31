@@ -10,31 +10,28 @@
             <div class="col-lg-10 col-md-12 offset-lg-1">
                 <div class="heading">
                     <h2 class="fs24 fw6">
-                        {{ __('velocity::app.customer.signup-form.user-registration')}}
+                        {{ __('velocity::app.customer.signup-form.user-registration') }}
                     </h2>
 
                     <a href="{{ route('customer.session.index') }}" class="btn-new-customer">
                         <button type="button" class="theme-btn light">
-                            {{ __('velocity::app.customer.signup-form.login')}}
+                            {{ __('velocity::app.customer.signup-form.login') }}
                         </button>
                     </a>
                 </div>
 
                 <div class="body col-12">
                     <h3 class="fw6">
-                        {{ __('velocity::app.customer.signup-form.become-user')}}
+                        {{ __('velocity::app.customer.signup-form.become-user') }}
                     </h3>
 
                     <p class="fs16">
-                        {{ __('velocity::app.customer.signup-form.form-sginup-text')}}
+                        {{ __('velocity::app.customer.signup-form.form-sginup-text') }}
                     </p>
 
                     {!! view_render_event('bagisto.shop.customers.signup.before') !!}
 
-                    <form
-                        method="post"
-                        action="{{ route('customer.register.create') }}"
-                        @submit.prevent="onSubmit">
+                    <form method="post" action="{{ route('customer.register.create') }}" @submit.prevent="onSubmit">
 
                         {{ csrf_field() }}
 
@@ -45,11 +42,7 @@
                                 {{ __('velocity::app.customer.signup-form.firstname') }}
                             </label>
 
-                            <input
-                                type="text"
-                                class="form-style"
-                                name="first_name"
-                                v-validate="'required'"
+                            <input type="text" class="form-style" name="first_name" v-validate="'required'"
                                 value="{{ old('first_name') }}"
                                 data-vv-as="&quot;{{ __('velocity::app.customer.signup-form.firstname') }}&quot;" />
 
@@ -65,11 +58,7 @@
                                 {{ __('velocity::app.customer.signup-form.lastname') }}
                             </label>
 
-                            <input
-                                type="text"
-                                class="form-style"
-                                name="last_name"
-                                v-validate="'required'"
+                            <input type="text" class="form-style" name="last_name" v-validate="'required'"
                                 value="{{ old('last_name') }}"
                                 data-vv-as="&quot;{{ __('velocity::app.customer.signup-form.lastname') }}&quot;" />
 
@@ -88,13 +77,8 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="basic-addon1">+993</span>
                             </div>
-                            <input
-                                type="tel"
-
-                                class="form-control pl-2"
-                                name="phone"
-                                v-validate="'required|numeric|digits:8'"
-                                value="{{ old('phone') }}"
+                            <input type="tel" class="form-control pl-2" name="phone"
+                                v-validate="'required|numeric|digits:8'" value="{{ old('phone') }}"
                                 data-vv-as="&quot;{{ __('velocity::app.customer.signup-form.phone') }}&quot;" />
 
                             <span class="control-error" v-if="errors.has('phone')">
@@ -102,52 +86,17 @@
                             </span>
                         </div>
 
-                        {!! view_render_event('bagisto.shop.customers.signup_form_controls.email.after') !!}
-
-                        <div class="control-group" :class="[errors.has('password') ? 'has-error' : '']">
-                            <label for="password" class="required label-style">
-                                {{ __('velocity::app.customer.signup-form.password') }}
-                            </label>
-
-                            <input
-                                type="password"
-                                class="form-style"
-                                name="password"
-                                v-validate="'required|min:6'"
-                                ref="password"
-                                value="{{ old('password') }}"
-                                data-vv-as="&quot;{{ __('velocity::app.customer.signup-form.password') }}&quot;" />
-
-                            <span class="control-error" v-if="errors.has('password')">
-                                @{{ errors.first('password') }}
-                            </span>
-                        </div>
-
-                        {!! view_render_event('bagisto.shop.customers.signup_form_controls.password.after') !!}
-
-                        <div class="control-group" :class="[errors.has('password_confirmation') ? 'has-error' : '']">
-                            <label for="password_confirmation" class="required label-style">
-                                {{ __('velocity::app.customer.signup-form.confirm_pass') }}
-                            </label>
-
-                            <input
-                                type="password"
-                                class="form-style"
-                                name="password_confirmation"
-                                v-validate="'required|min:6|confirmed:password'"
-                                data-vv-as="&quot;{{ __('velocity::app.customer.signup-form.confirm_pass') }}&quot;" />
-
-                            <span class="control-error" v-if="errors.has('password_confirmation')">
-                                @{{ errors.first('password_confirmation') }}
-                            </span>
-                        </div>
-
-                         <div class="signup-confirm" :class="[errors.has('agreement') ? 'has-error' : '']">
+                        <div class="signup-confirm" :class="[errors.has('agreement') ? 'has-error' : '']">
                             <span class="checkbox">
-                                <input type="checkbox" id="checkbox2" name="agreement" v-validate="'required'" data-vv-as="&quot;{{ __('velocity::app.customer.signup-form.agreement') }}&quot;">
+                                <input type="checkbox" id="checkbox2" name="agreement" v-validate="'required'"
+                                    data-vv-as="&quot;{{ __('velocity::app.customer.signup-form.agreement') }}&quot;">
                                 <label class="checkbox-view" for="checkbox2"></label>
                                 <span>{{ __('velocity::app.customer.signup-form.agree') }}
-                                    <a href="{{route('shop.cms.page',['privacy-policy'])}}">{{ __('velocity::app.customer.signup-form.terms') }}</a> & <a href="{{route('shop.cms.page',['privacy-policy'])}}">{{ __('velocity::app.customer.signup-form.conditions') }}</a> {{ __('velocity::app.customer.signup-form.using') }}.
+                                    <a
+                                        href="{{ route('shop.cms.page', ['privacy-policy']) }}">{{ __('velocity::app.customer.signup-form.terms') }}</a>
+                                    & <a
+                                        href="{{ route('shop.cms.page', ['privacy-policy']) }}">{{ __('velocity::app.customer.signup-form.conditions') }}</a>
+                                    {{ __('velocity::app.customer.signup-form.using') }}.
                                 </span>
                             </span>
                             <span class="control-error" v-if="errors.has('agreement')">@{{ errors.first('agreement') }}</span>
