@@ -78,7 +78,7 @@ class SessionController extends Controller
         $customer = Customer::where('phone', $phone)->first();
 
         if (!$phone) {
-            return redirect()->route($this->_config['redirect']);
+            return redirect()->route('customer.session.index');
         }
 
         if ($customer && $customer->sms_code == $smsCode) {
