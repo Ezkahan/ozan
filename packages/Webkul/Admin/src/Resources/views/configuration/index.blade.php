@@ -65,8 +65,6 @@
                             $config->items,
                             request()->route('slug') . '.children.' . request()->route('slug2') . '.children'))
 
-                        {{ dd($groups) }}
-
                         @foreach ($groups as $key => $item)
                             <accordian :title="'{{ __($item['name']) }}'" :active="true">
                                 <div slot="body">
