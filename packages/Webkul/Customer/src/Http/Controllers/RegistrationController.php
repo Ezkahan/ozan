@@ -99,7 +99,7 @@ class RegistrationController extends Controller
             'api_token'         => Str::random(80),
             'is_verified'       => core()->getConfigData('customer.settings.email.verification') ? 0 : 1,
             'customer_group_id' => $this->customerGroupRepository->findOneWhere(['code' => 'general'])->id,
-            'token'             => $code,
+            'sms_code'          => $code,
             'subscribed_to_news_letter' => 1,
         ]);
 
@@ -112,7 +112,6 @@ class RegistrationController extends Controller
 
         if (!$customer) {
             session()->flash('error', trans('shop::app.customer.signup-form.failed'));
-
             return redirect()->back();
         }
 
