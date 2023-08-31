@@ -75,6 +75,7 @@ class SessionController extends Controller
      */
     public function verifySMS(Request $request)
     {
+        dd($request->all());
         $phone = $request->phone;
         $smsCode = $request->sms_code;
         $customer = Customer::where('phone', $phone)->first();
