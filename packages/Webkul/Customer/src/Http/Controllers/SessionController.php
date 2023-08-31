@@ -58,7 +58,7 @@ class SessionController extends Controller
 
         if (!$customer) {
             session()->flash('customer_not_found', trans('shop::app.customer.login-form.customer_not_found'));
-            return redirect()->back();
+            // return redirect()->back();
         } else {
             $code = substr(str_shuffle("0123456789"), 0, 5);
             $customer->update(['sms_code' => $code]);
