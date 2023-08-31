@@ -39,6 +39,7 @@
                         {{ csrf_field() }}
 
                         <input type="hidden" name="phone" value={{ old('phone') }}>
+
                         <div class="form-group" :class="[errors.has('sms_code_error') ? 'has-error' : '']">
                             <label for="sms_code" class="mandatory label-style">
                                 {{ __('velocity::app.customer.login-form.sms_code') }}

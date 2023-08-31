@@ -66,7 +66,7 @@ class SessionController extends Controller
             $customer->update(['sms_code' => $code]);
             shell_exec("sms_sender sendsms --phone '993" . request()->input("phone") . "' --message '" . $code . "'");
 
-            return redirect()->intended(route($this->_config['redirect']))->withInput();
+            return redirect()->route($this->_config['redirect'])->withInput();
         }
     }
 
@@ -76,29 +76,29 @@ class SessionController extends Controller
     public function verifySMS(Request $request)
     {
         dd($request->all());
-        $phone = $request->phone;
-        $smsCode = $request->sms_code;
-        $customer = Customer::where('phone', $phone)->first();
+        // $phone = $request->phone;
+        // $smsCode = $request->sms_code;
+        // $customer = Customer::where('phone', $phone)->first();
 
-        return $request->all();
+        // return $request->all();
 
-        Log::debug($request->all());
+        // Log::debug($request->all());
 
 
-        if ($customer->sms_code == $smsCode) {
-            auth()->guard('customer')->attempt(['phone' => $phone, 'sms_code' => $smsCode]);
-            // auth()->guard('customer')->login($customer);
+        // if ($customer->sms_code == $smsCode) {
+        //     auth()->guard('customer')->attempt(['phone' => $phone, 'sms_code' => $smsCode]);
+        //     // auth()->guard('customer')->login($customer);
 
-            Log::debug(auth()->user());
-            Log::alert(auth()->guard('customer')->user());
+        //     Log::debug(auth()->user());
+        //     Log::alert(auth()->guard('customer')->user());
 
-            //Event passed to prepare cart after login
-            Event::dispatch('customer.after.login', request('phone'));
+        //     //Event passed to prepare cart after login
+        //     Event::dispatch('customer.after.login', request('phone'));
 
-            return redirect()->intended(route($this->_config['redirect']));
-        } else {
-            return redirect()->back()->with('sms_code_error', trans('shop::app.customer.login-form.sms_code_error'));
-        }
+        //     return redirect()->intended(route($this->_config['redirect']));
+        // } else {
+        //     return redirect()->back()->with('sms_code_error', trans('shop::app.customer.login-form.sms_code_error'));
+        // }
 
         // return redirect()->route($this->_config['redirect']);
     }
