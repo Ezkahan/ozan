@@ -71,10 +71,10 @@ class SessionController extends Controller
     /**
      * SMS code verification.
      */
-    public function verifySMS(Request $request)
+    public function verifySMS()
     {
         Log::debug("test");
-        dd($request->all());
+        dd('test');
         // $phone = $request->phone;
         // $smsCode = $request->sms_code;
         // $customer = Customer::where('phone', $phone)->first();
