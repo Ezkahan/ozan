@@ -59,7 +59,7 @@
                             </span>
                         </div>
 
-                        @if (session()->has('sms-verification'))
+                        @if (session()->has('sms_verification'))
                             <div class="form-group" :class="[errors.has('sms_code_error') ? 'has-error' : '']">
                                 <label for="sms_code" class="mandatory label-style">
                                     {{ __('velocity::app.customer.login-form.sms_code') }}
