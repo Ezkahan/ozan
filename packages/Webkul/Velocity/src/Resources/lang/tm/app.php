@@ -257,7 +257,8 @@ return [
             'invalid-creds' => 'Şahsy maglumatlaryňyzy barlaň we gaýtadan synanyşyň.',
             'verify-first' => 'Ilki öz elektron poçtaňyzy tassyklaň',
             'not-activated' => 'Aktiwasiýa, administratoryň razylygyny garaşýar',
-            'resend-verification' => 'Barlag hatyny gaýtadan iberiň'
+            'resend-verification' => 'Barlag hatyny gaýtadan iberiň',
+            'sms_code' => 'SMS kody giriziň'
         ],
         'signup-form'       => [
             'login'             => 'Giriş',
@@ -686,5 +687,3 @@ return [
         'error_message' => 'Habarynyz kabir sebäpden bize gowuşmady. Soňrak täzeden barlap görüň'
      ]
 ]
-
-?>

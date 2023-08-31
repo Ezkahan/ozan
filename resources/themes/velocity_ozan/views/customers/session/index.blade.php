@@ -42,22 +42,24 @@
 
                         {{ csrf_field() }}
 
-                        <div class="input-group" :class="[errors.has('phone') ? 'has-error' : '']">
+                        @if (!session()->has('sms_verification'))
+                            <div class="input-group" :class="[errors.has('phone') ? 'has-error' : '']">
 
-                            <label for="phone" class="required label-style">
-                                {{ __('shop::app.registerlogin.phoneNumber') }}
-                            </label>
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="basic-addon1">+993</span>
+                                <label for="phone" class="required label-style">
+                                    {{ __('shop::app.registerlogin.phoneNumber') }}
+                                </label>
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon1">+993</span>
+                                </div>
+                                <input type="tel" class="form-control pl-2" name="phone"
+                                    v-validate="'required|numeric|digits:8'" value="{{ old('phone') }}"
+                                    data-vv-as="&quot;{{ __('velocity::app.customer.signup-form.phone') }}&quot;" />
+
+                                <span class="control-error" v-if="errors.has('phone')">
+                                    @{{ errors.first('phone') }}
+                                </span>
                             </div>
-                            <input type="tel" class="form-control pl-2" name="phone"
-                                v-validate="'required|numeric|digits:8'" value="{{ old('phone') }}"
-                                data-vv-as="&quot;{{ __('velocity::app.customer.signup-form.phone') }}&quot;" />
-
-                            <span class="control-error" v-if="errors.has('phone')">
-                                @{{ errors.first('phone') }}
-                            </span>
-                        </div>
+                        @endif
 
                         @if (session()->has('sms_verification'))
                             <div class="form-group" :class="[errors.has('sms_code_error') ? 'has-error' : '']">
@@ -88,21 +90,24 @@
                             </div>
                         @endif
 
-                        <div class="signup-confirm" :class="[errors.has('agreement') ? 'has-error' : '']">
-                            <span class="checkbox">
-                                <input type="checkbox" id="checkbox2" name="agreement" v-validate="'required'"
-                                    data-vv-as="&quot;{{ __('velocity::app.customer.signup-form.agreement') }}&quot;">
-                                <label class="checkbox-view" for="checkbox2"></label>
-                                <span>{{ __('velocity::app.customer.signup-form.agree') }}
-                                    <a
-                                        href="{{ route('shop.cms.page', ['privacy-policy']) }}">{{ __('velocity::app.customer.signup-form.terms') }}</a>
-                                    <a
-                                        href="{{ route('shop.cms.page', ['privacy-policy']) }}">{{ __('velocity::app.customer.signup-form.conditions') }}</a>
-                                    {{ __('velocity::app.customer.signup-form.using') }}.
+                        @if (!session()->has('sms_verification'))
+                            <div class="signup-confirm" :class="[errors.has('agreement') ? 'has-error' : '']">
+                                <span class="checkbox">
+                                    <input type="checkbox" id="checkbox2" name="agreement" v-validate="'required'"
+                                        data-vv-as="&quot;{{ __('velocity::app.customer.signup-form.agreement') }}&quot;">
+                                    <label class="checkbox-view" for="checkbox2"></label>
+                                    <span>{{ __('velocity::app.customer.signup-form.agree') }}
+                                        <a
+                                            href="{{ route('shop.cms.page', ['privacy-policy']) }}">{{ __('velocity::app.customer.signup-form.terms') }}</a>
+                                        <a
+                                            href="{{ route('shop.cms.page', ['privacy-policy']) }}">{{ __('velocity::app.customer.signup-form.conditions') }}</a>
+                                        {{ __('velocity::app.customer.signup-form.using') }}.
+                                    </span>
                                 </span>
-                            </span>
-                            <span class="control-error" v-if="errors.has('agreement')">@{{ errors.first('agreement') }}</span>
-                        </div>
+                                <span class="control-error" v-if="errors.has('agreement')">@{{ errors.first('agreement') }}</span>
+                            </div>
+                        @endif
+
                         {!! view_render_event('bagisto.shop.customers.login_form_controls.after') !!}
 
                         <input class="theme-btn" type="submit"
