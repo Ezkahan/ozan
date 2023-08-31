@@ -88,14 +88,14 @@ class ConfigurationController extends Controller
      */
     public function getDefaultConfigSlugs()
     {
-        if (! request()->route('slug')) {
+        if (!request()->route('slug')) {
             $firstItem = current($this->configTree->items);
             $secondItem = current($firstItem['children']);
 
             return $this->getSlugs($secondItem);
         }
 
-        if (! request()->route('slug2')) {
+        if (!request()->route('slug2')) {
             $secondItem = current($this->configTree->items[request()->route('slug')]['children']);
 
             return $this->getSlugs($secondItem);
@@ -132,7 +132,7 @@ class ConfigurationController extends Controller
     {
         $path = request()->route()->parameters()['path'];
 
-        $fileName = 'configuration/'. $path;
+        $fileName = 'configuration/' . $path;
 
         $config = $this->coreConfigRepository->findOneByField('value', $fileName);
 

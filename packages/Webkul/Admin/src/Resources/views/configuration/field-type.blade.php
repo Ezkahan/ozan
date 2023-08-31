@@ -307,11 +307,9 @@ if (isset($field['locale_based']) && $field['locale_based']) {
         <span class="control-error"
             @if ($field['type'] == 'multiselect') v-if="errors.has('{{ $firstField }}[{{ $secondField }}][{{ $thirdField }}][{{ $field['name'] }}][]')" @else  v-if="errors.has('{{ $firstField }}[{{ $secondField }}][{{ $thirdField }}][{{ $field['name'] }}]')" @endif>
             @if ($field['type'] == 'multiselect')
-                @{{ errors.first('{!! $firstField !!}[{!! $secondField !!}][{!! $thirdField !!}][{!! $field['
-    name '] !!}][]') }}
+                @{{ errors.first('{!! $firstField !!}[{!! $secondField !!}][{!! $thirdField !!}][{!! $field['name'] !!}][]') }}
             @else
-                @{{ errors.first('{!! $firstField !!}[{!! $secondField !!}][{!! $thirdField !!}][{!! $field['
-    name '] !!}]') }}
+                @{{ errors.first('{!! $firstField !!}[{!! $secondField !!}][{!! $thirdField !!}][{!! $field['name'] !!}]') }}
             @endif
         </span>
 
