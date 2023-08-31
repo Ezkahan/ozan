@@ -79,6 +79,9 @@ class SessionController extends Controller
         $smsCode = $request->sms_code;
         $customer = Customer::where('phone', $phone)->first();
 
+        Log::debug($request->all());
+
+
         if ($customer->sms_code == $smsCode) {
             auth()->guard('customer')->attempt(['phone' => $phone, 'sms_code' => $smsCode]);
             // auth()->guard('customer')->login($customer);
