@@ -150,9 +150,7 @@ Route::group(['middleware' => ['web', 'locale', 'theme', 'currency']], function 
         ])->name('customer.session.create');
 
         // Login sms verify
-        Route::post('sms_verify', 'Webkul\Customer\Http\Controllers\SessionController@verifySMS')->defaults('_config', [
-            'redirect' => 'shop.checkout.cart.index'
-        ])->name('customer.session.sms_verify');
+        Route::post('sms_verify', 'Webkul\Customer\Http\Controllers\SessionController@verifySMS')->name('customer.session.sms_verify');
 
 
         // Registration Routes
