@@ -80,8 +80,8 @@ class SessionController extends Controller
         Log::debug($customer);
 
         if ($customer && $customer->sms_code == $smsCode) {
-            auth()->guard('customer')->attempt(['phone' => $phone, 'sms_code' => $smsCode]);
-            // auth()->guard('customer')->login($customer);
+            // auth()->guard('customer')->attempt(['phone' => $phone, 'sms_code' => $smsCode]);
+            auth()->guard('customer')->login($customer);
 
             Log::debug(auth()->user());
             Log::alert(auth()->guard('customer')->user());
