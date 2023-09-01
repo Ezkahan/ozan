@@ -35,7 +35,11 @@ class SessionController extends Controller
      */
     public function show()
     {
-        if (auth()->guard('customer')->check()) {
+        if (
+            auth()
+                ->guard('customer')
+                ->check()
+        ) {
             return redirect()->route('customer.profile.index');
         } else {
             return view($this->_config['view']);
@@ -58,13 +62,18 @@ class SessionController extends Controller
 
         if (!$customer) {
             session()->flash('customer_not_found', trans('shop::app.customer.login-form.customer_not_found'));
+
+            Log::alert('test');
+            Log::alert($customer);
             // return redirect()->back();
         } else {
-            $code = substr(str_shuffle("0123456789"), 0, 5);
+            $code = substr(str_shuffle('0123456789'), 0, 5);
             $customer->update(['sms_code' => $code]);
-            shell_exec("sms_sender sendsms --phone '993" . request()->input("phone") . "' --message '" . $code . "'");
+            shell_exec("sms_sender sendsms --phone '993" . request()->input('phone') . "' --message '" . $code . "'");
 
-            return redirect()->route($this->_config['redirect'])->withInput();
+            return redirect()
+                ->route($this->_config['redirect'])
+                ->withInput();
         }
     }
 
@@ -82,14 +91,18 @@ class SessionController extends Controller
         }
 
         if ($customer && $customer->sms_code == $smsCode) {
-            auth()->guard('customer')->login($customer);
+            auth()
+                ->guard('customer')
+                ->login($customer);
 
             //Event passed to prepare cart after login
             Event::dispatch('customer.after.login', request('phone'));
 
             return redirect()->intended(route($this->_config['redirect']));
         } else {
-            return redirect()->back()->with('sms_code_error', trans('shop::app.customer.login-form.sms_code_error'));
+            return redirect()
+                ->back()
+                ->with('sms_code_error', trans('shop::app.customer.login-form.sms_code_error'));
         }
 
         return redirect()->route($this->_config['redirect']);
@@ -103,7 +116,9 @@ class SessionController extends Controller
      */
     public function destroy($id)
     {
-        auth()->guard('customer')->logout();
+        auth()
+            ->guard('customer')
+            ->logout();
 
         Event::dispatch('customer.after.logout', $id);
 
