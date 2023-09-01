@@ -53,11 +53,8 @@ class RegistrationController extends Controller
      *
      * @return void
      */
-    public function __construct(
-        CustomerRepository $customerRepository,
-        CustomerGroupRepository $customerGroupRepository,
-        SubscribersListRepository $subscriptionRepository
-    ) {
+    public function __construct(CustomerRepository $customerRepository, CustomerGroupRepository $customerGroupRepository, SubscribersListRepository $subscriptionRepository)
+    {
         $this->_config = request('_config');
 
         $this->customerRepository = $customerRepository;
@@ -85,30 +82,28 @@ class RegistrationController extends Controller
 
     public function create()
     {
-
         $this->validate(request(), [
             'first_name' => 'string|required',
-            'last_name'  => 'string|required',
-            'phone'      => 'required|unique:customers,phone',
+            'last_name' => 'string|required',
+            'phone' => 'required|unique:customers,phone',
         ]);
 
-        $code = substr(str_shuffle("0123456789"), 0, 5);
+        $code = substr(str_shuffle('0123456789'), 0, 5);
 
         $data = array_merge(request()->input(), [
             // 'password'          => bcrypt(request()->input('password')),
-            'api_token'         => Str::random(80),
-            'is_verified'       => core()->getConfigData('customer.settings.email.verification') ? 0 : 1,
+            'api_token' => Str::random(80),
+            'is_verified' => core()->getConfigData('customer.settings.email.verification') ? 0 : 1,
             'customer_group_id' => $this->customerGroupRepository->findOneWhere(['code' => 'general'])->id,
-            'sms_code'          => $code,
+            'sms_code' => $code,
             'subscribed_to_news_letter' => 1,
         ]);
 
-        shell_exec("sms_sender sendsms --phone '" . request()->input("phone") . "' --message '" . $code . "'");
+        shell_exec("sms_sender sendsms --phone '993" . request()->input('phone') . "' --message '" . $code . "'");
 
         Event::dispatch('customer.registration.before');
 
         $customer = $this->customerRepository->create($data);
-
 
         if (!$customer) {
             session()->flash('error', trans('shop::app.customer.signup-form.failed'));
@@ -121,23 +116,28 @@ class RegistrationController extends Controller
             $subscription = $this->subscriptionRepository->findOneWhere(['email' => $data['email']]);
 
             if ($subscription) {
-                $this->subscriptionRepository->update([
-                    'customer_id' => $customer->id,
-                ], $subscription->id);
+                $this->subscriptionRepository->update(
+                    [
+                        'customer_id' => $customer->id,
+                    ],
+                    $subscription->id,
+                );
             } else {
                 $this->subscriptionRepository->create([
-                    'email'         => $data['email'],
-                    'customer_id'   => $customer->id,
-                    'channel_id'    => core()->getCurrentChannel()->id,
+                    'email' => $data['email'],
+                    'customer_id' => $customer->id,
+                    'channel_id' => core()->getCurrentChannel()->id,
                     'is_subscribed' => 1,
-                    'token'         => $token = uniqid(),
+                    'token' => ($token = uniqid()),
                 ]);
 
                 try {
-                    Mail::queue(new SubscriptionEmail([
-                        'email' => $data['email'],
-                        'token' => $token,
-                    ]));
+                    Mail::queue(
+                        new SubscriptionEmail([
+                            'email' => $data['email'],
+                            'token' => $token,
+                        ]),
+                    );
                 } catch (\Exception $e) {
                 }
             }
@@ -149,7 +149,6 @@ class RegistrationController extends Controller
             try {
                 if (core()->getConfigData('emails.general.notifications.emails.general.notifications.verification')) {
                     //                    Mail::queue(new VerificationEmail(['email' => $data['email'], 'token' => $data['token']]));
-
                 }
 
                 //                session()->flash('success', trans('shop::app.customer.signup-form.success-verify'));
@@ -174,10 +173,13 @@ class RegistrationController extends Controller
             session()->flash('success', trans('shop::app.customer.signup-form.success'));
         }
 
-        if (core()->getConfigData('customer.settings.email.verification'))
+        if (core()->getConfigData('customer.settings.email.verification')) {
             return view('shop::customers.signup.verify', compact('customer'));
+        }
 
-        return redirect()->route($this->_config['redirect'])->withInput();
+        return redirect()
+            ->route($this->_config['redirect'])
+            ->withInput();
     }
 
     /**
