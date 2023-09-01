@@ -133,7 +133,7 @@ class SMSAuthenticationController extends Controller
 
     public function verifyPhone()
     {
-        $phone = trim(request('phone'));
+        $phone = str_replace(' ', '', request('phone'));
         $smsCode = request('sms_code');
         $customer = $this->customerRepository->findOneByField('phone', $phone);
 
