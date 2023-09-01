@@ -8,7 +8,7 @@ use Webkul\Customer\Repositories\CustomerRepository;
 use Webkul\Customer\Repositories\CustomerGroupRepository;
 use Webkul\API\Http\Resources\Customer\Customer as CustomerResource;
 use Illuminate\Http\Request;
-use Tymon\JWTAuth;
+use Tymon\JWTAuth\JWTAuth;
 use Log;
 
 class SMSAuthenticationController extends Controller
