@@ -81,11 +81,11 @@ class SMSAuthenticationController extends Controller
             'last_name' => $request->get('last_name'),
             'phone' => $request->get('phone'),
             //            'password'    => $request->get('password'),
-            'password' => bcrypt($request->get('password')),
+            // 'password' => bcrypt($request->get('password')),
             'channel_id' => core()->getCurrentChannel()->id,
             'api_token' => Str::random(80),
             'is_verified' => 1, //core()->getConfigData('customer.settings.email.verification') ? 0 : 1,
-            'token' => $code,
+            'sms_code' => $code,
             'customer_group_id' => $this->customerGroupRepository->findOneWhere(['code' => 'general'])->id,
         ];
 
