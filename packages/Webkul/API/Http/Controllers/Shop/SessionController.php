@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Event;
 use Webkul\Customer\Repositories\CustomerRepository;
 use Webkul\API\Http\Resources\Customer\Customer as CustomerResource;
 use Webkul\Customer\Models\Customer;
+use Tymon\JWTAuth;
 
 class SessionController extends Controller
 {
@@ -49,48 +50,55 @@ class SessionController extends Controller
      */
     public function create()
     {
-        request()->validate([
-            'phone'    => 'required|numeric|digits:8',
-            'password' => 'required',
-        ]);
+        request()->validate(['phone' => 'required|numeric|digits:8']);
 
         $jwtToken = null;
+        $phone = request('phone');
+        $customer = Customer::where('phone', $phone)->first();
 
-        if (! $jwtToken = auth()->guard($this->guard)->attempt(request()->only('phone', 'password'))) {
-            return response()->json([
-                'error' => 'Invalid Phone or Password',
-            ], 401);
-        }
+        if (!$customer) {
+            return response()->json(
+                [
+                    'error' => 'Customer not found',
+                ],
+                401,
+            );
+        } else {
+            $code = substr(str_shuffle('0123456789'), 0, 5);
+            $customer->update(['sms_code' => $code]);
+            shell_exec("sms_sender sendsms --phone '993" . request()->input('phone') . "' --message '" . $code . "'");
 
-        if (auth()->guard( $this->guard)->user()->status == 0) {
-            auth()->guard( $this->guard)->logout();
-
-            return response()->json([
-                'error' => trans('shop::app.customer.login-form.not-activated'),
-            ], 401);
-        }
-
-        if (auth()->guard( $this->guard)->user()->is_verified == 0) {
-
-
-            auth()->guard( $this->guard)->logout();
+            $jwtToken = JWTAuth::fromUser($customer);
 
             return response()->json([
-                'error' => trans('shop::app.customer.login-form.verify-first'),
-            ], 401);
+                'token' => $jwtToken,
+                'message' => 'Logged in successfully.',
+                'data' => new CustomerResource($customer),
+            ]);
         }
-//        Event::dispatch('customer.after.login', request('phone'));
 
-        $customer = auth($this->guard)->user();
+        // if (! $jwtToken = auth()->guard($this->guard)->attempt(request()->only('phone', 'password'))) {
+        //     return response()->json([
+        //         'error' => 'Invalid Phone or Password',
+        //     ], 401);
+        // }
 
-        return response()->json([
-            'token'   => $jwtToken,
-            'message' => 'Logged in successfully.',
-            'data'    => new CustomerResource($customer),
-        ]);
+        // if (auth()->guard( $this->guard)->user()->status == 0) {
+        //     auth()->guard( $this->guard)->logout();
+
+        //     return response()->json([
+        //         'error' => trans('shop::app.customer.login-form.not-activated'),
+        //     ], 401);
+        // }
+
+        // if (auth()->guard( $this->guard)->user()->is_verified == 0) {
+        //     auth()->guard( $this->guard)->logout();
+
+        //     return response()->json([
+        //         'error' => trans('shop::app.customer.login-form.verify-first'),
+        //     ], 401);
+        // }
     }
-
-
 
     /**
      * Get details for current logged in customer
@@ -116,18 +124,18 @@ class SessionController extends Controller
         $customer = auth($this->guard)->user();
 
         $this->validate(request(), [
-            'first_name'    => 'required',
-            'last_name'     => 'required',
-//            'gender'        => 'required',
+            'first_name' => 'required',
+            'last_name' => 'required',
+            //            'gender'        => 'required',
             'date_of_birth' => 'nullable|date|before:today',
-//            'email'         => 'email|unique:customers,email,' . $customer->id,
-            'password'      => 'confirmed|min:6',
-            'phone' => 'numeric|digits:8|unique:customers,phone,' . $customer->id
+            //            'email'         => 'email|unique:customers,email,' . $customer->id,
+            'password' => 'confirmed|min:6',
+            'phone' => 'numeric|digits:8|unique:customers,phone,' . $customer->id,
         ]);
 
-        $data = request()->only('first_name', 'last_name', 'gender', 'date_of_birth', 'email', 'password','phone');
+        $data = request()->only('first_name', 'last_name', 'gender', 'date_of_birth', 'email', 'password', 'phone');
 
-        if (! isset($data['password']) || ! $data['password']) {
+        if (!isset($data['password']) || !$data['password']) {
             unset($data['password']);
         } else {
             $data['password'] = bcrypt($data['password']);
@@ -137,7 +145,7 @@ class SessionController extends Controller
 
         return response()->json([
             'message' => trans('shop::app.customer.account.profile.edit-success'),
-            'data'    => new CustomerResource($updatedCustomer),
+            'data' => new CustomerResource($updatedCustomer),
         ]);
     }
 
@@ -149,13 +157,21 @@ class SessionController extends Controller
     public function destroy(Request $request)
     {
         if ($request->has('account_delete')) {
-            Customer::whereId(auth()->guard($this->guard)->user()->id)->first()->delete();
+            Customer::whereId(
+                auth()
+                    ->guard($this->guard)
+                    ->user()->id,
+            )
+                ->first()
+                ->delete();
             return response()->json([
-                    'message' => 'Account deleted',
+                'message' => 'Account deleted',
             ]);
         }
 
-        auth()->guard($this->guard)->logout();
+        auth()
+            ->guard($this->guard)
+            ->logout();
 
         return response()->json([
             'message' => 'Logged out successfully.',
