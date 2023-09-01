@@ -135,6 +135,8 @@ class SMSAuthenticationController extends Controller
     {
         $phone = request('phone');
         $smsCode = request('sms_code');
+        Log::debug($phone);
+
         $customer = $this->customerRepository->findOneByField('phone', $phone);
 
         Log::debug($customer);
