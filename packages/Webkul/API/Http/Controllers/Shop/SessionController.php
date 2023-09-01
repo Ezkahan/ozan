@@ -52,7 +52,6 @@ class SessionController extends Controller
     {
         request()->validate(['phone' => 'required|numeric|digits:8']);
 
-        $jwtToken = null;
         $phone = request('phone');
         $customer = Customer::where('phone', $phone)->first();
 
@@ -68,36 +67,11 @@ class SessionController extends Controller
             $customer->update(['sms_code' => $code]);
             shell_exec("sms_sender sendsms --phone '993" . request()->input('phone') . "' --message '" . $code . "'");
 
-            $jwtToken = JWTAuth::fromUser($customer);
-
             return response()->json([
-                'token' => $jwtToken,
-                'message' => 'Logged in successfully.',
-                'data' => new CustomerResource($customer),
+                'message' => 'success',
+                // 'data' => new CustomerResource($customer),
             ]);
         }
-
-        // if (! $jwtToken = auth()->guard($this->guard)->attempt(request()->only('phone', 'password'))) {
-        //     return response()->json([
-        //         'error' => 'Invalid Phone or Password',
-        //     ], 401);
-        // }
-
-        // if (auth()->guard( $this->guard)->user()->status == 0) {
-        //     auth()->guard( $this->guard)->logout();
-
-        //     return response()->json([
-        //         'error' => trans('shop::app.customer.login-form.not-activated'),
-        //     ], 401);
-        // }
-
-        // if (auth()->guard( $this->guard)->user()->is_verified == 0) {
-        //     auth()->guard( $this->guard)->logout();
-
-        //     return response()->json([
-        //         'error' => trans('shop::app.customer.login-form.verify-first'),
-        //     ], 401);
-        // }
     }
 
     /**
