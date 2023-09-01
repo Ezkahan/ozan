@@ -9,7 +9,6 @@ use Webkul\Customer\Repositories\CustomerGroupRepository;
 use Webkul\API\Http\Resources\Customer\Customer as CustomerResource;
 use Illuminate\Http\Request;
 use Tymon\JWTAuth\Facades\JWTAuth;
-use Log;
 
 class SMSAuthenticationController extends Controller
 {
@@ -137,11 +136,7 @@ class SMSAuthenticationController extends Controller
         $smsCode = request('sms_code');
         $customer = $this->customerRepository->findOneByField('phone', $phone);
 
-        Log::debug($phone);
-        Log::debug($customer);
-
         if ($customer->sms_code == $smsCode) {
-            // $customer->update(['is_verified' => 1]);
             $jwtToken = JWTAuth::fromUser($customer);
 
             return response()->json([
