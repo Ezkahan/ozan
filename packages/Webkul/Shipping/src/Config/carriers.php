@@ -71,6 +71,16 @@ return [
         'default_rate' => '20',
         'class' => 'Webkul\Shipping\Carriers\Gije',
     ],
+    'gije2' => [
+        'code' => 'gije2',
+        'title' => 'Gije 22:30 - 00:00',
+        'description' => 'Gije eltip berme 22:30 - 00:00 100 manatdan ýokary söwdada eltip berme mugt',
+        'active' => true,
+        'start_time' => '22:30',
+        'end_time' => '00:00',
+        'default_rate' => '20',
+        'class' => 'Webkul\Shipping\Carriers\Gije2',
+    ],
 
     'free' => [
         'code' => 'free',

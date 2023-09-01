@@ -12,14 +12,14 @@ use Webkul\Checkout\Facades\Cart;
  * Class Rate.
  *
  */
-class Gije extends AbstractShipping
+class Gije2 extends AbstractShipping
 {
     /**
      * Payment method code
      *
      * @var string
      */
-    protected $code = 'gije';
+    protected $code = 'gije2';
 
     /**
      * Returns rate for flatrate
@@ -40,9 +40,9 @@ class Gije extends AbstractShipping
 
         $object = new CartShippingRate();
 
-        $object->carrier = 'gije';
+        $object->carrier = 'gije2';
         $object->carrier_title = $this->getConfigData('title');
-        $object->method = 'gije_gije';
+        $object->method = 'gije_gije2';
         $object->method_title = $title;
         $object->method_description = $this->getConfigData('description');
         $object->is_calculate_tax = false;
