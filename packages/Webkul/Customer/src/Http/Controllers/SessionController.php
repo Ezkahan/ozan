@@ -59,6 +59,7 @@ class SessionController extends Controller
 
         $phone = request('phone');
         $customer = Customer::where('phone', $phone)->first();
+        Log::alert($customer);
 
         if (!$customer) {
             session()->flash('customer_not_found', trans('shop::app.customer.login-form.customer_not_found'));
