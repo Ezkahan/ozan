@@ -142,6 +142,7 @@ class SMSAuthenticationController extends Controller
             return response()->json([
                 'message' => trans('velocity::app.customer.signup-form.verified'),
                 'token' => $jwtToken,
+                'data' => new CustomerResource($customer),
             ]);
         } else {
             return response()->json(

@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Event;
 use Webkul\Customer\Repositories\CustomerRepository;
 use Webkul\API\Http\Resources\Customer\Customer as CustomerResource;
 use Webkul\Customer\Models\Customer;
-use Tymon\JWTAuth;
+use Tymon\JWTAuth\Facades\JWTAuth;
 
 class SessionController extends Controller
 {
@@ -63,14 +63,21 @@ class SessionController extends Controller
                 401,
             );
         } else {
-            $code = substr(str_shuffle('0123456789'), 0, 5);
-            $customer->update(['sms_code' => $code]);
-            shell_exec("sms_sender sendsms --phone '993" . request()->input('phone') . "' --message '" . $code . "'");
+            $jwtToken = JWTAuth::fromUser($customer);
 
             return response()->json([
-                'message' => 'success',
-                // 'data' => new CustomerResource($customer),
+                'message' => trans('velocity::app.customer.signup-form.verified'),
+                'token' => $jwtToken,
+                'data' => new CustomerResource($customer),
             ]);
+            // $code = substr(str_shuffle('0123456789'), 0, 5);
+            // $customer->update(['sms_code' => $code]);
+            // shell_exec("sms_sender sendsms --phone '993" . request()->input('phone') . "' --message '" . $code . "'");
+
+            // return response()->json([
+            //     'message' => 'success',
+            //     // 'data' => new CustomerResource($customer),
+            // ]);
         }
     }
 
