@@ -65,19 +65,19 @@ class SessionController extends Controller
         } else {
             $jwtToken = JWTAuth::fromUser($customer);
 
-            return response()->json([
-                'message' => trans('velocity::app.customer.signup-form.verified'),
-                'token' => $jwtToken,
-                'data' => new CustomerResource($customer),
-            ]);
-            // $code = substr(str_shuffle('0123456789'), 0, 5);
-            // $customer->update(['sms_code' => $code]);
-            // shell_exec("sms_sender sendsms --phone '993" . request()->input('phone') . "' --message '" . $code . "'");
-
             // return response()->json([
-            //     'message' => 'success',
-            //     // 'data' => new CustomerResource($customer),
+            //     'message' => trans('velocity::app.customer.signup-form.verified'),
+            //     'token' => $jwtToken,
+            //     'data' => new CustomerResource($customer),
             // ]);
+            $code = substr(str_shuffle('0123456789'), 0, 5);
+            $customer->update(['sms_code' => $code]);
+            shell_exec("sms_sender sendsms --phone '993" . request()->input('phone') . "' --message '" . $code . "'");
+
+            return response()->json([
+                'message' => 'success',
+                // 'data' => new CustomerResource($customer),
+            ]);
         }
     }
 

@@ -16,7 +16,7 @@ class ReviewController extends Controller
     protected $guard;
 
     /**
-     * ProductReviewRepository $reviewRepository
+     * ProductReviewRepository $reviewRepositoryk
      *
      * @var \Webkul\Product\Repositories\ProductReviewRepository
      */
