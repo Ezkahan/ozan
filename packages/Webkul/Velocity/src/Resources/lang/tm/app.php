@@ -294,7 +294,8 @@ return [
             'verified' => 'Hasabyňyz tassyklandy, indi girmäge synanyşyň.',
             'verify-failed' => 'Hasabyňyzy tassyklap bilmedik.',
             'dont-have-account' => 'Ulgamda Siziň hasabyňyz ýok.',
-            'customer-registration' => 'Müşderi, üstünlikli agza bolduňyz'
+            'customer-registration' => 'Müşderi, üstünlikli agza bolduňyz',
+            'already_registered' => 'Beýle müşderimiz bar!'
         ],
         'verify' => [
             'title' => 'Telefon belgiňizi tassyklamak',

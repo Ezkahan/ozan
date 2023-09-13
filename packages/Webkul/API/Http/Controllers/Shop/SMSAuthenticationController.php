@@ -66,7 +66,7 @@ class SMSAuthenticationController extends Controller
         if ($customer && $customer->is_verified) {
             return response()->json(
                 [
-                    'error' => 'Already registered',
+                    'error' => trans('velocity::app.customer.signup-form.already_registered'),
                 ],
                 400,
             );
