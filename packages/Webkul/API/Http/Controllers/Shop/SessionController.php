@@ -75,7 +75,7 @@ class SessionController extends Controller
             shell_exec("sms_sender sendsms --phone '993" . request()->input('phone') . "' --message '" . $code . "'");
 
             return response()->json([
-                'message' => 'success',
+                'message' => trans('shop::app.customer.login-form.sms_verification_text'),
                 // 'data' => new CustomerResource($customer),
             ]);
         }

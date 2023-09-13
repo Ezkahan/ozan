@@ -3,7 +3,7 @@
 return [
     'irden' => [
         'code' => 'irden',
-        'title' => 'Irden 09:00 - 12:00',
+        'title' => '09:00 - 12:00',
         'description' => 'Irden eltip berme 09:00 - 12:00. 100 manatdan ýokary söwdada eltip berme mugt',
         'active' => true,
         'start_time' => '09:00',
@@ -23,7 +23,7 @@ return [
     // ],
     'obetda' => [
         'code' => 'obetda',
-        'title' => 'Öýlän 12:00 - 14:00',
+        'title' => '12:00 - 14:00',
         'description' => 'Öýlän eltip berme 12:00 - 14:00 100 manatdan ýokary söwdada eltip berme mugt',
         'active' => true,
         'start_time' => '12:00',
@@ -33,7 +33,7 @@ return [
     ],
     'ikindi' => [
         'code' => 'ikindi',
-        'title' => 'Ikindi 14:00 - 16:00',
+        'title' => '14:00 - 16:00',
         'description' => 'Ikindi wagty eltip berme 14:00 - 16:00 100 manatdan ýokary söwdada eltip berme mugt',
         'active' => true,
         'start_time' => '14:00',
@@ -43,7 +43,7 @@ return [
     ],
     'agsam' => [
         'code' => 'agsam',
-        'title' => 'Agşam 16:00 - 18:00',
+        'title' => '16:00 - 18:00',
         'description' => 'Agşam eltip berme 16:00 - 18:00 100 manatdan ýokary söwdada eltip berme mugt',
         'active' => true,
         'start_time' => '16:00',
@@ -53,7 +53,7 @@ return [
     ],
     'agsam2' => [
         'code' => 'agsam2',
-        'title' => 'Agşam 18:00 - 20:00',
+        'title' => '18:00 - 20:00',
         'description' => 'Agşam eltip berme 18:00 - 20:00 100 manatdan ýokary söwdada eltip berme mugt',
         'active' => true,
         'start_time' => '18:00',
@@ -63,7 +63,7 @@ return [
     ],
     'gije' => [
         'code' => 'gije',
-        'title' => 'Gije 20:00 - 22:30',
+        'title' => '20:00 - 22:30',
         'description' => 'Gije eltip berme 20:00 - 22:30 100 manatdan ýokary söwdada eltip berme mugt',
         'active' => true,
         'start_time' => '20:00',
@@ -73,7 +73,7 @@ return [
     ],
     'gije2' => [
         'code' => 'gije2',
-        'title' => 'Gije 22:30 - 00:00',
+        'title' => '22:30 - 00:00',
         'description' => 'Gije eltip berme 22:30 - 00:00 100 manatdan ýokary söwdada eltip berme mugt',
         'active' => true,
         'start_time' => '22:30',
