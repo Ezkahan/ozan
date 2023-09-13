@@ -59,6 +59,7 @@ class SessionController extends Controller
             return response()->json(
                 [
                     'error' => trans('shop::app.customer.login-form.customer_not_found'),
+                    trans('shop::app.customer.signup-form.success'),
                 ],
                 401,
             );
