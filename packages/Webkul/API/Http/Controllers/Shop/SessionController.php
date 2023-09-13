@@ -58,7 +58,7 @@ class SessionController extends Controller
         if (!$customer) {
             return response()->json(
                 [
-                    'error' => 'Customer not found',
+                    'error' => trans('shop::app.customer.login-form.customer_not_found'),
                 ],
                 401,
             );
