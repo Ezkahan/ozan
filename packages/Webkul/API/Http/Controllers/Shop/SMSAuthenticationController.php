@@ -100,14 +100,14 @@ class SMSAuthenticationController extends Controller
 
             return response()->json([
                 'success' => true,
-                'message' => trans('shop::app.customer.signup-form.success'),
+                'message' => trans('velocity::app.customer.signup-form.success'),
             ]);
         } catch (\Exception $exception) {
             report($exception);
 
             return response()->json(
                 [
-                    'error' => trans('shop::app.customer.signup-form.success-verify-email-unsent'),
+                    'error' => trans('velocity::app.customer.signup-form.success-verify-email-unsent'),
                 ],
                 400,
             );

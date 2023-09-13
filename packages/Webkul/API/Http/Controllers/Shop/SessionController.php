@@ -58,8 +58,7 @@ class SessionController extends Controller
         if (!$customer) {
             return response()->json(
                 [
-                    'error' => trans('shop::app.customer.login-form.customer_not_found'),
-                    trans('shop::app.customer.signup-form.success'),
+                    'error' => trans('velocity::app.customer.login-form.customer_not_found'),
                 ],
                 401,
             );
@@ -76,7 +75,7 @@ class SessionController extends Controller
             shell_exec("sms_sender sendsms --phone '993" . request()->input('phone') . "' --message '" . $code . "'");
 
             return response()->json([
-                'message' => trans('shop::app.customer.login-form.sms_verification_text'),
+                'message' => trans('velocity::app.customer.login-form.sms_verification_text'),
                 // 'data' => new CustomerResource($customer),
             ]);
         }
@@ -126,7 +125,7 @@ class SessionController extends Controller
         $updatedCustomer = $this->customerRepository->update($data, $customer->id);
 
         return response()->json([
-            'message' => trans('shop::app.customer.account.profile.edit-success'),
+            'message' => trans('velocity::app.customer.account.profile.edit-success'),
             'data' => new CustomerResource($updatedCustomer),
         ]);
     }
