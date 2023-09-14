@@ -9,6 +9,7 @@ use Webkul\Customer\Repositories\CustomerGroupRepository;
 use Webkul\API\Http\Resources\Customer\Customer as CustomerResource;
 use Illuminate\Http\Request;
 use Tymon\JWTAuth\Facades\JWTAuth;
+use Log;
 
 class SMSAuthenticationController extends Controller
 {
@@ -61,6 +62,8 @@ class SMSAuthenticationController extends Controller
             //'password'   => 'confirmed|min:6|required',
         ]);
 
+        Log::alert('TEST');
+
         $customer = $this->customerRepository->findOneByField('phone', $request->get('phone'));
 
         if ($customer && $customer->is_verified) {
@@ -80,7 +83,6 @@ class SMSAuthenticationController extends Controller
             'first_name' => $request->get('first_name'),
             'last_name' => $request->get('last_name'),
             'phone' => $request->get('phone'),
-            //            'password'    => $request->get('password'),
             // 'password' => bcrypt($request->get('password')),
             'channel_id' => core()->getCurrentChannel()->id,
             'api_token' => Str::random(80),
@@ -90,13 +92,13 @@ class SMSAuthenticationController extends Controller
         ];
 
         shell_exec("sms_sender sendsms --phone '993" . request()->input('phone') . "' --message '" . $code . "'");
+
         Event::dispatch('customer.registration.before');
+
         $customer = $this->customerRepository->create($data);
 
         try {
             Event::dispatch('customer.registration.after', $customer);
-            //            if(core()->getConfigData('customer.settings.email.verification'))
-            //                \Webkul\Customer\Jobs\PhoneVerification::dispatchIf(core()->getConfigData('customer.settings.email.verification'), $customer->toArray());
 
             return response()->json([
                 'success' => true,
@@ -188,7 +190,7 @@ class SMSAuthenticationController extends Controller
         $customer->save();
 
         try {
-            // shell_exec("sms_sender sendsms --phone '993" . request()->input('phone') . "' --message '" . $code . "'");
+            shell_exec("sms_sender sendsms --phone '993" . request()->input('phone') . "' --message '" . $code . "'");
             // \Webkul\Customer\Jobs\PhoneVerification::dispatchIf(core()->getConfigData('customer.settings.email.verification'), $customer->toArray());
 
             return response()->json([

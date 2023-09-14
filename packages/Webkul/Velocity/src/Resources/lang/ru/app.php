@@ -1,19 +1,19 @@
 <?php
 
 return [
-    'admin'         => [
-        'system'    => [
+    'admin' => [
+        'system' => [
             'velocity' => [
-                'general'  => 'General',
-                'category'  => 'Category',
-                'settings'  => 'Settings',
+                'general' => 'General',
+                'category' => 'Category',
+                'settings' => 'Settings',
                 'extension_name' => 'Velocity Theme',
                 'error-module-inactive' => 'Warning: Velocity theme status is inactive',
             ],
 
             'settings' => [
-                'channels'=> [
-                    'subscription_bar' => 'Subscription bar content'
+                'channels' => [
+                    'subscription_bar' => 'Subscription bar content',
                 ],
             ],
 
@@ -37,16 +37,16 @@ return [
                 'image-width' => 'Image\'s Width [in Pixel]',
                 'show-tooltip' => 'Show Category\'s Tooltip',
                 'num-sub-category' => 'Number Of Sub Category',
-            ]
+            ],
         ],
-        'layouts'   => [
+        'layouts' => [
             'velocity' => 'Velocity',
             'cms-pages' => 'CMS Pages',
             'meta-data' => 'Meta Data',
             'category-menu' => 'Category Menu',
             'header-content' => 'Header Content',
         ],
-        'contents'  => [
+        'contents' => [
             'self' => 'Self',
             'active' => 'Active',
             'new-tab' => 'New Tab',
@@ -87,43 +87,43 @@ return [
                 'status' => 'Status',
                 'position' => 'Position',
                 'content-type' => 'Content Type',
-            ]
+            ],
         ],
         'meta-data' => [
-            'footer'                    => 'Footer',
-            'title'                     => 'Velocity meta data',
-            'activate-slider'           => 'Activate Slider',
-            'home-page-content'         => 'Home Page Content',
-            'footer-left-content'       => 'Footer Left Content',
-            'subscription-content'      => 'Subscription bar Content',
-            'sidebar-categories'        => 'Sidebar Categories',
-            'header_content_count'      => 'Header Content Count',
-            'footer-left-raw-content'   => '<p>We love to craft softwares and solve the real world problems with the binaries. We are highly committed to our goals. We invest our resources to create world class easy to use softwares and applications for the enterprise business with the top notch, on the edge technology expertise.</p>',
-            'slider-path'               => 'Slider Path',
-            'category-logo'             => 'Category logo',
-            'product-policy'            => 'Product Policy',
-            'update-meta-data'          => 'Update Meta Data',
-            'product-view-image'        => 'Product View Image',
-            'advertisement-two'         => 'Advertisement Two Images',
-            'advertisement-one'         => 'Advertisement One Images',
-            'footer-middle-content'     => 'Footer Middle Content',
-            'advertisement-four'        => 'Advertisement Four Images',
-            'advertisement-three'       => 'Advertisement Three Images',
-            'images'                    => 'Images',
-            'general'                   => 'General',
-            'add-image-btn-title'       => 'Add Image',
+            'footer' => 'Footer',
+            'title' => 'Velocity meta data',
+            'activate-slider' => 'Activate Slider',
+            'home-page-content' => 'Home Page Content',
+            'footer-left-content' => 'Footer Left Content',
+            'subscription-content' => 'Subscription bar Content',
+            'sidebar-categories' => 'Sidebar Categories',
+            'header_content_count' => 'Header Content Count',
+            'footer-left-raw-content' => '<p>We love to craft softwares and solve the real world problems with the binaries. We are highly committed to our goals. We invest our resources to create world class easy to use softwares and applications for the enterprise business with the top notch, on the edge technology expertise.</p>',
+            'slider-path' => 'Slider Path',
+            'category-logo' => 'Category logo',
+            'product-policy' => 'Product Policy',
+            'update-meta-data' => 'Update Meta Data',
+            'product-view-image' => 'Product View Image',
+            'advertisement-two' => 'Advertisement Two Images',
+            'advertisement-one' => 'Advertisement One Images',
+            'footer-middle-content' => 'Footer Middle Content',
+            'advertisement-four' => 'Advertisement Four Images',
+            'advertisement-three' => 'Advertisement Three Images',
+            'images' => 'Images',
+            'general' => 'General',
+            'add-image-btn-title' => 'Add Image',
             'footer-middle' => [
-                'about-us'  => 'About Us',
+                'about-us' => 'About Us',
                 'customer-service' => 'Customer Service',
                 'whats-new' => 'What\'s New',
                 'contact-us' => 'Contact Us',
                 'order-and-returns' => 'Order and Returns',
                 'payment-policy' => 'Payment Policy',
                 'shipping-policy' => 'Shipping Policy',
-                'privacy-and-cookies-policy' => 'Privacy and Cookies Policy'
-            ]
+                'privacy-and-cookies-policy' => 'Privacy and Cookies Policy',
+            ],
         ],
-        'category'  => [
+        'category' => [
             'save-btn-title' => 'Save Menu',
             'title' => 'Category Menu List',
             'add-title' => 'Add Menu Content',
@@ -147,18 +147,18 @@ return [
             'tooltip-content' => 'Tooltip Content',
             'mass-delete-success' => 'Selected categories menu deleted successfully.',
         ],
-        'general'   => [
+        'general' => [
             'locale_logo' => 'Locale Logo',
         ],
     ],
 
-    'home'          => [
-        'view-all'           => 'Просмотреть все',
-        'add-to-cart'        => 'Добавить в корзину',
-        'hot-categories'     => 'Ходовые категории',
-        'payment-methods'    => 'Способы оплаты',
-        'customer-reviews'   => 'Отзывы клиентов',
-        'shipping-methods'   => 'Способы доставки',
+    'home' => [
+        'view-all' => 'Просмотреть все',
+        'add-to-cart' => 'Добавить в корзину',
+        'hot-categories' => 'Ходовые категории',
+        'payment-methods' => 'Способы оплаты',
+        'customer-reviews' => 'Отзывы клиентов',
+        'shipping-methods' => 'Способы доставки',
         'popular-categories' => 'Популярные категории',
     ],
     'layouts' => [
@@ -168,24 +168,24 @@ return [
         'reviews' => 'Обзоры',
         'wishlist' => 'Избранное',
         'orders' => 'Заказы',
-        'downloadable-products' => 'Товары для загрузки'
+        'downloadable-products' => 'Товары для загрузки',
     ],
-    'header'        => [
-        'cart'              => 'Корзина',
-        'guest'             => 'Гость',
-        'logout'            => 'Выйти',
-        'title'             => 'Аккаунт',
-        'account'           => 'Аккаунт',
-        'profile'           => 'Профиль',
-        'wishlist'          => 'Избранное',
-        'all-categories'    => 'Все категории',
-        'all-cats'    => 'Все категории',
-        'search-text'       => 'Искать товары здесь',
-        'welcome-message'   => 'Добро пожаловать, :customer_name',
-        'dropdown-text'     => 'Управление корзиной, заказами и избранными',
+    'header' => [
+        'cart' => 'Корзина',
+        'guest' => 'Гость',
+        'logout' => 'Выйти',
+        'title' => 'Аккаунт',
+        'account' => 'Аккаунт',
+        'profile' => 'Профиль',
+        'wishlist' => 'Избранное',
+        'all-categories' => 'Все категории',
+        'all-cats' => 'Все категории',
+        'search-text' => 'Искать товары здесь',
+        'welcome-message' => 'Добро пожаловать, :customer_name',
+        'dropdown-text' => 'Управление корзиной, заказами и избранными',
         'sign-in' => 'Войти',
         'sign-up' => 'Зарегистрироваться',
-        'search' => 'Поиск'
+        'search' => 'Поиск',
     ],
     'search' => [
         'result' => 'Результат поиска: ',
@@ -194,59 +194,59 @@ return [
         'found-results' => 'товар найдены',
         'found-result' => 'товар найден',
         'analysed-keywords' => 'Анализируемые ключевые слова',
-        'image-search-option' => 'Вариант поиска изображения'
+        'image-search-option' => 'Вариант поиска изображения',
     ],
-    'menu-navbar'   => [
-        'text-more'     => 'Больше',
+    'menu-navbar' => [
+        'text-more' => 'Больше',
         'text-category' => 'Покупки по категориям',
     ],
 
-    'minicart'      => [
-        'cart'      => 'Корзина',
+    'minicart' => [
+        'cart' => 'Корзина',
         'view-cart' => 'Посмотреть корзину',
-        'checkout' => 'Оформить'
+        'checkout' => 'Оформить',
     ],
 
-    'checkout'      => [
-        'qty'       => 'Кол-во',
-        'checkout'  => 'Оформление заказа',
-        'cart'      => [
-            'view-cart'     => 'Посмотреть корзину',
-            'cart-summary'  => 'Краткий итог корзины',
+    'checkout' => [
+        'qty' => 'Кол-во',
+        'checkout' => 'Оформление заказа',
+        'cart' => [
+            'view-cart' => 'Посмотреть корзину',
+            'cart-summary' => 'Краткий итог корзины',
         ],
-        'items'     => 'Товары',
-        'subtotal'  => 'Сумма заказа ',
+        'items' => 'Товары',
+        'subtotal' => 'Сумма заказа ',
         'sub-total' => 'Сумма заказа ',
-        'proceed'   => 'Перейти к оформлению',
-        'comment' => 'Примечания'
+        'proceed' => 'Перейти к оформлению',
+        'comment' => 'Примечания',
     ],
 
-    'customer'      => [
+    'customer' => [
         'forgot-password' => [
             'title' => 'Восстановить пароль',
             'email' => 'Email',
             'submit' => 'Отправить электронное письмо для сброса пароля',
-            'page_title' => 'Забыли свой пароль ?'
+            'page_title' => 'Забыли свой пароль ?',
         ],
-        'compare'           => [
-            'text'                  => 'Сравнить',
+        'compare' => [
+            'text' => 'Сравнить',
             'compare_similar_items' => 'Сравнить похожин товары',
-            'add-tooltip'           => 'Добавить товар в список сравнения',
-            'added'                 => 'Товар успешно добавлен в список сравнения',
-            'already_added'         => 'Товар уже добавлен в список сравнения',
-            'removed'               => 'Товар успешно удален из списка сравнения',
-            'removed-all'           => 'Все товары успешно удалены из списка сравнения',
-            'empty-text'            => "В вашем списке сравнений нет товаров",
-            'product_image'         => 'Изображение товара',
-            'actions'               => 'Действия',
+            'add-tooltip' => 'Добавить товар в список сравнения',
+            'added' => 'Товар успешно добавлен в список сравнения',
+            'already_added' => 'Товар уже добавлен в список сравнения',
+            'removed' => 'Товар успешно удален из списка сравнения',
+            'removed-all' => 'Все товары успешно удалены из списка сравнения',
+            'empty-text' => 'В вашем списке сравнений нет товаров',
+            'product_image' => 'Изображение товара',
+            'actions' => 'Действия',
         ],
-        'login-form'        => [
-            'sign-up'               => 'Зарегистрироваться',
-            'new-customer'          => 'Новый покупатель',
-            'customer-login'        => 'Вход в аккаунт ',
-            'registered-user'       => 'Зарегистрированные пользователи',
-            'your-email-address'    => 'Ваша электронная почта',
-            'form-login-text'       => 'Если у вас есть аккаунт, войдите со своим номером телефона.',
+        'login-form' => [
+            'sign-up' => 'Зарегистрироваться',
+            'new-customer' => 'Новый покупатель',
+            'customer-login' => 'Вход в аккаунт ',
+            'registered-user' => 'Зарегистрированные пользователи',
+            'your-email-address' => 'Ваша электронная почта',
+            'form-login-text' => 'Если у вас есть аккаунт, войдите со своим номером телефона.',
             'page-title' => 'Вход в аккаунт',
             'title' => 'Войти',
             'email' => 'E-mail',
@@ -258,14 +258,20 @@ return [
             'invalid-creds' => 'Пожалуйста, проверьте свои учетные данные и попробуйте еще раз.',
             'verify-first' => 'Сначала подтвердите свою электронную почту аккаунта .',
             'not-activated' => 'Ваша активация требует одобрения администратора',
-            'resend-verification' => 'Отправить письмо с подтверждением еще раз'
+            'resend-verification' => 'Отправить письмо с подтверждением еще раз',
+            'sms_code' => 'Введите смс код',
+            'sms_code_error' => 'СМС код неверный!',
+            'sms_verification' => 'Подтвердите смс код',
+            'sms_verification_text' => 'Введите смс код!',
+            'confirm' => 'Подтвердить!',
+            'customer_not_found' => 'Такого клиента нет!',
         ],
 
-        'signup-form'       => [
-            'login'             => 'Логин',
-            'become-user'       => 'Стать пользователем',
+        'signup-form' => [
+            'login' => 'Логин',
+            'become-user' => 'Стать пользователем',
             'user-registration' => 'Регистрация пользователя',
-            'form-sginup-text'  => 'Если вы в первый раз в нашем маркете, мы рады видеть вас в качестве покупателя.',
+            'form-sginup-text' => 'Если вы в первый раз в нашем маркете, мы рады видеть вас в качестве покупателя.',
             'phone' => 'Телефон',
             'page-title' => 'Создавть новый аккаунт',
             'title' => 'Зарегистрироваться',
@@ -291,19 +297,19 @@ return [
             'verified' => 'Ваш аккаунт подтвержден, попробуйте войти сейчас.',
             'verify-failed' => 'Мы не можем подтвердить ваш аккаунт электронной почты.',
             'dont-have-account' => 'У вас нет аккаунта у нас.',
-            'customer-registration' => 'Покупатель успешно зарегистрирован'
+            'customer-registration' => 'Покупатель успешно зарегистрирован',
+            'already_registered' => 'Уже зарегистрирован!',
         ],
-        'verify' =>[
-            'title' =>'Пожалуйста, подтвердите свой номер телефона ',
+        'verify' => [
+            'title' => 'Пожалуйста, подтвердите свой номер телефона ',
             'submit' => 'Подтвердить',
             'token' => 'Введите sms код, полученный свой на телефон ',
-            'resend' => 'Отправить заново код подтверждения'
-
+            'resend' => 'Отправить заново код подтверждения',
         ],
-        'forget-password'   => [
-            'login'                 => 'Логин',
-            'forgot-password'       => 'Забыли пароль',
-            'recover-password'      => 'Восстановить пароль',
+        'forget-password' => [
+            'login' => 'Логин',
+            'forgot-password' => 'Забыли пароль',
+            'recover-password' => 'Восстановить пароль',
             'recover-password-text' => 'Если вы забыли пароль, восстановите его, указав свой адрес электронной почты.',
         ],
         'reset-password' => [
@@ -312,7 +318,7 @@ return [
             'password' => 'Пароль',
             'confirm-password' => 'Подтвердить пароль',
             'back-link-title' => 'вернуться к входу',
-            'submit-btn-title' => 'Сброс пароля'
+            'submit-btn-title' => 'Сброс пароля',
         ],
         'wishlist' => [
             'remove-all-success' => 'Все товраы из вашего списка избранных были удалены',
@@ -353,8 +359,8 @@ return [
 
                 'edit-profile' => [
                     'title' => 'Редактировать профиль',
-                    'page-title' => 'Редактировать профиль'
-                ]
+                    'page-title' => 'Редактировать профиль',
+                ],
             ],
 
             'address' => [
@@ -369,7 +375,7 @@ return [
                     'make-default' => 'Использовать по умолчанию',
                     'default' => 'По умолчанию',
                     'contact' => 'Контактное лицо',
-                    'confirm-delete' =>  'Вы действительно хотите удалить этот адрес?',
+                    'confirm-delete' => 'Вы действительно хотите удалить этот адрес?',
                     'default-delete' => 'Адрес по умолчанию не может быть изменен.',
                     'enter-password' => 'Введите свой пароль.',
                 ],
@@ -391,7 +397,7 @@ return [
                     'phone' => 'Телефон',
                     'submit' => 'Сохранить адрес',
                     'success' => 'Адрес был успешно добавлен.',
-                    'error' => 'Адрес не может быть добавлен.'
+                    'error' => 'Адрес не может быть добавлен.',
                 ],
 
                 'edit' => [
@@ -408,8 +414,8 @@ return [
                 'delete' => [
                     'success' => 'Адрес успешно удален',
                     'failure' => 'Адрес не может быть удален',
-                    'wrong-password' => 'Неправильный пароль !'
-                ]
+                    'wrong-password' => 'Неправильный пароль !',
+                ],
             ],
 
             'order' => [
@@ -427,7 +433,7 @@ return [
                     'closed' => 'закрыто',
                     'pending' => 'В ожидании',
                     'pending-payment' => 'Ожидающий платеж',
-                    'fraud' => 'Мошенничество'
+                    'fraud' => 'Мошенничество',
                 ],
 
                 'view' => [
@@ -478,8 +484,8 @@ return [
                     'adjustment-fee' => 'Плата за перерасчет.',
                     'cancel-btn-title' => 'Отмена',
                     'tracking-number' => 'Номер отслеживания',
-                    'cancel-confirm-msg' => 'Вы уверены, что хотите отменить этот заказ?'
-                ]
+                    'cancel-confirm-msg' => 'Вы уверены, что хотите отменить этот заказ?',
+                ],
             ],
 
             'wishlist' => [
@@ -491,8 +497,8 @@ return [
                 'error' => 'Не удается добавить продукт в избранное из-за неизвестных проблем, повторите попытку позже',
                 'add' => 'Товар успешно добавлен в избранное',
                 'remove' => 'Товар успешно удален из избранных',
-                'add-wishlist-text'     => 'Добавить товар в избранное',
-                'remove-wishlist-text'  => 'Удалить товар из избранных',
+                'add-wishlist-text' => 'Добавить товар в избранное',
+                'remove-wishlist-text' => 'Удалить товар из избранных',
                 'moved' => 'Товар успешно перемещен в корзину',
                 'option-missing' => 'Отсутствуют параметры продукта, поэтому его нельзя переместить в избранное.',
                 'move-error' => 'Товар не может быть перемещен в избранное. Повторите попытку позже',
@@ -517,27 +523,27 @@ return [
                 'remaining-downloads' => 'Оставшиеся загрузки',
                 'unlimited' => 'безлимитный',
                 'download-error' => 'Срок действия ссылки для скачивания истек.',
-                'payment-error' => 'Плата за эту загрузку не производилась.'
+                'payment-error' => 'Плата за эту загрузку не производилась.',
             ],
 
             'review' => [
                 'index' => [
                     'title' => 'Обзоры',
-                    'page-title' => 'Обзоры'
+                    'page-title' => 'Обзоры',
                 ],
 
                 'view' => [
                     'page-tile' => 'Обзор #:id',
-                ]
-            ]
-        ]
+                ],
+            ],
+        ],
     ],
 
-    'error'         => [
-        'go-to-home'            => 'Перейтина главную',
-        'page-lost-short'       => 'Страница потерянного контента',
-        'something_went_wrong'  => 'что-то пошло не так',
-        'page-lost-description' => "Страница, которую вы ищете, недоступна. Попробуйте выполнить поиск еще раз или используйте кнопку Назад.",
+    'error' => [
+        'go-to-home' => 'Перейтина главную',
+        'page-lost-short' => 'Страница потерянного контента',
+        'something_went_wrong' => 'что-то пошло не так',
+        'page-lost-description' => 'Страница, которую вы ищете, недоступна. Попробуйте выполнить поиск еще раз или используйте кнопку Назад.',
     ],
     'reviews' => [
         'title' => 'Название',
@@ -553,27 +559,27 @@ return [
         'percentage' => ':процентов %',
         'id-star' => 'звезда',
         'name' => 'Название',
-        'ratings'           => 'Рейтинги',
-        'comment'=> 'Комментарий'
+        'ratings' => 'Рейтинги',
+        'comment' => 'Комментарий',
     ],
-    'products'      => [
-        'text'              => 'Товары',
-        'details'           => 'Детали',
-        'reviews-title'     => 'Отзывы',
-        'reviewed'          => 'Проверено',
-        'review-by'         => 'Проверено',
-        'quick-view'        => 'Быстрый просмотр',
-        'not-available'     => 'Недоступно',
-        'submit-review'     => 'Добавить отзыв',
-        'ratings'           => ':totalRatings Рейтинги',
-        'reviews-count'     => ':totalReviews Отзывы',
-        'customer-rating'   => 'Рейтинг покупателей',
-        'more-infomation'   => 'Больше информации',
-        'view-all-reviews'  => 'Посмотреть все отзывы',
+    'products' => [
+        'text' => 'Товары',
+        'details' => 'Детали',
+        'reviews-title' => 'Отзывы',
+        'reviewed' => 'Проверено',
+        'review-by' => 'Проверено',
+        'quick-view' => 'Быстрый просмотр',
+        'not-available' => 'Недоступно',
+        'submit-review' => 'Добавить отзыв',
+        'ratings' => ':totalRatings Рейтинги',
+        'reviews-count' => ':totalReviews Отзывы',
+        'customer-rating' => 'Рейтинг покупателей',
+        'more-infomation' => 'Больше информации',
+        'view-all-reviews' => 'Посмотреть все отзывы',
         'write-your-review' => 'Напсиать свой отзыв',
         'short-description' => 'Краткое описание',
-        'recently-viewed'   => 'Недавно просмотренные продукты',
-        'be-first-review'   => 'Будьте первым, кто напишет обзор',
+        'recently-viewed' => 'Недавно просмотренные продукты',
+        'be-first-review' => 'Будьте первым, кто напишет обзор',
         'new' => 'новый',
         'sale' => 'распродажа',
         'in-stock' => 'В наличии',
@@ -629,49 +635,49 @@ return [
         'offers' => 'Купить :qty за :price каждый и сохранить :discount%',
     ],
 
-    'shop'          => [
-        'gender'    => [
-            'male'   => 'Мужской',
-            'other'  => 'Другое',
+    'shop' => [
+        'gender' => [
+            'male' => 'Мужской',
+            'other' => 'Другое',
             'female' => 'Женский',
         ],
-        'general'   => [
-            'no'                     => 'Нет',
-            'yes'                    => 'Да',
-            'view'                   => 'Посмотреть',
-            'filter'                 => 'Сортировать',
-            'orders'                 => 'Заказы',
-            'update'                 => 'Обновить',
-            'reviews'                => 'Отзывы',
-            'download'               => 'Загрузить',
-            'currencies'             => 'Валюты',
-            'addresses'              => 'Адреса',
-            'top-brands'             => 'Лучшие бренды',
-            'new-password'           => 'Новый пароль',
-            'no-file-available'      => 'Нет доступных файлов!',
-            'downloadables'          => 'Загружаемые файлы',
-            'confirm-new-password'   => 'Подтвердите новый пароль',
+        'general' => [
+            'no' => 'Нет',
+            'yes' => 'Да',
+            'view' => 'Посмотреть',
+            'filter' => 'Сортировать',
+            'orders' => 'Заказы',
+            'update' => 'Обновить',
+            'reviews' => 'Отзывы',
+            'download' => 'Загрузить',
+            'currencies' => 'Валюты',
+            'addresses' => 'Адреса',
+            'top-brands' => 'Лучшие бренды',
+            'new-password' => 'Новый пароль',
+            'no-file-available' => 'Нет доступных файлов!',
+            'downloadables' => 'Загружаемые файлы',
+            'confirm-new-password' => 'Подтвердите новый пароль',
             'enter-current-password' => 'Введите свой текущий пароль',
 
             'alert' => [
-                'info'      => 'Информация',
-                'error'     => 'Ошибка',
-                'success'   => 'Успешно',
-                'warning'   => 'Предупреждение',
+                'info' => 'Информация',
+                'error' => 'Ошибка',
+                'success' => 'Успешно',
+                'warning' => 'Предупреждение',
             ],
         ],
-        'wishlist'  => [
-            'add-wishlist-text'     => 'Добавить товар в избранное',
-            'remove-wishlist-text'  => 'Удалить продукт из избранных'
-        ]
+        'wishlist' => [
+            'add-wishlist-text' => 'Добавить товар в избранное',
+            'remove-wishlist-text' => 'Удалить продукт из избранных',
+        ],
     ],
 
-    'responsive'    => [
+    'responsive' => [
         'header' => [
-            'done'      => 'Выполнено',
+            'done' => 'Выполнено',
             'languages' => 'Языки',
-            'greeting'  => 'Добро пожаловать, :customer !',
-        ]
+            'greeting' => 'Добро пожаловать, :customer !',
+        ],
     ],
     'contactus' => [
         'title' => 'Свяжитесь с нами',
@@ -687,9 +693,8 @@ return [
         'gapja' => 'Капча',
         'gapja_placeholder' => 'Пожалуйста, введите текст, который отображается на изображении',
         'success_message' => 'Спасибо за ваше сообщение. Мы рассмотрим и свяжемся с вами в ближайшее время',
-        'error_message' => 'Проблема с сообщением. Пожалуйста, повторите попытку позже '
-
-    ]
-]
+        'error_message' => 'Проблема с сообщением. Пожалуйста, повторите попытку позже ',
+    ],
+];
 
 ?>

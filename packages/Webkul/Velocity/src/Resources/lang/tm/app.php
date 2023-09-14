@@ -1,19 +1,19 @@
 <?php
 
 return [
-    'admin'         => [
-        'system'    => [
+    'admin' => [
+        'system' => [
             'velocity' => [
-                'general'  => 'Общее',
-                'category'  => 'Категория',
-                'settings'  => 'Настройки',
+                'general' => 'Общее',
+                'category' => 'Категория',
+                'settings' => 'Настройки',
                 'extension_name' => 'Тема Велосити',
                 'error-module-inactive' => 'Предупреждение: Статус темы велосити неактивный',
             ],
 
             'settings' => [
                 'channels' => [
-                    'subscription_bar' => 'Содержание панели подписки'
+                    'subscription_bar' => 'Содержание панели подписки',
                 ],
             ],
 
@@ -37,16 +37,16 @@ return [
                 'image-width' => 'Ширина изображения [в пикселях]',
                 'show-tooltip' => 'Показать всплывающую подсказку категории',
                 'num-sub-category' => 'Количество подкатегорий',
-            ]
+            ],
         ],
-        'layouts'   => [
+        'layouts' => [
             'velocity' => 'Велосити',
             'cms-pages' => 'Страницы CMS',
             'meta-data' => 'Мета данные',
             'category-menu' => 'Меню категорий',
             'header-content' => 'Контент заголовка',
         ],
-        'contents'  => [
+        'contents' => [
             'self' => 'Свой',
             'active' => 'Активировать',
             'new-tab' => 'Новая вкладка',
@@ -87,43 +87,43 @@ return [
                 'status' => 'Статус',
                 'position' => 'Позиция',
                 'content-type' => 'Тип контента',
-            ]
+            ],
         ],
         'meta-data' => [
-            'footer'                    => 'Футер',
-            'title'                     => 'Мета данные Велосити',
-            'activate-slider'           => 'Активировать слайдер',
-            'home-page-content'         => 'Контент Главной страницы',
-            'footer-left-content'       => 'Контент слева на футере',
-            'subscription-content'      => 'Контент панели подписок',
-            'sidebar-categories'        => 'Сайдбар категорий',
-            'header_content_count'      => 'Счетчик контента хедера',
-            'footer-left-raw-content'   => '<p>ИП «Парахат» - одно из крупнейших современных высокотехнологичных предприятий по выпуску натуральных соков и нектаров, холодного чая, газированных напитков, фруктово-овощных пюре, кисломолочных продуктов, концентратов, мясных изделий, работающее по самым передовым технологиям. Предприятие было основано в 1993 году. .</p>',
-            'slider-path'               => 'Путь слайдера',
-            'category-logo'             => 'Лого категории',
-            'product-policy'            => 'Политика товара',
-            'update-meta-data'          => 'Обновить мета данные',
-            'product-view-image'        => 'Изображение продукта',
-            'advertisement-two'         => 'Реклама два изображения',
-            'advertisement-one'         => 'Реклама одно изображение',
-            'footer-middle-content'     => 'Контент в центре футера',
-            'advertisement-four'        => 'Реклама четыре изображения',
-            'advertisement-three'       => 'Реклама три изображения',
-            'images'                    => 'Изображения',
-            'general'                   => 'Общее',
-            'add-image-btn-title'       => 'Добавить изображение',
+            'footer' => 'Футер',
+            'title' => 'Мета данные Велосити',
+            'activate-slider' => 'Активировать слайдер',
+            'home-page-content' => 'Контент Главной страницы',
+            'footer-left-content' => 'Контент слева на футере',
+            'subscription-content' => 'Контент панели подписок',
+            'sidebar-categories' => 'Сайдбар категорий',
+            'header_content_count' => 'Счетчик контента хедера',
+            'footer-left-raw-content' => '<p>ИП «Парахат» - одно из крупнейших современных высокотехнологичных предприятий по выпуску натуральных соков и нектаров, холодного чая, газированных напитков, фруктово-овощных пюре, кисломолочных продуктов, концентратов, мясных изделий, работающее по самым передовым технологиям. Предприятие было основано в 1993 году. .</p>',
+            'slider-path' => 'Путь слайдера',
+            'category-logo' => 'Лого категории',
+            'product-policy' => 'Политика товара',
+            'update-meta-data' => 'Обновить мета данные',
+            'product-view-image' => 'Изображение продукта',
+            'advertisement-two' => 'Реклама два изображения',
+            'advertisement-one' => 'Реклама одно изображение',
+            'footer-middle-content' => 'Контент в центре футера',
+            'advertisement-four' => 'Реклама четыре изображения',
+            'advertisement-three' => 'Реклама три изображения',
+            'images' => 'Изображения',
+            'general' => 'Общее',
+            'add-image-btn-title' => 'Добавить изображение',
             'footer-middle' => [
-                'about-us'  => 'О нас',
+                'about-us' => 'О нас',
                 'customer-service' => 'Обслуживание клиентов',
                 'whats-new' => 'Что нового',
                 'contact-us' => 'Связаться с нами',
                 'order-and-returns' => 'Заказы и возвраты',
                 'payment-policy' => 'Условия оплаты',
                 'shipping-policy' => 'Условия доставки',
-                'privacy-and-cookies-policy' => 'Политика конфиденциальности'
-            ]
+                'privacy-and-cookies-policy' => 'Политика конфиденциальности',
+            ],
         ],
-        'category'  => [
+        'category' => [
             'save-btn-title' => 'Меню сохранить',
             'title' => 'Список меню категорий',
             'add-title' => 'Добавить контент меню',
@@ -147,18 +147,18 @@ return [
             'tooltip-content' => 'Контент всплывающей подсказки',
             'mass-delete-success' => 'Меню выбранных категорий успешно удалено.',
         ],
-        'general'   => [
+        'general' => [
             'locale_logo' => 'Логотип локальной настройки',
         ],
     ],
 
     'home' => [
-        'view-all'           => 'Ählisi',
-        'add-to-cart'        => 'Sebede goş',
-        'hot-categories'     => 'Meşhur bölümler',
-        'payment-methods'    => 'Töleg usullary',
-        'customer-reviews'   => 'Müşderileriň teswirleri',
-        'shipping-methods'   => 'Eltip bermegiň görnüşleri',
+        'view-all' => 'Ählisi',
+        'add-to-cart' => 'Sebede goş',
+        'hot-categories' => 'Meşhur bölümler',
+        'payment-methods' => 'Töleg usullary',
+        'customer-reviews' => 'Müşderileriň teswirleri',
+        'shipping-methods' => 'Eltip bermegiň görnüşleri',
         'popular-categories' => 'Ýörgünli bölümler',
     ],
     'layouts' => [
@@ -168,23 +168,23 @@ return [
         'reviews' => 'Teswirler',
         'wishlist' => 'Halanlarym',
         'orders' => 'Sargytlar',
-        'downloadable-products' => 'Göçürip bolýan önümler'
+        'downloadable-products' => 'Göçürip bolýan önümler',
     ],
-    'header'        => [
-        'cart'              => 'Sebet',
-        'guest'             => '',
-        'logout'            => 'Çykyş',
-        'title'             => 'Şahsy otag',
-        'account'           => 'Şahsy otag',
-        'profile'           => 'Profil',
-        'wishlist'          => 'Halanlarym',
-        'all-categories'    => 'Ähli bölümler',
-        'search-text'       => 'Harytlary şu ýerde gözläň',
-        'welcome-message'   => ':customer_name hoş geldiňiz!',
-        'dropdown-text'     => 'Söwda başlamak üçin içeri giriň',
+    'header' => [
+        'cart' => 'Sebet',
+        'guest' => '',
+        'logout' => 'Çykyş',
+        'title' => 'Şahsy otag',
+        'account' => 'Şahsy otag',
+        'profile' => 'Profil',
+        'wishlist' => 'Halanlarym',
+        'all-categories' => 'Ähli bölümler',
+        'search-text' => 'Harytlary şu ýerde gözläň',
+        'welcome-message' => ':customer_name hoş geldiňiz!',
+        'dropdown-text' => 'Söwda başlamak üçin içeri giriň',
         'sign-in' => 'Giriş',
         'sign-up' => 'Agza bol',
-        'search' => 'Gözleg'
+        'search' => 'Gözleg',
     ],
     'search' => [
         'result' => 'Gözleg netijesi: ',
@@ -193,59 +193,59 @@ return [
         'found-results' => 'Haryt tapyldy',
         'found-result' => 'Haryt tapyldy',
         'analysed-keywords' => 'Gözlenen sözler',
-        'image-search-option' => 'Surat gözlegi'
+        'image-search-option' => 'Surat gözlegi',
     ],
-    'menu-navbar'   => [
-        'text-more'     => 'Ýene',
+    'menu-navbar' => [
+        'text-more' => 'Ýene',
         'text-category' => 'Bölümlere görä söwdalar',
     ],
 
-    'minicart'      => [
-        'cart'      => 'Sebet',
+    'minicart' => [
+        'cart' => 'Sebet',
         'view-cart' => 'Sebede geç',
-        'checkout' => 'Sargyt et'
+        'checkout' => 'Sargyt et',
     ],
 
-    'checkout'      => [
-        'qty'       => 'Mukdary',
-        'checkout'  => 'Sargyt',
-        'cart'      => [
-            'view-cart'     => 'Sebede geç',
-            'cart-summary'  => 'Tölegler',
+    'checkout' => [
+        'qty' => 'Mukdary',
+        'checkout' => 'Sargyt',
+        'cart' => [
+            'view-cart' => 'Sebede geç',
+            'cart-summary' => 'Tölegler',
         ],
-        'items'     => 'Harytlar',
-        'subtotal'  => 'Harytlaryň tölegi',
+        'items' => 'Harytlar',
+        'subtotal' => 'Harytlaryň tölegi',
         'sub-total' => 'Harytlaryň tölegi ',
-        'proceed'   => 'Sargyda geç',
-        'comment' => 'Bellikler'
+        'proceed' => 'Sargyda geç',
+        'comment' => 'Bellikler',
     ],
 
-    'customer'      => [
+    'customer' => [
         'forgot-password' => [
             'title' => 'Açar sözüni dikeltme',
             'email' => 'Email',
             'submit' => 'Ugrat',
-            'page_title' => 'Açar sözüňizi unytdyňyzmy ?'
+            'page_title' => 'Açar sözüňizi unytdyňyzmy ?',
         ],
-        'compare'           => [
-            'text'                  => 'Deňeşdirme',
+        'compare' => [
+            'text' => 'Deňeşdirme',
             'compare_similar_items' => 'Harytlary deňeşdirme',
-            'add-tooltip'           => 'Deňeşdirmä haryt goşmak',
-            'added'                 => 'Haryt deňeşdirmä goşuldy',
-            'already_added'         => 'Haryt eýýäm deňeşdirmede bar',
-            'removed'               => 'Haryt deňeşdirmeden aýryldy',
-            'removed-all'           => 'Ähli harytlar deňeşdirmeden aýryldy',
-            'empty-text'            => "Deňeşdirmede haryt ýok.",
-            'product_image'         => 'Haryt suraty',
-            'actions'               => 'Hereketler',
+            'add-tooltip' => 'Deňeşdirmä haryt goşmak',
+            'added' => 'Haryt deňeşdirmä goşuldy',
+            'already_added' => 'Haryt eýýäm deňeşdirmede bar',
+            'removed' => 'Haryt deňeşdirmeden aýryldy',
+            'removed-all' => 'Ähli harytlar deňeşdirmeden aýryldy',
+            'empty-text' => 'Deňeşdirmede haryt ýok.',
+            'product_image' => 'Haryt suraty',
+            'actions' => 'Hereketler',
         ],
-        'login-form'        => [
-            'sign-up'               => 'Agza bolmak',
-            'new-customer'          => 'Täze müşderi',
-            'customer-login'        => 'Giriş',
-            'registered-user'       => 'Agza',
-            'your-email-address'    => 'Siziň telefon belgiňiz',
-            'form-login-text'       => 'Eger hasabyňyz bar bolsa, telefon belgiňiz bilen ulgama giriň',
+        'login-form' => [
+            'sign-up' => 'Agza bolmak',
+            'new-customer' => 'Täze müşderi',
+            'customer-login' => 'Giriş',
+            'registered-user' => 'Agza',
+            'your-email-address' => 'Siziň telefon belgiňiz',
+            'form-login-text' => 'Eger hasabyňyz bar bolsa, telefon belgiňiz bilen ulgama giriň',
             'page-title' => 'Müşderi agzalylygy',
             'title' => 'Ulgama gir',
             'email' => 'Email',
@@ -263,13 +263,13 @@ return [
             'sms_verification' => 'SMS kody tassyklamak',
             'sms_verification_text' => 'Girizilen telefon belga iberilen SMS kody giriziň we tassyklaň!',
             'confirm' => 'Tassykla!',
-            'customer_not_found' => 'Beýle agzamyz ýok!'
+            'customer_not_found' => 'Beýle agzamyz ýok!',
         ],
-        'signup-form'       => [
-            'login'             => 'Giriş',
-            'become-user'       => 'Agza bol',
+        'signup-form' => [
+            'login' => 'Giriş',
+            'become-user' => 'Agza bol',
             'user-registration' => 'Hasap döret',
-            'form-sginup-text'  => 'Biziň onlaýn-marketimize ilkinji gezek giren bolsaňyz, sizi alyjy hökmünde görmäge şat.',
+            'form-sginup-text' => 'Biziň onlaýn-marketimize ilkinji gezek giren bolsaňyz, sizi alyjy hökmünde görmäge şat.',
             'phone' => 'Telefon',
             'page-title' => 'täze müşderi hasabyny açmak',
             'title' => 'Agza bolmak',
@@ -295,18 +295,18 @@ return [
             'verify-failed' => 'Hasabyňyzy tassyklap bilmedik.',
             'dont-have-account' => 'Ulgamda Siziň hasabyňyz ýok.',
             'customer-registration' => 'Müşderi, üstünlikli agza bolduňyz',
-            'already_registered' => 'Beýle müşderimiz bar!'
+            'already_registered' => 'Beýle müşderimiz bar!',
         ],
         'verify' => [
             'title' => 'Telefon belgiňizi tassyklamak',
             'submit' => 'Tassykla',
             'token' => 'Size ugradylan sms kody giriziň',
-            'resend' => 'Sms kody gaýtadan ugrat'
+            'resend' => 'Sms kody gaýtadan ugrat',
         ],
-        'forget-password'   => [
-            'login'                 => '',
-            'forgot-password'       => 'Açar sözüni unutdyňyzmy?',
-            'recover-password'      => 'Açar sözüni dikeltmek',
+        'forget-password' => [
+            'login' => '',
+            'forgot-password' => 'Açar sözüni unutdyňyzmy?',
+            'recover-password' => 'Açar sözüni dikeltmek',
             'recover-password-text' => 'Eger açar sözüni unudan bolsaňyz telefon belgiňizi görkezip, ony dikeldip bilersiňiz',
         ],
         'reset-password' => [
@@ -315,7 +315,7 @@ return [
             'password' => 'Açar sözi',
             'confirm-password' => 'Açar sözüni gaýtalaň',
             'back-link-title' => 'Girişe dolanmak',
-            'submit-btn-title' => 'Ugrat'
+            'submit-btn-title' => 'Ugrat',
         ],
         'wishlist' => [
             'remove-all-success' => 'Halanlarymdan ähli harytlar aýryldy',
@@ -356,8 +356,8 @@ return [
 
                 'edit-profile' => [
                     'title' => 'Profili Redaktirlemek',
-                    'page-title' => 'Edit Profile'
-                ]
+                    'page-title' => 'Edit Profile',
+                ],
             ],
 
             'address' => [
@@ -372,7 +372,7 @@ return [
                     'make-default' => 'hemişelik ulanylýan etmek',
                     'default' => 'hemişelik',
                     'contact' => 'Kontakt',
-                    'confirm-delete' =>  'Siz dogrydanam bu salgyny aýyrmak isleýarsiňizmi?',
+                    'confirm-delete' => 'Siz dogrydanam bu salgyny aýyrmak isleýarsiňizmi?',
                     'default-delete' => 'Hemişelik adressi çalşyp bolmaýar',
                     'enter-password' => 'Açar sözini giriziň',
                 ],
@@ -394,7 +394,7 @@ return [
                     'phone' => 'Telefon belgisi',
                     'submit' => 'Ýatda sakla',
                     'success' => 'Salgy üstünlikli ýatda saklandy.',
-                    'error' => 'Salgy goşulmady'
+                    'error' => 'Salgy goşulmady',
                 ],
 
                 'edit' => [
@@ -411,8 +411,8 @@ return [
                 'delete' => [
                     'success' => 'Salgy üstünlikli aýryldy',
                     'failure' => 'Salgyny aýyryp bolmaýar!',
-                    'wrong-password' => 'Nädogry açar sözi !'
-                ]
+                    'wrong-password' => 'Nädogry açar sözi !',
+                ],
             ],
 
             'order' => [
@@ -430,7 +430,7 @@ return [
                     'closed' => 'ýapyldy',
                     'pending' => 'garaşylýar',
                     'pending-payment' => 'tölege garaşylýar',
-                    'fraud' => 'Kezzapçylyk'
+                    'fraud' => 'Kezzapçylyk',
                 ],
 
                 'view' => [
@@ -481,8 +481,8 @@ return [
                     'adjustment-fee' => 'Düzedişiň tölegi',
                     'cancel-btn-title' => 'Goýbolsun et',
                     'tracking-number' => 'Yzarlaýyş belgisi',
-                    'cancel-confirm-msg' => 'Dogrydanam siz bu sargydy goýbolsun etmekçimi?'
-                ]
+                    'cancel-confirm-msg' => 'Dogrydanam siz bu sargydy goýbolsun etmekçimi?',
+                ],
             ],
 
             'wishlist' => [
@@ -494,8 +494,8 @@ return [
                 'error' => 'Käbir meseleler sebäpli halanlaryma haryt goşup bolmaýar, soňrak barlaň',
                 'add' => 'Halanlaryma goşuldy',
                 'remove' => 'Halanlarymdan aýryldy',
-                'add-wishlist-text'     => 'Halanlaryma önüm goşuň',
-                'remove-wishlist-text'  => 'Harytlary halanlarymdan aýyryň',
+                'add-wishlist-text' => 'Halanlaryma önüm goşuň',
+                'remove-wishlist-text' => 'Harytlary halanlarymdan aýyryň',
                 'moved' => 'Haryt üstünlikli sebede geçirildi',
                 'option-missing' => 'haryt görnüşleri ýok, şonuň üçin haryt isleg sanawyna geçirilip bilinmez.',
                 'move-error' => 'Haryt isleg sanawyna geçirilip bilinmez, soňrak synanyşyň',
@@ -520,26 +520,26 @@ return [
                 'remaining-downloads' => 'Galan ýüklemeler',
                 'unlimited' => 'Çäklendirilmedik',
                 'download-error' => 'Göçürip almagyň möhleti gutardy.',
-                'payment-error' => 'Bu ýükleme üçin töleg edilmedi.'
+                'payment-error' => 'Bu ýükleme üçin töleg edilmedi.',
             ],
 
             'review' => [
                 'index' => [
                     'title' => 'Synlar',
-                    'page-title' => 'Synlar'
+                    'page-title' => 'Synlar',
                 ],
 
                 'view' => [
                     'page-tile' => 'Syn #:id',
-                ]
-            ]
-        ]
+                ],
+            ],
+        ],
     ],
 
-    'error'         => [
-        'go-to-home'            => 'Baş sahypa dolanmak',
-        'page-lost-short'       => 'Bu sahypa ýok',
-        'something_went_wrong'  => 'Bir näsazlyk ýüze çykdy',
+    'error' => [
+        'go-to-home' => 'Baş sahypa dolanmak',
+        'page-lost-short' => 'Bu sahypa ýok',
+        'something_went_wrong' => 'Bir näsazlyk ýüze çykdy',
         'page-lost-description' => "Gözleýän sahypaňyz elýeterli däl.. Ýene gözläp görüň ýa-da 'Yza' düwmesini ulanyň",
     ],
     'reviews' => [
@@ -556,28 +556,28 @@ return [
         'percentage' => ':percentage %',
         'id-star' => 'Ýyldyz',
         'name' => 'ady',
-        'ratings'           => 'Baly',
-        'comment' => 'Teswir'
+        'ratings' => 'Baly',
+        'comment' => 'Teswir',
     ],
-    'products'      => [
-        'text'              => 'Harytlar',
-        'details'           => 'Doly beýannamasy',
-        'reviews-title'     => 'Teswirler',
-        'reviewed'          => 'Teswirlenen',
-        'review-by'         => 'Teswirçi',
-        'quick-view'        => 'Ýüzleý görkez',
-        'not-available'     => 'Elýeter däl',
-        'submit-review'     => 'Teswir goşmak',
-        'ratings'           => ':totalRatings bal',
-        'reviews-count'     => ':totalReviews syn',
-        'customer-rating'   => 'Müşderi ballary',
-        'more-infomation'   => 'Goşmaça maglumat',
-        'view-all-reviews'  => 'Ähli teswirlere seretmek',
+    'products' => [
+        'text' => 'Harytlar',
+        'details' => 'Doly beýannamasy',
+        'reviews-title' => 'Teswirler',
+        'reviewed' => 'Teswirlenen',
+        'review-by' => 'Teswirçi',
+        'quick-view' => 'Ýüzleý görkez',
+        'not-available' => 'Elýeter däl',
+        'submit-review' => 'Teswir goşmak',
+        'ratings' => ':totalRatings bal',
+        'reviews-count' => ':totalReviews syn',
+        'customer-rating' => 'Müşderi ballary',
+        'more-infomation' => 'Goşmaça maglumat',
+        'view-all-reviews' => 'Ähli teswirlere seretmek',
         'write-your-review' => 'Teswir ýazyň',
         'short-description' => 'Gysga beýannamasy',
-        'recently-viewed'   => 'Ýakynda görlen harytlar',
-        'be-first-review'   => 'Ilkinji teswiri siz ýazyň',
-        'new'               => 'täze',
+        'recently-viewed' => 'Ýakynda görlen harytlar',
+        'be-first-review' => 'Ilkinji teswiri siz ýazyň',
+        'new' => 'täze',
         'sale' => 'aksiýa',
         'in-stock' => 'elýeterli',
         'out-of-stock' => 'gutardy',
@@ -632,49 +632,49 @@ return [
         'offers' => ' hersini :price  bahadan :qty satyn al     :discount % tygşytla',
     ],
 
-    'shop'          => [
-        'gender'    => [
-            'male'   => 'Erkek',
-            'other'  => 'Başga',
+    'shop' => [
+        'gender' => [
+            'male' => 'Erkek',
+            'other' => 'Başga',
             'female' => 'Aýal',
         ],
-        'general'   => [
-            'no'                     => 'Ýok',
-            'yes'                    => 'Hawa',
-            'view'                   => 'Gör',
-            'filter'                 => 'Filtrlemek',
-            'orders'                 => 'Sargytlar',
-            'update'                 => 'Täzelemek',
-            'reviews'                => 'Synlar',
-            'download'               => 'Ýükläp almak',
-            'currencies'             => 'Pul birligi',
-            'addresses'              => 'Salgylar',
-            'top-brands'             => 'Ýokary brendler',
-            'new-password'           => 'Täze açar sözi',
-            'no-file-available'      => 'Faýl ýok',
-            'downloadables'          => 'Göçürip alyp bolýan faýllar',
-            'confirm-new-password'   => 'Täze açar sözi tassyklaň',
+        'general' => [
+            'no' => 'Ýok',
+            'yes' => 'Hawa',
+            'view' => 'Gör',
+            'filter' => 'Filtrlemek',
+            'orders' => 'Sargytlar',
+            'update' => 'Täzelemek',
+            'reviews' => 'Synlar',
+            'download' => 'Ýükläp almak',
+            'currencies' => 'Pul birligi',
+            'addresses' => 'Salgylar',
+            'top-brands' => 'Ýokary brendler',
+            'new-password' => 'Täze açar sözi',
+            'no-file-available' => 'Faýl ýok',
+            'downloadables' => 'Göçürip alyp bolýan faýllar',
+            'confirm-new-password' => 'Täze açar sözi tassyklaň',
             'enter-current-password' => 'Häzirki açar sözüni giriziň',
 
             'alert' => [
-                'info'      => 'Bildiriş',
-                'error'     => 'Näsazlyk',
-                'success'   => 'Üstünlikli',
-                'warning'   => 'Duýduryş',
+                'info' => 'Bildiriş',
+                'error' => 'Näsazlyk',
+                'success' => 'Üstünlikli',
+                'warning' => 'Duýduryş',
             ],
         ],
-        'wishlist'  => [
-            'add-wishlist-text'     => 'Halanlaryma goşmak',
-            'remove-wishlist-text'  => 'Halanlarymdan aýyrmak'
-        ]
+        'wishlist' => [
+            'add-wishlist-text' => 'Halanlaryma goşmak',
+            'remove-wishlist-text' => 'Halanlarymdan aýyrmak',
+        ],
     ],
 
-    'responsive'    => [
+    'responsive' => [
         'header' => [
-            'done'      => 'Ýerine ýetirildi',
+            'done' => 'Ýerine ýetirildi',
             'languages' => 'Diller',
-            'greeting'  => 'Hoş geldiňiz :customer !',
-        ]
+            'greeting' => 'Hoş geldiňiz :customer !',
+        ],
     ],
     'contactus' => [
         'title' => 'Biziň bilen habarlaşyň',
@@ -690,6 +690,6 @@ return [
         'gapja' => 'Gapja',
         'gapja_placeholder' => 'Suratda görkezilen teksti giriziň',
         'success_message' => 'Habaryňyz üçin sag boluň. Gyzga wagtda gözden geçirip siz bilen habarlaşarys ',
-        'error_message' => 'Habarynyz kabir sebäpden bize gowuşmady. Soňrak täzeden barlap görüň'
-    ]
+        'error_message' => 'Habarynyz kabir sebäpden bize gowuşmady. Soňrak täzeden barlap görüň',
+    ],
 ];
