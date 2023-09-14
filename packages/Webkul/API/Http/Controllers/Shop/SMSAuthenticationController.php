@@ -9,7 +9,6 @@ use Webkul\Customer\Repositories\CustomerGroupRepository;
 use Webkul\API\Http\Resources\Customer\Customer as CustomerResource;
 use Illuminate\Http\Request;
 use Tymon\JWTAuth\Facades\JWTAuth;
-use Log;
 
 class SMSAuthenticationController extends Controller
 {
@@ -61,8 +60,6 @@ class SMSAuthenticationController extends Controller
             'last_name' => 'required',
             //'password'   => 'confirmed|min:6|required',
         ]);
-
-        Log::alert('TEST');
 
         $customer = $this->customerRepository->findOneByField('phone', $request->get('phone'));
 
