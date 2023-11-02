@@ -3,6 +3,7 @@
 namespace Webkul\Admin\Http\Controllers;
 
 use Log;
+use Illuminate\Http\Request;
 
 class AkhasapController extends Controller
 {
