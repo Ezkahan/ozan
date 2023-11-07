@@ -183,7 +183,7 @@ class SMSAuthenticationController extends Controller
         }
 
         $code = substr(str_shuffle('0123456789'), 0, 5);
-        $customer->token = $code;
+        $customer->sms_code = $code;
         $customer->save();
 
         try {
