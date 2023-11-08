@@ -448,23 +448,20 @@ abstract class AbstractType
 
         $productInventories = $this->productInventoryRepository->checkInLoadedProductInventories($this->product);
 
-        // dd($productInventories);
         foreach ($productInventories as $inventory) {
             if (is_numeric($channelInventorySourceIds->search($inventory->inventory_source_id))) {
                 $total += $inventory->qty;
             }
         }
 
-        $orderedInventory = $this->product
-            ->ordered_inventories()
-            ->where('channel_id', core()->getCurrentChannel()->id)
-            ->first();
+        // $orderedInventory = $this->product
+        //     ->ordered_inventories()
+        //     ->where('channel_id', core()->getCurrentChannel()->id)
+        //     ->first();
 
-        if ($orderedInventory) {
-            // dd($orderedInventory);
-            $total -= $orderedInventory->qty;
-        }
-        // dd($total);
+        // if ($orderedInventory) {
+        //     $total -= $orderedInventory->qty;
+        // }
 
         return $total;
     }
