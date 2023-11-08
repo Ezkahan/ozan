@@ -27,7 +27,7 @@
             @if (isset($form) && !$form)
                 <button
                     type="submit"
-                    {{ !$product->isSaleable() ? 'test 1 disabled' : '' }}
+                    {{ !$product->isSaleable() ? 'test disabled' : '' }}
                     class="theme-btn  {{ $addToCartBtnClass ?? '' }} ">
 
                     @if (!(isset($showCartIcon) && !$showCartIcon))
