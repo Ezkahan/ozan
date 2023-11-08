@@ -12,11 +12,7 @@ class ProductFlat extends Model implements ProductFlatContract
 
     protected $table = 'product_flat';
 
-    protected $guarded = [
-        'id',
-        'created_at',
-        'updated_at',
-    ];
+    protected $guarded = ['id', 'created_at', 'updated_at'];
 
     public $timestamps = false;
 
@@ -87,8 +83,7 @@ class ProductFlat extends Model implements ProductFlatContract
      */
     public function isSaleable()
     {
-        dd('here 2');
-
+        dd($this->product);
         return $this->product->isSaleable();
     }
 
@@ -147,7 +142,7 @@ class ProductFlat extends Model implements ProductFlatContract
      */
     public function reviews()
     {
-        return (ProductReviewProxy::modelClass())
+        return ProductReviewProxy::modelClass()
             ::where('product_reviews.product_id', $this->product_id)
             ->select('product_reviews.*');
     }
