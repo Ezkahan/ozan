@@ -708,14 +708,14 @@ class Configurable extends AbstractType
                 }
             }
 
-            $orderedInventory = $variant
-                ->ordered_inventories()
-                ->where('channel_id', core()->getCurrentChannel()->id)
-                ->first();
+            // $orderedInventory = $variant
+            //     ->ordered_inventories()
+            //     ->where('channel_id', core()->getCurrentChannel()->id)
+            //     ->first();
 
-            if ($orderedInventory) {
-                $total -= $orderedInventory->qty;
-            }
+            // if ($orderedInventory) {
+            //     $total -= $orderedInventory->qty;
+            // }
         }
 
         return $total;

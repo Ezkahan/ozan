@@ -25,13 +25,14 @@ class InvoiceItemRepository extends Repository
      */
     public function updateProductInventory($data)
     {
-        if (! $data['product']) {
+        if (!$data['product']) {
             return;
         }
 
-        $orderedInventory = $data['product']->ordered_inventories()
-                                            ->where('channel_id', $data['invoice']->order->channel->id)
-                                            ->first();
+        $orderedInventory = $data['product']
+            ->ordered_inventories()
+            ->where('channel_id', $data['invoice']->order->channel->id)
+            ->first();
 
         if ($orderedInventory) {
             if (($orderedQty = $orderedInventory->qty - $data['qty']) < 0) {
@@ -41,11 +42,12 @@ class InvoiceItemRepository extends Repository
             $orderedInventory->update(['qty' => $orderedQty]);
         }
 
-        $inventories = $data['product']->inventories()
-                                       ->where('vendor_id', $data['vendor_id'])
-                                       ->whereIn('inventory_source_id', $data['invoice']->order->channel->inventory_sources()->pluck('id'))
-                                       ->orderBy('qty', 'desc')
-                                       ->get();
+        $inventories = $data['product']
+            ->inventories()
+            ->where('vendor_id', $data['vendor_id'])
+            ->whereIn('inventory_source_id', $data['invoice']->order->channel->inventory_sources()->pluck('id'))
+            ->orderBy('qty', 'desc')
+            ->get();
 
         foreach ($inventories as $key => $inventory) {
             if ($inventory->qty >= $data['qty']) {
