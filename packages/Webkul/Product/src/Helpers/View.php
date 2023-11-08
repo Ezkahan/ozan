@@ -2,6 +2,8 @@
 
 namespace Webkul\Product\Helpers;
 
+use Log;
+
 class View extends AbstractProduct
 {
     /**
@@ -24,10 +26,9 @@ class View extends AbstractProduct
         foreach ($attributes as $attribute) {
             if ($product instanceof \Webkul\Product\Models\ProductFlat) {
                 $value = $product->product->{$attribute->code};
-                dd('first: ' . $value);
+                Log::debug($attribute);
             } else {
                 $value = $product->{$attribute->code};
-                dd('second' . $value);
             }
 
             if ($attribute->type == 'boolean') {
