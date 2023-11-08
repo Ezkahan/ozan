@@ -24,7 +24,6 @@ class View extends AbstractProduct
         foreach ($attributes as $attribute) {
             if ($product instanceof \Webkul\Product\Models\ProductFlat) {
                 $value = $product->product->{$attribute->code};
-                dd($value);
             } else {
                 $value = $product->{$attribute->code};
             }
@@ -34,6 +33,8 @@ class View extends AbstractProduct
             } elseif ($value) {
                 if ($attribute->type == 'select') {
                     $attributeOption = $attributeOptionReposotory->find($value);
+
+                    dd($valueattributeOption);
 
                     if ($attributeOption) {
                         $value = $attributeOption->label ?? null;
