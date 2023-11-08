@@ -718,6 +718,7 @@ class Configurable extends AbstractType
             // }
         }
 
+        dd($total);
         return $total;
     }
 }
