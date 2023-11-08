@@ -14,7 +14,10 @@ class View extends AbstractProduct
     {
         $data = [];
 
-        $attributes = $product->attribute_family->custom_attributes()->where('attributes.is_visible_on_front', 1)->get();
+        $attributes = $product->attribute_family
+            ->custom_attributes()
+            ->where('attributes.is_visible_on_front', 1)
+            ->get();
 
         $attributeOptionReposotory = app('Webkul\Attribute\Repositories\AttributeOptionRepository');
 
@@ -27,21 +30,21 @@ class View extends AbstractProduct
 
             if ($attribute->type == 'boolean') {
                 $value = $value ? 'Yes' : 'No';
-            } elseif($value) {
+            } elseif ($value) {
                 if ($attribute->type == 'select') {
                     $attributeOption = $attributeOptionReposotory->find($value);
 
                     if ($attributeOption) {
                         $value = $attributeOption->label ?? null;
 
-                        if (! $value) {
+                        if (!$value) {
                             continue;
                         }
                     }
                 } elseif ($attribute->type == 'multiselect' || $attribute->type == 'checkbox') {
                     $lables = [];
 
-                    $attributeOptions = $attributeOptionReposotory->findWhereIn('id', explode(",", $value));
+                    $attributeOptions = $attributeOptionReposotory->findWhereIn('id', explode(',', $value));
 
                     foreach ($attributeOptions as $attributeOption) {
                         if ($label = $attributeOption->label) {
@@ -49,19 +52,21 @@ class View extends AbstractProduct
                         }
                     }
 
-                    $value = implode(", ", $lables);
+                    $value = implode(', ', $lables);
                 }
             }
 
             $data[] = [
-                'id'         => $attribute->id,
-                'code'       => $attribute->code,
-                'label'      => $attribute->name,
-                'value'      => $value,
+                'id' => $attribute->id,
+                'code' => $attribute->code,
+                'label' => $attribute->name,
+                'value' => $value,
                 'admin_name' => $attribute->admin_name,
-                'type'       => $attribute->type,
+                'type' => $attribute->type,
             ];
         }
+
+        dd($data);
 
         return $data;
     }
