@@ -442,8 +442,6 @@ abstract class AbstractType
      */
     public function totalQuantity()
     {
-        dd('here');
-
         $total = 0;
 
         $channelInventorySourceIds = app(InventorySourceRepository::class)->getChannelInventorySourceIds();
@@ -453,6 +451,7 @@ abstract class AbstractType
         foreach ($productInventories as $inventory) {
             if (is_numeric($channelInventorySourceIds->search($inventory->inventory_source_id))) {
                 $total += $inventory->qty;
+                dd('test 1');
             }
         }
 
@@ -462,6 +461,7 @@ abstract class AbstractType
             ->first();
 
         if ($orderedInventory) {
+            dd('test 2');
             $total -= $orderedInventory->qty;
         }
 
