@@ -26,6 +26,7 @@ class View extends AbstractProduct
         foreach ($attributes as $attribute) {
             if ($product instanceof \Webkul\Product\Models\ProductFlat) {
                 $value = $product->product->{$attribute->code};
+                Log::info($product->product);
             } else {
                 $value = $product->{$attribute->code};
             }
@@ -53,10 +54,6 @@ class View extends AbstractProduct
                             $lables[] = $label;
                         }
                     }
-
-                    // dd($attributeOptions);
-
-                    Log::debug($lables);
 
                     $value = implode(', ', $lables);
                 }
