@@ -24,8 +24,10 @@ class View extends AbstractProduct
         foreach ($attributes as $attribute) {
             if ($product instanceof \Webkul\Product\Models\ProductFlat) {
                 $value = $product->product->{$attribute->code};
+                dd('first: ' . $value);
             } else {
                 $value = $product->{$attribute->code};
+                dd('second' . $value);
             }
 
             if ($attribute->type == 'boolean') {
@@ -45,8 +47,6 @@ class View extends AbstractProduct
                     $lables = [];
 
                     $attributeOptions = $attributeOptionReposotory->findWhereIn('id', explode(',', $value));
-
-                    dd($attributeOptions);
 
                     foreach ($attributeOptions as $attributeOption) {
                         if ($label = $attributeOption->label) {
