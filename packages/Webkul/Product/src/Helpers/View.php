@@ -27,7 +27,7 @@ class View extends AbstractProduct
             if ($product instanceof \Webkul\Product\Models\ProductFlat) {
                 $value = $product->product->{$attribute->code};
                 // Log::info($product->product);
-                dd($attribute->code);
+                Log::debug($attribute->code);
             } else {
                 $value = $product->{$attribute->code};
             }
