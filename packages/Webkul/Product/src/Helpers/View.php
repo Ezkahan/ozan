@@ -34,7 +34,7 @@ class View extends AbstractProduct
                 if ($attribute->type == 'select') {
                     $attributeOption = $attributeOptionReposotory->find($value);
 
-                    dd($valueattributeOption);
+                    dd($attributeOption);
 
                     if ($attributeOption) {
                         $value = $attributeOption->label ?? null;
