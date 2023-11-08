@@ -252,7 +252,6 @@ class Product extends Model implements ProductContract
 
         $this->typeInstance->setProduct($this);
 
-        dd($this->typeInstance);
         return $this->typeInstance;
     }
 

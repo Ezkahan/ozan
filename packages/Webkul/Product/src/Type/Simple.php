@@ -9,14 +9,7 @@ class Simple extends AbstractType
      *
      * @var array
      */
-    protected $additionalViews = [
-        'admin::catalog.products.accordians.inventories',
-        'admin::catalog.products.accordians.images',
-        'admin::catalog.products.accordians.categories',
-        'admin::catalog.products.accordians.channels',
-        'admin::catalog.products.accordians.product-links',
-        'admin::catalog.products.accordians.videos',
-    ];
+    protected $additionalViews = ['admin::catalog.products.accordians.inventories', 'admin::catalog.products.accordians.images', 'admin::catalog.products.accordians.categories', 'admin::catalog.products.accordians.channels', 'admin::catalog.products.accordians.product-links', 'admin::catalog.products.accordians.videos'];
 
     /**
      * Show quantity box.
@@ -34,19 +27,22 @@ class Simple extends AbstractType
     public function isSaleable()
     {
         return $this->checkInLoadedSaleableChecks($this->product, function ($product) {
-            if (! $product->status) {
+            if (!$product->status) {
+                dd('test 1');
                 return false;
             }
 
-            if (is_callable(config('products.isSaleable')) &&
-                call_user_func(config('products.isSaleable'), $product) === false) {
+            if (is_callable(config('products.isSaleable')) && call_user_func(config('products.isSaleable'), $product) === false) {
+                dd('test 2');
                 return false;
             }
 
             if ($this->haveSufficientQuantity(1)) {
+                dd('test 3');
                 return true;
             }
 
+            dd('test 4');
             return false;
         });
     }
@@ -59,7 +55,7 @@ class Simple extends AbstractType
     {
         $backorders = core()->getConfigData('catalog.inventory.stock_options.backorders');
 
-        $backorders = ! is_null ($backorders) ? $backorders : false;
+        $backorders = !is_null($backorders) ? $backorders : false;
 
         $max_quantity = is_null($this->product->max_quantity) || empty($this->product->max_quantity) || $this->product->max_quantity >= $qty;
 
