@@ -452,7 +452,6 @@ abstract class AbstractType
         foreach ($productInventories as $inventory) {
             if (is_numeric($channelInventorySourceIds->search($inventory->inventory_source_id))) {
                 $total += $inventory->qty;
-                dd($total);
             }
         }
 
@@ -465,6 +464,7 @@ abstract class AbstractType
             dd('test 2');
             $total -= $orderedInventory->qty;
         }
+        dd($total);
 
         return $total;
     }
