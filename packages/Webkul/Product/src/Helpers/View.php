@@ -26,7 +26,8 @@ class View extends AbstractProduct
         foreach ($attributes as $attribute) {
             if ($product instanceof \Webkul\Product\Models\ProductFlat) {
                 $value = $product->product->{$attribute->code};
-                Log::info($product->product);
+                // Log::info($product->product);
+                dd($product);
             } else {
                 $value = $product->{$attribute->code};
             }
