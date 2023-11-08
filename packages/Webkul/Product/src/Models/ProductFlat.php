@@ -87,6 +87,8 @@ class ProductFlat extends Model implements ProductFlatContract
      */
     public function isSaleable()
     {
+        dd('here 2');
+
         return $this->product->isSaleable();
     }
 

@@ -16,13 +16,7 @@ use Webkul\CatalogRule\Models\CatalogRuleProductPriceProxy;
 
 class Product extends Model implements ProductContract
 {
-    protected $fillable = [
-        'type',
-        'attribute_family_id',
-        'sku',
-        'parent_id',
-        'akhasap_id'
-    ];
+    protected $fillable = ['type', 'attribute_family_id', 'sku', 'parent_id', 'akhasap_id'];
 
     protected $typeInstance;
 
@@ -253,9 +247,7 @@ class Product extends Model implements ProductContract
         $this->typeInstance = app(config('product_types.' . $this->type . '.class'));
 
         if (!$this->typeInstance instanceof AbstractType) {
-            throw new Exception(
-                "Please ensure the product type '{$this->type}' is configured in your application."
-            );
+            throw new Exception("Please ensure the product type '{$this->type}' is configured in your application.");
         }
 
         $this->typeInstance->setProduct($this);
@@ -270,7 +262,6 @@ class Product extends Model implements ProductContract
      */
     public function isSaleable()
     {
-        dd('here');
         return $this->getTypeInstance()->isSaleable();
     }
 
@@ -322,15 +313,12 @@ class Product extends Model implements ProductContract
      */
     public function getAttribute($key)
     {
-        if (
-            !method_exists(static::class, $key)
-            && !in_array($key, ['parent_id', 'attribute_family_id'])
-            && !isset($this->attributes[$key])
-        ) {
+        if (!method_exists(static::class, $key) && !in_array($key, ['parent_id', 'attribute_family_id']) && !isset($this->attributes[$key])) {
             if (isset($this->id)) {
                 $this->attributes[$key] = '';
 
-                $attribute = core()->getSingletonInstance(AttributeRepository::class)
+                $attribute = core()
+                    ->getSingletonInstance(AttributeRepository::class)
                     ->getAttributeByCode($key);
 
                 $this->attributes[$key] = $this->getCustomAttributeValue($attribute);
@@ -355,7 +343,8 @@ class Product extends Model implements ProductContract
             return $loadedFamilyAttributes[$this->attribute_family_id];
         }
 
-        return $loadedFamilyAttributes[$this->attribute_family_id] = core()->getSingletonInstance(AttributeRepository::class)
+        return $loadedFamilyAttributes[$this->attribute_family_id] = core()
+            ->getSingletonInstance(AttributeRepository::class)
             ->getFamilyAttributes($this->attribute_family);
     }
 
@@ -400,15 +389,27 @@ class Product extends Model implements ProductContract
 
         if ($attribute->value_per_channel) {
             if ($attribute->value_per_locale) {
-                $attributeValue = $this->attribute_values()->where('channel', $channel)->where('locale', $locale)->where('attribute_id', $attribute->id)->first();
+                $attributeValue = $this->attribute_values()
+                    ->where('channel', $channel)
+                    ->where('locale', $locale)
+                    ->where('attribute_id', $attribute->id)
+                    ->first();
             } else {
-                $attributeValue = $this->attribute_values()->where('channel', $channel)->where('attribute_id', $attribute->id)->first();
+                $attributeValue = $this->attribute_values()
+                    ->where('channel', $channel)
+                    ->where('attribute_id', $attribute->id)
+                    ->first();
             }
         } else {
             if ($attribute->value_per_locale) {
-                $attributeValue = $this->attribute_values()->where('locale', $locale)->where('attribute_id', $attribute->id)->first();
+                $attributeValue = $this->attribute_values()
+                    ->where('locale', $locale)
+                    ->where('attribute_id', $attribute->id)
+                    ->first();
             } else {
-                $attributeValue = $this->attribute_values()->where('attribute_id', $attribute->id)->first();
+                $attributeValue = $this->attribute_values()
+                    ->where('attribute_id', $attribute->id)
+                    ->first();
             }
         }
 
