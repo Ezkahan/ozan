@@ -12,6 +12,7 @@ class AkhasapController extends Controller
     public function sync(Request $request)
     {
         $product = Product::where('sku', 'kn00003590')->get();
+        Log::info($product);
         Log::debug('Total before: ' . $product->totalQuantity());
         ProductInventory::where('product_id', $product->id)->update(['qty' => 100]);
         Log::debug('Total after: ' . $product->totalQuantity());
