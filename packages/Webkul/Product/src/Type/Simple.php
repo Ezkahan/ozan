@@ -56,7 +56,6 @@ class Simple extends AbstractType
 
         $max_quantity = is_null($this->product->max_quantity) || empty($this->product->max_quantity) || $this->product->max_quantity >= $qty;
 
-        dd($qty);
         // dd($qty > 0 ? true : false);
         // dd($qty <= $this->totalQuantity() && $max_quantity ? true : $backorders);
         return $qty > 0 ? true : false;

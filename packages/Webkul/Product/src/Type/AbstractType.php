@@ -464,7 +464,7 @@ abstract class AbstractType
             dd($orderedInventory);
             $total -= $orderedInventory->qty;
         }
-        dd($total);
+        // dd($total);
 
         return $total;
     }
