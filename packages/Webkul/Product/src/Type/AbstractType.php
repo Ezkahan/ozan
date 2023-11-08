@@ -1018,6 +1018,7 @@ abstract class AbstractType
             return $loadedSaleableChecks[$product->id];
         }
 
+        dd($loadedSaleableChecks[$product->id] = $callback($product));
         return $loadedSaleableChecks[$product->id] = $callback($product);
     }
 }
