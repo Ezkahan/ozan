@@ -37,7 +37,7 @@ class Simple extends AbstractType
                 return false;
             }
 
-            if ($this->haveSufficientQuantity(1)) {
+            if ($this->haveSufficientQuantity($this->product->totalQuantity())) {
                 dd('test 3');
                 return true;
             }
