@@ -34,8 +34,6 @@ class View extends AbstractProduct
                 if ($attribute->type == 'select') {
                     $attributeOption = $attributeOptionReposotory->find($value);
 
-                    dd($attributeOption);
-
                     if ($attributeOption) {
                         $value = $attributeOption->label ?? null;
 
@@ -47,6 +45,8 @@ class View extends AbstractProduct
                     $lables = [];
 
                     $attributeOptions = $attributeOptionReposotory->findWhereIn('id', explode(',', $value));
+
+                    dd($attributeOptions);
 
                     foreach ($attributeOptions as $attributeOption) {
                         if ($label = $attributeOption->label) {
