@@ -26,7 +26,7 @@ class Simple extends AbstractType
      */
     public function isSaleable()
     {
-        dd($this->product->totalQuantity());
+        // dd($this->product->totalQuantity());
         return $this->checkInLoadedSaleableChecks($this->product, function ($product) {
             if (!$product->status) {
                 return false;
@@ -56,6 +56,7 @@ class Simple extends AbstractType
 
         $max_quantity = is_null($this->product->max_quantity) || empty($this->product->max_quantity) || $this->product->max_quantity >= $qty;
 
+        dd($qty <= $this->totalQuantity() && $max_quantity ? true : $backorders);
         return $qty <= $this->totalQuantity() && $max_quantity ? true : $backorders;
     }
 }
