@@ -461,7 +461,7 @@ abstract class AbstractType
             ->first();
 
         if ($orderedInventory) {
-            dd('test 2');
+            dd($orderedInventory);
             $total -= $orderedInventory->qty;
         }
         dd($total);
