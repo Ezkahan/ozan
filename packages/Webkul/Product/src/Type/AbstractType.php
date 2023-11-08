@@ -346,7 +346,6 @@ abstract class AbstractType
      */
     public function isSaleable()
     {
-        dd('here');
         if (!$this->product->status) {
             return false;
         }

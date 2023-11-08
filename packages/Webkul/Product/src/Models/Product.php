@@ -270,6 +270,7 @@ class Product extends Model implements ProductContract
      */
     public function isSaleable()
     {
+        dd('here');
         return $this->getTypeInstance()->isSaleable();
     }
 
