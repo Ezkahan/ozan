@@ -66,7 +66,7 @@ class View extends AbstractProduct
             ];
         }
 
-        dd($data);
+        // dd($data);
 
         return $data;
     }
