@@ -448,6 +448,7 @@ abstract class AbstractType
 
         $productInventories = $this->productInventoryRepository->checkInLoadedProductInventories($this->product);
 
+        dd($productInventories);
         foreach ($productInventories as $inventory) {
             if (is_numeric($channelInventorySourceIds->search($inventory->inventory_source_id))) {
                 $total += $inventory->qty;
