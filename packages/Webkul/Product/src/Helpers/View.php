@@ -52,6 +52,8 @@ class View extends AbstractProduct
                         }
                     }
 
+                    dd($attributeOptions);
+
                     $value = implode(', ', $lables);
                 }
             }
