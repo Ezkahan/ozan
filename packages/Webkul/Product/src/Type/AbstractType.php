@@ -346,6 +346,7 @@ abstract class AbstractType
      */
     public function isSaleable()
     {
+        Log::debug("test saleable");
         if (!$this->product->status) {
             return false;
         }
