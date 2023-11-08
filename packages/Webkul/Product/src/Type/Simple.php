@@ -28,21 +28,17 @@ class Simple extends AbstractType
     {
         return $this->checkInLoadedSaleableChecks($this->product, function ($product) {
             if (!$product->status) {
-                dd('test 1');
                 return false;
             }
 
             if (is_callable(config('products.isSaleable')) && call_user_func(config('products.isSaleable'), $product) === false) {
-                dd('test 2');
                 return false;
             }
 
             if ($this->haveSufficientQuantity($this->product->totalQuantity())) {
-                dd('test 3');
                 return true;
             }
 
-            // dd('test 4');
             return false;
         });
     }
