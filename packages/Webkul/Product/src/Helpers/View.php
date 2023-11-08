@@ -28,7 +28,7 @@ class View extends AbstractProduct
                 $value = $product->{$attribute->code};
             }
 
-            dd($attributes);
+            dd($value);
 
             if ($attribute->type == 'boolean') {
                 $value = $value ? 'Yes' : 'No';
