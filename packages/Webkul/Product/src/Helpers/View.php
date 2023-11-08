@@ -24,11 +24,10 @@ class View extends AbstractProduct
         foreach ($attributes as $attribute) {
             if ($product instanceof \Webkul\Product\Models\ProductFlat) {
                 $value = $product->product->{$attribute->code};
+                dd($value);
             } else {
                 $value = $product->{$attribute->code};
             }
-
-            dd($value);
 
             if ($attribute->type == 'boolean') {
                 $value = $value ? 'Yes' : 'No';
