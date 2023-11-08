@@ -442,6 +442,8 @@ abstract class AbstractType
      */
     public function totalQuantity()
     {
+        dd('here');
+
         $total = 0;
 
         $channelInventorySourceIds = app(InventorySourceRepository::class)->getChannelInventorySourceIds();
