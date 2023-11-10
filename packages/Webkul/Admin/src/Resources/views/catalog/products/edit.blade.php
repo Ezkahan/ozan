@@ -12,7 +12,7 @@
 
             $channelLocales = app('Webkul\Core\Repositories\ChannelRepository')->findOneByField('code', $channel)->locales;
 
-            if (! $channelLocales->contains('code', $locale)) {
+            if (!$channelLocales->contains('code', $locale)) {
                 $locale = config('app.fallback_locale');
             }
         @endphp
@@ -26,7 +26,7 @@
                 <div class="page-title">
                     <h1>
                         <i class="icon angle-left-icon back-link"
-                           onclick="window.location = '{{ route('admin.catalog.products.index') }}'"></i>
+                            onclick="window.location = '{{ route('admin.catalog.products.index') }}'"></i>
 
                         {{ __('admin::app.catalog.products.edit-title') }}
                     </h1>
@@ -34,12 +34,10 @@
                     <div class="control-group">
                         <select class="control" id="channel-switcher" name="channel">
                             @foreach (core()->getAllChannels() as $channelModel)
-
-                                <option
-                                    value="{{ $channelModel->code }}" {{ ($channelModel->code) == $channel ? 'selected' : '' }}>
+                                <option value="{{ $channelModel->code }}"
+                                    {{ $channelModel->code == $channel ? 'selected' : '' }}>
                                     {{ core()->getChannelName($channelModel) }}
                                 </option>
-
                             @endforeach
                         </select>
                     </div>
@@ -47,12 +45,10 @@
                     <div class="control-group">
                         <select class="control" id="locale-switcher" name="locale">
                             @foreach ($channelLocales as $localeModel)
-
-                                <option
-                                    value="{{ $localeModel->code }}" {{ ($localeModel->code) == $locale ? 'selected' : '' }}>
+                                <option value="{{ $localeModel->code }}"
+                                    {{ $localeModel->code == $locale ? 'selected' : '' }}>
                                     {{ $localeModel->name }}
                                 </option>
-
                             @endforeach
                         </select>
                     </div>
@@ -72,69 +68,74 @@
 
                 @foreach ($product->attribute_family->attribute_groups as $index => $attributeGroup)
                     <?php $customAttributes = $product->getEditableAttributes($attributeGroup); ?>
-                    
-                    @if (count($customAttributes))
 
-                        {!! view_render_event('bagisto.admin.catalog.product.edit_form_accordian.' . $attributeGroup->name . '.before', ['product' => $product]) !!}
-                            
+                    {{ dd($customAttributes) }}
+
+                    @if (count($customAttributes))
+                        {!! view_render_event('bagisto.admin.catalog.product.edit_form_accordian.' . $attributeGroup->name . '.before', [
+                            'product' => $product,
+                        ]) !!}
+
                         <accordian :title="'{{ __($attributeGroup->name) }}'"
-                                   :active="{{$index == 0 ? 'true' : 'false'}}">
+                            :active="{{ $index == 0 ? 'true' : 'false' }}">
                             <div slot="body">
-                                {!! view_render_event('bagisto.admin.catalog.product.edit_form_accordian.' . $attributeGroup->name . '.controls.before', ['product' => $product]) !!}
+                                {!! view_render_event(
+                                    'bagisto.admin.catalog.product.edit_form_accordian.' . $attributeGroup->name . '.controls.before',
+                                    ['product' => $product],
+                                ) !!}
 
                                 @foreach ($customAttributes as $attribute)
-
                                     <?php
-                                        if ($attribute->code == 'guest_checkout' && ! core()->getConfigData('catalog.products.guest-checkout.allow-guest-checkout')) {
-                                            continue;
-                                        }
-
-                                        $validations = [];
-
-                                        if ($attribute->is_required) {
-                                            array_push($validations, 'required');
-                                        }
-
-                                        if ($attribute->type == 'price') {
-                                            array_push($validations, 'decimal');
-                                        }
-
-                                        if ($attribute->type == 'file') {
-                                            $retVal = (core()->getConfigData('catalog.products.attribute.file_attribute_upload_size')) ? core()->getConfigData('catalog.products.attribute.file_attribute_upload_size') : '2048' ;
-                                            array_push($validations, 'size:' . $retVal);
-                                        }
-
-                                        if ($attribute->type == 'image') {
-                                            $retVal = (core()->getConfigData('catalog.products.attribute.image_attribute_upload_size')) ? core()->getConfigData('catalog.products.attribute.image_attribute_upload_size') : '2048' ;
-                                            array_push($validations, 'size:' . $retVal . '|mimes:bmp,jpeg,jpg,png,webp');
-                                        }
-
-                                        array_push($validations, $attribute->validation);
-
-                                        $validations = implode('|', array_filter($validations));
+                                    if ($attribute->code == 'guest_checkout' && !core()->getConfigData('catalog.products.guest-checkout.allow-guest-checkout')) {
+                                        continue;
+                                    }
+                                    
+                                    $validations = [];
+                                    
+                                    if ($attribute->is_required) {
+                                        array_push($validations, 'required');
+                                    }
+                                    
+                                    if ($attribute->type == 'price') {
+                                        array_push($validations, 'decimal');
+                                    }
+                                    
+                                    if ($attribute->type == 'file') {
+                                        $retVal = core()->getConfigData('catalog.products.attribute.file_attribute_upload_size') ? core()->getConfigData('catalog.products.attribute.file_attribute_upload_size') : '2048';
+                                        array_push($validations, 'size:' . $retVal);
+                                    }
+                                    
+                                    if ($attribute->type == 'image') {
+                                        $retVal = core()->getConfigData('catalog.products.attribute.image_attribute_upload_size') ? core()->getConfigData('catalog.products.attribute.image_attribute_upload_size') : '2048';
+                                        array_push($validations, 'size:' . $retVal . '|mimes:bmp,jpeg,jpg,png,webp');
+                                    }
+                                    
+                                    array_push($validations, $attribute->validation);
+                                    
+                                    $validations = implode('|', array_filter($validations));
                                     ?>
 
                                     @if (view()->exists($typeView = 'admin::catalog.products.field-types.' . $attribute->type))
-
                                         <div class="control-group {{ $attribute->type }}"
-                                             @if ($attribute->type == 'multiselect') :class="[errors.has('{{ $attribute->code }}[]') ? 'has-error' : '']"
+                                            @if ($attribute->type == 'multiselect') :class="[errors.has('{{ $attribute->code }}[]') ? 'has-error' : '']"
                                              @else :class="[errors.has('{{ $attribute->code }}') ? 'has-error' : '']" @endif>
 
-                                            <label
-                                                for="{{ $attribute->code }}" {{ $attribute->is_required ? 'class=required' : '' }}>
+                                            <label for="{{ $attribute->code }}"
+                                                {{ $attribute->is_required ? 'class=required' : '' }}>
                                                 {{ $attribute->admin_name }}
 
                                                 @if ($attribute->type == 'price')
-                                                    <span class="currency-code">({{ core()->currencySymbol(core()->getBaseCurrencyCode()) }})</span>
+                                                    <span
+                                                        class="currency-code">({{ core()->currencySymbol(core()->getBaseCurrencyCode()) }})</span>
                                                 @endif
 
                                                 <?php
                                                 $channel_locale = [];
-
+                                                
                                                 if ($attribute->value_per_channel) {
                                                     array_push($channel_locale, $channel);
                                                 }
-
+                                                
                                                 if ($attribute->value_per_locale) {
                                                     array_push($channel_locale, $locale);
                                                 }
@@ -148,8 +149,8 @@
                                             @include ($typeView)
 
                                             <span class="control-error"
-                                                  @if ($attribute->type == 'multiselect') v-if="errors.has('{{ $attribute->code }}[]')"
-                                                  @else  v-if="errors.has('{{ $attribute->code }}')"  @endif>
+                                                @if ($attribute->type == 'multiselect') v-if="errors.has('{{ $attribute->code }}[]')"
+                                                  @else  v-if="errors.has('{{ $attribute->code }}')" @endif>
                                                 @if ($attribute->type == 'multiselect')
                                                     @{{ errors.first('{!! $attribute->code !!}[]') }}
                                                 @else
@@ -157,41 +158,36 @@
                                                 @endif
                                             </span>
                                         </div>
-
                                     @endif
-
                                 @endforeach
 
                                 @if ($attributeGroup->name == 'Price')
-
                                     @include ('admin::catalog.products.accordians.customer-group-price')
-
                                 @endif
 
-                                {!! view_render_event('bagisto.admin.catalog.product.edit_form_accordian.' . $attributeGroup->name . '.controls.after', ['product' => $product]) !!}
+                                {!! view_render_event(
+                                    'bagisto.admin.catalog.product.edit_form_accordian.' . $attributeGroup->name . '.controls.after',
+                                    ['product' => $product],
+                                ) !!}
                             </div>
                         </accordian>
 
-                        {!! view_render_event('bagisto.admin.catalog.product.edit_form_accordian.' . $attributeGroup->name . '.after', ['product' => $product]) !!}
-
+                        {!! view_render_event('bagisto.admin.catalog.product.edit_form_accordian.' . $attributeGroup->name . '.after', [
+                            'product' => $product,
+                        ]) !!}
                     @endif
-
                 @endforeach
 
-                {!! view_render_event(
-                  'bagisto.admin.catalog.product.edit_form_accordian.additional_views.before',
-                   ['product' => $product])
-                !!}
+                {!! view_render_event('bagisto.admin.catalog.product.edit_form_accordian.additional_views.before', [
+                    'product' => $product,
+                ]) !!}
                 @foreach ($product->getTypeInstance()->getAdditionalViews() as $view)
-
                     @include ($view)
-
                 @endforeach
 
-                {!! view_render_event(
-                  'bagisto.admin.catalog.product.edit_form_accordian.additional_views.after',
-                   ['product' => $product])
-                !!}
+                {!! view_render_event('bagisto.admin.catalog.product.edit_form_accordian.additional_views.after', [
+                    'product' => $product,
+                ]) !!}
             </div>
 
         </form>
@@ -204,19 +200,21 @@
     <script src="{{ asset('vendor/webkul/admin/assets/js/tinyMCE/tinymce.min.js') }}"></script>
 
     <script>
-        $(document).ready(function () {
-            $('#channel-switcher, #locale-switcher').on('change', function (e) {
+        $(document).ready(function() {
+            $('#channel-switcher, #locale-switcher').on('change', function(e) {
                 $('#channel-switcher').val()
 
                 if (event.target.id == 'channel-switcher') {
-                    let locale = "{{ app('Webkul\Core\Repositories\ChannelRepository')->findOneByField('code', $channel)->locales->first()->code }}";
+                    let locale =
+                        "{{ app('Webkul\Core\Repositories\ChannelRepository')->findOneByField('code', $channel)->locales->first()->code }}";
 
                     $('#locale-switcher').val(locale);
                 }
 
-                var query = '?channel=' + $('#channel-switcher').val() + '&locale=' + $('#locale-switcher').val();
+                var query = '?channel=' + $('#channel-switcher').val() + '&locale=' + $('#locale-switcher')
+                    .val();
 
-                window.location.href = "{{ route('admin.catalog.products.edit', $product->id)  }}" + query;
+                window.location.href = "{{ route('admin.catalog.products.edit', $product->id) }}" + query;
             })
 
             tinymce.init({
