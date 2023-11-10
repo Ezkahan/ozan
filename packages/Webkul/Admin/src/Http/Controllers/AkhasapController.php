@@ -27,6 +27,7 @@ class AkhasapController extends Controller
         ProductInventory::where('product_id', $product->id)->update(['qty' => $request->stock]);
         // // Log::debug('Total after: ' . $product->totalQuantity());
         $productFlat = ProductFlat::where('sku', $request->sku)->first();
+
         $productFlat->update([
             'price' => $request->sale_price,
             'product_number' => $request->barcode,
