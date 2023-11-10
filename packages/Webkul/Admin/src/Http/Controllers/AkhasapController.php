@@ -19,9 +19,7 @@ class AkhasapController extends Controller
         $product = Product::where('sku', $request->sku)->first();
         if ($product) {
             ProductInventory::where('product_id', $product->id)->update(['qty' => $request->stock]);
-            $productFlat = ProductFlat::where('sku', $request->sku)->first();
-
-            $productFlat->update([
+            ProductFlat::where('sku', $request->sku)->update([
                 'price' => $request->sale_price,
                 'min_price' => $request->sale_price,
                 'max_price' => $request->sale_price,
