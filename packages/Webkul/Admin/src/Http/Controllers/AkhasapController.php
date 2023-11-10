@@ -28,8 +28,13 @@ class AkhasapController extends Controller
                 'status' => $request->stock > 0 ? 1 : 0,
             ]);
             ProductAttributeValue::where('product_id', $product->id)
+                // price, cost update
                 ->whereIn('attribute_id', [11, 12])
                 ->update(['float_value' => $request->sale_price]);
+            ProductAttributeValue::where('product_id', $product->id)
+                ->where('attribute_id', 8)
+                // status disable/enable
+                ->update(['boolean_value' => $request->stock > 0 ? 1 : 0]);
         } else {
             Log::info('Akhasap sync: haryt tapylmady');
         }
