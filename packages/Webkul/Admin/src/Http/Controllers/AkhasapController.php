@@ -12,20 +12,25 @@ class AkhasapController extends Controller
 {
     public function sync(Request $request)
     {
-        Log::info('_____________');
-        Log::debug($request->all());
-        Log::info('_____________');
+        // Log::info('_____________');
+        // Log::debug($request->all());
+        // Log::info('_____________');
+
         // "sku": "J200000696",
         // "stock": "-9.000000",
         // "barcode": "01080",
         // "sale_price": "2.60000"
 
-        // $product = Product::where('sku', 'J200000696')->first();
+        $product = Product::where('sku', $request->sku)->first();
         // // Log::info($product);
         // Log::debug('Total before: ' . $product->totalQuantity());
-        // // ProductInventory::where('product_id', $product->id)->update(['qty' => 100]);
+        ProductInventory::where('product_id', $product->id)->update(['qty' => $request->stock]);
         // // Log::debug('Total after: ' . $product->totalQuantity());
-        // $productFlat = ProductFlat::where('sku', 'J200000696')->get();
+        $productFlat = ProductFlat::where('sku', $request->sku)->first();
+        $productFlat->update([
+            'price' => $request->sale_price,
+            'product_number' => $request->barcode,
+        ]);
         // Log::info($productFlat);
 
         // Log::debug($request->all());
