@@ -177,7 +177,7 @@ class ProductController extends Controller
         $categories = $this->categoryRepository->getCategoryTree();
         $inventorySources = $this->inventorySourceRepository->findWhere(['status' => 1]);
 
-        dd($product, $categories, $inventorySources);
+        // dd($product, $categories, $inventorySources);
 
         return view($this->_config['view'], compact('product', 'categories', 'inventorySources'));
     }
