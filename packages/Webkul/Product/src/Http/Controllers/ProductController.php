@@ -88,15 +88,8 @@ class ProductController extends Controller
      *
      * @return void
      */
-    public function __construct(
-        CategoryRepository $categoryRepository,
-        ProductRepository $productRepository,
-        ProductDownloadableLinkRepository $productDownloadableLinkRepository,
-        ProductDownloadableSampleRepository $productDownloadableSampleRepository,
-        AttributeFamilyRepository $attributeFamilyRepository,
-        InventorySourceRepository $inventorySourceRepository,
-        ProductAttributeValueRepository $productAttributeValueRepository
-    ) {
+    public function __construct(CategoryRepository $categoryRepository, ProductRepository $productRepository, ProductDownloadableLinkRepository $productDownloadableLinkRepository, ProductDownloadableSampleRepository $productDownloadableSampleRepository, AttributeFamilyRepository $attributeFamilyRepository, InventorySourceRepository $inventorySourceRepository, ProductAttributeValueRepository $productAttributeValueRepository)
+    {
         $this->_config = request('_config');
 
         $this->categoryRepository = $categoryRepository;
@@ -149,28 +142,20 @@ class ProductController extends Controller
      */
     public function store()
     {
-        if (
-            !request()->get('family')
-            && ProductType::hasVariants(request()->input('type'))
-            && request()->input('sku') != ''
-        ) {
+        if (!request()->get('family') && ProductType::hasVariants(request()->input('type')) && request()->input('sku') != '') {
             return redirect(url()->current() . '?type=' . request()->input('type') . '&family=' . request()->input('attribute_family_id') . '&sku=' . request()->input('sku'));
         }
 
-        if (
-            ProductType::hasVariants(request()->input('type'))
-            && (!request()->has('super_attributes')
-                || !count(request()->get('super_attributes')))
-        ) {
+        if (ProductType::hasVariants(request()->input('type')) && (!request()->has('super_attributes') || !count(request()->get('super_attributes')))) {
             session()->flash('error', trans('admin::app.catalog.products.configurable-error'));
 
             return back();
         }
 
         $this->validate(request(), [
-            'type'                => 'required',
+            'type' => 'required',
             'attribute_family_id' => 'required',
-            'sku'                 => ['required', 'unique:products,sku', new Slug],
+            'sku' => ['required', 'unique:products,sku', new Slug()],
         ]);
         $product = $this->productRepository->create(request()->all());
 
@@ -189,10 +174,10 @@ class ProductController extends Controller
     public function edit($id)
     {
         $product = $this->productRepository->with(['variants', 'variants.inventories'])->findOrFail($id);
-
         $categories = $this->categoryRepository->getCategoryTree();
-
         $inventorySources = $this->inventorySourceRepository->findWhere(['status' => 1]);
+
+        dd($product, $categories, $inventorySources);
 
         return view($this->_config['view'], compact('product', 'categories', 'inventorySources'));
     }
@@ -209,7 +194,7 @@ class ProductController extends Controller
     {
         $data = request()->all();
 
-        $multiselectAttributeCodes = array();
+        $multiselectAttributeCodes = [];
 
         $productAttributes = $this->productRepository->findOrFail($id);
 
@@ -228,7 +213,7 @@ class ProductController extends Controller
         if (count($multiselectAttributeCodes)) {
             foreach ($multiselectAttributeCodes as $multiselectAttributeCode) {
                 if (!isset($data[$multiselectAttributeCode])) {
-                    $data[$multiselectAttributeCode] = array();
+                    $data[$multiselectAttributeCode] = [];
                 }
             }
         }
@@ -248,9 +233,7 @@ class ProductController extends Controller
      */
     public function uploadLink($id)
     {
-        return response()->json(
-            $this->productDownloadableLinkRepository->upload(request()->all(), $id)
-        );
+        return response()->json($this->productDownloadableLinkRepository->upload(request()->all(), $id));
     }
 
     /**
@@ -265,17 +248,14 @@ class ProductController extends Controller
                 'error',
                 trans('admin::app.response.product-can-not-be-copied', [
                     'type' => $originalProduct->type,
-                ])
+                ]),
             );
 
             return redirect()->to(route('admin.catalog.products.index'));
         }
 
         if ($originalProduct->parent_id) {
-            session()->flash(
-                'error',
-                trans('admin::app.catalog.products.variant-already-exist-message')
-            );
+            session()->flash('error', trans('admin::app.catalog.products.variant-already-exist-message'));
 
             return redirect()->to(route('admin.catalog.products.index'));
         }
@@ -300,9 +280,7 @@ class ProductController extends Controller
      */
     public function uploadSample($id)
     {
-        return response()->json(
-            $this->productDownloadableSampleRepository->upload(request()->all(), $id)
-        );
+        return response()->json($this->productDownloadableSampleRepository->upload(request()->all(), $id));
     }
 
     /**
@@ -373,11 +351,14 @@ class ProductController extends Controller
         $productIds = explode(',', $data['indexes']);
 
         foreach ($productIds as $productId) {
-            $this->productRepository->update([
-                'channel' => null,
-                'locale'  => null,
-                'status'  => $data['update-options'],
-            ], $productId);
+            $this->productRepository->update(
+                [
+                    'channel' => null,
+                    'locale' => null,
+                    'status' => $data['update-options'],
+                ],
+                $productId,
+            );
         }
 
         session()->flash('success', trans('admin::app.catalog.products.mass-update-success'));
@@ -409,8 +390,8 @@ class ProductController extends Controller
 
             foreach ($this->productRepository->searchProductByAttribute(request()->input('query')) as $row) {
                 $results[] = [
-                    'id'   => $row->product_id,
-                    'sku'  => $row->sku,
+                    'id' => $row->product_id,
+                    'sku' => $row->sku,
                     'name' => $row->name,
                 ];
             }
@@ -432,7 +413,7 @@ class ProductController extends Controller
     public function download($productId, $attributeId)
     {
         $productAttribute = $this->productAttributeValueRepository->findOneWhere([
-            'product_id'   => $productId,
+            'product_id' => $productId,
             'attribute_id' => $attributeId,
         ]);
 
@@ -446,8 +427,6 @@ class ProductController extends Controller
      */
     public function searchSimpleProducts()
     {
-        return response()->json(
-            $this->productRepository->searchSimpleProducts(request()->input('query'))
-        );
+        return response()->json($this->productRepository->searchSimpleProducts(request()->input('query')));
     }
 }
