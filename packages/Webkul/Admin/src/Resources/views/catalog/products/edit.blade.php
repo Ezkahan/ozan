@@ -69,8 +69,6 @@
                 @foreach ($product->attribute_family->attribute_groups as $index => $attributeGroup)
                     <?php $customAttributes = $product->getEditableAttributes($attributeGroup); ?>
 
-                    {{ dd($customAttributes) }}
-
                     @if (count($customAttributes))
                         {!! view_render_event('bagisto.admin.catalog.product.edit_form_accordian.' . $attributeGroup->name . '.before', [
                             'product' => $product,
@@ -89,29 +87,29 @@
                                     if ($attribute->code == 'guest_checkout' && !core()->getConfigData('catalog.products.guest-checkout.allow-guest-checkout')) {
                                         continue;
                                     }
-                                    
+
                                     $validations = [];
-                                    
+
                                     if ($attribute->is_required) {
                                         array_push($validations, 'required');
                                     }
-                                    
+
                                     if ($attribute->type == 'price') {
                                         array_push($validations, 'decimal');
                                     }
-                                    
+
                                     if ($attribute->type == 'file') {
                                         $retVal = core()->getConfigData('catalog.products.attribute.file_attribute_upload_size') ? core()->getConfigData('catalog.products.attribute.file_attribute_upload_size') : '2048';
                                         array_push($validations, 'size:' . $retVal);
                                     }
-                                    
+
                                     if ($attribute->type == 'image') {
                                         $retVal = core()->getConfigData('catalog.products.attribute.image_attribute_upload_size') ? core()->getConfigData('catalog.products.attribute.image_attribute_upload_size') : '2048';
                                         array_push($validations, 'size:' . $retVal . '|mimes:bmp,jpeg,jpg,png,webp');
                                     }
-                                    
+
                                     array_push($validations, $attribute->validation);
-                                    
+
                                     $validations = implode('|', array_filter($validations));
                                     ?>
 
@@ -131,11 +129,11 @@
 
                                                 <?php
                                                 $channel_locale = [];
-                                                
+
                                                 if ($attribute->value_per_channel) {
                                                     array_push($channel_locale, $channel);
                                                 }
-                                                
+
                                                 if ($attribute->value_per_locale) {
                                                     array_push($channel_locale, $locale);
                                                 }
@@ -162,6 +160,7 @@
                                 @endforeach
 
                                 @if ($attributeGroup->name == 'Price')
+                                    {{ dd($attributeGroup) }}
                                     @include ('admin::catalog.products.accordians.customer-group-price')
                                 @endif
 
