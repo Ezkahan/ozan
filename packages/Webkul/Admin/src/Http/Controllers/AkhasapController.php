@@ -16,11 +16,6 @@ class AkhasapController extends Controller
         Log::debug($request->all());
         Log::info('_____________');
 
-        // "sku": "J200000696",
-        // "stock": "-9.000000",
-        // "barcode": "01080",
-        // "sale_price": "2.60000"
-
         $product = Product::where('sku', $request->sku)->first();
         if ($product) {
             ProductInventory::where('product_id', $product->id)->update(['qty' => $request->stock]);
