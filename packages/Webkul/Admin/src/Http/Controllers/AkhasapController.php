@@ -22,19 +22,16 @@ class AkhasapController extends Controller
         // "sale_price": "2.60000"
 
         $product = Product::where('sku', $request->sku)->first();
-        // // Log::info($product);
-        // Log::debug('Total before: ' . $product->totalQuantity());
-        ProductInventory::where('product_id', $product->id)->update(['qty' => $request->stock]);
-        // // Log::debug('Total after: ' . $product->totalQuantity());
-        $productFlat = ProductFlat::where('sku', $request->sku)->first();
+        if ($product) {
+            ProductInventory::where('product_id', $product->id)->update(['qty' => $request->stock]);
+            $productFlat = ProductFlat::where('sku', $request->sku)->first();
 
-        $productFlat->update([
-            'price' => $request->sale_price,
-            'product_number' => $request->barcode,
-        ]);
-        // Log::info($productFlat);
-
-        // Log::debug($request->all());
-        // return $request->all();
+            $productFlat->update([
+                'price' => $request->sale_price,
+                'product_number' => $request->barcode,
+            ]);
+        } else {
+            Log::info('Akhasap sync: haryt tapylmady');
+        }
     }
 }
