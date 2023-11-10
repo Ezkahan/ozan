@@ -23,6 +23,8 @@ class AkhasapController extends Controller
 
             $productFlat->update([
                 'price' => $request->sale_price,
+                'min_price' => $request->sale_price,
+                'max_price' => $request->sale_price,
                 'product_number' => $request->barcode,
             ]);
         } else {
