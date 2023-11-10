@@ -26,6 +26,7 @@ class AkhasapController extends Controller
                 'min_price' => $request->sale_price,
                 'max_price' => $request->sale_price,
                 'product_number' => $request->barcode,
+                'status' => $request->stock > 0 ? 1 : 0,
             ]);
         } else {
             Log::info('Akhasap sync: haryt tapylmady');
