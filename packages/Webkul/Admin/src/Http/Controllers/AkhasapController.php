@@ -12,9 +12,9 @@ class AkhasapController extends Controller
 {
     public function sync(Request $request)
     {
-        // Log::info('_____________');
-        // Log::debug($request->all());
-        // Log::info('_____________');
+        Log::info('_____________');
+        Log::debug($request->all());
+        Log::info('_____________');
 
         // "sku": "J200000696",
         // "stock": "-9.000000",
