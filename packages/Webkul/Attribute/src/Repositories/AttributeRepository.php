@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Event;
 use Webkul\Attribute\Repositories\AttributeOptionRepository;
 use Illuminate\Container\Container as App;
 use Illuminate\Support\Str;
+use Log;
 
 class AttributeRepository extends Repository
 {
@@ -88,6 +89,8 @@ class AttributeRepository extends Repository
 
         Event::dispatch('catalog.attribute.update.before', $id);
 
+        Log::alert('attribute: ' . $attribute);
+        Log::debug('data: ' . $data);
         $attribute->update($data);
 
         $previousOptionIds = $attribute->options()->pluck('id');
