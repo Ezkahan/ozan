@@ -62,9 +62,9 @@ class AttributeController extends Controller
     public function store()
     {
         $this->validate(request(), [
-            'code'       => ['required', 'unique:attributes,code', new \Webkul\Core\Contracts\Validations\Code],
+            'code' => ['required', 'unique:attributes,code', new \Webkul\Core\Contracts\Validations\Code()],
             'admin_name' => 'required',
-            'type'       => 'required',
+            'type' => 'required',
         ]);
 
         $data = request()->all();
@@ -100,9 +100,9 @@ class AttributeController extends Controller
     public function update($id)
     {
         $this->validate(request(), [
-            'code'       => ['required', 'unique:attributes,code,' . $id, new \Webkul\Core\Contracts\Validations\Code],
+            'code' => ['required', 'unique:attributes,code,' . $id, new \Webkul\Core\Contracts\Validations\Code()],
             'admin_name' => 'required',
-            'type'       => 'required',
+            'type' => 'required',
         ]);
 
         $attribute = $this->attributeRepository->update(request()->all(), $id);
@@ -122,7 +122,7 @@ class AttributeController extends Controller
     {
         $attribute = $this->attributeRepository->findOrFail($id);
 
-        if (! $attribute->is_user_defined) {
+        if (!$attribute->is_user_defined) {
             session()->flash('error', trans('admin::app.response.user-define-error', ['name' => 'Attribute']));
         } else {
             try {
@@ -131,7 +131,7 @@ class AttributeController extends Controller
                 session()->flash('success', trans('admin::app.response.delete-success', ['name' => 'Attribute']));
 
                 return response()->json(['message' => true], 200);
-            } catch(\Exception $e) {
+            } catch (\Exception $e) {
                 session()->flash('error', trans('admin::app.response.delete-failed', ['name' => 'Attribute']));
             }
         }

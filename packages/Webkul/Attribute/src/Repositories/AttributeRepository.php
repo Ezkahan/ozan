@@ -23,10 +23,8 @@ class AttributeRepository extends Repository
      * @param  \Webkul\Attribute\Repositories\AttributeOptionRepository  $attributeOptionRepository
      * @return void
      */
-    public function __construct(
-        AttributeOptionRepository $attributeOptionRepository,
-        App $app
-    ) {
+    public function __construct(AttributeOptionRepository $attributeOptionRepository, App $app)
+    {
         $this->attributeOptionRepository = $attributeOptionRepository;
 
         parent::__construct($app);
@@ -60,9 +58,14 @@ class AttributeRepository extends Repository
 
         if (in_array($attribute->type, ['select', 'multiselect', 'checkbox']) && count($options)) {
             foreach ($options as $optionInputs) {
-                $this->attributeOptionRepository->create(array_merge([
-                    'attribute_id' => $attribute->id,
-                ], $optionInputs));
+                $this->attributeOptionRepository->create(
+                    array_merge(
+                        [
+                            'attribute_id' => $attribute->id,
+                        ],
+                        $optionInputs,
+                    ),
+                );
             }
         }
 
@@ -77,7 +80,7 @@ class AttributeRepository extends Repository
      * @param  string  $attribute
      * @return \Webkul\Attribute\Contracts\Attribute
      */
-    public function update(array $data, $id, $attribute = "id")
+    public function update(array $data, $id, $attribute = 'id')
     {
         $data = $this->validateUserInput($data);
 
@@ -93,9 +96,14 @@ class AttributeRepository extends Repository
             if (isset($data['options'])) {
                 foreach ($data['options'] as $optionId => $optionInputs) {
                     if (Str::contains($optionId, 'option_')) {
-                        $this->attributeOptionRepository->create(array_merge([
-                            'attribute_id' => $attribute->id,
-                        ], $optionInputs));
+                        $this->attributeOptionRepository->create(
+                            array_merge(
+                                [
+                                    'attribute_id' => $attribute->id,
+                                ],
+                                $optionInputs,
+                            ),
+                        );
                     } else {
                         if (is_numeric($index = $previousOptionIds->search($optionId))) {
                             $previousOptionIds->forget($index);
@@ -107,9 +115,9 @@ class AttributeRepository extends Repository
             }
         }
 
-        foreach ($previousOptionIds as $optionId) {
-            $this->attributeOptionRepository->delete($optionId);
-        }
+        // foreach ($previousOptionIds as $optionId) {
+        //     $this->attributeOptionRepository->delete($optionId);
+        // }
 
         Event::dispatch('catalog.attribute.update.after', $attribute);
 
@@ -165,20 +173,11 @@ class AttributeRepository extends Repository
      */
     public function getProductDefaultAttributes($codes = null)
     {
-        $attributeColumns  = ['id', 'code', 'value_per_channel', 'value_per_locale', 'type', 'is_filterable'];
+        $attributeColumns = ['id', 'code', 'value_per_channel', 'value_per_locale', 'type', 'is_filterable'];
 
-        if (!is_array($codes) && !$codes)
-            return $this->findWhereIn('code', [
-                'name',
-                'description',
-                'short_description',
-                'url_key',
-                'price',
-                'special_price',
-                'special_price_from',
-                'special_price_to',
-                'status',
-            ], $attributeColumns);
+        if (!is_array($codes) && !$codes) {
+            return $this->findWhereIn('code', ['name', 'description', 'short_description', 'url_key', 'price', 'special_price', 'special_price_from', 'special_price_to', 'status'], $attributeColumns);
+        }
 
         if (in_array('*', $codes)) {
             return $this->all($attributeColumns);
@@ -227,30 +226,24 @@ class AttributeRepository extends Repository
         $trimmed = [];
 
         foreach ($attributes as $key => $attribute) {
-            if (
-                $attribute->code != 'tax_category_id'
-                && ($attribute->type == 'select'
-                    || $attribute->type == 'multiselect'
-                    || $attribute->code == 'sku'
-                )
-            ) {
+            if ($attribute->code != 'tax_category_id' && ($attribute->type == 'select' || $attribute->type == 'multiselect' || $attribute->code == 'sku')) {
                 if ($attribute->options()->exists()) {
                     array_push($trimmed, [
-                        'id'          => $attribute->id,
-                        'name'        => $attribute->admin_name,
-                        'type'        => $attribute->type,
-                        'code'        => $attribute->code,
+                        'id' => $attribute->id,
+                        'name' => $attribute->admin_name,
+                        'type' => $attribute->type,
+                        'code' => $attribute->code,
                         'has_options' => true,
-                        'options'     => $attribute->options,
+                        'options' => $attribute->options,
                     ]);
                 } else {
                     array_push($trimmed, [
-                        'id'          => $attribute->id,
-                        'name'        => $attribute->admin_name,
-                        'type'        => $attribute->type,
-                        'code'        => $attribute->code,
+                        'id' => $attribute->id,
+                        'name' => $attribute->admin_name,
+                        'type' => $attribute->type,
+                        'code' => $attribute->code,
                         'has_options' => false,
-                        'options'     => null,
+                        'options' => null,
                     ]);
                 }
             }
