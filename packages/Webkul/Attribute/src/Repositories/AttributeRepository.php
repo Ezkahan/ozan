@@ -89,11 +89,6 @@ class AttributeRepository extends Repository
 
         Event::dispatch('catalog.attribute.update.before', $id);
 
-        Log::alert('attribute: ' . $attribute);
-        Log::debug('_____data______');
-        Log::debug($data);
-        Log::debug('_____data______');
-
         $attribute->update($data);
 
         $previousOptionIds = $attribute->options()->pluck('id');
@@ -110,19 +105,10 @@ class AttributeRepository extends Repository
                                 $optionInputs,
                             ),
                         );
-
-                        Log::debug("_______OPTION__1_______");
-                        Log::debug($optionInputs);
-                        Log::debug("_______OPTION__1_______");
-
                     } else {
                         if (is_numeric($index = $previousOptionIds->search($optionId))) {
                             $previousOptionIds->forget($index);
                         }
-
-                        Log::debug("_______OPTION__2_______");
-                        Log::debug($optionInputs);
-                        Log::debug("_______OPTION__2_______");
 
                         $this->attributeOptionRepository->update($optionInputs, $optionId);
                     }
