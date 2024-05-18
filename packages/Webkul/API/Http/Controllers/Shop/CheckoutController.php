@@ -452,7 +452,7 @@ class CheckoutController extends Controller
         $customer = auth($this->guard)->user();
 
         // TODO bug
-        $addresses = $customer->addresses ? $customer->addresses()->get() : [];
+        $addresses = $customer && $customer->addresses ? $customer->addresses()->get() : [];
 
         Shipping::collectRates();
 
