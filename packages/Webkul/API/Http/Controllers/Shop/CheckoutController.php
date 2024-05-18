@@ -470,7 +470,7 @@ class CheckoutController extends Controller
                 'addresses' => $addresses ? CustomerAddressResource::collection($addresses) : [],
                 'shippingMethods' => $rates,
                 'paymetMethods' => Payment::getPaymentMethods(),
-                'cart' => new CartResource(Cart::getCart()),
+                'cart' => Cart::getCart() ? new CartResource(Cart::getCart()) : [],
             ],
         ]);
     }
