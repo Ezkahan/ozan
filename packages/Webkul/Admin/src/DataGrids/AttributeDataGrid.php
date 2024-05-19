@@ -68,7 +68,7 @@ class AttributeDataGrid extends DataGrid
             'type'       => 'boolean',
             'sortable'   => true,
             'searchable' => false,
-            'wrapper'    => function($value) {
+            'wrapper'    => function ($value) {
                 if ($value->is_required == 1) {
                     return trans('admin::app.datagrid.true');
                 } else {
@@ -84,7 +84,7 @@ class AttributeDataGrid extends DataGrid
             'sortable'   => true,
             'searchable' => false,
             'filterable' => true,
-            'wrapper'    => function($value) {
+            'wrapper'    => function ($value) {
                 if ($value->is_unique == 1) {
                     return trans('admin::app.datagrid.true');
                 } else {
@@ -100,7 +100,7 @@ class AttributeDataGrid extends DataGrid
             'sortable'   => true,
             'searchable' => false,
             'filterable' => true,
-            'wrapper'    => function($value) {
+            'wrapper'    => function ($value) {
                 if ($value->value_per_locale == 1) {
                     return trans('admin::app.datagrid.true');
                 } else {
@@ -116,7 +116,7 @@ class AttributeDataGrid extends DataGrid
             'sortable'   => true,
             'searchable' => false,
             'filterable' => true,
-            'wrapper'    => function($value) {
+            'wrapper'    => function ($value) {
                 if ($value->value_per_channel == 1) {
                     return trans('admin::app.datagrid.true');
                 } else {

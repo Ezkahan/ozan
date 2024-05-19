@@ -660,7 +660,38 @@ return [
             'filterable-attributes' => 'Filterable Attributes',
             'attributes' => 'Attributes',
             'icon' => 'Icon'
+        ],
+
+        'brands' => [
+            'title' => 'Brands',
+            'add-title' => 'Add Brand',
+            'edit-title' => 'Edit Brand',
+            'save-btn-title' => 'Save Brand',
+            'general' => 'General',
+            'name' => 'Name',
+            'visible-in-menu' => 'Visible In Menu',
+            'yes' => 'Yes',
+            'no' => 'No',
+            'position' => 'Position',
+            'display-mode' => 'Display Mode',
+            'products-and-description' => 'Products and Description',
+            'products-only' => 'Products Only',
+            'description-only' => 'Description Only',
+            'description-and-images' => 'Description and Images',
+            'description' => 'Description',
+            'seo' => 'Search Engine Optimization',
+            'slug' => 'Slug',
+            'meta_title' => 'Meta Title',
+            'meta_description' => 'Meta Description',
+            'meta_keywords' => 'Meta Keywords',
+            'image' => 'Image',
+            'filterable-attributes' => 'Filterable Attributes',
+            'attributes' => 'Attributes',
+            'icon' => 'Icon'
         ]
+
+
+
     ],
 
     'configuration' => [
@@ -912,7 +943,7 @@ return [
     ],
 
     'customers' => [
-        'groups' =>[
+        'groups' => [
             'add-title' => 'Add Group',
             'edit-title' => 'Edit Group',
             'save-btn-title' => 'Save Group',
@@ -1478,6 +1509,6 @@ return [
             'accepted-currencies' => 'Accepted currencies',
             'accepted-currencies-info' => 'Add currency code comma seperated e.g. USD,INR,...',
             'buy-now-button-display' => 'Allow customers to directly buy products'
-       ]
+        ]
     ]
 ];

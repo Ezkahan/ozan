@@ -342,6 +342,14 @@ Route::group(['middleware' => ['web']], function () {
 
                 Route::post('/categories/product/count', 'Webkul\Category\Http\Controllers\CategoryController@categoryProductCount')->name('admin.catalog.categories.product.count');
 
+                // Brands Routes
+
+                Route::get('catalog/brands', 'Webkul\Attribute\Http\Controllers\BrandController@index')->name('admin.catalog.brands.index');
+                Route::get('catalog/brands/create', 'Webkul\Attribute\Http\Controllers\BrandController@create')->name('admin.catalog.brands.create');
+                Route::post('catalog/brands', 'Webkul\Attribute\Http\Controllers\BrandController@store')->name('admin.catalog.brands.store');
+                Route::get('catalog/brands/{id}/edit', 'Webkul\Attribute\Http\Controllers\BrandController@edit')->name('admin.catalog.brands.edit');
+                Route::put('catalog/brands/{id}', 'Webkul\Attribute\Http\Controllers\BrandController@update')->name('admin.catalog.brands.update');
+                Route::post('catalog/brands/delete/{id}', 'Webkul\Attribute\Http\Controllers\BrandController@destroy')->name('admin.catalog.brands.delete');
 
                 // Catalog Attribute Routes
                 Route::get('/attributes', 'Webkul\Attribute\Http\Controllers\AttributeController@index')->defaults('_config', [

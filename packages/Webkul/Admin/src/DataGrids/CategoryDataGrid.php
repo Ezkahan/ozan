@@ -14,11 +14,17 @@ class CategoryDataGrid extends DataGrid
     public function prepareQueryBuilder()
     {
         $queryBuilder = DB::table('categories as cat')
-            ->select('cat.id as category_id', 'ct.name', 'cat.position', 'cat.status', 'ct.locale',
-            DB::raw('COUNT(DISTINCT ' . DB::getTablePrefix() . 'pc.product_id) as count'))
-            ->leftJoin('category_translations as ct', function($leftJoin) {
+            ->select(
+                'cat.id as category_id',
+                'ct.name',
+                'cat.position',
+                'cat.status',
+                'ct.locale',
+                DB::raw('COUNT(DISTINCT ' . DB::getTablePrefix() . 'pc.product_id) as count')
+            )
+            ->leftJoin('category_translations as ct', function ($leftJoin) {
                 $leftJoin->on('cat.id', '=', 'ct.category_id')
-                         ->where('ct.locale', app()->getLocale());
+                    ->where('ct.locale', app()->getLocale());
             })
             ->leftJoin('product_categories as pc', 'cat.id', '=', 'pc.category_id')
             ->groupBy('cat.id');
@@ -66,7 +72,7 @@ class CategoryDataGrid extends DataGrid
             'sortable'   => true,
             'searchable' => true,
             'filterable' => true,
-            'wrapper'    => function($value) {
+            'wrapper'    => function ($value) {
                 if ($value->status == 1) {
                     return trans('admin::app.datagrid.active');
                 } else {
