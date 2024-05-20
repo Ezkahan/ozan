@@ -35,7 +35,7 @@ class BrandController extends Controller
     {
         $request->validate([
             'admin_name' => 'required|string|max:255',
-            'swatch_value' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Örnek validasyon, değiştirilebilir
+            'swatch_value' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'translations' => 'required|array',
             'translations.*' => 'string|max:255',
         ]);
@@ -85,14 +85,13 @@ class BrandController extends Controller
     {
         $request->validate([
             'admin_name' => 'required|string|max:255',
-            'swatch' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Uygun doğrulama kuralları
+            'swatch' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'translations' => 'required|array',
             'translations.*' => 'string|max:255',
         ]);
 
         $data = $request->all();
 
-        // Fotoğrafın yüklenmesi ve güncellenmesi
         if ($request->hasFile('swatch')) {
             $imagePath = $request->file('swatch')->store('brands', 'public');
             $data['swatch_value'] = $imagePath;
