@@ -1,26 +1,34 @@
 @section('css')
     @parent
     <style>
-        .table th.price, .table th.weight {
+        .table th.price,
+        .table th.weight {
             width: 100px;
         }
+
         .table th.actions {
             width: 85px;
         }
+
         .table td.actions .icon {
             margin-top: 8px;
         }
+
         .table td.actions .icon.pencil-lg-icon {
             margin-right: 10px;
         }
     </style>
 @stop
 
-{!! view_render_event('bagisto.admin.catalog.product.edit_form_accordian.customer_group_prices.before', ['product' => $product]) !!}
+{!! view_render_event('bagisto.admin.catalog.product.edit_form_accordian.customer_group_prices.before', [
+    'product' => $product,
+]) !!}
 
 <customer-group-price-list></customer-group-price-list>
 
-{!! view_render_event('bagisto.admin.catalog.product.edit_form_accordian.customer_group_prices.after', ['product' => $product]) !!}
+{!! view_render_event('bagisto.admin.catalog.product.edit_form_accordian.customer_group_prices.after', [
+    'product' => $product,
+]) !!}
 
 @push('scripts')
     @parent
@@ -46,6 +54,7 @@
                     </tbody>
 
                 </table>
+
 
                 <button type="button" class="btn btn-lg btn-primary" style="margin-top: 20px" @click="addCustomerGroupPrice()">
                     {{ __('admin::app.catalog.products.add-group-price') }}
@@ -89,6 +98,14 @@
                         <span class="control-error" v-if="errors.has(inputName + '[value]')">@{{ errors.first(inputName + '[value]') }}</span>
                     </div>
                 </div>
+
+                <div class="control-group">
+                    <div class="control-group" :class="[errors.has(inputName + '[value]') ? 'has-error' : '']">
+                        <input type="number" step=".01" v-validate="{required: true, min_value: 0, ...(customerGroupPrice.value_type === 'discount' ? {max_value: 100} : {})}" :name="[inputName + '[value]']" v-model="customerGroupPrice.value" class="control" data-vv-as="&quot;{{ __('admin::app.datagrid.price') }}&quot;"/>
+                        <span class="control-error" v-if="errors.has(inputName + '[value]')">@{{ errors.first(inputName + '[value]') }}</span>
+                    </div>
+                </div>
+
             </td>
 
             <td class="actions">
@@ -137,13 +154,13 @@
             inject: ['$validator'],
 
             mounted: function() {
-                if (! this.customerGroupPrice['customer_group_id']) {
+                if (!this.customerGroupPrice['customer_group_id']) {
                     this.customerGroupPrice['customer_group_id'] = '';
                 }
             },
 
             computed: {
-                inputName: function () {
+                inputName: function() {
                     if (this.customerGroupPrice.id) {
                         return 'customer_group_prices[' + this.customerGroupPrice.id + ']';
                     }
@@ -153,7 +170,7 @@
             },
 
             methods: {
-                removeCustomerGroupPrice: function () {
+                removeCustomerGroupPrice: function() {
                     this.$emit('onRemoveCustomerGroupPrice', this.customerGroupPrice)
                 }
             }

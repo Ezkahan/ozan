@@ -1,5 +1,7 @@
 <?php
 
+// use Illuminate\Routing\Route;
+
 Route::group(['middleware' => ['web']], function () {
     Route::prefix(config('app.admin_url'))->group(function () {
 
@@ -399,6 +401,19 @@ Route::group(['middleware' => ['web']], function () {
 
                 Route::post('/families/delete/{id}', 'Webkul\Attribute\Http\Controllers\AttributeFamilyController@destroy')->name('admin.catalog.families.delete');
             });
+
+
+            // Modal banner Routes
+            Route::prefix('modal_banner')->group(function () {
+                Route::get('/index', 'Webkul\Admin\Http\Controllers\ModalBannerController@index')->name('admin.banner.index');
+                Route::get('/create', 'Webkul\Admin\Http\Controllers\ModalBannerController@create')->name('admin.banner.create');
+                Route::post('/store', 'Webkul\Admin\Http\Controllers\ModalBannerController@store')->name('admin.banner.store');
+                Route::get('/{id}/edit', 'Webkul\Admin\Http\Controllers\ModalBannerController@edit')->name('admin.banner.edit');
+                Route::put('/update/{id}', 'Webkul\Admin\Http\Controllers\ModalBannerController@update')->name('admin.banner.update');
+                Route::post('/delete/{id}', 'Webkul\Admin\Http\Controllers\ModalBannerController@destroy')->name('admin.banner.delete');
+
+            });
+
 
             // User Routes
             //datagrid for backend users
