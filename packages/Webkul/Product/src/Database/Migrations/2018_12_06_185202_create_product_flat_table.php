@@ -29,6 +29,7 @@ class CreateProductFlatTable extends Migration
             $table->boolean('special_price')->nullable();
             $table->date('special_price_from')->nullable();
             $table->date('special_price_to')->nullable();
+            $table->decimal('order_limit', 8, 4)->nullable();
 
             $table->decimal('weight', 12, 4)->nullable();
             $table->integer('color')->nullable();

@@ -93,7 +93,7 @@ class BrandController extends Controller
         $data = $request->all();
 
         if ($request->hasFile('swatch')) {
-            $imagePath = $request->file('swatch')->store('brands', 'public');
+            $imagePath = $request->file('swatch')->store('attribute_option', 'public');
             $data['swatch_value'] = $imagePath;
         }
 
