@@ -436,7 +436,7 @@ class AkHasapController extends Controller
                     $warehouseID = $akhasap_product->spe_code1 == 'ashgabat' ? 1 : 2;
 
                     ProductInventory::updateOrCreate(
-                        ['product_id' => $product->id],
+                        ['product_id' => $product->id, 'inventory_source_id' => $warehouseID],
                         [
                             'qty' => $akhasap_product->wh_all ? $akhasap_product->wh_all : 0,
                             'inventory_source_id' => $warehouseID,
@@ -497,7 +497,7 @@ class AkHasapController extends Controller
                         ],
                     );
 
-                    $inventory = ProductInventory::updateOrCreate(['product_id' => $product->id], ['inventory_source_id' => $warehouseID, 'vendor_id' => 0, 'qty' => $akhasap_product->mat_whousetotal_amount]);
+                    $inventory = ProductInventory::updateOrCreate(['product_id' => $product->id, 'inventory_source_id' => $warehouseID], ['inventory_source_id' => $warehouseID, 'vendor_id' => 0, 'qty' => $akhasap_product->mat_whousetotal_amount]);
                 }
                 DB::commit();
                 return response()->json(['success' => true]);
