@@ -433,7 +433,7 @@ class AkHasapController extends Controller
                     );
 
                     // 1 = ashgabat,  2 = awaza
-                    $warehouseID = $akhasap_product->spe_code1 == 'ashgabat' ? 1 : 2;
+                    $warehouseID = $akhasap_product->spe_code1 == 'asgabat' ? 1 : 2;
 
                     ProductInventory::updateOrCreate(
                         ['product_id' => $product->id, 'inventory_source_id' => $warehouseID],
