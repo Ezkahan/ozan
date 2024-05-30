@@ -50,8 +50,12 @@ class CheckoutController extends Controller
      * @param  \Webkul\Checkout\Repositories\CartItemRepository  $cartItemRepository
      * @param  \Webkul\Sales\Repositories\OrderRepository  $orderRepository
      */
-    public function __construct(CartRepository $cartRepository, CartItemRepository $cartItemRepository, OrderRepository $orderRepository, OrderCommentRepository $commentRepository)
-    {
+    public function __construct(
+        CartRepository $cartRepository,
+        CartItemRepository $cartItemRepository,
+        OrderRepository $orderRepository,
+        OrderCommentRepository $commentRepository
+    ) {
         $this->guard = request()->has('token') ? 'api' : 'customer';
 
         auth()->setDefaultDriver($this->guard);
@@ -75,6 +79,7 @@ class CheckoutController extends Controller
      * @param  \Webkul\Checkout\Http\Requests\CustomerAddressForm $request
      * @return \Illuminate\Http\Response
      */
+     */
     public function saveAddress(CustomerAddressForm $request)
     {
         $data = request()->all();
@@ -93,16 +98,14 @@ class CheckoutController extends Controller
             unset($data['shipping']['address_id']);
         }
 
-        if (!isset($data['shipping']['address_id'])) {
-            return response()->json(
-                [
-                    'error' => 'shipping address id is required',
-                ],
-                400,
-            );
-        }
+        if (!isset($data['shipping']['address_id']))
+            return response()->json([
+                'error' => 'shipping address id is required'
+            ], 400);
+
 
         if (Cart::hasError() || !Cart::saveCustomerAddress($data) || !Shipping::collectRates()) {
+
             return response()->json([
                 'success' => false,
                 'message' => 'Korzina usarel. Pozhaluysta obnavite korzinu',
@@ -120,16 +123,13 @@ class CheckoutController extends Controller
 
         Cart::collectTotals();
 
-        return response()->json(
-            [
-                'data' => [
-                    'rates' => $rates,
-                    'methods' => Payment::getPaymentMethods(),
-                    'cart' => new CartResource(Cart::getCart()),
-                ],
-            ],
-            400,
-        );
+        return response()->json([
+            'data' => [
+                'rates' => $rates,
+                'methods' => Payment::getPaymentMethods(),
+                'cart'  => new CartResource(Cart::getCart()),
+            ]
+        ], 400);
     }
 
     /**
@@ -137,18 +137,21 @@ class CheckoutController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+     */
     public function saveShipping()
     {
         $shippingMethod = request()->get('shipping_method');
 
-        if (Cart::hasError() || !$shippingMethod || !Cart::saveShippingMethod($shippingMethod)) {
-            return response()->json(
-                [
-                    'success' => false,
-                    'message' => 'Korzina ustarel. Pozhaluysta obnavite korzinu',
-                ],
-                400,
-            );
+        if (
+            Cart::hasError()
+            || !$shippingMethod
+            || !Cart::saveShippingMethod($shippingMethod)
+        ) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Korzina ustarel. Pozhaluysta obnavite korzinu'
+
+            ], 400);
         }
 
         Cart::collectTotals();
@@ -166,18 +169,17 @@ class CheckoutController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+     */
     public function savePayment()
     {
         $payment = request()->get('payment');
 
         if (Cart::hasError() || !$payment || !Cart::savePaymentMethod($payment)) {
-            return response()->json(
-                [
-                    'success' => false,
-                    'message' => 'Korzina ustarel. Pozhaluysta obnavite korzinu',
-                ],
-                400,
-            );
+            return response()->json([
+                'success' => false,
+                'message' => 'Korzina ustarel. Pozhaluysta obnavite korzinu'
+
+            ], 400);
         }
 
         return response()->json([
@@ -204,6 +206,11 @@ class CheckoutController extends Controller
             //            'data' => [
             //                'cart'   => new CartResource($cart),
             //            ]
+            'status' => !$status ? false : true,
+            'message' => !$status ? trans('shop::app.checkout.cart.minimum-order-message', ['amount' => core()->currency($minimumOrderAmount)]) : 'Success',
+            //            'data' => [
+            //                'cart'   => new CartResource($cart),
+            //            ]
         ]);
     }
 
@@ -212,22 +219,22 @@ class CheckoutController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+     */
     public function saveOrder()
     {
         if (Cart::hasError()) {
-            return response()->json(
-                [
-                    'success' => false,
-                    'message' => 'Korzina ustarel. Pozhaluysta obnavite korzinu',
-                ],
-                400,
-            );
+            return response()->json([
+                'success' => false,
+                'message' => 'Korzina ustarel. Pozhaluysta obnavite korzinu'
+
+            ], 400);
         }
 
         Cart::collectTotals();
 
         try {
             app(OnepageController::class)->validateOrder();
+        } catch (Exception $ex) {
         } catch (Exception $ex) {
             return response()->json([
                 'success' => false,
@@ -238,22 +245,23 @@ class CheckoutController extends Controller
         $cart = Cart::getCart();
 
         if ($redirectUrl = Payment::getRedirectUrl($cart)) {
+
             try {
                 $payment_method = Payment::getPaymentMethod($cart);
-                $result = json_decode($payment_method->registerOrder(), true);
+                $result =  json_decode($payment_method->registerOrder(), true);
 
-                if ($result['response']['operationResult'] == 'OPG-00100' && ($orderId = $result['response']['orderId'])) {
+                if ($result['response']['operationResult'] == 'OPG-00100' && $orderId = $result['response']['orderId']) {
                     //                dd($result);
                     $payment_method->registerOrderId($orderId);
                     return response()->json(['status' => true, 'redirect_url' => $result['_links']['redirectToCheckout']['href']]);
-                } else {
-                    //if already registered or otkazana w dostupe
+                } else { //if already registered or otkazana w dostupe
 
                     return response()->json([
                         'success' => false,
                         'message' => $result['response']['operationResultDescription'],
                     ]);
                 }
+            } catch (\Exception $exception) {
             } catch (\Exception $exception) {
                 Log::error($exception);
                 return response()->json([
@@ -265,6 +273,8 @@ class CheckoutController extends Controller
 
         $order = $this->orderRepository->create(Cart::prepareDataForOrder());
 
+        if (request()->has('comment')) {
+            $this->commentRepository->create(['order_id' => $order->id, 'comment' => request('comment')]);
         if (request()->has('comment')) {
             $this->commentRepository->create(['order_id' => $order->id, 'comment' => request('comment')]);
         }
@@ -286,8 +296,10 @@ class CheckoutController extends Controller
         app(OnepageController::class)->validateOrder();
     }
 
+
     public function checkout()
     {
+
         $data = request()->all();
 
         $data['address']['billing']['address1'] = implode(PHP_EOL, array_filter($data['address']['billing']['address1']));
@@ -304,61 +316,65 @@ class CheckoutController extends Controller
             unset($data['address']['shipping']['address_id']);
         }
 
-        if (!isset($data['address']['shipping']['address_id'])) {
-            return response()->json(
-                [
-                    'error' => 'shipping address id is required',
-                ],
-                400,
-            );
-        }
+        if (!isset($data['address']['shipping']['address_id']))
+            return response()->json([
+                'error' => 'shipping address id is required'
+            ], 400);
+
+
 
         // DB::beginTransaction();
         // try {
         // Start Save Address
         if (Cart::hasError() || !Cart::saveCustomerAddress($data['address']) || !Shipping::collectRates()) {
+
             return response()->json([
                 'success' => false,
-                'message' => 'Korzina usarel. Pozhaluysta obnavite korzinu',
+                'message' => 'Korzina usarel. Pozhaluysta obnavite korzinu'
+
             ]);
         }
         // End Save Address
 
         // Start Save Shipping
+        // Start Save Shipping
 
+        $shippingMethod = $data['shipping_method'];
         $shippingMethod = $data['shipping_method'];
 
         if (Cart::hasError() || !$shippingMethod || !Cart::saveShippingMethod($shippingMethod)) {
-            return response()->json(
-                [
-                    'success' => false,
-                    'message' => 'Korzina ustarel. Pozhaluysta obnavite korzinu',
-                ],
-                400,
-            );
+            return response()->json([
+                'success' => false,
+                'message' => 'Korzina ustarel. Pozhaluysta obnavite korzinu'
+
+            ], 400);
         }
 
         Cart::collectTotals();
+        Cart::collectTotals();
 
+        // End Save Shipping
         // End Save Shipping
 
         // Start Save Payment
+        // Start Save Payment
 
+        $payment = $data['payment'];
         $payment = $data['payment'];
 
         if (Cart::hasError() || !$payment || !Cart::savePaymentMethod($payment)) {
-            return response()->json(
-                [
-                    'success' => false,
-                    'message' => 'Korzina ustarel. Pozhaluysta obnavite korzinu',
-                ],
-                400,
-            );
+            return response()->json([
+                'success' => false,
+                'message' => 'Korzina ustarel. Pozhaluysta obnavite korzinu'
+
+            ], 400);
         }
         // End Save Payment
 
         // Start Check Cupon
+        // Start Check Cupon
 
+        $couponCode = '';
         $couponCode = '';
         if (array_key_exists('code', $data)) {
             $couponCode = $data['code'];
@@ -373,21 +389,32 @@ class CheckoutController extends Controller
             }
         }
         // End Check Cupon
+        if (strlen($couponCode)) {
+            Cart::setCouponCode($couponCode)->collectTotals();
+            if (Cart::getCart()->coupon_code != $couponCode) {
+                return response()->json([
+                    'success' => false,
+                    'message' => trans('shop::app.checkout.total.invalid-coupon'),
+                ]);
+            }
+        }
+        // End Check Cupon
 
+        $minimumOrderAmount = (float) core()->getConfigData('sales.orderSettings.minimum-order.minimum_order_amount') ?? 0;
         $minimumOrderAmount = (float) core()->getConfigData('sales.orderSettings.minimum-order.minimum_order_amount') ?? 0;
 
         $status = Cart::checkMinimumOrder();
+        $status = Cart::checkMinimumOrder();
 
         if (Cart::hasError()) {
-            return response()->json(
-                [
-                    'success' => false,
-                    'message' => 'Korzina ustarel. Pozhaluysta obnavite korzinu',
-                ],
-                400,
-            );
+            return response()->json([
+                'success' => false,
+                'message' => 'Korzina ustarel. Pozhaluysta obnavite korzinu'
+
+            ], 400);
         }
 
+        Cart::collectTotals();
         Cart::collectTotals();
 
         try {
@@ -395,49 +422,56 @@ class CheckoutController extends Controller
         } catch (Exception $ex) {
             return response()->json([
                 'success' => false,
-                'message' => $ex->getMessage(),
+                'message' => $ex->getMessage()
+
             ]);
         }
 
         $cart = Cart::getCart();
+        $cart = Cart::getCart();
 
         if ($redirectUrl = Payment::getRedirectUrl($cart)) {
+
             try {
                 $payment_method = Payment::getPaymentMethod($cart);
-                $result = json_decode($payment_method->registerOrder(), true);
+                $result =  json_decode($payment_method->registerOrder(), true);
 
-                if ($result['response']['operationResult'] == 'OPG-00100' && ($orderId = $result['response']['orderId'])) {
+                if ($result['response']['operationResult'] == 'OPG-00100' && $orderId = $result['response']['orderId']) {
                     //                    dd($result);
                     $payment_method->registerOrderId($orderId);
                     return response()->json(['status' => true, 'redirect_url' => $result['_links']['redirectToCheckout']['href']]);
-                } else {
-                    //if already registered or otkazana w dostupe
+                } else { //if already registered or otkazana w dostupe
 
                     return response()->json([
                         'success' => false,
-                        'message' => $result['response']['operationResultDescription'],
+                        'message' => $result['response']['operationResultDescription']
                     ]);
                 }
             } catch (\Exception $exception) {
                 Log::error($exception);
                 return response()->json([
                     'success' => false,
-                    'message' => $exception->getMessage(),
+                    'message' => $exception->getMessage()
                 ]);
             }
         }
 
         $order = $this->orderRepository->create(Cart::prepareDataForOrder());
+        $order = $this->orderRepository->create(Cart::prepareDataForOrder());
 
+        if (array_key_exists('comment', $data)) {
+            $this->commentRepository->create(['order_id' => $order->id, 'comment' => $data['comment']]);
+        }
         if (array_key_exists('comment', $data)) {
             $this->commentRepository->create(['order_id' => $order->id, 'comment' => $data['comment']]);
         }
 
         Cart::deActivateCart();
+        Cart::deActivateCart();
 
         return response()->json([
             'success' => true,
-            'order' => new OrderResource($order),
+            'order'   => new OrderResource($order),
         ]);
 
         //     DB::commit();
@@ -449,6 +483,7 @@ class CheckoutController extends Controller
 
     public function method()
     {
+
         $customer = auth($this->guard)->user();
 
         // TODO bug
@@ -475,3 +510,4 @@ class CheckoutController extends Controller
         ]);
     }
 }
+

@@ -1,5 +1,7 @@
 <?php
 
+use Elasticsearch\Endpoints\AsyncSearch\Get;
+
 Route::group(['prefix' => 'api', 'middleware' => 'version'], function ($router) {
     Route::post('/akhasap_sync', [Webkul\Admin\Http\Controllers\AkhasapController::class, 'sync']);
 
@@ -156,6 +158,8 @@ Route::group(['prefix' => 'api', 'middleware' => 'version'], function ($router) 
             ])
             ->middleware('cacheResponse:3600');
 
+        //Modal banner routes
+        Route::get('banners', 'BannerController@index')->middleware('cacheResponse:1800');
         //Currency routes
         Route::get('currencies', 'ResourceController@index')
             ->defaults('_config', [
