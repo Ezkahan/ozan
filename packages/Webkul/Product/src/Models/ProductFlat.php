@@ -14,6 +14,8 @@ class ProductFlat extends Model implements ProductFlatContract
 
     protected $guarded = ['id', 'created_at', 'updated_at'];
 
+    protected $fillable = ['sku', 'type', 'name', 'status', 'price', 'cost', 'channel', 'short_description', 'description', 'product_number', 'location'];
+
     public $timestamps = false;
 
     /**
