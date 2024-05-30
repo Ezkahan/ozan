@@ -256,6 +256,7 @@ class AkHasapController extends Controller
                     ProductFlat::updateOrCreate(
                         ['product_id' => $product->id, 'locale' => 'tm', 'location' => 'asgabat'],
                         [
+                            'product_id' => $product->id,
                             'sku' => $sku,
                             'type' => 'simple',
                             'name' => $akhasap_product->mat_name_lang_tm,
@@ -272,6 +273,7 @@ class AkHasapController extends Controller
                     ProductFlat::updateOrCreate(
                         ['product_id' => $product->id, 'locale' => 'en', 'location' => 'asgabat'],
                         [
+                            'product_id' => $product->id,
                             'sku' => $sku,
                             'type' => 'simple',
                             'name' => $akhasap_product->mat_name_lang_en,
@@ -288,6 +290,7 @@ class AkHasapController extends Controller
                     ProductFlat::updateOrCreate(
                         ['product_id' => $product->id, 'locale' => 'ru', 'location' => 'asgabat'],
                         [
+                            'product_id' => $product->id,
                             'sku' => $sku,
                             'type' => 'simple',
                             'name' => $akhasap_product->mat_name_lang_ru,
@@ -305,6 +308,7 @@ class AkHasapController extends Controller
                     ProductFlat::updateOrCreate(
                         ['product_id' => $product->id, 'locale' => 'tm', 'location' => 'awaza'],
                         [
+                            'product_id' => $product->id,
                             'sku' => $sku,
                             'type' => 'simple',
                             'name' => $akhasap_product->mat_name_lang_tm,
@@ -321,6 +325,7 @@ class AkHasapController extends Controller
                     ProductFlat::updateOrCreate(
                         ['product_id' => $product->id, 'locale' => 'en', 'location' => 'awaza'],
                         [
+                            'product_id' => $product->id,
                             'sku' => $sku,
                             'type' => 'simple',
                             'name' => $akhasap_product->mat_name_lang_en,
@@ -337,6 +342,7 @@ class AkHasapController extends Controller
                     ProductFlat::updateOrCreate(
                         ['product_id' => $product->id, 'locale' => 'ru', 'location' => 'awaza'],
                         [
+                            'product_id' => $product->id,
                             'sku' => $sku,
                             'type' => 'simple',
                             'name' => $akhasap_product->mat_name_lang_ru,
