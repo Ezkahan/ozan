@@ -10,12 +10,7 @@ class ProductInventory extends Model implements ProductInventoryContract
 {
     public $timestamps = false;
 
-    protected $fillable = [
-        'qty',
-        'product_id',
-        'inventory_source_id',
-        'vendor_id',
-    ];
+    protected $fillable = ['qty', 'product_id', 'inventory_source_id', 'vendor_id', 'sale_price', 'purch_price'];
 
     /**
      * Get the product attribute family that owns the product.

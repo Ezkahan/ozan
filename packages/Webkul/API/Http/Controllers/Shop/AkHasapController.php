@@ -254,7 +254,8 @@ class AkHasapController extends Controller
                     }
 
                     ProductFlat::updateOrCreate(
-                        ['product_id' => $product->id, 'locale' => 'tm', 'location' => 'asgabat'],
+                        ['product_id' => $product->id, 'locale' => 'tm'],
+                        // ['product_id' => $product->id, 'locale' => 'tm', 'location' => 'asgabat'],
                         [
                             'product_id' => $product->id,
                             'sku' => $sku,
@@ -267,11 +268,12 @@ class AkHasapController extends Controller
                             'short_description' => $akhasap_product->material_description,
                             'description' => $akhasap_product->material_description1,
                             'product_number' => $akhasap_product->bar_barcode,
-                            'location' => $akhasap_product->spe_code1,
+                            // 'location' => $akhasap_product->spe_code1,
                         ],
                     );
                     ProductFlat::updateOrCreate(
-                        ['product_id' => $product->id, 'locale' => 'en', 'location' => 'asgabat'],
+                        ['product_id' => $product->id, 'locale' => 'en'],
+                        // ['product_id' => $product->id, 'locale' => 'en', 'location' => 'asgabat'],
                         [
                             'product_id' => $product->id,
                             'sku' => $sku,
@@ -284,11 +286,12 @@ class AkHasapController extends Controller
                             'short_description' => $akhasap_product->material_description_en,
                             'description' => $akhasap_product->material_description1_en,
                             'product_number' => $akhasap_product->bar_barcode,
-                            'location' => $akhasap_product->spe_code1,
+                            // 'location' => $akhasap_product->spe_code1,
                         ],
                     );
                     ProductFlat::updateOrCreate(
-                        ['product_id' => $product->id, 'locale' => 'ru', 'location' => 'asgabat'],
+                        ['product_id' => $product->id, 'locale' => 'ru'],
+                        // ['product_id' => $product->id, 'locale' => 'ru', 'location' => 'asgabat'],
                         [
                             'product_id' => $product->id,
                             'sku' => $sku,
@@ -301,61 +304,61 @@ class AkHasapController extends Controller
                             'short_description' => $akhasap_product->material_description_ru,
                             'description' => $akhasap_product->material_description1_ru,
                             'product_number' => $akhasap_product->bar_barcode,
-                            'location' => $akhasap_product->spe_code1,
+                            // 'location' => $akhasap_product->spe_code1,
                         ],
                     );
 
-                    ProductFlat::updateOrCreate(
-                        ['product_id' => $product->id, 'locale' => 'tm', 'location' => 'awaza'],
-                        [
-                            'product_id' => $product->id,
-                            'sku' => $sku,
-                            'type' => 'simple',
-                            'name' => $akhasap_product->mat_name_lang_tm,
-                            'status' => 1,
-                            'price' => $akhasap_product->mat_sale_price,
-                            'cost' => $akhasap_product->mat_purch_price,
-                            'channel' => 'default',
-                            'short_description' => $akhasap_product->material_description,
-                            'description' => $akhasap_product->material_description1,
-                            'product_number' => $akhasap_product->bar_barcode,
-                            'location' => $akhasap_product->spe_code1,
-                        ],
-                    );
-                    ProductFlat::updateOrCreate(
-                        ['product_id' => $product->id, 'locale' => 'en', 'location' => 'awaza'],
-                        [
-                            'product_id' => $product->id,
-                            'sku' => $sku,
-                            'type' => 'simple',
-                            'name' => $akhasap_product->mat_name_lang_en,
-                            'status' => 1,
-                            'price' => $akhasap_product->mat_sale_price,
-                            'cost' => $akhasap_product->mat_purch_price,
-                            'channel' => 'default',
-                            'short_description' => $akhasap_product->material_description_en,
-                            'description' => $akhasap_product->material_description1_en,
-                            'product_number' => $akhasap_product->bar_barcode,
-                            'location' => $akhasap_product->spe_code1,
-                        ],
-                    );
-                    ProductFlat::updateOrCreate(
-                        ['product_id' => $product->id, 'locale' => 'ru', 'location' => 'awaza'],
-                        [
-                            'product_id' => $product->id,
-                            'sku' => $sku,
-                            'type' => 'simple',
-                            'name' => $akhasap_product->mat_name_lang_ru,
-                            'status' => 1,
-                            'price' => $akhasap_product->mat_sale_price,
-                            'cost' => $akhasap_product->mat_purch_price,
-                            'channel' => 'default',
-                            'short_description' => $akhasap_product->material_description_ru,
-                            'description' => $akhasap_product->material_description1_ru,
-                            'product_number' => $akhasap_product->bar_barcode,
-                            'location' => $akhasap_product->spe_code1,
-                        ],
-                    );
+                    // ProductFlat::updateOrCreate(
+                    //     ['product_id' => $product->id, 'locale' => 'tm', 'location' => 'awaza'],
+                    //     [
+                    //         'product_id' => $product->id,
+                    //         'sku' => $sku,
+                    //         'type' => 'simple',
+                    //         'name' => $akhasap_product->mat_name_lang_tm,
+                    //         'status' => 1,
+                    //         'price' => $akhasap_product->mat_sale_price,
+                    //         'cost' => $akhasap_product->mat_purch_price,
+                    //         'channel' => 'default',
+                    //         'short_description' => $akhasap_product->material_description,
+                    //         'description' => $akhasap_product->material_description1,
+                    //         'product_number' => $akhasap_product->bar_barcode,
+                    //         'location' => $akhasap_product->spe_code1,
+                    //     ],
+                    // );
+                    // ProductFlat::updateOrCreate(
+                    //     ['product_id' => $product->id, 'locale' => 'en', 'location' => 'awaza'],
+                    //     [
+                    //         'product_id' => $product->id,
+                    //         'sku' => $sku,
+                    //         'type' => 'simple',
+                    //         'name' => $akhasap_product->mat_name_lang_en,
+                    //         'status' => 1,
+                    //         'price' => $akhasap_product->mat_sale_price,
+                    //         'cost' => $akhasap_product->mat_purch_price,
+                    //         'channel' => 'default',
+                    //         'short_description' => $akhasap_product->material_description_en,
+                    //         'description' => $akhasap_product->material_description1_en,
+                    //         'product_number' => $akhasap_product->bar_barcode,
+                    //         'location' => $akhasap_product->spe_code1,
+                    //     ],
+                    // );
+                    // ProductFlat::updateOrCreate(
+                    //     ['product_id' => $product->id, 'locale' => 'ru', 'location' => 'awaza'],
+                    //     [
+                    //         'product_id' => $product->id,
+                    //         'sku' => $sku,
+                    //         'type' => 'simple',
+                    //         'name' => $akhasap_product->mat_name_lang_ru,
+                    //         'status' => 1,
+                    //         'price' => $akhasap_product->mat_sale_price,
+                    //         'cost' => $akhasap_product->mat_purch_price,
+                    //         'channel' => 'default',
+                    //         'short_description' => $akhasap_product->material_description_ru,
+                    //         'description' => $akhasap_product->material_description1_ru,
+                    //         'product_number' => $akhasap_product->bar_barcode,
+                    //         'location' => $akhasap_product->spe_code1,
+                    //     ],
+                    // );
 
                     ProductAttributeValue::updateOrCreate(
                         ['product_id' => $product->id, 'attribute_id' => 2, 'locale' => 'tm'],
@@ -447,6 +450,8 @@ class AkHasapController extends Controller
                             'qty' => $akhasap_product->wh_all ? $akhasap_product->wh_all : 0,
                             'inventory_source_id' => $warehouseID,
                             'product_id' => $product->id,
+                            'sale_price' => $akhasap_product->mat_sale_price,
+                            'purch_price' => $akhasap_product->mat_purch_price,
                         ],
                     );
 
@@ -503,7 +508,17 @@ class AkHasapController extends Controller
                         ],
                     );
 
-                    $inventory = ProductInventory::updateOrCreate(['product_id' => $product->id, 'inventory_source_id' => $warehouseID], ['inventory_source_id' => $warehouseID, 'vendor_id' => 0, 'qty' => $akhasap_product->mat_whousetotal_amount]);
+                    $inventory = ProductInventory::updateOrCreate(
+                        ['product_id' => $product->id, 'inventory_source_id' => $warehouseID],
+                        [
+                            'qty' => $akhasap_product->wh_all ? $akhasap_product->wh_all : 0,
+                            'inventory_source_id' => $warehouseID,
+                            'product_id' => $product->id,
+                            'vendor_id' => 0,
+                            'sale_price' => $akhasap_product->mat_sale_price,
+                            'purch_price' => $akhasap_product->mat_purch_price,
+                        ],
+                    );
                 }
                 DB::commit();
                 return response()->json(['success' => true]);
