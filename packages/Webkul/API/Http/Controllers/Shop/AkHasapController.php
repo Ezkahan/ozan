@@ -254,11 +254,11 @@ class AkHasapController extends Controller
                         Log::error('akhasap product categories not attached');
                     }
 
-                    ProductFlat::updateOrCreate(
-                        ['product_id' => $product->id, 'locale' => 'tm'],
+                    $product->updateOrCreate(
+                        ['locale' => 'tm'],
                         // ['product_id' => $product->id, 'locale' => 'tm', 'location' => 'asgabat'],
                         [
-                            'product_id' => $product->id,
+                            // 'product_id' => $product->id,
                             'sku' => $sku,
                             'type' => 'simple',
                             'name' => $akhasap_product->mat_name_lang_tm,
@@ -272,11 +272,11 @@ class AkHasapController extends Controller
                             // 'location' => $akhasap_product->spe_code1,
                         ],
                     );
-                    ProductFlat::updateOrCreate(
-                        ['product_id' => $product->id, 'locale' => 'en'],
+                    $product->updateOrCreate(
+                        ['locale' => 'en'],
                         // ['product_id' => $product->id, 'locale' => 'en', 'location' => 'asgabat'],
                         [
-                            'product_id' => $product->id,
+                            // 'product_id' => $product->id,
                             'sku' => $sku,
                             'type' => 'simple',
                             'name' => $akhasap_product->mat_name_lang_en,
@@ -290,11 +290,11 @@ class AkHasapController extends Controller
                             // 'location' => $akhasap_product->spe_code1,
                         ],
                     );
-                    ProductFlat::updateOrCreate(
-                        ['product_id' => $product->id, 'locale' => 'ru'],
+                    $product->updateOrCreate(
+                        ['locale' => 'ru'],
                         // ['product_id' => $product->id, 'locale' => 'ru', 'location' => 'asgabat'],
                         [
-                            'product_id' => $product->id,
+                            // 'product_id' => $product->id,
                             'sku' => $sku,
                             'type' => 'simple',
                             'name' => $akhasap_product->mat_name_lang_ru,
