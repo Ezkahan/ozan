@@ -254,7 +254,7 @@ class AkHasapController extends Controller
                         Log::error('akhasap product categories not attached');
                     }
 
-                    $product->updateOrCreate(
+                    $product->product_flats()->updateOrCreate(
                         ['locale' => 'tm'],
                         // ['product_id' => $product->id, 'locale' => 'tm', 'location' => 'asgabat'],
                         [
@@ -272,7 +272,7 @@ class AkHasapController extends Controller
                             // 'location' => $akhasap_product->spe_code1,
                         ],
                     );
-                    $product->updateOrCreate(
+                    $product->product_flats()->updateOrCreate(
                         ['locale' => 'en'],
                         // ['product_id' => $product->id, 'locale' => 'en', 'location' => 'asgabat'],
                         [
@@ -290,7 +290,7 @@ class AkHasapController extends Controller
                             // 'location' => $akhasap_product->spe_code1,
                         ],
                     );
-                    $product->updateOrCreate(
+                    $product->product_flats()->updateOrCreate(
                         ['locale' => 'ru'],
                         // ['product_id' => $product->id, 'locale' => 'ru', 'location' => 'asgabat'],
                         [
