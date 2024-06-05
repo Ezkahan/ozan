@@ -227,7 +227,7 @@ class AkHasapController extends Controller
             //material_name
             //material_code
             //material_id
-            //wh_all
+            //mat_whousetotal_amount
             //mat_whousetotal_amount
             $products = json_decode($request->getContent());
 
@@ -448,7 +448,7 @@ class AkHasapController extends Controller
                     ProductInventory::updateOrCreate(
                         ['product_id' => $product->id, 'inventory_source_id' => $warehouseID],
                         [
-                            'qty' => $akhasap_product->wh_all ? $akhasap_product->wh_all : 0,
+                            'qty' => $akhasap_product->mat_whousetotal_amount ? $akhasap_product->mat_whousetotal_amount : 0,
                             'inventory_source_id' => $warehouseID,
                             'product_id' => $product->id,
                             'sale_price' => $akhasap_product->mat_sale_price,
@@ -512,7 +512,7 @@ class AkHasapController extends Controller
                     $inventory = ProductInventory::updateOrCreate(
                         ['product_id' => $product->id, 'inventory_source_id' => $warehouseID],
                         [
-                            'qty' => $akhasap_product->wh_all ? $akhasap_product->wh_all : 0,
+                            'qty' => $akhasap_product->mat_whousetotal_amount ? $akhasap_product->mat_whousetotal_amount : 0,
                             'inventory_source_id' => $warehouseID,
                             'product_id' => $product->id,
                             'vendor_id' => 0,
