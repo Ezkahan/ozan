@@ -259,9 +259,7 @@ Route::group(['middleware' => ['web']], function () {
                 Route::get('/sync', 'Webkul\Product\Http\Controllers\ProductController@sync');
 
                 // Catalog Product Routes
-                Route::get('/products', 'Webkul\Product\Http\Controllers\ProductController@index')->defaults('_config', [
-                    'view' => 'admin::catalog.products.index',
-                ])->name('admin.catalog.products.index');
+                Route::get('/products', 'Webkul\Product\Http\Controllers\ProductController@index')->name('admin.catalog.products.index');
 
                 Route::get('/products/create', 'Webkul\Product\Http\Controllers\ProductController@create')->defaults('_config', [
                     'view' => 'admin::catalog.products.create',
@@ -286,6 +284,9 @@ Route::group(['middleware' => ['web']], function () {
                 Route::post('/products/upload-file/{id}', 'Webkul\Product\Http\Controllers\ProductController@uploadLink')->name('admin.catalog.products.upload_link');
 
                 Route::post('/products/upload-sample/{id}', 'Webkul\Product\Http\Controllers\ProductController@uploadSample')->name('admin.catalog.products.upload_sample');
+
+                //Product search
+                Route::get('/products/searc', 'Webkul\Product\Http\Controllers\ProductController@search')->name('admin.catalog.products.search');
 
                 //product delete
                 Route::post('/products/delete/{id}', 'Webkul\Product\Http\Controllers\ProductController@destroy')->name('admin.catalog.products.delete');
@@ -411,7 +412,6 @@ Route::group(['middleware' => ['web']], function () {
                 Route::get('/{id}/edit', 'Webkul\Admin\Http\Controllers\ModalBannerController@edit')->name('admin.banner.edit');
                 Route::put('/update/{id}', 'Webkul\Admin\Http\Controllers\ModalBannerController@update')->name('admin.banner.update');
                 Route::post('/delete/{id}', 'Webkul\Admin\Http\Controllers\ModalBannerController@destroy')->name('admin.banner.delete');
-
             });
 
 

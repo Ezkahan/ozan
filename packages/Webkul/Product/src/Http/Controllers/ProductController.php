@@ -3,6 +3,8 @@
 namespace Webkul\Product\Http\Controllers;
 
 use Exception;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Webkul\Product\Models\Product;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Storage;
@@ -107,6 +109,53 @@ class ProductController extends Controller
         $this->productAttributeValueRepository = $productAttributeValueRepository;
     }
 
+
+    public function search(Request $request)
+    {
+        $query = $request->input('query');
+
+        $products = DB::table('products')
+            ->leftJoin('product_flat', 'products.id', '=', 'product_flat.product_id')
+            ->leftJoin('attribute_families', 'products.attribute_family_id', '=', 'attribute_families.id')
+            ->leftJoin('product_inventories', 'product_flat.product_id', '=', 'product_inventories.product_id')
+            ->select(
+                'products.id',
+                'product_flat.locale',
+                'product_flat.channel',
+                'product_flat.product_id',
+                'products.sku',
+                'product_flat.product_number',
+                'product_flat.name',
+                'products.type',
+                'product_flat.status',
+                'product_flat.price',
+                'attribute_families.name as attribute_family',
+                // DB::raw('SUM(DISTINCT ' . DB::getTablePrefix() . 'product_inventories.qty) as quantity')
+            )
+            ->where('product_flat.name', 'LIKE', "%$query%")
+            ->orWhere('product_flat.sku', 'LIKE', "%$query%")
+            ->orWhere('product_flat.price', 'LIKE', "%$query%")
+            ->get();
+
+        $products->groupBy('product_flat.product_id', 'product_flat.locale', 'product_flat.channel');
+
+
+        // dd($query);
+        // $products = $this->productRepository->where('name', 'LIKE', "%$query%")
+        //     ->orWhere('sku', 'LIKE', "%$query%")
+        //     ->orWhere('price', 'LIKE', "%$query%")
+        //     ->get();
+
+        // $products = $this->productRepository->searchProductByAttribute(request()->input('query'))->get();
+
+        // $products = [];
+        // foreach ($queryBuilder->get() as $row) {
+        //     $products[] = $row;
+        // }
+        // dd($products);
+        return view('admin::catalog.products.index', compact('products', 'query'));
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -114,7 +163,32 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return view($this->_config['view']);
+        $products = $this->productRepository->paginate(50);
+
+        // $products = DB::table('product_flat')
+        //     ->leftJoin('products', 'product_flat.product_id', '=', 'products.id')
+        //     ->leftJoin('attribute_families', 'products.attribute_family_id', '=', 'attribute_families.id')
+        //     ->leftJoin('product_inventories', 'product_flat.product_id', '=', 'product_inventories.product_id')
+        //     ->select(
+        //         'products.id',
+        //         'product_flat.locale',
+        //         'product_flat.channel',
+        //         'product_flat.product_id',
+        //         'products.sku',
+        //         'product_flat.product_number',
+        //         'product_flat.name',
+        //         'products.type',
+        //         'product_flat.status',
+        //         'product_flat.price',
+        //         'attribute_families.name as attribute_family',
+        //         DB::raw('SUM(DISTINCT ' . DB::getTablePrefix() . 'product_inventories.qty) as quantity')
+        //     )
+        //     ->paginate(50);
+
+
+        // dd($products);
+        return view('admin::catalog.products.index', compact('products'));
+        // return view($this->_config['view']);
     }
 
     /**
@@ -299,6 +373,7 @@ class ProductController extends Controller
 
             session()->flash('success', trans('admin::app.response.delete-success', ['name' => 'Product']));
 
+            return back();
             return response()->json(['message' => true], 200);
         } catch (Exception $e) {
             report($e);
