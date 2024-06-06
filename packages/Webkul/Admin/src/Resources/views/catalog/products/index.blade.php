@@ -3,7 +3,16 @@
 @section('page_title')
     {{ __('admin::app.catalog.products.title') }}
 @stop
+<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
 
+    tr {
+        border-bottom: 1px solid #ddd;
+    }
+</style>
 
 @section('content')
     <div class="content" style="height: 100%;">
@@ -49,17 +58,17 @@
 
         <div class="page-content">
             <div class="table-responsive">
-                <table id="mytable" class="table table-bordred table-striped">
+                <table id="mytable" class="table table-striped">
                     <thead>
-                        <th style="text-align: left;">ID</th>
-                        <th style="text-align: left;">SKU</th>
-                        <th style="text-align: left;">Product number</th>
-                        <th style="text-align: left;">Name</th>
-                        <th style="text-align: left;">Type</th>
-                        <th style="text-align: left;">Status</th>
-                        <th style="text-align: left;">Price</th>
-                        <th style="text-align: left;">Quantity</th>
-                        <th style="text-align: left;">Actions</th>
+                        <th style="text-align: left; border-bottom: 1px solid #ddd;">ID</th>
+                        <th style="text-align: left; border-bottom: 1px solid #ddd; ">SKU</th>
+                        <th style="text-align: left; border-bottom: 1px solid #ddd;">Product number</th>
+                        <th style="text-align: left; border-bottom: 1px solid #ddd; width: 33%;">Name</th>
+                        {{-- <th style="text-align: left; border-bottom: 1px solid #ddd;">Type</th> --}}
+                        <th style="text-align: left; border-bottom: 1px solid #ddd;">Status</th>
+                        <th style="text-align: left; border-bottom: 1px solid #ddd;">Price</th>
+                        <th style="text-align: left; border-bottom: 1px solid #ddd;">Quantity</th>
+                        <th style="text-align: left; border-bottom: 1px solid #ddd;">Actions</th>
                     </thead>
                     <tbody>
                         @if (isset($products))
@@ -77,9 +86,9 @@
                                     <td>
                                         {{ $product->name }}
                                     </td>
-                                    <td>
+                                    {{-- <td>
                                         {{ $product->type }}
-                                    </td>
+                                    </td> --}}
                                     <td>
                                         <p>
                                             @if ($product->status == 1)

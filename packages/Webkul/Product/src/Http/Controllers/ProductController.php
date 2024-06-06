@@ -121,7 +121,6 @@ class ProductController extends Controller
             ->join('product_flat', 'products.id', '=', 'product_flat.product_id')
             ->join('attribute_families', 'products.attribute_family_id', '=', 'attribute_families.id')
             ->join('product_inventories', 'products.id', '=', 'product_inventories.product_id')
-            ->where('product_inventories.inventory_source_id', '=', $location)
             ->select(
                 'products.sku',
                 'products.id',
@@ -130,19 +129,21 @@ class ProductController extends Controller
                 'product_flat.product_id',
                 'product_flat.product_number',
                 'product_flat.name',
-                'products.type',
                 'product_flat.status',
                 'product_flat.price',
                 'attribute_families.name as attribute_family',
-                'product_inventories.inventory_source_id',
+                'product_inventories.inventory_source_id as location',
                 'product_inventories.qty as quantity'
             )
             ->distinct(['products.sku', 'products.id'])
             ->where('product_flat.name', 'LIKE', "%$query%")
             ->orWhere('product_flat.sku', 'LIKE', "%$query%")
             ->orWhere('product_flat.price', 'LIKE', "%$query%")
+            ->orWhere('product_flat.product_number', 'LIKE', "%$query%")
             ->orderByDesc('products.id');
 
+
+        $queryBuilder->where('location', $location);
         // dd($queryBuilder->toSql());
 
         $products_count = $queryBuilder->count();
