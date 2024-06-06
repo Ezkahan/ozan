@@ -10,6 +10,7 @@
         <div class="page-header">
             <div class="page-title">
                 <h1>{{ __('admin::app.catalog.products.title') }}</h1>
+                <p>Jemi: {{ $products_count }} önüm</p>
             </div>
 
             <div class="page-action row">
@@ -28,17 +29,18 @@
 
         <div class="">
             <form method="GET" action="{{ route('admin.catalog.products.search') }}">
-                <div class="control-group row">
-                    <input type="text" name="query" class="control" placeholder="Gözle..."
+                <div class="control-group d-inline-flex flex-row">
+
+                    <input type="text" name="query" class="control" placeholder="Gözle..." style="width: 20%;"
                         value="{{ request()->input('query') }}" />
 
-                    <select name="location" id="" class="control">
+                    <select name="location" id="" class="control" style="width: 20%;">
                         <option value="">Ählisi</option>
                         <option value="1">Aşgabat</option>
                         <option value="2">Awaza</option>
                     </select>
 
-                    <button type="submit" class="btn btn-primary">
+                    <button type="submit" class="btn btn-lg btn-primary">
                         Gözleg
                     </button>
                 </div>
@@ -56,7 +58,6 @@
                         <th>Type</th>
                         <th>Status</th>
                         <th>Price</th>
-                        {{-- <th>Quantity</th> --}}
                         <th>Actions</th>
                     </thead>
                     <tbody>
@@ -91,13 +92,6 @@
                                     <td>
                                         {!! $product->price !!}
                                     </td>
-                                    {{-- <td>
-                                        @if (is_null($product->quantity))
-                                            0
-                                        @else
-                                            {{ $product->quantity }}
-                                        @endif
-                                    </td> --}}
                                     <td class="row">
                                         <a href="{{ route('admin.catalog.products.edit', $product->id) }}">
                                             <i class="icon pencil-lg-icon"></i>
@@ -136,16 +130,16 @@
 
     </div>
 
-    {{-- <modal id="downloadDataGrid" :is-open="modalIds.downloadDataGrid">
+    <modal id="downloadDataGrid" :is-open="modalIds.downloadDataGrid">
         <h3 slot="header">{{ __('admin::app.export.download') }}</h3>
         <div slot="body">
             <export-form></export-form>
         </div>
-    </modal> --}}
+    </modal>
 @stop
 
 @push('scripts')
-    {{-- @include('admin::export.export', ['gridName' => $products]) --}}
+    @include('admin::export.export', ['gridName' => $products])
     <script>
         function reloadPage(getVar, getVal) {
             let url = new URL(window.location.href);

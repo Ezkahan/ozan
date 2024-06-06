@@ -115,6 +115,8 @@ class ProductController extends Controller
         $query = $request->input('query');
         $location = $request->input('location');
 
+        // dd($location);
+
         $products = DB::table('products')
             ->leftJoin('product_flat', 'products.id', '=', 'product_flat.product_id')
             ->leftJoin('attribute_families', 'products.attribute_family_id', '=', 'attribute_families.id')
@@ -131,8 +133,10 @@ class ProductController extends Controller
                 'product_flat.status',
                 'product_flat.price',
                 'attribute_families.name as attribute_family',
+                'product_inventories.inventory_source_id'
                 // DB::raw('SUM(DISTINCT ' . DB::getTablePrefix() . 'product_inventories.qty) as quantity')
             )
+            // ->where('product_inventories.inventory_source_id', $location)
             ->where('product_flat.name', 'LIKE', "%$query%")
             ->orWhere('product_flat.sku', 'LIKE', "%$query%")
             ->orWhere('product_flat.price', 'LIKE', "%$query%")
@@ -154,7 +158,9 @@ class ProductController extends Controller
         //     $products[] = $row;
         // }
         // dd($products);
-        return view('admin::catalog.products.index', compact('products', 'query'));
+
+        $products_count = $products->count();
+        return view('admin::catalog.products.index', compact('products', 'query', 'products_count'));
     }
 
     /**
@@ -187,8 +193,10 @@ class ProductController extends Controller
         //     ->paginate(50);
 
 
-        // dd($products);
-        return view('admin::catalog.products.index', compact('products'));
+        $products_count = $this->productRepository->all()->count();
+        // dd($products->count());
+
+        return view('admin::catalog.products.index', compact('products', 'products_count'));
         // return view($this->_config['view']);
     }
 

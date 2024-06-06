@@ -21,6 +21,8 @@ class CreateProductInventoriesTable extends Migration
             $table->integer('vendor_id')->unsigned();
             $table->double('purch_price')->nullable();
             $table->double('sale_price')->nullable();
+            $table->double('purch_price')->nullable();
+            $table->double('sale_price')->nullable();
             $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
             $table->foreign('inventory_source_id')->references('id')->on('inventory_sources')->onDelete('cascade');
         });
