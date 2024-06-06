@@ -120,7 +120,8 @@ class ProductController extends Controller
         $queryBuilder = DB::table('products')
             ->join('product_flat', 'products.id', '=', 'product_flat.product_id')
             ->join('attribute_families', 'products.attribute_family_id', '=', 'attribute_families.id')
-            ->join('product_inventories', 'product_flat.product_id', '=', 'product_inventories.product_id')
+            ->join('product_inventories', 'products.id', '=', 'product_inventories.product_id')
+            ->where('product_inventories.inventory_source_id', '=', $location)
             ->select(
                 'products.sku',
                 'products.id',
@@ -137,11 +138,12 @@ class ProductController extends Controller
                 'product_inventories.qty as quantity'
             )
             ->distinct(['products.sku', 'products.id'])
-            // ->where('product_inventories.inventory_source_id', $location)
-            ->orwhere('product_flat.name', 'LIKE', "%$query%")
+            ->where('product_flat.name', 'LIKE', "%$query%")
             ->orWhere('product_flat.sku', 'LIKE', "%$query%")
             ->orWhere('product_flat.price', 'LIKE', "%$query%")
             ->orderByDesc('products.id');
+
+        // dd($queryBuilder->toSql());
 
         $products_count = $queryBuilder->count();
         $queryBuilder->groupBy('products.sku');
