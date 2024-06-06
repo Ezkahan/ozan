@@ -117,50 +117,37 @@ class ProductController extends Controller
 
         // dd($location);
 
-        $products = DB::table('products')
-            ->leftJoin('product_flat', 'products.id', '=', 'product_flat.product_id')
-            ->leftJoin('attribute_families', 'products.attribute_family_id', '=', 'attribute_families.id')
-            ->leftJoin('product_inventories', 'product_flat.product_id', '=', 'product_inventories.product_id')
+        $queryBuilder = DB::table('products')
+            ->join('product_flat', 'products.id', '=', 'product_flat.product_id')
+            ->join('attribute_families', 'products.attribute_family_id', '=', 'attribute_families.id')
+            ->join('product_inventories', 'product_flat.product_id', '=', 'product_inventories.product_id')
             ->select(
+                'products.sku',
                 'products.id',
                 'product_flat.locale',
                 'product_flat.channel',
                 'product_flat.product_id',
-                'products.sku',
                 'product_flat.product_number',
                 'product_flat.name',
                 'products.type',
                 'product_flat.status',
                 'product_flat.price',
                 'attribute_families.name as attribute_family',
-                'product_inventories.inventory_source_id'
-                // DB::raw('SUM(DISTINCT ' . DB::getTablePrefix() . 'product_inventories.qty) as quantity')
+                'product_inventories.inventory_source_id',
+                'product_inventories.qty as quantity'
             )
+            ->distinct(['products.sku', 'products.id'])
             // ->where('product_inventories.inventory_source_id', $location)
-            ->where('product_flat.name', 'LIKE', "%$query%")
+            ->orwhere('product_flat.name', 'LIKE', "%$query%")
             ->orWhere('product_flat.sku', 'LIKE', "%$query%")
             ->orWhere('product_flat.price', 'LIKE', "%$query%")
-            ->get();
+            ->orderByDesc('products.id');
 
-        $products->groupBy('product_flat.product_id', 'product_flat.locale', 'product_flat.channel');
+        $products_count = $queryBuilder->count();
+        $queryBuilder->groupBy('products.sku');
+        $products = $queryBuilder->paginate(50);
 
-
-        // dd($query);
-        // $products = $this->productRepository->where('name', 'LIKE', "%$query%")
-        //     ->orWhere('sku', 'LIKE', "%$query%")
-        //     ->orWhere('price', 'LIKE', "%$query%")
-        //     ->get();
-
-        // $products = $this->productRepository->searchProductByAttribute(request()->input('query'))->get();
-
-        // $products = [];
-        // foreach ($queryBuilder->get() as $row) {
-        //     $products[] = $row;
-        // }
-        // dd($products);
-
-        $products_count = $products->count();
-        return view('admin::catalog.products.index', compact('products', 'query', 'products_count'));
+        return view('admin::catalog.products.index', compact('products', 'query', 'products_count', 'location'));
     }
 
     /**

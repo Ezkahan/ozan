@@ -36,8 +36,8 @@
 
                     <select name="location" id="" class="control" style="width: 20%;">
                         <option value="">Ählisi</option>
-                        <option value="1">Aşgabat</option>
-                        <option value="2">Awaza</option>
+                        <option value="1" @if (isset($location) && $location == 1) selected @endif>Aşgabat</option>
+                        <option value="2" @if (isset($location) && $location == 2) selected @endif>Awaza</option>
                     </select>
 
                     <button type="submit" class="btn btn-lg btn-primary">
@@ -58,6 +58,7 @@
                         <th>Type</th>
                         <th>Status</th>
                         <th>Price</th>
+                        <th>Quantity</th>
                         <th>Actions</th>
                     </thead>
                     <tbody>
@@ -90,8 +91,9 @@
 
                                     </td>
                                     <td>
-                                        {!! $product->price !!}
+                                        {{ sprintf('%0.2f', $product->price) . ' TMT' }}
                                     </td>
+                                    <td>{{ $product->quantity }}</td>
                                     <td class="row">
                                         <a href="{{ route('admin.catalog.products.edit', $product->id) }}">
                                             <i class="icon pencil-lg-icon"></i>
@@ -111,9 +113,7 @@
                         @endif
                     </tbody>
                 </table>
-                @if (!isset($query))
-                    {!! $products->links() !!}
-                @endif
+                {!! $products->links() !!}
             </div>
         </div>
 
