@@ -17,8 +17,7 @@ return [
             'sort' => 3,
             'icon-class' => 'catalog-icon',
         ],
-
     ],
 
-    'customer' => []
+    'customer' => [],
 ];

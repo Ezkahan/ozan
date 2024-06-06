@@ -15,9 +15,7 @@ class BrandController extends Controller
     public function __construct(BrandRepository $brandRepository)
     {
         $this->brandRepository = $brandRepository;
-        $this->attribute_id = DB::table('attributes')
-            ->select('attributes.id')
-            ->where('code', '=', 'brand')->first();
+        $this->attribute_id = DB::table('attributes')->select('attributes.id')->where('code', '=', 'brand')->first();
     }
 
     public function index()
@@ -41,7 +39,6 @@ class BrandController extends Controller
         ]);
 
         $data = $request->all();
-
 
         // dd($data);
         if ($request->hasFile('swatch')) {
@@ -73,10 +70,7 @@ class BrandController extends Controller
     {
         $brand = $this->brandRepository->find($id);
 
-        $translations = DB::table('attribute_option_translations')
-            ->where('attribute_option_id', $id)
-            ->pluck('label', 'locale')
-            ->toArray();
+        $translations = DB::table('attribute_option_translations')->where('attribute_option_id', $id)->pluck('label', 'locale')->toArray();
 
         return view('admin::catalog.brands.edit', compact('brand', 'translations'));
     }
@@ -97,10 +91,13 @@ class BrandController extends Controller
             $data['swatch_value'] = $imagePath;
         }
 
-        $this->brandRepository->update([
-            'admin_name' => $data['admin_name'],
-            'swatch_value' => $data['swatch_value'],
-        ], $id);
+        $this->brandRepository->update(
+            [
+                'admin_name' => $data['admin_name'],
+                'swatch_value' => $data['swatch_value'],
+            ],
+            $id,
+        );
 
         foreach ($data['translations'] as $locale => $translation) {
             DB::table('attribute_option_translations')->updateOrInsert(
@@ -110,7 +107,7 @@ class BrandController extends Controller
                 ],
                 [
                     'label' => $translation,
-                ]
+                ],
             );
         }
 
