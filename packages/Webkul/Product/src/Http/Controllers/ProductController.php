@@ -113,6 +113,7 @@ class ProductController extends Controller
     public function search(Request $request)
     {
         $query = $request->input('query');
+        $location = $request->input('location');
 
         $products = DB::table('products')
             ->leftJoin('product_flat', 'products.id', '=', 'product_flat.product_id')

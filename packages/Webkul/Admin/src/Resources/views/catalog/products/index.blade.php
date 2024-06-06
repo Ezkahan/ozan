@@ -26,22 +26,23 @@
             </div>
         </div>
 
-        <div class="row">
+        <div class="">
             <form method="GET" action="{{ route('admin.catalog.products.search') }}">
-                <div class="control-group col-md-4">
+                <div class="control-group row">
                     <input type="text" name="query" class="control" placeholder="Gözle..."
                         value="{{ request()->input('query') }}" />
+
+                    <select name="location" id="" class="control">
+                        <option value="">Ählisi</option>
+                        <option value="1">Aşgabat</option>
+                        <option value="2">Awaza</option>
+                    </select>
+
                     <button type="submit" class="btn btn-primary">
                         Gözleg
                     </button>
                 </div>
             </form>
-            {{-- <div class="control-group">
-                <select name="" id="" class="control">
-                    <option value="">Aşgabat</option>
-                    <option value="">Awaza</option>
-                </select>
-            </div> --}}
         </div>
 
         <div class="page-content">
