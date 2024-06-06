@@ -51,15 +51,15 @@
             <div class="table-responsive">
                 <table id="mytable" class="table table-bordred table-striped">
                     <thead>
-                        <th>ID</th>
-                        <th>SKU</th>
-                        <th>Product number</th>
-                        <th>Name</th>
-                        <th>Type</th>
-                        <th>Status</th>
-                        <th>Price</th>
-                        <th>Quantity</th>
-                        <th>Actions</th>
+                        <th style="text-align: left;">ID</th>
+                        <th style="text-align: left;">SKU</th>
+                        <th style="text-align: left;">Product number</th>
+                        <th style="text-align: left;">Name</th>
+                        <th style="text-align: left;">Type</th>
+                        <th style="text-align: left;">Status</th>
+                        <th style="text-align: left;">Price</th>
+                        <th style="text-align: left;">Quantity</th>
+                        <th style="text-align: left;">Actions</th>
                     </thead>
                     <tbody>
                         @if (isset($products))
