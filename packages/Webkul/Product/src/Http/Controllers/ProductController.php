@@ -148,6 +148,8 @@ class ProductController extends Controller
         $query = Product::with('product_flats', 'inventories')
             ->orderByDesc('id');
 
+        // dd($query);
+
         $products_count = $query->count();
         $products = $query->paginate(50);
 
@@ -231,9 +233,14 @@ class ProductController extends Controller
     {
         $data = request()->all();
 
+        // dd($request->all(), $id);
+
         $multiselectAttributeCodes = [];
 
         $productAttributes = $this->productRepository->findOrFail($id);
+
+        // dd($productAttributes);
+
 
         foreach ($productAttributes->attribute_family->attribute_groups as $attributeGroup) {
             $customAttributes = $productAttributes->getEditableAttributes($attributeGroup);
@@ -247,6 +254,8 @@ class ProductController extends Controller
             }
         }
 
+        // dd($multiselectAttributeCodes);
+
         if (count($multiselectAttributeCodes)) {
             foreach ($multiselectAttributeCodes as $multiselectAttributeCode) {
                 if (!isset($data[$multiselectAttributeCode])) {
@@ -254,7 +263,12 @@ class ProductController extends Controller
                 }
             }
         }
+
+        // dd($data);
+
         $product = $this->productRepository->update($data, $id);
+
+        // dd($product);
 
         session()->flash('success', trans('admin::app.response.update-success', ['name' => 'Product']));
 
