@@ -15,6 +15,7 @@ use Webkul\Product\Repositories\ProductRepository;
 use Webkul\Category\Repositories\CategoryRepository;
 use Webkul\Attribute\Repositories\AttributeFamilyRepository;
 use Webkul\Inventory\Repositories\InventorySourceRepository;
+use Webkul\Product\Database\Eloquent\Builder;
 use Webkul\Product\Repositories\ProductDownloadableLinkRepository;
 use Webkul\Product\Repositories\ProductDownloadableSampleRepository;
 use Webkul\Product\Repositories\ProductAttributeValueRepository;
@@ -115,39 +116,22 @@ class ProductController extends Controller
         $query = $request->input('query');
         $location = $request->input('location');
 
-        // dd($location);
-
-        $queryBuilder = DB::table('products')
-            ->join('product_flat', 'products.id', '=', 'product_flat.product_id')
-            ->join('attribute_families', 'products.attribute_family_id', '=', 'attribute_families.id')
-            ->join('product_inventories', 'products.id', '=', 'product_inventories.product_id')
-            ->select(
-                'products.sku',
-                'products.id',
-                'product_flat.locale',
-                'product_flat.channel',
-                'product_flat.product_id',
-                'product_flat.product_number',
-                'product_flat.name',
-                'product_flat.status',
-                'product_flat.price',
-                'attribute_families.name as attribute_family',
-                'product_inventories.inventory_source_id as location',
-                'product_inventories.qty as quantity'
+        $queryBuilder = Product::with('product_flats', 'inventories')
+            // ->distinct(['sku', 'id'])
+            ->whereHas(
+                'product_flats',
+                fn ($queryB) => $queryB->where('name', 'LIKE', "%$query%")
+                    ->orWhere('sku', 'LIKE', "%$query%")
+                    ->orWhere('price', 'LIKE', "%$query%")
+                    ->orWhere('product_number', 'LIKE', "%$query%")
             )
-            ->distinct(['products.sku', 'products.id'])
-            ->where('product_flat.name', 'LIKE', "%$query%")
-            ->orWhere('product_flat.sku', 'LIKE', "%$query%")
-            ->orWhere('product_flat.price', 'LIKE', "%$query%")
-            ->orWhere('product_flat.product_number', 'LIKE', "%$query%")
-            ->orderByDesc('products.id');
+            ->orderByDesc('id');
 
-
-        $queryBuilder->where('location', $location);
-        // dd($queryBuilder->toSql());
+        if ($location != null) {
+            $queryBuilder->whereHas('inventories', fn ($queryB) => $queryB->where('inventory_source_id', $location));
+        }
 
         $products_count = $queryBuilder->count();
-        $queryBuilder->groupBy('products.sku');
         $products = $queryBuilder->paginate(50);
 
         return view('admin::catalog.products.index', compact('products', 'query', 'products_count', 'location'));
@@ -158,36 +142,16 @@ class ProductController extends Controller
      *
      * @return \Illuminate\View\View
      */
+
     public function index()
     {
-        $products = $this->productRepository->paginate(50);
+        $query = Product::with('product_flats', 'inventories')
+            ->orderByDesc('id');
 
-        // $products = DB::table('product_flat')
-        //     ->leftJoin('products', 'product_flat.product_id', '=', 'products.id')
-        //     ->leftJoin('attribute_families', 'products.attribute_family_id', '=', 'attribute_families.id')
-        //     ->leftJoin('product_inventories', 'product_flat.product_id', '=', 'product_inventories.product_id')
-        //     ->select(
-        //         'products.id',
-        //         'product_flat.locale',
-        //         'product_flat.channel',
-        //         'product_flat.product_id',
-        //         'products.sku',
-        //         'product_flat.product_number',
-        //         'product_flat.name',
-        //         'products.type',
-        //         'product_flat.status',
-        //         'product_flat.price',
-        //         'attribute_families.name as attribute_family',
-        //         DB::raw('SUM(DISTINCT ' . DB::getTablePrefix() . 'product_inventories.qty) as quantity')
-        //     )
-        //     ->paginate(50);
-
-
-        $products_count = $this->productRepository->all()->count();
-        // dd($products->count());
+        $products_count = $query->count();
+        $products = $query->paginate(50);
 
         return view('admin::catalog.products.index', compact('products', 'products_count'));
-        // return view($this->_config['view']);
     }
 
     /**

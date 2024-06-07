@@ -67,7 +67,8 @@
                         {{-- <th style="text-align: left; border-bottom: 1px solid #ddd;">Type</th> --}}
                         <th style="text-align: left; border-bottom: 1px solid #ddd;">Status</th>
                         <th style="text-align: left; border-bottom: 1px solid #ddd;">Price</th>
-                        <th style="text-align: left; border-bottom: 1px solid #ddd;">Quantity</th>
+                        <th style="text-align: left; border-bottom: 1px solid #ddd;">Aşgabat</th>
+                        <th style="text-align: left; border-bottom: 1px solid #ddd;">Awaza</th>
                         <th style="text-align: left; border-bottom: 1px solid #ddd;">Actions</th>
                     </thead>
                     <tbody>
@@ -102,7 +103,24 @@
                                     <td>
                                         {{ sprintf('%0.2f', $product->price) . ' TMT' }}
                                     </td>
-                                    <td>{{ $product->quantity }}</td>
+                                    {{-- <td>{{ $product->inventories }}</td> --}}
+                                    @if ($product->inventories->count() == 2)
+                                        @if ($product->inventories[0]->inventory_source_id == 1)
+                                            <td>{{ $product->inventories[0]->qty }}</td>
+                                            <td>{{ $product->inventories[1]->qty }}</td>
+                                        @else
+                                            <td>{{ $product->inventories[1]->qty }}</td>
+                                            <td>{{ $product->inventories[0]->qty }}</td>
+                                        @endif
+                                    @else
+                                        @if ($product->inventories[0]->inventory_source_id == 1)
+                                            <td>{{ $product->inventories[0]->qty }}</td>
+                                            <td>0</td>
+                                        @else
+                                            <td>0</td>
+                                            <td>{{ $product->inventories[0]->qty }}</td>
+                                        @endif
+                                    @endif
                                     <td class="row">
                                         <a href="{{ route('admin.catalog.products.edit', $product->id) }}">
                                             <i class="icon pencil-lg-icon"></i>
