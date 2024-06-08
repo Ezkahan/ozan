@@ -21,6 +21,7 @@ class CreateCustomersTable extends Migration
             $table->string('last_name');
             $table->enum('gender', ['Male', 'Female']);
             $table->date('date_of_birth')->nullable();
+            $table->integer('inventory_source_id')->default(1);
             $table->string('email')->unique();
             $table->tinyInteger('status')->default(1);
             $table->string('password');
@@ -29,6 +30,8 @@ class CreateCustomersTable extends Migration
             $table->boolean('subscribed_to_news_letter')->default(0);
             $table->rememberToken();
             $table->timestamps();
+
+            $table->foreign('inventory_source_id')->references('id')->on('inventory_sources')->onDelete('set null');
         });
     }
 

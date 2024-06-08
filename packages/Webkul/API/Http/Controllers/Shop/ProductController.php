@@ -22,7 +22,7 @@ class ProductController extends Controller
      * @param  \Webkul\Product\Repositories\ProductRepository $productRepository
      * @return void
      */
-    public function __construct(ProductRepository $productRepository,ProductFlatRepository $productFlatRepository)
+    public function __construct(ProductRepository $productRepository, ProductFlatRepository $productFlatRepository)
     {
         $this->productRepository = $productRepository;
         $this->productFlatRepository = $productFlatRepository;
@@ -35,12 +35,18 @@ class ProductController extends Controller
      */
     public function index()
     {
-//        dd($this->productRepository->getAllApi(request()->input('category_id')));
-        return ProductResource::collection($this->productRepository->getAllApi(request()->input('category_id')));
+        if (auth('customer')->check() && auth('customer')->user()->inventory_source_id != null) {
+            $products = $this->productRepository->whereHas('inventories', fn ($query) =>
+            $query->where('inventory_source_id', auth('customer')->user()->inventory_source_id))->getAllApi(request()->input('category_id'));
+        } else {
+            $products = $this->productRepository->getAllApi(request()->input('category_id'));
+        }
+        return ProductResource::collection($products);
     }
 
-    public function aksia(){
-        $aksia_cat = env('AKSIA_CATEGORY',5);
+    public function aksia()
+    {
+        $aksia_cat = env('AKSIA_CATEGORY', 5);
         $products = $this->productRepository->getAllApi($aksia_cat);
 
         return ProductResource::collection($products);
@@ -53,9 +59,9 @@ class ProductController extends Controller
      */
     public function get($id)
     {
-        $product = $this->productFlatRepository->findOneWhere(['product_id'=>$id,'locale'=> request('locale')??'ru']);
-//        $product = $this->productRepository->findOrFail($id);
-//Log::info($product);
+        $product = $this->productFlatRepository->findOneWhere(['product_id' => $id, 'locale' => request('locale') ?? 'ru']);
+        //        $product = $this->productRepository->findOrFail($id);
+        //Log::info($product);
         $productResource =  ProductResource::make(
             $product
         );
@@ -63,7 +69,7 @@ class ProductController extends Controller
 
         $productResource->related_products = $product->related_products()->get();
 
-//        Log::info($productResource);
+        //        Log::info($productResource);
         return $productResource;
     }
 

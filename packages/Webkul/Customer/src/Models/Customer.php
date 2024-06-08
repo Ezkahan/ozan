@@ -11,6 +11,7 @@ use Webkul\Core\Models\SubscribersListProxy;
 use Webkul\Product\Models\ProductReviewProxy;
 use Webkul\Customer\Notifications\CustomerResetPassword;
 use Webkul\Customer\Contracts\Customer as CustomerContract;
+use Webkul\Inventory\Models\InventorySource;
 
 class Customer extends Authenticatable implements CustomerContract, JWTSubject
 {
@@ -23,6 +24,7 @@ class Customer extends Authenticatable implements CustomerContract, JWTSubject
         'last_name',
         'gender',
         'date_of_birth',
+        'inventory_source_id',
         'email',
         'phone',
         'password',
@@ -60,6 +62,11 @@ class Customer extends Authenticatable implements CustomerContract, JWTSubject
         }
     }
 
+    public function getInventorySource()
+    {
+        return $this->belongsTo(InventorySource::class);
+    }
+
     /**
      * Get the customer group that owns the customer.
      */
@@ -67,6 +74,7 @@ class Customer extends Authenticatable implements CustomerContract, JWTSubject
     {
         return $this->belongsTo(CustomerGroupProxy::modelClass(), 'customer_group_id');
     }
+
 
     /**
      * Send the password reset notification.
