@@ -177,9 +177,7 @@ Route::group(['middleware' => ['web']], function () {
             // Sales Routes
             Route::prefix('sales')->group(function () {
                 // Sales Order Routes
-                Route::get('/orders', 'Webkul\Admin\Http\Controllers\Sales\OrderController@index')->defaults('_config', [
-                    'view' => 'admin::sales.orders.index',
-                ])->name('admin.sales.orders.index');
+                Route::get('/orders', 'Webkul\Admin\Http\Controllers\Sales\OrderController@index')->name('admin.sales.orders.index');
 
                 Route::get('/orders/view/{id}', 'Webkul\Admin\Http\Controllers\Sales\OrderController@view')->defaults('_config', [
                     'view' => 'admin::sales.orders.view',

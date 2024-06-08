@@ -40,8 +40,7 @@ class OrderController extends Controller
     public function __construct(
         OrderRepository $orderRepository,
         OrderCommentRepository $orderCommentRepository
-    )
-    {
+    ) {
         $this->middleware('admin');
 
         $this->_config = request('_config');
@@ -58,7 +57,9 @@ class OrderController extends Controller
      */
     public function index()
     {
-        return view($this->_config['view']);
+        $orders = $this->orderRepository->orderByDesc('created_at')->paginate(50);
+        // dd($this->orderRepository->paginate(50));
+        return view('admin::sales.orders.index', compact('orders'));
     }
 
     /**
