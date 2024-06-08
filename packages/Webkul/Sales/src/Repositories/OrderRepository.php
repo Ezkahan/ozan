@@ -84,8 +84,6 @@ class OrderRepository extends Repository
 
             $data['status'] = 'pending';
 
-
-
             $order = $this->model->create(array_merge($data, ['increment_id' => $this->generateIncrementId()]));
 
             $order->payment()->create($data['payment']);
@@ -134,14 +132,14 @@ class OrderRepository extends Repository
     {
         $order = $this->findOrFail($orderId);
 
-        if (! $order->canCancel()) {
+        if (!$order->canCancel()) {
             return false;
         }
 
         Event::dispatch('sales.order.cancel.before', $order);
 
         foreach ($order->items as $item) {
-            if (! $item->qty_to_cancel) {
+            if (!$item->qty_to_cancel) {
                 continue;
             }
 
@@ -191,7 +189,8 @@ class OrderRepository extends Repository
     {
         $generatorClass = core()->getConfigData('sales.orderSettings.order_number.order_number_generator-class') ?: false;
 
-        if ($generatorClass !== false
+        if (
+            $generatorClass !== false
             && class_exists($generatorClass)
             && in_array(Sequencer::class, class_implements($generatorClass), true)
         ) {
@@ -214,7 +213,7 @@ class OrderRepository extends Repository
             $totalQtyOrdered += $item->qty_ordered;
             $totalQtyInvoiced += $item->qty_invoiced;
 
-            if (! $item->isStockable()) {
+            if (!$item->isStockable()) {
                 $totalQtyShipped += $item->qty_invoiced;
             } else {
                 $totalQtyShipped += $item->qty_shipped;
@@ -224,9 +223,11 @@ class OrderRepository extends Repository
             $totalQtyCanceled += $item->qty_canceled;
         }
 
-        if ($totalQtyOrdered != ($totalQtyRefunded + $totalQtyCanceled)
+        if (
+            $totalQtyOrdered != ($totalQtyRefunded + $totalQtyCanceled)
             && $totalQtyOrdered == $totalQtyInvoiced + $totalQtyCanceled
-            && $totalQtyOrdered == $totalQtyShipped + $totalQtyRefunded + $totalQtyCanceled) {
+            && $totalQtyOrdered == $totalQtyShipped + $totalQtyRefunded + $totalQtyCanceled
+        ) {
             return true;
         }
 

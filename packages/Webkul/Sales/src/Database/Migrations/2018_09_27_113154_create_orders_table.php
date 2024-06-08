@@ -16,6 +16,7 @@ class CreateOrdersTable extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->increments('id');
             $table->string('increment_id');
+            $table->integer('inventory_source_id')->default(1);
             $table->string('status')->nullable();
             $table->string('channel_name')->nullable();
 

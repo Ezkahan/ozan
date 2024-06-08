@@ -2,6 +2,8 @@
 
 // use Illuminate\Routing\Route;
 
+use Illuminate\Routing\Route;
+
 Route::group(['middleware' => ['web']], function () {
     Route::prefix(config('app.admin_url'))->group(function () {
 
@@ -188,6 +190,8 @@ Route::group(['middleware' => ['web']], function () {
                 ])->name('admin.sales.orders.cancel');
 
                 Route::post('/orders/create/{order_id}', 'Webkul\Admin\Http\Controllers\Sales\OrderController@comment')->name('admin.sales.orders.comment');
+
+                Route::get('/orders/search', 'Webkul\Admin\Http\Controllers\Sales\OrderController@search')->name('admin.sales.orders.search');
 
 
                 // Sales Invoices Routes

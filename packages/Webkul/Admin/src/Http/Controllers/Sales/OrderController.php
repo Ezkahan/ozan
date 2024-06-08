@@ -2,8 +2,10 @@
 
 namespace Webkul\Admin\Http\Controllers\Sales;
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Event;
 use Webkul\Admin\Http\Controllers\Controller;
+use Webkul\Sales\Models\Order;
 use Webkul\Sales\Repositories\OrderRepository;
 use \Webkul\Sales\Repositories\OrderCommentRepository;
 
@@ -48,6 +50,27 @@ class OrderController extends Controller
         $this->orderRepository = $orderRepository;
 
         $this->orderCommentRepository = $orderCommentRepository;
+    }
+
+
+    public function search(Request $request, Order $queryBuilder)
+    {
+        $location = $request->input('location');
+        $status = $request->input('status');
+
+        // dd($location, $status);
+
+        if ($status != null) {
+            $queryBuilder = $queryBuilder->where('status', $status);
+        }
+
+        if ($location != null) {
+            $queryBuilder = $queryBuilder->where('inventory_source_id', $location);
+        }
+
+        $orders = $queryBuilder->orderByDesc('created_at')->paginate(50);
+
+        return view('admin::sales.orders.index', compact('orders', 'status', 'location'));
     }
 
     /**

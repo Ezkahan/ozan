@@ -41,6 +41,43 @@
             </div>
         </div>
 
+        <div class="">
+            <form method="GET" action="{{ route('admin.sales.orders.search') }}">
+                <div class="control-group" style="display: flex; flex-direction: row; align-items: center;">
+                    <div style="display: flex; flex-direction: row; align-items: center; width: 40%; margin-right: 15px;">
+                        <label for="" class="label-control" style="width: 20%;">Ýeri: </label>
+                        <select name="location" id="" class="control" style="width: 80%; text-align: left;">
+                            <option value="">Ählisi</option>
+                            <option value="1" @if (isset($location) && $location == 1) selected @endif>Aşgabat</option>
+                            <option value="2" @if (isset($location) && $location == 2) selected @endif>Awaza</option>
+                        </select>
+                    </div>
+
+                    <div style="display: flex; flex-direction: row; align-items: center; width: 40%; margin-right: 15px;">
+                        <label for="" class="label-control" style="width: 20%;">Status: </label>
+                        <select name="status" id="" class="control" style="width: 80%;">
+                            <option value="">Ählisi</option>
+                            <option value="pending" @if (isset($status) && $status == 'pending') selected @endif>Pending</option>
+                            <option value="pending_payment" @if (isset($status) && $status == 'pending_payment') selected @endif>Pending
+                                payment
+                            </option>
+                            <option value="processing" @if (isset($status) && $status == 'processing') selected @endif>Processing</option>
+                            <option value="completed" @if (isset($status) && $status == 'completed') selected @endif>Completed</option>
+                            <option value="canceled" @if (isset($status) && $status == 'canceled') selected @endif>Canceled</option>
+                            <option value="closed" @if (isset($status) && $status == 'closed') selected @endif>Closed</option>
+                            <option value="fraud" @if (isset($status) && $status == 'fraud') selected @endif>Fraud</option>
+                        </select>
+
+                    </div>
+
+                    <button type="submit" class="btn btn-lg btn-primary">
+                        Gözleg
+                    </button>
+                </div>
+            </form>
+        </div>
+
+
         <div class="page-content">
             <div class="table-responsive">
                 <table id="mytable" class="table table-striped">
