@@ -1,9 +1,5 @@
 <?php
 
-// use Illuminate\Routing\Route;
-
-use Illuminate\Routing\Route;
-
 Route::group(['middleware' => ['web']], function () {
     Route::prefix(config('app.admin_url'))->group(function () {
 

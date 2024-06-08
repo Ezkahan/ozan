@@ -160,6 +160,10 @@ Route::group(['prefix' => 'api', 'middleware' => 'version'], function ($router) 
 
         //Modal banner routes
         Route::get('banners', 'BannerController@index')->middleware('cacheResponse:1800');
+
+        //Inventories
+        Route::get('inventories', 'InventoryController@index');
+
         //Currency routes
         Route::get('currencies', 'ResourceController@index')
             ->defaults('_config', [
