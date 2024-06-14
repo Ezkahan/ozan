@@ -2,6 +2,7 @@
 
 namespace Webkul\API\Http\Controllers\Shop;
 
+use Illuminate\Http\Request;
 use Webkul\Product\Repositories\ProductFlatRepository;
 use Webkul\Product\Repositories\ProductRepository;
 use Webkul\API\Http\Resources\Catalog\Product as ProductResource;
@@ -33,13 +34,17 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         if (auth('customer')->check() && auth('customer')->user()->inventory_source_id != null) {
             $products = $this->productRepository->whereHas('inventories', fn ($query) =>
             $query->where('inventory_source_id', auth('customer')->user()->inventory_source_id))->getAllApi(request()->input('category_id'));
         } else {
-            $products = $this->productRepository->getAllApi(request()->input('category_id'));
+            if (!$request->inventory_source_id) {
+                $products = $this->productRepository->getAllApi(request()->input('category_id'));
+            } else {
+                $products = $this->productRepository->where('inventory_source_id', $request->inventory_source_id)->getAllApi(request()->input('category_id'));
+            }
         }
         return ProductResource::collection($products);
     }

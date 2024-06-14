@@ -148,7 +148,6 @@ class ProductController extends Controller
         $query = Product::with('product_flats', 'inventories')
             ->orderByDesc('id');
 
-        // dd($query);
 
         $products_count = $query->count();
         $products = $query->paginate(50);
