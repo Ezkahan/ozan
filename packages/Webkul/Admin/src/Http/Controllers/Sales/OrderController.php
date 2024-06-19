@@ -57,8 +57,10 @@ class OrderController extends Controller
     {
         $location = $request->input('location');
         $status = $request->input('status');
+        $name = $request->input('search');
 
         // dd($location, $status);
+
 
         if ($status != null) {
             $queryBuilder = $queryBuilder->where('status', $status);
@@ -68,9 +70,16 @@ class OrderController extends Controller
             $queryBuilder = $queryBuilder->where('inventory_source_id', $location);
         }
 
+        $queryBuilder = $queryBuilder->where(fn ($query) => $query
+            ->where('customer_first_name', 'LIKE', "%$name%")
+            ->orWhere('customer_last_name', 'LIKE', "%$name%"));
+
+        $count = $queryBuilder->count();
+
         $orders = $queryBuilder->orderByDesc('created_at')->paginate(50);
 
-        return view('admin::sales.orders.index', compact('orders', 'status', 'location'));
+
+        return view('admin::sales.orders.index', compact('orders', 'status', 'location', 'name', 'count'));
     }
 
     /**

@@ -40,11 +40,17 @@
                 </div>
             </div>
         </div>
+        <p>Jemi: {{ $count }} sany</p>
 
         <div class="">
             <form method="GET" action="{{ route('admin.sales.orders.search') }}">
-                <div class="control-group" style="display: flex; flex-direction: row; align-items: center;">
-                    <div style="display: flex; flex-direction: row; align-items: center; width: 40%; margin-right: 15px;">
+                <div class="control-group" style="display: flex; flex-direction: row; align-items: center; width: 100%">
+                    <div style="display: flex; align-items: center; width: 30%; margin-right: 15px;">
+                        <input type="text" class="control" name="search" placeholder="Gözleg..." style="width: 100%"
+                            @if (isset($name)) value="{{ $name }}" @endif>
+                    </div>
+
+                    <div style="display: flex; flex-direction: row; align-items: center; width: 30%; margin-right: 15px;">
                         <label for="" class="label-control" style="width: 20%;">Ýeri: </label>
                         <select name="location" id="" class="control" style="width: 80%; text-align: left;">
                             <option value="">Ählisi</option>
@@ -53,7 +59,7 @@
                         </select>
                     </div>
 
-                    <div style="display: flex; flex-direction: row; align-items: center; width: 40%; margin-right: 15px;">
+                    <div style="display: flex; flex-direction: row; align-items: center; width: 30%; margin-right: 15px;">
                         <label for="" class="label-control" style="width: 20%;">Status: </label>
                         <select name="status" id="" class="control" style="width: 80%;">
                             <option value="">Ählisi</option>
@@ -73,6 +79,7 @@
                     <button type="submit" class="btn btn-lg btn-primary">
                         Gözleg
                     </button>
+
                 </div>
             </form>
         </div>
