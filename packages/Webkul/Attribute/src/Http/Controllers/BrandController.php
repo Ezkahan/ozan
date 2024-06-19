@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Event;
 use Webkul\Attribute\Repositories\BrandRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Webkul\Attribute\Models\Brand;
 
 class BrandController extends Controller
 {
@@ -18,10 +19,13 @@ class BrandController extends Controller
         $this->attribute_id = DB::table('attributes')->select('attributes.id')->where('code', '=', 'brand')->first();
     }
 
-    public function index()
+    public function index(Brand $query)
     {
-        $brands = $this->brandRepository->all();
-        return view('admin::catalog.brands.index', compact('brands'));
+        $brands = $query->whereHas('attribute', fn ($q) => $q->where('code', 'brand'))->paginate(10);
+        $locales = ['tm', 'en', 'ru'];
+
+
+        return view('admin::catalog.brands.index', compact('brands', 'locales'));
     }
 
     public function create()

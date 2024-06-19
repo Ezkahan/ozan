@@ -1,7 +1,5 @@
 <?php
 
-use Elasticsearch\Endpoints\AsyncSearch\Get;
-
 Route::group(['prefix' => 'api', 'middleware' => 'version'], function ($router) {
     Route::post('/akhasap_sync', [Webkul\Admin\Http\Controllers\AkhasapController::class, 'sync']);
 
