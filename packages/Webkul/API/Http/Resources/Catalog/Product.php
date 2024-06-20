@@ -35,7 +35,7 @@ class Product extends JsonResource
         /* assign product */
         $product = $this->product ? $this->product : $this;
 
-//        dd($this);
+        //        dd($this);
 
         /* get type instance */
         $productTypeInstance = $product->getTypeInstance();
@@ -55,20 +55,21 @@ class Product extends JsonResource
             'short_description'      => $product->short_description,
             'description'            => $product->description,
             'images'                 => ProductImage::collection($product->images),
-//            'videos'                 => ProductVideo::collection($product->videos),
+            //            'videos'                 => ProductVideo::collection($product->videos),
             'base_image'             => ProductImageFacade::getProductBaseImage($product),
             'created_at'             => $product->created_at,
             'updated_at'             => $product->updated_at,
             'brand'                  => $product->brand,
             'brand_label'            => $this->brand_label,
             'stock'                  => $product->totalQuantity(),
+            'location'               => $product->location,
             /* product's reviews */
-//            'reviews'                => [
-//                'total'          => $total = $this->productReviewHelper->getTotalReviews($product),
-//                'total_rating'   => $total ? $this->productReviewHelper->getTotalRating($product) : 0,
-//                'average_rating' => $total ? $this->productReviewHelper->getAverageRating($product) : 0,
-//                'percentage'     => $total ? json_encode($this->productReviewHelper->getPercentageRating($product)) : [],
-//            ],
+            //            'reviews'                => [
+            //                'total'          => $total = $this->productReviewHelper->getTotalReviews($product),
+            //                'total_rating'   => $total ? $this->productReviewHelper->getTotalRating($product) : 0,
+            //                'average_rating' => $total ? $this->productReviewHelper->getAverageRating($product) : 0,
+            //                'percentage'     => $total ? json_encode($this->productReviewHelper->getPercentageRating($product)) : [],
+            //            ],
 
             /* product's checks */
             'in_stock'               => $product->haveSufficientQuantity(1),
@@ -91,12 +92,12 @@ class Product extends JsonResource
                 'super_attributes' => Attribute::collection($product->super_attributes),
             ]),
 
-            $this->mergeWhen(!is_null($this->categories),[
-                'cateories' => is_null($this->categories)? null: Category::collection($this->categories)
+            $this->mergeWhen(!is_null($this->categories), [
+                'cateories' => is_null($this->categories) ? null : Category::collection($this->categories)
             ]),
 
-            $this->mergeWhen(!is_null($this->related_products),[
-                'related_products' => is_null($this->related_products)? null: Product::collection($this->related_products)
+            $this->mergeWhen(!is_null($this->related_products), [
+                'related_products' => is_null($this->related_products) ? null : Product::collection($this->related_products)
             ])
 
         ];
@@ -196,7 +197,7 @@ class Product extends JsonResource
     private function getGroupedProductInfo($product)
     {
         return [
-            'grouped_products' => $product->grouped_products->map(function($groupedProduct) {
+            'grouped_products' => $product->grouped_products->map(function ($groupedProduct) {
                 $associatedProduct = $groupedProduct->associated_product;
 
                 $data = $associatedProduct->toArray();

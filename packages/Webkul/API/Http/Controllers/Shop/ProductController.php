@@ -7,6 +7,7 @@ use Webkul\Product\Repositories\ProductFlatRepository;
 use Webkul\Product\Repositories\ProductRepository;
 use Webkul\API\Http\Resources\Catalog\Product as ProductResource;
 use Log;
+use Webkul\Product\Models\Product;
 
 class ProductController extends Controller
 {
@@ -17,16 +18,18 @@ class ProductController extends Controller
      */
     protected $productRepository;
     protected $productFlatRepository;
+    protected $queryBuilder;
     /**
      * Create a new controller instance.
      *
      * @param  \Webkul\Product\Repositories\ProductRepository $productRepository
      * @return void
      */
-    public function __construct(ProductRepository $productRepository, ProductFlatRepository $productFlatRepository)
+    public function __construct(ProductRepository $productRepository, ProductFlatRepository $productFlatRepository, Product $queryBuilder)
     {
         $this->productRepository = $productRepository;
         $this->productFlatRepository = $productFlatRepository;
+        $this->queryBuilder = $queryBuilder;
     }
 
     /**
@@ -37,14 +40,9 @@ class ProductController extends Controller
     public function index(Request $request)
     {
         if (auth('customer')->check() && auth('customer')->user()->inventory_source_id != null) {
-            $products = $this->productRepository->whereHas('inventories', fn ($query) =>
-            $query->where('inventory_source_id', auth('customer')->user()->inventory_source_id))->getAllApi(request()->input('category_id'));
+            $products = $this->productRepository->getAllApi(request()->input('category_id'), auth('customer')->user()->inventory_source_id);
         } else {
-            if (!$request->inventory_source_id) {
-                $products = $this->productRepository->getAllApi(request()->input('category_id'));
-            } else {
-                $products = $this->productRepository->where('inventory_source_id', $request->inventory_source_id)->getAllApi(request()->input('category_id'));
-            }
+            $products = $this->productRepository->getAllApi(request()->input('category_id'), request()->input('inventory_source_id'));
         }
         return ProductResource::collection($products);
     }

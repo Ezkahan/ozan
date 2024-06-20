@@ -18,6 +18,7 @@ use Webkul\Product\Models\ProductAttributeValueProxy;
 use Webkul\Attribute\Repositories\AttributeRepository;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\Facades\Storage;
+use PDO;
 
 class ProductRepository extends Repository
 {
@@ -294,7 +295,7 @@ class ProductRepository extends Repository
         return $results;
     }
 
-    public function getAllApi($categoryId = null)
+    public function getAllApi($categoryId = null, $inventory_source_id = null)
     {
         $params = request()->input();
         if (request()->has('shop')) {
@@ -311,7 +312,7 @@ class ProductRepository extends Repository
 
         $page = Paginator::resolveCurrentPage('page');
 
-        $repository = app(ProductFlatRepository::class)->scopeQuery(function ($query) use ($params, $categoryId) {
+        $repository = app(ProductFlatRepository::class)->scopeQuery(function ($query) use ($params, $categoryId, $inventory_source_id) {
             $channel = request()->get('channel') ?: (core()->getCurrentChannelCode() ?: core()->getDefaultChannelCode());
 
             $locale = request()->get('locale') ?: app()->getLocale();
@@ -321,12 +322,17 @@ class ProductRepository extends Repository
                 ->join('product_flat as variants', 'product_flat.id', '=', DB::raw('COALESCE(' . DB::getTablePrefix() . 'variants.parent_id, ' . DB::getTablePrefix() . 'variants.id)'))
                 ->leftJoin('product_categories', 'product_categories.product_id', '=', 'product_flat.product_id')
                 ->leftJoin('product_attribute_values', 'product_attribute_values.product_id', '=', 'variants.product_id')
+                ->leftJoin('product_inventories as inventories', 'inventories.id', '=', 'product_flat.product_id')
                 ->where('product_flat.channel', $channel)
                 ->where('product_flat.locale', $locale)
                 ->whereNotNull('product_flat.url_key');
 
             if ($categoryId) {
                 $qb->where('product_categories.category_id', $categoryId);
+            }
+
+            if ($inventory_source_id) {
+                $qb->where('inventories.inventory_source_id', $inventory_source_id);
             }
 
             if (!core()->getConfigData('catalog.products.homepage.out_of_stock_items')) {
