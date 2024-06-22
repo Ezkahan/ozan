@@ -76,6 +76,8 @@ class OrderController extends Controller
 
         $count = $queryBuilder->count();
 
+
+
         $orders = $queryBuilder->orderByDesc('created_at')->paginate(50);
 
 
@@ -89,9 +91,13 @@ class OrderController extends Controller
      */
     public function index()
     {
+
         $orders = $this->orderRepository->orderByDesc('created_at')->paginate(50);
+
+        $count = $this->orderRepository->count();
+
         // dd($this->orderRepository->paginate(50));
-        return view('admin::sales.orders.index', compact('orders'));
+        return view('admin::sales.orders.index', compact('orders', 'count'));
     }
 
     /**
