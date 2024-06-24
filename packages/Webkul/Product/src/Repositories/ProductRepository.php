@@ -332,7 +332,7 @@ class ProductRepository extends Repository
             }
 
             if ($inventory_source_id) {
-                $qb->where('inventories.inventory_source_id', $inventory_source_id);
+                $qb->whereHas('product.inventories', fn ($queryB) => $queryB->where('inventory_source_id', $inventory_source_id)->where('qty', '>', '0'));
             }
 
             if (!core()->getConfigData('catalog.products.homepage.out_of_stock_items')) {

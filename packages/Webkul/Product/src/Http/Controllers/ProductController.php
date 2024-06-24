@@ -128,7 +128,7 @@ class ProductController extends Controller
             ->orderByDesc('id');
 
         if ($location != null) {
-            $queryBuilder->whereHas('inventories', fn ($queryB) => $queryB->where('inventory_source_id', $location));
+            $queryBuilder->whereHas('inventories', fn ($queryB) => $queryB->where('inventory_source_id', $location)->where('qty', '>', '0'));
         }
 
         $products_count = $queryBuilder->count();
@@ -147,7 +147,6 @@ class ProductController extends Controller
     {
         $query = Product::with('product_flats', 'inventories')
             ->orderByDesc('id');
-
 
         $products_count = $query->count();
         $products = $query->paginate(50);

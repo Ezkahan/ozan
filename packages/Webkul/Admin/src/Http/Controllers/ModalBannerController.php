@@ -4,6 +4,7 @@ namespace Webkul\Admin\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Webkul\Admin\Models\ModalBanner;
 use Webkul\Admin\Repositories\ModalBannerRepository;
 
 class ModalBannerController extends Controller
@@ -18,7 +19,8 @@ class ModalBannerController extends Controller
 
     public function index()
     {
-        return view('admin::banner.index');
+        $banners = ModalBanner::all();
+        return view('admin::banner.index', compact('banners'));
     }
 
     public function create()

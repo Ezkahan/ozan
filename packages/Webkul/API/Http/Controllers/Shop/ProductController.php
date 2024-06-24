@@ -39,11 +39,7 @@ class ProductController extends Controller
      */
     public function index(Request $request)
     {
-        if (auth('customer')->check() && auth('customer')->user()->inventory_source_id != null) {
-            $products = $this->productRepository->getAllApi(request()->input('category_id'), auth('customer')->user()->inventory_source_id);
-        } else {
-            $products = $this->productRepository->getAllApi(request()->input('category_id'), request()->input('inventory_source_id'));
-        }
+        $products = $this->productRepository->getAllApi(request()->input('category_id'), request()->input('inventory_source_id'));
         return ProductResource::collection($products);
     }
 

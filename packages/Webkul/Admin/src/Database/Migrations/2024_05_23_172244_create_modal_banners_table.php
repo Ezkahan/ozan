@@ -19,7 +19,10 @@ class CreateModalBannersTable extends Migration
             $table->string('image');
             $table->text('description')->nullable();
             $table->string('url')->nullable();
+            $table->integer('inventory_source_id')->nullable();
             $table->timestamps();
+
+            $table->foreign('inventory_source_id')->references('id')->on('inventories')->onDelete('null');
         });
     }
 

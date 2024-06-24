@@ -2,6 +2,8 @@
 
 namespace Webkul\API\Http\Controllers\Shop;
 
+use Illuminate\Http\Request;
+
 class ResourceController extends Controller
 {
     /**
@@ -88,7 +90,7 @@ class ResourceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function get($id = 25)
+    public function get($id = 25, Request $request)
     {
         $query = isset($this->_config['authorization_required']) && $this->_config['authorization_required'] ?
             $this->repository->where('customer_id', auth()->user()->id)->findOrFail($id) :
