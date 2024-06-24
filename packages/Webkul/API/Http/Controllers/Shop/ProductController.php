@@ -43,10 +43,10 @@ class ProductController extends Controller
         return ProductResource::collection($products);
     }
 
-    public function aksia()
+    public function aksia(Request $request)
     {
         $aksia_cat = env('AKSIA_CATEGORY', 5);
-        $products = $this->productRepository->getAllApi($aksia_cat);
+        $products = $this->productRepository->getAllApi($aksia_cat, request()->input('inventory_source_id'));
 
         return ProductResource::collection($products);
     }
