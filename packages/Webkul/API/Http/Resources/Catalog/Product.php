@@ -52,6 +52,7 @@ class Product extends JsonResource
             'minimal_price'          => $productTypeInstance->getMinimalPrice(),
             'formated_price'         => core()->currency($product->price),
             'formated_minimal_price' => core()->currency($productTypeInstance->getMinimalPrice()),
+            'max_quantity'           => $product->max_quantity,
             'short_description'      => $product->short_description,
             'description'            => $product->description,
             'images'                 => ProductImage::collection($product->images),

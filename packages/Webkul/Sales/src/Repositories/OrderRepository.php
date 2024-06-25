@@ -70,7 +70,7 @@ class OrderRepository extends Repository
             if (isset($data['customer']) && $data['customer']) {
                 $data['customer_id'] = $data['customer']->id;
                 $data['customer_type'] = get_class($data['customer']);
-                $data['inventory_source_id'] = $data['customer']->inventory_source_id;
+                // $data['inventory_source_id'] = $data['customer']->inventory_source_id;
             } else {
                 unset($data['customer']);
             }
