@@ -48,7 +48,7 @@ class Product extends JsonResource
             'type'                   => $product->type,
             'name'                   => $product->name,
             'url_key'                => $product->url_key,
-            'price'                  => $product->price,
+            'price'                  => $this->getInventoryPrice($product),
             'minimal_price'          => $productTypeInstance->getMinimalPrice(),
             'formated_price'         => core()->currency($product->price),
             'formated_minimal_price' => core()->currency($productTypeInstance->getMinimalPrice()),
@@ -309,5 +309,20 @@ class Product extends JsonResource
         }
 
         return $data;
+    }
+
+    private function getInventoryPrice($product)
+    {
+        $price = [];
+
+        foreach ($product->inventories as $inventory) {
+            if ($inventory->qty > 0) {
+                $price[] = [
+                    'inventory_source_id' => $inventory->inventory_source_id,
+                    'price' => ($inventory->sale_price != null) ? $inventory->sale_price : $product->price
+                ];
+            }
+        }
+        return $price;
     }
 }
