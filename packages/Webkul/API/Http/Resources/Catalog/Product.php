@@ -116,23 +116,31 @@ class Product extends JsonResource
         $productTypeInstance = $product->getTypeInstance();
 
         return [
-            'special_price'          => $this->when(
-                $productTypeInstance->haveSpecialPrice(),
-                $productTypeInstance->getSpecialPrice()
-            ),
-            'formated_special_price' => $this->when(
-                $productTypeInstance->haveSpecialPrice(),
-                core()->currency($productTypeInstance->getSpecialPrice())
-            ),
-            'regular_price'          => $this->when(
-                $productTypeInstance->haveSpecialPrice(),
-                data_get($productTypeInstance->getProductPrices(), 'regular_price.price')
-            ),
-            'formated_regular_price' => $this->when(
-                $productTypeInstance->haveSpecialPrice(),
-                data_get($productTypeInstance->getProductPrices(), 'regular_price.formated_price')
-            ),
+            'special_price'          => null,
+            'formated_special_price' => null,
+            'regular_price'          => null,
+            'formated_regular_price' => null,
         ];
+
+
+        // return [
+        //     'special_price'          => $this->when(
+        //         $productTypeInstance->haveSpecialPrice(),
+        //         $productTypeInstance->getSpecialPrice()
+        //     ),
+        //     'formated_special_price' => $this->when(
+        //         $productTypeInstance->haveSpecialPrice(),
+        //         core()->currency($productTypeInstance->getSpecialPrice())
+        //     ),
+        //     'regular_price'          => $this->when(
+        //         $productTypeInstance->haveSpecialPrice(),
+        //         data_get($productTypeInstance->getProductPrices(), 'regular_price.price')
+        //     ),
+        //     'formated_regular_price' => $this->when(
+        //         $productTypeInstance->haveSpecialPrice(),
+        //         data_get($productTypeInstance->getProductPrices(), 'regular_price.formated_price')
+        //     ),
+        // ];
     }
 
     /**
