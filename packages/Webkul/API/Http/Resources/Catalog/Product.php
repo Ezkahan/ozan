@@ -50,7 +50,7 @@ class Product extends JsonResource
             'url_key'                => $product->url_key,
             'price'                  => (isset($request->inventory_source_id)) ? $this->getInventoryPrice($product, $request->inventory_source_id) : $product->price,
             'minimal_price'          => $productTypeInstance->getMinimalPrice(),
-            'formated_price'         => core()->currency($product->price),
+            'formated_price'         => core()->currency((isset($request->inventory_source_id)) ? $this->getInventoryPrice($product, $request->inventory_source_id) : $product->price),
             'formated_minimal_price' => core()->currency($productTypeInstance->getMinimalPrice()),
             'max_quantity'           => $product->max_quantity,
             'short_description'      => $product->short_description,
