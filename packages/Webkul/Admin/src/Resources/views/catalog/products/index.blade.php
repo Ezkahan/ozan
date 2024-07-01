@@ -101,7 +101,15 @@
 
                                     </td>
                                     <td>
-                                        {{ sprintf('%0.2f', $product->price) . ' TMT' }}
+                                        @foreach ($product->inventories as $inventory)
+                                            @if ($inventory->inventory_source_id == 1)
+                                                {{ 'Aşgabat: ' }}
+                                            @else
+                                                {{ 'Awaza: ' }}
+                                            @endif
+                                            {{ sprintf('%0.2f', $inventory->sale_price) . ' TMT' }}
+                                            <br>
+                                        @endforeach
                                     </td>
                                     {{-- <td>{{ $product->inventories }}</td> --}}
                                     @if ($product->inventories->count() == 2)

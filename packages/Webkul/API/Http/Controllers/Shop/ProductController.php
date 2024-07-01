@@ -41,14 +41,6 @@ class ProductController extends Controller
     {
         $products = $this->productRepository->getAllApi(request()->input('category_id'), request()->input('inventory_source_id'));
 
-        // if (isset($request->inventory_source_id)) {
-        //     foreach ($products as $product) {
-        //         $product->inv_price = "100";
-        //     }
-        // }
-
-
-
         return ProductResource::collection($products);
     }
 
