@@ -77,7 +77,7 @@ return [
     |
     */
 
-    'timezone' => env('APP_TIMEZONE','Asia/Kolkata'),
+    'timezone' => env('APP_TIMEZONE', 'Asia/Kolkata'),
 
     /*
     |--------------------------------------------------------------------------
@@ -90,7 +90,7 @@ return [
     |
     */
 
-    'locale' => env('APP_LOCALE', 'en'),
+    'locale' => env('APP_LOCALE', 'tm'),
 
     /*
     |--------------------------------------------------------------------------
@@ -103,7 +103,7 @@ return [
     |
     */
 
-    'fallback_locale' => 'en',
+    'fallback_locale' => 'tm',
 
     /*
     |--------------------------------------------------------------------------
@@ -160,7 +160,7 @@ return [
     /*
         Code Editor
     */
-    'editor' =>'vscode',
+    'editor' => 'vscode',
 
     /*
         Application Version
@@ -269,7 +269,7 @@ return [
         Webkul\Checkout\Providers\CheckoutServiceProvider::class,
         Webkul\Shipping\Providers\ShippingServiceProvider::class,
         Webkul\Payment\Providers\PaymentServiceProvider::class,
-//        Webkul\Paypal\Providers\PaypalServiceProvider::class,
+        //        Webkul\Paypal\Providers\PaypalServiceProvider::class,
         Webkul\Sales\Providers\SalesServiceProvider::class,
         Webkul\Tax\Providers\TaxServiceProvider::class,
         Webkul\API\Providers\APIServiceProvider::class,
@@ -279,8 +279,8 @@ return [
         Webkul\CMS\Providers\CMSServiceProvider::class,
         Webkul\Velocity\Providers\VelocityServiceProvider::class,
         Webkul\BookingProduct\Providers\BookingProductServiceProvider::class,
-//        Webkul\SocialLogin\Providers\SocialLoginServiceProvider::class,
-//        Webkul\DebugBar\Providers\DebugBarServiceProvider::class,
+        //        Webkul\SocialLogin\Providers\SocialLoginServiceProvider::class,
+        //        Webkul\DebugBar\Providers\DebugBarServiceProvider::class,
         Webkul\Marketing\Providers\MarketingServiceProvider::class,
         \Payment\Providers\LocalPaymentServiceProvider::class
     ],

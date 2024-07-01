@@ -40,6 +40,15 @@ class ProductController extends Controller
     public function index(Request $request)
     {
         $products = $this->productRepository->getAllApi(request()->input('category_id'), request()->input('inventory_source_id'));
+
+        // if (isset($request->inventory_source_id)) {
+        //     foreach ($products as $product) {
+        //         $product->inv_price = "100";
+        //     }
+        // }
+
+
+
         return ProductResource::collection($products);
     }
 
@@ -47,6 +56,7 @@ class ProductController extends Controller
     {
         $aksia_cat = env('AKSIA_CATEGORY', 5);
         $products = $this->productRepository->getAllApi($aksia_cat, request()->input('inventory_source_id'));
+
 
         return ProductResource::collection($products);
     }
@@ -74,6 +84,7 @@ class ProductController extends Controller
 
     /**
      * Returns product's additional information.
+     * 
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
