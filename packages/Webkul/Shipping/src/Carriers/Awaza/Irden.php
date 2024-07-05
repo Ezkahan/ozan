@@ -12,14 +12,14 @@ use Webkul\Checkout\Facades\Cart;
  * Class Rate.
  *
  */
-class Agsham extends AbstractShipping
+class Irden extends AbstractShipping
 {
     /**
      * Payment method code
      *
      * @var string
      */
-    protected $code = 'agsam';
+    protected $code = 'awaza_irden';
 
 
     /**
@@ -37,16 +37,16 @@ class Agsham extends AbstractShipping
 
         $tomorrow = Carbon::now()->gte($start_time);
 
-        $title = trans($tomorrow ? 'app.tomorrow' : 'app.today') . ' '
+        $title =   trans($tomorrow ? 'app.tomorrow' : 'app.today') . ' '
             . $this->getConfigData('title') . ' '
             . $this->getConfigData('start_time') . ' - '
             . $this->getConfigData('end_time');
 
         $object = new CartShippingRate;
 
-        $object->carrier = 'agsam';
+        $object->carrier = 'awaza_irden';
         $object->carrier_title = $this->getConfigData('title');
-        $object->method = 'agsam_agsam';
+        $object->method = 'irden_irden';
         $object->method_title = $title;
         $object->method_description = $this->getConfigData('description');
         $object->is_calculate_tax = false;

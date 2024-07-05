@@ -19,7 +19,7 @@ class Agsham extends AbstractShipping
      *
      * @var string
      */
-    protected $code = 'agsam';
+    protected $code = 'awaza_agsam';
 
 
     /**
@@ -44,7 +44,7 @@ class Agsham extends AbstractShipping
 
         $object = new CartShippingRate;
 
-        $object->carrier = 'agsam';
+        $object->carrier = 'awaza_agsam';
         $object->carrier_title = $this->getConfigData('title');
         $object->method = 'agsam_agsam';
         $object->method_title = $title;
