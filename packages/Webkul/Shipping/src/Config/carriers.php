@@ -108,6 +108,9 @@ return [
         'class' => 'Webkul\Shipping\Carriers\Takeaway',
     ],
 
+
+    //Awaza
+
     'awaza_irden' => [
         'code' => 'awaza_irden',
         'title' => '09:00 - 12:00',
