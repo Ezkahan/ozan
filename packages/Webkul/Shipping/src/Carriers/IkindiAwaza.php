@@ -1,13 +1,12 @@
 <?php
 
-namespace Webkul\Shipping\Carriers\Awaza;
+namespace Webkul\Shipping\Carriers;
 
 use Carbon\Carbon;
 use Config;
 use Webkul\Checkout\Models\CartShippingRate;
 use Webkul\Shipping\Facades\Shipping;
 use Webkul\Checkout\Facades\Cart;
-use Webkul\Shipping\Carriers\AbstractShipping;
 
 /**
  * Class Rate.
@@ -44,7 +43,7 @@ class Ikindi extends AbstractShipping
 
         $object = new CartShippingRate;
 
-        $object->carrier = 'awaza_obetda';
+        $object->carrier = 'awaza.obetda';
         $object->carrier_title = $this->getConfigData('title');
         $object->method = 'ikindi_ikindi';
         $object->method_title = $title;

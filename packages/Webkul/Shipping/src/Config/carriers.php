@@ -119,7 +119,7 @@ return [
         'start_time' => '09:00',
         'end_time' => '12:00',
         'default_rate' => '20',
-        'class' => 'Webkul\Shipping\Carriers\Awaza\Irden',
+        'class' => 'Webkul\Shipping\Carriers\IrdenAwaza',
     ],
     // 'irden2' => [
     //     'code'             => 'irden2',
@@ -139,7 +139,7 @@ return [
         'start_time' => '12:00',
         'end_time' => '14:00',
         'default_rate' => '20',
-        'class' => 'Webkul\Shipping\Carriers\Awaza\Obetda',
+        'class' => 'Webkul\Shipping\Carriers\ObetdaAwaza',
     ],
     'awaza_ikindi' => [
         'code' => 'awaza.ikindi',
@@ -149,7 +149,7 @@ return [
         'start_time' => '14:00',
         'end_time' => '16:00',
         'default_rate' => '10',
-        'class' => 'Webkul\Shipping\Carriers\Awaza\Ikindi',
+        'class' => 'Webkul\Shipping\Carriers\IkindiAwaza',
     ],
     'awaza_agsam' => [
         'code' => 'awaza.agsam',
@@ -159,7 +159,7 @@ return [
         'start_time' => '16:00',
         'end_time' => '18:00',
         'default_rate' => '20',
-        'class' => 'Webkul\Shipping\Carriers\Awaza\Agsham',
+        'class' => 'Webkul\Shipping\Carriers\AgshamAwaza',
     ],
     'awaza_agsam2' => [
         'code' => 'awaza.agsam2',
@@ -169,7 +169,7 @@ return [
         'start_time' => '18:00',
         'end_time' => '20:00',
         'default_rate' => '20',
-        'class' => 'Webkul\Shipping\Carriers\Awaza\Agsham2',
+        'class' => 'Webkul\Shipping\Carriers\Agsham2Awaza',
     ],
     'awaza_gije' => [
         'code' => 'awaza.gije',
@@ -179,7 +179,7 @@ return [
         'start_time' => '20:00',
         'end_time' => '22:30',
         'default_rate' => '20',
-        'class' => 'Webkul\Shipping\Carriers\Awaza\Gije',
+        'class' => 'Webkul\Shipping\Carriers\GijeAwaza',
     ],
     'awaza_gije2' => [
         'code' => 'awaza.gije2',
@@ -189,7 +189,7 @@ return [
         'start_time' => '22:30',
         'end_time' => '00:00',
         'default_rate' => '20',
-        'class' => 'Webkul\Shipping\Carriers\Awaza\Gije2',
+        'class' => 'Webkul\Shipping\Carriers\Gije2Awaza',
     ],
 
     'awaza_free' => [
@@ -199,7 +199,7 @@ return [
         'active' => true,
         'is_calculate_tax' => false,
         'default_rate' => '0',
-        'class' => 'Webkul\Shipping\Carriers\Awaza\Free',
+        'class' => 'Webkul\Shipping\Carriers\FreeAwaza',
     ],
     'awaza_express' => [
         'code' => 'awaza.express',
@@ -208,14 +208,14 @@ return [
         'active' => true,
         'is_calculate_tax' => false,
         'default_rate' => '20',
-        'class' => 'Webkul\Shipping\Carriers\Awaza\Express',
+        'class' => 'Webkul\Shipping\Carriers\ExpressAwaza',
     ],
     'awaza_takeaway' => [
         'code' => 'awaza.takeaway',
         'title' => 'Özum baryp aljak(Awaza)',
         'description' => '',
         'active' => true,
-        'class' => 'Webkul\Shipping\Carriers\Awaza\Takeaway',
+        'class' => 'Webkul\Shipping\Carriers\TakeawayAwaza',
     ],
 
 ];

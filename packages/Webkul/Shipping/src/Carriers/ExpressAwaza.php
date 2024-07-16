@@ -1,12 +1,11 @@
 <?php
 
 
-namespace Webkul\Shipping\Carriers\Awaza;
+namespace Webkul\Shipping\Carriers;
 
 
 use Webkul\Checkout\Facades\Cart;
 use Webkul\Checkout\Models\CartShippingRate;
-use Webkul\Shipping\Carriers\AbstractShipping;
 
 class Express extends AbstractShipping
 {
@@ -36,7 +35,7 @@ class Express extends AbstractShipping
 
         $object = new CartShippingRate;
 
-        $object->carrier = 'awaza_express';
+        $object->carrier = 'awaza.express';
         $object->carrier_title = $this->getConfigData('title');
         $object->method = 'express_express';
         $object->method_title = $this->getConfigData('title');

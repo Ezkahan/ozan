@@ -1,26 +1,25 @@
 <?php
 
-namespace Webkul\Shipping\Carriers\Awaza;
+namespace Webkul\Shipping\Carriers;
 
 use Carbon\Carbon;
 use Config;
 use Webkul\Checkout\Models\CartShippingRate;
 use Webkul\Shipping\Facades\Shipping;
 use Webkul\Checkout\Facades\Cart;
-use Webkul\Shipping\Carriers\AbstractShipping;
 
 /**
  * Class Rate.
  *
  */
-class Irden2 extends AbstractShipping
+class Agsham2 extends AbstractShipping
 {
     /**
      * Payment method code
      *
      * @var string
      */
-    protected $code = 'awaza.irden2';
+    protected $code = 'awaza.agsam2';
 
 
     /**
@@ -45,9 +44,9 @@ class Irden2 extends AbstractShipping
 
         $object = new CartShippingRate;
 
-        $object->carrier = 'awaza_irden';
+        $object->carrier = 'awaza.agsam2';
         $object->carrier_title = $this->getConfigData('title');
-        $object->method = 'irden2_irden2';
+        $object->method = 'agsam2_agsam2';
         $object->method_title = $title;
         $object->method_description = $this->getConfigData('description');
         $object->is_calculate_tax = false;

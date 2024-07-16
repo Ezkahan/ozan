@@ -1,33 +1,27 @@
 <?php
 
-namespace Webkul\Shipping\Carriers\Awaza;
+namespace Webkul\Shipping\Carriers;
 
+use Carbon\Carbon;
 use Config;
 use Webkul\Checkout\Models\CartShippingRate;
-use Webkul\Shipping\Carriers\AbstractShipping;
 use Webkul\Shipping\Facades\Shipping;
+use Webkul\Checkout\Facades\Cart;
 
 /**
  * Class Rate.
  *
  */
-class Free extends AbstractShipping
+class Takeaway extends AbstractShipping
 {
     /**
      * Payment method code
      *
      * @var string
      */
-    protected $code  = 'awaza.free';
-    /**
-     * Returns payment method title
-     *
-     * @return array
-     */
-    public function getTitle()
-    {
-        return $this->getConfigData('title');
-    }
+    protected $code = 'awaza.takeaway';
+
+
     /**
      * Returns rate for flatrate
      *
@@ -39,16 +33,15 @@ class Free extends AbstractShipping
             return false;
         }
 
+        $cart = Cart::getCart();
+
         $object = new CartShippingRate;
 
-        $object->carrier = 'awaza_free';
+        $object->carrier = 'awaza.takeaway';
         $object->carrier_title = $this->getConfigData('title');
-        $object->method = 'free_free';
+        $object->method = 'takeaway';
         $object->method_title = $this->getConfigData('title');
         $object->method_description = $this->getConfigData('description');
-        $object->is_calculate_tax = $this->getConfigData('is_calculate_tax');
-        $object->price = 0;
-        $object->base_price = 0;
 
         return $object;
     }

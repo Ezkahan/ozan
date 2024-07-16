@@ -1,26 +1,25 @@
 <?php
 
-namespace Webkul\Shipping\Carriers\Awaza;
+namespace Webkul\Shipping\Carriers;
 
 use Carbon\Carbon;
 use Config;
 use Webkul\Checkout\Models\CartShippingRate;
 use Webkul\Shipping\Facades\Shipping;
 use Webkul\Checkout\Facades\Cart;
-use Webkul\Shipping\Carriers\AbstractShipping;
 
 /**
  * Class Rate.
  *
  */
-class Gije extends AbstractShipping
+class Obetda extends AbstractShipping
 {
     /**
      * Payment method code
      *
      * @var string
      */
-    protected $code = 'awaza.gije';
+    protected $code = 'awaza.obetda';
 
     /**
      * Returns rate for flatrate
@@ -37,13 +36,16 @@ class Gije extends AbstractShipping
 
         $tomorrow = Carbon::now()->gte($start_time);
 
-        $title = trans($tomorrow ? 'app.tomorrow' : 'app.today') . ' ' . $this->getConfigData('title') . ' ' . $this->getConfigData('start_time') . ' - ' . $this->getConfigData('end_time');
+        $title =   trans($tomorrow ? 'app.tomorrow' : 'app.today') . ' '
+            . $this->getConfigData('title') . ' '
+            . $this->getConfigData('start_time') . ' - '
+            . $this->getConfigData('end_time');
 
-        $object = new CartShippingRate();
+        $object = new CartShippingRate;
 
-        $object->carrier = 'awaza_gije';
+        $object->carrier = 'awaza.obetda';
         $object->carrier_title = $this->getConfigData('title');
-        $object->method = 'gije_gije';
+        $object->method = 'obetda_obetda';
         $object->method_title = $title;
         $object->method_description = $this->getConfigData('description');
         $object->is_calculate_tax = false;
