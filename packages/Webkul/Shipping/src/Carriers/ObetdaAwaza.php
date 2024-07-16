@@ -12,7 +12,7 @@ use Webkul\Checkout\Facades\Cart;
  * Class Rate.
  *
  */
-class Obetda extends AbstractShipping
+class ObetdaAwaza extends AbstractShipping
 {
     /**
      * Payment method code

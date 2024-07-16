@@ -12,7 +12,7 @@ use Webkul\Checkout\Facades\Cart;
  * Class Rate.
  *
  */
-class Gije extends AbstractShipping
+class GijeAwaza extends AbstractShipping
 {
     /**
      * Payment method code

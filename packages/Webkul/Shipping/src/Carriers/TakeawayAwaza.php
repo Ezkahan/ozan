@@ -12,7 +12,7 @@ use Webkul\Checkout\Facades\Cart;
  * Class Rate.
  *
  */
-class Takeaway extends AbstractShipping
+class TakeawayAwaza extends AbstractShipping
 {
     /**
      * Payment method code

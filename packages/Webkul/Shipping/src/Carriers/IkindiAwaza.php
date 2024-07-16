@@ -12,7 +12,7 @@ use Webkul\Checkout\Facades\Cart;
  * Class Rate.
  *
  */
-class Ikindi extends AbstractShipping
+class IkindiAwaza extends AbstractShipping
 {
     /**
      * Payment method code

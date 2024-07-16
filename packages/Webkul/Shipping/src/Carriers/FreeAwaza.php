@@ -10,7 +10,7 @@ use Webkul\Shipping\Facades\Shipping;
  * Class Rate.
  *
  */
-class Free extends AbstractShipping
+class FreeAwaza extends AbstractShipping
 {
     /**
      * Payment method code

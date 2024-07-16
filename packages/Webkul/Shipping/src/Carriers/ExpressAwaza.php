@@ -7,7 +7,7 @@ namespace Webkul\Shipping\Carriers;
 use Webkul\Checkout\Facades\Cart;
 use Webkul\Checkout\Models\CartShippingRate;
 
-class Express extends AbstractShipping
+class ExpressAwaza extends AbstractShipping
 {
     /**
      * Returns payment method title

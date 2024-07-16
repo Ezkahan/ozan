@@ -12,7 +12,7 @@ use Webkul\Checkout\Facades\Cart;
  * Class Rate.
  *
  */
-class Agsham2 extends AbstractShipping
+class Agsham2Awaza extends AbstractShipping
 {
     /**
      * Payment method code

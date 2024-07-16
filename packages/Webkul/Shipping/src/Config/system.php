@@ -538,7 +538,7 @@ return [
         ],
     ],
 
-
+    //Awaza start
     [
         'key' => 'sales.carriers.awaza_free',
         'name' => 'admin::app.admin.system.free-shipping',
@@ -1066,6 +1066,8 @@ return [
             ],
         ],
     ],
+
+    //Awaza end
 
     [
         'key' => 'sales.shipping',
