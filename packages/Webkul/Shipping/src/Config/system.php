@@ -580,7 +580,7 @@ return [
     ],
     [
         'key' => 'sales.carriers.awaza_irden',
-        'name' => 'Irden dostawka',
+        'name' => 'Irden dostawka (Awaza)',
         'sort' => 9,
         'fields' => [
             [
@@ -638,7 +638,7 @@ return [
     ],
     [
         'key' => 'sales.carriers.awaza_obetda',
-        'name' => 'Obetda dostawka',
+        'name' => 'Obetda dostawka Awaza',
         'sort' => 9,
         'fields' => [
             [
@@ -696,7 +696,7 @@ return [
     ],
     [
         'key' => 'sales.carriers.awaza_ikindi',
-        'name' => 'Ikindi dostawka',
+        'name' => 'Ikindi dostawka(Awaza)',
         'sort' => 10,
         'fields' => [
             [
@@ -754,7 +754,7 @@ return [
     ],
     [
         'key' => 'sales.carriers.awaza_agsam',
-        'name' => 'Agşam dostawka',
+        'name' => 'Agşam dostawka(Awaza)',
         'sort' => 11,
         'fields' => [
             [
@@ -812,7 +812,7 @@ return [
     ],
     [
         'key' => 'sales.carriers.awaza_agsam2',
-        'name' => 'Agşam 2-nji dostawka',
+        'name' => 'Agşam 2-nji dostawka(Awaza)',
         'sort' => 11,
         'fields' => [
             [
@@ -870,7 +870,7 @@ return [
     ],
     [
         'key' => 'sales.carriers.awaza_gije',
-        'name' => 'Gije dostawka',
+        'name' => 'Gije dostawka(Awaza)',
         'sort' => 12,
         'fields' => [
             [
@@ -929,7 +929,7 @@ return [
 
     [
         'key' => 'sales.carriers.awaza_gije2',
-        'name' => 'Gije 2nji dostawka',
+        'name' => 'Gije 2nji dostawka(Awaza)',
         'sort' => 13,
         'fields' => [
             [
@@ -988,7 +988,7 @@ return [
 
     [
         'key' => 'sales.carriers.awaza_express',
-        'name' => 'Express shipping',
+        'name' => 'Express shipping(Awaza)',
         'sort' => 14,
         'fields' => [
             [
@@ -1037,7 +1037,7 @@ return [
 
     [
         'key' => 'sales.carriers.awaza_takeaway',
-        'name' => 'Özüm baryp aljak',
+        'name' => 'Özüm baryp aljak(Awaza)',
         'sort' => 15,
         'fields' => [
             [

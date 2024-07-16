@@ -912,7 +912,7 @@ return [
     ],
 
     'customers' => [
-        'groups' =>[
+        'groups' => [
             'add-title' => 'Добавить группу',
             'edit-title' => 'Редактировать группу',
             'save-btn-title' => 'Сохранить группу',
@@ -1369,6 +1369,7 @@ return [
             'sales' => 'Продажи',
             'shipping-methods' => 'Способы доставки',
             'free-shipping' => 'Бесплатная доставка',
+            'free-shipping-avaza' => 'Бесплатная доставка(Awaza)',
             'flate-rate-shipping' => 'Фиксированная стоимость доставки',
             'shipping' => 'Доставка',
             'origin' => 'Источник',
