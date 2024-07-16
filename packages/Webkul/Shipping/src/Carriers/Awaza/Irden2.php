@@ -19,7 +19,7 @@ class Irden2 extends AbstractShipping
      *
      * @var string
      */
-    protected $code = 'awaza_irden2';
+    protected $code = 'awaza.irden2';
 
 
     /**

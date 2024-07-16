@@ -73,7 +73,6 @@ class ConfigurationController extends Controller
     public function index()
     {
         $slugs = $this->getDefaultConfigSlugs();
-
         if (count($slugs)) {
             return redirect()->route('admin.configuration.index', $slugs);
         }

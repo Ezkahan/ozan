@@ -17,7 +17,7 @@ class Free extends AbstractShipping
      *
      * @var string
      */
-    protected $code  = 'awaza_free';
+    protected $code  = 'awaza.free';
     /**
      * Returns payment method title
      *

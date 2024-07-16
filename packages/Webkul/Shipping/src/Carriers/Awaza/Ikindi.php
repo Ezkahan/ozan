@@ -19,7 +19,7 @@ class Ikindi extends AbstractShipping
      *
      * @var string
      */
-    protected $code = 'awaza_ikindi';
+    protected $code = 'awaza.ikindi';
 
     /**
      * Returns rate for flatrate

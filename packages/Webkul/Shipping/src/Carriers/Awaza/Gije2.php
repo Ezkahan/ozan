@@ -19,7 +19,7 @@ class Gije2 extends AbstractShipping
      *
      * @var string
      */
-    protected $code = 'awaza_gije2';
+    protected $code = 'awaza.gije2';
 
     /**
      * Returns rate for flatrate

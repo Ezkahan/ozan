@@ -19,7 +19,7 @@ class Obetda extends AbstractShipping
      *
      * @var string
      */
-    protected $code = 'awaza_obetda';
+    protected $code = 'awaza.obetda';
 
     /**
      * Returns rate for flatrate

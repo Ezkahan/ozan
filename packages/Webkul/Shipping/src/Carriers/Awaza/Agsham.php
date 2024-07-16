@@ -19,7 +19,7 @@ class Agsham extends AbstractShipping
      *
      * @var string
      */
-    protected $code = 'awaza_agsam';
+    protected $code = 'awaza.agsam';
 
 
     /**

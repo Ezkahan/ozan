@@ -112,7 +112,7 @@ return [
     //Awaza
 
     'awaza_irden' => [
-        'code' => 'awaza_irden',
+        'code' => 'awaza.irden',
         'title' => '09:00 - 12:00',
         'description' => 'Irden eltip berme 09:00 - 12:00. 100 manatdan ýokary söwdada eltip berme mugt',
         'active' => true,
@@ -132,7 +132,7 @@ return [
     //     'class'            => 'Webkul\Shipping\Carriers\Awaza\Irden2',
     // ],
     'awaza_obetda' => [
-        'code' => 'awaza_obetda',
+        'code' => 'awaza.obetda',
         'title' => '12:00 - 14:00',
         'description' => 'Öýlän eltip berme 12:00 - 14:00 100 manatdan ýokary söwdada eltip berme mugt',
         'active' => true,
@@ -142,7 +142,7 @@ return [
         'class' => 'Webkul\Shipping\Carriers\Awaza\Obetda',
     ],
     'awaza_ikindi' => [
-        'code' => 'awaza_ikindi',
+        'code' => 'awaza.ikindi',
         'title' => '14:00 - 16:00',
         'description' => 'Ikindi wagty eltip berme 14:00 - 16:00 100 manatdan ýokary söwdada eltip berme mugt',
         'active' => true,
@@ -152,7 +152,7 @@ return [
         'class' => 'Webkul\Shipping\Carriers\Awaza\Ikindi',
     ],
     'awaza_agsam' => [
-        'code' => 'awaza_agsam',
+        'code' => 'awaza.agsam',
         'title' => '16:00 - 18:00',
         'description' => 'Agşam eltip berme 16:00 - 18:00 100 manatdan ýokary söwdada eltip berme mugt',
         'active' => true,
@@ -162,7 +162,7 @@ return [
         'class' => 'Webkul\Shipping\Carriers\Awaza\Agsham',
     ],
     'awaza_agsam2' => [
-        'code' => 'awaza_agsam2',
+        'code' => 'awaza.agsam2',
         'title' => '18:00 - 20:00',
         'description' => 'Agşam eltip berme 18:00 - 20:00 100 manatdan ýokary söwdada eltip berme mugt',
         'active' => true,
@@ -172,7 +172,7 @@ return [
         'class' => 'Webkul\Shipping\Carriers\Awaza\Agsham2',
     ],
     'awaza_gije' => [
-        'code' => 'awaza_gije',
+        'code' => 'awaza.gije',
         'title' => '20:00 - 22:30',
         'description' => 'Gije eltip berme 20:00 - 22:30 100 manatdan ýokary söwdada eltip berme mugt',
         'active' => true,
@@ -182,7 +182,7 @@ return [
         'class' => 'Webkul\Shipping\Carriers\Awaza\Gije',
     ],
     'awaza_gije2' => [
-        'code' => 'awaza_gije2',
+        'code' => 'awaza.gije2',
         'title' => '22:30 - 00:00',
         'description' => 'Gije eltip berme 22:30 - 00:00 100 manatdan ýokary söwdada eltip berme mugt',
         'active' => true,
@@ -193,7 +193,7 @@ return [
     ],
 
     'awaza_free' => [
-        'code' => 'awaza_free',
+        'code' => 'awaza.free',
         'title' => 'Free Shipping',
         'description' => 'Free Shipping',
         'active' => true,
@@ -202,7 +202,7 @@ return [
         'class' => 'Webkul\Shipping\Carriers\Awaza\Free',
     ],
     'awaza_express' => [
-        'code' => 'awaza_express',
+        'code' => 'awaza.express',
         'title' => 'Express',
         'description' => '1 sagadyn dowamynda eltip berilyar',
         'active' => true,
@@ -211,7 +211,7 @@ return [
         'class' => 'Webkul\Shipping\Carriers\Awaza\Express',
     ],
     'awaza_takeaway' => [
-        'code' => 'awaza_takeaway',
+        'code' => 'awaza.takeaway',
         'title' => 'Özum baryp aljak(Awaza)',
         'description' => '',
         'active' => true,

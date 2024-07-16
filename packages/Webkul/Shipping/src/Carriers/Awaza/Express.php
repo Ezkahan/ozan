@@ -23,7 +23,7 @@ class Express extends AbstractShipping
      *
      * @var string
      */
-    protected $code  = 'awaza_express';
+    protected $code  = 'awaza.express';
 
     public function calculate()
     {
