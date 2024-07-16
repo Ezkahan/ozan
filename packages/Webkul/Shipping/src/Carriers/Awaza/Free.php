@@ -4,6 +4,7 @@ namespace Webkul\Shipping\Carriers\Awaza;
 
 use Config;
 use Webkul\Checkout\Models\CartShippingRate;
+use Webkul\Shipping\Carriers\AbstractShipping;
 use Webkul\Shipping\Facades\Shipping;
 
 /**

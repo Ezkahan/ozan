@@ -7,6 +7,7 @@ use Config;
 use Webkul\Checkout\Models\CartShippingRate;
 use Webkul\Shipping\Facades\Shipping;
 use Webkul\Checkout\Facades\Cart;
+use Webkul\Shipping\Carriers\AbstractShipping;
 
 /**
  * Class Rate.

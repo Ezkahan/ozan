@@ -6,6 +6,7 @@ namespace Webkul\Shipping\Carriers\Awaza;
 
 use Webkul\Checkout\Facades\Cart;
 use Webkul\Checkout\Models\CartShippingRate;
+use Webkul\Shipping\Carriers\AbstractShipping;
 
 class Express extends AbstractShipping
 {
