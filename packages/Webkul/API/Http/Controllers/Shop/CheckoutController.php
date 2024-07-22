@@ -4,6 +4,7 @@ namespace Webkul\API\Http\Controllers\Shop;
 
 use Cart;
 use Exception;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
@@ -447,7 +448,7 @@ class CheckoutController extends Controller
         // }
     }
 
-    public function method()
+    public function method(Request $request)
     {
         $customer = auth($this->guard)->user();
 
@@ -459,6 +460,7 @@ class CheckoutController extends Controller
         $rates = [];
 
         foreach (Shipping::getGroupedAllShippingRates() as $code => $shippingMethod) {
+            if (($request->invnentory_source_id == 1 && preg_match("/awaza/i", $code)) || ($request->invnentory_source_id == 2 && !preg_match("/awaza/i", $code))) continue;
             $rates[] = [
                 'carrier_title' => $shippingMethod['carrier_title'],
                 'rates' => CartShippingRateResource::collection(collect($shippingMethod['rates'])),
