@@ -476,4 +476,13 @@ class CheckoutController extends Controller
             ],
         ]);
     }
+
+    public function convJson()
+    {
+        return response()->json([
+            'data' => [
+                'json' => Shipping::getGroupedAllShippingRates()
+            ]
+        ]);
+    }
 }

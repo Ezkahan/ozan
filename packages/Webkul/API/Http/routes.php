@@ -1,8 +1,9 @@
 <?php
 
+
 Route::group(['prefix' => 'api', 'middleware' => 'version'], function ($router) {
     Route::post('/akhasap_sync', [Webkul\Admin\Http\Controllers\AkhasapController::class, 'sync']);
-    Route::get('hello', 'CartController@convJson');
+    Route::get('hello', [Webkul\API\Http\Controllers\Shop\CheckoutController::class, 'convJson']);
 
     Route::group(['namespace' => 'Webkul\API\Http\Controllers\Shop', 'middleware' => ['locale', 'theme', 'currency']], function ($router) {
         //Currency and Locale switcher
