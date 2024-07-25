@@ -455,12 +455,12 @@ class CheckoutController extends Controller
         // TODO bug
         $addresses = $customer && $customer->addresses ? $customer->addresses()->get() : [];
 
-        Shipping::collectRates();
+        Shipping::collectRates($request->invnentory_source_id);
 
         $rates = [];
 
         foreach (Shipping::getGroupedAllShippingRates() as $code => $shippingMethod) {
-            if (($request->invnentory_source_id == 1 && preg_match("/awaza/i", $code)) || ($request->invnentory_source_id == 2 && !preg_match("/awaza/i", $code))) continue;
+            // if (($request->invnentory_source_id == 1 && preg_match("/awaza/i", $code)) || ($request->invnentory_source_id == 2 && !preg_match("/awaza/i", $code))) continue;
             $rates[] = [
                 'carrier_title' => $shippingMethod['carrier_title'],
                 'rates' => CartShippingRateResource::collection(collect($shippingMethod['rates'])),
@@ -474,15 +474,6 @@ class CheckoutController extends Controller
                 'paymetMethods' => Payment::getPaymentMethods(),
                 'cart' => new CartResource(Cart::getCart()),
             ],
-        ]);
-    }
-
-    public function convJson()
-    {
-        return response()->json([
-            'data' => [
-                'json' => Shipping::getGroupedAllShippingRates()
-            ]
         ]);
     }
 }

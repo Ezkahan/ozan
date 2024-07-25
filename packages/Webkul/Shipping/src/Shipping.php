@@ -23,7 +23,7 @@ class Shipping
      *
      * @return array
      */
-    public function collectRates()
+    public function collectRates($inventory_source_id)
     {
         if (!$cart = Cart::getCart()) {
             return false;
@@ -32,6 +32,8 @@ class Shipping
         $this->removeAllShippingRates();
 
         foreach (Config::get('carriers') as $shippingMethod) {
+            if (($inventory_source_id == 1 && preg_match("/^awaza/i", $shippingMethod['code'])) || ($inventory_source_id == 2 && !preg_match("/^awaza/i", $shippingMethod['code']))) continue;
+
             $object = new $shippingMethod['class'];
 
             if ($rates = $object->calculate()) {
