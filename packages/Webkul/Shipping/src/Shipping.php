@@ -23,7 +23,7 @@ class Shipping
      *
      * @return array
      */
-    public function collectRates($inventory_source_id)
+    public function collectRates($inventory_source_id = 1)
     {
         if (!$cart = Cart::getCart()) {
             return false;
