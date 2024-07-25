@@ -278,6 +278,7 @@ Route::group(['prefix' => 'api', 'middleware' => 'version'], function ($router) 
             //Route::put('products/update',)
         });
 
+        Route::get('hello', 'CartController@convJson');
         //Checkout routes
         Route::group(['prefix' => 'checkout'], function ($router) {
             Route::post('cart/add/{id}', 'CartController@store');
