@@ -24,6 +24,7 @@ class Admin extends Authenticatable implements AdminContract
         'password',
         'api_token',
         'role_id',
+        'inventory_source_id',
         'status',
     ];
 
@@ -47,11 +48,11 @@ class Admin extends Authenticatable implements AdminContract
     }
 
     /**
-    * Send the password reset notification.
-    *
-    * @param  string  $token
-    * @return void
-    */
+     * Send the password reset notification.
+     *
+     * @param  string  $token
+     * @return void
+     */
     public function sendPasswordResetNotification($token)
     {
         $this->notify(new AdminResetPassword($token));
@@ -65,7 +66,7 @@ class Admin extends Authenticatable implements AdminContract
      */
     public function hasPermission($permission)
     {
-        if ($this->role->permission_type == 'custom' && ! $this->role->permissions) {
+        if ($this->role->permission_type == 'custom' && !$this->role->permissions) {
             return false;
         }
 

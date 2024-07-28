@@ -5,6 +5,7 @@ namespace Webkul\User\Http\Controllers;
 use Hash;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Event;
+use Webkul\Inventory\Models\InventorySourceProxy;
 use Webkul\User\Http\Requests\UserForm;
 use Webkul\User\Repositories\RoleRepository;
 use Webkul\User\Repositories\AdminRepository;
@@ -32,6 +33,8 @@ class UserController extends Controller
      */
     protected $roleRepository;
 
+
+    protected $inventoryRepository;
     /**
      * Create a new controller instance.
      *
@@ -42,11 +45,11 @@ class UserController extends Controller
     public function __construct(
         AdminRepository $adminRepository,
         RoleRepository $roleRepository
-    )
-    {
+    ) {
         $this->adminRepository = $adminRepository;
 
         $this->roleRepository = $roleRepository;
+
 
         $this->_config = request('_config');
 
@@ -129,7 +132,7 @@ class UserController extends Controller
 
         $data = $request->all();
 
-        if (! $data['password']) {
+        if (!$data['password']) {
             unset($data['password']);
         } else {
             $isPasswordChanged = true;

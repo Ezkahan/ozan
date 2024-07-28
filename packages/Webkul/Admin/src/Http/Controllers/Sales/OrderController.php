@@ -2,12 +2,15 @@
 
 namespace Webkul\Admin\Http\Controllers\Sales;
 
+use Aws\IoTJobsDataPlane\IoTJobsDataPlaneClient;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Event;
 use Webkul\Admin\Http\Controllers\Controller;
 use Webkul\Sales\Models\Order;
 use Webkul\Sales\Repositories\OrderRepository;
 use \Webkul\Sales\Repositories\OrderCommentRepository;
+
+use function JmesPath\search;
 
 class OrderController extends Controller
 {
@@ -39,6 +42,8 @@ class OrderController extends Controller
      * @param  \Webkul\Sales\Repositories\OrderCommentRepository  $orderCommentRepository
      * @return void
      */
+
+    protected $inventorySourceId;
     public function __construct(
         OrderRepository $orderRepository,
         OrderCommentRepository $orderCommentRepository
@@ -50,17 +55,19 @@ class OrderController extends Controller
         $this->orderRepository = $orderRepository;
 
         $this->orderCommentRepository = $orderCommentRepository;
+
+        $this->inventorySourceId = auth('admin')->user()->inventory_source_id;
     }
 
 
     public function search(Request $request, Order $queryBuilder)
     {
-        $location = $request->input('location');
+        $location = ($this->inventorySourceId == null) ?  $request->input('location') : $this->inventorySourceId;
+        $searchable = ($this->inventorySourceId == null) ? 1 : 0;
         $status = $request->input('status');
         $name = $request->input('search');
 
         // dd($location, $status);
-
 
         if ($status != null) {
             $queryBuilder = $queryBuilder->where('status', $status);
@@ -81,7 +88,7 @@ class OrderController extends Controller
         $orders = $queryBuilder->orderByDesc('created_at')->paginate(50);
 
 
-        return view('admin::sales.orders.index', compact('orders', 'status', 'location', 'name', 'count'));
+        return view('admin::sales.orders.index', compact('orders', 'status', 'location', 'name', 'count', 'searchable'));
     }
 
     /**
@@ -91,13 +98,20 @@ class OrderController extends Controller
      */
     public function index()
     {
-
+        $searchable = true;
         $orders = $this->orderRepository->orderByDesc('created_at')->paginate(50);
+        $count = $orders->count();
 
-        $count = $this->orderRepository->count();
+        // dd(auth('admin')->user());
+        if ($this->inventorySourceId != null) {
+            $searchable = false;
+            // dd($this->inventorySourceId);
+            $orders = Order::where('inventory_source_id', '=', $this->inventorySourceId)->orderByDesc('created_at')->paginate(50);
+            $count = Order::where('inventory_source_id', '=', $this->inventorySourceId)->count();
+        }
 
         // dd($this->orderRepository->paginate(50));
-        return view('admin::sales.orders.index', compact('orders', 'count'));
+        return view('admin::sales.orders.index', compact('orders', 'count', 'searchable'));
     }
 
     /**

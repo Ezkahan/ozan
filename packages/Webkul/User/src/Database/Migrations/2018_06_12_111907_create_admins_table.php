@@ -20,6 +20,8 @@ class CreateAdminsTable extends Migration
             $table->string('password')->nullable();
             $table->boolean('status')->default(0);
             $table->integer('role_id')->unsigned();
+            $table->integer('inventory_source_id')->nullable();
+            $table->foreign('inventory_source_id')->references('id')->on('inventories')->onDelete('set null');
             $table->rememberToken();
             $table->timestamps();
         });
