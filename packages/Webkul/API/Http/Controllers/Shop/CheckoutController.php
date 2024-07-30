@@ -287,7 +287,7 @@ class CheckoutController extends Controller
         app(OnepageController::class)->validateOrder();
     }
 
-    public function checkout()
+    public function checkout(Request $request)
     {
         $data = request()->all();
 
@@ -428,7 +428,10 @@ class CheckoutController extends Controller
             }
         }
 
-        $order = $this->orderRepository->create(Cart::prepareDataForOrder());
+        $orderData = Cart::prepareDataForOrder();
+        $orderData['inventory_source_id'] = (isset($request->inventory_source_id)) ? $request->inventory_source_id : 1;
+        $order = $this->orderRepository->create($orderData);
+
 
         if (array_key_exists('comment', $data)) {
             $this->commentRepository->create(['order_id' => $order->id, 'comment' => $data['comment']]);

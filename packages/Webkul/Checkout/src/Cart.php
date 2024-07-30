@@ -878,7 +878,6 @@ class Cart
         $finalData = [
             'cart_id'               => $this->getCart()->id,
             'customer_id'           => $data['customer_id'],
-            'inventory_source_id'   => $data['inventory_source_id'],
             'is_guest'              => $data['is_guest'],
             'customer_email'        => $data['customer_email'],
             'customer_first_name'   => $data['customer_first_name'],
