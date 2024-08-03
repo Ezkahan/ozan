@@ -213,7 +213,7 @@ class CheckoutController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function saveOrder()
+    public function saveOrder(Request $request)
     {
         if (Cart::hasError()) {
             return response()->json(
@@ -264,7 +264,11 @@ class CheckoutController extends Controller
             }
         }
 
-        $order = $this->orderRepository->create(Cart::prepareDataForOrder());
+        // $order = $this->orderRepository->create(Cart::prepareDataForOrder());
+        $orderData = Cart::prepareDataForOrder();
+        $orderData['inventory_source_id'] = (isset($request->inventory_source_id)) ? $request->inventory_source_id : 1;
+        $order = $this->orderRepository->create($orderData);
+
 
         if (request()->has('comment')) {
             $this->commentRepository->create(['order_id' => $order->id, 'comment' => request('comment')]);
