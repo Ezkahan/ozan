@@ -321,6 +321,7 @@ class Product extends JsonResource
 
     private function getInventoryPrice($product, $inventory_source_id = null)
     {
+        $price = 0;
         foreach ($product->inventories as $inventory) {
             if ($inventory->qty > 0 && $inventory->inventory_source_id == $inventory_source_id) {
                 $price = ($inventory->sale_price != null) ? $inventory->sale_price : $product->price;
