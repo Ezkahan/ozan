@@ -268,9 +268,6 @@ class CheckoutController extends Controller
         $orderData = Cart::prepareDataForOrder();
         $orderData['inventory_source_id'] = (isset($request->inventory_source_id)) ? $request->inventory_source_id : 1;
         $order = $this->orderRepository->create($orderData);
-        Log::info($order);
-        Log::debug($orderData);
-        Log::alert($request->all());
 
 
         if (request()->has('comment')) {
