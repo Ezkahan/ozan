@@ -18,7 +18,6 @@ class Order extends Model implements OrderContract
 
     protected $guarded = [
         'id',
-        'inventory_source_id',
         'items',
         'shipping_address',
         'billing_address',
@@ -27,6 +26,11 @@ class Order extends Model implements OrderContract
         'payment',
         'created_at',
         'updated_at',
+    ];
+
+
+    protected $fillable = [
+        'inventory_source_id'
     ];
 
     protected $statusLabel = [

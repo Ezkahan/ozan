@@ -16,6 +16,11 @@ class OrderItem extends Model implements OrderItemContract
         'updated_at',
     ];
 
+    protected $fillable = [
+        'inventory_source_id'
+    ];
+
+
     protected $casts = [
         'additional' => 'array',
     ];
@@ -55,7 +60,7 @@ class OrderItem extends Model implements OrderItemContract
      */
     public function canShip()
     {
-        if (! $this->isStockable()) {
+        if (!$this->isStockable()) {
             return false;
         }
 
@@ -71,7 +76,7 @@ class OrderItem extends Model implements OrderItemContract
      */
     public function getQtyToShipAttribute()
     {
-        if (! $this->isStockable()) {
+        if (!$this->isStockable()) {
             return 0;
         }
 
