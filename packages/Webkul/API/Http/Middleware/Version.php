@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: merdan
@@ -9,6 +10,8 @@
 namespace Webkul\API\Http\Middleware;
 
 use Closure;
+use Illuminate\Support\Facades\Log;
+
 class Version
 {
     /**
@@ -21,14 +24,13 @@ class Version
     public function handle($request, Closure $next)
     {
 
-        if( $version = $request->header('Version')){
-            $version = explode('.',$version);
-            $app_version = explode('.',config('app.version'));
-            if($version[0]<$app_version[0])
-                return response()->json(['message' => 'Please update app to latest version', 'status'=>false],406);
-        }
-        else{
-//            return response()->json(['message' => 'Please update app to latest version', 'status'=>false],406);
+        if ($version = $request->header('Version')) {
+            $version = explode('.', $version);
+            $app_version = explode('.', config('app.version'));
+            if ($version[0] < $app_version[0])
+                return response()->json(['message' => 'Please update app to latest version', 'status' => false], 406);
+        } else {
+            //            return response()->json(['message' => 'Please update app to latest version', 'status'=>false],406);
         }
         return $next($request);
     }

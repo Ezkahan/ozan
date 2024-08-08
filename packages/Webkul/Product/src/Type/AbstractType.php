@@ -212,8 +212,8 @@ abstract class AbstractType
         foreach ($product->attribute_family->custom_attributes as $attribute) {
             $route = request()->route()
                 ? request()
-                    ->route()
-                    ->getName()
+                ->route()
+                ->getName()
                 : '';
 
             if ($attribute->type === 'boolean' && $route !== 'admin.catalog.products.massupdate') {
@@ -239,10 +239,10 @@ abstract class AbstractType
             if ($attribute->type === 'image' || $attribute->type === 'file') {
                 $data[$attribute->code] =
                     gettype($data[$attribute->code]) === 'object'
-                        ? request()
-                            ->file($attribute->code)
-                            ->store('product/' . $product->id)
-                        : null;
+                    ? request()
+                    ->file($attribute->code)
+                    ->store('product/' . $product->id)
+                    : null;
             }
 
             $attributeValue = $this->attributeValueRepository->findOneWhere([
@@ -276,8 +276,8 @@ abstract class AbstractType
 
         $route = request()->route()
             ? request()
-                ->route()
-                ->getName()
+            ->route()
+            ->getName()
             : '';
 
         if ($route !== 'admin.catalog.products.massupdate') {
@@ -532,14 +532,27 @@ abstract class AbstractType
      *
      * @return float
      */
-    public function getMinimalPrice($qty = null)
+    public function getMinimalPrice($inventory_source_id = 1, $qty = null)
     {
         if ($this->haveSpecialPrice($qty)) {
             return $this->product->special_price;
         }
 
-        return $this->product->price;
+        return $this->getInventoryPrice($this->product, $inventory_source_id);
     }
+
+
+    private function getInventoryPrice($product, $inventory_source_id = null)
+    {
+        $price = 0;
+        foreach ($product->inventories as $inventory) {
+            if ($inventory->qty > 0 && $inventory->inventory_source_id == $inventory_source_id) {
+                $price = ($inventory->sale_price != null) ? $inventory->sale_price : $product->price;
+            }
+        }
+        return $price;
+    }
+
 
     /**
      * Get product maximam price

@@ -28,9 +28,6 @@ class Order extends Model implements OrderContract
         'updated_at',
     ];
 
-    protected $fillable = ['inventory_source_id'];
-
-
     protected $statusLabel = [
         self::STATUS_PENDING         => 'Pending',
         self::STATUS_PENDING_PAYMENT => 'Pending Payment',
