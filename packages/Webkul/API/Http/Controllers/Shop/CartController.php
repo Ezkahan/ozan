@@ -76,14 +76,14 @@ class CartController extends Controller
      *
      * @return \Illuminate\Http\JsonResponse
      */
-    public function get()
+    public function get(Request $request)
     {
         $customer = auth($this->guard)->user();
 
         $cart = Cart::getCart();
 
         return response()->json([
-            'data' => $cart ? new CartResource($cart) : null,
+            'data' => $cart ? new CartResource($cart, $request->inventory_source_id) : null,
         ]);
     }
 
@@ -127,8 +127,8 @@ class CartController extends Controller
                 'data'    => $cart ? new CartResource($cart) : null,
             ]);
         } catch (Exception $e) {
-//            Log::error('API CartController: ' . $e->getMessage(),
-//                ['product_id' => $id, 'cart_id' => cart()->getCart() ?? 0]);
+            //            Log::error('API CartController: ' . $e->getMessage(),
+            //                ['product_id' => $id, 'cart_id' => cart()->getCart() ?? 0]);
 
             return response()->json([
                 'error' => [
@@ -167,8 +167,7 @@ class CartController extends Controller
 
             try {
                 Cart::updateItems(['qty' => $requestedQuantity]);
-            }
-            catch (Exception $ex){
+            } catch (Exception $ex) {
                 return response()->json([
                     'message' => $ex->getMessage(),
                     'status'    => false,
@@ -292,7 +291,6 @@ class CartController extends Controller
                 'message' => trans('shop::app.checkout.total.coupon-apply-issue'),
             ]);
         }
-
     }
 
     /**

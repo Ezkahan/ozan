@@ -7,6 +7,13 @@ use Webkul\API\Http\Resources\Catalog\Product as ProductResource;
 
 class CartItem extends JsonResource
 {
+    public $inventory_source_id;
+
+    public function __construct($inventory_source_id = 1)
+    {
+        $this->inventory_source_id = $inventory_source_id;
+    }
+
     /**
      * Transform the resource into an array.
      *
@@ -46,8 +53,8 @@ class CartItem extends JsonResource
             'base_discount_amount'          => $this->base_discount_amount,
             'formated_base_discount_amount' => core()->formatBasePrice($this->base_discount_amount),
             'additional'                    => is_array($this->resource->additional)
-                                                ? $this->resource->additional
-                                                : json_decode($this->resource->additional, true),
+                ? $this->resource->additional
+                : json_decode($this->resource->additional, true),
             'child'                         => new self($this->child),
             'product'                       => $this->when($this->product_id, new ProductResource($this->product)),
             'created_at'                    => $this->created_at,
