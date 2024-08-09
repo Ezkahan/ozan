@@ -22,7 +22,7 @@ class CreateModalBannersTable extends Migration
             $table->integer('inventory_source_id')->nullable();
             $table->timestamps();
 
-            $table->foreign('inventory_source_id')->references('id')->on('inventories')->onDelete('null');
+            $table->foreign('inventory_source_id')->references('id')->on('inventories')->cascadeOnDelete();
         });
     }
 

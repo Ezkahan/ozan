@@ -4,15 +4,6 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-<<<<<<< Updated upstream
-    "content-hash": "cd5fe5c0f023f20d62d08e4996a34c75",
-=======
-<<<<<<< HEAD
-    "content-hash": "a3b2fd5de3b2c9728194478b97a6b6e1",
-=======
-    "content-hash": "cd5fe5c0f023f20d62d08e4996a34c75",
->>>>>>> 997d33014c3cbeeab2321166c2ca34fe90ed289a
->>>>>>> Stashed changes
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
