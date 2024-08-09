@@ -10,13 +10,6 @@ use Webkul\Tax\Helpers\Tax;
 class Cart extends JsonResource
 {
 
-    public $inventory_source_id;
-
-    public function __construct($inventory_source_id = 1)
-    {
-        $this->inventory_source_id = $inventory_source_id;
-    }
-
     /**
      * Transform the resource into an array.
      *

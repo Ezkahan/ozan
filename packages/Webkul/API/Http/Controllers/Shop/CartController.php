@@ -83,7 +83,7 @@ class CartController extends Controller
         $cart = Cart::getCart();
 
         return response()->json([
-            'data' => $cart ? new CartResource($cart, $request->inventory_source_id) : null,
+            'data' => $cart ? new CartResource($cart) : null,
         ]);
     }
 
